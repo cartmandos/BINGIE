@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <defaultcontrol always="true">3012</defaultcontrol>
+    <zorder>1</zorder>
+    <controls>
+        <!--3000 - Title
+        3001 - Plot
+        3002 - Season/Episode
+        3003 - Rating
+        3004 - First Aired
+        3005 - TV Show Fanart
+        3006 - TV Show ClearArt
+        3007 - TV Show Title
+        3008 - Episode Thumb
+        3009 - TV Show Poster
+        3010 - TV Show Landscape
+        3011 - Video Resolution
+        3012 - Watch Now Button
+        3013 - Cancel Button
+        3015 - Season Number
+        3016 - Episode Number
+        3018 - Play Count-->
+        <control type="label" id="3000">
+            <include>HiddenObject</include>
+        </control>
+        <control type="textbox" id="3001">
+            <include>HiddenObject</include>
+        </control>
+        <control type="label" id="3002">
+            <include>HiddenObject</include>
+        </control>
+        <control type="label" id="3003">
+            <include>HiddenObject</include>
+        </control>
+        <control type="label" id="3004">
+            <include>HiddenObject</include>
+        </control>
+        <control type="image" id="3005">
+            <include>HiddenObject</include>
+        </control>
+        <control type="image" id="3006">
+            <include>HiddenObject</include>
+        </control>
+        <control type="label" id="3007">
+            <include>HiddenObject</include>
+        </control>
+        <control type="image" id="3008">
+            <include>HiddenObject</include>
+        </control>
+        <control type="image" id="3009">
+            <include>HiddenObject</include>
+        </control>
+        <control type="image" id="3010">
+            <include>HiddenObject</include>
+        </control>
+        <control type="label" id="3011">
+            <include>HiddenObject</include>
+        </control>
+        <control type="label" id="3015">
+            <include>HiddenObject</include>
+        </control>
+        <control type="label" id="3016">
+            <include>HiddenObject</include>
+        </control>
+        <control type="label" id="3018">
+            <include>HiddenObject</include>
+        </control>
+        <!-- OSD -->
+        <control type="group">
+            <include>animation_fade_visible_hidden</include>
+            <!--Bottom-->
+            <control type="group">
+                <!-- gradient overlay, cornered would be better -->
+                <control type="image">
+                    <bottom>0</bottom>
+                    <width>100%</width>
+                    <height>820</height>
+                    <texture border="5">diffuse/gradient.png</texture>
+                    <colordiffuse>$INFO[Skin.String(OSDPanelColor)]</colordiffuse>
+                </control>
+                <!-- NextUp Info -->
+                <control type="grouplist">
+                    <bottom>20</bottom>
+                    <right>50</right>
+                    <orientation>vertical</orientation>
+                    <height>600</height>
+                    <width>750</width>
+                    <!-- TVshow Title -->
+                    <control type="label">
+                        <width>500</width>
+                        <height>40</height>
+                        <font>Bold36</font>
+                        <textcolor>white</textcolor>
+                        <align>left</align>
+                        <aligny>center</aligny>
+                        <label>$INFO[Control.GetLabel(3007)]</label>
+                    </control>
+                    <!-- Starting in ... (locoalize) -->
+                    <control type="label">
+                        <width>auto</width>
+                        <height>33</height>
+                        <font>Bold32</font>
+                        <aligny>center</aligny>
+                        <textcolor>white</textcolor>
+                        <label>[LIGHT]$INFO[Player.TimeRemaining(ss),Starting in , seconds...][/LIGHT]</label>
+                    </control>
+                    <!-- Thumb/Fanart -->
+                    <control type="group">
+                        <visible>!String.IsEmpty(Control.GetLabel(3005)) | !String.IsEmpty(Control.GetLabel(3008))</visible>
+                        <width>550</width>
+                        <height>315</height>
+                        <control type="image">
+                            <width>550</width>
+                            <height>315</height>
+                            <bordersize>6</bordersize>
+                            <bordertexture>colors/color_white.png</bordertexture>
+                            <texture>$VAR[NextUpThumb]</texture>
+                            <aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
+                        </control>
+                        <!-- bottom gradient -->
+                        <control type="image">
+                            <bottom>7</bottom>
+                            <left>7</left>
+                            <width>536</width>
+                            <align>center</align>
+                            <height>55</height>
+                            <texture border="8">diffuse/gradient.png</texture>
+                            <colordiffuse>$INFO[Skin.String(OSDPanelColor)]</colordiffuse>
+                        </control>
+                        <!-- Sxx: Exx -->
+                        <control type="label">
+                            <bottom>25</bottom>
+                            <left>25</left>
+                            <height>20</height>
+                            <width>auto</width>
+                            <textcolor>white</textcolor>
+                            <font>Bold26</font>
+                            <label>$INFO[Control.GetLabel(3015),S,: ]$INFO[Control.GetLabel(3016),E,]</label>
+                        </control>
+                    </control>
+                    <!-- Episode Name -->
+                    <control type="label">
+                        <width>auto</width>
+                        <height>30</height>
+                        <aligny>center</aligny>
+                        <font>Bold28</font>
+                        <textcolor>white</textcolor>
+                        <label>$INFO[Control.GetLabel(3000)]</label>
+                        <visible>!String.IsEmpty(Control.GetLabel(3000))</visible>
+                    </control>
+                    <!-- Details Row -->
+                    <control type="grouplist">
+                        <orientation>horizontal</orientation>
+                        <height>31</height>
+                        <itemgap>0</itemgap>
+                        <!-- Aired Date -->
+                        <control type="label">
+                            <width>auto</width>
+                            <height>30</height>
+                            <aligny>center</aligny>
+                            <font>reg24</font>
+                            <textcolor>white</textcolor>
+                            <label>$INFO[Control.GetLabel(3004),,   ]</label>
+                            <visible>!String.IsEmpty(Control.GetLabel(3004))</visible>
+                        </control>
+                        <!-- MPAA (*based on current) -->
+                        <control type="label">
+                            <width>auto</width>
+                            <height>30</height>
+                            <aligny>center</aligny>
+                            <font>reg24</font>
+                            <textcolor>white</textcolor>
+                            <label>$INFO[VideoPlayer.MPAA,,   ]</label>
+                        </control>
+                        <!-- Resolution -->
+                        <control type="label">
+                            <width>auto</width>
+                            <height>30</height>
+                            <aligny>center</aligny>
+                            <textcolor>white</textcolor>
+                            <label>$VAR[NextUpResolution]</label>
+                            <font>reg24</font>
+                            <textcolor>white</textcolor>
+                        </control>
+                    </control>
+                    <!-- Plot -->
+                    <control type="textbox">
+                        <width>auto</width>
+                        <height>97</height>
+                        <align>justify</align>
+                        <textcolor>white</textcolor>
+                        <label>$INFO[Control.GetLabel(3001)]</label>
+                    </control>
+                </control>
+            </control>
+            <!-- Hidden Buttons section -->
+            <control type="grouplist">
+                <include>HiddenObject</include>
+                <!-- Watch now -->
+                <control type="button" id="3012">
+                    <onback>SendClick(3013)</onback>
+                </control>
+                <!-- Cancel - onback -->
+                <control type="button" id="3013">
+                    <visible allowhidden="true">false</visible>
+                </control>
+            </control>
+        </control>
+    </controls>
+</window>

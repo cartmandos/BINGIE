@@ -1,0 +1,109 @@
+alpha 14 (quick update for bugs found in alpha13)
++ Bugfix: Title & Logo in netflix home & dialog
++ bigger font for episode info season & episode title
++ removed black screen hide in netflixhome while dialoginfo action (too risky)
++ removed fanart fade when trailer running before window open
++ Bugfix: buttons hidden on additional info (pseudo-window in dialog) due to regroup changes
++ Bugfix: Additional Info (netflixmoredetails) label showed in 505 sometimes
++ Bugfix: settings dependencies
+
+alpha13 (MASSIVE UPDATE - only some of the changes documented)
++ Replace playmedia command $info with $escinfo everywhere
++ Homenetflix 
+	+ NEW spotlight row details with frames, added "like" feature and ''new'' tag
+	+ RENEWED episode info
+	+ Rearranged details
+	+ fade in/out revisited
+	+ most of the variables adjusted or new&rewritten
+	+ BASICALLY ALL NETFLIX 2 IS SEMI-NEW
+	+NEW SPOTLIGHT (added tvshows support)
+	Bugfixes related to new spotlight:
+		+ trailer starts even if auto-trailer disabled? fixed
+		+ fade in/out for details instead of visible cond. - fixed
+		+ add plot when trailer stopped/not running and 505 focused - fixed
+		+ spotlight, on back from 505 first play - fixed
+		+ down/up or playing full trailer without down/up before first play on startup - video window properties- fixed
+		+ not working when trailer not local (lose focus) - fixed
+		+ details&images source compatible condition to 1508&505 - fixed
+		+ trailer restarts when opening dialog - fixed
++Settings
+	+ added option for preffered locally stored trailers
+	+ added option to disable spotlight trailers exlusively
+	+ moved disable clearlogo in netflix option to home settings tab
+	+ new netflix flags color, rating logo color
+	+ placing adjustments
+	+ some setting exlusive to netflix2 instead netflix1&2
+	+ many more
+	+ Bugfixes
++HomeWidgets
+	+ no total episode/season in recommended widget - fixed
+	+ localized ignore bad scraped plot outline
++dialog
+	+ option for local (physical) trailer in dialog
+	+ Cleanup & adjustments
+	+ Resume progress-bar for non-tvshow now also show ON button
+	+ Bugfix: Resume/Play for tvshows will now appear AFTER container finished updating & updates without having to reopen dialog
+	+ 'more episodes' button more consistency added AND returns to dialog from episodes view
+	+ overlay for additional info window
+	+ added delay to auto-trailers
+	+ Auto-fade details while trailer option (new setting)
+	+ bugfix: auto-trailer won't start if loading without trailerplaying property
+	+ adjust pos, size, etc to match home
+	+ too many to write in changelog
++next-up notification addon 
+	+ support REWRITE & MODDED (nextupinfo & stillwatching) 
+	+ Skin.HasSetting(PreferTvShowThumbWidget) = prefer tvshow thumb over episode thumb also in next-up
++Wide Netflix
+	+ added gradient for landscape 525
++footer
+	+ ratings rewrite options for white/color rating flags in home/footer
++ option to disable clearlogo in osd pause (text instead)
++ new variable xml that includes many many of the new features & replacing some variables that were used from the skin default
++ much more
+
+alpha9-12
+WAS NOT DOCUMENTED PROPERLY
+
+alpha9
+- splashscreen
+
+
+alpha 8
+- right align widgets fixed position
+- netflix positions and sizes fix when show thumbnail off
+- fixed seekbar in netflix osd panel
+- netflix osd panel has gradient (and option to change/hide discart disabled as they're not needed)
+- all features of osds with the new panel&info fixed
+- new colors: netflix primary & secondary text colors, border colors for home and media library
+- hardcoded colors removed
+- fix footer with new viewtype (wide netflix) and languageid
+
+alpha7
+- New osdbufferingspinner color (defaults to mainblue)
+- Buffering spinner reposition in netflix osd panel
+- Small fixes in osd and others
+- fixed slim/netflix osd panel choice in settings (mutually exclusive)
+- New Setting option to disable clock in NowPlaying bar
+- New Widget layout  "Landscape Widebox"
+- New ViewType for tvshows, seasons, episodes "Wide Netflix"
+
+alpha6
+NEW netflix OSD info panel
+NEW netflix osd panel
+both integrated in osd settings
+maybe other fixes - don't even remeber now
+
+alpha5
+-astethic improvements on netflix homescreen
+-fixed bug with showing proper episode info
+-code cleanup
+-new trailer inteval setting option
+-NEW netflix dialog info
+-new setting to enable local trailers in netflix dialog info (currently only from there)
+-dialogbusy override - NO BUSY SPINNER in netflix homescreen
+- renaming of most/all custom media images
+- a lot of small things
+
+- playtrailer (skin.service) fixed
+- trailers for tvshows in home added
+- minor fix to netflixmoredetails width

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Titan-->
+<window>
+    <defaultcontrol always="true">-</defaultcontrol>
+    <allowoverlay>no</allowoverlay>
+    <controls>
+		
+		<include condition="Skin.HasSetting(SpinnerDimScreen)">DialogOverlayExtra</include>
+	
+        <control type="group">
+            <visible>![Skin.HasSetting(NetflixAutoTrailer) + Window.IsActive(Home)]</visible>
+            <visible>!Window.IsVisible(startup)</visible>
+            <posx>960</posx>
+            <!--Center-->
+            <posy>540</posy>
+            <!--Center-->
+            <control type="multiimage">
+                <animation effect="fade" start="0" end="100" time="0">WindowOpen</animation>
+                <animation effect="fade" start="100" end="0" time="500" delay="500">WindowClose</animation>
+                <posx>-75</posx>
+                <posy>-75</posy>
+                <width>130</width>
+                <height>130</height>
+				<aspectratio>keep</aspectratio>
+                <imagepath>$INFO[Skin.String(SkinHelper.SpinnerTexture.Path)]</imagepath>
+                <timeperimage>100</timeperimage>
+                <colordiffuse>$INFO[Skin.String(SpinnerTexture.Color)]</colordiffuse>
+                <fadetime>0</fadetime>
+
+            </control>
+        </control>
+    </controls>
+</window>

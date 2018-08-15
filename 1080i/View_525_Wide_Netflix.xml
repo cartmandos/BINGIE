@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<includes>
+
+    <variable name="WideNetflixDetails">
+    <value condition="[Container.Content(episodes) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)]">$INFO[ListItem.Premiered]</value>
+    <value condition="Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) + [Container.Content(Seasons) | Container.Content(TVShows)] + [!String.IsEmpty(ListItem.Year) | !String.IsEmpty(ListItem.MPAA) | !String.IsEmpty(ListItem.Property(TotalEpisodes))]">$INFO[ListItem.Year,,   ]$INFO[ListItem.MPAA,,   ]$INFO[ListItem.Property(TotalEpisodes),$LOCALIZE[20360]: ] $INFO[ListItem.Property(UnWatchedEpisodes), (,) ]</value>
+    <value condition="!Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) + [Container.Content(Seasons) | Container.Content(TVShows)] + [!String.IsEmpty(ListItem.Year) | !String.IsEmpty(ListItem.MPAA) | !String.IsEmpty(ListItem.Property(TotalEpisodes))]">$INFO[ListItem.Year,,   ]$INFO[ListItem.MPAA,,   ]$INFO[ListItem.Property(TotalEpisodes),$LOCALIZE[20360]: ]</value>
+    </variable>
+
+    <include name="View_525_Wide_Netflix">
+        <control type="group">
+            <include>animation_view_change</include>
+            <visible>Control.IsVisible(525)</visible>
+            <control type="image">
+                <!--studio logo -->
+                <left>50</left>
+                <width>450</width>
+                <height>160</height>
+                <bottom>120</bottom>
+                <aspectratio aligny="top" align="left">keep</aspectratio>
+                <include condition="!String.Contains(Skin.String(SkinHelper.StudioLogos.Path),colo)">videoInfoColorDiffuse</include>
+                <texture background="true">$INFO[Window(home).Property(SkinHelper.ListItem.StudioLogo)]</texture>
+                <visible>!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.StudioLogo)) + Skin.HasSetting(nofooterbar)</visible>
+            </control>
+            <control type="group">
+                <animation effect="slide" end="0,100" time="0" condition="!skin.hassetting(nofooterbar)">Conditional</animation>
+                <!-- clearlogo at top left-->
+                <control type="image" id="887767">
+                    <height>155</height>
+                    <width>400</width>
+                    <left>50</left>
+                    <align>left</align>
+                    <top>0</top>
+                    <fadetime>600</fadetime>
+                    <aspectratio align="left" aligny="center">keep</aspectratio>
+                    <texture background="true">$VAR[ListItemClearLogo]</texture>
+                </control>
+
+                <!-- Header (if no logo)-->
+                <control type="group">
+                    <visible>String.IsEmpty(Control.GetLabel(887767))</visible>
+                    <control type="label">
+                        <left>50</left>
+                        <top>10</top>
+                        <width min="80" max="900">auto</width>
+                        <height>100</height>
+                        <font>Reg46</font>
+                        <align>left</align>
+                        <textcolor>$INFO[Skin.String(HeaderTextColor)]</textcolor>
+                        <label>$INFO[ListItem.TvShowTitle]</label>
+                        <shadowcolor>$INFO[Skin.String(HeaderTextShadowColor)]</shadowcolor>
+                    </control>
+
+                </control>
+                <control type="grouplist">
+                    <left>50</left>
+                    <posy>150</posy>
+                    <orientation>horizontal</orientation>
+                    <height>80</height>
+                    <!-- NEW rating STARS -->
+                    <control type="image">
+                        <width>160</width>
+                        <height>80</height>
+                        <left>65</left>
+                        <aspectratio align="left" aligny="center">keep</aspectratio>
+                        <colordiffuse>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</colordiffuse>
+                        <texture background="true">$VAR[rating_value_texture]</texture>
+                    </control>
+                    <!-- details - year mpaa etc. -->
+                    <control type="label">
+                        <height>83</height>
+                        <width>1000</width>
+                        <left>240</left>
+                        <font>Reg22</font>
+                        <align>left</align>
+                        <textoffsetx>10</textoffsetx>
+                        <aligny>center</aligny>
+                        <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                        <!--<label>$VAR[HomeMenuWidgetInfoNetflixDetails]</label>-->
+                        <label>$INFO[ListItem.Year,,    ]$INFO[ListItem.MPAA,,    ]$INFO[Window(Home).Property(SkinHelper.ListItem.Status),,]</label>
+                        <animation effect="slide" start="0" end="-168,0"
+                                   condition="String.IsEmpty(ListItem.UserRating) + String.IsEmpty(Window(Home).Property(ListItem.UserRating)) + String.IsEmpty(Window(Home).Property(ListItem.UserRating))
+                                + String.IsEmpty(ListItem.Rating) + String.IsEmpty(Window(Home).Property(ListItem.Rating)) + String.IsEmpty(Window(Home).Property(ListItem.Rating))
+                                + String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating))">Conditional</animation>
+                    </control>
+                </control>
+                <control type="group">
+                    <left>50</left>
+                    <top>290</top>
+                    <width>400</width>
+                    <height>200</height>
+                    <control type="image">
+                        <width>400</width>
+                        <height>75</height>
+                        <aligny>top</aligny>
+                        <align>left</align>
+                        <aspectratio align="left" aligny="top">keep</aspectratio>
+                        <colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
+                        <texture background="true">border_netflix.png</texture>
+                        <visible>!String.IsEmpty(ListItem.Season) | !String.IsEmpty(ListItem.Property(TotalEpisodes))</visible>
+                    </control>
+                    <control type="label">
+                        <top>3</top>
+                        <left>15</left>
+                        <width>400</width>
+                        <height>65</height>
+                        <aligny>top</aligny>
+                        <align>left</align>
+                        <font>Reg28</font>
+                        <textcolor>white</textcolor>
+                        <label>$INFO[ListItem.Season,Season ,]</label>
+                        <visible>!String.IsEmpty(ListItem.Season) | !String.IsEmpty(ListItem.Property(TotalEpisodes))</visible>
+                    </control>
+                    <control type="label">
+                        <top>3</top>
+                        <left>230</left>
+                        <width>400</width>
+                        <height>65</height>
+                        <aligny>top</aligny>
+                        <align>left</align>
+                        <font>Reg28</font>
+                        <textcolor>gray</textcolor>
+                        <label>$INFO[ListItem.Property(TotalEpisodes),, Episodes]</label>
+                        <visible>!String.IsEmpty(ListItem.Season) | !String.IsEmpty(ListItem.Property(TotalEpisodes))</visible>
+                    </control>
+                </control>
+            </control>
+            <control type="group">
+                <control type="fixedlist" id="525">
+                    <bottom>110</bottom>
+                    <animation effect="slide" end="0,10" time="0" condition="skin.hassetting(nofooterbar)">Conditional</animation>
+                    <posx>600</posx>
+                    <height>100%</height>
+                    <width>1300</width>
+                    <onup>525</onup>
+                    <ondown>525</ondown>
+                    <onleft>9000</onleft>
+                    <onright condition="Skin.HasSetting(EnableQuickJump)">6000</onright>
+                    <onright condition="!Skin.HasSetting(EnableQuickJump)">60</onright>
+                    <orientation>vertical</orientation>
+                    <pagecontrol>60</pagecontrol>
+                    <preloaditems>2</preloaditems>
+                    <focusposition>1</focusposition>
+                    <viewtype label="31827">list</viewtype>
+                    <scrolltime tween="quadratic">400</scrolltime>
+                    <itemlayout width="1300" height="280">
+                        <control type="group">
+                            <width>1300</width>
+                            <height>280</height>
+                            <control type="image">
+                                <width>37%</width>
+                                <height>100%</height>
+                                <texture border="5">diffuse/wide.png</texture>
+                                <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
+                                <include condition="Skin.String(thumbsborder_unfocused, 0)">thumbborder_0</include>
+                                <include condition="Skin.String(thumbsborder_unfocused, 2)">thumbborder_2</include>
+                                <include condition="Skin.String(thumbsborder_unfocused, 4)">thumbborder_4</include>
+                                <include condition="Skin.String(thumbsborder_unfocused, 6)">thumbborder_6</include>
+                                <visible>Skin.HasSetting(View525_HidePanel)</visible>
+                            </control>
+                            <control type="image">
+                                <texture border="5">diffuse/wide.png</texture>
+                                <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
+                                <include condition="Skin.String(thumbsborder_unfocused, 0)">thumbborder_0</include>
+                                <include condition="Skin.String(thumbsborder_unfocused, 2)">thumbborder_2</include>
+                                <include condition="Skin.String(thumbsborder_unfocused, 4)">thumbborder_4</include>
+                                <include condition="Skin.String(thumbsborder_unfocused, 6)">thumbborder_6</include>
+                                <visible>!Skin.HasSetting(View525_HidePanel)</visible>
+                            </control>
+                            <control type="image">
+                                <!--Panel icon image-->
+                                <width>37%</width>
+                                <height>100%</height>
+                                <bordersize>8</bordersize>
+                                <texture background="true" diffuse="diffuse/wide.png">$VAR[LandscapeImage]</texture>
+                                <aspectratio scalediffuse="false" align="left" aligny="center">stretch</aspectratio>
+                            </control>
+                            <!--gradient overlay-->
+                            <control type="image">
+                                <bottom>7</bottom>
+                                <left>7</left>
+                                <width>465</width>
+                                <align>center</align>
+                                <height>63</height>
+                                <texture border="8">diffuse/gradient.png</texture>
+                                <colordiffuse>$INFO[Skin.String(OSDPanelColor)]</colordiffuse>
+                            </control>
+                            <control type="group">
+                                <top>9</top>
+                                <width>36.5%</width>
+                                <height>100%</height>
+                                <include>WatchedIndicatorNormal</include>
+                            </control>
+                            <!-- Episode/Season Sxx:Exx format -->
+                            <control type="label">
+                                <left>2%</left>
+                                <bottom>26</bottom>
+                                <height>35</height>
+                                <width>35%</width>
+                                <font>Reg26</font>
+                                <align>left</align>
+                                <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                                <label>[B][UPPERCASE]$INFO[ListItem.Season,S,]$INFO[ListItem.Episode,: E,][/UPPERCASE][/B]</label>
+                                <visible>String.IsEqual(Window(Home).Property(ListItem.dbtype),episode) | String.IsEqual(ListItem.dbtype,episode)</visible>
+                            </control>
+                            <control type="progress">
+                                <left>2%</left>
+                                <bottom>16</bottom>
+                                <description>progress bar</description>
+                                <width>33%</width>
+                                <height>3%</height>
+                                <align>left</align>
+                                <!-- hardcoded color on landscape -->
+                                <texturebg colordiffuse="white" border="2">colors/color_white.png</texturebg>
+                                <lefttexture>-</lefttexture>
+                                <midtexture colordiffuse="$INFO[Skin.String(ViewDetailsHighlightTextColor)]" border="2">colors/color_white.png</midtexture>
+                                <righttexture>-</righttexture>
+                                <visible>Integer.IsGreater(ListItem.PercentPlayed,0)</visible>
+                                <info>ListItem.PercentPlayed</info>
+                            </control>
+                            <control type="label">
+                                <top>8</top>
+                                <left>38%</left>
+                                <width>100%</width>
+                                <aligny>center</aligny>
+                                <height>38</height>
+                                <align>left</align>
+                                <font>Bold30</font>
+                                <textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
+                                <selectedcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</selectedcolor>
+                                <label>$INFO[ListItem.Label]</label>
+                            </control>
+                            <control type="label">
+                                <top>50</top>
+                                <left>38%</left>
+                                <width>100%</width>
+                                <aligny>center</aligny>
+                                <height>30</height>
+                                <align>left</align>
+                                <font>Reg22</font>
+                                <textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
+                                <selectedcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</selectedcolor>
+                                <label fallback="19055">$VAR[WideNetflixDetails]</label>
+                            </control>
+                            <control type="textbox">
+                                <left>38%</left>
+                                <right>30</right>
+                                <top>87</top>
+                                <height>125</height>
+                                <align>justify</align>
+                                <font>Reg26</font>
+                                <textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
+                                <selectedcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</selectedcolor>
+                                <label>$VAR[Plots]</label>
+                                <autoscroll delay="4000" time="4000" repeat="2000">true</autoscroll>
+                            </control>
+                            <control type="label">
+                                <left>38%</left>
+                                <width>62%</width>
+                                <bottom>10</bottom>
+                                <aligny>center</aligny>
+                                <height>38</height>
+                                <align>left</align>
+                                <font>Reg26</font>
+                                <textcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</textcolor>
+                                <selectedcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</selectedcolor>
+                                <label>$INFO[ListItem.Duration(mins),(,m)]</label>
+                                <visible>String.IsEqual(Window(Home).Property(ListItem.dbtype),episode) | String.IsEqual(ListItem.dbtype,episode)</visible>
+                            </control>
+                        </control>
+                    </itemlayout>
+                    <focusedlayout width="1300" height="280">
+                        <control type="group">
+                            <width>1300</width>
+                            <height>280</height>
+                            <control type="image">
+                                <texture border="5">diffuse/wide.png</texture>
+                                <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
+                                <include condition="Skin.String(thumbsborder_focused, 0)">thumbborder_0</include>
+                                <include condition="Skin.String(thumbsborder_focused, 2)">thumbborder_2</include>
+                                <include condition="Skin.String(thumbsborder_focused, 4)">thumbborder_4</include>
+                                <include condition="Skin.String(thumbsborder_focused, 6)">thumbborder_6</include>
+                                <visible>!Skin.HasSetting(View525_HidePanel)</visible>
+                            </control>
+                            <control type="image">
+                                <width>37%</width>
+                                <height>100%</height>
+                                <texture border="5">diffuse/wide.png</texture>
+                                <colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
+                                <include condition="Skin.String(thumbsborder_focused, 0)">thumbborder_0</include>
+                                <include condition="Skin.String(thumbsborder_focused, 2)">thumbborder_2</include>
+                                <include condition="Skin.String(thumbsborder_focused, 4)">thumbborder_4</include>
+                                <include condition="Skin.String(thumbsborder_focused, 6)">thumbborder_6</include>
+                            </control>
+                            <control type="image">
+                                <!--Panel icon image-->
+                                <width>37%</width>
+                                <height>100%</height>
+                                <bordersize>8</bordersize>
+                                <texture background="true" diffuse="diffuse/wide.png">$VAR[LandscapeImage]</texture>
+                                <aspectratio scalediffuse="false" align="left" aligny="center">stretch</aspectratio>
+                            </control>
+                            <!--gradient overlay-->
+                            <control type="image">
+                                <bottom>7</bottom>
+                                <left>7</left>
+                                <width>465</width>
+                                <align>center</align>
+                                <height>63</height>
+                                <texture border="8">diffuse/gradient.png</texture>
+                                <colordiffuse>$INFO[Skin.String(OSDPanelColor)]</colordiffuse>
+                            </control>
+                            <control type="group">
+                                <top>8</top>
+                                <width>36.5%</width>
+                                <height>100%</height>
+                                <include>WatchedIndicatorNormal</include>
+                            </control>
+                            <!-- Episode/Season Sxx:Exx format -->
+                            <control type="label">
+                                <left>2%</left>
+                                <bottom>26</bottom>
+                                <height>35</height>
+                                <width>35%</width>
+                                <font>Reg26</font>
+                                <align>left</align>
+                                <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                                <label>[B][UPPERCASE]$INFO[ListItem.Season,S,]$INFO[ListItem.Episode,: E,][/UPPERCASE][/B]</label>
+                                <visible>String.IsEqual(Window(Home).Property(ListItem.dbtype),episode) | String.IsEqual(ListItem.dbtype,episode)</visible>
+                            </control>
+                            <control type="progress">
+                                <left>2%</left>
+                                <bottom>16</bottom>
+                                <description>progress bar</description>
+                                <width>33%</width>
+                                <height>3%</height>
+                                <align>left</align>
+                                <texturebg colordiffuse="white" border="2">colors/color_white.png</texturebg>
+                                <lefttexture>-</lefttexture>
+                                <midtexture colordiffuse="$INFO[Skin.String(ViewDetailsHighlightTextColor)]" border="2">colors/color_white.png</midtexture>
+                                <righttexture>-</righttexture>
+                                <visible>Integer.IsGreater(ListItem.PercentPlayed,0)</visible>
+                                <info>ListItem.PercentPlayed</info>
+                            </control>
+                            <control type="label">
+                                <top>8</top>
+                                <left>38%</left>
+                                <width>100%</width>
+                                <aligny>center</aligny>
+                                <height>38</height>
+                                <align>left</align>
+                                <font>Bold30</font>
+                                <textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
+                                <selectedcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</selectedcolor>
+                                <label>$INFO[ListItem.Label]</label>
+                            </control>
+                            <control type="label">
+                                <top>50</top>
+                                <left>38%</left>
+                                <width>100%</width>
+                                <aligny>center</aligny>
+                                <height>30</height>
+                                <align>left</align>
+                                <font>Reg22</font>
+                                <textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
+                                <selectedcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</selectedcolor>
+                                <label fallback="19055">$VAR[WideNetflixDetails]</label>
+                            </control>
+                            <control type="textbox">
+                                <left>38%</left>
+                                <right>30</right>
+                                <top>87</top>
+                                <height>125</height>
+                                <align>justify</align>
+                                <font>Reg26</font>
+                                <textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
+                                <selectedcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</selectedcolor>
+                                <label>$VAR[Plots]</label>
+                                <autoscroll delay="4000" time="4000" repeat="2000">true</autoscroll>
+                            </control>
+                            <control type="label">
+                                <left>38%</left>
+                                <width>62%</width>
+                                <bottom>10</bottom>
+                                <aligny>center</aligny>
+                                <height>38</height>
+                                <align>left</align>
+                                <font>Reg26</font>
+                                <textcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</textcolor>
+                                <selectedcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</selectedcolor>
+                                <label>$INFO[ListItem.Duration(mins),(,m)]</label>
+                                <visible>String.IsEqual(Window(Home).Property(ListItem.dbtype),episode) | String.IsEqual(ListItem.dbtype,episode)</visible>
+                            </control>
+                        </control>
+                    </focusedlayout>
+                </control>
+                <!--vertical Scollbar-->
+                <control type="scrollbar" id="60">
+                    <visible>Control.IsVisible(525) + Integer.IsGreater(Container.Numitems,0)</visible>
+                    <right>15</right>
+                    <height>88%</height>
+                    <onup>60</onup>
+                    <ondown>6000</ondown>
+                    <onleft>525</onleft>
+                    <animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] + !Control.IsVisible(6002)">Conditional</animation>
+                    <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] | Control.IsVisible(6002)">Conditional</animation>
+                </control>
+            </control>
+         </control>
+    </include>
+
+</includes>
