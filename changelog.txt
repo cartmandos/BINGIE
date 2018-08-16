@@ -1,3 +1,10 @@
+alpha17
+- Added 'rate this title' feature and support (user.rate script)
+	- Set rating onclick (thumbs up/down)
+	- Options to determine which value is given for each
+- Thumbs down added to netflix row details and settings for max value to show thumbs down
+- Added "next episode" label in episode view on netflix home
+
 alpha16 (hotfix)
 + fixed width for osdlabel5
 + fixed ids issues in settings
