@@ -1,1 +1,1 @@
-# bingie-mode
+# bingie.mode
