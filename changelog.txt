@@ -1,3 +1,14 @@
+alpha15
++ Changed additionalplot behavior in dialoginfo - buttons hidden (fixes optional overlap) and close by left or back
++ Changes in netflix details code to auto adjust title and details better
+	- fix plot in episode view
+	- tagline in spotlight goes lower
++ icons on pause/seek in osd reposition in accordance to mm:ss/hh:mm:ss
++ option to hide either studio OR ratings only for home (will not affect dialog)
++ trailer button in dialog will not show if not a movie/tvshow
++ tighter & less gap in landscape layout on home
++ stars rating will not appear in spotlight row details if thumbs up
+
 alpha 14 (quick update for bugs found in alpha13)
 + Bugfix: Title & Logo in netflix home & dialog
 + bigger font for episode info season & episode title

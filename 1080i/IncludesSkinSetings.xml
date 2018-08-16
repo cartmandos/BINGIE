@@ -90,14 +90,6 @@
                 <selected>Skin.HasSetting(SpotLightTrailers)</selected>
                 <visible>!Skin.HasSetting(NetflixHomeDisableFirstRow) + [Skin.String(HomeLayout, enhanced) | Skin.String(HomeLayout,netflix2)]</visible>
             </control>
-            <!--hide media flags & rating from spotlight-->
-            <control type="radiobutton" id="131786">
-                <include>SkinSettings_Button</include>
-                <label>Hide media flags and rating when playing trailer in spotlight</label>
-                <onclick>Skin.ToggleSetting(HideMediaFlagsSpotlight)</onclick>
-                <visible>!Skin.HasSetting(NetflixHomeDisableFirstRow) + Skin.String(HomeLayout,netflix2) + Skin.HasSetting(SpotLightTrailers)</visible>
-                <selected>Skin.HasSetting(HideMediaFlagsSpotlight)</selected>
-            </control>
             <!-- Enable experimental spotlight content -->
             <control type="radiobutton" id="28327">
                 <include>SkinSettings_Button</include>
@@ -138,20 +130,36 @@
                 <visible>Skin.String(HomeLayout,netflix2) + !Skin.HasSetting(NetflixHomeDisableFirstRow)</visible>
                 <selected>Skin.HasSetting(NetflixHomeShowLargeThumb)</selected>
             </control>
-            <!--disable rating+logo on netflix home-->
+            <!--hide media flags & rating while trailer -->
+            <control type="radiobutton" id="131786">
+                <include>SkinSettings_Button</include>
+                <label>Hide media flags and rating when playing trailer</label>
+                <onclick>Skin.ToggleSetting(HideMediaFlagsTrailer)</onclick>
+                <visible>!Skin.HasSetting(NetflixHomeDisableFirstRow) + Skin.String(HomeLayout,netflix2) + [Skin.HasSetting(SpotLightTrailers) | Skin.HasSetting(NetflixAutoTrailer)]</visible>
+                <selected>Skin.HasSetting(HideMediaFlagsTrailer)</selected>
+            </control>
+            <!--disable ratings on netflix home-->
             <control type="radiobutton" id="131766">
                 <include>SkinSettings_Button</include>
-                <label>Disable ratings and studio logo in Home</label>
+                <label>Disable ratings in Home</label>
                 <onclick>Skin.ToggleSetting(NetflixHomeDisableRating)</onclick>
                 <visible>Skin.String(HomeLayout,netflix2) + !Skin.HasSetting(NetflixHomeDisableFirstRow)</visible>
                 <selected>Skin.HasSetting(NetflixHomeDisableRating)</selected>
+            </control>
+            <!--disable studio logo on netflix home-->
+            <control type="radiobutton" id="131767">
+                <include>SkinSettings_Button</include>
+                <label>Disable studio logo in Home</label>
+                <onclick>Skin.ToggleSetting(NetflixHomeDisableStudio)</onclick>
+                <visible>Skin.String(HomeLayout,netflix2) + !Skin.HasSetting(NetflixHomeDisableFirstRow)</visible>
+                <selected>Skin.HasSetting(NetflixHomeDisableStudio)</selected>
             </control>
             <!--Enable white rating flags in home -->
             <control type="radiobutton" id="399766">
                 <include>SkinSettings_Button</include>
                 <label>Enable white rating flags in home</label>
                 <onclick>Skin.ToggleSetting(EnableWhiteRatingInHome)</onclick>
-                <visible>Skin.String(HomeLayout,netflix2) + !Skin.HasSetting(NetflixHomeDisableFirstRow) + !Skin.HasSetting(NetflixHomeDisableRating)</visible>
+                <visible>Skin.String(HomeLayout,netflix2) + !Skin.HasSetting(NetflixHomeDisableFirstRow)</visible>
                 <selected>Skin.HasSetting(EnableWhiteRatingInHome)</selected>
             </control>
             <!-- disable clearlogo in netflix home -->
@@ -815,7 +823,7 @@
                 <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=ThumbsUpMin,header=Thumbs Up min. value)</onclick>
             </control>
             <!--Enable white rating flags -->
-            <control type="radiobutton" id="399766">
+            <control type="radiobutton" id="399767">
                 <include>SkinSettings_Button</include>
                 <label>Enable white rating flags in footer</label>
                 <onclick>Skin.ToggleSetting(EnableWhiteRatingInFooter)</onclick>

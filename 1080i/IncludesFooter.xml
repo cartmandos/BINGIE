@@ -1468,35 +1468,25 @@
         </control>
     </include>
 
-    <include name="AltRatingWhite">
+    <include name="AltRatingWhiteHome">
         <control type="grouplist">
             <orientation>horizontal</orientation>
             <height>90</height>
             <itemgap>15</itemgap>
             <align>right</align>
-            <include condition="Skin.HasSetting(IMDBRatingInFooter)">IMDBTop250White</include>
-            <include condition="Skin.HasSetting(IMDBRatingInFooter)">IMDBRatingWhite</include>
-            <include condition="Skin.HasSetting(TVdbTMdbRatingInFooter)">TVdbRatingWhite</include>
-            <include condition="Skin.HasSetting(TVdbTMdbRatingInFooter)">TMdbRatingWhite</include>
-            <include condition="Skin.HasSetting(RTRatingInFooter)">TomatoMeterWhite</include>
-            <include condition="Skin.HasSetting(RTRatingInFooter)">MetaCriticRatingWhite</include>
-            <include condition="Skin.HasSetting(StudioInFooter)">StudioLogo</include>
+            <include condition="!Skin.HasSetting(NetflixHomeDisableRating)">AltRatingWhite</include>
+            <include condition="Skin.HasSetting(StudioInFooter) + !Skin.HasSetting(NetflixHomeDisableStudio)">StudioLogo</include>
         </control>
     </include>
 
-    <include name="AltRatingColor">
+    <include name="AltRatingColorHome">
         <control type="grouplist">
             <orientation>horizontal</orientation>
             <height>90</height>
             <itemgap>15</itemgap>
             <align>right</align>
-            <include condition="Skin.HasSetting(IMDBRatingInFooter)">IMDBTop250Color</include>
-            <include condition="Skin.HasSetting(IMDBRatingInFooter)">IMDBRatingColor</include>
-            <include condition="Skin.HasSetting(TVdbTMdbRatingInFooter)">TVdbRatingColor</include>
-            <include condition="Skin.HasSetting(TVdbTMdbRatingInFooter)">TMdbRatingColor</include>
-            <include condition="Skin.HasSetting(RTRatingInFooter)">TomatoMeterColor</include>
-            <include condition="Skin.HasSetting(RTRatingInFooter)">MetaCriticRatingColor</include>
-            <include condition="Skin.HasSetting(StudioInFooter)">StudioLogo</include>
+            <include condition="!Skin.HasSetting(NetflixHomeDisableRating)">AltRatingColor</include>
+            <include condition="Skin.HasSetting(StudioInFooter) + !Skin.HasSetting(NetflixHomeDisableStudio)">StudioLogo</include>
         </control>
     </include>
 
@@ -1506,7 +1496,14 @@
             <right>50</right>
             <height>50</height>
             <width>1000</width>
-            <include>AltRatingWhite</include>
+            <control type="grouplist">
+                <orientation>horizontal</orientation>
+                <height>90</height>
+                <itemgap>15</itemgap>
+                <align>right</align>
+                <include>AltRatingWhite</include>
+                <include condition="Skin.HasSetting(StudioInFooter)">StudioLogo</include>
+            </control>
         </control>
     </include>
 
@@ -1516,8 +1513,33 @@
             <right>50</right>
             <height>50</height>
             <width>1000</width>
-            <include>AltRatingColor</include>
+            <control type="grouplist">
+                <orientation>horizontal</orientation>
+                <height>90</height>
+                <itemgap>15</itemgap>
+                <align>right</align>
+                <include>AltRatingColor</include>
+                <include condition="Skin.HasSetting(StudioInFooter)">StudioLogo</include>
+            </control>
         </control>
+    </include>
+
+    <include name="AltRatingColor">
+        <include condition="Skin.HasSetting(IMDBRatingInFooter)">IMDBTop250Color</include>
+        <include condition="Skin.HasSetting(IMDBRatingInFooter)">IMDBRatingColor</include>
+        <include condition="Skin.HasSetting(TVdbTMdbRatingInFooter)">TVdbRatingColor</include>
+        <include condition="Skin.HasSetting(TVdbTMdbRatingInFooter)">TMdbRatingColor</include>
+        <include condition="Skin.HasSetting(RTRatingInFooter)">TomatoMeterColor</include>
+        <include condition="Skin.HasSetting(RTRatingInFooter)">MetaCriticRatingColor</include>
+    </include>
+
+    <include name="AltRatingWhite">
+        <include condition="Skin.HasSetting(IMDBRatingInFooter)">IMDBTop250White</include>
+        <include condition="Skin.HasSetting(IMDBRatingInFooter)">IMDBRatingWhite</include>
+        <include condition="Skin.HasSetting(TVdbTMdbRatingInFooter)">TVdbRatingWhite</include>
+        <include condition="Skin.HasSetting(TVdbTMdbRatingInFooter)">TMdbRatingWhite</include>
+        <include condition="Skin.HasSetting(RTRatingInFooter)">TomatoMeterWhite</include>
+        <include condition="Skin.HasSetting(RTRatingInFooter)">MetaCriticRatingWhite</include>
     </include>
 
     <variable name="WhiteRatingColorDiffuseTextColor">

@@ -210,7 +210,7 @@
             <!-- spotlight section -->
             <control type="group" id="3505">
                 <width>1920</width>
-                <height>500</height>
+                <height>525</height>
                 <visible>![Skin.HasSetting(NetflixHomeDisableFirstRow) + Skin.String(HomeLayout,netflix2) + Window.IsActive(Home)]</visible>
 
                 <!-- hidden button to spotlight buttons -->
@@ -232,7 +232,7 @@
                 <control type="grouplist" id="505">
                     <visible allowhiddenfocus="true">ControlGroup(505).HasFocus() +  Integer.IsGreater(Container(1508).NumItems,0)</visible>
                     <orientation>horizontal</orientation>
-                    <bottom>40</bottom>
+                    <bottom>65</bottom>
                     <left>65</left>
                     <width>600</width>
                     <height>65</height>
@@ -331,14 +331,19 @@
                     <animation effect="fade" start="50" end="0" delay="0" time="1200">Hidden</animation>
                 </control>
 
-                <!-- title (clearlogo/text) -->
-                <control type="group">
-                    <left>65</left>
-                    <top>10</top>
+                <!-- netflix details -->
+                <control type="grouplist">
+                    <width>1500</width>
+                    <posx>65</posx>
+                    <posy>10</posy>
+                    <height>525</height>
+                    <orientation>vertical</orientation>
+                    <usecontrolcoords>true</usecontrolcoords>
+                    <itemgap>10</itemgap>
                     <!-- adjust for episode info -->
-                    <animation effect="slide" start="0" end="0,72" time="0" condition="Control.IsVisible(588688) + !Control.IsVisible(5444322)">Conditional</animation>
-                    <!-- adjust for spotlight -->
-                    <animation effect="slide" start="0" end="0,137" time="0" condition="ControlGroup(505).HasFocus()">Conditional</animation>
+                    <animation effect="slide" start="0" end="0,75" time="0" condition="Control.IsVisible(588688) + !Control.IsVisible(5444322)">Conditional</animation>
+
+                    <!-- Title -->
                     <!-- clearlogo [800x310] -->
                     <control type="image" id="29475">
                         <visible>!Skin.HasSetting(NoClearLogoNetflix) + !String.IsEmpty(Control.GetLabel(29475))</visible>
@@ -347,31 +352,25 @@
                         <align>left</align>
                         <aspectratio align="left" aligny="center">keep</aspectratio>
                         <texture background="true">$VAR[HomeNetflixInfoClearlogo]</texture>
+                        <!-- adjust for spotlight -->
+                        <animation effect="slide" start="0" end="0,137" time="0" condition="ControlGroup(505).HasFocus()">Conditional</animation>
                     </control>
                     <!-- text title -->
-                    <control type="label" id="29476">
-                        <top>195</top>
+                    <control type="textbox" id="29476">
                         <visible>String.IsEmpty(Control.GetLabel(29475)) | Skin.HasSetting(NoClearLogoNetflix)</visible>
-                        <height>auto</height>
+                        <top>55</top>
+                        <height max="175">auto</height>
                         <width max="815">auto</width>
                         <font>Reg48</font>
                         <align>left</align>
                         <aligny>center</aligny>
-                        <shadowcolor>gray</shadowcolor>
+                        <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
                         <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
                         <label>$VAR[HomeMenuWidgetInfoLabel]</label>
                         <animation effect="fade" time="200">Visible</animation>
+                        <!-- adjust for spotlight -->
+                        <animation effect="slide" start="0" end="0,155" time="0" condition="ControlGroup(505).HasFocus()">Conditional</animation>
                     </control>
-                </control>
-
-                <!-- netflix details -->
-                <control type="grouplist">
-                    <width>1500</width>
-                    <posx>65</posx>
-                    <posy>242</posy>
-                    <height>298</height>
-                    <orientation>vertical</orientation>
-                    <itemgap>15</itemgap>
 
                     <!-- spotlight row details -->
                     <control type="group">
@@ -379,8 +378,6 @@
                         <width>1000</width>
                         <height>40</height>
                         <include>Default_Fade</include>
-                        <!-- adjust for episode info -->
-                        <animation effect="slide" start="0" end="0,70" condition="Control.IsVisible(588688) + !Control.IsVisible(5444322)">Conditional</animation>
                         <include>SpotlightRowDetails</include>
                     </control>
 
@@ -395,7 +392,56 @@
                         <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
                         <label>$VAR[NetflixSublabel]</label>
                         <!-- adjust for spotlight -->
-                        <animation effect="slide" start="0" end="0,224" time="0" condition="ControlGroup(505).HasFocus()">Conditional</animation>
+                        <animation effect="slide" start="0" end="0,225" time="0" condition="ControlGroup(505).HasFocus() + Control.IsVisible(29475)">Conditional</animation>
+                        <animation effect="slide" start="0" end="0,340" time="0" condition="ControlGroup(505).HasFocus() + Control.IsVisible(29476)">Conditional</animation>
+                        <include>Default_Fade</include>
+                    </control>
+
+                    <!-- episode info -->
+                    <control type="grouplist" id="588688">
+                        <visible>String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,episode)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),episode)</visible>
+                        <orientation>vertical</orientation>
+                        <height>125</height>
+                        <width>1000</width>
+                        <include>Default_Fade</include>
+                        <!-- season x episode x & title -->
+                        <control type="label">
+                            <height>85</height>
+                            <width>1000</width>
+                            <font>Reg42</font>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                            <label>$VAR[NetflixEpisodeInfoLabel]</label>
+                        </control>
+                        <!-- progress bar & continue label -->
+                        <control type="group">
+                            <visible>Integer.IsGreater(ListItem.PercentPlayed,0)</visible>
+                            <width>1000</width>
+                            <height>40</height>
+                            <aligny>center</aligny>
+                            <!-- Progress bar -->
+                            <control type="progress">
+                                <description>progress bar</description>
+                                <top>11</top>
+                                <width>150</width>
+                                <height>8</height>
+                                <align>left</align>
+                                <texturebg colordiffuse="cc515151" border="2">colors/color_white.png</texturebg>
+                                <lefttexture>-</lefttexture>
+                                <midtexture colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]" border="2">colors/color_white.png</midtexture>
+                                <righttexture>-</righttexture>
+                                <info>ListItem.PercentPlayed</info>
+                            </control>
+                            <!--continue watching -->
+                            <control type="label">
+                                <left>175</left>
+                                <height>30</height>
+                                <width>600</width>
+                                <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                                <label>[CAPITALIZE]$LOCALIZE[31535][/CAPITALIZE]</label>
+                            </control>
+                        </control>
                     </control>
                     
                     <!-- plot -->
@@ -411,10 +457,9 @@
                         <font>Reg28</font>
                         <label>$VAR[HomeMenuWidgetInfoPlot]</label>
                         <!-- spotlight adjustments -->
-                        <animation effect="slide" start="0" end="0,230" condition="ControlGroup(505).HasFocus()">Conditional</animation>
+                        <animation effect="slide" start="0" end="0,230" time="0" condition="ControlGroup(505).HasFocus() + Control.IsVisible(29475)">Conditional</animation>
+                        <animation effect="slide" start="0" end="0,345" time="0" condition="ControlGroup(505).HasFocus() + Control.IsVisible(29476)">Conditional</animation>
                         <animation effect="fade" start="100" end="0" time="600" condition="[String.IsEmpty(Window(Home).Property(SpotlightFirstPlayDone)) + ControlGroup(505).HasFocus()] | Control.IsVisible(5633399)">Conditional</animation>
-                        <!-- adjust for episode info & plot -->
-                        <animation effect="slide" start="0" end="0,100" condition="Control.IsVisible(588688)">Conditional</animation>
                         <include>Default_Fade</include>
                     </control>
 
@@ -444,58 +489,6 @@
                     </control>
                 </control>
 
-                <!-- episode info -->
-                <control type="grouplist" id="588688">
-                    <visible>String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,episode)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),episode)</visible>
-                    <orientation>vertical</orientation>
-                    <top>360</top>
-                    <left>65</left>
-                    <height>125</height>
-                    <width>1000</width>
-                    <include>Default_Fade</include>
-                    <!-- adjust for plot -->
-                    <animation effect="slide" start="0" end="0,-75" condition="Control.IsVisible(5444322)">Conditional</animation>Control.IsVisible(5633399)
-                    <!-- season x episode x & title -->
-                    <control type="label">
-                        <height>85</height>
-                        <width>1000</width>
-                        <font>Reg42</font>
-                        <align>left</align>
-                        <aligny>center</aligny>
-                        <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-                        <label>$VAR[NetflixEpisodeInfoLabel]</label>
-                    </control>
-                    <!-- progress bar & continue label -->
-                    <control type="group">
-                        <visible>Integer.IsGreater(ListItem.PercentPlayed,0)</visible>
-                        <left>65</left>
-                        <width>1000</width>
-                        <height>40</height>
-                        <aligny>center</aligny>
-                        <!-- Progress bar -->
-                        <control type="progress">
-                            <description>progress bar</description>
-                            <top>11</top>
-                            <width>150</width>
-                            <height>8</height>
-                            <align>left</align>
-                            <texturebg colordiffuse="cc515151" border="2">colors/color_white.png</texturebg>
-                            <lefttexture>-</lefttexture>
-                            <midtexture colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]" border="2">colors/color_white.png</midtexture>
-                            <righttexture>-</righttexture>
-                            <info>ListItem.PercentPlayed</info>
-                        </control>
-                        <!--continue watching -->
-                        <control type="label">
-                            <left>175</left>
-                            <height>30</height>
-                            <width>600</width>
-                            <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-                            <label>[CAPITALIZE]$LOCALIZE[31535][/CAPITALIZE]</label>
-                        </control>
-                    </control>
-                </control>
-
                 <!-- media flags -->
                 <control type="group">
                     <visible>!Skin.HasSetting(NoFooterBarOnHome)</visible>
@@ -505,21 +498,20 @@
                     <include>mediaflags</include>
                     <!-- adjustments for spotlight -->
                     <animation effect="slide" start="0" end="0,210" time="600"  condition="Control.IsVisible(5633399) | ControlGroup(505).HasFocus()">Conditional</animation>
-                    <animation effect="fade" start="100" end="0" time="600"  condition="[Control.IsVisible(5633399) | ControlGroup(505).HasFocus()] + Skin.HasSetting(HideMediaFlagsSpotlight)">Conditional</animation>
-                </control>
+                    <animation effect="fade" start="100" end="0" time="600"  condition="[Control.IsVisible(5633399) | ControlGroup(505).HasFocus()] + Skin.HasSetting(HideMediaFlagsTrailer)">Conditional</animation>                </control>
 
                 <!-- ratings & studio -->
                 <control type="group">
-                    <visible>!Skin.HasSetting(NoFooterBarOnHome) + !Skin.HasSetting(NetflixHomeDisableRating)</visible>
+                    <visible>!Skin.HasSetting(NoFooterBarOnHome)</visible>
                     <right>30</right>
                     <top>520</top>
                     <height>50</height>
                     <width>1000</width>
-                    <include condition="Skin.HasSetting(EnableWhiteRatingInHome)">AltRatingWhite</include>
-                    <include condition="!Skin.HasSetting(EnableWhiteRatingInHome)">AltRatingColor</include>
+                    <include condition="Skin.HasSetting(EnableWhiteRatingInHome)">AltRatingWhiteHome</include>
+                    <include condition="!Skin.HasSetting(EnableWhiteRatingInHome)">AltRatingColorHome</include>
                     <!-- adjustments for spotlight -->
                     <animation effect="slide" start="0" end="0,210" time="600"  condition="Control.IsVisible(5633399) | ControlGroup(505).HasFocus()">Conditional</animation>
-                    <animation effect="fade" start="100" end="0" time="600"  condition="[Control.IsVisible(5633399) | ControlGroup(505).HasFocus()] + Skin.HasSetting(HideMediaFlagsSpotlight) + Skin.HasSetting(HideMediaFlagsSpotlight)">Conditional</animation>
+                    <animation effect="fade" start="100" end="0" time="600"  condition="[Control.IsVisible(5633399) | ControlGroup(505).HasFocus() | Control.IsVisible(5633400)] + Skin.HasSetting(HideMediaFlagsTrailer)">Conditional</animation>
                 </control>
 
             </control>
@@ -572,7 +564,8 @@
                 <posx>0</posx>
                 <bottom>0</bottom>
                 <include condition="Skin.HasSetting(NetflixHomeDisableFirstRow)">NetflixHome_AltHeight_NoSpotlight</include>
-                <top>610</top>
+                <top>613</top>
+                <itemgap>2</itemgap>
                 <width>100%</width>
                 <ondown>77777</ondown>
                 <onup>77777</onup>

@@ -726,7 +726,7 @@
         
         <itemlayout width="366" height="210" condition="!String.Contains(Skin.String(HomeLayout),ver)">
             <control type="group">
-                <width>366</width>
+                <width>374</width>
                 <height>210</height>
                 <include>ThumbsViewLayout</include>
                 <control type="group">
@@ -741,7 +741,7 @@
         </itemlayout>
         <focusedlayout width="366" height="210" condition="!String.Contains(Skin.String(HomeLayout),ver) + !  Control.HasFocus($PARAM[widgetid])">
             <control type="group">
-                <width>366</width>
+                <width>374</width>
                 <height>210</height>
                 <include>ThumbsViewLayout</include>
                 <control type="group">
@@ -756,7 +756,7 @@
         </focusedlayout>
         <focusedlayout width="366" height="210" condition="!String.Contains(Skin.String(HomeLayout),ver) + Control.HasFocus($PARAM[widgetid])">
             <control type="group">
-                <width>366</width>
+                <width>374</width>
                 <height>210</height>
                 <animation effect="zoom" center="auto" start="100" end="105" time="160" tween="quadratic" condition="Skin.HasSetting(WidgetsZoomFocus)">Focus</animation>
                 <include>ThumbsViewLayoutFocus</include>
@@ -1517,7 +1517,6 @@
         <include>itemlayout_widebox</include>
     </include>
 
-    <!-- mod: leftalign adds left attribute to 65 -->
     <include name="widget_header_multi">
         <control type="group" id="20$PARAM[widgetid]">
             <width>100%</width>
@@ -1556,7 +1555,7 @@
             </control>
             <control type="multiimage">
                 <width>100%</width>
-                <height>40</height>
+                <height>36</height>
                 <top>0</top>
                 <include condition="Skin.HasSetting(WidgetAlignRight)">widget_header_rightalign</include>
                 <include condition="!Skin.HasSetting(WidgetAlignRight)">widget_header_leftalign</include>

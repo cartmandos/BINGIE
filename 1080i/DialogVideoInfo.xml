@@ -123,30 +123,27 @@
                     <include>animation_window_open_close</include>
 
                     <!-- Title -->
-                    <control type="group">
+                    <!-- clearlogo [800x310] -->
+                    <control type="image" id="887766">
+                        <visible>!Skin.HasSetting(NoClearLogoNetflix) + !String.IsEmpty(Control.GetLabel(887766))</visible>
                         <height>230</height>
-                        <!-- clearlogo [800x310] -->
-                        <control type="image" id="887766">
-                            <visible>!Skin.HasSetting(NoClearLogoNetflix) + !String.IsEmpty(Control.GetLabel(887766))</visible>
-                            <height>230</height>
-                            <width>593</width>
-                            <align>left</align>
-                            <aspectratio align="left" aligny="center">keep</aspectratio>
-                            <texture background="true">$VAR[ListItemClearLogo]</texture>
-                        </control>
-                        <!-- text title -->
-                        <control type="label">
-                            <visible>Skin.HasSetting(NoClearLogoNetflix) | String.IsEmpty(Control.GetLabel(887766))</visible>
-                            <top>195</top>
-                            <width max="1000">auto</width>
-                            <height>auto</height>
-                            <font>Reg48</font>
-                            <align>left</align>
-                            <aligny>center</aligny>
-                            <textcolor>$INFO[Skin.String(HeaderTextColor)]</textcolor>
-                            <label>[B]$VAR[value_header][/B]</label>
-                            <shadowcolor>$INFO[Skin.String(HeaderTextShadowColor)]</shadowcolor>
-                        </control>
+                        <width>593</width>
+                        <align>left</align>
+                        <aspectratio align="left" aligny="center">keep</aspectratio>
+                        <texture background="true">$VAR[ListItemClearLogo]</texture>
+                    </control>
+                    <!-- text title -->
+                    <control type="textbox">
+                        <visible>Skin.HasSetting(NoClearLogoNetflix) | String.IsEmpty(Control.GetLabel(887766))</visible>
+                        <top>55</top>
+                        <width max="1000">auto</width>
+                        <height>auto</height>
+                        <font>Reg48</font>
+                        <align>left</align>
+                        <aligny>center</aligny>
+                        <textcolor>$INFO[Skin.String(HeaderTextColor)]</textcolor>
+                        <label>[B]$VAR[value_header][/B]</label>
+                        <shadowcolor>$INFO[Skin.String(HeaderTextShadowColor)]</shadowcolor>
                     </control>
 
                     <!-- row details -->
@@ -170,7 +167,7 @@
                             <align>left</align>
                             <aligny>center</aligny>
                             <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-                            <label>$INFO[ListItem.TagLine]</label>
+                            <label>[B]$INFO[ListItem.TagLine][/B]</label>
                             <visible>!String.IsEmpty(ListItem.TagLine)</visible>
                         </control>
                         <!-- 'SxxExx "episode_title"' format sublabel -->
@@ -386,6 +383,7 @@
                     <control type="group">
                         <top>50</top>
                         <width>550</width>
+                        <animation effect="fade" start="100" end="0" time="200" condition="String.IsEqual(Window.Property(AdditionalInfo),plot)">Conditional</animation>
 
                         <!-- progress bar for resume button (9) -->
                         <control type="group" id="98">
@@ -649,7 +647,7 @@
                             <!-- Trailer-->
                             <control type="radiobutton" id="103">
                                 <visible>Skin.HasSetting(videoinfo_button_trailer)</visible>
-                                <visible>[!String.IsEmpty(ListItem.Trailer) | Skin.String(AutoYoutubeTrailer,true)] + String.IsEmpty(Window(Home).Property(TrailerPlaying))</visible>
+                                <visible>[!String.IsEmpty(ListItem.Trailer) | [Skin.String(AutoYoutubeTrailer,true) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie)]]] + String.IsEmpty(Window(Home).Property(TrailerPlaying))</visible>
                                 <width>550</width>
                                 <height>65</height>
                                 <aligny>center</aligny>
@@ -759,31 +757,7 @@
                                 <radioheight>25</radioheight>
                                 <onclick>SetProperty(AdditionalInfo, plot)</onclick>
                                 <onclick>SetProperty(subtitle, $LOCALIZE[207] &amp; $LOCALIZE[31608])</onclick>
-                            </control>
-
-                            <!-- Info (close additional info) -->
-                            <control type="radiobutton" id="116">
-                                <visible>!String.IsEmpty(Window.Property(AdditionalInfo))</visible>
-                                <label>29915</label>
-                                <width>550</width>
-                                <height>65</height>
-                                <aligny>center</aligny>
-                                <align>left</align>
-                                <textoffsetx>50</textoffsetx>
-                                <textoffsety>8</textoffsety>
-                                <font>Reg30</font>
-                                <textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
-                                <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
-                                <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">border_netflix.png</texturefocus>
-                                <texturenofocus></texturenofocus>
-                                <textureradioonfocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">minus.png</textureradioonfocus>
-                                <textureradioofffocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">minus.png</textureradioofffocus>
-                                <textureradioonnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">minus.png</textureradioonnofocus>
-                                <textureradiooffnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">minus.png</textureradiooffnofocus>
-                                <radioposx>15</radioposx>
-                                <radiowidth>20</radiowidth>
-                                <radioheight>25</radioheight>
-                                <onclick>ClearProperty(AdditionalInfo)</onclick>
+                                <onclick>SetFocus(3531)</onclick>
                             </control>
 
                             <!--Cast Button-->
@@ -991,6 +965,14 @@
 					<height>60%</height>
 					<orientation>vertical</orientation>
 					<visible>String.IsEqual(Window.Property(AdditionalInfo),plot)</visible>
+
+                    <control type="button" id="3531">
+                        <visible allowhiddenfocus="true">false</visible>
+                        <onleft>ClearProperty(AdditionalInfo)</onleft>
+                        <onback>ClearProperty(AdditionalInfo)</onback>
+                        <onback>8000</onback>
+                        <onleft>SetFocus(8000)</onleft>
+                    </control>
 
                     <!--large plot -->
 					<control type="textbox">

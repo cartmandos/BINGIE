@@ -36,7 +36,7 @@
 
 			<!-- Stars rating -->
 			<control type="image" id="611110">
-                <visible>!String.IsEmpty(Control.GetLabel(611110))</visible>
+                <visible>!String.IsEmpty(Control.GetLabel(611110)) + !Control.IsVisible(611109)</visible>
 				<posy>5</posy>
 				<width>160</width>
 				<height>35</height>

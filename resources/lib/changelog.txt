@@ -1,4 +1,0 @@
-CastListing - cast in (actor, ..., ..., ...) format
-
-added playtraileryoutube (skip local testing)
-fixed playtrailer

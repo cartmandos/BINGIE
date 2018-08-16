@@ -950,34 +950,37 @@
 				<visible>player.paused</visible>
 				<animation delay="150" time="300" effect="fade">Visible</animation>
 				<animation delay="0" time="200" effect="fade">Hidden</animation>
-				<left>150</left>
+				<left>155</left>
 				<bottom>70</bottom>
 				<width>100</width>
 				<height>100</height>
 				<texture>osd/slim/pause_fo.png</texture>
 				<colordiffuse>$INFO[Skin.String(OSDButtonsFocusColor)]</colordiffuse>
+				<animation effect="slide" end="-45" condition="!String.IsEqual(Player.Time(hh),00)">Conditional</animation>
 			</control>
 			<control type="image">
 				<visible>player.forwarding</visible>
 				<animation delay="150" time="300" effect="fade">Visible</animation>
 				<animation delay="0" time="200" effect="fade">Hidden</animation>
-				<left>150</left>
+				<left>155</left>
 				<bottom>70</bottom>
 				<width>100</width>
 				<height>100</height>
 				<texture>osd/slim/forward_fo.png</texture>
 				<colordiffuse>$INFO[Skin.String(OSDButtonsFocusColor)]</colordiffuse>
+				<animation effect="slide" end="-45" condition="!String.IsEqual(Player.Time(hh),00)">Conditional</animation>
 			</control>
 			<control type="image">
 				<visible>player.rewinding</visible>
 				<animation delay="150" time="300" effect="fade">Visible</animation>
 				<animation delay="0" time="200" effect="fade">Hidden</animation>
-				<left>150</left>
+				<left>155</left>
 				<bottom>70</bottom>
 				<width>100</width>
 				<height>100</height>
 				<texture flipx="true">osd/slim/forward_fo.png</texture>
 				<colordiffuse>$INFO[Skin.String(OSDButtonsFocusColor)]</colordiffuse>
+				<animation effect="slide" end="-45" condition="!String.IsEqual(Player.Time(hh),00)">Conditional</animation>
 			</control>
 
 			<!--clearlogo-->
@@ -1017,7 +1020,7 @@
 				<animation end="15,-135" time="0" effect="slide" condition="[String.Contains(Control.GetLabel(1),color_transparent) | Skin.HasSetting(OSDShowClearLogo)]">Conditional</animation>
 				<posx>75</posx>
 				<posy>-180</posy>
-				<width>980</width>
+				<width>1200</width>
 				<align>left</align>
 				<font>Reg50</font>
 				<textcolor>white</textcolor>
