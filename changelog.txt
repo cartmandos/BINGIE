@@ -1,3 +1,8 @@
+alpha16 (hotfix)
++ fixed width for osdlabel5
++ fixed ids issues in settings
++ itemgap adjust for widgets to hide cropped titles showing while scrolling
+
 alpha15
 + Changed additionalplot behavior in dialoginfo - buttons hidden (fixes optional overlap) and close by left or back
 + Changes in netflix details code to auto adjust title and details better
