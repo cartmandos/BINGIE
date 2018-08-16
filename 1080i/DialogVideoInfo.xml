@@ -704,11 +704,10 @@
                             </control>
 
                             <!-- Rate this title -->
-                            <control type="radiobutton" id="7">
+                            <control type="radiobutton" id="99999">
                                 <!-- localize -->
-                                <visible>!Skin.HasSetting(KioskMode.Enabled)</visible>
+                                <visible>String.IsEmpty(ListItem.UserRating)</visible>
                                 <visible>Skin.HasSetting(videoinfo_button_myrating)</visible>
-                                <visible>Control.IsEnabled(7)</visible>
                                 <width>550</width>
                                 <height>65</height>
                                 <aligny>center</aligny>
@@ -725,10 +724,38 @@
                                 <textureradioofffocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">thumbs-up.png</textureradioofffocus>
                                 <textureradioonnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">thumbs-up.png</textureradioonnofocus>
                                 <textureradiooffnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">thumbs-up.png</textureradiooffnofocus>
-                                <radioposx>15</radioposx>
-                                <radioposy>0</radioposy>
                                 <radiowidth>24</radiowidth>
                                 <radioheight>26</radioheight>
+                                <radioposx>15</radioposx>
+                                <radioposy>0</radioposy>
+                                <onclick>RunScript(script.user.rating)</onclick>
+                                <animation effect="fade" start="100" end="10" time="250" condition="Window.IsActive(script-user-rating-rateDialog.xml)">Conditional</animation>
+                            </control>
+
+                            <!-- Change rating -->
+                            <control type="radiobutton" id="99998">
+                                <!-- localize -->
+                                <visible>!String.IsEmpty(ListItem.UserRating)</visible>
+                                <visible>Skin.HasSetting(videoinfo_button_myrating)</visible>
+                                <width>550</width>
+                                <height>65</height>
+                                <aligny>center</aligny>
+                                <align>left</align>
+                                <textoffsetx>50</textoffsetx>
+                                <textoffsety>8</textoffsety>
+                                <font>Reg30</font>
+                                <textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
+                                <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
+                                <label>Change rating</label>
+                                <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">border_netflix.png</texturefocus>
+                                <texturenofocus></texturenofocus>
+                                <include condition="Integer.IsLessOrEqual(ListItem.UserRating,5)">ChangeRatingThumbsDown</include>
+                                <include condition="Integer.IsGreaterOrEqual(ListItem.UserRating,5)">ChangeRatingThumbsUp</include>
+                                <radiowidth>24</radiowidth>
+                                <radioheight>26</radioheight>
+                                <radioposx>15</radioposx>
+                                <onclick>RunScript(script.user.rating)</onclick>
+                                <animation effect="fade" start="100" end="10" time="250" condition="Window.IsActive(script-user-rating-rateDialog.xml)">Conditional</animation>
                             </control>
 
                             <!--Plot & Critics-->

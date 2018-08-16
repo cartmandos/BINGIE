@@ -6,6 +6,7 @@
 		<import addon="script.skin.helper.service" version="1.0.0"/>
         <import addon="script.skin.helper.widgets" version="1.0.0"/>
         <import addon="script.skin.helper.backgrounds" version="1.0.0"/>
+		<import addon="script.user.rating" version="1.0.0"/>
         <import addon="resource.uisounds.titan.modern" version="1.0.0"/>
         <import addon="resource.images.skinbackgrounds.titanium" version="1.0.0"/>
         <import addon="resource.images.skinicons.wide" version="1.0.0"/>

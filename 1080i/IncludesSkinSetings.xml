@@ -814,6 +814,22 @@
                 <onclick>Skin.ToggleSetting(EnableFakeDiscArt)</onclick>
                 <selected>Skin.HasSetting(EnableFakeDiscArt)</selected>
             </control>
+            <!--Thumbs up rate value-->
+            <control type="button" id="172001">
+                <include>SkinSettings_Button</include>
+                <label>Thumbs Up rate value</label>
+                <label2>$INFO[Skin.String(ThumbsUpRateValue.label)]</label2>
+                <visible>Skin.String(HomeLayout,netflix2)</visible>
+                <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=ThumbsUpRateValue,header=Thumbs Up rate value)</onclick>
+            </control>
+            <!--Thumbs down rate value-->
+            <control type="button" id="172002">
+                <include>SkinSettings_Button</include>
+                <label>Thumbs Down rate value</label>
+                <label2>$INFO[Skin.String(ThumbsDownRateValue.label)]</label2>
+                <visible>Skin.String(HomeLayout,netflix2)</visible>
+                <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=ThumbsDownRateValue,header=Thumbs Down rate value)</onclick>
+            </control>
             <!--Thumbs up min. value-->
             <control type="button" id="17200">
                 <include>SkinSettings_Button</include>
@@ -821,6 +837,14 @@
                 <label2>$INFO[Skin.String(ThumbsUpMin.label)]</label2>
                 <visible>Skin.String(HomeLayout,netflix2)</visible>
                 <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=ThumbsUpMin,header=Thumbs Up min. value)</onclick>
+            </control>
+            <!--Thumbs down max. value-->
+            <control type="button" id="17201">
+                <include>SkinSettings_Button</include>
+                <label>Maximum (inclusive) user rating to show thumbs down</label>
+                <label2>$INFO[Skin.String(ThumbsDownMax.label)]</label2>
+                <visible>Skin.String(HomeLayout,netflix2)</visible>
+                <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=ThumbsDownMax,header=Thumbs Down max. value)</onclick>
             </control>
             <!--Enable white rating flags -->
             <control type="radiobutton" id="399767">

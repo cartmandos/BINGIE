@@ -224,14 +224,35 @@
     <setting id="auto_trailer_interval" value="7" label="7 Seconds" condition="" icon="" description="" default="true"/>
     <setting id="auto_trailer_interval" value="9" label="9 Seconds" condition="" icon="" description=""/>
 
-    <!--Thumb Up Min Value-->
+    <!--Thumbs Up Rate Value-->
+    <setting id="ThumbsUpRateValue" value="6" label="6" condition="" icon="" description=""/>
+    <setting id="ThumbsUpRateValue" value="7" label="7" condition="" icon="" description=""/>
+    <setting id="ThumbsUpRateValue" value="8" label="8" condition="" icon="" description="" default="true"/>
+    <setting id="ThumbsUpRateValue" value="9" label="9" condition="" icon="" description=""/>
+    <setting id="ThumbsUpRateValue" value="10" label="10" condition="" icon="" description=""/>
+
+    <!--Thumbs Down Rate Value-->
+    <setting id="ThumbsDownRateValue" value="1" label="1" condition="" icon="" description=""/>
+    <setting id="ThumbsDownRateValue" value="2" label="2" condition="" icon="" description=""/>
+    <setting id="ThumbsDownRateValue" value="3" label="3" condition="" icon="" description="" default="true"/>
+    <setting id="ThumbsDownRateValue" value="4" label="4" condition="" icon="" description=""/>
+    <setting id="ThumbsDownRateValue" value="5" label="5" condition="" icon="" description=""/>
+
+    <!--Thumbs Up Min Value-->
     <setting id="ThumbsUpMin" value="-1" label="Disabled" condition="" icon="" description=""/>
-    <setting id="ThumbsUpMin" value="5" label="5" condition="" icon="" description=""/>
     <setting id="ThumbsUpMin" value="6" label="6" condition="" icon="" description=""/>
     <setting id="ThumbsUpMin" value="7" label="7" condition="" icon="" description=""/>
     <setting id="ThumbsUpMin" value="8" label="8" condition="" icon="" description="" default="true"/>
     <setting id="ThumbsUpMin" value="9" label="9" condition="" icon="" description=""/>
     <setting id="ThumbsUpMin" value="10" label="10" condition="" icon="" description=""/>
+
+    <!--Thumbs Down Max Value-->
+    <setting id="ThumbsDownMax" value="-1" label="Disabled" condition="" icon="" description=""/>
+    <setting id="ThumbsDownMax" value="5" label="5" condition="" icon="" description=""/>
+    <setting id="ThumbsDownMax" value="4" label="4" condition="" icon="" description=""/>
+    <setting id="ThumbsDownMax" value="3" label="3" condition="" icon="" description="" default="true"/>
+    <setting id="ThumbsDownMax" value="2" label="2" condition="" icon="" description=""/>
+    <setting id="ThumbsDownMax" value="1" label="1" condition="" icon="" description=""/>
 
     <!-- Random fanart delay -->
     <setting id="SkinHelper.RandomFanartDelay" value="5" label="5 $LOCALIZE[31231]" condition="" icon="" description=""/>
