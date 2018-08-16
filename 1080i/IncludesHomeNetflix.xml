@@ -404,11 +404,22 @@
                         <height>125</height>
                         <width>1000</width>
                         <include>Default_Fade</include>
+                        <!-- next episode label -->
+                        <control type="label">
+                            <visible>!Integer.IsGreater(ListItem.PercentPlayed,0)</visible>
+                            <height>30</height>
+                            <width>1000</width>
+                            <font>Reg30</font>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                            <label>[CAPITALIZE]$LOCALIZE[31212][/CAPITALIZE]</label>
+                        </control>
                         <!-- season x episode x & title -->
                         <control type="label">
                             <height>85</height>
                             <width>1000</width>
-                            <font>Reg42</font>
+                            <font>Reg40</font>
                             <align>left</align>
                             <aligny>center</aligny>
                             <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
