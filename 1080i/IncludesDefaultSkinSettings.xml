@@ -130,15 +130,19 @@
         <onload condition="!Skin.String(GeneralHighlightTextColor)">Skin.SetString(GeneralHighlightTextColor,FF00b8ff)</onload>
         <onload condition="!Skin.String(GeneralHighlightTextColor.name)">Skin.SetString(GeneralHighlightTextColor.name,mainblue)</onload>
         <!-- new colors -->
-        <onload condition="!Skin.String(NetflixPrimaryTextColor)">Skin.SetString(NetflixPrimaryTextColor,gray)</onload>
-        <onload condition="!Skin.String(NetflixPrimaryTextColor.name)">Skin.SetString(NetflixPrimaryTextColor.name,gray)</onload>
-        <onload condition="!Skin.String(NetflixSecondaryTextColor)">Skin.SetString(NetflixSecondaryTextColor,dimgray)</onload>
-        <onload condition="!Skin.String(NetflixSecondaryTextColor.name)">Skin.SetString(NetflixSecondaryTextColor.name,dimgray)</onload>
+        <onload condition="!Skin.String(NetflixPrimaryTextColor)">Skin.SetString(NetflixPrimaryTextColor,dimgray)</onload>
+        <onload condition="!Skin.String(NetflixPrimaryTextColor.name)">Skin.SetString(NetflixPrimaryTextColor.name,dimgray)</onload>
+        <onload condition="!Skin.String(NetflixSecondaryTextColor)">Skin.SetString(NetflixSecondaryTextColor,gray)</onload>
+        <onload condition="!Skin.String(NetflixSecondaryTextColor.name)">Skin.SetString(NetflixSecondaryTextColor.name,gray)</onload>
+        <onload condition="!Skin.String(MainMenuFocusButtonColor)">Skin.SetString(MainMenuFocusButtonColor,dimgray)</onload>
+        <onload condition="!Skin.String(MainMenuFocusButtonColor.name)">Skin.SetString(MainMenuFocusButtonColor.name,dimgray)</onload>
+        <onload condition="!Skin.String(MainMenuSecondaryFocusButtonColor)">Skin.SetString(MainMenuSecondaryFocusButtonColor,dimgray)</onload>
+        <onload condition="!Skin.String(MainMenuSecondaryFocusButtonColor.name)">Skin.SetString(MainMenuSecondaryFocusButtonColor.name,dimgray)</onload>
         <onload condition="!Skin.String(NetflixDetailsFlagColor)">Skin.SetString(NetflixDetailsFlagColor, 9a373737)</onload>
         <onload condition="!Skin.String(NetflixDetailsFlagColor.name)">Skin.SetString(NetflixDetailsFlagColor.name, LightGray)</onload>
         <onload condition="!Skin.String(RatingsLogoColor)">Skin.SetString(RatingsLogoColor, ffffffff)</onload>
         <onload condition="!Skin.String(RatingsLogoColor.name)">Skin.SetString(RatingsLogoColor.name, white)</onload>
-
+        <!-- -->
         <onload condition="!Skin.String(BackgroundOverlayColor)">Skin.SetString(BackgroundOverlayColor,None)</onload>
         <onload condition="!Skin.String(BackgroundOverlayColor.name)">Skin.SetString(BackgroundOverlayColor.name,None)</onload>
         <onload condition="!Skin.String(BackgroundOverlayColor.base)">Skin.SetString(BackgroundOverlayColor.base,None)</onload>

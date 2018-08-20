@@ -45,6 +45,11 @@
 			<control type="group">
 				<include>animation_window_open_close</include>
 
+                <!-- hidden my rating button -->
+                <control type="button" id="7">
+                    <include>HiddenObject</include>
+                </control>
+
 				<!-- trailer video preview -->
 				<control type="group">
 					<width>100%</width>
@@ -708,6 +713,7 @@
                                 <!-- localize -->
                                 <visible>String.IsEmpty(ListItem.UserRating)</visible>
                                 <visible>Skin.HasSetting(videoinfo_button_myrating)</visible>
+                                <visible>Control.IsEnabled(7)</visible>
                                 <width>550</width>
                                 <height>65</height>
                                 <aligny>center</aligny>
@@ -959,6 +965,7 @@
                             <!--Refresh-->
                             <control type="radiobutton" id="6">
                                 <visible>Skin.HasSetting(videoinfo_button_refresh)</visible>
+                                <visible>Control.IsEnabled(6)</visible>
                                 <width>550</width>
                                 <height>65</height>
                                 <aligny>top</aligny>

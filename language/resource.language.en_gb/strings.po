@@ -3015,3 +3015,11 @@ msgstr "Netflix flags color"
 msgctxt "#31833"
 msgid "Ratings Logo Color"
 msgstr "Ratings Logo Color"
+
+msgctxt "#31834"
+msgid "Mainmenu Focus Button Color"
+msgstr "Mainmenu Focus Button Color"
+
+msgctxt "#31835"
+msgid "Mainmenu Secondary Focus Button Color"
+msgstr "Mainmenu Secondary Focus Button Color"

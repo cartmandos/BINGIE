@@ -359,6 +359,22 @@
                 <selected>Skin.HasSetting(WidgetsZoomFocus)</selected>
                 <visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.String(HomeLayout, 3) + !Skin.String(HomeLayout, enhanced) + !Skin.String(HomeLayout, win10)</visible>
             </control>
+            <!--Disable Logo on MainMenu-->
+            <control type="radiobutton" id="31749">
+                <include>SkinSettings_Button</include>
+                <label>Disable Logo on Main Menu</label>
+                <onclick>Skin.ToggleSetting(DisableLogoMainMenu)</onclick>
+                <selected>Skin.HasSetting(DisableLogoMainMenu)</selected>
+                <visible>String.Contains(Skin.String(HomeLayout), netflix)</visible>
+            </control>
+            <!--Disable Icons in Main Menu Items-->
+            <control type="radiobutton" id="31750">
+                <include>SkinSettings_Button</include>
+                <label>Disable Icons in Main Menu Items</label>
+                <onclick>Skin.ToggleSetting(DisableIconsMainMenu)</onclick>
+                <selected>Skin.HasSetting(DisableIconsMainMenu)</selected>
+                <visible>String.Contains(Skin.String(HomeLayout), netflix)</visible>
+            </control>
             <!--hide power warning-->
             <control type="label" id="23024">
                 <include>SkinSettings_Button</include>
@@ -2549,7 +2565,7 @@
                 <onclick condition="!Skin.String(CustomLogoImage)">RunScript(script.skin.helper.service,action=SAVESKINIMAGE,skinstring=CustomLogoImage)</onclick>
                 <onclick condition="Skin.String(CustomLogoImage)">Skin.Reset(CustomLogoImage)</onclick>
                 <selected>Skin.String(CustomLogoImage)</selected>
-                <visible>String.Contains(Skin.String(general_header),logo) | String.Contains(Skin.String(home_header),logo)</visible>
+                <visible>String.Contains(Skin.String(general_header),logo) | String.Contains(Skin.String(home_header),logo) | String.Contains(Skin.String(HomeLayout),netflix)</visible>
             </control>
             <!-- logo alignment-->
             <control type="button" id="123023">
@@ -2885,6 +2901,21 @@
             <param name="skinsetting" value="MainMenuFocusTextColor" />
             <param name="visible" value="String.Contains(Skin.String(HomeLayout),hor) | String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix) | String.Contains(Skin.String(HomeLayout),win10)" />
         </include>
+        <!--homemenu focused button color-->
+        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+            <param name="id" value="31834" />
+            <param name="label" value="$LOCALIZE[31834]" />
+            <param name="skinsetting" value="MainMenuSecondaryFocusButtonColor" />
+            <param name="visible" value="Skin.String(HomeLayout,netflix2)" />
+        </include>
+        <!--homemenu secondary focused button color-->
+        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+            <param name="id" value="31835" />
+            <param name="label" value="$LOCALIZE[31835]" />
+            <param name="skinsetting" value="MainMenuFocusButtonColor" />
+            <param name="visible" value="Skin.String(HomeLayout,netflix2)" />
+        </include>
+
         <!--home button focus-->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31174" />
