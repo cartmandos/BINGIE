@@ -2132,7 +2132,7 @@
                 <param name="action2" value="SetProperty(powermenu, active, Home)" />
                 <param name="visible" value="true" />
             </include>
-            <!--no titles on home tiles-->
+            <!--lock hub widgets-->
             <control type="radiobutton" id="31205">
                 <include>SkinSettings_Button</include>
                 <label>Lock Widgets in Hubs</label>
