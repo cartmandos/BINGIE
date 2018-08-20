@@ -1,8 +1,13 @@
+alpha19 (WIP)
+- softer gradient on widenetflix (525) & added full progress bar for watched and not resumable
+- added NEW custom hub
+- bugfix: removed spotlight widget (1508) if disabled first row
+- added busy spinner for spotlight loading
+
 alpha18
 - 'rate this title' improved animations & new option to reset rating if entered selection but did not choose
 - improved trailer window fade animations
 - dialoginfo buttons minor bugfixes
-- softer gradient on widenetflix (525) & added full progress bar for watched and not resumable
 - New Netflix Main Menu
 	New colors:
 	- MainMenuFocusButtonColor [id=31834]

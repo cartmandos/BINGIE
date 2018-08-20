@@ -183,7 +183,7 @@
                                 <width>465</width>
                                 <align>center</align>
                                 <height>63</height>
-                                <texture border="8">diffuse/gradient.png</texture>
+                                <texture border="8">overlay/gradient_bottom.png</texture>
                                 <colordiffuse>$INFO[Skin.String(OSDPanelColor)]</colordiffuse>
                             </control>
                             <control type="group">
@@ -217,6 +217,22 @@
                                 <midtexture colordiffuse="$INFO[Skin.String(ViewDetailsHighlightTextColor)]" border="2">colors/color_white.png</midtexture>
                                 <righttexture>-</righttexture>
                                 <visible>Integer.IsGreater(ListItem.PercentPlayed,0)</visible>
+                                <info>ListItem.PercentPlayed</info>
+                            </control>
+                            <!-- fake full progressbar for watched & not resumable -->
+                            <control type="progress">
+                                <left>2%</left>
+                                <bottom>16</bottom>
+                                <description>progress bar</description>
+                                <width>33%</width>
+                                <height>3%</height>
+                                <align>left</align>
+                                <!-- hardcoded color on landscape -->
+                                <texturebg colordiffuse="$INFO[Skin.String(ViewDetailsHighlightTextColor)]" border="2">colors/color_white.png</texturebg>
+                                <lefttexture>-</lefttexture>
+                                <midtexture colordiffuse="$INFO[Skin.String(ViewDetailsHighlightTextColor)]" border="2">colors/color_white.png</midtexture>
+                                <righttexture>-</righttexture>
+                                <visible>[Integer.IsGreater(ListItem.PlayCount,0) + !ListItem.IsResumable]</visible>
                                 <info>ListItem.PercentPlayed</info>
                             </control>
                             <control type="label">
@@ -308,7 +324,7 @@
                                 <width>465</width>
                                 <align>center</align>
                                 <height>63</height>
-                                <texture border="8">diffuse/gradient.png</texture>
+                                <texture border="8">overlay/gradient_bottom.png</texture>
                                 <colordiffuse>$INFO[Skin.String(OSDPanelColor)]</colordiffuse>
                             </control>
                             <control type="group">
@@ -341,6 +357,22 @@
                                 <midtexture colordiffuse="$INFO[Skin.String(ViewDetailsHighlightTextColor)]" border="2">colors/color_white.png</midtexture>
                                 <righttexture>-</righttexture>
                                 <visible>Integer.IsGreater(ListItem.PercentPlayed,0)</visible>
+                                <info>ListItem.PercentPlayed</info>
+                            </control>
+                            <!-- fake full progressbar for watched & not resumable -->
+                            <control type="progress">
+                                <left>2%</left>
+                                <bottom>16</bottom>
+                                <description>progress bar</description>
+                                <width>33%</width>
+                                <height>3%</height>
+                                <align>left</align>
+                                <!-- hardcoded color on landscape -->
+                                <texturebg colordiffuse="$INFO[Skin.String(ViewDetailsHighlightTextColor)]" border="2">colors/color_white.png</texturebg>
+                                <lefttexture>-</lefttexture>
+                                <midtexture colordiffuse="$INFO[Skin.String(ViewDetailsHighlightTextColor)]" border="2">colors/color_white.png</midtexture>
+                                <righttexture>-</righttexture>
+                                <visible>[Integer.IsGreater(ListItem.PlayCount,0) + !ListItem.IsResumable]</visible>
                                 <info>ListItem.PercentPlayed</info>
                             </control>
                             <control type="label">

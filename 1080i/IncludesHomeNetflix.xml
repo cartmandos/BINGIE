@@ -586,10 +586,41 @@
                 <onback condition="Window.IsActive(Home)">300</onback>
                 <onleft condition="!Skin.HasSetting(EnhancedHome_Circular) | !Window.IsActive(Home)">300</onleft>
                 <pagecontrol>317</pagecontrol>
-                <include condition="Window.IsActive(Home) | Window.IsActive(3017) | Window.IsActive(3018)">NetflixSpotlightWidget</include>
+                <include condition="[Window.IsActive(Home) | Window.IsActive(3017) | Window.IsActive(3018) | Window.IsActive(3020)] + !Skin.HasSetting(NetflixHomeDisableFirstRow)">NetflixSpotlightWidget</include>
                 <include condition="Window.IsActive(Home)">skinshortcuts-template-Widgets</include>
                 <include condition="Window.IsActive(3018)">netflix_items_movies</include>
                 <include condition="Window.IsActive(3017)">netflix_items_tvshows</include>
+                <include condition="Window.IsActive(3020)">netflix_items_new</include>
+            </control>
+
+            <!-- busy image while spotlight widget loading -->
+            <control type="grouplist">
+                <visible>Control.HasFocus(1508) + Control.IsVisible(1508) + Container(1508).IsUpdating</visible>
+                <orientation>horizontal</orientation>
+                <left>65</left>
+                <top>400</top>
+                <width>500</width>
+                <height>60</height>
+                <itemgap>20</itemgap>
+                <control type="multiimage">
+                    <width>60</width>
+                    <height>60</height>
+                    <aspectratio>keep</aspectratio>
+                    <imagepath>$INFO[Skin.String(SkinHelper.SpinnerTexture.Path)]</imagepath>
+                    <timeperimage>100</timeperimage>
+                    <colordiffuse>$INFO[Skin.String(SpinnerTexture.Color)]</colordiffuse>
+                    <fadetime>0</fadetime>
+                    <visible>!Skin.String(SkinHelper.SpinnerTexture.Path,None)</visible>
+                </control>
+                <control type="label">
+                    <height>60</height>
+                    <aligny>center</aligny>
+                    <width>420</width>
+                    <label>[B]$LOCALIZE[31185][/B]</label>
+                    <font>Reg30</font>
+                    <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                    <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+                </control>
             </control>
 
             <!-- gradient overlays on widgets -->
@@ -921,6 +952,8 @@
         <!-- tvshows hub -->
         <!-- <value condition="Window.IsActive(3017)">plugin://script.skin.helper.widgets/?action=similarshows&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</value> -->
         <value condition="Window.IsActive(3017)">plugin://script.skin.helper.widgets/?action=recommended&amp;mediatype=tvshows&amp;tag=&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</value>
+        <!-- new hub -->
+        <value condition="Window.IsActive(3020)">plugin://script.skin.helper.widgets/?action=recent&amp;mediatype=movies&amp;tag=&amp;reload=$INFO[Window(Home).Property(widgetreload-movies)]</value>
         <!-- home -->
         <value condition="Skin.HasSetting(ExperimentalSpotlight) + Skin.HasSetting(AllowTVShowsSpotlight)">plugin://script.skin.helper.widgets/?action=similar&amp;mediatype=media&amp;limit=5&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</value>
         <value condition="Skin.HasSetting(ExperimentalSpotlight)">plugin://script.skin.helper.widgets/?action=similar&amp;mediatype=movies&amp;limit=5&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</value>
@@ -1419,6 +1452,35 @@
             <param name="widgetStyle" value="widget_layout_default" />
 			<param name="skinsetting" value="netflixhub-tvshows-550" />
 		</include>
+    </include>
+
+    <!-- Netflix Items New -->
+    <include name="netflix_items_new">
+        <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
+            <param name="widgetid" value="510" />
+            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="skinsetting" value="netflixhub-tvshows-510" />
+        </include>
+        <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
+            <param name="widgetid" value="520" />
+            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="skinsetting" value="netflixhub-tvshows-520" />
+        </include>
+        <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
+            <param name="widgetid" value="530" />
+            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="skinsetting" value="netflixhub-tvshows-530" />
+        </include>
+        <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
+            <param name="widgetid" value="540" />
+            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="skinsetting" value="netflixhub-tvshows-540" />
+        </include>
+        <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
+            <param name="widgetid" value="550" />
+            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="skinsetting" value="netflixhub-tvshows-550" />
+        </include>
     </include>
 
     <include name="netflix_mainmenu_movies">
