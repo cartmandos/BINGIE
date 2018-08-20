@@ -1,3 +1,27 @@
+alpha18
+- 'rate this title' improved animations & new option to reset rating if entered selection but did not choose
+- improved trailer window fade animations
+- dialoginfo buttons minor bugfixes
+- softer gradient on widenetflix (525) & added full progress bar for watched and not resumable
+- New Netflix Main Menu
+	New colors:
+	- MainMenuFocusButtonColor [id=31834]
+	- MainMenuSecondaryFocusButtonColor [id=31835]
+	New settings options: 
+	- Disable Logo on Main Menu: will show profile details and switch profile button instead
+	- Disable Icons in Main Menu Items
+- Custom hubs
+ 	-New settings option: under customize shortcuts tab - Lock Widgets will hide unassigned widgets & lock the option re-assign (button -> label) so scrolling will not focus on widget TITLES.
+	- Added spotlight support - seperate spotlight content for each hub
+	- minor bugfixes & minor modifications
+
+alpha17
+- Added 'rate this title' feature and support (user.rate script)
+	- Set rating onclick (thumbs up/down)
+	- Options to determine which value is given for each
+- Thumbs down added to netflix row details and settings for max value to show thumbs down
+- Added "next episode" label in episode view on netflix home
+
 alpha16 (hotfix)
 + fixed width for osdlabel5
 + fixed ids issues in settings

@@ -359,6 +359,22 @@
                 <selected>Skin.HasSetting(WidgetsZoomFocus)</selected>
                 <visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.String(HomeLayout, 3) + !Skin.String(HomeLayout, enhanced) + !Skin.String(HomeLayout, win10)</visible>
             </control>
+            <!--Disable Logo on MainMenu-->
+            <control type="radiobutton" id="31749">
+                <include>SkinSettings_Button</include>
+                <label>Disable Logo on Main Menu</label>
+                <onclick>Skin.ToggleSetting(DisableLogoMainMenu)</onclick>
+                <selected>Skin.HasSetting(DisableLogoMainMenu)</selected>
+                <visible>String.Contains(Skin.String(HomeLayout), netflix)</visible>
+            </control>
+            <!--Disable Icons in Main Menu Items-->
+            <control type="radiobutton" id="31750">
+                <include>SkinSettings_Button</include>
+                <label>Disable Icons in Main Menu Items</label>
+                <onclick>Skin.ToggleSetting(DisableIconsMainMenu)</onclick>
+                <selected>Skin.HasSetting(DisableIconsMainMenu)</selected>
+                <visible>String.Contains(Skin.String(HomeLayout), netflix)</visible>
+            </control>
             <!--hide power warning-->
             <control type="label" id="23024">
                 <include>SkinSettings_Button</include>
@@ -814,6 +830,22 @@
                 <onclick>Skin.ToggleSetting(EnableFakeDiscArt)</onclick>
                 <selected>Skin.HasSetting(EnableFakeDiscArt)</selected>
             </control>
+            <!--Thumbs up rate value-->
+            <control type="button" id="172001">
+                <include>SkinSettings_Button</include>
+                <label>Thumbs Up rate value</label>
+                <label2>$INFO[Skin.String(ThumbsUpRateValue.label)]</label2>
+                <visible>Skin.String(HomeLayout,netflix2)</visible>
+                <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=ThumbsUpRateValue,header=Thumbs Up rate value)</onclick>
+            </control>
+            <!--Thumbs down rate value-->
+            <control type="button" id="172002">
+                <include>SkinSettings_Button</include>
+                <label>Thumbs Down rate value</label>
+                <label2>$INFO[Skin.String(ThumbsDownRateValue.label)]</label2>
+                <visible>Skin.String(HomeLayout,netflix2)</visible>
+                <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=ThumbsDownRateValue,header=Thumbs Down rate value)</onclick>
+            </control>
             <!--Thumbs up min. value-->
             <control type="button" id="17200">
                 <include>SkinSettings_Button</include>
@@ -821,6 +853,14 @@
                 <label2>$INFO[Skin.String(ThumbsUpMin.label)]</label2>
                 <visible>Skin.String(HomeLayout,netflix2)</visible>
                 <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=ThumbsUpMin,header=Thumbs Up min. value)</onclick>
+            </control>
+            <!--Thumbs down max. value-->
+            <control type="button" id="17201">
+                <include>SkinSettings_Button</include>
+                <label>Maximum (inclusive) user rating to show thumbs down</label>
+                <label2>$INFO[Skin.String(ThumbsDownMax.label)]</label2>
+                <visible>Skin.String(HomeLayout,netflix2)</visible>
+                <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=ThumbsDownMax,header=Thumbs Down max. value)</onclick>
             </control>
             <!--Enable white rating flags -->
             <control type="radiobutton" id="399767">
@@ -2092,10 +2132,19 @@
                 <param name="action2" value="SetProperty(powermenu, active, Home)" />
                 <param name="visible" value="true" />
             </include>
+            <!--lock hub widgets-->
+            <control type="radiobutton" id="31205">
+                <include>SkinSettings_Button</include>
+                <label>Lock Widgets in Hubs</label>
+                <visible>Skin.String(HomeLayout,netflix2)</visible>
+                <onclick>Skin.ToggleSetting(LockHubWidgets)</onclick>
+                <selected>Skin.HasSetting(LockHubWidgets)</selected>
+            </control>
 
             <!-- empty label -->
             <control type="label" id="6004">
                 <height>20</height>
+                <label></label>
             </control>
             <control type="label" id="6005">
                 <include>SkinSettings_Header</include>
@@ -2517,7 +2566,6 @@
                 <visible>!Skin.Hastheme(classic)</visible>
                 <visible>String.Contains(Skin.String(general_header),title) | String.Contains(Skin.String(home_header),title)</visible>
             </control>
-            
             <!--custom logo-->
             <control type="radiobutton" id="23023">
                 <include>SkinSettings_Button</include>
@@ -2525,7 +2573,7 @@
                 <onclick condition="!Skin.String(CustomLogoImage)">RunScript(script.skin.helper.service,action=SAVESKINIMAGE,skinstring=CustomLogoImage)</onclick>
                 <onclick condition="Skin.String(CustomLogoImage)">Skin.Reset(CustomLogoImage)</onclick>
                 <selected>Skin.String(CustomLogoImage)</selected>
-                <visible>String.Contains(Skin.String(general_header),logo) | String.Contains(Skin.String(home_header),logo)</visible>
+                <visible>String.Contains(Skin.String(general_header),logo) | String.Contains(Skin.String(home_header),logo) | String.Contains(Skin.String(HomeLayout),netflix)</visible>
             </control>
             <!-- logo alignment-->
             <control type="button" id="123023">
@@ -2861,6 +2909,21 @@
             <param name="skinsetting" value="MainMenuFocusTextColor" />
             <param name="visible" value="String.Contains(Skin.String(HomeLayout),hor) | String.Contains(Skin.String(HomeLayout),ver) | String.Contains(Skin.String(HomeLayout),netflix) | String.Contains(Skin.String(HomeLayout),win10)" />
         </include>
+        <!--homemenu focused button color-->
+        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+            <param name="id" value="31834" />
+            <param name="label" value="$LOCALIZE[31834]" />
+            <param name="skinsetting" value="MainMenuSecondaryFocusButtonColor" />
+            <param name="visible" value="Skin.String(HomeLayout,netflix2)" />
+        </include>
+        <!--homemenu secondary focused button color-->
+        <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
+            <param name="id" value="31835" />
+            <param name="label" value="$LOCALIZE[31835]" />
+            <param name="skinsetting" value="MainMenuFocusButtonColor" />
+            <param name="visible" value="Skin.String(HomeLayout,netflix2)" />
+        </include>
+
         <!--home button focus-->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31174" />

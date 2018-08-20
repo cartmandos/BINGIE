@@ -23,20 +23,32 @@
             </control>
 
 			<!-- Thumbs Up/Down -->
-			<control type="image" id="611109">
+            <!-- Thumbs Up -->
+            <control type="image" id="6111091">
                 <include>ThumbsUpMinCondition</include>
-				<posy>5</posy>
-				<width>25</width>
-				<height>30</height>
-				<aspectratio align="left" aligny="center">keep</aspectratio>
-				<colordiffuse>$INFO[Skin.String(NetflixPrimaryTextColor)]</colordiffuse>
-				<texture background="true">thumbs-up.png</texture>
+                <posy>5</posy>
+                <width>25</width>
+                <height>30</height>
+                <aspectratio align="left" aligny="center">keep</aspectratio>
+                <colordiffuse>$INFO[Skin.String(NetflixPrimaryTextColor)]</colordiffuse>
+                <texture background="true">thumbs-up.png</texture>
                 <include>Default_Fade</include>
-			</control>
+            </control>
+            <!-- Thumbs Down -->
+            <control type="image" id="6111092">
+                <include>ThumbsDownMaxCondition</include>
+                <posy>10</posy>
+                <width>25</width>
+                <height>30</height>
+                <aspectratio align="left" aligny="center">keep</aspectratio>
+                <colordiffuse>$INFO[Skin.String(NetflixPrimaryTextColor)]</colordiffuse>
+                <texture flipy="true" background="true">thumbs-up.png</texture>
+                <include>Default_Fade</include>
+            </control>
 
 			<!-- Stars rating -->
 			<control type="image" id="611110">
-                <visible>!String.IsEmpty(Control.GetLabel(611110)) + !Control.IsVisible(611109)</visible>
+                <visible>!String.IsEmpty(Control.GetLabel(611110)) + [!Control.IsVisible(6111091) + !Control.IsVisible(6111092)]</visible>
 				<posy>5</posy>
 				<width>160</width>
 				<height>35</height>
@@ -386,10 +398,9 @@
 		<value condition="String.IsEqual(Window(Home).Property(ListItem.AudioChannels),10)">9.1</value>
 	</variable>
 
-	<!-- Thumbs Up Includes -->
+	<!-- Thumbs Down/Up Includes -->
 	<include name="ThumbsUpMinCondition">
-		<include condition="Skin.String(ThumbsUpMin,-1)">DisableVisibility</include>
-		<include condition="Skin.String(ThumbsUpMin,5)">ThumbsUpMin5</include>
+        <include condition="Skin.String(ThumbsUpMin,-1)">DisableVisibility</include>
 		<include condition="Skin.String(ThumbsUpMin,6)">ThumbsUpMin6</include>
 		<include condition="Skin.String(ThumbsUpMin,7)">ThumbsUpMin7</include>
 		<include condition="Skin.String(ThumbsUpMin,8)">ThumbsUpMin8</include>
@@ -397,13 +408,44 @@
 		<include condition="Skin.String(ThumbsUpMin,10)">ThumbsUpMin10</include>
 	</include>
 
-	<include name="ThumbsUpMin5"><visible>Integer.IsGreaterOrEqual(ListItem.UserRating,5)</visible></include>
+    <include name="ThumbsDownMaxCondition">
+        <include condition="Skin.String(ThumbsDownMax,-1)">DisableVisibility</include>
+        <include condition="Skin.String(ThumbsDownMax,5)">ThumbsDownMax5</include>
+        <include condition="Skin.String(ThumbsDownMax,4)">ThumbsDownMax4</include>
+        <include condition="Skin.String(ThumbsDownMax,3)">ThumbsDownMax3</include>
+        <include condition="Skin.String(ThumbsDownMax,2)">ThumbsDownMax2</include>
+        <include condition="Skin.String(ThumbsDownMax,1)">ThumbsDownMax1</include>
+    </include>
+
 	<include name="ThumbsUpMin6"><visible>Integer.IsGreaterOrEqual(ListItem.UserRating,6)</visible></include>
 	<include name="ThumbsUpMin7"><visible>Integer.IsGreaterOrEqual(ListItem.UserRating,7)</visible></include>
 	<include name="ThumbsUpMin8"><visible>Integer.IsGreaterOrEqual(ListItem.UserRating,8)</visible></include>
 	<include name="ThumbsUpMin9"><visible>Integer.IsGreaterOrEqual(ListItem.UserRating,9)</visible></include>
 	<include name="ThumbsUpMin10"><visible>Integer.IsGreaterOrEqual(ListItem.UserRating,10)</visible></include>
+
+    <include name="ThumbsDownMax5"><visible>Integer.IsGreaterOrEqual(ListItem.UserRating,1) + Integer.IsLessOrEqual(ListItem.UserRating,5)</visible></include>
+    <include name="ThumbsDownMax4"><visible>Integer.IsGreaterOrEqual(ListItem.UserRating,1) + Integer.IsLessOrEqual(ListItem.UserRating,4)</visible></include>
+    <include name="ThumbsDownMax3"><visible>Integer.IsGreaterOrEqual(ListItem.UserRating,1) + Integer.IsLessOrEqual(ListItem.UserRating,3)</visible></include>
+    <include name="ThumbsDownMax2"><visible>Integer.IsGreaterOrEqual(ListItem.UserRating,1) + Integer.IsLessOrEqual(ListItem.UserRating,2)</visible></include>
+    <include name="ThumbsDownMax1"><visible>Integer.IsGreaterOrEqual(ListItem.UserRating,1) + Integer.IsLessOrEqual(ListItem.UserRating,1)</visible></include>
+
 	<include name="DisableVisibility"><visible>false</visible></include>
+
+    <!-- texture flipy/not for 'rate this title' button in dialoginfo -->
+    <include name="ChangeRatingThumbsDown">
+        <textureradioonfocus flipy="true" colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">thumbs-up.png</textureradioonfocus>
+        <textureradioofffocus flipy="true" colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">thumbs-up.png</textureradioofffocus>
+        <textureradioonnofocus flipy="true" colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">thumbs-up.png</textureradioonnofocus>
+        <textureradiooffnofocus flipy="true" colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">thumbs-up.png</textureradiooffnofocus>
+        <radioposy>22</radioposy>
+    </include>
+    <include name="ChangeRatingThumbsUp">
+        <textureradioonfocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">thumbs-up.png</textureradioonfocus>
+        <textureradioofffocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">thumbs-up.png</textureradioofffocus>
+        <textureradioonnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">thumbs-up.png</textureradioonnofocus>
+        <textureradiooffnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">thumbs-up.png</textureradiooffnofocus>
+        <radioposy>0</radioposy>
+    </include>
 
     <!-- netflix home clearlogo -->
     <variable name="HomeNetflixInfoClearlogo">
