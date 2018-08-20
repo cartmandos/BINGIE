@@ -2132,10 +2132,19 @@
                 <param name="action2" value="SetProperty(powermenu, active, Home)" />
                 <param name="visible" value="true" />
             </include>
+            <!--no titles on home tiles-->
+            <control type="radiobutton" id="31205">
+                <include>SkinSettings_Button</include>
+                <label>Lock Widgets in Hubs</label>
+                <visible>Skin.String(HomeLayout,netflix2)</visible>
+                <onclick>Skin.ToggleSetting(LockHubWidgets)</onclick>
+                <selected>Skin.HasSetting(LockHubWidgets)</selected>
+            </control>
 
             <!-- empty label -->
             <control type="label" id="6004">
                 <height>20</height>
+                <label></label>
             </control>
             <control type="label" id="6005">
                 <include>SkinSettings_Header</include>
@@ -2557,7 +2566,6 @@
                 <visible>!Skin.Hastheme(classic)</visible>
                 <visible>String.Contains(Skin.String(general_header),title) | String.Contains(Skin.String(home_header),title)</visible>
             </control>
-            
             <!--custom logo-->
             <control type="radiobutton" id="23023">
                 <include>SkinSettings_Button</include>

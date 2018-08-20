@@ -231,6 +231,7 @@
                 <!-- contains hardcoded colors -->
                 <control type="grouplist" id="505">
                     <visible allowhiddenfocus="true">ControlGroup(505).HasFocus() +  Integer.IsGreater(Container(1508).NumItems,0)</visible>
+                    <animation effect="slide" end="-1000" condition="!ControlGroup(505).HasFocus">Conditional</animation>
                     <orientation>horizontal</orientation>
                     <bottom>65</bottom>
                     <left>65</left>
@@ -268,7 +269,6 @@
                         <radiowidth>25</radiowidth>
                         <radioheight>35</radioheight>
                         <font>Reg28</font>
-                        <onclick condition="String.IsEmpty(Window(Home).Property(TrailerPlaying))">SetProperty(TrailerPlaying,windowed,Home)</onclick>
                         <onclick>PlayMedia($ESCINFO[Container(1508).ListItem.FileNameAndPath])</onclick>
                     </control>
                     <control type="button" id="52">
@@ -586,7 +586,7 @@
                 <onback condition="Window.IsActive(Home)">300</onback>
                 <onleft condition="!Skin.HasSetting(EnhancedHome_Circular) | !Window.IsActive(Home)">300</onleft>
                 <pagecontrol>317</pagecontrol>
-                <include condition="Window.IsActive(Home)">NetflixSpotlightWidget</include>
+                <include condition="Window.IsActive(Home) | Window.IsActive(3017) | Window.IsActive(3018)">NetflixSpotlightWidget</include>
                 <include condition="Window.IsActive(Home)">skinshortcuts-template-Widgets</include>
                 <include condition="Window.IsActive(3018)">netflix_items_movies</include>
                 <include condition="Window.IsActive(3017)">netflix_items_tvshows</include>
@@ -916,8 +916,14 @@
 
     <!-- Netflix2 Spotlight Content -->
     <variable name="Netflix2HomeSpotlightWidgetContent">
-        <value condition="Skin.HasSetting(ExperimentalSpotlight) + Skin.HasSetting(AllowTVShowsSpotlight)">plugin://script.skin.helper.widgets/?action=similar&amp;mediatype=media&amp;limit=5&amp;reload=$INFO[Window(Home).Property(widgetreload-music)]</value>
-        <value condition="Skin.HasSetting(ExperimentalSpotlight)">plugin://script.skin.helper.widgets/?action=similar&amp;mediatype=movies&amp;limit=5&amp;reload=$INFO[Window(Home).Property(widgetreload-music)]</value>
+        <!-- movies hub -->
+        <value condition="Window.IsActive(3018)">plugin://script.skin.helper.widgets/?action=similar&amp;mediatype=movies&amp;limit=5&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</value>
+        <!-- tvshows hub -->
+        <!-- <value condition="Window.IsActive(3017)">plugin://script.skin.helper.widgets/?action=similarshows&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</value> -->
+        <value condition="Window.IsActive(3017)">plugin://script.skin.helper.widgets/?action=recommended&amp;mediatype=tvshows&amp;tag=&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</value>
+        <!-- home -->
+        <value condition="Skin.HasSetting(ExperimentalSpotlight) + Skin.HasSetting(AllowTVShowsSpotlight)">plugin://script.skin.helper.widgets/?action=similar&amp;mediatype=media&amp;limit=5&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</value>
+        <value condition="Skin.HasSetting(ExperimentalSpotlight)">plugin://script.skin.helper.widgets/?action=similar&amp;mediatype=movies&amp;limit=5&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</value>
         <value>$VAR[NetFlixHomeSpotLightWidgetContent]</value>
     </variable>
 
@@ -1288,6 +1294,18 @@
 
     <!-- Netflix Customhub Item -->
     <include name="netflix_customhub_item">
+        <control type="label" id="$PARAM[widgetid]3">
+            <width>100%</width>
+            <height>40</height>
+            <align>left</align>
+            <font>Reg28</font>
+            <textoffsetx>65</textoffsetx>
+            <label>[B]$INFO[Skin.String($PARAM[skinsetting].label)][/B]</label>
+            <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+            <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+            <texturenofocus></texturenofocus>
+            <visible>Skin.String($PARAM[skinsetting].label) + Skin.HasSetting(LockHubWidgets)</visible>
+        </control>
         <control type="button" id="$PARAM[widgetid]4">
             <width>100%</width>
             <height>40</height>
@@ -1299,7 +1317,7 @@
             <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
             <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=$PARAM[skinsetting].label&amp;skinWidgetTarget=$PARAM[skinsetting].target&amp;skinWidgetPath=$PARAM[skinsetting].path)</onclick>
             <texturenofocus></texturenofocus>
-            <visible>Skin.String($PARAM[skinsetting].label)</visible>
+            <visible>Skin.String($PARAM[skinsetting].label) + !Skin.HasSetting(LockHubWidgets)</visible>
         </control>
         <control type="button" id="$PARAM[widgetid]5">
             <width>100%</width>
@@ -1312,9 +1330,10 @@
             <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
             <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=$PARAM[skinsetting].label&amp;skinWidgetTarget=$PARAM[skinsetting].target&amp;skinWidgetPath=$PARAM[skinsetting].path)</onclick>
             <texturenofocus></texturenofocus>
-            <visible>!Skin.String($PARAM[skinsetting].label)</visible>
+            <visible>!Skin.String($PARAM[skinsetting].label) + !Skin.HasSetting(LockHubWidgets)</visible>
         </control>
         <control type="multiimage" id="$PARAM[widgetid]6">
+            <left>65</left>
             <width>100%</width>
             <height>80</height>
             <aspectratio align="left">keep</aspectratio>
