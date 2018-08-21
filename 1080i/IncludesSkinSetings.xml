@@ -3048,6 +3048,10 @@
                 <param name="addon" value="script.globalsearch" />
             </include>
             <include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
+                <param name="id" value="31302" />
+                <param name="addon" value="script.user.rating" />
+            </include>
+            <include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
                 <param name="id" value="31007" />
                 <param name="addon" value="service.nextup.notification" />
             </include>
