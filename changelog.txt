@@ -1,3 +1,13 @@
+beta1 - release
+- fixed new hub widgets
+- small changes to skin defaults
+- small color settings bugfix
+- mainmenu shortcuts new defaults
+- renewed skin theme (bingie mode)
+- some minor stuff in mainmenu
+- global search added to supported addons settings
+- other things to support release
+
 alpha19
 - softer gradient on widenetflix (525) & added full progress bar for watched and not resumable
 - added NEW custom hub (new items)

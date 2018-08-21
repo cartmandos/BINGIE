@@ -131,10 +131,10 @@
         <onload condition="!Skin.String(NetflixPrimaryTextColor.name)">Skin.SetString(NetflixPrimaryTextColor.name,dimgray)</onload>
         <onload condition="!Skin.String(NetflixSecondaryTextColor)">Skin.SetString(NetflixSecondaryTextColor,gray)</onload>
         <onload condition="!Skin.String(NetflixSecondaryTextColor.name)">Skin.SetString(NetflixSecondaryTextColor.name,gray)</onload>
-        <onload condition="!Skin.String(MainMenuFocusButtonColor)">Skin.SetString(MainMenuFocusButtonColor,dimgray)</onload>
-        <onload condition="!Skin.String(MainMenuFocusButtonColor.name)">Skin.SetString(MainMenuFocusButtonColor.name,dimgray)</onload>
-        <onload condition="!Skin.String(MainMenuSecondaryFocusButtonColor)">Skin.SetString(MainMenuSecondaryFocusButtonColor,gray)</onload>
-        <onload condition="!Skin.String(MainMenuSecondaryFocusButtonColor.name)">Skin.SetString(MainMenuSecondaryFocusButtonColor.name,gray)</onload>
+        <onload condition="!Skin.String(MainMenuFocusButtonColor)">Skin.SetString(MainMenuFocusButtonColor,cc011222)</onload>
+        <onload condition="!Skin.String(MainMenuFocusButtonColor.name)">Skin.SetString(MainMenuFocusButtonColor.name,darkblue)</onload>
+        <onload condition="!Skin.String(MainMenuSecondaryFocusButtonColor)">Skin.SetString(MainMenuSecondaryFocusButtonColor,8c002e63)</onload>
+        <onload condition="!Skin.String(MainMenuSecondaryFocusButtonColor.name)">Skin.SetString(MainMenuSecondaryFocusButtonColor.name,Custom)</onload>
         <onload condition="!Skin.String(NetflixDetailsFlagColor)">Skin.SetString(NetflixDetailsFlagColor, 9a373737)</onload>
         <onload condition="!Skin.String(NetflixDetailsFlagColor.name)">Skin.SetString(NetflixDetailsFlagColor.name, LightGray)</onload>
         <onload condition="!Skin.String(RatingsLogoColor)">Skin.SetString(RatingsLogoColor, ffffffff)</onload>
