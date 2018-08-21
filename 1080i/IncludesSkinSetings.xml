@@ -2905,14 +2905,14 @@
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31834" />
             <param name="label" value="$LOCALIZE[31834]" />
-            <param name="skinsetting" value="MainMenuSecondaryFocusButtonColor" />
+            <param name="skinsetting" value="MainMenuFocusButtonColor" />
             <param name="visible" value="Skin.String(HomeLayout,netflix2)" />
         </include>
         <!--homemenu secondary focused button color-->
         <include name="SkinSettings_ColorButton" content="SkinSettings_ColorButton">
             <param name="id" value="31835" />
             <param name="label" value="$LOCALIZE[31835]" />
-            <param name="skinsetting" value="MainMenuFocusButtonColor" />
+            <param name="skinsetting" value="MainMenuSecondaryFocusButtonColor" />
             <param name="visible" value="Skin.String(HomeLayout,netflix2)" />
         </include>
 
@@ -3042,6 +3042,10 @@
             <include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
                 <param name="id" value="31300" />
                 <param name="addon" value="script.artwork.beef" />
+            </include>
+            <include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
+                <param name="id" value="31301" />
+                <param name="addon" value="script.globalsearch" />
             </include>
             <include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
                 <param name="id" value="31007" />

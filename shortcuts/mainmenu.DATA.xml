@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shortcuts>
+	<!-- live tv tile -->
+	<shortcut>
+		<label>$LOCALIZE[32022]</label>
+		<label2>$LOCALIZE[32022]</label2>
+		<icon>shortcuts/antenna.png</icon>
+		<thumb />
+		<action>ActivateWindow(TVGuide)</action>
+	</shortcut>
+
+	<!-- search tile -->
+	<shortcut>
+		<label>$LOCALIZE[137]</label>
+		<label2>$LOCALIZE[137]</label2>
+		<icon>shortcuts/search.png</icon>
+		<thumb />
+		<action>RunAddOn(script.globalsearch)</action>
+	</shortcut>
+
+	<!--series hub -->
+	<shortcut>
+		<label>$LOCALIZE[20343]</label>
+		<label2>$LOCALIZE[20343]</label2>
+		<icon>shortcuts/tv.png</icon>
+		<thumb />
+		<action>ActivateWindow(3017,return)</action>
+	</shortcut>
+
+	<!-- movies hub -->
+	<shortcut>
+		<label>$LOCALIZE[342]</label>
+		<label2>$LOCALIZE[342]</label2>
+		<icon>shortcuts/clapperboard.png</icon>
+		<thumb />
+		<action>ActivateWindow(3018,return)</action>
+	</shortcut>
+
+	<!-- new hub -->
+	<shortcut>
+		<label>New</label>
+		<label2>New</label2>
+		<icon>shortcuts/new.png</icon>
+		<thumb />
+		<action>ActivateWindow(3020,return)</action>
+	</shortcut>
+	
+</shortcuts>
