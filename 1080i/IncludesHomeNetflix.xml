@@ -1037,7 +1037,7 @@
                         <width>275</width>
                         <aspectratio align="left">keep</aspectratio>
                         <colordiffuse>$INFO[Skin.String(HeaderTextColor)]</colordiffuse>
-                        <texture background="true">special://skin/extras/media/kodiflix_logo.png</texture>
+                        <texture background="true">special://skin/extras/media/bingie_logo.png</texture>
                         <visible>!Skin.String(CustomLogoImage)</visible>
                     </control>
                     <!-- custom Logo image -->
