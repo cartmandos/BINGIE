@@ -5,7 +5,7 @@ beta1 - release
 - mainmenu shortcuts new defaults
 - renewed skin theme (bingie mode)
 - some minor stuff in mainmenu
-- global search added to supported addons settings
+- global search & user rate script added to supported addons settings
 - other things to support release
 
 alpha19
