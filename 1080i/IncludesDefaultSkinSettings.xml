@@ -72,9 +72,7 @@
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(WatchedIndicator.Playing)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(SkinHelper.EnableMusicArt)</onload>
         <!-- bingie additions -->
-        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(View525_DisableFanArt)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(View525_HidePanel)</onload>
-        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(View59_DisableFanArt)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(View59_DetailsShowFanart)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(EnhancedHome_Circular)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(UseNetflixOSDPanel)</onload>
@@ -87,7 +85,6 @@
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(EnableBufferingProgressOSD)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(ShowEpisodePlotInfoDialog)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetString(SplashScreen,special://skin/extras/media/neon_splash.mp4)</onload>
-
 
         <!-- default color settings (titan default theme blue) -->
         <onload condition="!Skin.String(HomeViewDetailsFocusColor)">Skin.SetString(HomeViewDetailsFocusColor, FF00b8ff)</onload>
@@ -136,8 +133,8 @@
         <onload condition="!Skin.String(NetflixSecondaryTextColor.name)">Skin.SetString(NetflixSecondaryTextColor.name,gray)</onload>
         <onload condition="!Skin.String(MainMenuFocusButtonColor)">Skin.SetString(MainMenuFocusButtonColor,dimgray)</onload>
         <onload condition="!Skin.String(MainMenuFocusButtonColor.name)">Skin.SetString(MainMenuFocusButtonColor.name,dimgray)</onload>
-        <onload condition="!Skin.String(MainMenuSecondaryFocusButtonColor)">Skin.SetString(MainMenuSecondaryFocusButtonColor,dimgray)</onload>
-        <onload condition="!Skin.String(MainMenuSecondaryFocusButtonColor.name)">Skin.SetString(MainMenuSecondaryFocusButtonColor.name,dimgray)</onload>
+        <onload condition="!Skin.String(MainMenuSecondaryFocusButtonColor)">Skin.SetString(MainMenuSecondaryFocusButtonColor,gray)</onload>
+        <onload condition="!Skin.String(MainMenuSecondaryFocusButtonColor.name)">Skin.SetString(MainMenuSecondaryFocusButtonColor.name,gray)</onload>
         <onload condition="!Skin.String(NetflixDetailsFlagColor)">Skin.SetString(NetflixDetailsFlagColor, 9a373737)</onload>
         <onload condition="!Skin.String(NetflixDetailsFlagColor.name)">Skin.SetString(NetflixDetailsFlagColor.name, LightGray)</onload>
         <onload condition="!Skin.String(RatingsLogoColor)">Skin.SetString(RatingsLogoColor, ffffffff)</onload>

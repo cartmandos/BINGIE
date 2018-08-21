@@ -213,6 +213,7 @@
 
     <!-- Global Background -->
     <setting id="CustomBackgroundSetting" value="None" label="None" condition="" icon="" description="" default="true"/>
+    <setting id="CustomBackgroundSetting" value="colors/color_transparent.png" label="Transparent" condition="" icon="colors/color_transparent.png" description="Transparent Image"/>
     <setting id="CustomBackgroundSetting" value="resource://resource.images.skinbackgrounds.titanium/global_blue.jpg" label="$LOCALIZE[31023]" condition="" icon="resource://resource.images.skinbackgrounds.titanium/global_blue.jpg" description="Default Titan background"/>  <!--removed default -->
     <setting id="CustomBackgroundSetting" value="$INFO[Skin.String(WeatherFanArtPack.path)]$INFO[Window(Weather).Property(Current.fanartCode)]$INFO[Skin.String(WeatherFanArtPack.ext)]" label="$LOCALIZE[31025]" condition="!String.IsEmpty(Window(Weather).Property(current.fanartCode)) + Skin.String(WeatherFanArtPack.path)" icon="$INFO[Skin.String(WeatherFanArtPack.path)]$INFO[Window(Weather).Property(Current.fanartCode)]$INFO[Skin.String(WeatherFanArtPack.ext)]" description=""/>
 
