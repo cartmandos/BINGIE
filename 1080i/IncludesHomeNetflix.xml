@@ -1037,7 +1037,7 @@
                         <width>275</width>
                         <aspectratio align="left">keep</aspectratio>
                         <colordiffuse>$INFO[Skin.String(HeaderTextColor)]</colordiffuse>
-                        <texture>home/kodi_logo_light.png</texture>
+                        <texture background="true">special://skin/extras/media/kodiflix_logo.png</texture>
                         <visible>!Skin.String(CustomLogoImage)</visible>
                     </control>
                     <!-- custom Logo image -->
@@ -1119,7 +1119,7 @@
                         <height>100%</height>
                         <align>left</align>
                         <left>135</left>
-                        <font>Reg28</font>
+                        <font>Light28</font>
                         <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
                         <label>$INFO[ListItem.Label]</label>
                         <animation effect="slide" end="-50" time="0" delay="0" condition="Skin.HasSetting(DisableIconsMainMenu)">Conditional</animation>
@@ -1152,7 +1152,7 @@
                         <align>left</align>
                         <left>135</left>
                         <aligny>center</aligny>
-                        <font>Reg28</font>
+                        <font>Light28</font>
                         <textcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</textcolor>
                         <label>$INFO[ListItem.Label]</label>
                         <animation effect="slide" end="-50" time="0" delay="0" condition="Skin.HasSetting(DisableIconsMainMenu)">Conditional</animation>
@@ -1192,7 +1192,7 @@
                     <textoffsetx>50</textoffsetx>
                     <align>left</align>
                     <aligny>center</aligny>
-                    <font>Reg22</font>
+                    <font>Light22</font>
                     <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
                     <focusedcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</focusedcolor>
                     <label>5</label>
@@ -1209,7 +1209,7 @@
                     <textoffsetx>50</textoffsetx>
                     <align>left</align>
                     <aligny>center</aligny>
-                    <font>Reg22</font>
+                    <font>Light22</font>
                     <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
                     <focusedcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</focusedcolor>
                     <texturefocus colordiffuse="$INFO[Skin.String(MainMenuSecondaryFocusButtonColor)]">colors/color_white.png</texturefocus>

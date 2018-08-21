@@ -1,8 +1,11 @@
 alpha19 (WIP)
 - softer gradient on widenetflix (525) & added full progress bar for watched and not resumable
-- added NEW custom hub
+- added NEW custom hub (new items)
 - bugfix: removed spotlight widget (1508) if disabled first row
 - added busy spinner for spotlight loading
+- artwork downloader internal skin setting removed
+- homemenu changed font (reg -> light)
+- added transparent image to custombackground - helpful to get a ''none'' icon
 
 alpha18
 - 'rate this title' improved animations & new option to reset rating if entered selection but did not choose
