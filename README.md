@@ -1,7 +1,7 @@
 # skin.titan.bingie.mode
-bingie mod for Kodi skin Titan
+bingie mode for Kodi skin Titan
 
-WORK-IN-PROGRESS
+WORK-IN-PROGRESS (beta stage)
 
 BIG THANKS to @marcelveldt for his work on the original code for Titan skin & addons
 https://github.com/marcelveldt
