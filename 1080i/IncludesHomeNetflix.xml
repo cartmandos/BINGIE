@@ -1088,7 +1088,7 @@
             <control type="list" id="300">
                 <posy>25%</posy>
                 <width>385</width>
-                <height>75%</height>
+                <height>52%</height>
                 <itemgap>0</itemgap>
                 <onright condition="Integer.IsGreater(Container(4445).NumItems,0)">4444</onright>
                 <onright condition="!Integer.IsGreater(Container(4445).NumItems,0)">77777</onright>
@@ -1200,7 +1200,6 @@
                     <texturenofocus></texturenofocus>
                     <onclick>ClearProperty(ShowViewSubMenu, Home)</onclick>
                     <onclick>ActivateWindow(Settings)</onclick>
-                    <include>animation_fade_visible_hidden</include>
                 </control>
                 <!-- exit button -->
                 <control type="button" id="40005">
@@ -1215,9 +1214,7 @@
                     <texturefocus colordiffuse="$INFO[Skin.String(MainMenuSecondaryFocusButtonColor)]">colors/color_white.png</texturefocus>
                     <texturenofocus></texturenofocus>
                     <label>13012</label>
-                    <visible>!Skin.HasSetting(DisablePowerMenu)</visible>
                     <onclick>quit</onclick>
-                    <include>animation_fade_visible_hidden</include>
                 </control>
             </control>
         </control>

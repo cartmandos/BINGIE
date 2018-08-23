@@ -1,4 +1,13 @@
-beta1 - release
+0.1.1
+- Improved Auto-Trailers behavior
+	- Episodes support - Series' trailer will auto-play for episode items in widgets
+	- Added temp workaround to stop trailers from playing in loop
+- Bugfix: Removed full progress bar appearing on Season items in Wide Netflix (525) viewtype
+- Bugfix: Fixed issue that if moving from an episode item in widget to a tvshow item, the trailer will start for the previous episode's tvshow instead of current tvshow item
+- Bugfix: menu items height correction to prevent overlapping
+- Updated details row in Wide Netflix 525 viewtype
+
+beta1 (0.1.0) - release
 - fixed new hub widgets
 - small changes to skin defaults
 - small color settings bugfix

@@ -673,25 +673,27 @@
     <include condition="Skin.String(auto_trailer_interval, 5)">set_trailer_alarm_5</include>
     <include condition="Skin.String(auto_trailer_interval, 7)">set_trailer_alarm_7</include>
     <include condition="Skin.String(auto_trailer_interval, 9)">set_trailer_alarm_9</include>
+    <onfocus condition="System.HasAlarm(trailer_delay)">SetProperty(LastPlayedTrailer, $INFO[Container($PARAM[widgetid]).ListItem.DBID])</onfocus>
     <onunfocus condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,true)</onunfocus>
     <onunfocus condition="Player.HasVideo + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv)]">PlayerControl(Stop)</onunfocus>
+    <onunfocus>ClearProperty(LastPlayedTrailer)</onunfocus>
   </include>
 
   <include name="set_trailer_alarm_3">
-    <onfocus condition="ControlGroup(77777).HasFocus() + !Player.HasVideo + !String.IsEmpty(ListItem.Trailer)">AlarmClock(trailer_delay,PlayMedia($INFO[ListItem.Trailer],1),00:03,silent)</onfocus>
-    <onfocus condition="Skin.String(AutoYoutubeTrailer,true) + ControlGroup(77777).HasFocus() + !Player.HasVideo + [String.IsEqual(ListItem.DBType,tvshow) | Container.Content(tvshows)]">AlarmClock(trailer_delay,RunScript(script.skin.helper.service,action=playtraileryoutube,title=$VAR[TVShowTitle]),00:03,silent)</onfocus>
+    <onfocus condition="ControlGroup(77777).HasFocus() + !Player.HasVideo + !String.IsEmpty(ListItem.Trailer) + !String.IsEqual(Window(Home).Property(LastPlayedTrailer),Container($PARAM[widgetid]).ListItem.DBID)">AlarmClock(trailer_delay,PlayMedia($INFO[ListItem.Trailer],1),00:03,silent)</onfocus>
+    <onfocus condition="Skin.String(AutoYoutubeTrailer,true) + ControlGroup(77777).HasFocus() + !Player.HasVideo + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode)] + !String.IsEqual(Window(Home).Property(LastPlayedTrailer),Container($PARAM[widgetid]).ListItem.DBID)">AlarmClock(trailer_delay,RunScript(script.skin.helper.service,action=playtraileryoutube,title=$VAR[TVShowTitle]),00:03,silent)</onfocus>
   </include>
   <include name="set_trailer_alarm_5">
-    <onfocus condition="ControlGroup(77777).HasFocus() + !Player.HasVideo + !String.IsEmpty(ListItem.Trailer)">AlarmClock(trailer_delay,PlayMedia($INFO[ListItem.Trailer],1),00:05,silent)</onfocus>
-    <onfocus condition="Skin.String(AutoYoutubeTrailer,true) + ControlGroup(77777).HasFocus() + !Player.HasVideo + [String.IsEqual(ListItem.DBType,tvshow) | Container.Content(tvshows)]">AlarmClock(trailer_delay,RunScript(script.skin.helper.service,action=playtraileryoutube,title=$VAR[TVShowTitle]),00:05,silent)</onfocus>
+    <onfocus condition="ControlGroup(77777).HasFocus() + !Player.HasVideo + !String.IsEmpty(ListItem.Trailer) + !String.IsEqual(Window(Home).Property(LastPlayedTrailer),Container($PARAM[widgetid]).ListItem.DBID)">AlarmClock(trailer_delay,PlayMedia($INFO[ListItem.Trailer],1),00:05,silent)</onfocus>
+    <onfocus condition="Skin.String(AutoYoutubeTrailer,true) + ControlGroup(77777).HasFocus() + !Player.HasVideo + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode)] + !String.IsEqual(Window(Home).Property(LastPlayedTrailer),Container($PARAM[widgetid]).ListItem.DBID)">AlarmClock(trailer_delay,RunScript(script.skin.helper.service,action=playtraileryoutube,title=$VAR[TVShowTitle]),00:05,silent)</onfocus>
   </include>
   <include name="set_trailer_alarm_7">
-    <onfocus condition="ControlGroup(77777).HasFocus() + !Player.HasVideo + !String.IsEmpty(ListItem.Trailer)">AlarmClock(trailer_delay,PlayMedia($INFO[ListItem.Trailer],1),00:07,silent)</onfocus>
-    <onfocus condition="Skin.String(AutoYoutubeTrailer,true) + ControlGroup(77777).HasFocus() + !Player.HasVideo + [String.IsEqual(ListItem.DBType,tvshow) | Container.Content(tvshows)]">AlarmClock(trailer_delay,RunScript(script.skin.helper.service,action=playtraileryoutube,title=$VAR[TVShowTitle]),00:07,silent)</onfocus>
+    <onfocus condition="ControlGroup(77777).HasFocus() + !Player.HasVideo + !String.IsEmpty(ListItem.Trailer) + !String.IsEqual(Window(Home).Property(LastPlayedTrailer),Container($PARAM[widgetid]).ListItem.DBID)">AlarmClock(trailer_delay,PlayMedia($INFO[ListItem.Trailer],1),00:07,silent)</onfocus>
+    <onfocus condition="Skin.String(AutoYoutubeTrailer,true) + ControlGroup(77777).HasFocus() + !Player.HasVideo + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode)] + !String.IsEqual(Window(Home).Property(LastPlayedTrailer),Container($PARAM[widgetid]).ListItem.DBID)">AlarmClock(trailer_delay,RunScript(script.skin.helper.service,action=playtraileryoutube,title=$VAR[TVShowTitle]),00:07,silent)</onfocus>
   </include>
   <include name="set_trailer_alarm_9">
-    <onfocus condition="ControlGroup(77777).HasFocus() + !Player.HasVideo + !String.IsEmpty(ListItem.Trailer)">AlarmClock(trailer_delay,PlayMedia($INFO[ListItem.Trailer],1),00:09,silent)</onfocus>
-    <onfocus condition="Skin.String(AutoYoutubeTrailer,true) + ControlGroup(77777).HasFocus() + !Player.HasVideo + [String.IsEqual(ListItem.DBType,tvshow) | Container.Content(tvshows)]">AlarmClock(trailer_delay,RunScript(script.skin.helper.service,action=playtraileryoutube,title=$VAR[TVShowTitle]),00:09,silent)</onfocus>
+    <onfocus condition="ControlGroup(77777).HasFocus() + !Player.HasVideo + !String.IsEmpty(ListItem.Trailer) + !String.IsEqual(Window(Home).Property(LastPlayedTrailer),Container($PARAM[widgetid]).ListItem.DBID)">AlarmClock(trailer_delay,PlayMedia($INFO[ListItem.Trailer],1),00:09,silent)</onfocus>
+    <onfocus condition="Skin.String(AutoYoutubeTrailer,true) + ControlGroup(77777).HasFocus() + !Player.HasVideo + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode)] + !String.IsEqual(Window(Home).Property(LastPlayedTrailer),Container($PARAM[widgetid]).ListItem.DBID)">AlarmClock(trailer_delay,RunScript(script.skin.helper.service,action=playtraileryoutube,title=$VAR[TVShowTitle]),00:09,silent)</onfocus>
   </include>
 
     <include name="WidgetProperties">
