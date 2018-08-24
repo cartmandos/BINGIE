@@ -1,4 +1,5 @@
 0.1.1
+- Modded Netflix style Login screen
 - Improved Auto-Trailers behavior
 	- Episodes support - Series' trailer will auto-play for episode items in widgets
 	- Added temp workaround to stop trailers from playing in loop
