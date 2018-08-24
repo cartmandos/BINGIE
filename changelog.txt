@@ -2,10 +2,14 @@
 - Improved Auto-Trailers behavior
 	- Episodes support - Series' trailer will auto-play for episode items in widgets
 	- Added temp workaround to stop trailers from playing in loop
+	- Fixed issue that if moving from an episode item in widget to a tvshow item, the trailer will start for the previous episode's tvshow instead of current tvshow item (unrelated to the case in which trailer starts because got command from Skin Helper script)
+- Next Up Notification support
+	- Added frames images in details row
+	- Added option to switch to just buttons style (next episode, cancel)
+	 (Skin Settings -> OSD -> ''Show just buttons for next-up notification osd")
+- Updated details row (variables and added frame images) in Wide Netflix (525) viewtype
 - Bugfix: Removed full progress bar appearing on Season items in Wide Netflix (525) viewtype
-- Bugfix: Fixed issue that if moving from an episode item in widget to a tvshow item, the trailer will start for the previous episode's tvshow instead of current tvshow item
 - Bugfix: menu items height correction to prevent overlapping
-- Updated details row in Wide Netflix 525 viewtype
 
 beta1 (0.1.0) - release
 - fixed new hub widgets

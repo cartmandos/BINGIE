@@ -1630,7 +1630,15 @@
                 <onclick>Skin.ToggleSetting(OSDDisablePlaybackControls)</onclick>
                 <selected>Skin.HasSetting(OSDDisablePlaybackControls)</selected>
             </control>
-            
+            <!-- switch next-up notification to just buttons -->
+            <control type="radiobutton" id="41820">
+                <include>SkinSettings_Button</include>
+                <label>Show just buttons for next-up notification osd</label>
+                <onclick>Skin.ToggleSetting(NextUpNotificationSlim)</onclick>
+                <selected>Skin.HasSetting(NextUpNotificationSlim)</selected>
+                <visible>System.HasAddon(service.nextup.notification)</visible>
+            </control>
+
             <!-- music playback -->
             <control type="label" id="31670">
                 <include>SkinSettings_Header</include>
