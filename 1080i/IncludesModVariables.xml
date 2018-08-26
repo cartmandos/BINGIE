@@ -535,8 +535,8 @@
 
     <!-- TVShow title & fallback for skin widgets -->
     <variable name="TVShowTitle">
+        <value condition="String.IsEqual(ListItem.DBType,episode) + !String.IsEmpty(Window(Home).Property(ListItem.TvShowTitle))">$INFO[Window(Home).Property(ListItem.TvShowTitle)]</value>
         <value condition="!String.IsEmpty(ListItem.TVShowTitle)">$INFO[ListItem.TVShowTitle]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.TvShowTitle))">$INFO[Window(Home).Property(ListItem.TvShowTitle)]</value>
         <value>$INFO[ListItem.Title]</value>
     </variable>
 

@@ -54,37 +54,75 @@
 
                 </control>
                 <control type="grouplist">
-                    <left>50</left>
-                    <posy>150</posy>
                     <orientation>horizontal</orientation>
-                    <height>80</height>
-                    <!-- NEW rating STARS -->
-                    <control type="image">
+                    <usecontrolcoords>true</usecontrolcoords>
+                    <left>50</left>
+                    <posy>152</posy>
+                    <height>40</height>
+                    <itemgap>15</itemgap>
+
+                    <!-- Stars rating -->
+                    <control type="image" id="611110">
+                        <visible>!String.IsEmpty(Control.GetLabel(611110))</visible>
+                        <posy>5</posy>
                         <width>160</width>
-                        <height>80</height>
-                        <left>65</left>
+                        <height>35</height>
                         <aspectratio align="left" aligny="center">keep</aspectratio>
                         <colordiffuse>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</colordiffuse>
                         <texture background="true">$VAR[rating_value_texture]</texture>
+                        <include>Default_Fade</include>
                     </control>
-                    <!-- details - year mpaa etc. -->
-                    <control type="label">
-                        <height>83</height>
-                        <width>1000</width>
-                        <left>240</left>
-                        <font>Reg22</font>
-                        <align>left</align>
-                        <textoffsetx>10</textoffsetx>
+
+                    <!-- Year -->
+                    <control type="label" id="611111">
+                        <visible>!String.IsEmpty(Control.GetLabel(611111))</visible>
+                        <posy>5</posy>
+                        <height>35</height>
+                        <width>auto</width>
                         <aligny>center</aligny>
-                        <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-                        <!--<label>$VAR[HomeMenuWidgetInfoNetflixDetails]</label>-->
-                        <label>$INFO[ListItem.Year,,    ]$INFO[ListItem.MPAA,,    ]$INFO[Window(Home).Property(SkinHelper.ListItem.Status),,]</label>
-                        <animation effect="slide" start="0" end="-168,0"
-                                   condition="String.IsEmpty(ListItem.UserRating) + String.IsEmpty(Window(Home).Property(ListItem.UserRating)) + String.IsEmpty(Window(Home).Property(ListItem.UserRating))
-                                + String.IsEmpty(ListItem.Rating) + String.IsEmpty(Window(Home).Property(ListItem.Rating)) + String.IsEmpty(Window(Home).Property(ListItem.Rating))
-                                + String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating))">Conditional</animation>
+                        <font>Reg22</font>
+                        <textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
+                        <label>$VAR[GetYear]</label>
+                        <include>Default_Fade</include>
+                    </control>
+
+                    <!-- MPAA -->
+                    <control type="group" id="611112">
+                        <visible>!String.IsEmpty(Control.GetLabel(6111121))</visible>
+                        <width>90</width>
+                        <height>39</height>
+                        <include>Default_Fade</include>
+                        <control type="image">
+                            <height>100%</height>
+                            <width>100%</width>
+                            <texture colordiffuse="$INFO[Skin.String(NetflixDetailsFlagColor)]">netflix/frame/square-rounded.png</texture>
+                        </control>
+                        <control type="label" id="6111121">
+                            <height>100%</height>
+                            <width>100%</width>
+                            <font>Reg22</font>
+                            <textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
+                            <align>center</align>
+                            <aligny>center</aligny>
+                            <scroll>false</scroll>
+                            <label>$VAR[GetMPAA]</label>
+                        </control>
+                    </control>
+
+                    <!-- TV Show Status -->
+                    <control type="label" id="611116">
+                        <posy>5</posy>
+                        <visible>!String.IsEmpty(Control.GetLabel(611116))</visible>
+                        <width>auto</width>
+                        <label>$INFO[Window(Home).Property(SkinHelper.ListItem.Status)]</label>
+                        <height>35</height>
+                        <aligny>center</aligny>
+                        <textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
+                        <font>Reg22</font>
+                        <include>Default_Fade</include>
                     </control>
                 </control>
+
                 <control type="group">
                     <left>50</left>
                     <top>290</top>
@@ -205,6 +243,7 @@
                                 <visible>String.IsEqual(Window(Home).Property(ListItem.dbtype),episode) | String.IsEqual(ListItem.dbtype,episode)</visible>
                             </control>
                             <control type="progress">
+                                <visible>String.IsEqual(Window(Home).Property(ListItem.dbtype),episode) | String.IsEqual(ListItem.dbtype,episode)</visible>
                                 <left>2%</left>
                                 <bottom>16</bottom>
                                 <description>progress bar</description>
@@ -221,6 +260,7 @@
                             </control>
                             <!-- fake full progressbar for watched & not resumable -->
                             <control type="progress">
+                                <visible>String.IsEqual(Window(Home).Property(ListItem.dbtype),episode) | String.IsEqual(ListItem.dbtype,episode)</visible>
                                 <left>2%</left>
                                 <bottom>16</bottom>
                                 <description>progress bar</description>
@@ -346,6 +386,7 @@
                                 <visible>String.IsEqual(Window(Home).Property(ListItem.dbtype),episode) | String.IsEqual(ListItem.dbtype,episode)</visible>
                             </control>
                             <control type="progress">
+                                <visible>String.IsEqual(Window(Home).Property(ListItem.dbtype),episode) | String.IsEqual(ListItem.dbtype,episode)</visible>
                                 <left>2%</left>
                                 <bottom>16</bottom>
                                 <description>progress bar</description>
@@ -361,6 +402,7 @@
                             </control>
                             <!-- fake full progressbar for watched & not resumable -->
                             <control type="progress">
+                                <visible>String.IsEqual(Window(Home).Property(ListItem.dbtype),episode) | String.IsEqual(ListItem.dbtype,episode)</visible>
                                 <left>2%</left>
                                 <bottom>16</bottom>
                                 <description>progress bar</description>

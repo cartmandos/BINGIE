@@ -65,11 +65,75 @@
         <control type="label" id="3018">
             <include>HiddenObject</include>
         </control>
+
+        <!-- Hidden Buttons section -->
+        <control type="grouplist">
+            <include>HiddenObject</include>
+            <!-- Watch now -->
+            <control type="button" id="3012">
+                <onfocus condition="Control.IsVisible(500397)">SetFocus(3097)</onfocus>
+                <onback>SendClick(3013)</onback>
+            </control>
+            <!-- Cancel - onback -->
+            <control type="button" id="3013">
+                <visible allowhidden="true">false</visible>
+            </control>
+        </control>
+
         <!-- OSD -->
-        <control type="group">
+
+        <!-- Buttons Notification -->
+        <control type="group" id="500397">
+            <visible>Skin.HasSetting(NextUpNotificationSlim)</visible>
             <include>animation_fade_visible_hidden</include>
-            <!--Bottom-->
+            <control type="grouplist">
+                <bottom>60</bottom>
+                <right>40</right>
+                <orientation>horizontal</orientation>
+                <itemgap>25</itemgap>
+                <width>650</width>
+                <height>65</height>
+                <control type="button" id="3096">
+                    <width>225</width>
+                    <height>65</height>
+                    <aligny>center</aligny>
+                    <align>center</align>
+                    <font>Reg30</font>
+                    <textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
+                    <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
+                    <label>222</label>
+                    <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">netflix/slimframeFO.png</texturefocus>
+                    <texturenofocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">netflix/slimframeNF.png</texturenofocus>
+                    <onclick>SendClick(3013)</onclick>
+                </control>
+                <control type="radiobutton" id="3097">
+                    <!-- localize -->
+                    <width>385</width>
+                    <height>65</height>
+                    <aligny>center</aligny>
+                    <align>left</align>
+                    <textoffsetx>60</textoffsetx>
+                    <font>Reg30</font>
+                    <textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
+                    <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
+                    <label>Next Episode$INFO[Player.TimeRemaining(ss), in ,s]</label>
+                    <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">netflix/slimframeFO.png</texturefocus>
+                    <texturenofocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">netflix/slimframeNF.png</texturenofocus>
+                    <textureradioonfocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">play.png</textureradioonfocus>
+                    <textureradioofffocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">play.png</textureradioofffocus>
+                    <textureradioonnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">play.png</textureradioonnofocus>
+                    <textureradiooffnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">play.png</textureradiooffnofocus>
+                    <radioposx>25</radioposx>
+                    <radiowidth>23</radiowidth>
+                    <radioheight>23</radioheight>
+                    <onclick>SendClick(3012)</onclick>
+                </control>
+            </control>
+        </control>
+
+            <!-- Full Info Notification -->
             <control type="group">
+                <visible>!Skin.HasSetting(NextUpNotificationSlim)</visible>
                 <!-- gradient overlay, cornered would be better -->
                 <control type="image">
                     <bottom>0</bottom>
@@ -83,7 +147,7 @@
                     <bottom>20</bottom>
                     <right>50</right>
                     <orientation>vertical</orientation>
-                    <height>600</height>
+                    <height>615</height>
                     <width>750</width>
                     <!-- TVshow Title -->
                     <control type="label">
@@ -151,60 +215,76 @@
                     <!-- Details Row -->
                     <control type="grouplist">
                         <orientation>horizontal</orientation>
-                        <height>31</height>
-                        <itemgap>0</itemgap>
+                        <usecontrolcoords>true</usecontrolcoords>
+                        <height>40</height>
+                        <itemgap>15</itemgap>
+
                         <!-- Aired Date -->
                         <control type="label">
+                            <posy>2</posy>
                             <width>auto</width>
-                            <height>30</height>
+                            <height>40</height>
                             <aligny>center</aligny>
                             <font>reg24</font>
                             <textcolor>white</textcolor>
-                            <label>$INFO[Control.GetLabel(3004),,   ]</label>
+                            <label>$INFO[Control.GetLabel(3004)]</label>
                             <visible>!String.IsEmpty(Control.GetLabel(3004))</visible>
                         </control>
-                        <!-- MPAA (*based on current) -->
-                        <control type="label">
-                            <width>auto</width>
-                            <height>30</height>
-                            <aligny>center</aligny>
-                            <font>reg24</font>
-                            <textcolor>white</textcolor>
-                            <label>$INFO[VideoPlayer.MPAA,,   ]</label>
+
+                        <!-- MPAA -->
+                        <control type="group" id="3098">
+                            <visible>!String.IsEmpty(Control.GetLabel(30981))</visible>
+                            <width>90</width>
+                            <height>36</height>
+                            <control type="image">
+                                <height>100%</height>
+                                <width>100%</width>
+                                <texture colordiffuse="$INFO[Skin.String(NetflixDetailsFlagColor)]">netflix/frame/square-rounded.png</texture>
+                            </control>
+                            <control type="label" id="30981">
+                                <height>100%</height>
+                                <width>100%</width>
+                                <font>Reg24</font>
+                                <textcolor>white</textcolor>
+                                <align>center</align>
+                                <aligny>center</aligny>
+                                <scroll>false</scroll>
+                                <label>$INFO[VideoPlayer.MPAA]</label>
+                            </control>
                         </control>
+
                         <!-- Resolution -->
-                        <control type="label">
-                            <width>auto</width>
-                            <height>30</height>
-                            <aligny>center</aligny>
-                            <textcolor>white</textcolor>
-                            <label>$VAR[NextUpResolution]</label>
-                            <font>reg24</font>
-                            <textcolor>white</textcolor>
+                        <control type="group">
+                            <visible>!String.IsEmpty(Control.GetLabel(3099))</visible>
+                            <width>65</width>
+                            <height>40</height>
+                            <control type="image">
+                                <height>100%</height>
+                                <width>100%</width>
+                                <texture colordiffuse="$INFO[Skin.String(NetflixDetailsFlagColor)]">netflix/frame/frame.png</texture>
+                            </control>
+                            <control type="label" id="3099">
+                                <width>100%</width>
+                                <height>100%</height>
+                                <aligny>center</aligny>
+                                <align>center</align>
+                                <textcolor>white</textcolor>
+                                <font>Reg24</font>
+                                <scroll>false</scroll>
+                                <label>$VAR[NextUpResolution]</label>
+                            </control>
                         </control>
                     </control>
                     <!-- Plot -->
                     <control type="textbox">
                         <width>auto</width>
-                        <height>97</height>
+                        <height max="100">auto</height>
                         <align>justify</align>
                         <textcolor>white</textcolor>
                         <label>$INFO[Control.GetLabel(3001)]</label>
                     </control>
                 </control>
             </control>
-            <!-- Hidden Buttons section -->
-            <control type="grouplist">
-                <include>HiddenObject</include>
-                <!-- Watch now -->
-                <control type="button" id="3012">
-                    <onback>SendClick(3013)</onback>
-                </control>
-                <!-- Cancel - onback -->
-                <control type="button" id="3013">
-                    <visible allowhidden="true">false</visible>
-                </control>
-            </control>
-        </control>
+
     </controls>
 </window>
