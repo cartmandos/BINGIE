@@ -219,6 +219,13 @@
 
     <setting id="CustomBackgroundSetting" value="widgetfanart" label="$LOCALIZE[31612]" condition="!String.IsEmpty(Container(211).ListItem.Property(widget))" />
 
+    <setting id="CustomBackgroundSetting" value="shortcuts/antenna.png" icon="shortcuts/antenna.png" label="Live TV" />
+    <setting id="CustomBackgroundSetting" value="shortcuts/clapperboard.png" icon="shortcuts/clapperboard.png" label="Movies" />
+    <setting id="CustomBackgroundSetting" value="shortcuts/tv.png" icon="shortcuts/tv.png" label="TV Shows" />
+    <setting id="CustomBackgroundSetting" value="shortcuts/search.png" icon="shortcuts/search.png" label="Search" />
+
+
+
     <!--Auto Trailer Interval-->
     <setting id="auto_trailer_interval" value="3" label="3 Seconds" condition="" icon="" description=""/>
     <setting id="auto_trailer_interval" value="5" label="5 Seconds" condition="" icon="" description=""/>
