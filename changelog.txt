@@ -1,4 +1,4 @@
-0.1.1
+0.1.1 (26.08.18)
 - Modded Netflix style Login screen
 - Improved Auto-Trailers behavior
 	- Episodes support - Series' trailer will auto-play for episode items in widgets
