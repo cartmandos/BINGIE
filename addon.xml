@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="skin.titan.leiabeta.bingie.mode" version="0.1.0" name="Titan bingie MODE for Kodi Leia" provider-name="cartman.dos, marcelveldt, mgonzales, mardukl">
+<addon id="skin.titan.leiabeta.bingie.mode" version="0.1.1" name="Titan bingie MODE for Kodi Leia" provider-name="cartman.dos, marcelveldt, mgonzales, mardukl">
 	<requires>
 		<import version="5.13.0" addon="xbmc.gui"/>		
 		<import addon="script.skinshortcuts" version="0.6.5"/>
@@ -42,8 +42,8 @@
 		<summary lang="zh_CN">Titan bingie mode for Kodi Leia</summary>
 		<platform>all</platform>
 		<license>GPL v2.0</license>
-		<forum>https://forum.kodi.tv/forumdisplay.php?fid=212</forum>
-		<website>https://forum.kodi.tv/forumdisplay.php?fid=212</website>
+		<forum>https://forum.kodi.tv/showthread.php?tid=334820</forum>
+		<website>https://forum.kodi.tv/showthread.php?tid=334820</website>
 		<email></email>
 		<source>https://github.com/cartmandos/skin.titan.bingie.mode</source>
 		<assets>
