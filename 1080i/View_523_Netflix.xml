@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--BINGIE MOD v1-->
+<includes>
+    <include name="View_523_Netflix">
+        <!--Panel-->
+        <control type="group">
+            <width>100%</width>
+            <height>100%</height>
+            <visible>Control.IsVisible(523)</visible>
+            <visible>Integer.IsGreater(Container.NumItems,0)</visible>
+            <include>animation_view_change</include>
+			
+            <!-- background image + overlay -->
+            <control type="image">
+                <width>100%</width>
+                <height>100%</height>
+                <texture colordiffuse="$VAR[Netflix2_PanelColor]">colors/color_white.png</texture>
+            </control>
+
+            <!-- trailer window -->
+            <control type="group" id="523001">
+                <visible>[Player.HasVideo + !String.IsEmpty(Window(Home).Property(TrailerPlaying)) + Skin.HasSetting(DetailsAutoTrailer)]</visible>
+                <top>0</top>
+                <right>0</right>
+                <width>1220</width>
+                <height>680</height>
+                <animation effect="slide" start="0" end="0,-80" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,2.35) | Integer.IsEqual(VideoPlayer.VideoAspect,2.55) | Integer.IsEqual(VideoPlayer.VideoAspect,2.76)" reversible="true">Conditional</animation>
+                <control type="videowindow"></control>
+                <control type="image">
+                    <texture colordiffuse="$VAR[Netflix2_PanelColor]" border="20">overlay/netflix_corner.png</texture>
+                </control>
+            </control>
+            <!--trailer window fades in -->
+            <control type="image">
+                <visible>Control.IsVisible(523001)</visible>
+                <top>0</top>
+                <right>0</right>
+                <width>1410</width>
+                <height>790</height>
+                <aligny>top</aligny>
+                <aspectratio>scale</aspectratio>
+                <colordiffuse>$VAR[Netflix2_PanelColor]</colordiffuse>
+                <texture border="15">diffuse/bgpanel.png</texture>
+                <animation type="Visible">
+                    <effect type="fade" start="100" end="100" time="600"/>
+                    <effect type="fade" start="100" end="0" time="1200" delay="800"/>
+                </animation>
+            </control>
+
+            <control type="image">
+                <fadetime>350</fadetime>
+                <texture background="true">$VAR[backgroundVar]</texture>
+                <aspectratio aligny="top">scale</aspectratio>
+                <animation effect="zoom" start="110" end="130" center="auto" time="12000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
+                <animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
+                <animation effect="fade" end="0" time="600">Hidden</animation>
+                <animation effect="fade" start="0" end="100" time="1400">Visible</animation>
+                <visible>!Skin.HasSetting(View523_DetailsShowFanart) + !Control.IsVisible(523001)</visible>
+            </control>
+            
+            <!-- overlay without big thumb -->
+            <control type="image">
+                <width>100%</width>
+                <height>100%</height>
+                <texture colordiffuse="$VAR[Netflix2_PanelColor]">colors/color_white.png</texture>
+                <animation effect="fade" start="100" end="70" delay="0" time="0" condition="true">Conditional</animation>
+                <animation effect="fade" end="0" time="600">Hidden</animation>
+                <animation effect="fade" start="40" end="70" time="1400">Visible</animation>
+                <visible>!Skin.HasSetting(View523_DetailsShowFanart) + !Control.IsVisible(523001)</visible>
+            </control>
+            <control type="image">
+                <width>100%</width>
+                <height>100%</height>
+                <texture colordiffuse="$VAR[Netflix2_PanelColor]">special://home/addons/resource.images.backgroundoverlays.basic/resources/Side by Side.png</texture>
+                <animation effect="fade" start="100" end="95" delay="0" time="0"  condition="true">Conditional</animation>
+                <animation effect="fade" end="0" time="600">Hidden</animation>
+                <animation effect="fade" start="50" end="95" time="1400">Visible</animation>
+                <visible>!Skin.HasSetting(View523_DetailsShowFanart) + !Control.IsVisible(523001)</visible>
+            </control>
+
+            <!-- spotlight section -->
+            <control type="group" id="3505">
+                <width>1920</width>
+                <height>525</height>
+
+                <!-- spotlight image [16:9] -->
+                <control type="image">
+                    <visible>!Control.IsVisible(523001) + Skin.HasSetting(View523_DetailsShowFanart)</visible>
+                    <right>0</right>
+                    <top>0</top>
+                    <texture background="true" diffuse="special://home/addons/resource.images.backgroundoverlays.basic/resources/Right Corner.png">$VAR[netflixThumb]</texture>      <fadetime>550</fadetime>
+                    <width>1400</width>
+                    <height>787</height>
+                    <aspectratio>scale</aspectratio>
+                    <aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
+                    <animation effect="fade" end="0" time="600">Hidden</animation>
+                    <animation effect="fade" start="0" end="100" time="1400">Visible</animation>
+                </control>
+
+                <!-- netflix details -->
+                <control type="grouplist">
+                    <width>1500</width>
+                    <posx>65</posx>
+                    <posy>10</posy>
+                    <height>525</height>
+                    <orientation>vertical</orientation>
+                    <usecontrolcoords>true</usecontrolcoords>
+                    <itemgap>10</itemgap>
+                    <!-- adjust for episode info -->
+                    <animation effect="slide" start="0" end="0,75" time="0" condition="Control.IsVisible(588688) + !Control.IsVisible(5444322)">Conditional</animation>
+
+                    <!-- Title -->
+                    <!-- clearlogo [800x310] -->
+                    <control type="image" id="29475">
+                        <visible>!Skin.HasSetting(NoClearLogoNetflix) + !String.IsEmpty(Control.GetLabel(29475))</visible>
+                        <height>230</height>
+                        <width>593</width>
+                        <align>left</align>
+                        <aspectratio align="left" aligny="center">keep</aspectratio>
+                        <texture background="true">$VAR[ListItemClearLogo]</texture>
+                    </control>
+                    <!-- text title -->
+                    <control type="textbox" id="29476">
+                        <visible>String.IsEmpty(Control.GetLabel(29475)) | Skin.HasSetting(NoClearLogoNetflix)</visible>
+                        <top>55</top>
+                        <height max="175">auto</height>
+                        <width max="815">auto</width>
+                        <font>Reg48</font>
+                        <align>left</align>
+                        <aligny>center</aligny>
+                        <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+                        <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                        <label>$VAR[View523_FallbackTitle]</label>
+                        <animation effect="fade" time="200">Visible</animation>
+                    </control>
+
+                    <!-- spotlight row details -->
+                    <control type="group">
+                        <width>1000</width>
+                        <height>40</height>
+                        <include>Default_Fade</include>
+                        <include>SpotlightRowDetails</include>
+                    </control>
+
+                    <!-- netflix sublabel -->
+                    <control type="label" id="823">
+                        <visible>!String.IsEqual(Window(Home).Property(ListItem.dbtype),episode) + !String.IsEmpty(Control.GetLabel(823))</visible>
+                        <height>30</height>
+                        <width>800</width>
+                        <font>Reg28</font>
+                        <align>left</align>
+                        <aligny>center</aligny>
+                        <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                        <label>$VAR[NetflixSublabel]</label>
+                        <include>Default_Fade</include>
+                    </control>
+
+                    <!-- episode info -->
+                    <control type="grouplist" id="588688">
+                        <visible>Container.Content(seasons) | Container.Content(episodes)</visible>
+                        <orientation>vertical</orientation>
+                        <height>125</height>
+                        <width>1000</width>
+                        <include>Default_Fade</include>
+                        <!-- season x episode x & title -->
+                        <control type="label">
+                            <height>85</height>
+                            <width>1000</width>
+                            <font>Reg40</font>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                            <label>$VAR[View523_EpisodeInfoLabel]</label>
+                        </control>
+                        <!-- progress bar & continue label -->
+                        <control type="group">
+                            <visible>Integer.IsGreater(ListItem.PercentPlayed,0)</visible>
+                            <width>1000</width>
+                            <height>40</height>
+                            <aligny>center</aligny>
+                            <!-- Progress bar -->
+                            <control type="progress">
+                                <description>progress bar</description>
+                                <top>11</top>
+                                <width>150</width>
+                                <height>8</height>
+                                <align>left</align>
+                                <texturebg colordiffuse="cc515151" border="2">colors/color_white.png</texturebg>
+                                <lefttexture>-</lefttexture>
+                                <midtexture colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]" border="2">colors/color_white.png</midtexture>
+                                <righttexture>-</righttexture>
+                                <info>ListItem.PercentPlayed</info>
+                            </control>
+                            <!--continue watching -->
+                            <control type="label">
+                                <left>175</left>
+                                <height>30</height>
+                                <width>600</width>
+                                <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                                <label>[CAPITALIZE]$LOCALIZE[31535][/CAPITALIZE]</label>
+                            </control>
+                        </control>
+                    </control>
+
+                    <!-- plot -->
+                    <control type="textbox" id="5444322">
+                        <height min="50" max="138">auto</height>
+                        <width>650</width>
+                        <textcolor>$VAR[NetflixPlotTextColor]</textcolor>
+                        <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+                        <align>justify</align>
+                        <font>Reg28</font>
+                        <label>$VAR[NetflixInfoDialogPlot]</label>
+                        <include>Default_Fade</include>
+                    </control>
+
+                    <!-- additional info -->
+                    <control type="group">
+                        <height>30</height>
+                        <width>800</width>
+                        <visible>!String.IsEmpty(Control.GetLabel(84)) + !Control.IsVisible(588688)</visible>
+                        <include>Default_Fade</include>
+                        <control type="image">
+                            <width>30</width>
+                            <height>30</height>
+                            <aligny>center</aligny>
+                            <texture>fact.png</texture>
+                            <colordiffuse>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</colordiffuse>
+                        </control>
+                        <control type="label" id="84">
+                            <left>40</left>
+                            <height>30</height>
+                            <width>800</width>
+                            <label>$VAR[NetflixMoreDetails]</label>
+                            <textcolor>$INFO[Skin.String(NetflixSecondaryTextColor)]</textcolor>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <font>Reg24</font>
+                        </control>
+                    </control>
+                </control>
+
+                <!-- media flags -->
+                <control type="group">
+                    <visible>!Skin.HasSetting(NoFooterBar)</visible>
+                    <top>580</top>
+                    <posx>65</posx>
+                    <height>50</height>
+                    <include>mediaflags</include>
+                </control>
+
+                <!-- ratings & studio -->
+                <control type="group">
+                    <visible>!Skin.HasSetting(NoFooterBar)</visible>
+                    <right>30</right>
+                    <top>550</top>
+                    <height>50</height>
+                    <width>1000</width>
+                    <include condition="Skin.HasSetting(EnableWhiteRatingInFooter)">AltRatingWhiteHome</include>
+                    <include condition="!Skin.HasSetting(EnableWhiteRatingInFooter)">AltRatingColorHome</include>
+                    <animation effect="fade" start="100" end="0" time="600"  condition="Control.IsVisible(523001) + Skin.HasSetting(HideMediaFlagsTrailer)">Conditional</animation>
+                </control>
+            </control>
+            
+            <!-- menu button -->
+            <control type="radiobutton" id="5001">
+                <width>60</width>
+                <height>60</height>
+                <right>20</right>
+                <top>20</top>
+                <font>-</font>
+                <selected>Control.HasFocus(5001)</selected>
+                <texturefocus>-</texturefocus>
+                <texturenofocus>-</texturenofocus>
+                <textureradiofocus colordiffuse="$INFO[Skin.String(ButtonTextFocusColor)]">touchcontrols/icon_back.png</textureradiofocus>
+                <textureradionofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">touchcontrols/icon_back.png</textureradionofocus>
+                <radiowidth>60</radiowidth>
+                <radioheight>60</radioheight>
+                <onclick>Close</onclick>
+                <visible>Skin.HasSetting(EnableTouchSupport) + !Window.IsActive(Home)</visible>
+                <ondown>510</ondown>
+            </control>
+            
+            <!-- View 523 -->
+			<include condition="Skin.HasSetting(View523_UseFixedLayout)">View523_layout_fixed</include>
+			<include condition="!Skin.HasSetting(View523_UseFixedLayout)">View523_layout_normal</include>
+            
+            <!--vertical Scrollbar-->
+			<control type="group">
+				<control type="scrollbar" id="60">
+					<visible>Control.IsVisible(523) + Integer.IsGreater(Container.Numitems,0)</visible>
+                    <top>660</top>
+                    <right>0</right>
+                    <bottom>0</bottom>
+					<onleft>523</onleft>
+					<orientation>vertical</orientation>
+					<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
+					<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
+				</control>
+			</control>
+        </control>
+ 	</include>
+
+    <include name="View523_layout_fixed">
+		<control type="fixedlist" id="523">
+            <focusposition>0</focusposition>
+			<include>View523_panel_layout</include>
+		</control>
+	</include>
+	
+	<include name="View523_layout_normal">
+		<control type="panel" id="523">
+			<include>View523_panel_layout</include>
+		</control>
+	</include>
+
+    <include name="View523_panel_layout">
+        <viewtype label="31018">icons</viewtype>
+        <bottom>0</bottom>
+        <top>660</top>
+        <height>500</height>
+        <width>100%</width>
+        <orientation>vertical</orientation>
+        <itemgap>0</itemgap>
+        <onright condition="Skin.HasSetting(EnableQuickJump)">6000</onright>
+        <onright condition="!Skin.HasSetting(EnableQuickJump)">60</onright>
+        <onleft condition="!Skin.HasSetting(KioskMode)">9000</onleft>
+        <onup>523</onup>
+        <ondown>523</ondown>
+        <preloaditems>4</preloaditems>
+        <pagecontrol>60</pagecontrol>
+        <animation effect="slide" end="60" condition="true">Conditional</animation>
+        <visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),523) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
+        <itemlayout height="210" width="366">
+            <control type="group">
+                <width>374</width>
+                <height>210</height>
+                <include>ThumbsViewLayout</include>
+                <control type="group">
+                    <description>widget label overlay</description>
+                    <include condition="!Skin.String(Widgets_DisplayTags,disable)">ThumbsTagOverlay</include>
+                    <include condition="Skin.String(Widgets_DisplayTags,auto)">LandscapeTagOverlayVisibility</include>
+                    <include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
+                        <param name="prefix" value="Landscape"/>
+                    </include>
+                </control>
+            </control>
+        </itemlayout>
+        <focusedlayout height="210" width="366">
+            <include condition="!Control.HasFocus($PARAM[widgetid])">View523_Discart</include>
+            <control type="group">
+                <width>374</width>
+                <height>210</height>
+                <include>ThumbsViewLayoutFocus</include>
+                <control type="group"> <!-- check -->
+                    <description>widget label overlay</description>
+                    <include condition="!Skin.String(Widgets_DisplayTags,disable)">ThumbsTagOverlay</include>
+                    <include condition="Skin.String(Widgets_DisplayTags,auto)">LandscapeTagOverlayVisibility</include>
+                    <include name="$PARAM[widgetTags]" content="$PARAM[widgetTags]" condition="Skin.String(Widgets_DisplayTags,override)">
+                        <param name="prefix" value="Landscape"/>
+                    </include>
+                </control>
+                <include condition="Control.HasFocus($PARAM[widgetid])">View523_Discart</include>
+                <include>AutoTrailerButton</include>
+            </control>
+        </focusedlayout>
+    </include>
+    
+    <include name="View523_layout">
+        <viewtype label="31018">icons</viewtype>
+        <left>50</left>
+        <bottom>40</bottom>
+        <height>380</height>
+        <width>1920</width>
+        <orientation>horizontal</orientation>
+        <onleft>523</onleft>
+        <onright>523</onright>
+        <onup>9000</onup>
+        <ondown condition="Skin.HasSetting(EnableQuickJump)">7000</ondown>
+        <ondown condition="!Skin.HasSetting(EnableQuickJump)">60</ondown>
+        <preloaditems>4</preloaditems>
+        <pagecontrol>60</pagecontrol>
+        <visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),523) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
+        <itemlayout height="380" width="455" condition="Container.Content(episodes)">
+            <control type="group">
+                <width>100%</width>
+                <height>75%</height>
+                <bottom>30</bottom>
+                <include>ThumbsViewLayout</include>
+            </control>
+        </itemlayout>
+        <focusedlayout height="380" width="455" condition="Container.Content(episodes)">
+            <control type="group">
+                <width>100%</width>
+                <height>75%</height>
+                <bottom>30</bottom>
+                <include>ThumbsViewLayoutFocus</include>
+                <animation effect="zoom" end="110,110" center="auto" time="100">focus</animation>
+            </control>
+        </focusedlayout>
+        <itemlayout height="380" width="262" condition="!Container.Content(episodes)">
+          <control type="group">
+            <width>97%</width>
+            <height>97%</height>
+            <include>PosterPanelLayout</include>
+          </control>
+        </itemlayout>
+        <focusedlayout height="380" width="262" condition="!Container.Content(episodes)">
+          <control type="group">
+            <width>97%</width>
+            <height>97%</height>
+            <include>PosterPanelLayoutFocus</include>
+            <include>AutoTrailerButton</include>
+            <animation effect="zoom" end="115,115" center="auto" time="100" condition="Skin.HasSetting(View523_UseFixedLayout)">focus</animation>
+          </control>
+        </focusedlayout>
+	</include>
+
+    <!-- title text fallback -->
+    <variable name="View523_FallbackTitle">
+        <value condition="Container.Content(episodes) | Container.Content(seasons)">[B]$INFO[ListItem.TvshowTitle][/B]</value>
+        <value>[B]$INFO[ListItem.Title][/B]</value>
+    </variable>
+
+    <!-- season/episode sublabel -->
+    <variable name="View523_EpisodeInfoLabel">
+        <value condition="Container.Content(seasons)">[B][CAPITALIZE]$INFO[ListItem.Season,$LOCALIZE[36904] ,][/CAPITALIZE][/B]</value>
+        <value condition="Container.Content(episodes)">[B][CAPITALIZE]$INFO[ListItem.Season,$LOCALIZE[36904] ,]$INFO[ListItem.Episode, $LOCALIZE[36906] ,][/CAPITALIZE][/B][CR]$INFO[ListItem.Title]</value>
+    </variable>
+
+    <!-- disc art -->
+    <include name="View523_Discart">
+        <control type="image">
+            <width>180</width>
+            <height>180</height>
+            <top>15</top>
+            <left>-90</left>
+            <texture background="true" diffuse="diffuse/cdmask_new.png">$VAR[DiscArtImage]</texture>
+            <aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
+            <animation type="Conditional" condition="Skin.HasSetting(View523_ShowCDart)">
+                <effect type="slide" start="-1920,0" end="0,0" tween="back" easing="inout" time="1600" delay="100" />
+                <effect type="fade" start="30" end="100" delay="100" time="400" pulse="false" />
+                <effect type="rotate" end="-360" center="auto" time="1600" loop="true" reversible="true" />
+            </animation>
+            <animation effect="rotate" end="-360" center="auto" time="8000" loop="true" reversible="false" condition="Skin.HasSetting(AnimateDiscArt)">Conditional</animation>
+            <visible>Skin.HasSetting(View523_ShowCDart)</visible>
+            <visible>[Container.Content(tvshows) | Container.Content(movies)]</visible>
+        </control>
+    </include>
+</includes>
