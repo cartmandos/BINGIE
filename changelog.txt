@@ -1,3 +1,6 @@
+0.1.2
+- Modded View_523 (Netflix) - similar to home
+
 0.1.1 (26.08.18)
 - Modded Netflix style Login screen
 - Improved Auto-Trailers behavior
