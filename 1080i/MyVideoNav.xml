@@ -5,7 +5,7 @@
     <allowoverlay>no</allowoverlay>
     <include>allViewIds</include>
 	<onload condition="System.HasAddon(script.tv.show.next.aired)">RunScript(script.tv.show.next.aired,backend=True)</onload>
-    <onload condition="Skin.HasSetting(NetflixAutoTrailer) + System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay)</onload>
+    <onload condition="Skin.HasSetting(NetflixAutoTrailer) + System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,true)</onload>
 	<onload>ClearProperty(ShowViewSubMenu, Home)</onload>
 	<onunload>ClearProperty(ShowViewSubMenu, Home)</onunload>
     <!-- return to infodialog if previous window -->
