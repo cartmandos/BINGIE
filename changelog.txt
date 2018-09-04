@@ -1,3 +1,9 @@
+0.1.2
+- Modded View_523 (Netflix) - similar to home
+- Initial modifications to global search window
+- Fix issue with notification pop-ups for trailer cancel alarm in viewtype navigation
+- Fix issue with having double labels for weather
+
 0.1.1 (26.08.18)
 - Modded Netflix style Login screen
 - Improved Auto-Trailers behavior

@@ -50,6 +50,7 @@
 		<control type="label">
 			<font>-</font>
 			<label>$INFO[Weather.Conditions]</label>
+            <include>HiddenObject</include>
 		</control>
 		
         <!-- hidden submenu for count calculations -->
