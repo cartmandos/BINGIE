@@ -1,6 +1,6 @@
 0.1.3
 - Smaller Netflix OSD title label size
-- Added clickable option to change widget's names in hubs (when hubs are not locked)
+- Added clickable option to change widgets' names in hubs (when hubs are not locked)
 - Added custom hub without spotlight
 
 0.1.2
