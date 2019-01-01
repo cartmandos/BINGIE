@@ -2,6 +2,7 @@
 - Smaller Netflix OSD title label size
 - Added clickable option to change widgets' names in hubs (when hubs are not locked)
 - Added custom hub without spotlight
+- Texture files compressed to .xbt file
 
 0.1.2
 - Modded View_523 (Netflix) - similar to home
