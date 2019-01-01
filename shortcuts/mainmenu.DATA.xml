@@ -44,5 +44,14 @@
 		<thumb />
 		<action>ActivateWindow(3020,return)</action>
 	</shortcut>
+
+    <!-- custom hub -->
+    <shortcut>
+        <label>Custom Hub</label>
+        <label2>Custom Hub</label2>
+        <icon>shortcuts/custom.png</icon>
+        <thumb />
+        <action>ActivateWindow(3021,return)</action>
+    </shortcut>
 	
 </shortcuts>

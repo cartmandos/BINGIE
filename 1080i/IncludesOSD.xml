@@ -1006,7 +1006,7 @@
 				<posy>-415</posy>
 				<width>1000</width>
 				<align>left</align>
-				<font>Bold74</font>
+				<font>Bold62</font>
 				<textcolor>white</textcolor>
 				<shadowcolor>dimgray</shadowcolor>
 				<label>[B]$VAR[OSDLabel4][/B]</label>

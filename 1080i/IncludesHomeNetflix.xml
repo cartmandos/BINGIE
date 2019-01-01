@@ -591,6 +591,7 @@
                 <include condition="Window.IsActive(3018)">netflix_items_movies</include>
                 <include condition="Window.IsActive(3017)">netflix_items_tvshows</include>
                 <include condition="Window.IsActive(3020)">netflix_items_new</include>
+                <include condition="Window.IsActive(3021)">netflix_items_custom</include>
             </control>
 
             <!-- busy image while spotlight widget loading -->
@@ -1355,6 +1356,19 @@
             <align>left</align>
             <font>Reg32</font>
             <textoffsetx>5</textoffsetx>
+            <label>[$ADDON[script.skinshortcuts 32025]]</label>
+            <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+            <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+            <onclick>Skin.SetString($PARAM[skinsetting].label)</onclick>
+            <texturenofocus></texturenofocus>
+            <visible>Skin.String($PARAM[skinsetting].label) + !Skin.HasSetting(LockHubWidgets)</visible>
+        </control>
+        <control type="button" id="$PARAM[widgetid]6">
+            <width>100%</width>
+            <height>40</height>
+            <align>left</align>
+            <font>Reg32</font>
+            <textoffsetx>5</textoffsetx>
             <label>31822</label>
             <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
             <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
@@ -1362,7 +1376,7 @@
             <texturenofocus></texturenofocus>
             <visible>!Skin.String($PARAM[skinsetting].label) + !Skin.HasSetting(LockHubWidgets)</visible>
         </control>
-        <control type="multiimage" id="$PARAM[widgetid]6">
+        <control type="multiimage" id="$PARAM[widgetid]7">
             <left>65</left>
             <width>100%</width>
             <height>80</height>
@@ -1453,6 +1467,35 @@
 
     <!-- Netflix Items New -->
     <include name="netflix_items_new">
+        <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
+            <param name="widgetid" value="510" />
+            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="skinsetting" value="netflixhub-new-510" />
+        </include>
+        <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
+            <param name="widgetid" value="520" />
+            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="skinsetting" value="netflixhub-new-520" />
+        </include>
+        <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
+            <param name="widgetid" value="530" />
+            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="skinsetting" value="netflixhub-new-530" />
+        </include>
+        <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
+            <param name="widgetid" value="540" />
+            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="skinsetting" value="netflixhub-new-540" />
+        </include>
+        <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
+            <param name="widgetid" value="550" />
+            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="skinsetting" value="netflixhub-new-550" />
+        </include>
+    </include>
+
+    <!-- Netflix Items Custom -->
+    <include name="netflix_items_custom">
         <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
             <param name="widgetid" value="510" />
             <param name="widgetStyle" value="widget_layout_default" />

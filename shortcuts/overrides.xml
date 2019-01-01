@@ -14,6 +14,7 @@
             <shortcut label="TV-Shows HUB" grouping="32029" icon="$INFO[Window(Home).Property(SkinHelper.AllTvShowsBackground)]">ActivateWindow(3017,return)</shortcut>
 			<shortcut label="Movies HUB" grouping="32029" icon="$INFO[Window(Home).Property(SkinHelper.AllMoviesBackground)]">ActivateWindow(3018,return)</shortcut>
 			<shortcut label="New HUB" grouping="32029" icon="resource://resource.images.skinicons.wide/recentlyaddedmovies.png">ActivateWindow(3020,return)</shortcut>
+			<shortcut label="Custom HUB" grouping="32029" icon="resource://resource.images.skinicons.wide/playlist.png">ActivateWindow(3021,return)</shortcut>
             <shortcut label="10005" grouping="32029" icon="$INFO[Window(Home).Property(SkinHelper.AllMusicBackground)]">ActivateWindow(10502,musicdb://,return)</shortcut>
 			<shortcut label="20389" grouping="32029" icon="$INFO[Window(Home).Property(SkinHelper.AllMusicVideosBackground)]">ActivateWindow(10025,videodb://musicvideos/titles/,return)</shortcut>
 			<shortcut label="12600" grouping="32029" icon="$INFO[Skin.String(WeatherFanArtPack.path)]$INFO[Window(Weather).Property(Current.FanartCode)]$VAR[WeatherFanArtExtension]">ActivateWindow(Weather)</shortcut>
