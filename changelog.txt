@@ -1,3 +1,8 @@
+0.1.4
+- Fixed: 'More Episodes' button (info dialog) for non-library items
+- Added: Support auto-trailer in home for non-library items (movies & tvshows)
+- Adjusted busy spinner in hubs to look the same as in home
+
 0.1.3
 - Smaller Netflix OSD title label size
 - Added clickable option to change widgets' names in hubs (when hubs are not locked)
