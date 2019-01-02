@@ -2,6 +2,7 @@
 - Fixed: 'More Episodes' button (info dialog) for non-library items
 - Added: Support auto-trailer in home for non-library items (movies & tvshows)
 - Adjusted busy spinner in hubs to look the same as in home
+- Hubs widgets are now FixedLists by default
 - Leia support: xbmc.gui version updated
 
 0.1.3
