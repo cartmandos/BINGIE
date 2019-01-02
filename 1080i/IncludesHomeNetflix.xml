@@ -1394,7 +1394,7 @@
                 <visible>!Skin.String($PARAM[skinsetting].label) + !Skin.HasSetting(LockHubWidgets)</visible>
             </control>
         </control>
-        <control type="panel" id="$PARAM[widgetid]">
+        <control type="fixedlist" id="$PARAM[widgetid]">
             <width>100%</width>
             <oninfo>RunScript(script.skin.helper.service,action=showinfo)</oninfo>
             <orientation>horizontal</orientation>
