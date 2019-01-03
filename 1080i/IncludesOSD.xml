@@ -1004,7 +1004,7 @@
 				<animation delay="0" time="200" effect="fade">Hidden</animation>
 				<posx>90</posx>
 				<posy>-415</posy>
-				<width>1000</width>
+				<width>1300</width>
 				<align>left</align>
 				<font>Bold62</font>
 				<textcolor>white</textcolor>
