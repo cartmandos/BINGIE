@@ -1,3 +1,6 @@
+0.1.5
+- HOTFIX: fixes buttons in hubs from v0.1.4 changes
+
 0.1.4
 - Fixed: 'More Episodes' button (info dialog) for non-library items
 - Added: Support auto-trailer in home for non-library items (movies & tvshows)
