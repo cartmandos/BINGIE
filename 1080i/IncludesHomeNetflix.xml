@@ -1326,73 +1326,92 @@
     <!-- Netflix Customhub Item -->
     <include name="netflix_customhub_item">
         <control type="group" id="20$PARAM[widgetid]">
+            <visible>Skin.HasSetting(LockHubWidgets)</visible>
+            <visible>Skin.String($PARAM[skinsetting].label)</visible>
             <width>100%</width>
             <height>40</height>
-            <control type="label" id="$PARAM[widgetid]3">
+            <!-- panel bg option
+            <control type="image">
+                <texture border="5">diffuse/panel.png</texture>
+                <colordiffuse>$INFO[Skin.String(ViewDetailsPanelColor)]</colordiffuse>
+                <visible>!Skin.HasSetting(HideWidgetPanelBackground)</visible>
+            </control>
+            -->
+            <control type="textbox">
+                <height>96%</height>
                 <width>99%</width>
-                <height>40</height>
-                <align>left</align>
                 <font>Reg28</font>
-                <textoffsetx>65</textoffsetx>
+                <include condition="Skin.HasSetting(WidgetAlignRight)">widget_header_rightalign</include>
+                <include condition="!Skin.HasSetting(WidgetAlignRight)">widget_header_leftalign</include>
+                <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
                 <label>[B]$INFO[Skin.String($PARAM[skinsetting].label)][/B]</label>
-                <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-                <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
-                <texturenofocus></texturenofocus>
-                <animation effect="slide" end="50" time="0" condition="Container($PARAM[widgetid]).IsUpdating">Conditional</animation>
-                <visible>Skin.String($PARAM[skinsetting].label) + Skin.HasSetting(LockHubWidgets)</visible>
+                <animation effect="slide" end="50" time="0" condition="Container($PARAM[widgetid]).IsUpdating + !Skin.HasSetting(WidgetAlignRight)">Conditional</animation>
+                <animation effect="slide" end="-50" time="0" condition="Container($PARAM[widgetid]).IsUpdating + Skin.HasSetting(WidgetAlignRight)">Conditional</animation>
             </control>
-            <control type="button" id="$PARAM[widgetid]4">
-                <width>100%</width>
-                <height>40</height>
-                <align>left</align>
-                <font>Reg32</font>
-                <textoffsetx>5</textoffsetx>
-                <label>$INFO[Skin.String($PARAM[skinsetting].label)]</label>
-                <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-                <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
-                <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=$PARAM[skinsetting].label&amp;skinWidgetTarget=$PARAM[skinsetting].target&amp;skinWidgetPath=$PARAM[skinsetting].path)</onclick>
-                <texturenofocus></texturenofocus>
-                <animation effect="slide" end="50" time="0" condition="Container($PARAM[widgetid]).IsUpdating">Conditional</animation>
-                <visible>Skin.String($PARAM[skinsetting].label) + !Skin.HasSetting(LockHubWidgets)</visible>
-            </control>
-            <control type="multiimage" id="$PARAM[widgetid]5">
-                <top>0</top>
-                <left>65</left>
+            <control type="multiimage">
                 <width>100%</width>
                 <height>36</height>
+                <include condition="Skin.HasSetting(WidgetAlignRight)">widget_header_rightalign</include>
+                <include condition="!Skin.HasSetting(WidgetAlignRight)">widget_header_leftalign</include>
                 <aspectratio align="left">keep</aspectratio>
-                <imagepath>busy_spinner/</imagepath>
-                <timeperimage>100</timeperimage>
+                <imagepath background="true">widgets/widgets-busy-loader/</imagepath>
+                <timeperimage>35</timeperimage>
                 <colordiffuse>$INFO[Skin.String(SpinnerTexture.Color)]</colordiffuse>
                 <fadetime>0</fadetime>
                 <visible>Container($PARAM[widgetid]).IsUpdating</visible>
             </control>
-            <control type="button" id="$PARAM[widgetid]6">
-                <width>100%</width>
-                <height>40</height>
-                <align>left</align>
-                <font>Reg32</font>
-                <textoffsetx>5</textoffsetx>
-                <label>[$ADDON[script.skinshortcuts 32025]]</label>
-                <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-                <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
-                <onclick>Skin.SetString($PARAM[skinsetting].label)</onclick>
-                <texturenofocus></texturenofocus>
-                <visible>Skin.String($PARAM[skinsetting].label) + !Skin.HasSetting(LockHubWidgets)</visible>
-            </control>
-            <control type="button" id="$PARAM[widgetid]7">
-                <width>100%</width>
-                <height>40</height>
-                <align>left</align>
-                <font>Reg32</font>
-                <textoffsetx>5</textoffsetx>
-                <label>31822</label>
-                <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-                <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
-                <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=$PARAM[skinsetting].label&amp;skinWidgetTarget=$PARAM[skinsetting].target&amp;skinWidgetPath=$PARAM[skinsetting].path)</onclick>
-                <texturenofocus></texturenofocus>
-                <visible>!Skin.String($PARAM[skinsetting].label) + !Skin.HasSetting(LockHubWidgets)</visible>
-            </control>
+        </control>
+        <control type="button" id="$PARAM[widgetid]4">
+            <width>99%</width>
+            <height>40</height>
+            <align>left</align>
+            <font>Reg32</font>
+            <textoffsetx>65</textoffsetx>
+            <label>$INFO[Skin.String($PARAM[skinsetting].label)]</label>
+            <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+            <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+            <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=$PARAM[skinsetting].label&amp;skinWidgetTarget=$PARAM[skinsetting].target&amp;skinWidgetPath=$PARAM[skinsetting].path)</onclick>
+            <texturenofocus></texturenofocus>
+            <visible>Skin.String($PARAM[skinsetting].label) + !Skin.HasSetting(LockHubWidgets)</visible>
+        </control>
+        <control type="button" id="$PARAM[widgetid]5">
+            <width>99%</width>
+            <height>40</height>
+            <align>left</align>
+            <font>Reg32</font>
+            <textoffsetx>65</textoffsetx>
+            <label>31822</label>
+            <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+            <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+            <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=$PARAM[skinsetting].label&amp;skinWidgetTarget=$PARAM[skinsetting].target&amp;skinWidgetPath=$PARAM[skinsetting].path)</onclick>
+            <texturenofocus></texturenofocus>
+            <visible>!Skin.String($PARAM[skinsetting].label) + !Skin.HasSetting(LockHubWidgets)</visible>
+        </control>
+        <control type="button" id="$PARAM[widgetid]6">
+            <width>99%</width>
+            <height>40</height>
+            <align>left</align>
+            <font>Reg24</font>
+            <textoffsetx>65</textoffsetx>
+            <label>[$ADDON[script.skinshortcuts 32025]]</label>
+            <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+            <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+            <onclick>Skin.SetString($PARAM[skinsetting].label)</onclick>
+            <texturenofocus></texturenofocus>
+            <visible>Skin.String($PARAM[skinsetting].label) + !Skin.HasSetting(LockHubWidgets)</visible>
+        </control>
+        <control type="multiimage" id="$PARAM[widgetid]7">
+            <top>0</top>
+            <left>65</left>
+            <width>36</width>
+            <height>36</height>
+            <aspectratio align="left">keep</aspectratio>
+            <imagepath>widgets/widgets-busy-loader/</imagepath>
+            <timeperimage>35</timeperimage>
+            <colordiffuse>$INFO[Skin.String(SpinnerTexture.Color)]</colordiffuse>
+            <fadetime>0</fadetime>
+            <visible>Container($PARAM[widgetid]).IsUpdating + !Skin.HasSetting(LockHubWidgets)</visible>
         </control>
         <control type="fixedlist" id="$PARAM[widgetid]">
             <width>100%</width>
