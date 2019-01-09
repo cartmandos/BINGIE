@@ -276,7 +276,7 @@
                     <control type="button" id="52">
                         <!-- more info -->
                         <description>Info</description>
-                        <width>240</width>
+                        <width>250</width>
                         <height>100%</height>
                         <align>center</align>
                         <!-- localize [info_id=29915] -->

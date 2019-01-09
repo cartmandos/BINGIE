@@ -577,17 +577,18 @@
     </variable>
 
     <!-- Next Up Notification vars -->
-    <!-- next up resolution -->
+
+    <!-- next up resolution - is currently missing in UP-NEXT addon
     <variable name="NextUpResolution">
         <value condition="Integer.IsGreater(Control.GetLabel(3011),1080)">UHD</value>
         <value condition="Integer.IsGreater(Control.GetLabel(3011),700)">HD</value>
         <value condition="Integer.IsLess(Control.GetLabel(3011),700)">SD</value>
-    </variable>
+    </variable> -->
     <!-- next up thumb episode/tvshow based on setting preference -->
     <variable name="NextUpThumb">
-        <value condition="!String.IsEmpty(Control.GetLabel(3005)) + Skin.HasSetting(PreferTvShowThumbWidget)">$INFO[Control.GetLabel(3005)]</value>
-        <value condition="!String.IsEmpty(Control.GetLabel(3008))">$INFO[Control.GetLabel(3008)]</value>
-        <value condition="!String.IsEmpty(Control.GetLabel(3005))">$INFO[Control.GetLabel(3005)]</value>
+        <value condition="!String.IsEmpty(Window.Property(fanart)) + Skin.HasSetting(PreferTvShowThumbWidget)">$INFO[Window.Property(fanart)]</value>
+        <value condition="!String.IsEmpty(Window.Property(thumb))">$INFO[Window.Property(thumb)]</value>
+        <value condition="!String.IsEmpty(Window.Property(fanart))">$INFO[Window.Property(fanart)]</value>
     </variable>
 </includes>
 

@@ -1631,13 +1631,13 @@
                 <onclick>Skin.ToggleSetting(OSDDisablePlaybackControls)</onclick>
                 <selected>Skin.HasSetting(OSDDisablePlaybackControls)</selected>
             </control>
-            <!-- switch next-up notification to just buttons -->
+            <!-- switch upnext notification to just buttons -->
             <control type="radiobutton" id="41820">
                 <include>SkinSettings_Button</include>
                 <label>Show just buttons for next-up notification osd</label>
                 <onclick>Skin.ToggleSetting(NextUpNotificationSlim)</onclick>
                 <selected>Skin.HasSetting(NextUpNotificationSlim)</selected>
-                <visible>System.HasAddon(service.nextup.notification)</visible>
+                <visible>System.HasAddon(service.upnext)</visible>
             </control>
 
             <!-- music playback -->
@@ -3061,7 +3061,7 @@
             </include>
             <include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
                 <param name="id" value="31007" />
-                <param name="addon" value="service.nextup.notification" />
+                <param name="addon" value="service.upnext" />
             </include>
             <include name="SkinSettings_AddonButton" content="SkinSettings_AddonButton">
                 <param name="id" value="31008" />

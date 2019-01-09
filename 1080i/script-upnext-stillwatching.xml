@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--BINGIE-->
 <window>
-	<defaultcontrol always="true">4012</defaultcontrol>
+	<defaultcontrol always="true">3012</defaultcontrol>
 	<zorder>1</zorder>
 	<controls>
 	<include>animation_fade_visible_hidden</include>
@@ -28,7 +28,7 @@
 					<font>Bold46</font>
 					<textcolor>white</textcolor>
 					<shadowcolor>black</shadowcolor>
-					<label>$ADDON[service.nextup.notification 30024]</label>
+					<label>$ADDON[service.upnext 30024]</label>
 				</control>
 				<!-- Buttons -->
 				<control type="grouplist">
@@ -38,11 +38,11 @@
 					<width>100%</width>
 					<align>center</align>
 					<!-- Continue Watching -->
-					<control type="button" id="4012">
+					<control type="button" id="3012">
 						<width>500</width>
 						<height>65</height>
 						<align>center</align>
-						<onright>4013</onright>
+						<onright>3013</onright>
 						<textoffsetx>10</textoffsetx>
 						<label>[CAPITALIZE]$LOCALIZE[31535][/CAPITALIZE]</label>
 						<aligny>center</aligny>
@@ -53,12 +53,12 @@
 						<texturenofocus/>
 					</control>
 					<!-- Cancel -->
-					<control type="button" id="4013">
+					<control type="button" id="3013">
 						<width>500</width>
 						<height>65</height>
 						<align>center</align>
 						<aligny>center</aligny>
-						<onleft>4012</onleft>
+						<onleft>3012</onleft>
 						<label>222</label>
 						<font>Reg34</font>
 						<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>

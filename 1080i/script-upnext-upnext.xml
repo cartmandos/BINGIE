@@ -4,69 +4,6 @@
     <defaultcontrol always="true">3012</defaultcontrol>
     <zorder>1</zorder>
     <controls>
-        <!--3000 - Title
-        3001 - Plot
-        3002 - Season/Episode
-        3003 - Rating
-        3004 - First Aired
-        3005 - TV Show Fanart
-        3006 - TV Show ClearArt
-        3007 - TV Show Title
-        3008 - Episode Thumb
-        3009 - TV Show Poster
-        3010 - TV Show Landscape
-        3011 - Video Resolution
-        3012 - Watch Now Button
-        3013 - Cancel Button
-        3015 - Season Number
-        3016 - Episode Number
-        3018 - Play Count-->
-        <control type="label" id="3000">
-            <include>HiddenObject</include>
-        </control>
-        <control type="textbox" id="3001">
-            <include>HiddenObject</include>
-        </control>
-        <control type="label" id="3002">
-            <include>HiddenObject</include>
-        </control>
-        <control type="label" id="3003">
-            <include>HiddenObject</include>
-        </control>
-        <control type="label" id="3004">
-            <include>HiddenObject</include>
-        </control>
-        <control type="image" id="3005">
-            <include>HiddenObject</include>
-        </control>
-        <control type="image" id="3006">
-            <include>HiddenObject</include>
-        </control>
-        <control type="label" id="3007">
-            <include>HiddenObject</include>
-        </control>
-        <control type="image" id="3008">
-            <include>HiddenObject</include>
-        </control>
-        <control type="image" id="3009">
-            <include>HiddenObject</include>
-        </control>
-        <control type="image" id="3010">
-            <include>HiddenObject</include>
-        </control>
-        <control type="label" id="3011">
-            <include>HiddenObject</include>
-        </control>
-        <control type="label" id="3015">
-            <include>HiddenObject</include>
-        </control>
-        <control type="label" id="3016">
-            <include>HiddenObject</include>
-        </control>
-        <control type="label" id="3018">
-            <include>HiddenObject</include>
-        </control>
-
         <!-- Hidden Buttons section -->
         <control type="grouplist">
             <include>HiddenObject</include>
@@ -82,7 +19,6 @@
         </control>
 
         <!-- OSD -->
-
         <!-- Buttons Notification -->
         <control type="group" id="500397">
             <visible>Skin.HasSetting(NextUpNotificationSlim)</visible>
@@ -92,7 +28,7 @@
                 <right>40</right>
                 <orientation>horizontal</orientation>
                 <itemgap>25</itemgap>
-                <width>650</width>
+                <width>675</width>
                 <height>65</height>
                 <control type="button" id="3096">
                     <width>225</width>
@@ -109,7 +45,7 @@
                 </control>
                 <control type="radiobutton" id="3097">
                     <!-- localize -->
-                    <width>385</width>
+                    <width>415</width>
                     <height>65</height>
                     <aligny>center</aligny>
                     <align>left</align>
@@ -158,9 +94,9 @@
                         <textcolor>white</textcolor>
                         <align>left</align>
                         <aligny>center</aligny>
-                        <label>$INFO[Control.GetLabel(3007)]</label>
+                        <label>$INFO[Window.Property(tvshowtitle)]</label>
                     </control>
-                    <!-- Starting in ... (locoalize) -->
+                    <!-- Starting in ... (localize) -->
                     <control type="label">
                         <width>auto</width>
                         <height>33</height>
@@ -171,7 +107,7 @@
                     </control>
                     <!-- Thumb/Fanart -->
                     <control type="group">
-                        <visible>!String.IsEmpty(Control.GetLabel(3005)) | !String.IsEmpty(Control.GetLabel(3008))</visible>
+                        <visible>!String.IsEmpty(Window.Property(fanart)) | !String.IsEmpty(Window.Property(thumb))</visible>
                         <width>550</width>
                         <height>315</height>
                         <control type="image">
@@ -200,7 +136,7 @@
                             <width>auto</width>
                             <textcolor>white</textcolor>
                             <font>Bold26</font>
-                            <label>$INFO[Control.GetLabel(3015),S,: ]$INFO[Control.GetLabel(3016),E,]</label>
+                            <label>$INFO[Window.Property(season),S,: ]$INFO[Window.Property(episode),E,]</label>
                         </control>
                     </control>
                     <!-- Episode Name -->
@@ -210,8 +146,8 @@
                         <aligny>center</aligny>
                         <font>Bold28</font>
                         <textcolor>white</textcolor>
-                        <label>$INFO[Control.GetLabel(3000)]</label>
-                        <visible>!String.IsEmpty(Control.GetLabel(3000))</visible>
+                        <label>$INFO[Window.Property(title)]</label>
+                        <visible>!String.IsEmpty(Window.Property(title))</visible>
                     </control>
                     <!-- Details Row -->
                     <control type="grouplist">
@@ -220,7 +156,7 @@
                         <height>40</height>
                         <itemgap>15</itemgap>
 
-                        <!-- Aired Date -->
+                        <!-- Premiered year -->
                         <control type="label">
                             <posy>2</posy>
                             <width>auto</width>
@@ -228,8 +164,8 @@
                             <aligny>center</aligny>
                             <font>reg24</font>
                             <textcolor>white</textcolor>
-                            <label>$INFO[Control.GetLabel(3004)]</label>
-                            <visible>!String.IsEmpty(Control.GetLabel(3004))</visible>
+                            <label>$INFO[Window.Property(year)]</label>
+                            <visible>!String.IsEmpty(Window.Property(year))</visible>
                         </control>
 
                         <!-- MPAA -->
@@ -264,6 +200,7 @@
                                 <width>100%</width>
                                 <texture colordiffuse="$INFO[Skin.String(NetflixDetailsFlagColor)]">netflix/frame/frame.png</texture>
                             </control>
+                            <!-- currently not supported in up-next
                             <control type="label" id="3099">
                                 <width>100%</width>
                                 <height>100%</height>
@@ -273,7 +210,7 @@
                                 <font>Reg24</font>
                                 <scroll>false</scroll>
                                 <label>$VAR[NextUpResolution]</label>
-                            </control>
+                            </control> -->
                         </control>
                     </control>
                     <!-- Plot -->
@@ -282,7 +219,7 @@
                         <height max="100">auto</height>
                         <align>justify</align>
                         <textcolor>white</textcolor>
-                        <label>$INFO[Control.GetLabel(3001)]</label>
+                        <label>$INFO[Window.Property(plot)]</label>
                     </control>
                 </control>
             </control>
