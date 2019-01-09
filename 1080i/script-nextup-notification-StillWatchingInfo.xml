@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
+<!--BINGIE-->
 <window>
 	<defaultcontrol always="true">4012</defaultcontrol>
 	<zorder>1</zorder>
@@ -49,7 +50,7 @@
 						<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
 						<focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
 						<texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">border_netflix.png</texturefocus>
-						<texturenofocus></texturenofocus>
+						<texturenofocus/>
 					</control>
 					<!-- Cancel -->
 					<control type="button" id="4013">
@@ -63,7 +64,7 @@
 						<textcolor>$INFO[Skin.String(NetflixPrimaryTextColor)]</textcolor>
 						<focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
 						<texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">border_netflix.png</texturefocus>
-						<texturenofocus></texturenofocus>
+						<texturenofocus/>
 					</control>
 				</control>
 			</control>

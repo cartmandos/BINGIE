@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--Titan-->
+<!--BINGIE-->
 <includes>
     <!--NowPlayingMusic-->
     <include name="NowPlayingMusicClassic">
@@ -79,7 +79,7 @@
                 <posx>255</posx>
                 <posy>124</posy>
                 <width>285</width>
-                <texturebg></texturebg>
+                <texturebg/>
                 <midtexture border="4">common/progress/ProgressMidSmall.png</midtexture>
                 <info>Player.Progress</info>
                 <visible>true</visible>
@@ -151,7 +151,7 @@
                 <posx>357</posx>
                 <posy>124</posy>
                 <width>285</width>
-                <texturebg></texturebg>
+                <texturebg/>
                 <midtexture border="4">common/progress/ProgressMidSmall.png</midtexture>
                 <info>Player.Progress</info>
                 <visible>true</visible>
@@ -297,12 +297,12 @@
 				<align>center</align>
 				<aligny>center</aligny>
 				<font>Light28</font>
-				<label>-</label>
-				<textcolor>-</textcolor>
-				<focusedcolor>-</focusedcolor>
-				<disabledcolor>-</disabledcolor>
-				<texturefocus>-</texturefocus>
-				<texturenofocus>-</texturenofocus>
+				<label/>
+				<textcolor/>
+				<focusedcolor/>
+				<disabledcolor/>
+				<texturefocus/>
+				<texturenofocus/>
 				<onclick condition="player.hasaudio">ActivateWindow(visualisation)</onclick>
 				<onclick condition="player.hasvideo">ActivateWindow(fullscreenvideo)</onclick>
 			</control>
@@ -404,7 +404,7 @@
                         <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
                     </control>
                     <control type="label">
-                        <label></label>
+                        <label/>
                         <visible>!String.Contains(System.Language,German)</visible>
                         <width min="0" max="400">auto</width>
                         <height>50</height>
@@ -438,7 +438,7 @@
                     <width>70</width>
                     <height>70</height>
                     <label>210</label>
-                    <font>-</font>
+                    <font/>
                     <texturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">osd/rounded/PrevTrack.png</texturefocus>
                     <texturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">osd/rounded/PrevTrack.png</texturenofocus>
                     <usealttexture>VideoPlayer.Content(livetv)</usealttexture>
@@ -447,12 +447,12 @@
                     <onclick>PlayerControl(Previous)</onclick>
                 </control>
                 <control type="togglebutton">
-                    <label></label>
-                    <altlabel></altlabel>
+                    <label/>
+                    <altlabel/>
                     <include>animation_fade_visible_hidden</include>
                     <width>70</width>
                     <height>70</height>
-                    <font>-</font>
+                    <font/>
                     <texturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">osd/rounded/Pause.png</texturefocus>
                     <texturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">osd/rounded/Pause.png</texturenofocus>
                     <usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
@@ -461,12 +461,12 @@
                     <onclick>PlayerControl(Play)</onclick>
                 </control>
                 <control type="button">
-                    <label></label>
+                    <label/>
                     <!--Stop-->
                     <include>animation_fade_visible_hidden</include>
                     <width>70</width>
                     <height>70</height>
-                    <font>-</font>
+                    <font/>
                     <texturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">osd/rounded/Stop.png</texturefocus>
                     <texturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">osd/rounded/Stop.png</texturenofocus>
                     <onclick>PlayerControl(Stop)</onclick>
@@ -477,7 +477,7 @@
                     <width>70</width>
                     <height>70</height>
                     <label>209</label>
-                    <font>-</font>
+                    <font/>
                     <texturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">osd/rounded/NextTrack.png</texturefocus>
                     <texturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">osd/rounded/NextTrack.png</texturenofocus>
                     <usealttexture>VideoPlayer.Content(livetv)</usealttexture>

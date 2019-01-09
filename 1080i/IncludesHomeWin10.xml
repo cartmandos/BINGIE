@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--BINGIE-->
 <includes>
     
     <include name="HomeWin10">
@@ -150,13 +152,13 @@
 
             <!-- menu button -->
             <control type="button" id="1">
-                <label></label>
+                <label/>
                 <posx>40</posx>
                 <top>20</top>
                 <include>animation_fade_visible_hidden</include>
                 <width>60</width>
                 <height>60</height>
-                <font>-</font>
+                <font/>
                 <onright>2</onright>
                 <ondown>300</ondown>
                 <onleft>77777</onleft>

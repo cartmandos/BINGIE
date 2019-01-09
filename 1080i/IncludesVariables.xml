@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--Titan-->
+<!--BINGIE-->
 <includes>
     <!-- ====== -->
     <!-- Header -->
@@ -7,7 +7,6 @@
     <variable name="value_header">
         <value condition="[Window.IsActive(skinsettings) | Window.IsActive(Custom_SkinSettings.xml)]">[UPPERCASE]$LOCALIZE[20077][/UPPERCASE]</value>
 		<value condition="window.isactive(favourites)">$LOCALIZE[1036]</value>
-        <value condition="window.isactive(DialogAudioDSPManager.xml )">$LOCALIZE[15020]</value>
 		<value condition="Window.IsActive(script-ExtendedInfo Script-DialogInfo.xml) + !String.IsEmpty(Window(Home).Property(actor.title))">$INFO[Window(Home).Property(actor.title)]</value>
 		<value condition="Window.IsActive(loginscreen)">$INFO[System.CurrentWindow]</value>
 		<value condition="window.isactive(DialogVideoInfo.xml) + !String.IsEmpty(ListItem.TvShowTitle)">$INFO[ListItem.TvShowTitle]</value>
@@ -272,7 +271,7 @@
 	 </variable>
      
 	<variable name="ListItemClearLogo">
-		<value condition="Control.IsVisible(503)"></value>
+		<value condition="Control.IsVisible(503)"/>
 		<value condition="!String.IsEmpty(ListItem.Art(tvshow.clearlogo))">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
         <value condition="!String.IsEmpty(Container(999).ListItem.Art(clearlogo))">$INFO[Container(999).ListItem.Art(clearlogo)]</value>
@@ -316,7 +315,8 @@
 	
 	<variable name="HDIndicator">
 		<value condition="ListItem.IsStereoscopic">3D</value>
-        <value condition="Integer.IsGreater(ListItem.VideoResolution,1080) | String.IsEqual(ListItem.VideoResolution,4K)">UHD</value>
+        <value condition="Integer.IsGreater(ListItem.VideoResolution,1080) | String.IsEqual(ListItem.VideoResolution,4K)
+         | String.IsEqual(ListItem.VideoResolution,8K)">UHD</value>
         <value condition="Integer.IsGreater(ListItem.VideoResolution,720)">FHD</value>
 		<value condition="Integer.IsGreater(ListItem.VideoResolution,700)">HD</value>
 		<value condition="!String.IsEmpty(ListItem.VideoResolution)">SD</value>
@@ -452,7 +452,6 @@
     
     <variable name="ListChannelNumberPVR">
         <value condition="!String.IsEmpty(ListItem.ChannelNumberLabel)">$INFO[ListItem.ChannelNumberLabel]</value>
-        <value>$INFO[ListItem.ChannelNumber]</value>
     </variable>  
     
     <variable name="ThumbListDetails">

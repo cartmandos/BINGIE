@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--Titan-->
+<!--BINGIE-->
 <window>
     <defaultcontrol always="true">1000</defaultcontrol>
     <include>DefaultSkinSettings</include>
@@ -32,8 +32,8 @@
             </include>            
             <onfocus condition="String.IsEmpty(Window(Home).Property(widgetstyle))">SetProperty(widgetstyle, $INFO[Skin.String(widgetstyle)])</onfocus>
             <onfocus>SetProperty(HomeFirstLoadDone,done)</onfocus>
-			<texturenofocus>-</texturenofocus>
-			<texturefocus>-</texturefocus>
+			<texturenofocus/>
+			<texturefocus/>
             <onleft>300</onleft>
             <onright>300</onright>
             <onup>300</onup>
@@ -48,7 +48,7 @@
 		
         <!-- Hidden control to preload weather conditions -->
 		<control type="label">
-			<font>-</font>
+			<font/>
 			<label>$INFO[Weather.Conditions]</label>
             <include>HiddenObject</include>
 		</control>

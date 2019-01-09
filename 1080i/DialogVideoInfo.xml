@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--Titan-->
+<!--BINGIE-->
 <window>
     
     <defaultcontrol always="true">9005</defaultcontrol>
@@ -60,7 +60,7 @@
 						<texture border="15">diffuse/bgpanel.png</texture>
 						<colordiffuse>$VAR[Netflix2_PanelColor]</colordiffuse>
 					</control>
-					<control type="videowindow"></control>
+					<control type="videowindow"/>
 					<control type="image">
 						<texture border="15">overlay/gradient_right.png</texture>
 						<colordiffuse>$VAR[Netflix2_PanelColor]</colordiffuse>
@@ -403,9 +403,9 @@
                                 <align>center</align>
                                 <aligny>top</aligny>
                                 <texturebg colordiffuse="cc515151" border="2">colors/color_white.png</texturebg>
-                                <lefttexture>-</lefttexture>
+                                <lefttexture/>
                                 <midtexture colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]" border="2">colors/color_white.png</midtexture>
-                                <righttexture>-</righttexture>
+                                <righttexture/>
                                 <info>ListItem.PercentPlayed</info>
                             </control>
                         </control>
@@ -518,9 +518,9 @@
                                         <align>center</align>
                                         <aligny>top</aligny>
                                         <texturebg colordiffuse="cc515151" border="2">colors/color_white.png</texturebg>
-                                        <lefttexture>-</lefttexture>
+                                        <lefttexture/>
                                         <midtexture colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]" border="2">colors/color_white.png</midtexture>
-                                        <righttexture>-</righttexture>
+                                        <righttexture/>
                                         <info>ListItem.PercentPlayed</info>
                                     </control>
                                 </focusedlayout>
@@ -541,7 +541,7 @@
                                 <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
                                 <label>208</label>
                                 <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">border_netflix.png</texturefocus>
-                                <texturenofocus></texturenofocus>
+                                <texturenofocus/>
                                 <textureradioonfocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">play.png</textureradioonfocus>
                                 <textureradioofffocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">play.png</textureradioofffocus>
                                 <textureradioonnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">play.png</textureradioonnofocus>
@@ -569,7 +569,7 @@
                                 <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
                                 <label>13404</label>
                                 <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">border_netflix.png</texturefocus>
-                                <texturenofocus></texturenofocus>
+                                <texturenofocus/>
                                 <textureradioonfocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">play.png</textureradioonfocus>
                                 <textureradioofffocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">play.png</textureradioofffocus>
                                 <textureradioonnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">play.png</textureradioonnofocus>
@@ -596,7 +596,7 @@
                                 <font>Reg30</font>
                                 <label>12021</label>
                                 <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">border_netflix.png</texturefocus>
-                                <texturenofocus></texturenofocus>
+                                <texturenofocus/>
                                 <textureradioonfocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">play_beginning.png</textureradioonfocus>
                                 <textureradioofffocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">play_beginning.png</textureradioofffocus>
                                 <textureradioonnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">play_beginning.png</textureradioonnofocus>
@@ -633,7 +633,7 @@
                                 <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
                                 <label>More episodes</label>
                                 <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">border_netflix.png</texturefocus>
-                                <texturenofocus></texturenofocus>
+                                <texturenofocus/>
                                 <textureradioonfocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">more_episodes.png</textureradioonfocus>
                                 <textureradioofffocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">more_episodes.png</textureradioofffocus>
                                 <textureradioonnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">more_episodes.png</textureradioonnofocus>
@@ -665,7 +665,7 @@
                                 <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
                                 <label>20410</label>
                                 <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">border_netflix.png</texturefocus>
-                                <texturenofocus></texturenofocus>
+                                <texturenofocus/>
                                 <textureradioonfocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">dialogs/videoinfo/tvstudio-icon.png</textureradioonfocus>
                                 <textureradioofffocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">dialogs/videoinfo/tvstudio-icon.png</textureradioofffocus>
                                 <textureradioonnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">dialogs/videoinfo/tvstudio-icon.png</textureradioonnofocus>
@@ -694,7 +694,7 @@
                                 <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
                                 <label>35232</label>
                                 <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">border_netflix.png</texturefocus>
-                                <texturenofocus></texturenofocus>
+                                <texturenofocus/>
                                 <textureradioonfocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">dialogs/videoinfo/tvstudio-icon.png</textureradioonfocus>
                                 <textureradioofffocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">dialogs/videoinfo/tvstudio-icon.png</textureradioofffocus>
                                 <textureradioonnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">dialogs/videoinfo/tvstudio-icon.png</textureradioonnofocus>
@@ -726,7 +726,7 @@
                                 <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
                                 <label>Rate this title</label>
                                 <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">border_netflix.png</texturefocus>
-                                <texturenofocus></texturenofocus>
+                                <texturenofocus/>
                                 <textureradioonfocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">thumbs-up.png</textureradioonfocus>
                                 <textureradioofffocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">thumbs-up.png</textureradioofffocus>
                                 <textureradioonnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">thumbs-up.png</textureradioonnofocus>
@@ -755,7 +755,7 @@
                                 <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
                                 <label>Change rating</label>
                                 <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">border_netflix.png</texturefocus>
-                                <texturenofocus></texturenofocus>
+                                <texturenofocus/>
                                 <include condition="Integer.IsLessOrEqual(ListItem.UserRating,5)">ChangeRatingThumbsDown</include>
                                 <include condition="Integer.IsGreaterOrEqual(ListItem.UserRating,5)">ChangeRatingThumbsUp</include>
                                 <radiowidth>24</radiowidth>
@@ -781,7 +781,7 @@
                                 <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
                                 <label>$LOCALIZE[207] &amp; $LOCALIZE[31608]</label>
                                 <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">border_netflix.png</texturefocus>
-                                <texturenofocus></texturenofocus>
+                                <texturenofocus/>
                                 <textureradioonfocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">plus.png</textureradioonfocus>
                                 <textureradioofffocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">plus.png</textureradioofffocus>
                                 <textureradioonnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">plus.png</textureradioonnofocus>
@@ -810,7 +810,7 @@
                                 <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
                                 <label>206</label>
                                 <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">border_netflix.png</texturefocus>
-                                <texturenofocus></texturenofocus>
+                                <texturenofocus/>
                                 <textureradioonfocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">plus.png</textureradioonfocus>
                                 <textureradioofffocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">plus.png</textureradioofffocus>
                                 <textureradioonnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">plus.png</textureradioonnofocus>
@@ -839,7 +839,7 @@
                                 <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
                                 <label>31622</label>
                                 <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">border_netflix.png</texturefocus>
-                                <texturenofocus></texturenofocus>
+                                <texturenofocus/>
                                 <textureradioonfocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">plus.png</textureradioonfocus>
                                 <textureradioofffocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">plus.png</textureradioofffocus>
                                 <textureradioonnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">plus.png</textureradioonnofocus>
@@ -867,7 +867,7 @@
                                 <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
                                 <label>More Info</label>
                                 <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">border_netflix.png</texturefocus>
-                                <texturenofocus></texturenofocus>
+                                <texturenofocus/>
                                 <textureradioonfocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">info.png</textureradioonfocus>
                                 <textureradioofffocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">info.png</textureradioofffocus>
                                 <textureradioonnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">info.png</textureradioonnofocus>
@@ -898,7 +898,7 @@
                                 <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
                                 <label>CinemaVision</label>
                                 <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">border_netflix.png</texturefocus>
-                                <texturenofocus></texturenofocus>
+                                <texturenofocus/>
                                 <radioposx>25</radioposx>
                                 <radiowidth>20</radiowidth>
                                 <radioheight>25</radioheight>
@@ -923,7 +923,7 @@
                                 <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
                                 <label>$INFO[System.AddonTitle(script.cinema.experience)]</label>
                                 <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">border_netflix.png</texturefocus>
-                                <texturenofocus></texturenofocus>
+                                <texturenofocus/>
                                 <radioposx>25</radioposx>
                                 <radiowidth>20</radiowidth>
                                 <radioheight>25</radioheight>
@@ -949,7 +949,7 @@
                                 <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
                                 <label>13511</label>
                                 <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">border_netflix.png</texturefocus>
-                                <texturenofocus></texturenofocus>
+                                <texturenofocus/>
                                 <textureradioonfocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">text-bg-color.png</textureradioonfocus>
                                 <textureradioofffocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">text-bg-color.png</textureradioofffocus>
                                 <textureradioonnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">text-bg-color.png</textureradioonnofocus>
@@ -978,7 +978,7 @@
                                 <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
                                 <label>184</label>
                                 <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">border_netflix.png</texturefocus>
-                                <texturenofocus></texturenofocus>
+                                <texturenofocus/>
                                 <textureradioonfocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">sinchronize.png</textureradioonfocus>
                                 <textureradioofffocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">sinchronize.png</textureradioofffocus>
                                 <textureradioonnofocus colordiffuse="$INFO[Skin.String(NetflixPrimaryTextColor)]">sinchronize.png</textureradioonnofocus>
@@ -1073,8 +1073,6 @@
 					<posy>250</posy>
 					<width>800</width>
 					<height>714</height>
-					<onup>noop</onup>
-					<ondown>noop</ondown>
 					<onleft>ClearProperty(AdditionalInfo)</onleft>
 					<onback>ClearProperty(AdditionalInfo)</onback>
 					<onback>8000</onback>
@@ -1115,7 +1113,7 @@
 							</control>
 						</control>
 						<control type="button">
-							<label>-</label>
+							<label/>
 							<visible>false</visible>
 							<onfocus>SetProperty(actordbid,$INFO[ListItem.Property(DBID)],home)</onfocus>
 						</control>
@@ -1181,8 +1179,6 @@
 					<posy>250</posy>
 					<width>800</width>
 					<height>714</height>
-					<onup>noop</onup>
-					<ondown>noop</ondown>
 					<onleft>ClearProperty(AdditionalInfo)</onleft>
 					<onback>ClearProperty(AdditionalInfo)</onback>
 					<onback>8000</onback>

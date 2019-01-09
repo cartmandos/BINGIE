@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
+<!--BINGIE-->
 <window>
     <defaultcontrol always="true">3012</defaultcontrol>
     <zorder>1</zorder>

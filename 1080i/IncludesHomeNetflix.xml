@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--BINGIE-->
 <includes>
    <!-- HOME NETFLIX 1 -->
     <include name="HomeNetflix">
@@ -120,7 +122,7 @@
                 <width>100%</width>
                 <height>100%</height>
                 <animation effect="slide" start="0" end="0,-80" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,2.35) | Integer.IsEqual(VideoPlayer.VideoAspect,2.55) | Integer.IsEqual(VideoPlayer.VideoAspect,2.76)" reversible="true">Conditional</animation>
-                <control type="videowindow"></control>
+                <control type="videowindow"/>
             </control>
             <!--fullscreen trailer fade in -->
             <control type="image">
@@ -297,7 +299,7 @@
                     <width>1220</width>
                     <height>680</height>
                     <animation effect="slide" start="0" end="0,-80" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,2.35) | Integer.IsEqual(VideoPlayer.VideoAspect,2.55) | Integer.IsEqual(VideoPlayer.VideoAspect,2.76)" reversible="true">Conditional</animation>
-                    <control type="videowindow"></control>
+                    <control type="videowindow"/>
                     <control type="image">
                         <texture colordiffuse="$VAR[Netflix2_PanelColor]" border="20">overlay/netflix_corner.png</texture>
                     </control>
@@ -442,9 +444,9 @@
                                 <height>8</height>
                                 <align>left</align>
                                 <texturebg colordiffuse="cc515151" border="2">colors/color_white.png</texturebg>
-                                <lefttexture>-</lefttexture>
+                                <lefttexture/>
                                 <midtexture colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]" border="2">colors/color_white.png</midtexture>
-                                <righttexture>-</righttexture>
+                                <righttexture/>
                                 <info>ListItem.PercentPlayed</info>
                             </control>
                             <!--continue watching -->
@@ -537,10 +539,10 @@
                 <height>60</height>
                 <right>20</right>
                 <top>20</top>
-                <font></font>
+                <font/>
                 <selected>Control.HasFocus(51)</selected>
-                <texturefocus></texturefocus>
-                <texturenofocus></texturenofocus>
+                <texturefocus/>
+                <texturenofocus/>
                 <textureradiofocus colordiffuse="$INFO[Skin.String(HomeViewDetailsFocusColor)]">common/menu.png</textureradiofocus>
                 <textureradionofocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">common/menu.png</textureradionofocus>
                 <radiowidth>60</radiowidth>
@@ -556,10 +558,10 @@
                 <height>60</height>
                 <right>20</right>
                 <top>20</top>
-                <font></font>
+                <font/>
                 <selected>Control.HasFocus(52)</selected>
-                <texturefocus></texturefocus>
-                <texturenofocus></texturenofocus>
+                <texturefocus/>
+                <texturenofocus/>
                 <textureradiofocus colordiffuse="$INFO[Skin.String(HomeViewDetailsFocusColor)]">touchcontrols/back.png</textureradiofocus>
                 <textureradionofocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">touchcontrols/back.png</textureradionofocus>
                 <radiowidth>60</radiowidth>
@@ -753,7 +755,7 @@
                 </control>
                 <control type="label">
                     <height>45</height>
-                    <label></label>
+                    <label/>
                 </control>
                 <control type="group">
                     <height>100</height>
@@ -802,7 +804,7 @@
                     <onfocus>Setproperty(SkinHelper.WidgetContainer,1508)</onfocus>
                 </control>
                 <control type="radiobutton" id="53">
-                    <label></label>
+                    <label/>
                     <height>100%</height>
                     <width>60</width>
                     <height>60</height>
@@ -818,7 +820,7 @@
                     <selected>Control.HasFocus(53)</selected>
                 </control>
                 <control type="radiobutton" id="54">
-                    <label></label>
+                    <label/>
                     <height>100%</height>
                     <width>60</width>
                     <height>60</height>
@@ -1000,13 +1002,13 @@
             <control type="button" id="1">
                 <visible>Skin.HasSetting(EnableTouchSupport)</visible>
                 <visible>!Window.IsActive(notification) + !Window.IsActive(extendedprogressdialog) + !Control.IsVisible(88888)</visible>
-                <label></label>
+                <label/>
                 <posx>50</posx>
                 <top>20</top>
                 <include>animation_fade_visible_hidden</include>
                 <width>50</width>
                 <height>50</height>
-                <font>-</font>
+                <font/>
                 <onright>40002</onright>
                 <ondown>300</ondown>
                 <onleft>77777</onleft>
@@ -1071,7 +1073,7 @@
                         <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
                         <focusedcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</focusedcolor>
                         <texturefocus colordiffuse="$INFO[Skin.String(MainMenuSecondaryFocusButtonColor)]">colors/color_white.png</texturefocus>
-                        <texturenofocus></texturenofocus>
+                        <texturenofocus/>
                         <onclick>ClearProperty(ShowViewSubMenu, Home)</onclick>
                         <onclick>System.LogOff</onclick>
                     </control>
@@ -1198,7 +1200,7 @@
                     <focusedcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</focusedcolor>
                     <label>5</label>
                     <texturefocus colordiffuse="$INFO[Skin.String(MainMenuSecondaryFocusButtonColor)]">colors/color_white.png</texturefocus>
-                    <texturenofocus></texturenofocus>
+                    <texturenofocus/>
                     <onclick>ClearProperty(ShowViewSubMenu, Home)</onclick>
                     <onclick>ActivateWindow(Settings)</onclick>
                 </control>
@@ -1213,7 +1215,7 @@
                     <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
                     <focusedcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</focusedcolor>
                     <texturefocus colordiffuse="$INFO[Skin.String(MainMenuSecondaryFocusButtonColor)]">colors/color_white.png</texturefocus>
-                    <texturenofocus></texturenofocus>
+                    <texturenofocus/>
                     <label>13012</label>
                     <onclick>quit</onclick>
                 </control>
@@ -1311,7 +1313,7 @@
                         <scroll>true</scroll>
                     </control>
                     <control type="button">
-                        <label>-</label>
+                        <label/>
                         <visible>false</visible>
                         <onfocus>SetProperty(submenu,show,home)</onfocus>
                     </control>
@@ -1372,7 +1374,7 @@
             <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
             <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
             <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=$PARAM[skinsetting].label&amp;skinWidgetTarget=$PARAM[skinsetting].target&amp;skinWidgetPath=$PARAM[skinsetting].path)</onclick>
-            <texturenofocus></texturenofocus>
+            <texturenofocus/>
             <visible>Skin.String($PARAM[skinsetting].label) + !Skin.HasSetting(LockHubWidgets)</visible>
         </control>
         <control type="button" id="$PARAM[widgetid]5">
@@ -1385,7 +1387,7 @@
             <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
             <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
             <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=$PARAM[skinsetting].label&amp;skinWidgetTarget=$PARAM[skinsetting].target&amp;skinWidgetPath=$PARAM[skinsetting].path)</onclick>
-            <texturenofocus></texturenofocus>
+            <texturenofocus/>
             <visible>!Skin.String($PARAM[skinsetting].label) + !Skin.HasSetting(LockHubWidgets)</visible>
         </control>
         <control type="button" id="$PARAM[widgetid]6">
@@ -1398,7 +1400,7 @@
             <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
             <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
             <onclick>Skin.SetString($PARAM[skinsetting].label)</onclick>
-            <texturenofocus></texturenofocus>
+            <texturenofocus/>
             <visible>Skin.String($PARAM[skinsetting].label) + !Skin.HasSetting(LockHubWidgets)</visible>
         </control>
         <control type="multiimage" id="$PARAM[widgetid]7">

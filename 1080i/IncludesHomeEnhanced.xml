@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--BINGIE-->
 <includes>
 	 
     <include name="EnhancedHome">
@@ -127,11 +129,10 @@
 				<aligny>center</aligny>
 				<textoffsetx>0</textoffsetx>
 				<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-				<texturenofocus>-</texturenofocus>
-				<texturefocus>-</texturefocus>
+				<texturenofocus/>
+				<texturefocus/>
 				<focusedcolor>darkgrey</focusedcolor>
 				<label>$VAR[submenuheader]</label>
-				<onclick>noop</onclick>
 				<onleft>4444</onleft>
 				<visible>Integer.IsGreater(Container(4444).NumItems,0) + Control.IsVisible(4444)</visible>
 			</control>
@@ -213,7 +214,7 @@
 				<visible>String.IsEmpty(Container(300).ListItem.Property(widget)) + String.IsEmpty(Container(300).ListItem.Property(widget.1))</visible>
 				<itemlayout width="360" height="60">
 					<control type="button">
-						<label></label>
+						<label/>
 						<width>337</width>
 						<height>60</height>
 						<font>Reg24</font>
@@ -234,7 +235,7 @@
 				</itemlayout>
 				<focusedlayout width="360" height="60">
 					<control type="button">
-						<label></label>
+						<label/>
 						<width>337</width>
 						<height>60</height>
 						<font>Reg24</font>
@@ -536,7 +537,7 @@
         <value condition="!ControlGroup(77777).HasFocus + Control.IsVisible(1508) + !String.IsEmpty(Container(1508).ListItem.Art(tvshow.fanart))">$INFO[Container(1508).ListItem.Art(tvshow.fanart)]</value>
         <value condition="!ControlGroup(77777).HasFocus + Control.IsVisible(1508) + !String.IsEmpty(Container(1508).ListItem.Property(fanart))">$INFO[Container(1508).ListItem.Property(fanart)]</value>
         <value condition="!ControlGroup(77777).HasFocus + Control.IsVisible(1508) + !String.IsEmpty(Container(1508).ListItem.Thumb)">$INFO[Container(1508).ListItem.Thumb]</value>
-        <value condition="!ControlGroup(77777).HasFocus + Control.IsVisible(1508)">-</value>
+        <value condition="!ControlGroup(77777).HasFocus + Control.IsVisible(1508)"/>
         
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.ChannelName))">resource://resource.images.skinbackgrounds.titanium/hover_my tv.jpg</value>
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Art.fanart))">$INFO[Window(Home).Property(ListItem.Art.fanart)]</value>

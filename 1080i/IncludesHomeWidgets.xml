@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--BINGIE-->
 <includes>
     <include name="HorizontalWidgets">
         <!-- infopanel -->
@@ -103,7 +104,7 @@
             <visible>!Skin.HasSetting(EnableTouchSupport)</visible>
             
             <control type="fadelabel">
-                <left></left>
+                <left/>
                 <bottom>0</bottom>
                 <width>100%</width>
                 <height>100</height>
@@ -1625,7 +1626,7 @@
             <include name="WidgetProperties" content="WidgetProperties">
                 <param name="widgetid" value="0" />
             </include>
-            <texturenofocus>-</texturenofocus>
+            <texturenofocus/>
             <radiowidth>40</radiowidth>
             <radioheight>40</radioheight>
             <radioposx>0</radioposx>
@@ -1678,8 +1679,8 @@
         <align>left</align>
         <aligny>center</aligny>
         <textoffsetx>0</textoffsetx>
-        <textureradiofocus></textureradiofocus>
-        <textureradionofocus></textureradionofocus>
+        <textureradiofocus/>
+        <textureradionofocus/>
         <width>337</width>
     </include>
     <include name="widget_header_single_fade">

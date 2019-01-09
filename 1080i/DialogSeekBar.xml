@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--BINGIE-->
 <window>
     <visible>[Window.IsActive(videoosd) | Player.ShowInfo | Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding] + window.isactive(fullscreenvideo)</visible>
 	<controls>

@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
+<!--BINGIE-->
 <window>
 	<views>50</views>
 	<animation effect="fade" time="400">WindowOpen</animation>
@@ -90,7 +91,7 @@
 						<height>55</height>
 						<aligny>center</aligny>
 						<font>font13</font>
-						<label></label>
+						<label/>
 					</control>
 				</control>
 				<control type="button" id="990">
@@ -102,8 +103,8 @@
 					<align>left</align>
 					<aligny>center</aligny>
 					<font>font14</font>
-					<texturefocus></texturefocus>
-					<texturenofocus></texturenofocus>
+					<texturefocus/>
+					<texturenofocus/>
 					<onup>SetFocus(9000,99,absolute)</onup>
 					<ondown>9000</ondown>
 					<onleft>500</onleft>

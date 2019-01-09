@@ -1,3 +1,45 @@
+0.1.16
+BUGFIX: Fix conditions to hide DialogBusy
+- PVR: Channel number input is now visible when changing channels (PVR.ChannelNumberInput) @marduklev
+- Leia skin engine updates:
+	- Changed infolabels:
+	ListItem.ChannelNumber > ListItem.ChannelNumberLabel
+	VideoPlayer.ChannelNumber > VideoPlayer.ChannelNumberLabel)
+	https://forum.kodi.tv/showthread.php?tid=298565&pid=2672186#pid2672186
+
+	Listitem.Property(artistthumb) > Listitem.Art(artist.thumb)
+	https://forum.kodi.tv/showthread.php?tid=298565&pid=2693890#pid2693890
+
+	Player.CanRecord > PVR.CanRecordPlayingChannel
+	Player.Recording > PVR.IsRecordingPlayingChannel
+	PlayerControl(Record) > PVR.ToggleRecordPlayingChannel
+	https://forum.kodi.tv/showthread.php?tid=298565&pid=2675973#pid2675973
+
+	IntegerGreaterThan() > Integer.IsGreater()
+	https://forum.kodi.tv/showthread.php?tid=298565&pid=2477324#pid2477324
+
+	- ListItem.VideoResolution also returns 8K
+	https://forum.kodi.tv/showthread.php?tid=298565&pid=2787429#pid2787429
+
+	- DialogPVRGuideOSD.xml > DialogPVRChannelGuide.xml
+	https://forum.kodi.tv/showthread.php?tid=298565&pid=2550314#pid2550314
+
+	- Removed DialogAudioDSPManager.xml
+	https://forum.kodi.tv/showthread.php?tid=298565&pid=2785902#pid2785902
+
+	- pvrosdguide -> pvrchannelguide (Window name change)
+	- Removed window OSDAudioDSPSettings
+	https://forum.kodi.tv/showthread.php?tid=298565&pid=2785902#pid2785902
+
+	- Added new dependencies button in DialogAddonInfo.xml
+	https://forum.kodi.tv/showthread.php?tid=298565&pid=2779470#pid2779470
+
+	- Removed <onclick>noop</onclick>
+	https://forum.kodi.tv/showthread.php?tid=298565&pid=2550481#pid2550481
+
+	- Removed hyphen as none value
+	https://forum.kodi.tv/showthread.php?tid=298565&pid=2534486#pid2534486
+
 0.1.5
 - HOTFIX: fixes buttons in hubs from v0.1.4 changes
 

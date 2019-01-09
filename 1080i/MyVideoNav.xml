@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--Titan-->
+<!--BINGIE-->
 <window>
     <defaultcontrol always="true">5000</defaultcontrol>
     <allowoverlay>no</allowoverlay>
@@ -82,7 +82,7 @@
 					<description>Sort asc</description>
 					<include>SideBladeMenuButton</include>
 					<alttexturefocus border="5" colordiffuse="$INFO[Skin.String(ButtonFocusColor)]">colors/color_white.png</alttexturefocus>
-					<alttexturenofocus>-</alttexturenofocus>
+					<alttexturenofocus/>
 					<label>584</label>
 					<altlabel>585</altlabel>
 					<usealttexture>Container.SortDirection(Ascending)</usealttexture>
@@ -112,7 +112,7 @@
 					<label>653</label>
 					<altlabel>13353</altlabel>
 					<alttexturefocus border="5" colordiffuse="$INFO[Skin.String(ButtonFocusColor)]">colors/color_white.png</alttexturefocus>
-					<alttexturenofocus>-</alttexturenofocus>
+					<alttexturenofocus/>
 					<usealttexture>library.isscanningvideo</usealttexture>
 					<visible>!String.Contains(Container.FolderPath,plugin://plugin.video)</visible>
 				</control>

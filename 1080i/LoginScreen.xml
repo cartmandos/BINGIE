@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--Titan-->
+<!--BINGIE-->
 <window>
     <defaultcontrol always="true">52</defaultcontrol>
     <allowoverlay>no</allowoverlay>
@@ -36,7 +36,7 @@
                     <onleft>52</onleft>
                     <onright>52</onright>
                     <ondown>53</ondown>
-                    <pagecontrol></pagecontrol>
+                    <pagecontrol/>
                     <scrolltime tween="cubic" easing="out">500</scrolltime>
                     <movement>1</movement>
                     <itemlayout height="370" width="350">

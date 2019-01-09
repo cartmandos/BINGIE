@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--Titan-->
+<!--BINGIE-->
 <window type="dialog">
     <defaultcontrol always="true">2</defaultcontrol>
     <allowoverlay>no</allowoverlay>

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--BINGIE-->
 <includes>
 
     <include name="SkinSettings_HomeLayout">
@@ -531,7 +532,7 @@
                 <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
                 </control>
             <control type="textbox" id="19002">
-                <description></description>
+                <description/>
                 <width>100%</width>
                 <align>justify</align>
                 <label>31322</label>
@@ -578,7 +579,7 @@
                 <height>10</height>
             </control>
             <control type="textbox" id="19016">
-                <description></description>
+                <description/>
                 <width>1200</width>
                 <align>justify</align>
                 <label>31549</label>
@@ -992,7 +993,7 @@
             <!--CHANGE VISIBILITY IF MULTI-DIALOGS-->
             <control type="radiobutton" id="31674">
                 <!-- hide filename in videoinfo -->
-                <description></description>
+                <description/>
                 <include>SkinSettings_Button</include>
                 <label>31674</label>
                 <onclick>Skin.ToggleSetting(DialogVideoInfo_HideFileName)</onclick>
@@ -1665,7 +1666,7 @@
                 <selected>Skin.HasSetting(AlwaysShowMusicInfo)</selected>
             </control>
             <control type="button" id="5153">
-                <description></description>
+                <description/>
                 <include>SkinSettings_Button</include>
                 <label>31087</label>
                 <label2 fallback="None">$INFO[Skin.String(LyricScript_Path)]</label2>
@@ -2108,7 +2109,6 @@
             <ondown>6000</ondown>
             <onleft condition="!Window.IsActive(Custom_SkinSettings.xml)">100</onleft>
             <onleft condition="Window.IsActive(Custom_SkinSettings.xml)">2000</onleft>
-            <onright>noop</onright>
             <orientation>vertical</orientation>
             <visible>String.IsEqual(Window(Home).Property(SkinSettingSection),9)</visible>
             <control type="label" id="6001">
@@ -2152,7 +2152,7 @@
             <!-- empty label -->
             <control type="label" id="6004">
                 <height>20</height>
-                <label></label>
+                <label/>
             </control>
             <control type="label" id="6005">
                 <include>SkinSettings_Header</include>
@@ -2200,7 +2200,7 @@
                 <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
             </control>
             <control type="textbox" id="15002">
-                <description></description>
+                <description/>
                 <width>1200</width>
                 <align>justify</align>
                 <label>31464</label>
@@ -2227,7 +2227,7 @@
                 <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
             </control>
             <control type="textbox" id="15032">
-                <description></description>
+                <description/>
                 <width>1200</width>
                 <align>justify</align>
                 <label>31590</label>
@@ -2271,7 +2271,7 @@
                 <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
             </control>
             <control type="textbox" id="15007">
-                <description></description>
+                <description/>
                 <width>1200</width>
                 <align>justify</align>
                 <label>31769</label>
@@ -2694,7 +2694,7 @@
             </include>
             <control type="radiobutton" id="8020">
                 <!-- enable splash image or movie -->
-                <description></description>
+                <description/>
                 <include>SkinSettings_Button</include>
                 <label>31631</label>
                 <onclick condition="!Skin.String(SplashScreen)">Skin.SetFile(SplashScreen)</onclick>
@@ -2703,7 +2703,7 @@
             </control>
             <control type="radiobutton" id="8021">
                 <!-- enable snow on home -->
-                <description></description>
+                <description/>
                 <include>SkinSettings_Button</include>
                 <label>31644</label>
                 <onclick>Skin.ToggleSetting(enablesnow)</onclick>
@@ -2711,7 +2711,7 @@
             </control>
             <control type="radiobutton" id="8022">
                 <!-- expand snow effect to other areas of the skin -->
-                <description></description>
+                <description/>
                 <include>SkinSettings_Button</include>
                 <label>     ----- $LOCALIZE[31645]</label>
                 <onclick>Skin.ToggleSetting(expandsnow)</onclick>
@@ -2720,7 +2720,7 @@
             </control>
             <control type="radiobutton" id="8023">
                 <!-- prefer clearart over landscapes -->
-                <description></description>
+                <description/>
                 <include>SkinSettings_Button</include>
                 <label>31652</label>
                 <onclick>Skin.ToggleSetting(PreferClearArtOverLandscape)</onclick>
@@ -2728,7 +2728,7 @@
             </control>
             <control type="radiobutton" id="8024">
                 <!-- dialog yesno default focus to NO -->
-                <description></description>
+                <description/>
                 <include>SkinSettings_Button</include>
                 <label>31656</label>
                 <onclick>Skin.ToggleSetting(DialogYesNo_FocusNO)</onclick>

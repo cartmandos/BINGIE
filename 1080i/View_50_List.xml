@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--Titan-->
+<!--BINGIE-->
 <includes>
     <include name="View_50_List">
         <!--Panel-->
@@ -60,7 +60,6 @@
                 <onup>500</onup>
                 <ondown>500</ondown>
                 <onleft>100</onleft>
-                <onright>noop</onright>
                 <orientation>vertical</orientation>
                 <posx>570</posx>
                 <posy>20</posy>
@@ -124,7 +123,6 @@
                 <onup>500</onup>
                 <ondown>500</ondown>
                 <onleft>100</onleft>
-                <onright>noop</onright>
                 <orientation>vertical</orientation>
                 <control type="label">
                     <posx>0</posx>
@@ -176,7 +174,6 @@
                 <onup>500</onup>
                 <ondown>500</ondown>
                 <onleft>100</onleft>
-                <onright>noop</onright>
                 <orientation>vertical</orientation>
                 <control type="button">
                     <width>870</width>

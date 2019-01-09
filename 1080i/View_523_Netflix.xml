@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--BINGIE MOD v1-->
+<!--BINGIE-->
 <includes>
     <include name="View_523_Netflix">
         <!--Panel-->
@@ -25,7 +25,7 @@
                 <width>1220</width>
                 <height>680</height>
                 <animation effect="slide" start="0" end="0,-80" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,2.35) | Integer.IsEqual(VideoPlayer.VideoAspect,2.55) | Integer.IsEqual(VideoPlayer.VideoAspect,2.76)" reversible="true">Conditional</animation>
-                <control type="videowindow"></control>
+                <control type="videowindow"/>
                 <control type="image">
                     <texture colordiffuse="$VAR[Netflix2_PanelColor]" border="20">overlay/netflix_corner.png</texture>
                 </control>
@@ -186,9 +186,9 @@
                                 <height>8</height>
                                 <align>left</align>
                                 <texturebg colordiffuse="cc515151" border="2">colors/color_white.png</texturebg>
-                                <lefttexture>-</lefttexture>
+                                <lefttexture/>
                                 <midtexture colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]" border="2">colors/color_white.png</midtexture>
-                                <righttexture>-</righttexture>
+                                <righttexture/>
                                 <info>ListItem.PercentPlayed</info>
                             </control>
                             <!--continue watching -->
@@ -268,10 +268,10 @@
                 <height>60</height>
                 <right>20</right>
                 <top>20</top>
-                <font>-</font>
+                <font/>
                 <selected>Control.HasFocus(5001)</selected>
-                <texturefocus>-</texturefocus>
-                <texturenofocus>-</texturenofocus>
+                <texturefocus/>
+                <texturenofocus/>
                 <textureradiofocus colordiffuse="$INFO[Skin.String(ButtonTextFocusColor)]">touchcontrols/icon_back.png</textureradiofocus>
                 <textureradionofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">touchcontrols/icon_back.png</textureradionofocus>
                 <radiowidth>60</radiowidth>

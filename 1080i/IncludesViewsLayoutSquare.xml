@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--BINGIE-->
 <includes>
 
     <!-- SQUARE LAYOUT -->
@@ -140,7 +141,7 @@
         <value condition="[Container.Content(genres) | String.IsEqual(ListItem.DBTYPE,genre)] + String.Contains(ListItem.FolderPath,music)">$VAR[MusicGenreIconVarList]</value>
         <value condition="[Container.Content(genres) | String.IsEqual(ListItem.DBTYPE,genre)]">$VAR[MovieGenreIconVarList]</value>
         <value condition="!String.IsEmpty(ListItem.Thumb) + [Container.Content(episodes) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)] + !Window.IsActive(DialogVideoInfo.xml)">$INFO[ListItem.Thumb]</value>
-        <value condition="!String.IsEmpty(ListItem.Property(ArtistThumb))">$INFO[ListItem.Property(ArtistThumb)]</value>
+        <value condition="!String.IsEmpty(Listitem.Art(artist.thumb))">$INFO[Listitem.Art(artist.thumb)]</value>
         <value condition="!String.IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
         <value condition="!String.IsEmpty(ListItem.Art(fanart)) + [Container.Content(movies) | Container.Content(seasons) | Container.Content(tvshows)]">$INFO[ListItem.Art(fanart)]</value>
         <value condition="String.IsEqual(ListItem.Label,..)">dialogs/filebrowser/DefaultFolderBack.png</value>

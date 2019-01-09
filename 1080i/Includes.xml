@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--BINGIE-->
 <includes>
     <include file="Defaults.xml" />
     <include file="IncludesVariables.xml" />
@@ -91,9 +92,9 @@
         <posy>-20</posy>
         <width>1</width>
         <height>1</height>
-        <label>-</label>
-        <texturenofocus>-</texturenofocus>
-        <texturefocus>-</texturefocus>
+        <label/>
+        <texturenofocus/>
+        <texturefocus/>
     </include>
 
     <include name="HiddenObject">
@@ -103,8 +104,8 @@
         <height>1</height>
         <texturefocus />
         <texturenofocus />
-        <label></label>
-        <font></font>
+        <label/>
+        <font/>
     </include>
 
     <include name="DimensionsFullscreen">
@@ -196,7 +197,7 @@
         <font>Light45</font>
         <align>center</align>
         <textoffsetx>0</textoffsetx>
-        <texturenofocus>-</texturenofocus>
+        <texturenofocus/>
         <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
         <focusedcolor>$INFO[Skin.String(ButtonFocusTextColor)]</focusedcolor>
         <disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
@@ -220,7 +221,7 @@
     <include name="KeyBoardKeyRadio">
         <align>left</align>
         <textoffsetx>20</textoffsetx>
-        <radioposx>-</radioposx>
+        <radioposx/>
         <radioposy>15</radioposy>
         <radiowidth>28</radiowidth>
         <radioheight>28</radioheight>
@@ -363,7 +364,7 @@
         <height>40</height>
         <align>left</align>
         <disabledcolor fallback="white">$INFO[Skin.String(ViewDetailsTextColor)]</disabledcolor>
-        <texturefocus>-</texturefocus>
+        <texturefocus/>
         <texturenofocus>dialogs/default/separator.png</texturenofocus>
         <textoffsetx>0</textoffsetx>
         <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>

@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--Titan-->
+<!--BINGIE-->
 <window>
-    <defaultcontrol always="true">-</defaultcontrol>
+    <defaultcontrol always="true"/>
     <allowoverlay>no</allowoverlay>
     <controls>
-		
 		<include condition="Skin.HasSetting(SpinnerDimScreen)">DialogOverlayExtra</include>
-	
         <control type="group">
-            <visible>![Skin.HasSetting(NetflixAutoTrailer) + Window.IsActive(Home)] | ![Skin.HasSetting(DetailsAutoTrailer) + Control.IsVisible(523)]</visible>
+            <visible>![Skin.HasSetting(NetflixAutoTrailer) + Window.IsActive(Home)]</visible>
+            <visible>![Skin.HasSetting(DetailsAutoTrailer) + Control.IsVisible(523)]</visible>
             <visible>!Window.IsVisible(startup)</visible>
             <posx>960</posx>
             <!--Center-->
@@ -26,7 +25,6 @@
                 <timeperimage>100</timeperimage>
                 <colordiffuse>$INFO[Skin.String(SpinnerTexture.Color)]</colordiffuse>
                 <fadetime>0</fadetime>
-
             </control>
         </control>
     </controls>

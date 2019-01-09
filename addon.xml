@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
+<!--BINGIE-->
 <addon id="skin.titan.leiabeta.bingie.mode" version="0.1.5" name="Titan bingie MODE for Kodi Leia" provider-name="cartman.dos, marcelveldt, mgonzales, mardukl">
 	<requires>
 		<import version="5.14.0" addon="xbmc.gui"/>
