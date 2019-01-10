@@ -1340,6 +1340,7 @@
             </control>
             -->
             <control type="textbox">
+                <visible>String.IsEmpty(Container($PARAM[widgetid]).ListItem.Property(similartitle))</visible>
                 <height>96%</height>
                 <width>99%</width>
                 <font>Reg28</font>
@@ -1348,6 +1349,19 @@
                 <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
                 <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
                 <label>[B]$INFO[Skin.String($PARAM[skinsetting].label)][/B]</label>
+                <animation effect="slide" end="50" time="0" condition="Container($PARAM[widgetid]).IsUpdating + !Skin.HasSetting(WidgetAlignRight)">Conditional</animation>
+                <animation effect="slide" end="-50" time="0" condition="Container($PARAM[widgetid]).IsUpdating + Skin.HasSetting(WidgetAlignRight)">Conditional</animation>
+            </control>
+            <control type="textbox">
+                <visible>!String.IsEmpty(Container($PARAM[widgetid]).ListItem.Property(similartitle))</visible>
+                <height>96%</height>
+                <width>99%</width>
+                <font>Reg28</font>
+                <include condition="Skin.HasSetting(WidgetAlignRight)">widget_header_rightalign</include>
+                <include condition="!Skin.HasSetting(WidgetAlignRight)">widget_header_leftalign</include>
+                <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+                <label>[B]$LOCALIZE[31543] $INFO[Container($PARAM[widgetid]).ListItem.Property(similartitle)][/B]</label>
                 <animation effect="slide" end="50" time="0" condition="Container($PARAM[widgetid]).IsUpdating + !Skin.HasSetting(WidgetAlignRight)">Conditional</animation>
                 <animation effect="slide" end="-50" time="0" condition="Container($PARAM[widgetid]).IsUpdating + Skin.HasSetting(WidgetAlignRight)">Conditional</animation>
             </control>
@@ -1401,7 +1415,7 @@
             <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
             <onclick>Skin.SetString($PARAM[skinsetting].label)</onclick>
             <texturenofocus/>
-            <visible>Skin.String($PARAM[skinsetting].label) + !Skin.HasSetting(LockHubWidgets)</visible>
+            <visible>!Skin.HasSetting(LockHubWidgets) + Skin.String($PARAM[skinsetting].label) + String.IsEmpty(Container($PARAM[widgetid]).ListItem.Property(similartitle))</visible>
         </control>
         <control type="multiimage" id="$PARAM[widgetid]7">
             <top>0</top>

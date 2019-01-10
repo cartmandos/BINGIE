@@ -1,7 +1,9 @@
 0.1.16
-- Cancel auto trailer alarm if opening dialog in home (for ex. setting widgets in hubs)
-- BUGFIX: Fix conditions to hide DialogBusy
 - Addon Integration: UpNext addon is now integrated (replacing broken Next Up Notification)
+- Fixed similar widget title in hubs (shows 'because you watched...' instead of just 'similar movies')
+- Cancel auto trailer alarm if opening dialog in home (for ex. setting widgets in hubs)
+- Bugfix: Fixed autoclose osd sometimes stuck on screen 
+- BugFix: Fix conditions to hide DialogBusy
 - PVR: Channel number input is now visible when changing channels (PVR.ChannelNumberInput) @marduklev
 - Leia skin engine updates:
 	- Changed infolabels:
