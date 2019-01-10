@@ -2,27 +2,26 @@
 
 <window>
 	<defaultcontrol always="true">300</defaultcontrol>
-    <onunload>ClearProperty(netflixmenu, Home)</onunload>
-    <onunload>ClearProperty(powermenu, Home)</onunload>
-    <onload>Dialog.Close(busydialog)</onload>
+	<onunload>ClearProperty(netflixmenu, Home)</onunload>
+	<onunload>ClearProperty(powermenu, Home)</onunload>
+	<onload>Dialog.Close(busydialog)</onload>
 	<controls>
-	
-	 <!--Global Background-->
-        <include>GlobalBackground</include>
+		<!--Global Background-->
+		<include>GlobalBackground</include>
 		
 		
 		<!-- Now playing -->
 		<include condition="!Skin.HasTheme(classic)">NowPlayingModern</include>
-		 
-        <!--Header-->
-        <include>Header</include>
- 		<include condition="!skin.hassetting(nofooterbar)">Footer</include>
+		
+		<!--Header-->
+		<include>Header</include>
+		<include condition="!skin.hassetting(nofooterbar)">Footer</include>
 		
 		<!--header label-->
 		<control type="label" id="500"> 
 			<left>20</left>
 			<width>460</width>
-			<label/>
+			<label></label>
 			<textcolor>black</textcolor>
 			<font>Reg26</font>
 			<scroll>false</scroll>
@@ -36,13 +35,21 @@
 			<bottom>125</bottom>
 			<height>75%</height>
 			
-			<!--background panel -->
+			<!--background panel defaut -->
 			<control type="image">
 				<posx>50</posx>
 				<posy>0</posy>
 				<width>1820</width>
 				<texture border="15">diffuse/bgpanel.png</texture>
 				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
+			</control>
+			<!-- black background panel ,if NOT MAIN to avoid overlay when using transparent panel colors -->
+			<control type="image">
+				<visible>!String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+				<posx>50</posx>
+				<posy>0</posy>
+				<width>1820</width>
+				<texture border="15">colors/color_black.png</texture>
 			</control>
 			
 			<!-- left panel -->
@@ -58,19 +65,27 @@
 				<control type="list" id="211"> <!--Current shortcuts -->
 					<left>80</left>
 					<top>30</top>
-					<width>600</width>
+					<width>620</width>
 					<height>750</height>
 					<onright condition="String.IsEmpty(Window.Property(widgetcontrols))">300</onright>
-                    <onright condition="!String.IsEmpty(Window.Property(widgetcontrols))">9000</onright>
+					<onright condition="!String.IsEmpty(Window.Property(widgetcontrols))">9000</onright>
 					<orientation>vertical</orientation>
 					<viewtype label="535">list</viewtype>
 					<preloaditems>2</preloaditems>
 					<pagecontrol>260</pagecontrol>
 					<scrolltime>0</scrolltime>
 					<selectedcolor>FF00b8ff</selectedcolor>
-					<itemlayout width="600" height="65">
+					<itemlayout width="620" height="85">
+						<control type="image"> <!-- thumb -->
+							<left>2</left>
+							<top>2</top>
+							<height>73.3</height>
+							<width>166.7</width>
+							<aspectratio>keep</aspectratio>
+							<texture background="true" aligny="center" >$INFO[Container(211).ListItem.Icon]</texture>
+						</control>
 						<control type="label"> <!--label-->
-							<left>20</left>
+							<left>175</left>
 							<width>460</width>
 							<label>$INFO[ListItem.Label]</label>
 							<font>Reg26</font>
@@ -78,269 +93,288 @@
 							<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
 							<selectedcolor>FF00b8ff</selectedcolor>
 						</control>
-					</itemlayout>				
-					<focusedlayout width="600" height="65">
-						
+					</itemlayout>
+					<focusedlayout width="620" height="85">
 						<control type="image"> <!--focus bg-->
-							<left>0</left>
-							<top>0</top>
-							<width>600</width>
-							<height>60</height>
-							<texture diffuse="diffuse/panel.png" border="5" colordiffuse="$INFO[Skin.String(ButtonFocusColor)]">colors/color_white.png</texture>
+							<top>-2</top>
+							<width>620</width>
+							<height>80</height>
+							<texture diffuse="diffuse/panel.png" border="5" aligny="centter" colordiffuse="$INFO[Skin.String(ButtonFocusColor)]">colors/color_white.png</texture>
 							<animation effect="fade" start="100" end="35" time="100" condition="!Control.HasFocus(211)">Conditional</animation>
 						</control>
-
+						<control type="image"> <!-- thumb -->
+							<top>2</top>
+							<left>2</left>
+							<height>73.3</height>
+							<width>166.7</width>
+							<aspectratio>keep</aspectratio>
+							<texture background="true" aligny="center" >$INFO[Container(211).ListItem.Icon]</texture>
+						</control>
 						<control type="label"> <!--label-->
-							<left>20</left>
+							<left>175</left>
 							<width>460</width>
 							<label>$INFO[ListItem.Label]</label>
 							<textcolor>$INFO[Skin.String(ButtonFocusTextColor)]</textcolor>
 							<font>Reg26</font>
 							<scroll>false</scroll>
 						</control>
-
 					</focusedlayout>
 				</control>
 				
 				<!-- right panel -->
 				<control type="image">
 					<right>70</right>
-					<posy>20</posy>
+					<posy>10</posy>
 					<width>540</width>
-					<height>770</height>
+					<height>360</height>
 					<texture border="15">diffuse/bgpanel.png</texture>
 					<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
 				</control>
+				<control type="image">
+					<right>70</right>
+					<posy>380</posy>
+					<width>540</width>
+					<height>70</height>
+					<texture border="15">diffuse/bgpanel.png</texture>
+					<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
+					<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+				</control>
+				<control type="image">
+					<right>70</right>
+					<posy>460</posy>
+					<width>540</width>
+					<height>320</height>
+					<texture border="15">diffuse/bgpanel.png</texture>
+					<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
+					<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+				</control>
 				
 				<control type="grouplist">
-                    <right>100</right>
-                    <width>500</width>
-                    <posy>20</posy>
+					<right>100</right>
+					<width>500</width>
+					<posy>10</posy>
 				
-					<!--icon label-->
-					<control type="label">
-						<label>[B]$LOCALIZE[21371]:[/B]</label>
-						<font>Reg26</font>
-						<scroll>false</scroll>
-						<height>50</height>
-					</control>
-					<!-- icon -->
-                    <control type="image">
-						<height>220</height>
-                        <width>500</width>
-						<aspectratio>keep</aspectratio>
-						<texture background="true">$INFO[Container(211).ListItem.Icon]</texture>
+					<control type="label"> <!--label-->
+						<left>150</left>
+						<width>460</width>
+						<label>[B]W I D G E T    C O N T E N T[/B]</label>
+						<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
+						<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+						<font>Reg22</font>
 					</control>
 					
-					<!--blank label-->
-					<control type="label">
-						<label/>
-						<font>Reg26</font>
-						<scroll>false</scroll>
-						<height>30</height>
-					</control>
-                    <!--spotlight widget label for enhanced-->
+					<!--spotlight widget label for enhanced-->
 					<control type="button">
-                        <textoffsetx>0</textoffsetx>
-                        <font>Reg22</font>
-                        <textwidth>350</textwidth>
-                        <align>left</align>
-                        <width>500</width>
-                        <height>30</height>
-                        <disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
-                        <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
-                        <texturenofocus/>
-                        <label>[B]$LOCALIZE[31185] $LOCALIZE[31499]:[/B]</label>
-                        <label2 fallback="231">$INFO[Container(211).Listitem.Property(widgetName.99)]</label2>
-                        <enable>false</enable>
-                        <visible>Skin.String(HomeLayout, enhanced)</visible>
-                        <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+						<textoffsetx>0</textoffsetx>
+						<font>Reg22</font>
+						<textwidth>350</textwidth>
+						<align>left</align>
+						<width>500</width>
+						<height>30</height>
+						<disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
+						<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
+						<texturenofocus></texturenofocus>
+						<label>[B]$LOCALIZE[31185] $LOCALIZE[31499]:[/B]</label>
+						<label2 fallback="231">$INFO[Container(211).Listitem.Property(widgetName.99)]</label2>
+						<enable>false</enable>
+						<visible>Skin.String(HomeLayout, enhanced)</visible>
+						<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
 					</control>
 					
 					<!--widget1 label-->
 					<control type="button">
-                        <textoffsetx>0</textoffsetx>
-                        <font>Reg22</font>
-                        <textwidth>350</textwidth>
-                        <align>left</align>
-                        <width>500</width>
-                        <height>30</height>
-                        <disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
-                        <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
-                        <texturenofocus/>
-                        <label>[B]$LOCALIZE[31499] 1:[/B]</label>
-                        <label2 fallback="231">$INFO[Container(211).Listitem.Property(widgetName)]</label2>
-                        <enable>false</enable>
-                        <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
-                        <visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.String(HomeLayout, 3)</visible>
+						<textoffsetx>0</textoffsetx>
+						<font>Reg22</font>
+						<textwidth>350</textwidth>
+						<align>left</align>
+						<width>500</width>
+						<height>30</height>
+						<disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
+						<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
+						<texturenofocus></texturenofocus>
+						<label>[B]$LOCALIZE[31499] 1:[/B]</label>
+						<label2 fallback="231">$INFO[Container(211).Listitem.Property(widgetName)]</label2>
+						<enable>false</enable>
+						<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+						<visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.String(HomeLayout, 3)</visible>
 					</control>
 					
 					<!--widget2 label-->
 					<control type="button">
-                        <textoffsetx>0</textoffsetx>
-                        <font>Reg22</font>
-                        <textwidth>350</textwidth>
-                        <align>left</align>
-                        <width>500</width>
-                        <height>30</height>
-                        <disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
-                        <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
-                        <texturenofocus/>
-                        <label>[B]$LOCALIZE[31499] 2:[/B]</label>
-                        <label2 fallback="231">$INFO[Container(211).Listitem.Property(widgetName.1)]</label2>
-                        <enable>false</enable>
-                        <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
-                        <visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.String(HomeLayout, 3)</visible>
+						<textoffsetx>0</textoffsetx>
+						<font>Reg22</font>
+						<textwidth>350</textwidth>
+						<align>left</align>
+						<width>500</width>
+						<height>30</height>
+						<disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
+						<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
+						<texturenofocus></texturenofocus>
+						<label>[B]$LOCALIZE[31499] 2:[/B]</label>
+						<label2 fallback="231">$INFO[Container(211).Listitem.Property(widgetName.1)]</label2>
+						<enable>false</enable>
+						<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+						<visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.String(HomeLayout, 3)</visible>
 					</control>
 					
 					<!--widget3 label-->
 					<control type="button">
-                        <textoffsetx>0</textoffsetx>
-                        <font>Reg22</font>
-                        <textwidth>350</textwidth>
-                        <align>left</align>
-                        <width>500</width>
-                        <height>30</height>
-                        <disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
-                        <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
-                        <texturenofocus/>
-                        <label>[B]$LOCALIZE[31499] 3:[/B]</label>
-                        <label2 fallback="231">$INFO[Container(211).Listitem.Property(widgetName.2)]</label2>
-                        <enable>false</enable>
-                        <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
-                        <visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.String(HomeLayout, 3)</visible>
+						<textoffsetx>0</textoffsetx>
+						<font>Reg22</font>
+						<textwidth>350</textwidth>
+						<align>left</align>
+						<width>500</width>
+						<height>30</height>
+						<disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
+						<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
+						<texturenofocus></texturenofocus>
+						<label>[B]$LOCALIZE[31499] 3:[/B]</label>
+						<label2 fallback="231">$INFO[Container(211).Listitem.Property(widgetName.2)]</label2>
+						<enable>false</enable>
+						<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+						<visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.String(HomeLayout, 3)</visible>
 					</control>
-                    <!--widget4 label-->
+					<!--widget4 label-->
 					<control type="button">
-                        <textoffsetx>0</textoffsetx>
-                        <font>Reg22</font>
-                        <textwidth>350</textwidth>
-                        <align>left</align>
-                        <width>500</width>
-                        <height>30</height>
-                        <disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
-                        <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
-                        <texturenofocus/>
-                        <label>[B]$LOCALIZE[31499] 4:[/B]</label>
-                        <label2 fallback="231">$INFO[Container(211).Listitem.Property(widgetName.3)]</label2>
-                        <enable>false</enable>
-                        <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
-                        <visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.String(HomeLayout, 3)</visible>
+						<textoffsetx>0</textoffsetx>
+						<font>Reg22</font>
+						<textwidth>350</textwidth>
+						<align>left</align>
+						<width>500</width>
+						<height>30</height>
+						<disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
+						<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
+						<texturenofocus></texturenofocus>
+						<label>[B]$LOCALIZE[31499] 4:[/B]</label>
+						<label2 fallback="231">$INFO[Container(211).Listitem.Property(widgetName.3)]</label2>
+						<enable>false</enable>
+						<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+						<visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.String(HomeLayout, 3)</visible>
 					</control>
-                    <!--widget5 label-->
+					<!--widget5 label-->
 					<control type="button">
-                        <textoffsetx>0</textoffsetx>
-                        <font>Reg22</font>
-                        <textwidth>350</textwidth>
-                        <align>left</align>
-                        <width>500</width>
-                        <height>30</height>
-                        <disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
-                        <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
-                        <texturenofocus/>
-                        <label>[B]$LOCALIZE[31499] 5:[/B]</label>
-                        <label2 fallback="231">$INFO[Container(211).Listitem.Property(widgetName.4)]</label2>
-                        <enable>false</enable>
-                        <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
-                        <visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.String(HomeLayout, 3)</visible>
-                        <visible>!String.IsEmpty(Container(211).Listitem.Property(widgetName.4))</visible>
+						<textoffsetx>0</textoffsetx>
+						<font>Reg22</font>
+						<textwidth>350</textwidth>
+						<align>left</align>
+						<width>500</width>
+						<height>30</height>
+						<disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
+						<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
+						<texturenofocus></texturenofocus>
+						<label>[B]$LOCALIZE[31499] 5:[/B]</label>
+						<label2 fallback="231">$INFO[Container(211).Listitem.Property(widgetName.4)]</label2>
+						<enable>false</enable>
+						<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+						<visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.String(HomeLayout, 3)</visible>
 					</control>
-                    <!--widget6 label-->
+					<!--widget6 label-->
 					<control type="button">
-                        <textoffsetx>0</textoffsetx>
-                        <font>Reg22</font>
-                        <textwidth>350</textwidth>
-                        <align>left</align>
-                        <width>500</width>
-                        <height>30</height>
-                        <disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
-                        <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
-                        <texturenofocus/>
-                        <label>[B]$LOCALIZE[31499] 6:[/B]</label>
-                        <label2 fallback="231">$INFO[Container(211).Listitem.Property(widgetName.5)]</label2>
-                        <enable>false</enable>
-                        <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
-                        <visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.String(HomeLayout, 5)</visible>
-                        <visible>!String.IsEmpty(Container(211).Listitem.Property(widgetName.5))</visible>
+						<textoffsetx>0</textoffsetx>
+						<font>Reg22</font>
+						<textwidth>350</textwidth>
+						<align>left</align>
+						<width>500</width>
+						<height>30</height>
+						<disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
+						<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
+						<texturenofocus></texturenofocus>
+						<label>[B]$LOCALIZE[31499] 6:[/B]</label>
+						<label2 fallback="231">$INFO[Container(211).Listitem.Property(widgetName.5)]</label2>
+						<enable>false</enable>
+						<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+						<visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.String(HomeLayout, 5)</visible>
 					</control>
-                    <!--widget7 label-->
+					<!--widget7 label-->
 					<control type="button">
-                        <textoffsetx>0</textoffsetx>
-                        <font>Reg22</font>
-                        <textwidth>350</textwidth>
-                        <align>left</align>
-                        <width>500</width>
-                        <height>30</height>
-                        <disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
-                        <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
-                        <texturenofocus/>
-                        <label>[B]$LOCALIZE[31499] 7:[/B]</label>
-                        <label2 fallback="231">$INFO[Container(211).Listitem.Property(widgetName.6)]</label2>
-                        <enable>false</enable>
-                        <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
-                        <visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.String(HomeLayout, 3)</visible>
-                        <visible>!String.IsEmpty(Container(211).Listitem.Property(widgetName.6))</visible>
-					</control>
-                    <!--widget8 label-->
+						<textoffsetx>0</textoffsetx>
+						<font>Reg22</font>
+						<textwidth>350</textwidth>
+						<align>left</align>
+						<width>500</width>
+						<height>30</height>
+						<disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
+						<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
+						<texturenofocus></texturenofocus>
+						<label>[B]$LOCALIZE[31499] 7:[/B]</label>
+						<label2 fallback="231">$INFO[Container(211).Listitem.Property(widgetName.6)]</label2>
+						<enable>false</enable>
+						<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+						<visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.String(HomeLayout, 3)</visible>
+						</control>
+					<!--widget8 label-->
 					<control type="button">
-                        <textoffsetx>0</textoffsetx>
-                        <font>Reg22</font>
-                        <textwidth>350</textwidth>
-                        <align>left</align>
-                        <width>500</width>
-                        <height>30</height>
-                        <disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
-                        <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
-                        <texturenofocus/>
-                        <label>[B]$LOCALIZE[31499] 8:[/B]</label>
-                        <label2 fallback="231">$INFO[Container(211).Listitem.Property(widgetName.7)]</label2>
-                        <enable>false</enable>
-                        <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
-                        <visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.String(HomeLayout, 3)</visible>
-                        <visible>!String.IsEmpty(Container(211).Listitem.Property(widgetName.7))</visible>
-					</control>
+						<textoffsetx>0</textoffsetx>
+						<font>Reg22</font>
+						<textwidth>350</textwidth>
+						<align>left</align>
+						<width>500</width>
+						<height>30</height>
+						<disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
+						<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
+						<texturenofocus></texturenofocus>
+						<label>[B]$LOCALIZE[31499] 8:[/B]</label>
+						<label2 fallback="231">$INFO[Container(211).Listitem.Property(widgetName.7)]</label2>
+						<enable>false</enable>
+						<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+						<visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.String(HomeLayout, 3)</visible>
+						</control>
 					
 					<!--blank label-->
 					<control type="label">
-						<label/>
+						<label></label>
 						<font>Reg26</font>
 						<scroll>false</scroll>
+						<height>20</height>
+						<visible>!Skin.String(HomeLayout, enhanced)</visible>
+					</control>
+					<control type="label">
+						<left>5</left>
+						<width>500</width>
 						<height>25</height>
-                        <visible>!Skin.String(HomeLayout, enhanced)</visible>
+						<label>[B]$LOCALIZE[31501]:[/B]</label>
+						<font>Reg24</font>
+						<scrollspeed>160</scrollspeed>
+						<orientation>horizontal</orientation>
+						<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
 					</control>
-					
-					<!--action-->
-                    <control type="button">
-                        <textoffsetx>0</textoffsetx>
-                        <font>Reg22</font>
-                        <textwidth>350</textwidth>
-                        <align>left</align>
-                        <width>500</width>
-                        <disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
-                        <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
-                        <texturenofocus/>
-                        <label>[B]$LOCALIZE[31501]:[/B]</label>
-                        <label2 fallback="231">$INFO[Container(211).Listitem.Property(translatedPath)]</label2>
-                        <enable>false</enable>
-                        <wrapmultiline>true</wrapmultiline>
+					<control type="fadelabel">
+						<left>5</left>
+						<width>500</width>
+						<height>20</height>
+						<label>$INFO[Container(211).Listitem.Property(translatedPath)]</label>
+						<font>Reg20</font>
+						<scrollout>false</scrollout>
+						<scroll>true</scroll>
+						<scrollspeed>50</scrollspeed>
+						<pauseatend>2500</pauseatend>
+						<orientation>horizontal</orientation>
+						<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
 					</control>
-					
-					<!--background-->
-                    <control type="button">
-                        <textoffsetx>0</textoffsetx>
-                        <font>Reg22</font>
-                        <textwidth>350</textwidth>
-                        <align>left</align>
-                        <width>500</width>
-                        <disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
-                        <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
-                        <texturenofocus/>
-                        <label>[B]$LOCALIZE[19190]:[/B]</label>
-                        <label2 fallback="231">$INFO[Container(211).Listitem.Property(backgroundName)]</label2>
-                        <enable>false</enable>
-                        <visible>Skin.HasSetting(UseSectionBackground)</visible>
+					<!--blank label-->
+					<control type="label">
+						<label></label>
+						<font>Reg26</font>
+						<scroll>false</scroll>
+						<height>40</height>
 					</control>
-				
+					<control type="label">
+						<left>5</left>
+						<top>10</top>
+						<width>500</width>
+						<height>30</height>
+						<label>[B]B A C K G R O U N D     I M A G E[/B][CR]$INFO[Container(211).Listitem.Property(backgroundName), • ,]</label>
+						<font>Reg22</font>
+						<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
+						<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+					</control>
+					<control type="image">
+						<top>10</top>
+						<height>300</height>
+						<aspectratio>keep</aspectratio>
+						<texture background="true" aligny="center" >$INFO[Container(211).ListItem.Property(Background)]</texture>
+						<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+					</control>
 				</control>
 				
 				<!--fake list -->
@@ -350,7 +384,7 @@
 					<selectedcolor>FF00b8ff</selectedcolor>
 					<itemlayout width="1000" height="65">
 					</itemlayout>
-					<focusedlayout width="1000" height="65">			
+					<focusedlayout width="1000" height="65">
 					</focusedlayout>
 				</control>
 				
@@ -366,11 +400,10 @@
 						<animation effect="slide" end="-15" time="0" condition="skin.hastheme(classic)">Conditional</animation>
 						<animation effect="fade" start="0" end="100" time="400" condition="Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)">Conditional</animation>
 						<animation effect="fade" start="100" end="0" time="400" condition="![Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
-					</control>				
+					</control>
 				</control>
 				
 			</control>
-
 
 			<!-- menu controls -->
 			<control type="grouplist" id="300">
@@ -382,8 +415,8 @@
 				<orientation>vertical</orientation>
 				<onleft>211</onleft>
 				<scrolltime>0</scrolltime>
-                <pagecontrol>270</pagecontrol>
-                <visible>String.IsEmpty(Window.Property(widgetcontrols))</visible>
+				<pagecontrol>270</pagecontrol>
+				<visible>String.IsEmpty(Window.Property(widgetcontrols))</visible>
 				<control type="button" id="301"> <!--new shortcut-->
 					<width>500</width>
 					<align>center</align>
@@ -409,7 +442,7 @@
 					<width>500</width>
 					<align>center</align>
 					<visible>false</visible>
-				</control>				
+				</control>
 				
 				<control type="button" id="302"> <!--delete shortcut-->
 					<width>500</width>
@@ -440,20 +473,20 @@
 				<control type="button" id="4311"> 
 					<width>500</width>
 					<align>center</align>
-                    <label>$ADDON[script.skinshortcuts 32026]</label>
-                    <onclick>RunScript(script.skin.helper.service,action=selectimage,skinshortcutsproperty=thumb,header=$ADDON[script.skinshortcuts 32026],allowmulti=true,resourceaddon=resource.images.skinicons,skinhelperbackgrounds=true,skinstring=CustomBackgroundSetting,currentvalue=$INFO[Container(211).ListItem.Property(ThumbName)])</onclick>
+					<label>$ADDON[script.skinshortcuts 32026]</label>
+					<onclick>RunScript(script.skin.helper.service,action=selectimage,skinshortcutsproperty=thumb,header=$ADDON[script.skinshortcuts 32026],allowmulti=true,resourceaddon=resource.images.skinicons,skinhelperbackgrounds=true,skinstring=CustomBackgroundSetting,currentvalue=$INFO[Container(211).ListItem.Property(ThumbName)])</onclick>
 				</control>
-                <!--set widget advanced-->
-                <control type="button" id="1312"> 
+				<!--set widget advanced-->
+				<control type="button" id="1312"> 
 					<width>500</width>
 					<align>center</align>
-                    <onclick>SetProperty(widgetcontrols,show)</onclick>
-                    <onclick>SetFocus(9000,1)</onclick>
+					<onclick>SetProperty(widgetcontrols,show)</onclick>
+					<onclick>SetFocus(9000,1)</onclick>
 					<label>31564</label>
-                    <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
-                    <visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.String(HomeLayout, 3)</visible>
+					<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+					<visible>!Skin.HasSetting(DisableAllWidgets) + !Skin.String(HomeLayout, 3)</visible>
 				</control>
-     				<control type="button" id="4310"> <!--background-->
+					<control type="button" id="4310"> <!--background-->
 					<width>500</width>
 					<align>center</align>
 					<label>$ADDON[script.skinshortcuts 32045]</label>
@@ -468,8 +501,8 @@
 					<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
 					<visible>!Skin.HasSetting(DisableAllSubmenus)</visible>
 				</control>
-                
-                <!-- disable label -->
+				
+				<!-- disable label -->
 				<control type="radiobutton" id="1404"> 
 					<width>500</width>
 					<label>31202</label>
@@ -481,38 +514,38 @@
 					<onclick>SendClick(404)</onclick>
 					<selected>String.IsEqual(Container(211).ListItem.Property(disableLabel), disable)</selected>
 					<visible>!String.IsEqual(Window.Property(groupname),powermenu) + ![Skin.String(HomeLayout, simplever) | Skin.String(HomeLayout, verticalbig) | Skin.String(HomeLayout, simplehor)]</visible>
-                </control>
+				</control>
 				
 				<control type="button" id="307"> <!--change action-->
 					<width>500</width>
 					<align>center</align>
 					<label>$ADDON[script.skinshortcuts 32027]</label>
 				</control>
-                
-                <!--change infoline-->
-                <control type="button" id="31687"> 
+				
+				<!--change infoline-->
+				<control type="button" id="31687"> 
 					<width>500</width>
 					<align>center</align>
 					<label>31687</label>
-                    <onclick>RunScript(script.skin.helper.service,action=setskinshortcutsproperty,header=$LOCALIZE[31687],property=infoline,setting=infoline)</onclick>
-                    <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+					<onclick>RunScript(script.skin.helper.service,action=setskinshortcutsproperty,header=$LOCALIZE[31687],property=infoline,setting=infoline)</onclick>
+					<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
 					<visible>!String.Contains(Skin.String(HomeLayout), netflix)</visible>
 				</control>
 
-                <control type="button" id="306"> 
-					<label/>
+				<control type="button" id="306"> 
+					<label></label>
 					<visible>false</visible>
 				</control>
 				<control type="button" id="309"> 
-					<label/>
+					<label></label>
 					<visible>false</visible>
 				</control>
-                <control type="button" id="310"> 
-					<label/>
+				<control type="button" id="310"> 
+					<label></label>
 					<visible>false</visible>
 				</control>
-                <control type="button" id="311"> 
-					<label/>
+				<control type="button" id="311"> 
+					<label></label>
 					<visible>false</visible>
 				</control>
 				
@@ -525,36 +558,36 @@
 				<!--hidden button for properties-->
 				<control type="button" id="404"> 
 					<width>500</width>
-					<label/>
+					<label></label>
 					<align>center</align>
 					<onclick>SetProperty(chooseProperty, true)</onclick>
 					<visible>false</visible>
 				</control>
 				
-                <!-- hidden button to set widget -->
-                <control type="button" id="312">
+				<!-- hidden button to set widget -->
+				<control type="button" id="312">
 					<visible>false</visible>
 				</control>
-                
-                <!--submenu heading-->
-                <control type="button" id="31773"> 
+				
+				<!--submenu heading-->
+				<control type="button" id="31773"> 
 					<width>500</width>
 					<label>31773</label>
 					<align>center</align>
-                    <onclick>RunScript(script.skin.helper.service,action=setskinshortcutsproperty,header=$LOCALIZE[31773],property=customsubmenuheader,setting=customsubmenuheader)</onclick>
-                    <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+					<onclick>RunScript(script.skin.helper.service,action=setskinshortcutsproperty,header=$LOCALIZE[31773],property=customsubmenuheader,setting=customsubmenuheader)</onclick>
+					<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
 					<visible>Skin.String(HomeLayout, enhanced) | Skin.String(HomeLayout, win10) | Skin.String(SubmenuLayout, subpage)</visible>
-                </control>
-                
-                <!-- disable shortcut-->
-                <control type="radiobutton" id="313">
-                    <width>500</width>
-					<align>center</align>
-                    <label>$ADDON[script.skinshortcuts 32117]</label>
-                    <selected>String.Contains(Container(211).ListItem.Property(skinshortcuts-disabled),true)</selected>
 				</control>
-                
-                <!--close button-->
+				
+				<!-- disable shortcut-->
+				<control type="radiobutton" id="313">
+					<width>500</width>
+					<align>center</align>
+					<label>$ADDON[script.skinshortcuts 32117]</label>
+					<selected>String.Contains(Container(211).ListItem.Property(skinshortcuts-disabled),true)</selected>
+				</control>
+				
+				<!--close button-->
 				<control type="button" id="2404"> 
 					<width>500</width>
 					<label>$LOCALIZE[31308]</label>
@@ -562,21 +595,20 @@
 					<onclick>back</onclick>
 				</control>
 
-								
 			</control>
-            <control type="scrollbar" id="270"> <!--scrollbar-->
-                <left>1260</left>
-                <top>20</top>
-                <height>770</height>
-                <onleft>211</onleft>
-                <onright>211</onright>
-                <showonepage>false</showonepage>
-                <visible>String.IsEmpty(Window.Property(widgetcontrols))</visible>
-                <animation effect="slide" end="-15" time="0" condition="skin.hastheme(classic)">Conditional</animation>
-                <animation effect="fade" start="0" end="100" time="400" condition="Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)">Conditional</animation>
-                <animation effect="fade" start="100" end="0" time="400" condition="![Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
-            </control>				
-            <!-- widget actions -->
+			<control type="scrollbar" id="270"> <!--scrollbar-->
+				<left>1260</left>
+				<top>20</top>
+				<height>770</height>
+				<onleft>211</onleft>
+				<onright>211</onright>
+				<showonepage>false</showonepage>
+				<visible>String.IsEmpty(Window.Property(widgetcontrols))</visible>
+				<animation effect="slide" end="-15" time="0" condition="skin.hastheme(classic)">Conditional</animation>
+				<animation effect="fade" start="0" end="100" time="400" condition="Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)">Conditional</animation>
+				<animation effect="fade" start="100" end="0" time="400" condition="![Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
+			</control>
+			<!-- widget actions -->
 			<control type="grouplist" id="9000">
 				<left>745</left>
 				<top>20</top>
@@ -584,38 +616,42 @@
 				<height>770</height>
 				<itemgap>5</itemgap>
 				<orientation>vertical</orientation>
-                <onback>ClearProperty(widgetcontrols)</onback>
-                <onright>ClearProperty(widgetcontrols)</onright>
-                <onright>SetFocus(300)</onright>
+				<onback>ClearProperty(widgetcontrols)</onback>
+				<!-- 
+				<onclick>SetFocus(300)</onclick>
+				<onback>SendClick(9061)</onback>
+				-->
+				<onright>ClearProperty(widgetcontrols)</onright>
+				<onright>SetFocus(300)</onright>
 				<onleft>211</onleft>
-                <pagecontrol>280</pagecontrol>
+				<pagecontrol>280</pagecontrol>
 				<scrolltime>0</scrolltime>
-                <animation effect="slide" start="0" end="1200" time="0" condition="String.IsEmpty(Window.Property(widgetcontrols))">Conditional</animation>
-                
-                <!--widget rows-->
-                <control type="button" id="31750">
+				<animation effect="slide" start="0" end="1200" time="0" condition="String.IsEmpty(Window.Property(widgetcontrols))">Conditional</animation>
+				
+				<!--widget rows-->
+				<control type="button" id="31750">
 					<width>500</width>
-                    <height>45</height>
+					<height>45</height>
 					<align>left</align>
 					<label>$LOCALIZE[31750]:</label>
-                    <font>Reg22</font>
-                    <label2>$VAR[widgetrowslabel]</label2>
-                    <textoffsetx>10</textoffsetx>
-                    <onclick>RunScript(script.skin.helper.service,action=setskinshortcutsproperty,setting=WidgetRows,header=$LOCALIZE[31750],property=multiwidget)</onclick>
-                    <visible>String.Contains(Skin.String(HomeLayout), ver) | String.Contains(Skin.String(HomeLayout), netflix)</visible>
+					<font>Reg22</font>
+					<label2>$VAR[widgetrowslabel]</label2>
+					<textoffsetx>10</textoffsetx>
+					<onclick>RunScript(script.skin.helper.service,action=setskinshortcutsproperty,setting=WidgetRows,header=$LOCALIZE[31750],property=multiwidget)</onclick>
+					<visible>String.Contains(Skin.String(HomeLayout), ver) | String.Contains(Skin.String(HomeLayout), netflix)</visible>
 				</control>
-                
-                <!-- square submenu -->
+				
+				<!-- square submenu -->
 				<control type="radiobutton" id="31737"> 
 					<width>500</width>
-                    <height>45</height>
+					<height>45</height>
 					<align>left</align>
 					<label>31737</label>
 					<font>Reg22</font>
-                    <textoffsetx>10</textoffsetx>
-                    <radiowidth>100</radiowidth>
-                    <radioheight>65</radioheight>
-                    <radioposx>415</radioposx>
+					<textoffsetx>10</textoffsetx>
+					<radiowidth>100</radiowidth>
+					<radioheight>65</radioheight>
+					<radioposx>415</radioposx>
 					<onclick condition="!String.IsEqual(Container(211).ListItem.Property(squaresubmenu), enable)">SetProperty(customProperty, squaresubmenu)</onclick>
 					<onclick condition="!String.IsEqual(Container(211).ListItem.Property(squaresubmenu), enable)">SetProperty(customValue, enable)</onclick>
 					<onclick condition="String.IsEqual(Container(211).ListItem.Property(squaresubmenu), enable)">SetProperty(customProperty, squaresubmenu)</onclick>
@@ -623,150 +659,150 @@
 					<onclick>SendClick(404)</onclick>
 					<selected>String.IsEqual(Container(211).ListItem.Property(squaresubmenu), enable)</selected>
 					<visible>String.Contains(Skin.String(HomeLayout), ver)</visible>
-                    <visible>!Skin.HasSetting(DisableAllSubmenus)</visible>
-                </control>
-                
-                <!-- lower widgets -->
+					<visible>!Skin.HasSetting(DisableAllSubmenus)</visible>
+				</control>
+				
+				<!-- lower widgets -->
 				<control type="radiobutton" id="31660"> 
 					<width>500</width>
-                    <height>45</height>
+					<height>45</height>
 					<align>left</align>
 					<label>31660</label>
 					<font>Reg22</font>
-                    <textoffsetx>10</textoffsetx>
-                    <radiowidth>100</radiowidth>
-                    <radioheight>65</radioheight>
-                    <radioposx>415</radioposx>
+					<textoffsetx>10</textoffsetx>
+					<radiowidth>100</radiowidth>
+					<radioheight>65</radioheight>
+					<radioposx>415</radioposx>
 					<onclick condition="!String.IsEqual(Container(211).ListItem.Property(lowerwidgets), enable)">SetProperty(customProperty, lowerwidgets)</onclick>
 					<onclick condition="!String.IsEqual(Container(211).ListItem.Property(lowerwidgets), enable)">SetProperty(customValue, enable)</onclick>
 					<onclick condition="String.IsEqual(Container(211).ListItem.Property(lowerwidgets), enable)">SetProperty(customProperty, lowerwidgets)</onclick>
 					<onclick condition="String.IsEqual(Container(211).ListItem.Property(lowerwidgets), enable)">SetProperty(customValue, disable)</onclick>
 					<onclick>SendClick(404)</onclick>
 					<selected>String.IsEqual(Container(211).ListItem.Property(lowerwidgets), enable)</selected>
-                    <visible>String.IsEqual(Container(211).ListItem.Property(multiwidget),single)</visible>
+					<visible>String.IsEqual(Container(211).ListItem.Property(multiwidget),single)</visible>
 					<visible>String.Contains(Skin.String(HomeLayout), ver)</visible>
-                </control>
-                
-                <!-- WIDGET 1 -->
-                <include name="skinshortcuts-widgetselect" content="skinshortcuts-widgetselect">
-                    <param name="widgetpos" value="1" />
-                    <param name="widgetid" value="" />
-                    <param name="widgetprop" value="" />
-                </include>
-                
-                <!-- WIDGET 2 -->
-                <include name="skinshortcuts-widgetselect" content="skinshortcuts-widgetselect">
-                    <param name="widgetpos" value="2" />
-                    <param name="widgetid" value="1" />
-                    <param name="widgetprop" value=".1" />
-                </include>
-                
-                <!-- WIDGET 3 -->
-                <include name="skinshortcuts-widgetselect" content="skinshortcuts-widgetselect">
-                    <param name="widgetpos" value="3" />
-                    <param name="widgetid" value="2" />
-                    <param name="widgetprop" value=".2" />
-                </include>
+				</control>
+				
+				<!-- WIDGET 1 -->
+				<include name="skinshortcuts-widgetselect" content="skinshortcuts-widgetselect">
+					<param name="widgetpos" value="1" />
+					<param name="widgetid" value="" />
+					<param name="widgetprop" value="" />
+				</include>
+				
+				<!-- WIDGET 2 -->
+				<include name="skinshortcuts-widgetselect" content="skinshortcuts-widgetselect">
+					<param name="widgetpos" value="2" />
+					<param name="widgetid" value="1" />
+					<param name="widgetprop" value=".1" />
+				</include>
+				
+				<!-- WIDGET 3 -->
+				<include name="skinshortcuts-widgetselect" content="skinshortcuts-widgetselect">
+					<param name="widgetpos" value="3" />
+					<param name="widgetid" value="2" />
+					<param name="widgetprop" value=".2" />
+				</include>
 
-                <!-- WIDGET 4 -->
-                <include name="skinshortcuts-widgetselect" content="skinshortcuts-widgetselect">
-                    <param name="widgetpos" value="4" />
-                    <param name="widgetid" value="3" />
-                    <param name="widgetprop" value=".3" />
-                </include>
-                
-                <!-- WIDGET 5 -->
-                <include name="skinshortcuts-widgetselect" content="skinshortcuts-widgetselect">
-                    <param name="widgetpos" value="5" />
-                    <param name="widgetid" value="4" />
-                    <param name="widgetprop" value=".4" />
-                </include>
-                
-                <!-- WIDGET 6 -->
-                <include name="skinshortcuts-widgetselect" content="skinshortcuts-widgetselect">
-                    <param name="widgetpos" value="6" />
-                    <param name="widgetid" value="5" />
-                    <param name="widgetprop" value=".5" />
-                </include>
-                
-                <!-- WIDGET 7 -->
-                <include name="skinshortcuts-widgetselect" content="skinshortcuts-widgetselect">
-                    <param name="widgetpos" value="7" />
-                    <param name="widgetid" value="6" />
-                    <param name="widgetprop" value=".6" />
-                </include>
-                
-                <!-- WIDGET 8 -->
-                <include name="skinshortcuts-widgetselect" content="skinshortcuts-widgetselect">
-                    <param name="widgetpos" value="8" />
-                    <param name="widgetid" value="7" />
-                    <param name="widgetprop" value=".7" />
-                </include>
-                
-                <!-- spotlight widget -->
-                <control type="label" id="9040">
+				<!-- WIDGET 4 -->
+				<include name="skinshortcuts-widgetselect" content="skinshortcuts-widgetselect">
+					<param name="widgetpos" value="4" />
+					<param name="widgetid" value="3" />
+					<param name="widgetprop" value=".3" />
+				</include>
+				
+				<!-- WIDGET 5 -->
+				<include name="skinshortcuts-widgetselect" content="skinshortcuts-widgetselect">
+					<param name="widgetpos" value="5" />
+					<param name="widgetid" value="4" />
+					<param name="widgetprop" value=".4" />
+				</include>
+				
+				<!-- WIDGET 6 -->
+				<include name="skinshortcuts-widgetselect" content="skinshortcuts-widgetselect">
+					<param name="widgetpos" value="6" />
+					<param name="widgetid" value="5" />
+					<param name="widgetprop" value=".5" />
+				</include>
+				
+				<!-- WIDGET 7 -->
+				<include name="skinshortcuts-widgetselect" content="skinshortcuts-widgetselect">
+					<param name="widgetpos" value="7" />
+					<param name="widgetid" value="6" />
+					<param name="widgetprop" value=".6" />
+				</include>
+				
+				<!-- WIDGET 8 -->
+				<include name="skinshortcuts-widgetselect" content="skinshortcuts-widgetselect">
+					<param name="widgetpos" value="8" />
+					<param name="widgetid" value="7" />
+					<param name="widgetprop" value=".7" />
+				</include>
+				
+				<!-- spotlight widget -->
+				<control type="label" id="9040">
 					<width>500</width>
 					<align>left</align>
-                    <height>40</height>
-                    <font>Reg26</font>
+					<height>40</height>
+					<font>Reg26</font>
 					<label>[B]$LOCALIZE[31307][/B]</label>
-                    <visible>Skin.String(HomeLayout, enhanced) | [Skin.String(HomeLayout, netflix) + !Skin.HasSetting(NetflixHomeDisableFirstRow)]</visible>
+					<visible>Skin.String(HomeLayout, enhanced) | [Skin.String(HomeLayout, netflix) + !Skin.HasSetting(NetflixHomeDisableFirstRow)]</visible>
 				</control>
-                <control type="button" id="9041">
-                    <!-- select widget -->
+				<control type="button" id="9041">
+					<!-- select widget -->
 					<width>500</width>
-                    <height>45</height>
+					<height>45</height>
 					<align>left</align>
-                    <textoffsetx>10</textoffsetx>
-                    <font>Reg22</font>
-					<label>$ADDON[script.skinshortcuts 32044] >></label>
-                    <onclick>SetProperty(widgetID, 99)</onclick>
+					<textoffsetx>10</textoffsetx>
+					<font>Reg22</font>
+					<label>$ADDON[script.skinshortcuts 32044]</label>
+					<onclick>SetProperty(widgetID, 99)</onclick>
 					<onclick>SendClick(312)</onclick>
-                    <visible>Skin.String(HomeLayout, enhanced) | [Skin.String(HomeLayout, netflix) + !Skin.HasSetting(NetflixHomeDisableFirstRow)]</visible>
+					<visible>Skin.String(HomeLayout, enhanced) | [Skin.String(HomeLayout, netflix) + !Skin.HasSetting(NetflixHomeDisableFirstRow)]</visible>
 				</control>
-                <control type="button" id="9042">
-                    <!--widget label-->
+				<control type="button" id="9042">
+					<!--widget label-->
 					<width>500</width>
-                    <height>45</height>
+					<height>45</height>
 					<align>left</align>
-                    <font>Reg22</font>
+					<font>Reg22</font>
 					<label>$ADDON[script.skinshortcuts 32025]:</label>
-                    <label2>$INFO[Container(211).ListItem.Property(widgetName.99)]</label2>
-                    <textoffsetx>10</textoffsetx>
-                    <onclick>RunScript(script.skin.helper.service,action=setskinshortcutsproperty,header=$ADDON[script.skinshortcuts 32025],property=widgetName.99)</onclick>
-                    <visible>!String.IsEmpty(Container(211).ListItem.Property(widget.99))</visible>
-                    <visible>Skin.String(HomeLayout, enhanced) | [Skin.String(HomeLayout, netflix) + !Skin.HasSetting(NetflixHomeDisableFirstRow)]</visible>
+					<label2>$INFO[Container(211).ListItem.Property(widgetName.99)]</label2>
+					<textoffsetx>10</textoffsetx>
+					<onclick>RunScript(script.skin.helper.service,action=setskinshortcutsproperty,header=$ADDON[script.skinshortcuts 32025],property=widgetName.99)</onclick>
+					<visible>!String.IsEmpty(Container(211).ListItem.Property(widget.99))</visible>
+					<visible>Skin.String(HomeLayout, enhanced) | [Skin.String(HomeLayout, netflix) + !Skin.HasSetting(NetflixHomeDisableFirstRow)]</visible>
 				</control>
-                <!-- widget force refresh -->
+				<!-- widget force refresh -->
 				<control type="radiobutton" id="9043"> 
 					<width>500</width>
 					<label>31717</label>
-                    <font>Reg22</font>
+					<font>Reg22</font>
 					<align>left</align>
-                    <textoffsetx>10</textoffsetx>
-                    <radiowidth>100</radiowidth>
-                    <radioheight>65</radioheight>
-                    <radioposx>415</radioposx>
+					<textoffsetx>10</textoffsetx>
+					<radiowidth>100</radiowidth>
+					<radioheight>65</radioheight>
+					<radioposx>415</radioposx>
 					<onclick condition="!String.IsEqual(Container(211).ListItem.Property(widgetForceRefresh.99), refresh)">SetProperty(customProperty, widgetForceRefresh.99)</onclick>
 					<onclick condition="!String.IsEqual(Container(211).ListItem.Property(widgetForceRefresh.99), refresh)">SetProperty(customValue, refresh)</onclick>
 					<onclick condition="String.IsEqual(Container(211).ListItem.Property(widgetForceRefresh.99), refresh)">SetProperty(customProperty, widgetForceRefresh.99)</onclick>
 					<onclick condition="String.IsEqual(Container(211).ListItem.Property(widgetForceRefresh.99), refresh)">SetProperty(customValue, "")</onclick>
 					<onclick>SendClick(404)</onclick>
-                    <visible>!String.IsEmpty(Container(211).ListItem.Property(widget.99))</visible>
-                    <visible>Skin.String(HomeLayout, enhanced) | [Skin.String(HomeLayout, netflix) + !Skin.HasSetting(NetflixHomeDisableFirstRow)]</visible>
+					<visible>!String.IsEmpty(Container(211).ListItem.Property(widget.99))</visible>
+					<visible>Skin.String(HomeLayout, enhanced) | [Skin.String(HomeLayout, netflix) + !Skin.HasSetting(NetflixHomeDisableFirstRow)]</visible>
 					<selected>String.IsEqual(Container(211).ListItem.Property(widgetForceRefresh.99), refresh)</selected>
 					<visible>String.IsEqual(Container(211).ListItem.Property(widget.99), Addon) | String.Contains(Container(211).ListItem.Property(widgetPath.99), favourite) | String.Contains(Container(211).ListItem.Property(widgetPath.99), xsp)</visible>
-                </control>
-                <!-- widget auto rotate -->
+				</control>
+				<!-- widget auto rotate -->
 				<control type="radiobutton" id="9044"> 
 					<width>500</width>
 					<label>31723</label>
-                    <font>Reg22</font>
+					<font>Reg22</font>
 					<align>left</align>
-                    <textoffsetx>10</textoffsetx>
-                    <radiowidth>100</radiowidth>
-                    <radioheight>65</radioheight>
-                    <radioposx>415</radioposx>
+					<textoffsetx>10</textoffsetx>
+					<radiowidth>100</radiowidth>
+					<radioheight>65</radioheight>
+					<radioposx>415</radioposx>
 					<onclick condition="!String.IsEqual(Container(211).ListItem.Property(widgetAutoRotate.99), enabled)">SetProperty(customProperty, widgetAutoRotate.99)</onclick>
 					<onclick condition="!String.IsEqual(Container(211).ListItem.Property(widgetAutoRotate.99), enabled)">SetProperty(customValue, enabled)</onclick>
 					<onclick condition="String.IsEqual(Container(211).ListItem.Property(widgetAutoRotate.99), enabled)">SetProperty(customProperty, widgetAutoRotate.99)</onclick>
@@ -774,46 +810,41 @@
 					<onclick>SendClick(404)</onclick>
 					<selected>String.IsEqual(Container(211).ListItem.Property(widgetAutoRotate.99), enabled)</selected>
 					<visible>Skin.String(widgets_rotate,override)</visible>
-                    <visible>!String.IsEmpty(Container(211).ListItem.Property(widget.99))</visible>
-                    <visible>Skin.String(HomeLayout, enhanced) | [Skin.String(HomeLayout, netflix) + !Skin.HasSetting(NetflixHomeDisableFirstRow)]</visible>
-                </control>
-                
-                <!-- back -->
-                <control type="label" id="9060"> 
-					<width>500</width>
-					<align>center</align>
-					<label/>
-                    <height>45</height>
+					<visible>!String.IsEmpty(Container(211).ListItem.Property(widget.99))</visible>
+					<visible>Skin.String(HomeLayout, enhanced) | [Skin.String(HomeLayout, netflix) + !Skin.HasSetting(NetflixHomeDisableFirstRow)]</visible>
 				</control>
-                <control type="button" id="9061"> 
+				
+				<!-- back -->
+				<control type="label" id="9060"> 
 					<width>500</width>
-                    <height>45</height>
 					<align>center</align>
-                    <onclick>ClearProperty(widgetcontrols)</onclick>
-                    <onclick>SetFocus(300)</onclick>
+					<label></label>
+					<height>45</height>
+				</control>
+				<control type="button" id="9061"> 
+					<width>500</width>
+					<height>45</height>
+					<align>center</align>
+					<onclick>ClearProperty(widgetcontrols)</onclick>
+					<onclick>SetFocus(300)</onclick>
 					<label>31654</label>
 				</control>
-                								
+				
 			</control>
-            <control type="scrollbar" id="280"> <!--scrollbar-->
-                <left>1260</left>
-                <top>20</top>
-                <height>770</height>
-                <onleft>211</onleft>
-                <onright>211</onright>
-                <showonepage>false</showonepage>
-                <visible>!String.IsEmpty(Window.Property(widgetcontrols))</visible>
-                <animation effect="slide" end="-15" time="0" condition="skin.hastheme(classic)">Conditional</animation>
-                <animation effect="fade" start="0" end="100" time="400" condition="Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)">Conditional</animation>
-                <animation effect="fade" start="100" end="0" time="400" condition="![Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
-            </control>		
-    
-    </control>
-	<!--Footer-->
-        <include condition="!skin.hassetting(nofooterbar)">Footer</include>
-		<!--Titan Version-->
-        <include>TitanVersion</include>
-		
-	</controls>
-	
+			<control type="scrollbar" id="280"> <!--scrollbar-->
+				<left>1260</left>
+				<top>20</top>
+				<height>770</height>
+				<onleft>211</onleft>
+				<onright>211</onright>
+				<showonepage>false</showonepage>
+				<visible>!String.IsEmpty(Window.Property(widgetcontrols))</visible>
+				<animation effect="slide" end="-15" time="0" condition="skin.hastheme(classic)">Conditional</animation>
+				<animation effect="fade" start="0" end="100" time="400" condition="Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)">Conditional</animation>
+				<animation effect="fade" start="100" end="0" time="400" condition="![Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
+			</control>
+		</control>
+		<!--Titan/Bingie Version-->
+		<include>TitanVersion</include>
+	</controls>	
 </window>
