@@ -3,6 +3,7 @@
 <window>
     <defaultcontrol always="true">1000</defaultcontrol>
     <allowoverlay>no</allowoverlay>
+    <onload condition="Skin.HasSetting(NetflixAutoTrailer) + System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,true)</onload>
 	 <coordinates>
 		<system>1</system>
 		<left>0</left>

@@ -1,4 +1,5 @@
 0.1.16
+- Cancel auto trailer alarm if opening dialog in home (for ex. setting widgets in hubs)
 - BUGFIX: Fix conditions to hide DialogBusy
 - Addon Integration: UpNext addon is now integrated (replacing broken Next Up Notification)
 - PVR: Channel number input is now visible when changing channels (PVR.ChannelNumberInput) @marduklev
