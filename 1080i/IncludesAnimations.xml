@@ -541,7 +541,7 @@
           <!-- delayed auto-trailers -->
           <onunfocus condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,true)</onunfocus>
           <onunfocus condition="Player.HasVideo + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv)]">PlayerControl(Stop)</onunfocus>
-          <onfocus condition="!Player.HasVideo + Skin.HasSetting(DetailsAutoTrailer) + !String.IsEmpty(ListItem.Trailer)">AlarmClock(trailer_delay,RunScript(script.skin.helper.service,ACTION=playtrailer,MODE=windowed,YOUTUBE=$INFO[Skin.String(AutoYoutubeTrailer)]),00:03,silent)</onfocus>
+          <onfocus condition="!Player.HasVideo + Skin.HasSetting(DetailsAutoTrailer) + [!String.IsEmpty(ListItem.Trailer) | String.IsEqual(ListItem.DBType,movie)]">AlarmClock(trailer_delay,RunScript(script.skin.helper.service,ACTION=playtrailer,MODE=windowed,YOUTUBE=$INFO[Skin.String(AutoYoutubeTrailer)]),00:03,silent)</onfocus>
           <onfocus condition="!Player.HasVideo + Skin.String(AutoYoutubeTrailer,true) + Skin.HasSetting(DetailsAutoTrailer) + [String.IsEqual(ListItem.DBType,tvshow) | Container.Content(tvshows)]">AlarmClock(trailer_delay,RunScript(script.skin.helper.service,action=playtraileryoutube,title=$VAR[TVShowTitle]),00:03,silent)</onfocus>
         </control>
     </include>
