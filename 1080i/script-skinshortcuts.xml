@@ -4,7 +4,7 @@
 	<defaultcontrol always="true">300</defaultcontrol>
     <onunload>ClearProperty(netflixmenu, Home)</onunload>
     <onunload>ClearProperty(powermenu, Home)</onunload>
-    <onload>Dialog.Close(busydialog)</onload>
+    <onload>Dialog.Close(busydialognocancel)</onload>
 	<controls>
 	
 	    <!--Global Background-->

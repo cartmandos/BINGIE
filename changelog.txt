@@ -36,6 +36,8 @@
 	- Removed window OSDAudioDSPSettings
 	https://forum.kodi.tv/showthread.php?tid=298565&pid=2785902#pid2785902
 
+	- busydialog -> busydialognocancel (Window name change)
+
 	- Added new dependencies button in DialogAddonInfo.xml
 	https://forum.kodi.tv/showthread.php?tid=298565&pid=2779470#pid2779470
 
