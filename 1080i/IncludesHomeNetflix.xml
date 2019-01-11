@@ -227,6 +227,9 @@
                     <onfocus condition="Skin.String(AutoYoutubeTrailer,true) + Skin.HasSetting(SpotLightTrailers) + !String.IsEmpty(Window(Home).Property(SpotlightFirstPlayDone)) + !Player.HasVideo + [String.IsEqual(Container(1508).ListItem.DBType,tvshow) | String.IsEqual(Container(1508).ListItem.Property(DBTYPE),tvshow)]">AlarmClock(trailer_delay,RunScript(script.skin.helper.service,action=playtraileryoutube,title=$INFO[Container(1508).ListItem.Title]),00:07,silent)</onfocus>
                     <onunfocus condition="String.IsEmpty(Window(Home).Property(SpotlightFirstPlayDone))">SetProperty(SpotlightFirstPlayDone,Done,Home)</onunfocus>
                     <onfocus>SetFocus(505)</onfocus>
+                    <!-- workaround to fix stuck on '53' after setting widgets in hubs -->
+                    <onfocus condition="!Skin.HasSetting(LockHubWidgets) + [Window.IsActive(3018) | Window.IsActive(3017) | Window.IsActive(3020) | Window.IsActive(3021)]">
+                        AlarmClock(focus_delay,SetFocus(505),00:01,silent)</onfocus>
                 </control>
 
                 <!-- spotlight buttons -->

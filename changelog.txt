@@ -3,7 +3,8 @@
 - Fixed similar widget title in hubs (shows 'because you watched...' instead of just 'similar movies')
 - Cancel auto trailer alarm if opening dialog in home (for ex. setting widgets in hubs)
 - Bugfix: Fixed autoclose osd sometimes stuck on screen 
-- BugFix: Fix conditions to hide DialogBusy & hide in hubs
+- Bugfix: Fix conditions to hide DialogBusy in home, hubs & library views when auto-trailers is on
+- Bugfix: Workaround fix to resolve freeze on hubs after setting widget (focus issue)
 - Added icons next to widget titles in edit shortcuts tab & reorganized right panel @marduklev
 - PVR: Channel number input is now visible when changing channels (PVR.ChannelNumberInput) @marduklev
 - Leia skin engine updates:
