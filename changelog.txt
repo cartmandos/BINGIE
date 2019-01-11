@@ -1,4 +1,4 @@
-0.1.16
+0.2
 - Addon Integration: UpNext addon is now integrated (replacing broken Next Up Notification)
 - Fixed similar widget title in hubs (shows 'because you watched...' instead of just 'similar movies')
 - Cancel auto trailer alarm if opening dialog in home (for ex. setting widgets in hubs)
