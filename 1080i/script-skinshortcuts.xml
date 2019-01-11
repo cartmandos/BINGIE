@@ -7,9 +7,8 @@
     <onload>Dialog.Close(busydialog)</onload>
 	<controls>
 	
-	 <!--Global Background-->
+	    <!--Global Background-->
         <include>GlobalBackground</include>
-		
 		
 		<!-- Now playing -->
 		<include condition="!Skin.HasTheme(classic)">NowPlayingModern</include>
@@ -36,7 +35,7 @@
 			<bottom>125</bottom>
 			<height>75%</height>
 			
-			<!--background panel -->
+			<!--background panel default -->
 			<control type="image">
 				<posx>50</posx>
 				<posy>0</posy>
@@ -44,7 +43,15 @@
 				<texture border="15">diffuse/bgpanel.png</texture>
 				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
 			</control>
-			
+			<!-- black bg panel - if not mainmenu window -->
+			<control type="image">
+				<visible>!String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+				<posx>50</posx>
+				<posy>0</posy>
+				<width>1820</width>
+				<texture border="15">colors/color_black.png</texture>
+			</control>
+
 			<!-- left panel -->
 			<control type="group" id="200">
 				<control type="image">
@@ -55,10 +62,11 @@
 					<texture border="15">diffuse/bgpanel.png</texture>
 					<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
 				</control>
-				<control type="list" id="211"> <!--Current shortcuts -->
+				<!--Current shortcuts -->
+				<control type="list" id="211">
 					<left>80</left>
 					<top>30</top>
-					<width>600</width>
+					<width>620</width>
 					<height>750</height>
 					<onright condition="String.IsEmpty(Window.Property(widgetcontrols))">300</onright>
                     <onright condition="!String.IsEmpty(Window.Property(widgetcontrols))">9000</onright>
@@ -68,9 +76,19 @@
 					<pagecontrol>260</pagecontrol>
 					<scrolltime>0</scrolltime>
 					<selectedcolor>FF00b8ff</selectedcolor>
-					<itemlayout width="600" height="65">
-						<control type="label"> <!--label-->
-							<left>20</left>
+					<itemlayout width="620" height="85">
+						<!-- thumb -->
+						<control type="image">
+							<left>2</left>
+							<top>2</top>
+							<height>73.3</height>
+							<width>166.7</width>
+							<aspectratio>keep</aspectratio>
+							<texture background="true" aligny="center" >$INFO[Container(211).ListItem.Icon]</texture>
+						</control>
+						<!--label-->
+						<control type="label">
+							<left>175</left>
 							<width>460</width>
 							<label>$INFO[ListItem.Label]</label>
 							<font>Reg26</font>
@@ -79,19 +97,27 @@
 							<selectedcolor>FF00b8ff</selectedcolor>
 						</control>
 					</itemlayout>				
-					<focusedlayout width="600" height="65">
-						
-						<control type="image"> <!--focus bg-->
-							<left>0</left>
-							<top>0</top>
-							<width>600</width>
-							<height>60</height>
-							<texture diffuse="diffuse/panel.png" border="5" colordiffuse="$INFO[Skin.String(ButtonFocusColor)]">colors/color_white.png</texture>
+					<focusedlayout width="620" height="85">
+						<!--focus bg-->
+						<control type="image">
+							<top>-2</top>
+							<width>620</width>
+							<height>80</height>
+							<texture diffuse="diffuse/panel.png" border="5" aligny="centter" colordiffuse="$INFO[Skin.String(ButtonFocusColor)]">colors/color_white.png</texture>
 							<animation effect="fade" start="100" end="35" time="100" condition="!Control.HasFocus(211)">Conditional</animation>
 						</control>
-
-						<control type="label"> <!--label-->
-							<left>20</left>
+						<!-- thumb -->
+						<control type="image">
+							<top>2</top>
+							<left>2</left>
+							<height>73.3</height>
+							<width>166.7</width>
+							<aspectratio>keep</aspectratio>
+							<texture background="true" aligny="center" >$INFO[Container(211).ListItem.Icon]</texture>
+						</control>
+						<!--label-->
+						<control type="label">
+							<left>175</left>
 							<width>460</width>
 							<label>$INFO[ListItem.Label]</label>
 							<textcolor>$INFO[Skin.String(ButtonFocusTextColor)]</textcolor>
@@ -105,39 +131,44 @@
 				<!-- right panel -->
 				<control type="image">
 					<right>70</right>
-					<posy>20</posy>
+					<posy>10</posy>
 					<width>540</width>
-					<height>770</height>
+					<height>360</height>
 					<texture border="15">diffuse/bgpanel.png</texture>
 					<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
+				</control>
+				<control type="image">
+					<right>70</right>
+					<posy>380</posy>
+					<width>540</width>
+					<height>70</height>
+					<texture border="15">diffuse/bgpanel.png</texture>
+					<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
+					<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+				</control>
+				<control type="image">
+					<right>70</right>
+					<posy>460</posy>
+					<width>540</width>
+					<height>320</height>
+					<texture border="15">diffuse/bgpanel.png</texture>
+					<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
+					<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
 				</control>
 				
 				<control type="grouplist">
                     <right>100</right>
                     <width>500</width>
-                    <posy>20</posy>
-				
-					<!--icon label-->
-					<control type="label">
-						<label>[B]$LOCALIZE[21371]:[/B]</label>
-						<font>Reg26</font>
-						<scroll>false</scroll>
-						<height>50</height>
-					</control>
-					<!-- icon -->
-                    <control type="image">
-						<height>220</height>
-                        <width>500</width>
-						<aspectratio>keep</aspectratio>
-						<texture background="true">$INFO[Container(211).ListItem.Icon]</texture>
-					</control>
+					<posy>10</posy>
 					
-					<!--blank label-->
-					<control type="label">
-						<label/>
-						<font>Reg26</font>
-						<scroll>false</scroll>
-						<height>30</height>
+					<control type="label"> <!--label-->
+						<left>150</left>
+						<width>460</width>
+                        <!-- localize -->
+						<label>[B]Widget Content:[/B]</label>
+						<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
+						<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+						<font>Reg22</font>
 					</control>
                     <!--spotlight widget label for enhanced-->
 					<control type="button">
@@ -305,42 +336,58 @@
 						<label/>
 						<font>Reg26</font>
 						<scroll>false</scroll>
-						<height>25</height>
+						<height>20</height>
                         <visible>!Skin.String(HomeLayout, enhanced)</visible>
 					</control>
-					
-					<!--action-->
-                    <control type="button">
-                        <textoffsetx>0</textoffsetx>
-                        <font>Reg22</font>
-                        <textwidth>350</textwidth>
-                        <align>left</align>
-                        <width>500</width>
-                        <disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
-                        <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
-                        <texturenofocus/>
-                        <label>[B]$LOCALIZE[31501]:[/B]</label>
-                        <label2 fallback="231">$INFO[Container(211).Listitem.Property(translatedPath)]</label2>
-                        <enable>false</enable>
-                        <wrapmultiline>true</wrapmultiline>
+					<!--action label-->
+					<control type="label">
+						<left>5</left>
+						<width>500</width>
+						<height>25</height>
+						<label>[B]$LOCALIZE[31501]:[/B]</label>
+                        <font>Reg24</font>
+						<scrollspeed>160</scrollspeed>
+						<orientation>horizontal</orientation>
+						<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
 					</control>
-					
-					<!--background-->
-                    <control type="button">
-                        <textoffsetx>0</textoffsetx>
-                        <font>Reg22</font>
-                        <textwidth>350</textwidth>
-                        <align>left</align>
+					<control type="fadelabel">
+						<left>5</left>
                         <width>500</width>
-                        <disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
+						<height>20</height>
+						<label>$INFO[Container(211).Listitem.Property(translatedPath)]</label>
+						<font>Reg20</font>
+						<scrollout>false</scrollout>
+						<scroll>true</scroll>
+						<scrollspeed>50</scrollspeed>
+						<pauseatend>2500</pauseatend>
+						<orientation>horizontal</orientation>
                         <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
-                        <texturenofocus/>
-                        <label>[B]$LOCALIZE[19190]:[/B]</label>
-                        <label2 fallback="231">$INFO[Container(211).Listitem.Property(backgroundName)]</label2>
-                        <enable>false</enable>
-                        <visible>Skin.HasSetting(UseSectionBackground)</visible>
 					</control>
-				
+					<!--blank label-->
+					<control type="label">
+						<label/>
+						<font>Reg26</font>
+						<scroll>false</scroll>
+						<height>40</height>
+					</control>
+					<control type="label">
+						<left>5</left>
+						<top>10</top>
+						<width>500</width>
+						<height>30</height>
+                        <!-- localize -->
+						<label>[B]Background Image:[/B][CR]$INFO[Container(211).Listitem.Property(backgroundName), • ,]</label>
+                        <font>Reg22</font>
+                        <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
+						<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+					</control>
+					<control type="image">
+						<top>10</top>
+						<height>300</height>
+						<aspectratio>keep</aspectratio>
+						<texture background="true" aligny="center" >$INFO[Container(211).ListItem.Property(Background)]</texture>
+						<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+					</control>
 				</control>
 				
 				<!--fake list -->
@@ -811,7 +858,7 @@
     </control>
 	<!--Footer-->
         <include condition="!skin.hassetting(nofooterbar)">Footer</include>
-		<!--Titan Version-->
+		<!--Titan bingie Version-->
         <include>TitanVersion</include>
 		
 	</controls>
