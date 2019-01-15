@@ -28,8 +28,6 @@
                 <shadowcolor>$INFO[Skin.String(HeaderTextShadowColor)]</shadowcolor>
                 <animation effect="slide" end="80,15" time="0" condition="skin.hastheme(classic)">Conditional</animation>
             </control>
-            <!--Time-->
-            <include>TimeInfo</include>
             <include condition="!skin.hassetting(nofooterbar)">Footer</include>
             <!-- search panel with keyboard -->
             <control type="group">
@@ -533,7 +531,7 @@
                     <left>0</left>
                     <top>330</top>
                     <height>20</height>
-                    <width>190</width>
+                    <width>200</width>
                     <label>20343</label>
                     <font>Reg41</font>
                     <angle>-90</angle>
