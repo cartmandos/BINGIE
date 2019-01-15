@@ -2,6 +2,7 @@
 - Added Settings:
 	- Disable spotlight content (will show spotlight, but spotlight will not be a standalone widget)
 	- Setting custom spotlight content
+- Fixed infodialog trailer behavior: windowed will play inside infodialog, fullscreen will play in videofullscreen. and auto windowed/fullscreen will load trailer automatically on infodialog load.
 
 0.2
 - Addon Integration: UpNext addon is now integrated (replacing broken Next Up Notification)

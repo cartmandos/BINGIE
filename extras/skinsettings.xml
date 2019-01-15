@@ -460,9 +460,8 @@
     <!-- trailer action in videoinfo -->
     <setting id="videoinfo_traileraction" value="fullscreen" label="$LOCALIZE[244]" condition="" icon="" description=""/>
     <setting id="videoinfo_traileraction" value="windowed" label="$LOCALIZE[242]" condition="" icon="" description="" default="true"/>
-    <setting id="videoinfo_traileraction" value="background" label="$LOCALIZE[33068]" condition="" icon="" description=""/>
     <setting id="videoinfo_traileraction" value="auto_windowed" label="Play automatically in window" condition="" icon="" description=""/>
-    <setting id="videoinfo_traileraction" value="auto_background" label="Play automatically in background" condition="" icon="" description=""/>
+    <setting id="videoinfo_traileraction" value="auto_fullscreen" label="Play automatically in fullscreen" condition="" icon="" description=""/>
 
     <!-- options to show in videoinfo - multiselect -->
     <setting id="videoinfo_buttons" value="||MULTISELECT||" label="" condition="" icon="" description="">

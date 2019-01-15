@@ -25,7 +25,8 @@
             <onfocus condition="System.HasAddon(script.extendedinfo) + Skin.HasSetting(UseExtendedInfoDialog) + String.IsEqual(Window(Home).Property(contenttype),seasons)">RunScript(script.extendedinfo,info=seasoninfo,tvshow=$INFO[ListItem.TvShowTitle],season=$INFO[ListItem.Season],silent=True)</onfocus>
             <onfocus condition="System.HasAddon(script.extendedinfo) + Skin.HasSetting(UseExtendedInfoDialog) + String.IsEqual(Window(Home).Property(contenttype),episodes)">RunScript(script.extendedinfo,info=extendedepisodeinfo,tvshow=$INFO[ListItem.TvShowTitle],season=$INFO[ListItem.Season],episode=$INFO[ListItem.Episode],silent=True)</onfocus>
             <onfocus condition="![System.HasAddon(script.extendedinfo) + Skin.HasSetting(UseExtendedInfoDialog)] + String.Contains(Skin.String(videoinfo_traileraction),auto) + String.IsEmpty(Window(Home).Property(TrailerPlaying)) + [String.IsEqual(Window(Home).Property(contenttype),movies) | String.IsEqual(Window(Home).Property(contenttype),tvshows)]">AlarmClock(trailer_delay,RunScript(script.skin.helper.service,ACTION=playtrailer,MODE=$INFO[Skin.String(videoinfo_traileraction)],YOUTUBE=$INFO[Skin.String(AutoYoutubeTrailer)]),00:02,silent)</onfocus>
-			<onfocus condition="System.HasAddon(script.extendedinfo) + Skin.HasSetting(UseExtendedInfoDialog)">close</onfocus>
+            <onfocus condition="![System.HasAddon(script.extendedinfo) + Skin.HasSetting(UseExtendedInfoDialog)] + Skin.String(videoinfo_traileraction,auto_fullscreen) + String.IsEmpty(Window(Home).Property(TrailerPlaying)) + [String.IsEqual(Window(Home).Property(contenttype),movies) | String.IsEqual(Window(Home).Property(contenttype),tvshows)]">SetProperty(BaseWindow,InfoDialog,Home)</onfocus>
+            <onfocus condition="System.HasAddon(script.extendedinfo) + Skin.HasSetting(UseExtendedInfoDialog)">close</onfocus>
             <onfocus condition="![System.HasAddon(script.extendedinfo) + Skin.HasSetting(UseExtendedInfoDialog)]">SetFocus(8000)</onfocus>
         </control>
     
@@ -674,9 +675,11 @@
                                 <radioposy>0</radioposy>
                                 <radiowidth>42</radiowidth>
                                 <radioheight>37</radioheight>
-                                <onclick condition="Skin.HasSetting(PreferLocallyStored)">RunScript(script.skin.helper.service,ACTION=playtrailer,MODE=windowed,YOUTUBE=$INFO[Skin.String(AutoYoutubeTrailer)])</onclick>
-                                <onclick condition="!Skin.HasSetting(PreferLocallyStored)">RunScript(script.skin.helper.service,ACTION=playtraileryoutube,title=$INFO[ListItem.Title],local=$INFO[Skin.String(RegionalTrailers)])</onclick>
-                                <!-- <onclick>AlarmClock(focus_delay,SetFocus(96),00:00,silent)</onclick> -->
+                                <!-- Set InfoDialog as BaseWindow in case of activating videofullscreen -->
+                                <onclick condition="Skin.String(videoinfo_traileraction,fullscreen)">SetProperty(BaseWindow,InfoDialog,Home)</onclick>
+                                <onclick condition="Skin.HasSetting(PreferLocallyStored)">RunScript(script.skin.helper.service,ACTION=playtrailer,MODE=$INFO[Skin.String(videoinfo_traileraction)],YOUTUBE=$INFO[Skin.String(AutoYoutubeTrailer)])</onclick>
+                                <onclick condition="!Skin.HasSetting(PreferLocallyStored)">RunScript(script.skin.helper.service,ACTION=playtraileryoutube,MODE=$INFO[Skin.String(videoinfo_traileraction)],title=$INFO[ListItem.Title],local=$INFO[Skin.String(RegionalTrailers)])</onclick>
+                                <!-- <onclick>AlarmClock(focus_delay,SetFocus(8000),00:00,silent)</onclick> -->
                             </control>
 
                             <!-- Fullscreen -->
