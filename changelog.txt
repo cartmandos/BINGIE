@@ -1,3 +1,8 @@
+0.2.1
+- Added Settings:
+	- Disable spotlight content (will show spotlight, but spotlight will not be a standalone widget)
+	- Setting custom spotlight content
+
 0.2
 - Addon Integration: UpNext addon is now integrated (replacing broken Next Up Notification)
 - Fixed similar widget title in hubs (shows 'because you watched...' instead of just 'similar movies')

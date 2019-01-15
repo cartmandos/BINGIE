@@ -220,11 +220,17 @@
                     <visible allowhiddenfocus="true">false</visible>
                     <include>HiddenObject</include>
                     <!-- on first load -->
-                    <onfocus condition="Skin.HasSetting(SpotLightTrailers) + String.IsEmpty(Window(Home).Property(SpotlightFirstPlayDone)) + !Player.HasVideo + !String.IsEmpty(Container(1508).ListItem.Trailer)">PlayMedia($ESCINFO[Container(1508).ListItem.Trailer],1)</onfocus>
-                    <onfocus condition="Skin.String(AutoYoutubeTrailer,true) + Skin.HasSetting(SpotLightTrailers) + String.IsEmpty(Window(Home).Property(SpotlightFirstPlayDone)) + !Player.HasVideo + [String.IsEqual(Container(1508).ListItem.DBType,tvshow) | String.IsEqual(Container(1508).ListItem.Property(DBTYPE),tvshow)]">RunScript(script.skin.helper.service,action=playtraileryoutube,title=$INFO[Container(1508).ListItem.Title])</onfocus>
+                    <onfocus condition="Skin.HasSetting(SpotLightTrailers) + String.IsEmpty(Window(Home).Property(SpotlightFirstPlayDone))
+                     + !Player.HasVideo + !String.IsEmpty(Container(1508).ListItem.Trailer)">PlayMedia($ESCINFO[Container(1508).ListItem.Trailer],1)</onfocus>
+                    <onfocus condition="Skin.String(AutoYoutubeTrailer,true) + Skin.HasSetting(SpotLightTrailers) + String.IsEmpty(Window(Home).Property(SpotlightFirstPlayDone))
+                     + !Player.HasVideo + [[String.IsEqual(Container(1508).ListItem.DBType,tvshow) | String.IsEqual(Container(1508).ListItem.Property(DBTYPE),tvshow)] | [String.IsEqual(Container(1508).ListItem.DBType,movie) + String.IsEmpty(Container(1508).ListItem.Trailer)]]">
+                        RunScript(script.skin.helper.service,action=playtraileryoutube,title=$INFO[Container(1508).ListItem.Title])</onfocus>
                     <!-- not first load -->
-                    <onfocus condition="Skin.HasSetting(SpotLightTrailers) + !String.IsEmpty(Window(Home).Property(SpotlightFirstPlayDone)) + !Player.HasVideo + !String.IsEmpty(Container(1508).ListItem.Trailer)">AlarmClock(trailer_delay,PlayMedia($ESCINFO[Container(1508).ListItem.Trailer],1),00:08,silent)</onfocus>
-                    <onfocus condition="Skin.String(AutoYoutubeTrailer,true) + Skin.HasSetting(SpotLightTrailers) + !String.IsEmpty(Window(Home).Property(SpotlightFirstPlayDone)) + !Player.HasVideo + [String.IsEqual(Container(1508).ListItem.DBType,tvshow) | String.IsEqual(Container(1508).ListItem.Property(DBTYPE),tvshow)]">AlarmClock(trailer_delay,RunScript(script.skin.helper.service,action=playtraileryoutube,title=$INFO[Container(1508).ListItem.Title]),00:07,silent)</onfocus>
+                    <onfocus condition="Skin.HasSetting(SpotLightTrailers) + !String.IsEmpty(Window(Home).Property(SpotlightFirstPlayDone))
+                     + !Player.HasVideo + !String.IsEmpty(Container(1508).ListItem.Trailer)">AlarmClock(trailer_delay,PlayMedia($ESCINFO[Container(1508).ListItem.Trailer],1),00:08,silent)</onfocus>
+                    <onfocus condition="Skin.String(AutoYoutubeTrailer,true) + Skin.HasSetting(SpotLightTrailers) + !String.IsEmpty(Window(Home).Property(SpotlightFirstPlayDone))
+                     + !Player.HasVideo + [[String.IsEqual(Container(1508).ListItem.DBType,tvshow) | String.IsEqual(Container(1508).ListItem.Property(DBTYPE),tvshow)] | [String.IsEqual(Container(1508).ListItem.DBType,movie) + String.IsEmpty(Container(1508).ListItem.Trailer)]]">
+                        AlarmClock(trailer_delay,RunScript(script.skin.helper.service,action=playtraileryoutube,title=$INFO[Container(1508).ListItem.Title]),00:07,silent)</onfocus>
                     <onunfocus condition="String.IsEmpty(Window(Home).Property(SpotlightFirstPlayDone))">SetProperty(SpotlightFirstPlayDone,Done,Home)</onunfocus>
                     <onfocus>SetFocus(505)</onfocus>
                     <!-- workaround to fix stuck on '53' after setting widgets in hubs -->
@@ -256,7 +262,8 @@
                     <animation effect="fade" start="20" end="100" time="1000" delay="100" condition="ControlGroup(505).HasFocus()">Conditional</animation>
                     <control type="radiobutton" id="51">
                         <!-- play -->
-                        <visible>![String.IsEqual(Container(1508).ListItem.DBType,tvshow) | String.IsEqual(Container(1508).ListItem.Property(DBTYPE),tvshow)]</visible>
+                        <visible>String.IsEqual(Container(1508).ListItem.DBType,video) | String.IsEqual(Container(1508).ListItem.DBType,movie) | String.IsEqual(Container(1508).ListItem.Property(DBTYPE),movie)
+                            | String.IsEqual(Container(1508).ListItem.DBType,episode) | String.IsEqual(Container(1508).ListItem.Property(DBTYPE),episode)</visible>
                         <description>Play</description>
                         <width>220</width>
                         <height>100%</height>
@@ -591,7 +598,7 @@
                 <onback condition="Window.IsActive(Home)">300</onback>
                 <onleft condition="!Skin.HasSetting(EnhancedHome_Circular) | !Window.IsActive(Home)">300</onleft>
                 <pagecontrol>317</pagecontrol>
-                <include condition="[Window.IsActive(Home) | Window.IsActive(3017) | Window.IsActive(3018) | Window.IsActive(3020)] + !Skin.HasSetting(NetflixHomeDisableFirstRow)">NetflixSpotlightWidget</include>
+                <include condition="[Window.IsActive(Home) | Window.IsActive(3017) | Window.IsActive(3018) | Window.IsActive(3020)] + !Skin.HasSetting(NetflixHomeDisableFirstRow) + !Skin.HasSetting(DisableSpotlightContent)">NetflixSpotlightWidget</include>
                 <include condition="Window.IsActive(Home)">skinshortcuts-template-Widgets</include>
                 <include condition="Window.IsActive(3018)">netflix_items_movies</include>
                 <include condition="Window.IsActive(3017)">netflix_items_tvshows</include>
@@ -918,9 +925,11 @@
                     <onfocus>SetProperty(widgetstyle,spotlight)</onfocus>
                     <onfocus>SetProperty(SkinHelper.WidgetContainer,1508,home)</onfocus>
                     <onfocus>SetProperty(LastFocusWidgetPos,$INFO[Container(1508).CurrentItem],Home)</onfocus>
-                    <!--show info -->
+                    <!--show info RunScript(script.skin.helper.service,action=showinfo)-->
                     <onfocus condition="!String.IsEmpty(Window(Home).Property(ShowSpotlightInfo))">Action(Info)</onfocus>
+                    <onfocus condition="!String.IsEmpty(Window(Home).Property(ShowSpotlightInfo)) + !String.IsEqual(ListItem.DBTYPE,movie) + String.IsEmpty(Container.ListItem.DBID)">ActivateWindow(10025,$ESCINFO[Container.ListItem.FileNameAndPath],return)</onfocus>
                     <onfocus condition="!String.IsEmpty(Window(Home).Property(ShowSpotlightInfo))">SetFocus(505)</onfocus>
+                    <onfocus condition="!String.IsEmpty(Window(Home).Property(ShowSpotlightInfo)) + String.IsEmpty(Container.ListItem.DBID)">ClearProperty(ShowSpotlightInfo,Home)</onfocus>
                     <!--show buttons-->
                     <onunfocus condition="System.HasAlarm(focus_delay)">CancelAlarm(focus_delay,true)</onunfocus>
                     <onfocus condition="String.IsEmpty(Window(Home).Property(ShowSpotlightInfo))">AlarmClock(focus_delay,SetFocus(53),00:02,silent)</onfocus>
@@ -929,7 +938,8 @@
                     </include>
                 </control>
             </focusedlayout>
-            <content target="videos" sortby="dateadded" sortorder="descending" limit="1">$VAR[Netflix2HomeSpotlightWidgetContent]</content>
+            <content target="videos" limit="1">$VAR[Netflix2HomeSpotlightWidgetContent]</content>
+            <!-- <content target="videos" sortby="dateadded" sortorder="descending" limit="1">$VAR[Netflix2HomeSpotlightWidgetContent]</content> -->
         </control>
     </include>
 
@@ -961,6 +971,8 @@
         <!-- new hub -->
         <value condition="Window.IsActive(3020)">plugin://script.skin.helper.widgets/?action=recent&amp;mediatype=movies&amp;tag=&amp;reload=$INFO[Window(Home).Property(widgetreload-movies)]</value>
         <!-- home -->
+        <!-- custom home spotlight -->
+        <value condition="!String.IsEmpty(Skin.String(spotlighthome.path))">$INFO[Skin.String(spotlighthome.path)]</value>
         <value condition="Skin.HasSetting(ExperimentalSpotlight) + Skin.HasSetting(AllowTVShowsSpotlight)">plugin://script.skin.helper.widgets/?action=similar&amp;mediatype=media&amp;limit=5&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</value>
         <value condition="Skin.HasSetting(ExperimentalSpotlight)">plugin://script.skin.helper.widgets/?action=similar&amp;mediatype=movies&amp;limit=5&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</value>
         <value>$VAR[NetFlixHomeSpotLightWidgetContent]</value>

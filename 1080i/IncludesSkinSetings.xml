@@ -83,20 +83,42 @@
                 <visible>String.Contains(Skin.String(HomeLayout), netflix)</visible>
                 <selected>Skin.HasSetting(NetflixHomeDisableFirstRow)</selected>
             </control>
+
+            <!--disable spotlight content-->
+            <control type="radiobutton" id="31797">
+                <include>SkinSettings_Button</include>
+                <label>Disable Spotlight Content</label>
+                <onclick>Skin.ToggleSetting(DisableSpotlightContent)</onclick>
+                <visible>!Skin.HasSetting(NetflixHomeDisableFirstRow) + Skin.String(HomeLayout,netflix2)</visible>
+                <selected>Skin.HasSetting(DisableSpotlightContent)</selected>
+            </control>
+
+               <!-- set custom spotlight content -->
+            <control type="radiobutton" id="31793">
+                <include>SkinSettings_Button</include>
+                <label>Set Custom Spotlight Content in Home</label>
+                <label2>        $INFO[Skin.String(spotlighthome.label)]</label2>
+                <onclick condition="!Skin.String(spotlighthome.label)">RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=spotlighthome.label&amp;skinWidgetTarget=spotlighthome.target&amp;skinWidgetPath=spotlighthome.path)</onclick>
+                <onclick condition="Skin.String(spotlighthome.label)">Skin.Reset(spotlighthome.label)</onclick>
+                <onclick condition="Skin.String(spotlighthome.path)">Skin.Reset(spotlighthome.path)</onclick>
+                <selected>Skin.String(spotlighthome.label)</selected>
+                <visible>!Skin.HasSetting(DisableSpotlightContent) + !Skin.HasSetting(NetflixHomeDisableFirstRow) + Skin.String(HomeLayout,netflix2)</visible>
+            </control>
+
             <!--spotlight widget trailer-->
             <control type="radiobutton" id="31798">
                 <include>SkinSettings_Button</include>
                 <label>31798</label>
                 <onclick>Skin.ToggleSetting(SpotLightTrailers)</onclick>
                 <selected>Skin.HasSetting(SpotLightTrailers)</selected>
-                <visible>!Skin.HasSetting(NetflixHomeDisableFirstRow) + [Skin.String(HomeLayout, enhanced) | Skin.String(HomeLayout,netflix2)]</visible>
+                <visible>!Skin.HasSetting(DisableSpotlightContent) + !Skin.HasSetting(NetflixHomeDisableFirstRow) + [Skin.String(HomeLayout, enhanced) | Skin.String(HomeLayout,netflix2)]</visible>
             </control>
             <!-- Enable experimental spotlight content -->
             <control type="radiobutton" id="28327">
                 <include>SkinSettings_Button</include>
                 <label>Enable experimental spotlight content</label>
                 <onclick>Skin.ToggleSetting(ExperimentalSpotlight)</onclick>
-                <visible>!Skin.HasSetting(NetflixHomeDisableFirstRow) + Skin.String(HomeLayout,netflix2)</visible>
+                <visible>!Skin.HasSetting(DisableSpotlightContent) + !Skin.HasSetting(NetflixHomeDisableFirstRow) + !Skin.String(spotlighthome.label) +Skin.String(HomeLayout,netflix2)</visible>
                 <selected>Skin.HasSetting(ExperimentalSpotlight)</selected>
             </control>
             <!-- Allow tvshows in experimental content -->
@@ -104,7 +126,7 @@
                 <include>SkinSettings_Button</include>
                 <label>Allow TVShows in experimental spotlight content</label>
                 <onclick>Skin.ToggleSetting(AllowTVShowsSpotlight)</onclick>
-                <visible>!Skin.HasSetting(NetflixHomeDisableFirstRow) + Skin.String(HomeLayout,netflix2)</visible>
+                <visible>!Skin.HasSetting(DisableSpotlightContent) + !Skin.HasSetting(NetflixHomeDisableFirstRow) + !Skin.String(spotlighthome.label) + Skin.String(HomeLayout,netflix2)</visible>
                 <selected>Skin.HasSetting(AllowTVShowsSpotlight)</selected>
             </control>
             <!-- enable auto-trailers in netflix home -->
@@ -2176,7 +2198,7 @@
                 <param name="action" value="RunScript(script.skinshortcuts,type=resetall)" />
                 <param name="visible" value="true" />
             </include>
-             </control>
+        </control>
     </include>
     
     <include name="SkinSettings_ColorThemes">
