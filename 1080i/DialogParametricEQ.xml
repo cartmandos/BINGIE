@@ -1,0 +1,424 @@
+<window>
+	<defaultcontrol always="true">7999</defaultcontrol>
+    <controls>
+        <include>DialogOverlayExtra</include>        
+        <control type="group">
+            <include>animation_window_open_close</include>
+			<posx>40</posx>
+			<posy>145</posy>
+            <width>1840</width>
+            <height>760</height>
+            <!-- background panel -->
+			<control type="image">
+				<texture border="15">diffuse/bgpanel.png</texture>
+				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
+			</control>
+			<control type="image">
+				<texture border="15">diffuse/bgpanel.png</texture>
+				<bordersize>10</bordersize>
+				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
+			</control>
+            <control type="image">
+                <posx>50</posx>
+                <posy>155</posy>
+                <width>1540</width>
+                <height>670</height>
+                <texture border="5">dialogs/default/inner.png</texture>
+            </control>
+            <!--Header-->
+			<control type="label">
+				<description>Heading</description>
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>1840</width>
+				<height>80</height>
+				<label>$ADDON[adsp.biquad.filters 30100]</label>
+				<include>DialogHeader_Alt</include>
+				<align>center</align>
+				<wrapmultiline>true</wrapmultiline>
+			</control>
+			<control type="grouplist">
+				<description>EQ Slider Level List</description>
+				<left>40</left>
+				<top>120</top>
+				<width>1480</width>
+				<height>30</height>
+				<itemgap>15</itemgap>
+				<orientation>horizontal</orientation>
+				<control type="label" id="8200">
+					<description>Preamp Frequency Band Level</description>
+					<info>Preamp Band Level</info>
+					<width>110</width>
+					<height>30</height>
+					<visible>true</visible>
+					<align>center</align>
+					<aligny>center</aligny>
+					<scroll>false</scroll>
+				</control>
+				<control type="label" id="8201">
+					<description>64Hz Frequency Band Level</description>
+					<info>32Hz Band Level</info>
+					<width>120</width>
+					<height>30</height>
+					<visible>true</visible>
+					<align>center</align>
+					<aligny>center</aligny>
+					<scroll>false</scroll>
+				</control>
+				<control type="label" id="8202">
+					<description>64Hz Frequency Band Level</description>
+					<info>64Hz Band Level</info>
+					<width>120</width>
+					<height>30</height>
+					<visible>true</visible>
+					<align>center</align>
+					<aligny>center</aligny>
+					<scroll>false</scroll>
+				</control>
+				<control type="label" id="8203">
+					<description>125Hz Frequency Band Level</description>
+					<info>125Hz Band Level</info>
+					<width>120</width>
+					<height>30</height>
+					<visible>true</visible>
+					<align>center</align>
+					<aligny>center</aligny>
+					<scroll>false</scroll>
+				</control>
+				<control type="label" id="8204">
+					<description>250Hz Frequency Band Level</description>
+					<info>250Hz Band Level</info>
+					<width>120</width>
+					<height>30</height>
+					<visible>true</visible>
+					<align>center</align>
+					<aligny>center</aligny>
+					<scroll>false</scroll>
+				</control>
+				<control type="label" id="8205">
+					<description>500Hz Frequency Band Level</description>
+					<info>500Hz Band Level</info>
+					<width>120</width>
+					<height>30</height>
+					<visible>true</visible>
+					<align>center</align>
+					<aligny>center</aligny>
+					<scroll>false</scroll>
+				</control>
+				<control type="label" id="8206">
+					<description>1kHz Frequency Band Level</description>
+					<info>1kHz Band Level</info>
+					<width>120</width>
+					<height>30</height>
+					<visible>true</visible>
+					<align>center</align>
+					<aligny>center</aligny>
+					<scroll>false</scroll>
+				</control>
+				<control type="label" id="8207">
+					<description>2kHz Frequency Band Level</description>
+					<info>2kHz Band Level</info>
+					<width>120</width>
+					<height>30</height>
+					<visible>true</visible>
+					<align>center</align>
+					<aligny>center</aligny>
+					<scroll>false</scroll>
+				</control>
+				<control type="label" id="8208">
+					<description>4kHz Frequency Band Level</description>
+					<info>4kHz Band Level</info>
+					<width>120</width>
+					<height>30</height>
+					<visible>true</visible>
+					<align>center</align>
+					<aligny>center</aligny>
+					<scroll>false</scroll>
+				</control>
+				<control type="label" id="8209">
+					<description>8kHz Frequency Band Level</description>
+					<info>8kHz Band Level</info>
+					<width>120</width>
+					<height>30</height>
+					<visible>true</visible>
+					<align>center</align>
+					<aligny>center</aligny>
+					<scroll>false</scroll>
+				</control>
+				<control type="label" id="8210">
+					<description>16kHz Frequency Band Level</description>
+					<info>16kHz Band Level</info>
+					<width>120</width>
+					<height>30</height>
+					<visible>true</visible>
+					<align>center</align>
+					<aligny>center</aligny>
+					<scroll>false</scroll>
+				</control>
+			</control>
+			<control type="grouplist">
+				<description>EQ Slider Label List</description>
+				<left>40</left>
+				<top>680</top>
+				<width>1480</width>
+				<height>30</height>
+				<itemgap>13</itemgap>
+				<orientation>horizontal</orientation>
+				<control type="label" id="8100">
+					<description>Preamp Frequency Band Label</description>
+					<info>Preamp Band Label</info>
+					<width>110</width>
+					<height>30</height>
+					<visible>true</visible>
+					<align>center</align>
+					<aligny>center</aligny>
+					<scroll>false</scroll>
+					<label>$ADDON[adsp.biquad.filters 30150]</label>
+				</control>
+				<control type="label" id="8101">
+					<description>64Hz Frequency Band Label</description>
+					<info>32Hz Band Label</info>
+					<width>120</width>
+					<height>30</height>
+					<visible>true</visible>
+					<align>center</align>
+					<aligny>center</aligny>
+					<scroll>false</scroll>
+					<label>$ADDON[adsp.biquad.filters 30151]</label>
+				</control>
+				<control type="label" id="8102">
+					<description>64Hz Frequency Band Label</description>
+					<info>64Hz Band Label</info>
+					<width>120</width>
+					<height>30</height>
+					<visible>true</visible>
+					<align>center</align>
+					<aligny>center</aligny>
+					<scroll>false</scroll>
+					<label>$ADDON[adsp.biquad.filters 30152]</label>
+				</control>
+				<control type="label" id="8103">
+					<description>125Hz Frequency Band Label</description>
+					<info>125Hz Band Label</info>
+					<width>120</width>
+					<height>30</height>
+					<visible>true</visible>
+					<align>center</align>
+					<aligny>center</aligny>
+					<scroll>false</scroll>
+					<label>$ADDON[adsp.biquad.filters 30153]</label>
+				</control>
+				<control type="label" id="8104">
+					<description>250Hz Frequency Band Label</description>
+					<info>250Hz Band Label</info>
+					<width>120</width>
+					<height>30</height>
+					<visible>true</visible>
+					<align>center</align>
+					<aligny>center</aligny>
+					<scroll>false</scroll>
+					<label>$ADDON[adsp.biquad.filters 30154]</label>
+				</control>
+				<control type="label" id="8105">
+					<description>500Hz Frequency Band Label</description>
+					<info>500Hz Band Label</info>
+					<width>120</width>
+					<height>30</height>
+					<visible>true</visible>
+					<align>center</align>
+					<aligny>center</aligny>
+					<scroll>false</scroll>
+					<label>$ADDON[adsp.biquad.filters 30155]</label>
+				</control>
+				<control type="label" id="8106">
+					<description>1kHz Frequency Band Label</description>
+					<info>1kHz Band Label</info>
+					<width>120</width>
+					<height>30</height>
+					<visible>true</visible>
+					<align>center</align>
+					<aligny>center</aligny>
+					<scroll>false</scroll>
+					<label>$ADDON[adsp.biquad.filters 30156]</label>
+				</control>
+				<control type="label" id="8107">
+					<description>2kHz Frequency Band Label</description>
+					<info>2kHz Band Label</info>
+					<width>120</width>
+					<height>30</height>
+					<visible>true</visible>
+					<align>center</align>
+					<aligny>center</aligny>
+					<scroll>false</scroll>
+					<label>$ADDON[adsp.biquad.filters 30157]</label>
+				</control>
+				<control type="label" id="8108">
+					<description>4kHz Frequency Band Label</description>
+					<info>4kHz Band Label</info>
+					<width>120</width>
+					<height>30</height>
+					<visible>true</visible>
+					<align>center</align>
+					<aligny>center</aligny>
+					<scroll>false</scroll>
+					<label>$ADDON[adsp.biquad.filters 30158]</label>
+				</control>
+				<control type="label" id="8109">
+					<description>8kHz Frequency Band Label</description>
+					<info>8kHz Band Label</info>
+					<width>120</width>
+					<height>30</height>
+					<visible>true</visible>
+					<align>center</align>
+					<aligny>center</aligny>
+					<scroll>false</scroll>
+					<label>$ADDON[adsp.biquad.filters 30159]</label>
+				</control>
+				<control type="label" id="8110">
+					<description>16kHz Frequency Band Label</description>
+					<info>16kHz Band Label</info>
+					<width>120</width>
+					<height>30</height>
+					<visible>true</visible>
+					<align>center</align>
+					<aligny>center</aligny>
+					<scroll>false</scroll>
+					<label>$ADDON[adsp.biquad.filters 30160]</label>
+				</control>
+			</control>
+			<control type="grouplist" id="7999">
+				<description>EQ Slider List</description>
+				<left>80</left>
+				<top>170</top>
+				<width>1480</width>
+				<height>670</height>
+				<onleft>10000</onleft>
+				<onright>10000</onright>
+				<onup>5</onup>
+				<ondown>1</ondown>
+				<itemgap>103</itemgap>
+				<orientation>horizontal</orientation>
+				<control type="slider" id="8000">
+					<description>Preamp Frequency Band Slider</description>
+					<height>500</height>
+					<width>30</width>
+					<aligny>center</aligny>
+					<orientation>vertical</orientation>
+				</control>		 
+				<control type="slider" id="8001">
+					<description>32Hz Frequency Band Slider</description>
+					<height>500</height>
+					<width>30</width>
+					<aligny>center</aligny>
+					<orientation>vertical</orientation>
+				</control>
+				<control type="slider" id="8002">
+					<description>64Hz Frequency Band Slider</description>
+					<height>500</height>
+					<width>30</width>
+					<aligny>center</aligny>
+					<orientation>vertical</orientation>
+				</control>
+				<control type="slider" id="8003">
+					<description>128Hz Frequency Band Slider</description>
+					<height>500</height>
+					<width>30</width>
+					<aligny>center</aligny>
+					<orientation>vertical</orientation>
+				</control>
+				<control type="slider" id="8004">
+					<description>250Hz Frequency Band Slider</description>
+					<height>500</height>
+					<width>30</width>
+					<aligny>center</aligny>
+					<orientation>vertical</orientation>
+				</control>
+				<control type="slider" id="8005">
+					<description>460Hz Frequency Band Slider</description>
+					<height>500</height>
+					<width>30</width>
+					<aligny>center</aligny>
+					<orientation>vertical</orientation>
+				</control>
+				<control type="slider" id="8006">
+					<description>1kHz Frequency Band Slider</description>
+					<height>500</height>
+					<width>30</width>
+					<aligny>center</aligny>
+					<orientation>vertical</orientation>
+				</control>
+				<control type="slider" id="8007">
+					<description>2kHz Frequency Band Slider</description>
+					<height>500</height>
+					<width>30</width>
+					<aligny>center</aligny>
+					<orientation>vertical</orientation>
+				</control>
+				<control type="slider" id="8008">
+					<description>4kHz Frequency Band Slider</description>
+					<height>500</height>
+					<width>30</width>
+					<aligny>center</aligny>
+					<orientation>vertical</orientation>
+				</control>
+				<control type="slider" id="8009">
+					<description>8kHz Frequency Band Slider</description>
+					<height>500</height>
+					<width>30</width>
+					<aligny>center</aligny>
+					<orientation>vertical</orientation>
+				</control>
+				<control type="slider" id="8010">
+					<description>16kHz Frequency Band Slider</description>
+					<description>rear seperation</description>
+					<height>500</height>
+					<width>30</width>
+					<aligny>center</aligny>
+					<orientation>vertical</orientation>
+				</control>
+			</control>	
+		<control type="grouplist" id="10000">
+			<left>1500</left>
+			<bottom>150</bottom>
+			<onup>10052</onup>
+			<ondown>10050</ondown>
+			<onleft>8010</onleft>
+			<onright>8000</onright>
+			<orientation>vertical</orientation>
+			<width>370</width>
+			<height>300</height>
+			<itemgap>10</itemgap>
+			<control type="button" id="10050">
+				<description>Ok Button</description>
+				<width>300</width>
+                <height>80</height>
+				<align>center</align>
+				<label>186</label>
+				<onup>10052</onup>
+				<ondown>10051</ondown>
+				<include>DialogButtonOther</include>
+			</control>
+			<control type="button" id="10051">
+				<description>Cancel Button</description>
+				<width>300</width>
+                <height>80</height>
+				<align>center</align>
+				<label>222</label>
+				<onup>10050</onup>
+				<ondown>10052</ondown>
+				<include>DialogButtonOther</include>
+			</control>
+			<control type="button" id="10052">
+				<description>Default Button</description>
+				<width>300</width>
+                <height>80</height>
+				<align>center</align>
+				<label>409</label>
+				<onup>10051</onup>
+				<ondown>10052</ondown>
+				<include>DialogButtonOther</include>
+			</control>
+		</control>
+        </control>
+    </controls>
+</window>

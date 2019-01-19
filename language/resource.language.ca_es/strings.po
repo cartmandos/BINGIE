@@ -1,0 +1,349 @@
+# Kodi Media Center language file
+# Addon Name: Titan
+# Addon id: skin.titan
+# Addon Provider: marcelveldt,mgonzales
+msgid ""
+msgstr ""
+"Project-Id-Version: KODI Skins\n"
+"Report-Msgid-Bugs-To: http://trac.kodi.tv/\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Kodi Translation Team\n"
+"Language-Team: Catalan (Spain) (http://www.transifex.com/projects/p/kodi-skins/language/ca_ES/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ca_ES\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "#31001"
+msgid "Other settings"
+msgstr "Altres ajusts"
+
+msgctxt "#31005"
+msgid "General skin settings"
+msgstr "Ajusts generals de l'aparença"
+
+msgctxt "#31013"
+msgid "Configure shortcuts"
+msgstr "Configura les dreceres"
+
+msgctxt "#31014"
+msgid "Edit menu shortcuts"
+msgstr "Edita les dreceres del menú"
+
+msgctxt "#31022"
+msgid "Background settings"
+msgstr "Ajusts del fons"
+
+msgctxt "#31037"
+msgid "Trailers"
+msgstr "Tràilers"
+
+msgctxt "#31048"
+msgid "Latest Movies"
+msgstr "Pel·lícules més recents"
+
+msgctxt "#31050"
+msgid "All Movies"
+msgstr "Totes les pel·lícules"
+
+msgctxt "#31051"
+msgid "All TV Shows"
+msgstr "Totes les sèries de TV"
+
+msgctxt "#31053"
+msgid "Poster"
+msgstr "Cartell"
+
+msgctxt "#31054"
+msgid "Fanart"
+msgstr "Fanart"
+
+msgctxt "#31055"
+msgid "Banner"
+msgstr "Bàner"
+
+msgctxt "#31056"
+msgid "Landscape"
+msgstr "Apaïsat"
+
+msgctxt "#31057"
+msgid "ClearArt"
+msgstr "ClearART"
+
+msgctxt "#31058"
+msgid "Logo"
+msgstr "Logotip"
+
+msgctxt "#31062"
+msgid "YouTube"
+msgstr "YouTube"
+
+msgctxt "#31066"
+msgid "Poster"
+msgstr "Cartell"
+
+msgctxt "#31068"
+msgid "Showcase"
+msgstr "Showcase"
+
+msgctxt "#31085"
+msgid "Schedule"
+msgstr "Planificació"
+
+msgctxt "#31090"
+msgid "XBMB3C settings"
+msgstr "Ajusts de XBMB3C"
+
+msgctxt "#31097"
+msgid "Extended"
+msgstr "Ampliat"
+
+msgctxt "#31098"
+msgid "BannerPlex"
+msgstr "Bàner de Plex"
+
+msgctxt "#31102"
+msgid "Random movies"
+msgstr "Pel·lícules a l'atzar"
+
+msgctxt "#31103"
+msgid "Random episodes"
+msgstr "Episodis a l'atzar"
+
+msgctxt "#31107"
+msgid "Recently added albums"
+msgstr "Àlbums afegits recentment"
+
+msgctxt "#31108"
+msgid "Random albums"
+msgstr "Àlbums a l'atzar"
+
+msgctxt "#31112"
+msgid "Finishes at"
+msgstr "Acaba a les"
+
+msgctxt "#31127"
+msgid "Recently added"
+msgstr "Afegits recentment"
+
+msgctxt "#31135"
+msgid "Record this episode only"
+msgstr "Enregistra únicament aquest episodi"
+
+msgctxt "#31136"
+msgid "Record all episodes (series recording)"
+msgstr "Enregistra tots els episodis (enregistrament de sèries)"
+
+msgctxt "#31137"
+msgid "Settings for recordings"
+msgstr "Ajusts per als enregistraments"
+
+msgctxt "#31138"
+msgid "Cancel recording of this episode only"
+msgstr "Cancel·la únicament l'enregistrament d'aquest episodi"
+
+msgctxt "#31139"
+msgid "Cancel recording of all episodes"
+msgstr "Cancel·la l'enregistrament de tots els episodis"
+
+msgctxt "#31142"
+msgid "Global background settings"
+msgstr "Ajusts del fons global"
+
+msgctxt "#31184"
+msgid "Submenu"
+msgstr "Submenú"
+
+msgctxt "#31185"
+msgid "Spotlight"
+msgstr "Spotlight"
+
+msgctxt "#31187"
+msgid "Play TV theme songs in video library (TvTunes add-on)"
+msgstr "Reprodueix les cançons del tema de TV a la biblioteca de vídeo (complement TvTunes)"
+
+msgctxt "#31188"
+msgid "Edit widget contents"
+msgstr "Edita el contingut del giny"
+
+msgctxt "#31189"
+msgid "Movies widget"
+msgstr "Giny de pel·lícules"
+
+msgctxt "#31190"
+msgid "TV-Shows widget"
+msgstr "Giny de programes de TV"
+
+msgctxt "#31191"
+msgid "Netflix widget"
+msgstr "Giny de Netflix"
+
+msgctxt "#31192"
+msgid "YouTube widget"
+msgstr "Giny de YouTube"
+
+msgctxt "#31193"
+msgid "Music widget"
+msgstr "Giny de música"
+
+msgctxt "#31194"
+msgid "Weather widget"
+msgstr "Giny del Temps"
+
+msgctxt "#31212"
+msgid "Next episode"
+msgstr "Episodi Següent"
+
+msgctxt "#31213"
+msgid "Airs"
+msgstr "Emetrà"
+
+msgctxt "#31231"
+msgid "seconds"
+msgstr "segons"
+
+msgctxt "#31250"
+msgid "PLAYING"
+msgstr "REPRODUINT"
+
+msgctxt "#31251"
+msgid "PAUSED"
+msgstr "EN PAUSA"
+
+msgctxt "#31253"
+msgid "FAST FORWARD"
+msgstr "AVANÇA RÀPID"
+
+msgctxt "#31254"
+msgid "REWIND"
+msgstr "REBOBINA"
+
+msgctxt "#31255"
+msgid "SEEKING"
+msgstr "BUSCANT"
+
+msgctxt "#31270"
+msgid "Advanced settings"
+msgstr "Ajusts avançats"
+
+msgctxt "#31272"
+msgid "Backup the skin settings"
+msgstr "Còpia de seguretat dels ajusts de l'aparença"
+
+msgctxt "#31273"
+msgid "Restore the skin settings"
+msgstr "Restaura els ajusts de l'aparença"
+
+msgctxt "#31274"
+msgid "Reset the skin to default settings"
+msgstr "Restableix els ajusts de l'aparença"
+
+msgctxt "#31275"
+msgid "Other advanced skin settings"
+msgstr "Altres ajusts avançats de l'aparença"
+
+msgctxt "#31286"
+msgid "36 Hour Forecast"
+msgstr "Predicció a 36 hores"
+
+msgctxt "#31287"
+msgid "Hourly Forecast"
+msgstr "Predicció per hores"
+
+msgctxt "#31288"
+msgid "Weekend Forecast"
+msgstr "Predicció del cap de setmana"
+
+msgctxt "#31289"
+msgid "10 Day Forecast"
+msgstr "Predicció a 10 dies"
+
+msgctxt "#31290"
+msgid "Chance of Precipitation"
+msgstr "Possibilitat de precipitació"
+
+msgctxt "#31291"
+msgid "Fetching forecast info..."
+msgstr "S'està obtenint la informació de la predicció..."
+
+msgctxt "#31305"
+msgid "View"
+msgstr "Visualització"
+
+msgctxt "#31308"
+msgid "Close"
+msgstr "Tanca"
+
+msgctxt "#31340"
+msgid "Buffering..."
+msgstr "S'està omplint la memòria intermèdia..."
+
+msgctxt "#31403"
+msgid "[B]CONFIGURE PICTURE SETTINGS[/B][CR][CR]Set picture listing options · Configure slideshows"
+msgstr "[B]CONFIGUREU ELS AJUSTS D'IMATGE[/B][CR][CR]Establiu les opcions del llistat d'imatges · Configureu les presentacions de diapositives"
+
+msgctxt "#31404"
+msgid "[B]CONFIGURE WEATHER SETTINGS[/B][CR][CR]Set three cities to collect weather information"
+msgstr "[B]CONFIGUREU ELS AJUSTS DEL TEMPS[/B][CR][CR]Indiqueu tres ciutats per recollir informació del temps"
+
+msgctxt "#31426"
+msgid "Big Panel"
+msgstr "Plafó gran"
+
+msgctxt "#31429"
+msgid "Showcase"
+msgstr "Showcase"
+
+msgctxt "#31430"
+msgid "Landscape"
+msgstr "Apaïsat"
+
+msgctxt "#31433"
+msgid "Extended"
+msgstr "Ampliat"
+
+msgctxt "#31442"
+msgid "Low List"
+msgstr "Llista baixa"
+
+msgctxt "#31443"
+msgid "List"
+msgstr "Llista"
+
+msgctxt "#31486"
+msgid "General color settings"
+msgstr "Ajusts generals dels colors"
+
+msgctxt "#31499"
+msgid "Widget"
+msgstr "Giny"
+
+msgctxt "#31564"
+msgid "Widgets"
+msgstr "Ginys"
+
+msgctxt "#31680"
+msgid "Panel"
+msgstr "Plafó"
+
+msgctxt "#31714"
+msgid "Reload skin"
+msgstr "Torna a carregar l'aparença"
+
+msgctxt "#31730"
+msgid "All widgets"
+msgstr "Tots els ginys"
+
+msgctxt "#31749"
+msgid "Show info"
+msgstr "Mostra la informació"
+
+msgctxt "#31753"
+msgid "Multiple widgets"
+msgstr "Diversos ginys"
+
+msgctxt "#31799"
+msgid "Default widgets"
+msgstr "Ginys predeterminats"

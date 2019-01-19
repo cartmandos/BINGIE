@@ -1,0 +1,1117 @@
+# Kodi Media Center language file
+# Addon Name: Titan
+# Addon id: skin.titan
+# Addon Provider: marcelveldt,mgonzales
+msgid ""
+msgstr ""
+"Project-Id-Version: KODI Skins\n"
+"Report-Msgid-Bugs-To: http://trac.kodi.tv/\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Kodi Translation Team\n"
+"Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/kodi-skins/language/cs_CZ/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: cs_CZ\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+msgctxt "#31001"
+msgid "Other settings"
+msgstr "Ostatní nastavení"
+
+msgctxt "#31002"
+msgid "Enable/disable tiles"
+msgstr "Zapnout/vypnout dlaždice"
+
+msgctxt "#31005"
+msgid "General skin settings"
+msgstr "Obecné nastavení grafického vzhledu"
+
+msgctxt "#31011"
+msgid "Set custom tile image"
+msgstr "Nastavit vlastní obrázek na dlaždici"
+
+msgctxt "#31013"
+msgid "Configure shortcuts"
+msgstr "Nastavit zástupce"
+
+msgctxt "#31014"
+msgid "Edit menu shortcuts"
+msgstr "Upravit zkratky nabídky"
+
+msgctxt "#31018"
+msgid "Netflix"
+msgstr "Netflix"
+
+msgctxt "#31021"
+msgid "--- Display temperature in tile"
+msgstr "--- Zobrazovat teplotu v titulní"
+
+msgctxt "#31022"
+msgid "Background settings"
+msgstr "Nastavení pozadí"
+
+msgctxt "#31023"
+msgid "Use default skin background"
+msgstr "Použít výchozí pozadí z grafického vzhledu"
+
+msgctxt "#31025"
+msgid "Use dynamic weather background"
+msgstr "Použít měnící se pozadí počasí"
+
+msgctxt "#31026"
+msgid "Use random fanart background"
+msgstr "Použít pozadí náhodné fanouškovské umění"
+
+msgctxt "#31027"
+msgid "Use default background for this section"
+msgstr "Použít pro tuto sekci výchozí pozadí"
+
+msgctxt "#31028"
+msgid "Other skin tweaks"
+msgstr "Ostatní poladění grafického vzhledu"
+
+msgctxt "#31029"
+msgid "Do not show footer bar"
+msgstr "Nezobrazovat lištu zápatí"
+
+msgctxt "#31030"
+msgid "Display weather"
+msgstr "Zobrazit počasí"
+
+msgctxt "#31034"
+msgid "items total"
+msgstr "Položek celkem"
+
+msgctxt "#31035"
+msgid "Movies in progress"
+msgstr "Filmy v průběhu"
+
+msgctxt "#31036"
+msgid "Favourite movies"
+msgstr "Oblíbené filmy"
+
+msgctxt "#31037"
+msgid "Trailers"
+msgstr "Upoutávky"
+
+msgctxt "#31038"
+msgid "Use custom image for skin background"
+msgstr "Použít uživatelem určený obrázek jako pozadí pro grafický vzhled"
+
+msgctxt "#31039"
+msgid "Use custom image for skin background"
+msgstr "Použít uživatelem určený obrázek jako pozadí pro grafický vzhled"
+
+msgctxt "#31040"
+msgid "Now playing"
+msgstr "Nyní přehrávám"
+
+msgctxt "#31041"
+msgid "Use small settings button at footer of home"
+msgstr "V zápatí na domovské obrazovce použít malá tlačítka pro nastavení"
+
+msgctxt "#31043"
+msgid "Quick resume TV shows you are watching"
+msgstr "Rychle obnovit televizní pořady které sledujete"
+
+msgctxt "#31044"
+msgid "New added movies"
+msgstr "Nové přidané filmy"
+
+msgctxt "#31045"
+msgid "Musicvideos"
+msgstr "Hudební klipy"
+
+msgctxt "#31047"
+msgid "My List - Movies"
+msgstr "Můj seznam – filmy"
+
+msgctxt "#31048"
+msgid "Latest Movies"
+msgstr "Nejnovější filmy"
+
+msgctxt "#31049"
+msgid "Latest TV Shows"
+msgstr "Nejnovější televizní pořady"
+
+msgctxt "#31050"
+msgid "All Movies"
+msgstr "Všechny filmy"
+
+msgctxt "#31051"
+msgid "All TV Shows"
+msgstr "Všechny seriály"
+
+msgctxt "#31052"
+msgid "Artwork Downloader"
+msgstr "Stahování artwork"
+
+msgctxt "#31053"
+msgid "Poster"
+msgstr "Plagát"
+
+msgctxt "#31054"
+msgid "Fanart"
+msgstr "Fanart"
+
+msgctxt "#31055"
+msgid "Banner"
+msgstr "Banner"
+
+msgctxt "#31056"
+msgid "Landscape"
+msgstr "Na šířku"
+
+msgctxt "#31057"
+msgid "ClearArt"
+msgstr "Průhledné obrázky"
+
+msgctxt "#31058"
+msgid "Logo"
+msgstr "Logo"
+
+msgctxt "#31059"
+msgid "Caps"
+msgstr "Velká písmena"
+
+msgctxt "#31060"
+msgid "Kodi SUBTITLES"
+msgstr "Kodi TITULKY"
+
+msgctxt "#31061"
+msgid "Press Back or OK to exit"
+msgstr "Ukončete stisknutím Zpět nebo OK"
+
+msgctxt "#31062"
+msgid "YouTube"
+msgstr "YouTube"
+
+msgctxt "#31063"
+msgid "Toggle icon layout"
+msgstr "Přepnout rozvržení ikon"
+
+msgctxt "#31064"
+msgid "Wide Icons"
+msgstr "Široké ikony"
+
+msgctxt "#31066"
+msgid "Poster"
+msgstr "Plagát"
+
+msgctxt "#31068"
+msgid "Showcase"
+msgstr "Promenáda"
+
+msgctxt "#31072"
+msgid "Sort Home tiles"
+msgstr "Seřadit dlaždice na domovské obrazovce"
+
+msgctxt "#31075"
+msgid "Direction to move"
+msgstr "Směr pohybu"
+
+msgctxt "#31081"
+msgid "Netflix Mode"
+msgstr "Netflix režim"
+
+msgctxt "#31084"
+msgid "TIME"
+msgstr "ČAS"
+
+msgctxt "#31085"
+msgid "Schedule"
+msgstr "Rozvrh"
+
+msgctxt "#31092"
+msgid "Unwatched Episodes"
+msgstr "Nezhlédnuté epizody"
+
+msgctxt "#31093"
+msgid "Youtube Trailer"
+msgstr "Upoutávka na Youtube"
+
+msgctxt "#31095"
+msgid "PleKodi"
+msgstr "PleKodi"
+
+msgctxt "#31097"
+msgid "Extended"
+msgstr "Rozšířené"
+
+msgctxt "#31101"
+msgid "Netflix Suggestions"
+msgstr "Doporučení od Netflix"
+
+msgctxt "#31102"
+msgid "Random movies"
+msgstr "Náhodný film"
+
+msgctxt "#31103"
+msgid "Random episodes"
+msgstr "Náhodná epizoda"
+
+msgctxt "#31105"
+msgid "Recently added episodes"
+msgstr "Nedávno přidané epizody"
+
+msgctxt "#31106"
+msgid "Recently added songs"
+msgstr "Nedávno přidané písničky"
+
+msgctxt "#31107"
+msgid "Recently added albums"
+msgstr "Nedávno přidaná alba"
+
+msgctxt "#31108"
+msgid "Random albums"
+msgstr "Náhodná alba"
+
+msgctxt "#31109"
+msgid "Random artists"
+msgstr "Náhodný iumělec"
+
+msgctxt "#31110"
+msgid "Recently played music"
+msgstr "Nedávno přehrávaná hudba"
+
+msgctxt "#31112"
+msgid "Finishes at"
+msgstr "Končí v"
+
+msgctxt "#31114"
+msgid "Show large thumbnail"
+msgstr "Zobrazit velký náhled"
+
+msgctxt "#31115"
+msgid "Homescreen layout"
+msgstr "Rozvržení domovské obrazovky"
+
+msgctxt "#31119"
+msgid "Tiles for 3th party applications"
+msgstr "Dlaždice pro aplikace třetích stran"
+
+msgctxt "#31120"
+msgid "Tiles for default Kodi/Kodi features"
+msgstr "Dlaždice pro výchozí Kodi / funkce Kodi"
+
+msgctxt "#31121"
+msgid "Homescreen layout"
+msgstr "Rozvržení domovské obrazovky"
+
+msgctxt "#31122"
+msgid "Homescreen options"
+msgstr "Předvolby domovské obrazovky"
+
+msgctxt "#31125"
+msgid "Other home screen settings"
+msgstr "Ostatní natavení domovské obrazovky"
+
+msgctxt "#31126"
+msgid "Use vertical submenu layout (instead of default horizontal)"
+msgstr "Použít svislé rozvržení podnabídek (namísto výchozího vodorovného)"
+
+msgctxt "#31127"
+msgid "Recently added"
+msgstr "Nedávno přidané"
+
+msgctxt "#31128"
+msgid "Recently played"
+msgstr "Naposledy přehrané"
+
+msgctxt "#31129"
+msgid "My TV Shows"
+msgstr "Moje televizní pořady"
+
+msgctxt "#31130"
+msgid "My movies"
+msgstr "Moje filmy"
+
+msgctxt "#31131"
+msgid "Suggestions"
+msgstr "Doporučení"
+
+msgctxt "#31132"
+msgid "Enable item Background"
+msgstr "Zapnout pozadí položk"
+
+msgctxt "#31133"
+msgid "Show plot in video infopanel or onscreen display"
+msgstr "Zobrazovat zápletku v informačním panelu k videu nebo na onscreen displeji"
+
+msgctxt "#31134"
+msgid "Profile"
+msgstr "Profil"
+
+msgctxt "#31135"
+msgid "Record this episode only"
+msgstr "Nahrát pouze tuto epizodu"
+
+msgctxt "#31137"
+msgid "Settings for recordings"
+msgstr "Nastavení nahrávání"
+
+msgctxt "#31138"
+msgid "Cancel recording of this episode only"
+msgstr "Zrušit nahrávání pouze této epizody"
+
+msgctxt "#31139"
+msgid "Cancel recording of all episodes"
+msgstr "Zrušit zaznamenávání všech epizod"
+
+msgctxt "#31141"
+msgid "Show Fanart background"
+msgstr "Zobrazit fanouškovské umění na pozadí"
+
+msgctxt "#31142"
+msgid "Global background settings"
+msgstr "Globální nastavení pozadí"
+
+msgctxt "#31144"
+msgid "Enable section based backgrounds"
+msgstr "Pro každou sekci jiné pozadí"
+
+msgctxt "#31145"
+msgid "Default background image for this section"
+msgstr "Výchozí obrázek na pozadí pro tuto sekci"
+
+msgctxt "#31146"
+msgid "Random FanArt image"
+msgstr "Náhodný obrázek fanouškovského umění"
+
+msgctxt "#31147"
+msgid "Custom background image"
+msgstr "Vlastní obrázek na pozadí"
+
+msgctxt "#31148"
+msgid "Empty - please select image"
+msgstr "Prázdné – vyberte obrázek"
+
+msgctxt "#31149"
+msgid "Current section background"
+msgstr "Pozadí stávající sekce"
+
+msgctxt "#31150"
+msgid "Custom Image"
+msgstr "Vlastní obrázek"
+
+msgctxt "#31152"
+msgid "Use default colors"
+msgstr "Použít výchozí barvy"
+
+msgctxt "#31153"
+msgid "Use light colors"
+msgstr "Použít světlé barvy"
+
+msgctxt "#31154"
+msgid "Use dark colors"
+msgstr "Použít tmavší barvy"
+
+msgctxt "#31155"
+msgid "Hide panel background"
+msgstr "Skrýt pozadí panelu"
+
+msgctxt "#31156"
+msgid "Next episodes"
+msgstr "Další díly"
+
+msgctxt "#31157"
+msgid "Favourite Shows"
+msgstr "Oblíbené pořady"
+
+msgctxt "#31158"
+msgid "Favourite Episodes"
+msgstr "Oblíbené epizody"
+
+msgctxt "#31160"
+msgid "Networks"
+msgstr "Sítě"
+
+msgctxt "#31162"
+msgid "Kodi Library"
+msgstr "Knihovna kodi"
+
+msgctxt "#31164"
+msgid "Netflix Library"
+msgstr "Knihovna Netflix"
+
+msgctxt "#31165"
+msgid "Edit Main Menu"
+msgstr "Upravit hlavní menu"
+
+msgctxt "#31166"
+msgid "Edit Submenu"
+msgstr "Upravit podnabídku"
+
+msgctxt "#31167"
+msgid "Configure the Home screen menu layout"
+msgstr "Nastavit rozvržení nabídky na domovské obrazovce"
+
+msgctxt "#31169"
+msgid "Override background"
+msgstr "Přepsat pozadí"
+
+msgctxt "#31172"
+msgid "Do not use overlay"
+msgstr "Nepoužívat překrývání"
+
+msgctxt "#31173"
+msgid "Use custom overlay"
+msgstr "Použít vlastní překryv"
+
+msgctxt "#31175"
+msgid "Change Shortcut"
+msgstr "Změnit zkratku"
+
+msgctxt "#31177"
+msgid "None (use global background)"
+msgstr "Žádné (použít globální pozadí)"
+
+msgctxt "#31184"
+msgid "Submenu"
+msgstr "Podmenu"
+
+msgctxt "#31185"
+msgid "Spotlight"
+msgstr "Spotlight"
+
+msgctxt "#31187"
+msgid "Play TV theme songs in video library (TvTunes add-on)"
+msgstr "Přehrát znělky v knihovně videí (doplněk TvTunes)"
+
+msgctxt "#31212"
+msgid "Next episode"
+msgstr "Další epizoda"
+
+msgctxt "#31220"
+msgid "Shadow color for header"
+msgstr "Barva stínování v záhlaví"
+
+msgctxt "#31231"
+msgid "seconds"
+msgstr "sekundy"
+
+msgctxt "#31235"
+msgid "Show video title in header"
+msgstr "Zobrazovat v záhlaví název videa"
+
+msgctxt "#31246"
+msgid "Static thumbnail"
+msgstr "Statický náhled"
+
+msgctxt "#31250"
+msgid "PLAYING"
+msgstr "PŘEHRÁVÁNÍ"
+
+msgctxt "#31251"
+msgid "PAUSED"
+msgstr "POZASTAVENO"
+
+msgctxt "#31253"
+msgid "FAST FORWARD"
+msgstr "RYCHLE VPŘED"
+
+msgctxt "#31254"
+msgid "REWIND"
+msgstr "PŘETÁČÍ SE ZPĚT"
+
+msgctxt "#31255"
+msgid "SEEKING"
+msgstr "VYHLEDÁVÁM"
+
+msgctxt "#31257"
+msgid "Memory Usage"
+msgstr "Využití paměti"
+
+msgctxt "#31260"
+msgid "General panels color"
+msgstr "Obecné barvy panelu"
+
+msgctxt "#31265"
+msgid "Disable all submenus"
+msgstr "Vypnout veškeré podnabídky"
+
+msgctxt "#31266"
+msgid "Enable background animation"
+msgstr "Zapnout animace pozadí"
+
+msgctxt "#31269"
+msgid "Extended Info"
+msgstr "Rozšířené info"
+
+msgctxt "#31270"
+msgid "Advanced settings"
+msgstr "Pokročilá nastavení"
+
+msgctxt "#31271"
+msgid "Backup and restore"
+msgstr "Záloha a obnovení"
+
+msgctxt "#31272"
+msgid "Backup the skin settings"
+msgstr "Zazálohovat nastavení vzhledu"
+
+msgctxt "#31274"
+msgid "Reset the skin to default settings"
+msgstr "Vrátit nastavení vzhledu na výchozí hodnoty"
+
+msgctxt "#31275"
+msgid "Other advanced skin settings"
+msgstr "Ostatní pokročilá nastavení vzhledu"
+
+msgctxt "#31277"
+msgid "Restoring..."
+msgstr "Obnovování…"
+
+msgctxt "#31285"
+msgid "Overview"
+msgstr "Přehled"
+
+msgctxt "#31286"
+msgid "36 Hour Forecast"
+msgstr "Předpověď na 36 hodin"
+
+msgctxt "#31287"
+msgid "Hourly Forecast"
+msgstr "Hodinová předpověď"
+
+msgctxt "#31288"
+msgid "Weekend Forecast"
+msgstr "Předpověď na víkend"
+
+msgctxt "#31289"
+msgid "10 Day Forecast"
+msgstr "Předpověď na 10 dní"
+
+msgctxt "#31290"
+msgid "Chance of Precipitation"
+msgstr "Pravděpodobnost srážek"
+
+msgctxt "#31291"
+msgid "Fetching forecast info..."
+msgstr "Získávám informace předpovědi..."
+
+msgctxt "#31292"
+msgid "Hide battery status icon"
+msgstr "Skrýt ikonu stavu akumulátoru"
+
+msgctxt "#31297"
+msgid "Unwatched movies"
+msgstr "Neshlédnuté filmy"
+
+msgctxt "#31303"
+msgid "Enable Weather alerts"
+msgstr "Zapnout výstrahy ohledně počasí"
+
+msgctxt "#31305"
+msgid "View"
+msgstr "Zobrazení"
+
+msgctxt "#31308"
+msgid "Close"
+msgstr "Zavřít"
+
+msgctxt "#31312"
+msgid "Submenu layout"
+msgstr "Rozvržení podnabídky"
+
+msgctxt "#31313"
+msgid "Use vertical submenu"
+msgstr "Použít svislou podnabídku"
+
+msgctxt "#31328"
+msgid "footer"
+msgstr "zápatí"
+
+msgctxt "#31329"
+msgid "top left"
+msgstr "nahoře vlevo"
+
+msgctxt "#31330"
+msgid "top center"
+msgstr "nahoře uprostřed"
+
+msgctxt "#31331"
+msgid "top right"
+msgstr "nahoře vpravo"
+
+msgctxt "#31340"
+msgid "Buffering..."
+msgstr "Ukládání do vyrovnávací paměti..."
+
+msgctxt "#31342"
+msgid "Random pictures"
+msgstr "Náhodné obrázky"
+
+msgctxt "#31345"
+msgid "Disable header completely"
+msgstr "Zcela vypnout hlavičku"
+
+msgctxt "#31403"
+msgid "[B]CONFIGURE PICTURE SETTINGS[/B][CR][CR]Set picture listing options · Configure slideshows"
+msgstr "[B]NASTAVENÍ MOŽNOSTÍ OBRÁZKŮ[/B][CR][CR]Možnosti zobrazení obrázků · Nastavení prezentace"
+
+msgctxt "#31404"
+msgid "[B]CONFIGURE WEATHER SETTINGS[/B][CR][CR]Set three cities to collect weather information"
+msgstr "[B]NASTAVENÍ MOŽNOSTÍ POČASÍ[/B][CR][CR]Nastavení tří měst pro sběr předpovědi počasí"
+
+msgctxt "#31422"
+msgid "Panel details"
+msgstr "Podrobnosti o panelu"
+
+msgctxt "#31426"
+msgid "Big Panel"
+msgstr "Velký panel"
+
+msgctxt "#31427"
+msgid "Large Poster"
+msgstr "Velký plakát"
+
+msgctxt "#31428"
+msgid "Big Panel details"
+msgstr "Podrobnosti o velkém panelu"
+
+msgctxt "#31429"
+msgid "Showcase"
+msgstr "Promenáda"
+
+msgctxt "#31430"
+msgid "Landscape"
+msgstr "Na šířku"
+
+msgctxt "#31431"
+msgid "Landscape Single Row"
+msgstr "Jeden sloupec na šířku"
+
+msgctxt "#31432"
+msgid "Landscape details"
+msgstr "Podrobnosti na šírku"
+
+msgctxt "#31433"
+msgid "Extended"
+msgstr "Rozšířené"
+
+msgctxt "#31434"
+msgid "FanArt"
+msgstr "Fanouškovské umění"
+
+msgctxt "#31435"
+msgid "Single Poster"
+msgstr "Jeden plakát"
+
+msgctxt "#31438"
+msgid "Thumbs"
+msgstr "Náhledy"
+
+msgctxt "#31439"
+msgid "Thumbs details"
+msgstr "Podrobnosti o náhledech"
+
+msgctxt "#31441"
+msgid "Poster Shift"
+msgstr "Posun plakátu"
+
+msgctxt "#31442"
+msgid "Low List"
+msgstr "Nízký seznam"
+
+msgctxt "#31443"
+msgid "List"
+msgstr "Seznam"
+
+msgctxt "#31444"
+msgid "Big List"
+msgstr "Velký seznam"
+
+msgctxt "#31445"
+msgid "Horizontal Panel"
+msgstr "Vodorovný panel"
+
+msgctxt "#31450"
+msgid "Slim List"
+msgstr "Úzký seznam"
+
+msgctxt "#31453"
+msgid "Use slim list"
+msgstr "Použít úzký seznam"
+
+msgctxt "#31455"
+msgid "Textcolor for footer"
+msgstr "Barva textu zápatí"
+
+msgctxt "#31456"
+msgid "Background overlay opacity"
+msgstr "Průhlednost překrytí pozadí"
+
+msgctxt "#31460"
+msgid "General textcolor"
+msgstr "Obecná barva textu"
+
+msgctxt "#31461"
+msgid "Logos"
+msgstr "Loga"
+
+msgctxt "#31469"
+msgid "Background overlay"
+msgstr "Překryv pozadí"
+
+msgctxt "#31471"
+msgid "Footer panel color"
+msgstr "Barva panelu záhlaví"
+
+msgctxt "#31472"
+msgid "Media details panel color"
+msgstr "Barva panelu s podrobnostmi o médiu"
+
+msgctxt "#31475"
+msgid "Color for buttons in the skin"
+msgstr "Barva tlačítek v grafickém vzhledu"
+
+msgctxt "#31477"
+msgid "Shadow color for footer"
+msgstr "Barva stínování v zápatí"
+
+msgctxt "#31486"
+msgid "General color settings"
+msgstr "Obecná nastavení barev"
+
+msgctxt "#31487"
+msgid "Enable/disable views"
+msgstr "Zapnout/vypnout pohledy"
+
+msgctxt "#31499"
+msgid "Widget"
+msgstr "Widget"
+
+msgctxt "#31500"
+msgid "Image"
+msgstr "Obrázek"
+
+msgctxt "#31501"
+msgid "Action"
+msgstr "Akce"
+
+msgctxt "#31531"
+msgid "Smart shortcuts"
+msgstr "Chytré zkratky"
+
+msgctxt "#31532"
+msgid "Enable smart shortcuts for the Plex addon"
+msgstr "Zapnout chytré zkratky pro doplněk Plex"
+
+msgctxt "#31534"
+msgid "My list"
+msgstr "Můj seznam"
+
+msgctxt "#31535"
+msgid "Continue watching"
+msgstr "Pokračovat ve sledování"
+
+msgctxt "#31536"
+msgid "Netflix movies"
+msgstr "Netflix filmy"
+
+msgctxt "#31543"
+msgid "Because you watched"
+msgstr "Protože jste sledovali"
+
+msgctxt "#31545"
+msgid "Because you watched"
+msgstr "Protože jste sledovali"
+
+msgctxt "#31546"
+msgid "You might need to restart Kodi for the changes to take effect"
+msgstr "Aby se změny projevily, může být třeba Kodi restartovat"
+
+msgctxt "#31548"
+msgid "Background options"
+msgstr "Konfigurace pozadí"
+
+msgctxt "#31562"
+msgid "Recommended Movies"
+msgstr "Doporučené filmy"
+
+msgctxt "#31563"
+msgid "Popular"
+msgstr "Oblíbené"
+
+msgctxt "#31564"
+msgid "Widgets"
+msgstr "Widgety"
+
+msgctxt "#31565"
+msgid "Open submenu"
+msgstr "Otevřít podnabídku"
+
+msgctxt "#31568"
+msgid "Enable indicator for unwatched items"
+msgstr "Zapnout indikátor neshlédnutých položek"
+
+msgctxt "#31583"
+msgid "Forced view for Addons"
+msgstr "Vynucený pohled pro doplňky"
+
+msgctxt "#31589"
+msgid "Enable day/night color themes"
+msgstr "Používat jiné barvy ve dne a v noci"
+
+msgctxt "#31594"
+msgid "Hide power menu (and not disable it)"
+msgstr "Skrýt nabídku napájení (ale nevypínat ji)"
+
+msgctxt "#31597"
+msgid "Total duration"
+msgstr "Celková doba trvání"
+
+msgctxt "#31608"
+msgid "Critics"
+msgstr "Kritika"
+
+msgctxt "#31609"
+msgid "Users"
+msgstr "Uživatelé"
+
+msgctxt "#31610"
+msgid "Nominations"
+msgstr "Nominace"
+
+msgctxt "#31611"
+msgid "Critics consensus"
+msgstr "Závěr kritiků"
+
+msgctxt "#31617"
+msgid "Animate music background"
+msgstr "Animovat pozadí hudby"
+
+msgctxt "#31618"
+msgid "Align logo image"
+msgstr "Zarovnat obrázek loga"
+
+msgctxt "#31619"
+msgid "Enable circular navigation"
+msgstr "Zapnout kruhovou navigaci"
+
+msgctxt "#31620"
+msgid "Enable home menu animation"
+msgstr "Zapnout animování domovské nabídky"
+
+msgctxt "#31622"
+msgid "Similar"
+msgstr "Podobné"
+
+msgctxt "#31623"
+msgid "Select Weather Icons"
+msgstr "Vyberte ikony počasí"
+
+msgctxt "#31624"
+msgid "Select Weather FanArt"
+msgstr "Vyberte fanouškovské umění pro počasí"
+
+msgctxt "#31625"
+msgid "Select Studio Icons"
+msgstr "Vyberte ikony studií"
+
+msgctxt "#31626"
+msgid "Select Movie/TV Genre icons"
+msgstr "Vyberte ikony žánrů filmů/televizí"
+
+msgctxt "#31627"
+msgid "Select Music Genre icons"
+msgstr "Vyberte ikony hudebních žánrů"
+
+msgctxt "#31632"
+msgid "Style for media/codec info"
+msgstr "Styl informací o médiu/kodeku"
+
+msgctxt "#31635"
+msgid "Horizontal navigation"
+msgstr "Vodorovná navigace"
+
+msgctxt "#31636"
+msgid "Weather Alerts"
+msgstr "Výstrahy ohledně počasí"
+
+msgctxt "#31637"
+msgid "No active weather alerts"
+msgstr "Žádné výstrahy ohledně počasí"
+
+msgctxt "#31641"
+msgid "None (use global setting)"
+msgstr "Žádné (použít globální nastavení)"
+
+msgctxt "#31642"
+msgid "Do not display channel numbers in the guide"
+msgstr "V televizním programu nezobrazovat čísla kanálů"
+
+msgctxt "#31646"
+msgid "Global background"
+msgstr "Globální pozadí"
+
+msgctxt "#31654"
+msgid "Back..."
+msgstr "Zpět…"
+
+msgctxt "#31657"
+msgid "In library"
+msgstr "V knihovně"
+
+msgctxt "#31658"
+msgid "Cards"
+msgstr "Karty"
+
+msgctxt "#31659"
+msgid "Wide"
+msgstr "Široké"
+
+msgctxt "#31667"
+msgid "Custom color settings"
+msgstr "Vlastní nastavení barev"
+
+msgctxt "#31670"
+msgid "Music playback"
+msgstr "Přehrávání hudby"
+
+msgctxt "#31671"
+msgid "Use compact (windows 10 style) header"
+msgstr "Použít kompaktní záhlaví (ve stylu Windows 10)"
+
+msgctxt "#31673"
+msgid "Do not display channel logo in the guide"
+msgstr "V televizním programu nezobrazovat logo stanice"
+
+msgctxt "#31680"
+msgid "Panel"
+msgstr "Panel"
+
+msgctxt "#31691"
+msgid "Show extended info"
+msgstr "Zobrazit rozšířené informace"
+
+msgctxt "#31692"
+msgid "Hide last login info"
+msgstr "Skrýt informace o minulém přihlášení"
+
+msgctxt "#31693"
+msgid "Disable contextmenu"
+msgstr "Vypnout kontextovou nabídku"
+
+msgctxt "#31694"
+msgid "Default action for trailers"
+msgstr "Výchozí akce pro upoutávky"
+
+msgctxt "#31696"
+msgid "Supported Addons"
+msgstr "Podporované doplňky"
+
+msgctxt "#31699"
+msgid "Extra large"
+msgstr "Extra velké"
+
+msgctxt "#31701"
+msgid "Use extra large info panel"
+msgstr "Použít extra velký informační panel"
+
+msgctxt "#31703"
+msgid "Configure Header for Home screen"
+msgstr "Nastavit záhlaví domovské obrazovky"
+
+msgctxt "#31704"
+msgid "Settings for header"
+msgstr "Nastavení záhlaví"
+
+msgctxt "#31705"
+msgid "Clock"
+msgstr "Hodiny"
+
+msgctxt "#31713"
+msgid "Swap poster"
+msgstr "Prohodit plakát"
+
+msgctxt "#31714"
+msgid "Reload skin"
+msgstr "Znovunačíst grafický vzhled"
+
+msgctxt "#31722"
+msgid "Right List"
+msgstr "Seznam vpravo"
+
+msgctxt "#31723"
+msgid "Enable auto rotate"
+msgstr "Automaticky otáčet"
+
+msgctxt "#31728"
+msgid "Position %s"
+msgstr "Pozice %s"
+
+msgctxt "#31729"
+msgid "%s pixels"
+msgstr "%s obrazových bodů"
+
+msgctxt "#31737"
+msgid "Enable square submenu"
+msgstr "Používat čtvercovou podnabídku"
+
+msgctxt "#31742"
+msgid "Home mainmenu/submenu panel color"
+msgstr "Barva panelu s domovskou nabídkou/podnabídkou"
+
+msgctxt "#31745"
+msgid "Video playback"
+msgstr "Přehrávání videa"
+
+msgctxt "#31749"
+msgid "Show info"
+msgstr "Zobrazit informace"
+
+msgctxt "#31760"
+msgid "Align menu items to the left"
+msgstr "Zarovnat položky nabídky vlevo"
+
+msgctxt "#31773"
+msgid "Submenu heading"
+msgstr "Záhlaví podnabídky"
+
+msgctxt "#31782"
+msgid "Hardware decoding"
+msgstr "Hardwarové dekódování"
+
+msgctxt "#31783"
+msgid "Inactive"
+msgstr "Neaktivní"
+
+msgctxt "#31784"
+msgid "Decoder"
+msgstr "Dekodér"
+
+msgctxt "#31790"
+msgid "Color for play icon"
+msgstr "Barva ikony přehrávání"
+
+msgctxt "#31791"
+msgid "Header panel color"
+msgstr "Barva panelu se záhlavím"
+
+msgctxt "#31793"
+msgid "Auto show trailer"
+msgstr "Automaticky zobrazovat upoutávku"
+
+msgctxt "#31797"
+msgid "Youtube Videos"
+msgstr "Videa na YouTube"
+
+msgctxt "#31801"
+msgid "Manage skin backups"
+msgstr "Spravovat zálohy grafických vzhledů"
+
+msgctxt "#31806"
+msgid "Jump to a specific time (hh:mm:ss)"
+msgstr "Přeskočit na konkrétní čas (hh:mm:ss)"
+
+msgctxt "#31811"
+msgid "Hide poster panel"
+msgstr "Skrýt panel s plakáty"
+
+msgctxt "#31826"
+msgid "Select country flags / icons"
+msgstr "Vyberte vlajky/ikony zemí"

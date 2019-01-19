@@ -1,0 +1,9 @@
+<includes>
+	<constant name="verthome_tiles_height">170</constant>
+	<variable name="CustomBackgroundSetting">
+		<value>$INFO[Window(Home).Property(SkinHelper.TopRatedMovies)]</value>
+	</variable>
+	<variable name="MusicBackground">
+		<value>$INFO[Window(Home).Property(SkinHelper.AllMusicSongsBackground.Wall)]</value>
+	</variable>
+</includes>

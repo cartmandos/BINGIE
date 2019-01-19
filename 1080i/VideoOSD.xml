@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Titan-->
+<window>
+    <zorder>2</zorder>
+	<onload condition="!VideoPlayer.Content(livetv)">SetFocus($INFO[Skin.String(defaultosdbutton_video)])</onload>
+    <onload condition="VideoPlayer.Content(livetv)">SetFocus($INFO[Skin.String(defaultosdbutton_livetv)])</onload>
+	<onunload>ClearProperty(subtitlemenu,home)</onunload>
+    <controls>
+		
+        <!--OSD Panel-->
+        <control type="group">
+            <!-- OSD buttons -->
+            <include condition="Skin.HasTheme(classic)">OSDButtonsClassic</include>
+            <include condition="!Skin.HasTheme(classic)">OSDButtonsModern</include>
+            <animation effect="slide" start="0,400" end="0,0" tween="cubic" easing="out" delay="0" time="250" reversible="false" condition="!Player.ShowInfo + !Skin.HasSetting(LowPerformanceMode)">WindowOpen</animation>
+            <animation effect="fade" start="0" end="100" delay="0" time="300" reversible="false" condition="Player.ShowInfo">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" delay="0" time="300" reversible="false" condition="Player.ShowInfo">WindowClose</animation>
+            <include>HideOsdConditions</include>
+		</control>
+    </controls>
+</window>

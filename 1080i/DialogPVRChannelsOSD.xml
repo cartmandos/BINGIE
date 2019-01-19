@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Titan-->
+<window>
+    <defaultcontrol always="true">11</defaultcontrol>
+    <controls>
+        <include condition="Skin.HasSetting(EnableTouchSupport)">TouchScreenWorkaround</include>
+		
+        <!-- small channels OSD -->
+        <include condition="Skin.HasSetting(small_pvrchannelsosd)">DialogPVRChannelsOSD_Small</include>
+        
+        <!-- large channels osd -->
+        <include condition="!Skin.HasSetting(small_pvrchannelsosd)">DialogPVRChannelsOSD_Large</include>
+        
+    </controls>
+</window>
