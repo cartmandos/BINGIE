@@ -1875,11 +1875,11 @@
         <control type="$PARAM[containerType]" id="$PARAM[widgetid]">
             <include condition="$PARAM[multiRows]">widget_base_vertical</include>
             <focusposition>0</focusposition>
+            <scrolltime tween="sine" easing="out">500</scrolltime>
             <width>100%</width>
             <oninfo>RunScript(script.skin.helper.service,action=showinfo)</oninfo>
             <onunfocus condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,true)</onunfocus>
             <onunfocus condition="Player.HasVideo + Skin.HasSetting(NetflixAutoTrailer) + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv)]">PlayerControl(Stop)</onunfocus>
-
             <onfocus>SetProperty(ShowWidget,show)</onfocus>
             <orientation>horizontal</orientation>
             <animation condition="!Control.HasFocus(77777) + Skin.HasSetting(Widgets_Animation)" reversible="false" type="Visible">
