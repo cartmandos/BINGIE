@@ -9,7 +9,6 @@
             <visible>Player.HasAudio</visible>
             <visible>!Window.IsActive(settings) + !Window.IsActive(SettingsCategory.xml)  + !Window.IsActive(systeminfo) + !Window.IsActive(skinsettings) + !Control.IsVisible(57)</visible>
             <visible>!Window.IsActive(notification) + !Window.IsActive(extendedprogressdialog) + !Window.IsActive(movieinformation)</visible>
-			<visible>String.IsEmpty(Window(Home).Property(ThemeMediaMB3IsAlive))</visible>
 			<visible>String.IsEmpty(Window(10025).Property(PlayingBackgroundMedia)) + String.IsEmpty(Window(Home).Property(TrailerPlaying))</visible>
             <posx>650</posx>
             <posy>-30</posy>

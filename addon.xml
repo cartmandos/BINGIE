@@ -1,15 +1,17 @@
-<addon id="skin.titan.leiabeta.bingie.mode" version="0.2.1" name="Titan bingie MODE for Kodi Leia" provider-name="cartman.dos, marcelveldt, mgonzales, mardukl">
+<?xml version="1.0" encoding="utf-8"?>
+<!--BINGIE-->
+<addon id="skin.titan.leiabeta.bingie.mode" version="0.2.2" name="Titan bingie MODE for Kodi Leia" provider-name="cartman.dos, marcelveldt, mgonzales, mardukl">
 	<requires>
 		<import version="5.14.0" addon="xbmc.gui"/>
 		<import addon="script.skinshortcuts" version="0.6.5"/>
 		<import addon="script.skin.helper.service" version="1.0.0"/>
-		<import addon="script.skin.helper.widgets" version="1.0.0"/>
-		<import addon="script.skin.helper.backgrounds" version="1.0.0"/>
+        <import addon="script.skin.helper.widgets" version="1.0.0"/>
+        <import addon="script.skin.helper.backgrounds" version="1.0.0"/>
 		<import addon="script.user.rating" version="1.0.0"/>
-		<import addon="resource.uisounds.titan.modern" version="1.0.0"/>
-		<import addon="resource.images.skinbackgrounds.titanium" version="1.0.0"/>
-		<import addon="resource.images.skinicons.wide" version="1.0.0"/>
-		<import addon="resource.images.backgroundoverlays.basic" version="1.0.0"/>
+        <import addon="resource.uisounds.titan.modern" version="1.0.0"/>
+        <import addon="resource.images.skinbackgrounds.titanium" version="1.0.0"/>
+        <import addon="resource.images.skinicons.wide" version="1.0.0"/>
+        <import addon="resource.images.backgroundoverlays.basic" version="1.0.0"/>
 	</requires>
 	<extension point="xbmc.gui.skin" debugging="false">
 		<res width="1920" height="1080" aspect="16:9" default="true" folder="1080i" />
@@ -63,4 +65,3 @@
 		</news>
 	</extension>
 </addon>
-

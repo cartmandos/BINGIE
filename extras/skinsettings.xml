@@ -216,14 +216,15 @@
     <setting id="CustomBackgroundSetting" value="colors/color_transparent.png" label="Transparent" condition="" icon="colors/color_transparent.png" description="Transparent Image"/>
     <setting id="CustomBackgroundSetting" value="resource://resource.images.skinbackgrounds.titanium/global_blue.jpg" label="$LOCALIZE[31023]" condition="" icon="resource://resource.images.skinbackgrounds.titanium/global_blue.jpg" description="Default Titan background"/>  <!--removed default -->
     <setting id="CustomBackgroundSetting" value="$INFO[Skin.String(WeatherFanArtPack.path)]$INFO[Window(Weather).Property(Current.fanartCode)]$INFO[Skin.String(WeatherFanArtPack.ext)]" label="$LOCALIZE[31025]" condition="!String.IsEmpty(Window(Weather).Property(current.fanartCode)) + Skin.String(WeatherFanArtPack.path)" icon="$INFO[Skin.String(WeatherFanArtPack.path)]$INFO[Window(Weather).Property(Current.fanartCode)]$INFO[Skin.String(WeatherFanArtPack.ext)]" description=""/>
-
     <setting id="CustomBackgroundSetting" value="widgetfanart" label="$LOCALIZE[31612]" condition="!String.IsEmpty(Container(211).ListItem.Property(widget))" />
-
+    <!-- temporary menu icons -->
     <setting id="CustomBackgroundSetting" value="shortcuts/antenna.png" icon="shortcuts/antenna.png" label="Live TV" />
+    <setting id="CustomBackgroundSetting" value="shortcuts/home.png" icon="shortcuts/home.png" label="Home" />
     <setting id="CustomBackgroundSetting" value="shortcuts/clapperboard.png" icon="shortcuts/clapperboard.png" label="Movies" />
     <setting id="CustomBackgroundSetting" value="shortcuts/tv.png" icon="shortcuts/tv.png" label="TV Shows" />
     <setting id="CustomBackgroundSetting" value="shortcuts/search.png" icon="shortcuts/search.png" label="Search" />
-
+    <setting id="CustomBackgroundSetting" value="shortcuts/mylist.png" icon="shortcuts/mylist.png" label="My List" />
+    <setting id="CustomBackgroundSetting" value="shortcuts/new.png" icon="shortcuts/new.png" label="New" />
 
 
     <!--Auto Trailer Interval-->

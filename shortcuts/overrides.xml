@@ -9,13 +9,15 @@
 
 		<!-- common items -->
 		<node label="32029" condition="String.IsEmpty(Window(home).Property(netflixmenu))">
-			<shortcut label="32022" grouping="32029" icon="resource://resource.images.skinicons.wide/livetv.png" condition="PVR.HasTVChannels">ActivateWindow(TVGuide)</shortcut>
+			<shortcut label="32022" grouping="32029" icon="resource://resource.images.skinicons.wide/antenna.png" condition="PVR.HasTVChannels">ActivateWindow(TVGuide)</shortcut>
+			<shortcut label="Search" grouping="32029" icon="resource://resource.images.skinicons.wide/search.png">RunAddOn(script.globalsearch)</shortcut>
+			<shortcut label="10000" grouping="32029" icon="resource://resource.images.skinicons.wide/home.png">ActivateWindow(home,return)</shortcut>
 			<shortcut label="342" grouping="32029" icon="$INFO[Window(Home).Property(SkinHelper.AllMoviesBackground)]">ActivateWindow(10025,videodb://movies/titles/,return)</shortcut>
 			<shortcut label="20343" grouping="32029" icon="$INFO[Window(Home).Property(SkinHelper.AllTvShowsBackground)]">ActivateWindow(10025,videodb://tvshows/titles/,return)</shortcut>
-            <shortcut label="TV-Shows HUB" grouping="32029" icon="$INFO[Window(Home).Property(SkinHelper.AllTvShowsBackground)]">ActivateWindow(3017,return)</shortcut>
-			<shortcut label="Movies HUB" grouping="32029" icon="$INFO[Window(Home).Property(SkinHelper.AllMoviesBackground)]">ActivateWindow(3018,return)</shortcut>
-			<shortcut label="New HUB" grouping="32029" icon="resource://resource.images.skinicons.wide/recentlyaddedmovies.png">ActivateWindow(3020,return)</shortcut>
-			<shortcut label="Custom HUB" grouping="32029" icon="resource://resource.images.skinicons.wide/playlist.png">ActivateWindow(3021,return)</shortcut>
+            <shortcut label="TV Shows HUB" grouping="32029" icon="resource://resource.images.skinicons.wide/tv.png" condition="Skin.String(HomeLayout,netflix2)">ActivateWindow(3017,return)</shortcut>
+			<shortcut label="Movies HUB" grouping="32029" icon="resource://resource.images.skinicons.wide/clapperboard.png" condition="Skin.String(HomeLayout,netflix2)">ActivateWindow(3018,return)</shortcut>
+			<shortcut label="New HUB" grouping="32029" icon="resource://resource.images.skinicons.wide/new.png" condition="Skin.String(HomeLayout,netflix2)">ActivateWindow(3020,return)</shortcut>
+			<shortcut label="My List HUB" grouping="32029" icon="resource://resource.images.skinicons.wide/mylist.png" condition="Skin.String(HomeLayout,netflix2)">ActivateWindow(3021,return)</shortcut>
             <shortcut label="10005" grouping="32029" icon="$INFO[Window(Home).Property(SkinHelper.AllMusicBackground)]">ActivateWindow(10502,musicdb://,return)</shortcut>
 			<shortcut label="20389" grouping="32029" icon="$INFO[Window(Home).Property(SkinHelper.AllMusicVideosBackground)]">ActivateWindow(10025,videodb://musicvideos/titles/,return)</shortcut>
 			<shortcut label="12600" grouping="32029" icon="$INFO[Skin.String(WeatherFanArtPack.path)]$INFO[Window(Weather).Property(Current.FanartCode)]$VAR[WeatherFanArtExtension]">ActivateWindow(Weather)</shortcut>
@@ -305,23 +307,27 @@
     <propertydefault defaultID="music" property="widgetstyle">square</propertydefault>
     <widgetRename>False</widgetRename> 
 
-    
-<override action="submenu">
-	<condition>true</condition>
-	<action>SetFocus(4444,0)</action>
-</override>
 
-<override action="globaloverride" group="mainmenu">
-	<condition>![Skin.HasSetting(OpenSubMenuOnClick) + Integer.IsGreater(Container(4445).NumItems,0) + ![String.Contains(Skin.String(HomeLayout), netflix) | String.Contains(Skin.String(HomeLayout), win10)]]</condition>
-	<action>::ACTION::</action>
-</override>
-<override action="globaloverride" group="mainmenu">
-	<condition>[Skin.HasSetting(OpenSubMenuOnClick) + Integer.IsGreater(Container(4445).NumItems,0)] | [String.Contains(Skin.String(HomeLayout), netflix) | String.Contains(Skin.String(HomeLayout), win10)]</condition>
-	<action>SetFocus(4444,0)</action>
-</override>
+	<override action="submenu">
+		<condition>true</condition>
+		<action>SetFocus(4444,0)</action>
+	</override>
 
+	<override action="globaloverride" group="mainmenu">
+		<condition>!Integer.IsGreater(Container(4445).NumItems,0) | ![Skin.HasSetting(OpenSubMenuOnClick) | String.Contains(Skin.String(HomeLayout), win10)]</condition>
+		<action>::ACTION::</action>
+	</override>
+	<override action="globaloverride" group="mainmenu">
+		<condition>Integer.IsGreater(Container(4445).NumItems,0) + [Skin.HasSetting(OpenSubMenuOnClick) | String.Contains(Skin.String(HomeLayout), win10)]</condition>
+		<action>SetFocus(4444,0)</action>
+	</override>
+    <!-- If activating current active window, focus 77777 and clear menu property -->
+	<groupoverride group="mainmenu" condition="Skin.String(HomeLayout,netflix2) + [String.Contains(ListItem.Property(path), home) | String.Contains(ListItem.Property(path), 3017) | String.Contains(ListItem.Property(path), 3018) | String.Contains(ListItem.Property(path), 3020) | String.Contains(ListItem.Property(path), 3021)]">ClearProperty(ShowViewSubMenu, Home)</groupoverride>
+	<groupoverride group="mainmenu" condition="Skin.String(HomeLayout,netflix2) + [String.Contains(ListItem.Property(path), home) | String.Contains(ListItem.Property(path), 3017) | String.Contains(ListItem.Property(path), 3018) | String.Contains(ListItem.Property(path), 3020) | String.Contains(ListItem.Property(path), 3021)]">SetFocus(77777)</groupoverride>
+	<!-- stop trailers when changing root windows -->
+    <groupoverride group="mainmenu" condition="Skin.String(HomeLayout,netflix2) + Player.HasVideo + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv)]">PlayerControl(Stop)</groupoverride>
 
-<groupoverride group="powermenu" condition="Window.IsActive(DialogButtonMenu.xml)">Close</groupoverride>
+	<groupoverride group="powermenu" condition="Window.IsActive(DialogButtonMenu.xml)">Close</groupoverride>
 
 			
 </overrides>

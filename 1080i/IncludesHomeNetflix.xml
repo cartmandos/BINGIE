@@ -104,9 +104,9 @@
 
         <!-- netflix content -->
         <control type="group" id="9000">
-            <animation time="300" effect="fade" start="100" end="20" reversible="true" easing="inout" condition="[ControlGroup(9001).HasFocus() + window.isactive(home)] | ControlGroup(300).HasFocus() | String.IsEqual(Window(Home).Property(ShowViewSubMenu),show) | Control.HasFocus(300)">Conditional</animation>
             <!-- background image -->
             <control type="image">
+                <animation time="300" effect="fade" start="100" end="20" reversible="true" easing="inout" condition="[ControlGroup(9001).HasFocus() + window.isactive(home)] | ControlGroup(300).HasFocus() | String.IsEqual(Window(Home).Property(ShowViewSubMenu),show) | Control.HasFocus(300)">Conditional</animation>
                 <visible>[!Skin.HasSetting(NetflixHomeShowLargeThumb) | ControlGroup(505).HasFocus()]  + !Control.IsVisible(5633399)</visible>
                 <fadetime>350</fadetime>
                 <texture background="true">$INFO[Control.GetLabel(99004)]</texture>
@@ -146,6 +146,7 @@
 
             <!-- MPAA flag while spotlight playing -->
             <control type="group">
+                <animation time="300" effect="fade" start="100" end="20" reversible="true" easing="inout" condition="[ControlGroup(9001).HasFocus() + window.isactive(home)] | ControlGroup(300).HasFocus() | String.IsEqual(Window(Home).Property(ShowViewSubMenu),show) | Control.HasFocus(300)">Conditional</animation>
                 <visible>Control.IsVisible(5633399) + !String.IsEmpty(Control.GetLabel(5633398))</visible>
                 <right>-160</right>
                 <top>675</top>
@@ -234,6 +235,7 @@
                     <onunfocus condition="String.IsEmpty(Window(Home).Property(SpotlightFirstPlayDone))">SetProperty(SpotlightFirstPlayDone,Done,Home)</onunfocus>
                     <onfocus>SetFocus(505)</onfocus>
                     <!-- workaround to fix stuck on '53' after setting widgets in hubs -->
+                    <onunfocus condition="System.HasAlarm(focus_delay)">CancelAlarm(focus_delay,true)</onunfocus>
                     <onfocus condition="!Skin.HasSetting(LockHubWidgets) + [Window.IsActive(3018) | Window.IsActive(3017) | Window.IsActive(3020) | Window.IsActive(3021)]">
                         AlarmClock(focus_delay,SetFocus(505),00:01,silent)</onfocus>
                 </control>
@@ -241,6 +243,7 @@
                 <!-- spotlight buttons -->
                 <!-- contains hardcoded colors -->
                 <control type="grouplist" id="505">
+                    <animation time="300" effect="fade" start="100" end="20" reversible="true" easing="inout" condition="[ControlGroup(9001).HasFocus() + window.isactive(home)] | ControlGroup(300).HasFocus() | String.IsEqual(Window(Home).Property(ShowViewSubMenu),show) | Control.HasFocus(300)">Conditional</animation>
                     <visible allowhiddenfocus="true">ControlGroup(505).HasFocus() +  Integer.IsGreater(Container(1508).NumItems,0)</visible>
                     <animation effect="slide" end="-1000" condition="!ControlGroup(505).HasFocus">Conditional</animation>
                     <orientation>horizontal</orientation>
@@ -249,7 +252,7 @@
                     <width>600</width>
                     <height>65</height>
                     <itemgap>15</itemgap>
-                    <onback condition="Window.IsActive(Home)">300</onback>
+                    <onback condition="Window.IsActive(Home) | Window.IsActive(3017) | Window.IsActive(3018) | Window.IsActive(3020)">300</onback>
                     <onback condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,true)</onback>
                     <onup condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,true)</onup>
                     <onup condition="Player.HasVideo + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv)]">PlayerControl(Stop)</onup>
@@ -302,7 +305,7 @@
                 </control>
 
                 <!-- trailer window -->
-                <control type="group" id="5633400">
+                <control type="group" id="563340">
                     <visible>Player.HasVideo + Skin.HasSetting(NetflixHomeShowLargeThumb) + ![ControlGroup(505).HasFocus() | Control.HasFocus(53)]</visible>
                     <top>0</top>
                     <right>0</right>
@@ -316,7 +319,7 @@
                 </control>
                 <!--trailer window fades in -->
                 <control type="image">
-                    <visible>Control.IsVisible(5633400)</visible>
+                    <visible>Control.IsVisible(563340)</visible>
                     <top>0</top>
                     <right>0</right>
                     <width>1410</width>
@@ -333,6 +336,7 @@
 
                 <!-- spotlight image [16:9] -->
                 <control type="image">
+                    <animation time="300" effect="fade" start="100" end="20" reversible="true" easing="inout" condition="[ControlGroup(9001).HasFocus() + window.isactive(home)] | ControlGroup(300).HasFocus() | String.IsEqual(Window(Home).Property(ShowViewSubMenu),show) | Control.HasFocus(300)">Conditional</animation>
                     <visible>Skin.HasSetting(NetflixHomeShowLargeThumb) + !ControlGroup(505).HasFocus() + !Player.HasVideo</visible>
                     <right>0</right>
                     <top>0</top>
@@ -348,6 +352,7 @@
 
                 <!-- netflix details -->
                 <control type="grouplist">
+                    <animation time="300" effect="fade" start="100" end="20" reversible="true" easing="inout" condition="[ControlGroup(9001).HasFocus() + window.isactive(home)] | ControlGroup(300).HasFocus() | String.IsEqual(Window(Home).Property(ShowViewSubMenu),show) | Control.HasFocus(300)">Conditional</animation>
                     <width>1500</width>
                     <posx>65</posx>
                     <posy>10</posy>
@@ -537,7 +542,7 @@
                     <include condition="!Skin.HasSetting(EnableWhiteRatingInHome)">AltRatingColorHome</include>
                     <!-- adjustments for spotlight -->
                     <animation effect="slide" start="0" end="0,210" time="600"  condition="Control.IsVisible(5633399) | ControlGroup(505).HasFocus()">Conditional</animation>
-                    <animation effect="fade" start="100" end="0" time="600"  condition="[Control.IsVisible(5633399) | ControlGroup(505).HasFocus() | Control.IsVisible(5633400)] + Skin.HasSetting(HideMediaFlagsTrailer)">Conditional</animation>
+                    <animation effect="fade" start="100" end="0" time="600"  condition="[Control.IsVisible(5633399) | ControlGroup(505).HasFocus() | Control.IsVisible(563340)] + Skin.HasSetting(HideMediaFlagsTrailer)">Conditional</animation>
                 </control>
 
             </control>
@@ -582,11 +587,12 @@
 
             <!-- all widgets -->
             <control type="grouplist" id="77777">
+                <animation time="300" effect="fade" start="100" end="20" reversible="true" easing="inout" condition="[ControlGroup(9001).HasFocus() + window.isactive(home)] | ControlGroup(300).HasFocus() | String.IsEqual(Window(Home).Property(ShowViewSubMenu),show) | Control.HasFocus(300)">Conditional</animation>
                 <!-- adjustments for scrollbar & zoom effect -->
                 <animation effect="slide" end="10" condition="Skin.HasSetting(WidgetsZoomFocus)">Conditional</animation>
                 <animation effect="slide" end="30" condition="Control.IsVisible(317)">Conditional</animation>
                 <!-- spotlight slide-down -->
-                <animation effect="slide" end="0,210" time="600" condition="ControlGroup(505).HasFocus() | [!Skin.HasSetting(NetflixHomeShowLargeThumb) + Control.IsVisible(5633399)]">Conditional</animation>
+                <animation effect="slide" end="0,210" time="600" condition="[ControlGroup(505).HasFocus() + Integer.IsGreater(Container(1508).NumItems,0)] | [!Skin.HasSetting(NetflixHomeShowLargeThumb) + Control.IsVisible(5633399)]">Conditional</animation>
                 <posx>0</posx>
                 <bottom>0</bottom>
                 <include condition="Skin.HasSetting(NetflixHomeDisableFirstRow)">NetflixHome_AltHeight_NoSpotlight</include>
@@ -595,15 +601,15 @@
                 <width>100%</width>
                 <ondown>77777</ondown>
                 <onup>77777</onup>
-                <onback condition="Window.IsActive(Home)">300</onback>
-                <onleft condition="!Skin.HasSetting(EnhancedHome_Circular) | !Window.IsActive(Home)">300</onleft>
+                <onback condition="Window.IsActive(Home) | Window.IsActive(3017) | Window.IsActive(3018) | Window.IsActive(3020) | Window.IsActive(3021)">300</onback>
+                <onleft condition="!Skin.HasSetting(EnhancedHome_Circular) | ![Window.IsActive(Home) | Window.IsActive(3017) | Window.IsActive(3018) | Window.IsActive(3020) | Window.IsActive(3021)]">300</onleft>
                 <pagecontrol>317</pagecontrol>
                 <include condition="[Window.IsActive(Home) | Window.IsActive(3017) | Window.IsActive(3018) | Window.IsActive(3020)] + !Skin.HasSetting(NetflixHomeDisableFirstRow) + !Skin.HasSetting(DisableSpotlightContent)">NetflixSpotlightWidget</include>
                 <include condition="Window.IsActive(Home)">skinshortcuts-template-Widgets</include>
                 <include condition="Window.IsActive(3018)">netflix_items_movies</include>
                 <include condition="Window.IsActive(3017)">netflix_items_tvshows</include>
                 <include condition="Window.IsActive(3020)">netflix_items_new</include>
-                <include condition="Window.IsActive(3021)">netflix_items_custom</include>
+                <include condition="Window.IsActive(3021)">netflix_items_mylist</include>
             </control>
 
             <!-- busy image while spotlight widget loading -->
@@ -611,26 +617,25 @@
                 <visible>Control.HasFocus(1508) + Control.IsVisible(1508) + Container(1508).IsUpdating</visible>
                 <orientation>horizontal</orientation>
                 <left>65</left>
-                <top>5</top>
+                <top>10</top>
                 <width>500</width>
                 <height>60</height>
                 <itemgap>20</itemgap>
                 <control type="multiimage">
-                    <width>60</width>
-                    <height>60</height>
+                    <width>36</width>
+                    <height>36</height>
                     <aspectratio>keep</aspectratio>
-                    <imagepath>$INFO[Skin.String(SkinHelper.SpinnerTexture.Path)]</imagepath>
-                    <timeperimage>100</timeperimage>
+                    <imagepath background="true">widgets/widgets-busy-loader/</imagepath>
+                    <timeperimage>35</timeperimage>
                     <colordiffuse>$INFO[Skin.String(SpinnerTexture.Color)]</colordiffuse>
                     <fadetime>0</fadetime>
-                    <visible>!Skin.String(SkinHelper.SpinnerTexture.Path,None)</visible>
                 </control>
                 <control type="label">
                     <height>60</height>
-                    <aligny>center</aligny>
+                    <aligny>top</aligny>
                     <width>420</width>
                     <label>[B]$LOCALIZE[31185][/B]</label>
-                    <font>Reg30</font>
+                    <font>Reg24</font>
                     <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
                     <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
                 </control>
@@ -985,7 +990,8 @@
             <posy>0</posy>
             <visible>!Window.IsActive(virtualkeyboard)</visible>
             <animation type="Conditional" condition="[ControlGroup(9001).HasFocus() + window.isactive(home)] | ControlGroup(300).HasFocus() | String.IsEqual(Window(Home).Property(ShowViewSubMenu),show) | Control.HasFocus(300)">
-                <effect type="slide" start="0" end="640" time="300" delay="0" tween="cubic" easing="inout" />
+                <effect type="slide" start="0" end="640" time="300" delay="0" tween="sine" easing="inout" />
+                <effect type="fade" start="0" end="100" time="300" delay="0" tween="sine" easing="inout" />
             </animation>
             <!-- panel -->
             <control type="grouplist">
@@ -1108,6 +1114,7 @@
                 <width>385</width>
                 <height>52%</height>
                 <itemgap>0</itemgap>
+                <onfocus condition="System.HasAlarm(focus_delay)">CancelAlarm(focus_delay,true)</onfocus>
                 <onright condition="Integer.IsGreater(Container(4445).NumItems,0)">4444</onright>
                 <onright condition="!Integer.IsGreater(Container(4445).NumItems,0)">77777</onright>
                 <onright condition="!Integer.IsGreater(Container(4445).NumItems,0)">ClearProperty(ShowViewSubMenu, Home)</onright>
@@ -1117,6 +1124,14 @@
                 <ondown>40003</ondown>
                 <orientation>vertical</orientation>
                 <itemlayout height="80" width="385">
+                    <!-- current window focus color -->
+                    <control type="image">
+                        <visible>[Window.IsActive(Home) + [String.Contains(ListItem.Property(path), home)]] | [Window.IsActive(3017) + [String.Contains(ListItem.Property(path), 3017)]]
+                        | [Window.IsActive(3018) + [String.Contains(ListItem.Property(path), 3018)]] | [Window.IsActive(3020) + [String.Contains(ListItem.Property(path), 3020)]]
+                        | [Window.IsActive(3021) + [String.Contains(ListItem.Property(path), 3021)]]</visible>
+                        <texture>colors/color_white.png</texture>
+                        <colordiffuse>$INFO[Skin.String(MainMenuSecondaryFocusButtonColor)]</colordiffuse>
+                    </control>
                     <!-- menu item icon -->
                     <control type="group">
                         <visible>!Skin.HasSetting(DisableIconsMainMenu)</visible>
@@ -1143,7 +1158,7 @@
                         <animation effect="slide" end="-50" time="0" delay="0" condition="Skin.HasSetting(DisableIconsMainMenu)">Conditional</animation>
                     </control>
                 </itemlayout>
-                <focusedlayout height="80" width="385">
+                <focusedlayout height="80" width="385" condition="Control.HasFocus(300) | Control.HasFocus(4444)">
                     <!-- button focus color -->
                     <control type="image">
                         <texture>colors/color_white.png</texture>
@@ -1187,9 +1202,36 @@
                     <!-- home behavior onfocus -->
                     <include>HiddenHomeMenuButton</include>
                 </focusedlayout>
-                <include condition="Window.IsActive(Home)">MainMenuContent</include>
-                <include condition="Window.IsActive(3018)">netflix_mainmenu_movies</include>
-                <include condition="Window.IsActive(3017)">netflix_mainmenu_tvshows</include>
+                <focusedlayout height="80" width="385" condition="![Control.HasFocus(300) | Control.HasFocus(4444)]">
+                    <!-- menu item icon -->
+                    <control type="group">
+                        <visible>!Skin.HasSetting(DisableIconsMainMenu)</visible>
+                        <left>50</left>
+                        <height>100%</height>
+                        <top>20</top>
+                        <control type="image">
+                            <width>35</width>
+                            <height>35</height>
+                            <texture background="true">$INFO[ListItem.Icon]</texture>
+                            <colordiffuse>$INFO[Skin.String(MainMenuTextColor)]</colordiffuse>
+                            <animation end="70" effect="fade" time="0" delay="0" condition="true">Conditional</animation>
+                        </control>
+                    </control>
+                    <!-- menu item label -->
+                    <control type="label">
+                        <width>230</width>
+                        <height>100%</height>
+                        <align>left</align>
+                        <left>135</left>
+                        <font>Light28</font>
+                        <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
+                        <label>$INFO[ListItem.Label]</label>
+                        <animation effect="slide" end="-50" time="0" delay="0" condition="Skin.HasSetting(DisableIconsMainMenu)">Conditional</animation>
+                    </control>
+                    <!-- home behavior onfocus -->
+                    <include>HiddenHomeMenuButton</include>
+                </focusedlayout>
+                <include condition="Window.IsActive(Home) | Window.IsActive(3020) | Window.IsActive(3021) | Window.IsActive(3018) | Window.IsActive(3017)">MainMenuContent</include>
             </control>
 
             <!-- settings & exit buttons -->
@@ -1214,7 +1256,7 @@
                     <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
                     <focusedcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</focusedcolor>
                     <label>5</label>
-                    <texturefocus colordiffuse="$INFO[Skin.String(MainMenuSecondaryFocusButtonColor)]">colors/color_white.png</texturefocus>
+                    <texturefocus colordiffuse="$INFO[Skin.String(MainMenuFocusButtonColor)]">colors/color_white.png</texturefocus>
                     <texturenofocus/>
                     <onclick>ClearProperty(ShowViewSubMenu, Home)</onclick>
                     <onclick>ActivateWindow(Settings)</onclick>
@@ -1229,7 +1271,7 @@
                     <font>Light22</font>
                     <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
                     <focusedcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</focusedcolor>
-                    <texturefocus colordiffuse="$INFO[Skin.String(MainMenuSecondaryFocusButtonColor)]">colors/color_white.png</texturefocus>
+                    <texturefocus colordiffuse="$INFO[Skin.String(MainMenuFocusButtonColor)]">colors/color_white.png</texturefocus>
                     <texturenofocus/>
                     <label>13012</label>
                     <onclick>quit</onclick>
@@ -1444,9 +1486,53 @@
             <fadetime>0</fadetime>
             <visible>Container($PARAM[widgetid]).IsUpdating + !Skin.HasSetting(LockHubWidgets)</visible>
         </control>
+        <include condition="Skin.HasSetting(EnhancedHome_Circular)" content="netflix_widget_base_hub_circular" name="netflix_widget_base_hub_circular">
+            <param name="widgetid" value="$PARAM[widgetid]" />
+            <param name="widgetStyle" value="$PARAM[widgetStyle]" />
+            <param name="skinsetting" value="$PARAM[skinsetting]" />
+        </include>
+        <include condition="!Skin.HasSetting(EnhancedHome_Circular)" content="netflix_widget_base_hub_noncircular" name="netflix_widget_base_hub_noncircular">
+            <param name="widgetid" value="$PARAM[widgetid]" />
+            <param name="widgetStyle" value="$PARAM[widgetStyle]" />
+            <param name="skinsetting" value="$PARAM[skinsetting]" />
+        </include>
+    </include>
+
+        <!-- hub widget base fixedlist -->
+    <include name="netflix_widget_base_hub_noncircular">
         <control type="fixedlist" id="$PARAM[widgetid]">
             <width>100%</width>
+            <focusposition>0</focusposition>
+            <scrolltime tween="sine" easing="out">500</scrolltime>
             <oninfo>RunScript(script.skin.helper.service,action=showinfo)</oninfo>
+            <onunfocus condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,true)</onunfocus>
+            <onunfocus condition="Player.HasVideo + Skin.HasSetting(NetflixAutoTrailer) + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv)]">PlayerControl(Stop)</onunfocus>
+            <orientation>horizontal</orientation>
+            <animation condition="!Control.HasFocus(77777) + Skin.HasSetting(Widgets_Animation)" reversible="false" type="Visible">
+                <effect center="960,540" delay="280" easing="in" end="100" start="98" time="180" tween="sine" type="zoom"/>
+                <effect delay="280" easing="in" end="0,0" start="0,40" time="180" tween="sine" type="slide"/>
+                <effect delay="280" easing="in" end="100" start="0" time="180" tween="sine" type="fade"/>
+            </animation>
+            <animation time="100" effect="fade" start="0" end="100" reversible="false" easing="inout" condition="!Skin.HasSetting(Widgets_Animation)">Visible</animation>
+            <include name="$PARAM[widgetStyle]" content="$PARAM[widgetStyle]">
+                <param name="widgetid" value="$PARAM[widgetid]" />
+                <param name="widgetTags" value="WidgetTagOverlayAuto" />
+                <param name="multiRows" value="false" />
+            </include>
+            <content target="$INFO[Skin.String($PARAM[skinsetting].target)]">$INFO[Skin.String($PARAM[skinsetting].path)]</content>
+            <visible>Skin.String($PARAM[skinsetting].path)</visible>
+        </control>
+    </include>
+
+    <!-- hub widget base wraplist -->
+    <include name="netflix_widget_base_hub_circular">
+        <control type="wraplist" id="$PARAM[widgetid]">
+            <width>100%</width>
+            <focusposition>0</focusposition>
+            <scrolltime tween="sine" easing="out">500</scrolltime>
+            <oninfo>RunScript(script.skin.helper.service,action=showinfo)</oninfo>
+            <onunfocus condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,true)</onunfocus>
+            <onunfocus condition="Player.HasVideo + Skin.HasSetting(NetflixAutoTrailer) + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv)]">PlayerControl(Stop)</onunfocus>
             <orientation>horizontal</orientation>
             <animation condition="!Control.HasFocus(77777) + Skin.HasSetting(Widgets_Animation)" reversible="false" type="Visible">
                 <effect center="960,540" delay="280" easing="in" end="100" start="98" time="180" tween="sine" type="zoom"/>
@@ -1551,8 +1637,8 @@
         </include>
     </include>
 
-    <!-- Netflix Items Custom -->
-    <include name="netflix_items_custom">
+    <!-- Netflix Items My List -->
+    <include name="netflix_items_mylist">
         <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
             <param name="widgetid" value="510" />
             <param name="widgetStyle" value="widget_layout_default" />

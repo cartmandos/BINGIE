@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--BINGIE-->
 <shortcuts>
-	<!-- live tv tile -->
+	<!-- live tv -->
 	<shortcut>
 		<label>$LOCALIZE[32022]</label>
 		<label2>$LOCALIZE[32022]</label2>
@@ -10,7 +10,7 @@
 		<action>ActivateWindow(TVGuide)</action>
 	</shortcut>
 
-	<!-- search tile -->
+	<!-- search -->
 	<shortcut>
 		<label>$LOCALIZE[137]</label>
 		<label2>$LOCALIZE[137]</label2>
@@ -19,7 +19,16 @@
 		<action>RunAddOn(script.globalsearch)</action>
 	</shortcut>
 
-	<!--series hub -->
+	<!-- home -->
+	<shortcut>
+		<label>$LOCALIZE[10000]</label>
+		<label2>$LOCALIZE[10000]</label2>
+		<icon>shortcuts/home.png</icon>
+		<thumb />
+		<action>ActivateWindow(home,return)</action>
+	</shortcut>
+
+	<!-- series hub -->
 	<shortcut>
 		<label>$LOCALIZE[20343]</label>
 		<label2>$LOCALIZE[20343]</label2>
@@ -37,6 +46,15 @@
 		<action>ActivateWindow(3018,return)</action>
 	</shortcut>
 
+	<!-- my list hub -->
+    <shortcut>
+        <label>My List</label>
+        <label2>My List</label2>
+        <icon>shortcuts/mylist.png</icon>
+        <thumb />
+        <action>ActivateWindow(3021,return)</action>
+    </shortcut>
+
 	<!-- new hub -->
 	<shortcut>
 		<label>New</label>
@@ -45,14 +63,5 @@
 		<thumb />
 		<action>ActivateWindow(3020,return)</action>
 	</shortcut>
-
-    <!-- custom hub -->
-    <shortcut>
-        <label>Custom Hub</label>
-        <label2>Custom Hub</label2>
-        <icon>shortcuts/custom.png</icon>
-        <thumb />
-        <action>ActivateWindow(3021,return)</action>
-    </shortcut>
 	
 </shortcuts>

@@ -1,3 +1,26 @@
+0.3
+- Netflix UI navigation core changes:
+	- Widgets scrolling without gaps when circular setting enabled both in home & hubs, otherwise they can be fixed positioned without circular movement, or just 'regular' movement.
+	- Home entry was added to menu and is necessary for switching back to Home window.
+	- Hubs will open mainmenu onback/mainmenu key('m') or left if circular not enabled.
+	- Supported menu entries (Hubs & Home) will have lighter focus to show which window you're currently in.
+	- Fixed issue with pressing on currect activated menu entry will not close menu.
+- Netflix MainMenu overhaul:
+	- Supporting new navigation UI.
+	- Fixed issue with focus showing on entries when in fact on settings/exit.
+- Dialogvideoinfo changes:
+	- Fixed bug with lost focus after pressing play trailer.
+	- If trailer started in previous window, infodialog will load without an overlay and text will be white for better visibility.
+	- Adjusted window pop animation.
+	- Studio logo will not be visible when trailer is playing windowed.
+- Hubs:
+	- Fixed issue with trailers in hubs not stopping when browsing widgets (up/down).
+	- 'watch now' label & slide animation of spotlight ocurring before widget is loaded.
+- Fixed bug and revisited overrides to menu entries, conditions were not mutually-exclusive which caused inconsistencies and raised focus errors.
+- Fixed issue with opening mainmenu and overlays dissapearing.
+- Minor fixes and bugs.
+
+
 0.2.1
 - Added Settings:
 	- Disable spotlight content (will show spotlight, but spotlight will not be a standalone widget)

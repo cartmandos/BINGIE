@@ -56,7 +56,7 @@
         <!-- hidden submenu for count calculations -->
         <include condition="!Skin.String(HomeLayout, enhanced) + !Skin.HasSetting(DisableAllSubmenus)">hiddenSubmenu</include>
         
-        <!--NowPlaying-->
+        <!--NowPlaying -->
 		<include condition="Skin.HasTheme(classic)">NowPlayingMusicClassic</include>
 		<include condition="Skin.HasTheme(classic)">NowPlayingVideoClassic</include>
 		<include condition="!Skin.HasTheme(classic)">NowPlayingInfoBar</include>

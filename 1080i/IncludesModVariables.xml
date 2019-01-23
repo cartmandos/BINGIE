@@ -470,7 +470,7 @@
         <value condition="!String.IsEmpty(ListItem.TagLine)">[B]$INFO[ListItem.TagLine][/B]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.TagLine))">[B]$INFO[Window(Home).Property(ListItem.TagLine)][/B]</value>
         <!-- Watch Tag Info -->
-        <value condition="ControlGroup(505).HasFocus() | [String.IsEqual(ListItem.DBTYPE,tvshow)  | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),tvshow)]">$VAR[WatchNowTagInfo]</value>
+        <value condition="[ControlGroup(505).HasFocus() + Integer.IsGreater(Container(1508).NumItems,0)] | [String.IsEqual(ListItem.DBTYPE,tvshow)  | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),tvshow)]">$VAR[WatchNowTagInfo]</value>
         <!-- Album/Song Info -->
         <value condition="[String.IsEqual(ListItem.DBTYPE,album)  | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),album)]">$INFO[ListItem.Album]</value>
         <value condition="!String.IsEmpty(ListItem.Artist)">$INFO[ListItem.TrackNumber,#, ]$INFO[ListItem.Title, ","]$INFO[ListItem.Album, (,)]</value>
@@ -532,6 +532,21 @@
         <!-- contains is a workaround to ignore bad scraped outline plots, should be solved at scraper level -->
         <value condition="!String.IsEmpty(ListItem.PlotOutline) + !String.Contains(ListItem.PlotOutline,$LOCALIZE[20339]: )">$INFO[ListItem.PlotOutline]</value>
         <value>$VAR[Plots]</value>
+    </variable>
+
+    <variable name="NetflixInfoDialogDetailsTextColor">
+        <value condition="!String.IsEmpty(Window(Home).Property(TrailerOnLoad)) + String.IsEqual(Window(Home).Property(TrailerPlaying),windowed)">white</value>
+        <value>$INFO[Skin.String(NetflixSecondaryTextColor)]</value>
+    </variable>
+
+    <variable name="NetflixInfoDialogButtonsTextColor">
+        <value condition="!String.IsEmpty(Window(Home).Property(TrailerOnLoad)) + String.IsEqual(Window(Home).Property(TrailerPlaying),windowed)">white</value>
+        <value>$INFO[Skin.String(NetflixPrimaryTextColor)]</value>
+    </variable>
+
+    <variable name="NetflixInfoDialogPlotTextColor">
+        <value condition="!String.IsEmpty(Window(Home).Property(TrailerOnLoad)) + String.IsEqual(Window(Home).Property(TrailerPlaying),windowed)">white</value>
+        <value>$INFO[Skin.String(NetflixPrimaryTextColor)]</value>
     </variable>
 
     <!-- TVShow title & fallback for skin widgets -->

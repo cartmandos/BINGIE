@@ -34,7 +34,6 @@
 		</animation>
 
 		<animation time="150" effect="fade" reversible="true" easing="inout">Visible</animation>
-
     </include>
 
     <include name="widgets_animation">
@@ -565,7 +564,7 @@
     <include name="HiddenHomeMenuButton">
         <control type="button">
             <visible>false</visible>
-            <onfocus condition="Skin.String(HomeLayout,win10) | String.Contains(Skin.String(HomeLayout),netflix)">SetProperty(ShowViewSubMenu,show)</onfocus>
+            <onfocus condition="Skin.String(HomeLayout,win10) | String.Contains(Skin.String(HomeLayout),netflix)">SetProperty(ShowViewSubMenu,show,home)</onfocus>
             <onfocus condition="!String.IsEmpty(Container(300).ListItem.Property(widgetPath)) + !Skin.HasSetting(DisableAllWidgets)">$VAR[SetWidgetContainer]</onfocus>
             <onfocus condition="!String.IsEmpty(Window.Property(SkinHelper.WidgetContainer)) + String.IsEmpty(Container(300).ListItem.property(widgetPath))">ClearProperty(Skinhelper.WidgetContainer)</onfocus>
             <onfocus condition="!Skin.HasSetting(DisableAllSubmenus)">SetProperty(submenupos,$INFO[Container(300).Position],Home)</onfocus>
@@ -654,11 +653,11 @@
         <control type="button">
           <visible>false</visible>
           <onfocus condition="!Skin.HasSetting(AutoShowSubmenu)">ClearProperty(submenu)</onfocus>
-          <onfocus>ClearProperty(ShowViewSubMenu, Home)</onfocus>
-          <onfocus>SetProperty(ShowWidget,show)</onfocus>
+          <onfocus>ClearProperty(ShowViewSubMenu, home)</onfocus>
+          <onfocus>SetProperty(ShowWidget,show, home)</onfocus>
           <onfocus>SetProperty(widgetstyle,$PARAM[widgetstyle])</onfocus>
           <onfocus>SetProperty(SkinHelper.WidgetContainer,$PARAM[widgetid],home)</onfocus>
-          <onfocus>SetProperty(LastFocusWidgetPos,$INFO[Container($PARAM[widgetid]).CurrentItem],Home)</onfocus>
+          <onfocus>SetProperty(LastFocusWidgetPos,$INFO[Container($PARAM[widgetid]).CurrentItem],home)</onfocus>
           <onfocus condition="Skin.HasSetting(widgets_rotate_pause) + System.HasAlarm(WidgetRotate$PARAM[widgetid]) + !String.Contains(Skin.String(HomeLayout),netflix)">CancelAlarm(WidgetRotate$PARAM[widgetid],true)</onfocus>
           <!-- Netflix Auto-Trailer -->
           <include condition="String.Contains(Skin.String(HomeLayout),netflix) + Skin.HasSetting(NetflixAutoTrailer)">netflix_autotrailer</include>
@@ -674,10 +673,10 @@
     <include condition="Skin.String(auto_trailer_interval, 5)">set_trailer_alarm_5</include>
     <include condition="Skin.String(auto_trailer_interval, 7)">set_trailer_alarm_7</include>
     <include condition="Skin.String(auto_trailer_interval, 9)">set_trailer_alarm_9</include>
-    <onfocus condition="System.HasAlarm(trailer_delay)">SetProperty(LastPlayedTrailer, $INFO[Container($PARAM[widgetid]).ListItem.DBID])</onfocus>
+    <onfocus condition="System.HasAlarm(trailer_delay) + !String.IsEmpty(Container($PARAM[widgetid]).ListItem.DBID)">SetProperty(LastPlayedTrailer, $INFO[Container($PARAM[widgetid]).ListItem.DBID], home)</onfocus>
     <onunfocus condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,true)</onunfocus>
     <onunfocus condition="Player.HasVideo + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv)]">PlayerControl(Stop)</onunfocus>
-    <onunfocus>ClearProperty(LastPlayedTrailer)</onunfocus>
+    <onunfocus>ClearProperty(LastPlayedTrailer, home)</onunfocus>
   </include>
 
   <include name="set_trailer_alarm_3">
