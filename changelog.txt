@@ -6,6 +6,7 @@
 	- Supported menu entries (Hubs & Home) will have lighter focus to show which window you're currently in.
 	- Fixed issue with pressing on currect activated menu entry will not close menu.
 - Netflix MainMenu overhaul:
+	- Fixed menu default entries for titan in non-netflix layout.
 	- Supporting new navigation UI.
 	- Fixed issue with focus showing on entries when in fact on settings/exit.
 - Dialogvideoinfo changes:

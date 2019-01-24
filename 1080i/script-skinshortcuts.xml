@@ -84,7 +84,7 @@
 							<height>73.3</height>
 							<width>166.7</width>
 							<aspectratio>keep</aspectratio>
-							<texture background="true" aligny="center" >$INFO[Container(211).ListItem.Icon]</texture>
+							<texture background="true" aligny="center" fallback="$INFO[ListItem.Icon]">$INFO[ListItem.ActualIcon]</texture>
 						</control>
 						<!--label-->
 						<control type="label">
@@ -113,7 +113,7 @@
 							<height>73.3</height>
 							<width>166.7</width>
 							<aspectratio>keep</aspectratio>
-							<texture background="true" aligny="center" >$INFO[Container(211).ListItem.Icon]</texture>
+							<texture background="true" aligny="center" fallback="$INFO[ListItem.Icon]">$INFO[ListItem.ActualIcon]</texture>
 						</control>
 						<!--label-->
 						<control type="label">

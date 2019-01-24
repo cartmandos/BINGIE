@@ -10,7 +10,7 @@
 		<!-- common items -->
 		<node label="32029" condition="String.IsEmpty(Window(home).Property(netflixmenu))">
 			<shortcut label="32022" grouping="32029" icon="resource://resource.images.skinicons.wide/antenna.png" condition="PVR.HasTVChannels">ActivateWindow(TVGuide)</shortcut>
-			<shortcut label="Search" grouping="32029" icon="resource://resource.images.skinicons.wide/search.png">RunAddOn(script.globalsearch)</shortcut>
+			<shortcut label="137" grouping="32029" icon="resource://resource.images.skinicons.wide/search.png">RunAddOn(script.globalsearch)</shortcut>
 			<shortcut label="10000" grouping="32029" icon="resource://resource.images.skinicons.wide/home.png">ActivateWindow(home,return)</shortcut>
 			<shortcut label="342" grouping="32029" icon="$INFO[Window(Home).Property(SkinHelper.AllMoviesBackground)]">ActivateWindow(10025,videodb://movies/titles/,return)</shortcut>
 			<shortcut label="20343" grouping="32029" icon="$INFO[Window(Home).Property(SkinHelper.AllTvShowsBackground)]">ActivateWindow(10025,videodb://tvshows/titles/,return)</shortcut>

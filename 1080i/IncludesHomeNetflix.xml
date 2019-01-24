@@ -1141,7 +1141,7 @@
                         <control type="image">
                             <width>35</width>
                             <height>35</height>
-                            <texture background="true">$INFO[ListItem.Icon]</texture>
+                            <texture background="true" fallback="$INFO[ListItem.Icon]">$INFO[ListItem.ActualIcon]</texture>
                             <colordiffuse>$INFO[Skin.String(MainMenuTextColor)]</colordiffuse>
                             <animation end="70" effect="fade" time="0" delay="0" condition="true">Conditional</animation>
                         </control>
@@ -1173,7 +1173,7 @@
                         <control type="image">
                             <width>35</width>
                             <height>35</height>
-                            <texture background="true">$INFO[ListItem.Icon]</texture>
+                            <texture background="true" fallback="$INFO[ListItem.Icon]">$INFO[ListItem.ActualIcon]</texture>
                             <colordiffuse>$INFO[Skin.String(MainMenuFocusTextColor)]</colordiffuse>
                             <animation end="70" effect="fade" time="0" delay="0" condition="true">Conditional</animation>
                         </control>
@@ -1212,7 +1212,7 @@
                         <control type="image">
                             <width>35</width>
                             <height>35</height>
-                            <texture background="true">$INFO[ListItem.Icon]</texture>
+                            <texture background="true" fallback="$INFO[ListItem.Icon]">$INFO[ListItem.ActualIcon]</texture>
                             <colordiffuse>$INFO[Skin.String(MainMenuTextColor)]</colordiffuse>
                             <animation end="70" effect="fade" time="0" delay="0" condition="true">Conditional</animation>
                         </control>
