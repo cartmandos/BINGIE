@@ -1,3 +1,8 @@
+0.3.1
+- Hot fix for changing menu entrie's icons on netflix layout (Set Icon button instead of set thumb) - enabling same menu entry to show thumb in non-netflix layout and icon in netflix layout.
+- Fixed 'None' Icon/Thumb
+- Fixed bingie color theme BackgroundOverlayTexture issue where setting the theme wouldn't set the texture correctly
+
 0.3
 - Netflix UI navigation core changes:
 	- Widgets scrolling without gaps when circular setting enabled both in home & hubs, otherwise they can be fixed positioned without circular movement, or just 'regular' movement.

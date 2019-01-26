@@ -476,7 +476,8 @@
 					<label>$ADDON[script.skinshortcuts 32003]</label>
 				</control>
 
-				<control type="button" id="305"> <!--edit label-->
+				<!--edit label-->
+				<control type="button" id="305">
 					<width>500</width>
 					<align>center</align>
 					<onclick>SetProperty(shortcutDialog, label, Home)</onclick>
@@ -484,12 +485,23 @@
 				</control>
 				
 				<!--edit thumbnail -->
-				<control type="button" id="4311"> 
+				<control type="button" id="4311">
+					<visible>!Skin.String(HomeLayout,netflix2)</visible>
 					<width>500</width>
 					<align>center</align>
                     <label>$ADDON[script.skinshortcuts 32026]</label>
                     <onclick>RunScript(script.skin.helper.service,action=selectimage,skinshortcutsproperty=thumb,header=$ADDON[script.skinshortcuts 32026],allowmulti=true,resourceaddon=resource.images.skinicons,skinhelperbackgrounds=true,skinstring=CustomBackgroundSetting,currentvalue=$INFO[Container(211).ListItem.Property(ThumbName)])</onclick>
 				</control>
+
+				<!--edit icon -->
+				<control type="button" id="4312">
+					<visible>Skin.String(HomeLayout,netflix2)</visible>
+					<width>500</width>
+					<align>center</align>
+                    <label>Set Icon</label>
+                    <onclick>RunScript(script.skin.helper.service,action=selectimage,skinshortcutsproperty=icon,header=Set Icon,allowmulti=true,resourceaddon=resource.images.skinicons,skinhelperbackgrounds=true,skinstring=CustomBackgroundSetting,currentvalue=$INFO[Container(211).ListItem.Property(IconName)])</onclick>
+				</control>
+
                 <!--set widget advanced-->
                 <control type="button" id="1312"> 
 					<width>500</width>
