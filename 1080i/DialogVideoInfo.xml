@@ -67,22 +67,25 @@
 					<control type="image">
 						<texture border="15">overlay/gradient_right.png</texture>
 						<colordiffuse>$VAR[Netflix2_PanelColor]</colordiffuse>
+                        <animation effect="fade" end="70" time="5000" condition="String.IsEqual(Window(Home).Property(TrailerPlaying),windowed)">Conditional</animation>
                         <!-- no bg fade -->
-                        <animation effect="fade" end="0" condition="!String.IsEmpty(Window(Home).Property(TrailerOnLoad)) + String.IsEqual(Window(Home).Property(TrailerPlaying),windowed)">Conditional</animation>
+                        <animation effect="fade" end="20" condition="!String.IsEmpty(Window(Home).Property(TrailerOnLoad)) + String.IsEqual(Window(Home).Property(TrailerPlaying),windowed)">Conditional</animation>
 						<!-- auto-fade gradient bg while trailer -->
-                        <animation effect="fade" start="100" end="40" time="8000" delay="10000" condition="Skin.HasSetting(AutoHideDetailsOnTrailer) + String.IsEqual(Window(Home).Property(TrailerPlaying),windowed) + System.IdleTime(1)">Conditional</animation>
+                        <animation effect="fade" start="70" end="30" time="8000" delay="10000" condition="Skin.HasSetting(AutoHideDetailsOnTrailer) + String.IsEqual(Window(Home).Property(TrailerPlaying),windowed) + System.IdleTime(1)">Conditional</animation>
 					</control>
 				</control>
 
 				<!-- fanart background image -->
 				<control type="image">
                     <visible>!String.IsEqual(Window(Home).Property(TrailerPlaying),windowed)</visible>
+                    <right>0</right>
+                    <top>0</top>
                     <animation time="600" effect="fade" reversible="true" easing="inout">WindowOpen</animation>
                     <animation time="300" effect="fade" reversible="true" easing="inout">WindowClose</animation>
-					<!--<animation effect="fade" start="100" end="0" time="200" condition="String.IsEqual(Window(Home).Property(TrailerPlaying),windowed)">Conditional</animation> unwanted fade when trailer already running on windowopen-->
-					<texture diffuse="overlay/gradient_overlay_info.png">$VAR[fanartBackground]</texture>
-					<width>100%</width>
-					<height>100%</height>
+					<width>90%</width>
+                    <height>100%</height>
+                    <texture background="true" diffuse="overlay/infodialog_right_corner.png">$VAR[fanartBackground]</texture>
+                    <aspectratio scalediffuse="true" align="right" aligny="top">scale</aspectratio>
 				</control>
 
                 <!-- additional info overlay -->

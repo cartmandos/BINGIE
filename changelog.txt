@@ -7,9 +7,13 @@
 	- Removed option: Discart
 	- Season Level is now poster view, showing total episodes for season and unwatched instead of generic tvshow plot.
 	- Episode Level is now big landscape view
+- Added option to set custom content for spotlight in hubs (when hubs are not locked)
+- Trailers with 'tvshow-trailer'/'movie-trailer' naming pattern will show 'trailer' title instead of filename.
+- Adjusted netflix infodialog fanart and overlays while playing trailer
 - Hotfix for changing menu entries' icons in netflix layout (Set Icon button instead of set thumb) - enabling same menu entry to show thumb in non-netflix layout and icon in netflix layout.
 - Fixed 'None' Icon/Thumb (setting tranparent instead of empty value)
 - Fixed bingie color theme BackgroundOverlayTexture issue where setting the theme wouldn't set the texture correctly
+- Removed 'no information available' fallback from osdinfopanl
 
 0.3
 - Netflix UI navigation core changes:

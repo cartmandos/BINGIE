@@ -2952,12 +2952,13 @@
 				<width>1380</width>
 				<height>610</height>
 				<orientation>vertical</orientation>
-				<!-- You're watching label -->
+				<!-- You're watching label (localize) -->
 				<control type="label">
 					<align>left</align>
 					<width>250</width>
 					<label>You're watching</label>
 					<font>Light30</font>
+					<visible>![String.Contains(VideoPlayer.Title,movie-trailer) | String.Contains(VideoPlayer.Title,tvshow-trailer)]</visible>
 				</control>
 				<!-- TITLE -->
 				<control type="label">
@@ -3006,11 +3007,12 @@
 				<control type="textbox">
 					<width>1130</width>
 					<height>560</height>
-					<label fallback="19055">$INFO[VideoPlayer.Plot]</label>
+					<label>$INFO[VideoPlayer.Plot]</label>
 					<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
 					<shadowcolor>dimgray</shadowcolor>
 					<align>justify</align>
 					<font>Reg28</font>
+					<visible>!String.IsEmpty(VideoPlayer.Plot)</visible>
 				</control>
 			</control>
 		</control>
@@ -3059,13 +3061,14 @@
 		<value condition="Player.HasAudio + !String.IsEmpty(MusicPlayer.Artist)">$INFO[MusicPlayer.Artist]</value>
 		<value condition="Player.HasAudio + String.IsEmpty(MusicPlayer.Artist) + !String.IsEmpty(MusicPlayer.ChannelName)">$INFO[MusicPlayer.ChannelName]</value>
 		<value condition="Player.HasAudio + String.IsEmpty(MusicPlayer.Artist) + String.IsEmpty(MusicPlayer.ChannelName) + !String.IsEmpty(Window(Home).Property(SkinHelper.Player.AddonName))">$INFO[Window(Home).Property(SkinHelper.Player.AddonName)]</value>
-		<value condition="Player.HasVideo + !String.IsEqual(Window(Home).Property(subtitlemenu), show)">$INFO[VideoPlayer.Title]</value>
+		<value condition="Player.HasVideo + !String.IsEqual(Window(Home).Property(subtitlemenu), show) + ![String.Contains(VideoPlayer.Title,movie-trailer) | String.Contains(VideoPlayer.Title,tvshow-trailer)]">$INFO[VideoPlayer.Title]</value>
+		<value condition="Player.HasVideo + !String.IsEqual(Window(Home).Property(subtitlemenu), show) + [String.Contains(VideoPlayer.Title,movie-trailer) | String.Contains(VideoPlayer.Title,tvshow-trailer)]"/>
 		<value>$LOCALIZE[31040]</value>
 	</variable>
 
 	<variable name="OSDLabel5">
 		<value condition="Player.HasVideo + !String.IsEqual(Window(Home).Property(subtitlemenu), show) + VideoPlayer.Content(Episodes)">[B][UPPERCASE]$INFO[VideoPlayer.Season,S,]$INFO[VideoPlayer.Episode,E,][/UPPERCASE]$INFO[VideoPlayer.Title, ","][/B]</value>
-		<value condition="Player.HasVideo + !String.IsEqual(Window(Home).Property(subtitlemenu), show) + VideoPlayer.Content(livetv) + [!String.IsEmpty(VideoPlayer.Episode) + !String.IsEmpty(VideoPlayer.EpisodeName)]">[B]$INFO[VideoPlayer.Title] - $INFO[VideoPlayer.EpisodeName][/B]</value>
+		<value condition="Player.HasVideo + !String.IsEqual(Window(Home).Property(subtitlemenu), show) + VideoPlayer.Content(livetv) + !String.IsEmpty(VideoPlayer.Episode) + !String.IsEmpty(VideoPlayer.EpisodeName)">[B]$INFO[VideoPlayer.Title] - $INFO[VideoPlayer.EpisodeName][/B]</value>
 		<value condition="Player.HasAudio">[B]$INFO[MusicPlayer.Title][/B]</value>
 	</variable>
 

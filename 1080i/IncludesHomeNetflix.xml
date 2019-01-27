@@ -594,9 +594,11 @@
                 <!-- spotlight slide-down -->
                 <animation effect="slide" end="0,210" time="600" condition="[ControlGroup(505).HasFocus() + Integer.IsGreater(Container(1508).NumItems,0)] | [!Skin.HasSetting(NetflixHomeShowLargeThumb) + Control.IsVisible(5633399)]">Conditional</animation>
                 <posx>0</posx>
+                <usecontrolcoords>true</usecontrolcoords>
                 <bottom>0</bottom>
+                <height>419</height>
                 <include condition="Skin.HasSetting(NetflixHomeDisableFirstRow)">NetflixHome_AltHeight_NoSpotlight</include>
-                <top>613</top>
+                <posy>613</posy>
                 <itemgap>2</itemgap>
                 <width>100%</width>
                 <ondown>77777</ondown>
@@ -969,17 +971,18 @@
     <!-- Netflix2 Spotlight Content -->
     <variable name="Netflix2HomeSpotlightWidgetContent">
         <!-- movies hub -->
+        <value condition="Window.IsActive(3018) + !String.IsEmpty(Skin.String(spotlightmovies.path))">$INFO[Skin.String(spotlightmovies.path)]</value>
         <value condition="Window.IsActive(3018)">plugin://script.skin.helper.widgets/?action=similar&amp;mediatype=movies&amp;limit=5&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</value>
         <!-- tvshows hub -->
-        <!-- <value condition="Window.IsActive(3017)">plugin://script.skin.helper.widgets/?action=similarshows&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</value> -->
-        <value condition="Window.IsActive(3017)">plugin://script.skin.helper.widgets/?action=recommended&amp;mediatype=tvshows&amp;tag=&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</value>
+        <value condition="Window.IsActive(3017) + !String.IsEmpty(Skin.String(spotlighttvshows.path))">$INFO[Skin.String(spotlighttvshows.path)]</value>
+        <value condition="Window.IsActive(3017)">plugin://script.skin.helper.widgets/?action=similarshows&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</value>
         <!-- new hub -->
-        <value condition="Window.IsActive(3020)">plugin://script.skin.helper.widgets/?action=recent&amp;mediatype=movies&amp;tag=&amp;reload=$INFO[Window(Home).Property(widgetreload-movies)]</value>
+        <value condition="Window.IsActive(3020) + !String.IsEmpty(Skin.String(spotlightnew.path))">$INFO[Skin.String(spotlightnew.path)]</value>
+        <value condition="Window.IsActive(3020)">plugin://script.skin.helper.widgets/?action=recent&amp;mediatype=media&amp;tag=&amp;reload=$INFO[Window(Home).Property(widgetreload-movies)]</value>
         <!-- home -->
         <!-- custom home spotlight -->
         <value condition="!String.IsEmpty(Skin.String(spotlighthome.path))">$INFO[Skin.String(spotlighthome.path)]</value>
-        <value condition="Skin.HasSetting(ExperimentalSpotlight) + Skin.HasSetting(AllowTVShowsSpotlight)">plugin://script.skin.helper.widgets/?action=similar&amp;mediatype=media&amp;limit=5&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</value>
-        <value condition="Skin.HasSetting(ExperimentalSpotlight)">plugin://script.skin.helper.widgets/?action=similar&amp;mediatype=movies&amp;limit=5&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</value>
+        <value condition="Skin.HasSetting(ExperimentalSpotlight)">plugin://script.skin.helper.widgets/?action=similar&amp;mediatype=media&amp;limit=5&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</value>
         <value>$VAR[NetFlixHomeSpotLightWidgetContent]</value>
     </variable>
 
@@ -1552,6 +1555,22 @@
 
     <!-- Netflix Items Movies -->
     <include name="netflix_items_movies">
+        <!-- set custom spotlight content -->
+        <control type="button" id="31793">
+            <width>99%</width>
+            <height>40</height>
+            <align>left</align>
+            <font>Reg32</font>
+            <textoffsetx>65</textoffsetx>
+            <textwidth>950</textwidth>
+            <label>Set Custom Spotlight Content</label>
+            <label2>$INFO[Skin.String(spotlightmovies.label)]</label2>
+            <onclick condition="!Skin.String(spotlightmovies.label)">RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=spotlightmovies.label&amp;skinWidgetTarget=spotlightmovies.target&amp;skinWidgetPath=spotlightmovies.path)</onclick>
+            <onclick condition="Skin.String(spotlightmovies.label)">Skin.Reset(spotlightmovies.label)</onclick>
+            <onclick condition="Skin.String(spotlightmovies.path)">Skin.Reset(spotlightmovies.path)</onclick>
+            <selected>Skin.String(spotlightmovies.label)</selected>
+            <visible>!Skin.HasSetting(LockHubWidgets) + !Skin.HasSetting(DisableSpotlightContent) + !Skin.HasSetting(NetflixHomeDisableFirstRow)</visible>
+        </control>
         <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
 			<param name="widgetid" value="510" />
             <param name="widgetStyle" value="widget_layout_default" />
@@ -1581,6 +1600,22 @@
 
     <!-- Netflix Items TVShows -->
     <include name="netflix_items_tvshows">
+        <!-- set custom spotlight content -->
+        <control type="button" id="31793">
+            <width>99%</width>
+            <height>40</height>
+            <align>left</align>
+            <font>Reg32</font>
+            <textoffsetx>65</textoffsetx>
+            <textwidth>950</textwidth>
+            <label>Set Custom Spotlight Content</label>
+            <label2>$INFO[Skin.String(spotlighttvshows.label)]</label2>
+            <onclick condition="!Skin.String(spotlighttvshows.label)">RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=spotlighttvshows.label&amp;skinWidgetTarget=spotlighttvshows.target&amp;skinWidgetPath=spotlighttvshows.path)</onclick>
+            <onclick condition="Skin.String(spotlighttvshows.label)">Skin.Reset(spotlighttvshows.label)</onclick>
+            <onclick condition="Skin.String(spotlighttvshows.path)">Skin.Reset(spotlighttvshows.path)</onclick>
+            <selected>Skin.String(spotlighttvshows.label)</selected>
+            <visible>!Skin.HasSetting(LockHubWidgets) + !Skin.HasSetting(DisableSpotlightContent) + !Skin.HasSetting(NetflixHomeDisableFirstRow)</visible>
+        </control>
         <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
 			<param name="widgetid" value="510" />
             <param name="widgetStyle" value="widget_layout_default" />
@@ -1610,6 +1645,22 @@
 
     <!-- Netflix Items New -->
     <include name="netflix_items_new">
+        <!-- set custom spotlight content -->
+        <control type="button" id="31793">
+            <width>99%</width>
+            <height>40</height>
+            <align>left</align>
+            <font>Reg32</font>
+            <textoffsetx>65</textoffsetx>
+            <textwidth>950</textwidth>
+            <label>Set Custom Spotlight Content</label>
+            <label2>$INFO[Skin.String(spotlightnew.label)]</label2>
+            <onclick condition="!Skin.String(spotlightnew.label)">RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=spotlightnew.label&amp;skinWidgetTarget=spotlightnew.target&amp;skinWidgetPath=spotlightnew.path)</onclick>
+            <onclick condition="Skin.String(spotlightnew.label)">Skin.Reset(spotlightnew.label)</onclick>
+            <onclick condition="Skin.String(spotlightnew.path)">Skin.Reset(spotlightnew.path)</onclick>
+            <selected>Skin.String(spotlightnew.label)</selected>
+            <visible>!Skin.HasSetting(LockHubWidgets) + !Skin.HasSetting(DisableSpotlightContent) + !Skin.HasSetting(NetflixHomeDisableFirstRow)</visible>
+        </control>
         <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
             <param name="widgetid" value="510" />
             <param name="widgetStyle" value="widget_layout_default" />

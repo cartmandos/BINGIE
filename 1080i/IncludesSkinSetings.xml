@@ -93,11 +93,11 @@
                 <selected>Skin.HasSetting(DisableSpotlightContent)</selected>
             </control>
 
-               <!-- set custom spotlight content -->
+            <!-- set custom spotlight content -->
             <control type="radiobutton" id="31793">
                 <include>SkinSettings_Button</include>
                 <label>Set Custom Spotlight Content in Home</label>
-                <label2>        $INFO[Skin.String(spotlighthome.label)]</label2>
+                <label2>$INFO[Skin.String(spotlighthome.label)]</label2>
                 <onclick condition="!Skin.String(spotlighthome.label)">RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=spotlighthome.label&amp;skinWidgetTarget=spotlighthome.target&amp;skinWidgetPath=spotlighthome.path)</onclick>
                 <onclick condition="Skin.String(spotlighthome.label)">Skin.Reset(spotlighthome.label)</onclick>
                 <onclick condition="Skin.String(spotlighthome.path)">Skin.Reset(spotlighthome.path)</onclick>
@@ -120,14 +120,6 @@
                 <onclick>Skin.ToggleSetting(ExperimentalSpotlight)</onclick>
                 <visible>!Skin.HasSetting(DisableSpotlightContent) + !Skin.HasSetting(NetflixHomeDisableFirstRow) + !Skin.String(spotlighthome.label) +Skin.String(HomeLayout,netflix2)</visible>
                 <selected>Skin.HasSetting(ExperimentalSpotlight)</selected>
-            </control>
-            <!-- Allow tvshows in experimental content -->
-            <control type="radiobutton" id="28328">
-                <include>SkinSettings_Button</include>
-                <label>Allow TVShows in experimental spotlight content</label>
-                <onclick>Skin.ToggleSetting(AllowTVShowsSpotlight)</onclick>
-                <visible>!Skin.HasSetting(DisableSpotlightContent) + !Skin.HasSetting(NetflixHomeDisableFirstRow) + !Skin.String(spotlighthome.label) + Skin.String(HomeLayout,netflix2)</visible>
-                <selected>Skin.HasSetting(AllowTVShowsSpotlight)</selected>
             </control>
             <!-- enable auto-trailers in netflix home -->
             <control type="radiobutton" id="28637">
