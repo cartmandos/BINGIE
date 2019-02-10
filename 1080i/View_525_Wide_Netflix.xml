@@ -339,16 +339,7 @@
                                 <include condition="Skin.String(thumbsborder_focused, 6)">thumbborder_6</include>
                                 <visible>!Skin.HasSetting(View525_HidePanel)</visible>
                             </control>
-                            <control type="image">
-                                <width>37%</width>
-                                <height>100%</height>
-                                <texture border="5">diffuse/wide.png</texture>
-                                <colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
-                                <include condition="Skin.String(thumbsborder_focused, 0)">thumbborder_0</include>
-                                <include condition="Skin.String(thumbsborder_focused, 2)">thumbborder_2</include>
-                                <include condition="Skin.String(thumbsborder_focused, 4)">thumbborder_4</include>
-                                <include condition="Skin.String(thumbsborder_focused, 6)">thumbborder_6</include>
-                            </control>
+                            
                             <control type="image">
                                 <!--Panel icon image-->
                                 <width>37%</width>
@@ -468,6 +459,18 @@
                             </control>
                         </control>
                     </focusedlayout>
+                </control>
+                <control type="image">
+                		<top>200</top>
+						<right>30</right>
+                        <width>1300</width>
+                        <height>280</height>
+                                <texture border="10">border_netflix.png</texture>
+                                <colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
+                                <include condition="Skin.String(thumbsborder_focused, 0)">thumbborder_0</include>
+                                <include condition="Skin.String(thumbsborder_focused, 2)">thumbborder_2</include>
+                         <include condition="Skin.String(thumbsborder_focused, 4)">thumbborder_4</include>
+                                <include condition="Skin.String(thumbsborder_focused, 6)">thumbborder_6</include>
                 </control>
                 <!--vertical Scollbar-->
                 <control type="scrollbar" id="60">
