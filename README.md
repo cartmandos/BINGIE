@@ -1,5 +1,6 @@
 # skin.titan.bingie
 Skin Titan BINGIE
+
 The new Titan for Kodi Leia...
 
 Note1: Install the skin through the official bingie repository for updates and the supported addons required!
