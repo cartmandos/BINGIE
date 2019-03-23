@@ -1,67 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--BINGIE-->
-<addon id="skin.titan.leiabeta.bingie.mode" version="0.3" name="Titan bingie MODE for Kodi Leia" provider-name="cartman.dos, marcelveldt, mgonzales, mardukl">
+<!-- BINGIE -->
+<addon id="skin.titan.bingie" version="1.0.0" name="Titan BINGIE" provider-name="cartman.dos, marcelveldt">
 	<requires>
 		<import version="5.14.0" addon="xbmc.gui"/>
+		<import addon="script.bingie.helper" version="1.0.0"/>
 		<import addon="script.skinshortcuts" version="0.6.5"/>
 		<import addon="script.skin.helper.service" version="1.0.0"/>
         <import addon="script.skin.helper.widgets" version="1.0.0"/>
         <import addon="script.skin.helper.backgrounds" version="1.0.0"/>
-		<import addon="script.user.rating" version="1.0.0"/>
-        <import addon="resource.uisounds.titan.modern" version="1.0.0"/>
         <import addon="resource.images.skinbackgrounds.titanium" version="1.0.0"/>
         <import addon="resource.images.skinicons.wide" version="1.0.0"/>
         <import addon="resource.images.backgroundoverlays.basic" version="1.0.0"/>
 	</requires>
 	<extension point="xbmc.gui.skin" debugging="false">
-		<res width="1920" height="1080" aspect="16:9" default="true" folder="1080i" />
-		<res width="1920" height="1200" aspect="16:10" default="false" folder="1080i" />
+		<res width="1920" height="1080" aspect="16:9" default="true" folder="xml" />
+		<res width="1920" height="1200" aspect="16:10" default="false" folder="xml" />
 	</extension>
 	<extension point="xbmc.addon.metadata">
-		<summary lang="bg_BG">Titan bingie mode for Kodi Leia</summary>
-		<summary lang="de_DE">Titan bingie mode for Kodi Leia</summary>
-		<summary lang="en_AU">Titan bingie mode for Kodi Leia</summary>
-		<summary lang="en_GB">Titan bingie mode for Kodi Leia</summary>
-		<summary lang="en_NZ">Titan bingie mode for Kodi Leia</summary>
-		<summary lang="en_US">Titan bingie mode for Kodi Leia</summary>
-		<summary lang="es_ES">Titan bingie mode for Kodi Leia</summary>
-		<summary lang="fi_FI">Titan bingie mode for Kodi Leia</summary>
-		<summary lang="fr_FR">Titan bingie mode for Kodi Leia</summary>
-		<summary lang="he_IL">Titan bingie mode for Kodi Leia</summary>
-		<summary lang="hr_HR">Titan bingie mode for Kodi Leia</summary>
-		<summary lang="hu_HU">Titan bingie mode for Kodi Leia</summary>
-		<summary lang="it_IT">Titan bingie mode for Kodi Leia</summary>
-		<summary lang="lt_LT">Titan bingie mode for Kodi Leia</summary>
-		<summary lang="ms_MY">Titan bingie mode for Kodi Leia</summary>
-		<summary lang="nl_NL">Titan bingie mode for Kodi Leia</summary>
-		<summary lang="pl_PL">Titan bingie mode for Kodi Leia</summary>
-		<summary lang="pt_BR">Titan bingie mode for Kodi Leia</summary>
-		<summary lang="ru_RU">Titan bingie mode for Kodi Leia</summary>
-		<summary lang="sr_RS">Titan bingie mode for Kodi Leia</summary>
-		<summary lang="sr_RS@latin">Titan bingie mode for Kodi Leia</summary>
-		<summary lang="tr_TR">Titan bingie mode for Kodi Leia</summary>
-		<summary lang="zh_CN">Titan bingie mode for Kodi Leia</summary>
+		<summary lang="en_GB">BINGIE... The new Titan skin for Kodi Leia.</summary>
+		<description>Titan is back for Kodi Leia with the new BINGIE layout!</description>
 		<platform>all</platform>
 		<license>GPL v2.0</license>
 		<forum>https://forum.kodi.tv/showthread.php?tid=334820</forum>
 		<website>https://forum.kodi.tv/showthread.php?tid=334820</website>
 		<email></email>
-		<source>https://github.com/cartmandos/skin.titan.bingie.mode</source>
+		<source>https://github.com/cartmandos/skin.titan.bingie.mode/</source>
 		<assets>
 			<icon>icon.png</icon>
-			<screenshot>_screenshots/screenshot000.jpg</screenshot>
-			<screenshot>_screenshots/screenshot001.jpg</screenshot>
-			<screenshot>_screenshots/screenshot002.jpg</screenshot>
-			<screenshot>_screenshots/screenshot003.jpg</screenshot>
-			<screenshot>_screenshots/screenshot004.jpg</screenshot>
-			<screenshot>_screenshots/screenshot005.jpg</screenshot>
-			<screenshot>_screenshots/screenshot006.jpg</screenshot>
-			<screenshot>_screenshots/screenshot007.jpg</screenshot>
-			<screenshot>_screenshots/screenshot008.jpg</screenshot>
-			<screenshot>_screenshots/screenshot009.jpg</screenshot>
+			<fanart>fanart.jpg</fanart>
+			<screenshot>screenshots/screenshot000.jpg</screenshot>
+			<screenshot>screenshots/screenshot001.jpg</screenshot>
+			<screenshot>screenshots/screenshot002.jpg</screenshot>
+			<screenshot>screenshots/screenshot003.jpg</screenshot>
+			<screenshot>screenshots/screenshot004.jpg</screenshot>
+			<screenshot>screenshots/screenshot005.jpg</screenshot>
+			<screenshot>screenshots/screenshot006.jpg</screenshot>
+			<screenshot>screenshots/screenshot007.jpg</screenshot>
+			<screenshot>screenshots/screenshot008.jpg</screenshot>
+			<screenshot>screenshots/screenshot009.jpg</screenshot>
 		</assets>
 		<news>
-			Follow the forum thread about the latest news for the skin.
+			[B]Titan BINGIE v1[/B][CR]Follow the forum thread about the latest news for the skin.[CR]https://forum.kodi.tv/showthread.php?tid=334820
 		</news>
 	</extension>
 </addon>
