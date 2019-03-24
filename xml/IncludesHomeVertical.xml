@@ -1,0 +1,1058 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+    <include name="VerticalHome">
+        <!-- widgets -->
+        <control type="group">
+            <width>100%</width>
+            <height>100%</height>
+            <!-- fade when submenu active -->
+            <animation type="Conditional" condition="[String.Contains(Window(Home).Property(submenu),show) | Control.HasFocus(4444)] + !Control.HasFocus(77777)">
+                <effect type="fade" start="100" end="20" time="150" delay="0" tween="cubic" easing="inout" />
+            </animation>
+            
+            <!-- infopanel -->
+            <control type="group" id="77551">
+                <visible>!Skin.HasSetting(HideWidgetDetailsPanel) + !Skin.HasSetting(VerticalHomeLargeWidget)</visible>
+                <visible>!String.Contains(Window(Home).Property(widgetstyle),box)</visible>
+                <visible>!Control.HasFocus(4446)</visible>
+                <visible>ControlGroup(77777).HasFocus() + !String.IsEqual(Container(900).ListItem.Property(widget),submenuaswidget)</visible>
+                <visible>!Window.IsActive(notification) + !Window.IsActive(extendedprogressdialog) + !Control.IsVisible(88888)</visible>
+               
+                <control type="image">
+                    <left>560</left>
+                    <width>1300</width>
+                    <texture border="15">diffuse/bgpanel.png</texture>
+                    <visible>!Skin.HasSetting(HideWidgetPanelBackground)</visible>
+                    <colordiffuse>$INFO[Skin.String(ViewDetailsPanelColor)]</colordiffuse>
+                    <aspectratio>stretch</aspectratio>
+                    <height>180</height>
+                    <visible>!Skin.HasSetting(LargeWidgetDetailsPanel)</visible>
+                </control>
+                <control type="image">
+                    <left>560</left>
+                    <width>1300</width>
+                    <texture border="15">diffuse/bgpanel.png</texture>
+                    <visible>!Skin.HasSetting(HideWidgetPanelBackground)</visible>
+                    <colordiffuse>$INFO[Skin.String(ViewDetailsPanelColor)]</colordiffuse>
+                    <aspectratio>stretch</aspectratio>
+                    <height>100%</height>
+                    <visible>Skin.HasSetting(LargeWidgetDetailsPanel)</visible>
+                </control>
+                <control type="label">
+                    <right>76</right>
+                    <top>5</top>
+                    <width>1270</width>
+                    <height>30</height>
+                    <label fallback="19055">$VAR[HomeMenuWidgetInfoLabel]</label>
+                    <textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
+                    <shadowcolor>$INFO[Skin.String(ViewDetailsHighlightTextShadowColor)]</shadowcolor>
+                    <align>justify</align>
+                    <font>Reg28</font>
+                </control>
+                <control type="textbox">
+                    <right>76</right>
+                    <top>40</top>
+                    <width>1270</width>
+                    <height>115</height>
+                    <label fallback="19055">$VAR[HomeMenuWidgetInfoPlotAlt]</label>
+                    <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                    <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+                    <align>justify</align>
+                    <font>Reg24</font>
+                </control>
+            </control>
+            
+            <!-- widgets -->
+            <include condition="!Skin.HasSetting(DisableAllWidgets) + !Skin.HasSetting(VerticalHomeLargeWidget)">VerticalWidgets</include>
+            <include condition="!Skin.HasSetting(DisableAllWidgets) + Skin.HasSetting(VerticalHomeLargeWidget)">VerticalWidgetsLarge</include>
+            
+            <!-- fake button for submenu at focus -->
+            <control type="button" id="4444">
+                <right>-1</right>
+                <width>1</width>
+                <height>1</height>
+                <onfocus>SetFocus(4446)</onfocus>
+                <visible>String.IsEqual(Container(900).Listitem.Property(squaresubmenu),enable)</visible>
+            </control>
+            
+        </control>
+        
+        <control type="group">
+            <!-- fade when widget active -->
+            <animation type="Conditional" condition="Control.IsVisible(77551)">
+                <effect type="fade" start="100" end="80" time="150" delay="0" tween="cubic" easing="inout" />
+            </animation>
+            <include condition="!String.IsEqual(Skin.String(HomeLayout),verticalbig)">HomeSimpleVertical</include>
+            <include condition="String.IsEqual(Skin.String(HomeLayout),verticalbig)">HomeBigVertical</include>
+        </control>
+        
+        <!--RSS -->			
+        <control type="rss">	
+            <description>RSS Feed</description>
+            <right>60</right>
+            <bottom>0</bottom>
+            <width>1400</width>
+            <height>40</height>
+            <font>Light28</font>
+            <urlset>1</urlset>
+            <titlecolor>$INFO[Skin.String(GeneralHighlightTextColor)]</titlecolor>
+            <headlinecolor>$INFO[Skin.String(FooterTextColor)]</headlinecolor>
+            <textcolor>$INFO[Skin.String(GeneralHighlightTextColor)]</textcolor>
+            <visible>system.getbool(lookandfeel.enablerssfeeds) + [String.IsEmpty(Container(900).ListItem.Property(infoline)) | String.IsEqual(Container(900).ListItem.Property(infoline),none)]</visible>
+        </control>
+        <control type="label">	
+            <description>InfoLine</description>
+            <right>60</right>
+            <bottom>0</bottom>
+            <width>1400</width>
+            <height>40</height>
+            <font>Light28</font>
+            <font>Reg28</font>
+            <align>right</align>
+            <aligny>center</aligny>
+            <label>[UPPERCASE]$VAR[infolinevar][/UPPERCASE]</label>
+            <textcolor>$INFO[Skin.String(FooterTextColor)]</textcolor>
+            <visible>!Window.IsVisible(shutdownmenu)</visible>
+        </control>
+        
+    </include>
+    
+    <!-- Simple Vertical Home -->
+    <include name="HomeSimpleVertical">
+        <control type="group">
+
+            <!--Panel-->
+            <control type="image">
+                <posy>0</posy>
+                <posx>0</posx>
+                <width>400</width>
+                <height>100%</height>
+                <texture>colors/color_white.png</texture>
+                <aspectratio>stretch</aspectratio>
+                <colordiffuse>$INFO[Skin.String(MainMenuPanelColor)]</colordiffuse>
+                <visible>Skin.String(MainMenuPanelColor) + !Skin.String(MainMenuPanelColor,None)</visible>
+            </control>
+            
+            <!-- Header -->
+            <include>Header</include>
+
+            <!--submenu normal-->
+            <include condition="!Skin.HasSetting(DisableAllSubmenus) + !Skin.HasSetting(VerticalHomeInlineSubmenu)">HomeSimpleVerticalSubMenuNormal</include>
+
+            <!-- Main menu -->
+            <control type="image">
+                <!-- arrow up -->
+                <animation effect="fade" start="100" end="50" tween="sine" easing="inout" time="800" pulse="true" reversible="false" condition="true">Conditional</animation>
+                <animation effect="slide" start="0" end="-325" time="0" delay="0" condition="Skin.HasSetting(SimpleVerHomeLeftAlign)">Conditional</animation>
+                <left>355</left>
+                <posy>110</posy>
+                <width>25</width>
+                <height>60</height>
+                <aspectratio>keep</aspectratio>
+                <texture>home/home_arrow_up.png</texture>
+                <colordiffuse>$INFO[Skin.String(ViewDetailsListItemTextColor)]</colordiffuse>
+                <visible>Container(900).HasPrevious + !Skin.HasSetting(HideHomeTileIndicators)</visible>
+            </control>
+            <control type="image">
+                <!-- arrow down -->
+                <animation effect="fade" start="100" end="50" tween="sine" easing="inout" time="800" pulse="true" reversible="false" condition="true">Conditional</animation>
+                <animation effect="slide" start="0" end="-325" time="0" delay="0" condition="Skin.HasSetting(SimpleVerHomeLeftAlign)">Conditional</animation>
+                <left>355</left>
+                <posy>1000</posy>
+                <width>25</width>
+                <height>60</height>
+                <aspectratio>keep</aspectratio>
+                <texture>home/home_arrow_down.png</texture>
+                <colordiffuse>$INFO[Skin.String(ViewDetailsListItemTextColor)]</colordiffuse>
+                <visible>Container(900).HasNext + !Skin.HasSetting(HideHomeTileIndicators)</visible>
+            </control>
+            <control type="list" id="900">
+                <animation effect="fade" time="200" start="100" end="70" reversible="true" condition="!Control.HasFocus(900)">Conditional</animation>
+                <animation effect="fade" time="200" start="100" end="20" reversible="true" condition="Control.HasFocus(4444) + Skin.HasSetting(VerticalHomeInlineSubmenu)">Conditional</animation>
+                <posx>10</posx>
+                <posy>160</posy>
+                <width>375</width>
+                <include condition="String.IsEqual(Skin.String(HomeLayout),simplever_tiles)">HomeSimpleVertical_AltHeight</include>
+                <height>800</height>
+                <onup condition="!Skin.HasSetting(ShowProfile)">900</onup>
+                <onup condition="Skin.HasSetting(ShowProfile)">Control.SetFocus(890,0)</onup>
+                <ondown>900</ondown>
+                <onleft condition="!Skin.HasSetting(DisablePowerMenu)">ActivateWindow(ShutdownMenu)</onleft>
+                <onright condition="Control.IsVisible(4446)">Control.SetFocus(4446,0)</onright>
+                <onright condition="!Control.IsVisible(4446) + Integer.IsGreater(Container(4445).NumItems,0) + !Skin.HasSetting(OpenSubMenuOnClick)">Control.SetFocus(4444,0)</onright>
+                <onright condition="!Control.IsVisible(4446) + [Skin.HasSetting(OpenSubMenuOnClick) | !Integer.IsGreater(Container(4445).NumItems,0)]">$VAR[focusWidget]</onright>
+                <scrolltime tween="quadratic">200</scrolltime>
+                <movement>0</movement>
+                <preloaditems>4</preloaditems>
+                <itemlayout height="80" width="370" condition="!String.IsEqual(Skin.String(HomeLayout),simplever_tiles)">
+                    <control type="label">
+                        <right>0</right>
+                        <posy>0</posy>
+                        <width>350</width>
+                        <height>80</height>
+                        <include condition="Skin.HasSetting(SimpleVerHomeLeftAlign)">align_left</include>
+                        <align>right</align>
+                        <aligny>center</aligny>
+                        <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
+                        <selectedcolor>$INFO[Skin.String(MainMenuTextColor)]</selectedcolor>
+                        <label>$INFO[ListItem.Label]</label>
+                        <font>Reg34</font>
+                        <scroll>false</scroll>
+                    </control>
+                </itemlayout>
+                <itemlayout height="verthome_tiles_height" width="375" condition="String.IsEqual(Skin.String(HomeLayout),simplever_tiles)">
+                    <control type="group">
+                        <width>375</width>
+                        <height>verthome_tiles_height</height>
+                        <control type="image">
+                            <texture background="true" diffuse="home/home_matte2.png" fallback="resource://resource.images.skinicons.wide/addons.png">$INFO[ListItem.Icon]</texture>
+                            <aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
+                            <visible>!Skin.HasSetting(ColorizeHomeVerticalTiles)</visible>
+                            <bordersize>8</bordersize>
+                        </control>
+                        <control type="image">
+                            <texture background="true" diffuse="home/home_matte2.png" fallback="resource://resource.images.skinicons.wide/addons.png">$INFO[ListItem.Icon]</texture>
+                            <aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
+                            <colordiffuse>$INFO[Skin.String(MainMenuTextColor)]</colordiffuse>
+                            <visible>Skin.HasSetting(ColorizeHomeVerticalTiles)</visible>
+                            <bordersize>8</bordersize>
+                        </control>
+                        <control type="group">
+                            <include condition="!Skin.HasSetting(NoTitleOnHomeMenuTiles)">ThumbsTagOverlay</include>
+                            <visible>!String.IsEqual(ListItem.Property(disableLabel), disable)</visible>
+                        </control>
+                    </control>
+                </itemlayout>
+                <focusedlayout height="verthome_tiles_height" width="375" condition="String.IsEqual(Skin.String(HomeLayout),simplever_tiles) + [!Skin.HasSetting(VerticalHomeInlineSubmenu) | String.IsEqual(Container(900).ListItem.Property(squaresubmenu),enable)]">
+                    <include>HomeSimpleVertical_FocusedMainMenuItem_tile</include>
+                </focusedlayout>
+                <focusedlayout height="80" width="370" condition="[String.IsEqual(Container(4445).NumItems,0) | String.IsEmpty(Container(4445).NumItems) | !String.IsEqual(Window(Home).Property(submenu),show) | !Skin.HasSetting(VerticalHomeInlineSubmenu) | String.IsEqual(Container(900).ListItem.Property(squaresubmenu),enable)] + !String.IsEqual(Skin.String(HomeLayout),simplever_tiles)">
+                    <include>HomeSimpleVertical_FocusedMainMenuItem</include>
+                </focusedlayout>
+                
+                <focusedlayout height="140" width="370" condition="String.IsEqual(Window(Home).Property(submenu),show) + String.IsEqual(Container(4445).NumItems,1) + Skin.HasSetting(VerticalHomeInlineSubmenu) + !String.IsEqual(Skin.String(HomeLayout),simplever_tiles) + !String.IsEqual(Container(900).ListItem.Property(squaresubmenu),enable)">
+                    <include>HomeSimpleVertical_FocusedMainMenuItem</include>
+                </focusedlayout>
+                <focusedlayout height="205" width="370" condition="String.IsEqual(Window(Home).Property(submenu),show) + String.IsEqual(Container(4445).NumItems,2) + Skin.HasSetting(VerticalHomeInlineSubmenu) + !String.IsEqual(Skin.String(HomeLayout),simplever_tiles) + !String.IsEqual(Container(900).ListItem.Property(squaresubmenu),enable)">
+                    <include>HomeSimpleVertical_FocusedMainMenuItem</include>
+                </focusedlayout>
+                <focusedlayout height="270" width="370" condition="String.IsEqual(Window(Home).Property(submenu),show) + String.IsEqual(Container(4445).NumItems,3) + Skin.HasSetting(VerticalHomeInlineSubmenu) + !String.IsEqual(Skin.String(HomeLayout),simplever_tiles) + !String.IsEqual(Container(900).ListItem.Property(squaresubmenu),enable)">
+                    <include>HomeSimpleVertical_FocusedMainMenuItem</include>
+                </focusedlayout>
+                <focusedlayout height="335" width="370" condition="String.IsEqual(Window(Home).Property(submenu),show) + String.IsEqual(Container(4445).NumItems,4) + Skin.HasSetting(VerticalHomeInlineSubmenu) + !String.IsEqual(Skin.String(HomeLayout),simplever_tiles) + !String.IsEqual(Container(900).ListItem.Property(squaresubmenu),enable)">
+                    <include>HomeSimpleVertical_FocusedMainMenuItem</include>
+                </focusedlayout>
+                <focusedlayout height="380" width="370" condition="String.IsEqual(Window(Home).Property(submenu),show) + String.IsEqual(Container(4445).NumItems,5) + Skin.HasSetting(VerticalHomeInlineSubmenu) + !String.IsEqual(Skin.String(HomeLayout),simplever_tiles) + !String.IsEqual(Container(900).ListItem.Property(squaresubmenu),enable)">
+                    <include>HomeSimpleVertical_FocusedMainMenuItem</include>
+                </focusedlayout>
+                <focusedlayout height="460" width="370" condition="String.IsEqual(Window(Home).Property(submenu),show) + Integer.IsGreater(Container(4445).NumItems,5) + Skin.HasSetting(VerticalHomeInlineSubmenu) + !String.IsEqual(Skin.String(HomeLayout),simplever_tiles) + !String.IsEqual(Container(900).ListItem.Property(squaresubmenu),enable)">
+                    <include>HomeSimpleVertical_FocusedMainMenuItem</include>
+                </focusedlayout>
+                <focusedlayout height="510" width="370" condition="String.IsEqual(Window(Home).Property(submenu),show) + Integer.IsGreater(Container(4445).NumItems,5) + Skin.HasSetting(VerticalHomeInlineSubmenu) + String.IsEqual(Skin.String(HomeLayout),simplever_tiles) + !String.IsEqual(Container(900).ListItem.Property(squaresubmenu),enable)">
+                    <include>HomeSimpleVertical_FocusedMainMenuItem_tile</include>
+                </focusedlayout>
+                <focusedlayout height="450" width="370" condition="String.IsEqual(Window(Home).Property(submenu),show) + String.IsEqual(Container(4445).NumItems,5) + Skin.HasSetting(VerticalHomeInlineSubmenu) + String.IsEqual(Skin.String(HomeLayout),simplever_tiles) + !String.IsEqual(Container(900).ListItem.Property(squaresubmenu),enable)">
+                    <include>HomeSimpleVertical_FocusedMainMenuItem_tile</include>
+                </focusedlayout>
+                <focusedlayout height="450" width="310" condition="String.IsEqual(Window(Home).Property(submenu),show) + String.IsEqual(Container(4445).NumItems,4) + Skin.HasSetting(VerticalHomeInlineSubmenu) + String.IsEqual(Skin.String(HomeLayout),simplever_tiles) + !String.IsEqual(Container(900).ListItem.Property(squaresubmenu),enable)">
+                    <include>HomeSimpleVertical_FocusedMainMenuItem_tile</include>
+                </focusedlayout>
+                <focusedlayout height="390" width="370" condition="String.IsEqual(Window(Home).Property(submenu),show) + String.IsEqual(Container(4445).NumItems,4) + Skin.HasSetting(VerticalHomeInlineSubmenu) + String.IsEqual(Skin.String(HomeLayout),simplever_tiles) + !String.IsEqual(Container(900).ListItem.Property(squaresubmenu),enable)">
+                    <include>HomeSimpleVertical_FocusedMainMenuItem_tile</include>
+                </focusedlayout>
+                <focusedlayout height="330" width="370" condition="String.IsEqual(Window(Home).Property(submenu),show) + String.IsEqual(Container(4445).NumItems,3) + Skin.HasSetting(VerticalHomeInlineSubmenu) + String.IsEqual(Skin.String(HomeLayout),simplever_tiles) + !String.IsEqual(Container(900).ListItem.Property(squaresubmenu),enable)">
+                    <include>HomeSimpleVertical_FocusedMainMenuItem_tile</include>
+                </focusedlayout>
+                <focusedlayout height="270" width="370" condition="String.IsEqual(Window(Home).Property(submenu),show) + String.IsEqual(Container(4445).NumItems,2) + Skin.HasSetting(VerticalHomeInlineSubmenu) + String.IsEqual(Skin.String(HomeLayout),simplever_tiles) + !String.IsEqual(Container(900).ListItem.Property(squaresubmenu),enable)">
+                    <include>HomeSimpleVertical_FocusedMainMenuItem_tile</include>
+                </focusedlayout>
+                <focusedlayout height="210" width="370" condition="String.IsEqual(Window(Home).Property(submenu),show) + String.IsEqual(Container(4445).NumItems,1) + Skin.HasSetting(VerticalHomeInlineSubmenu) + String.IsEqual(Skin.String(HomeLayout),simplever_tiles) + !String.IsEqual(Container(900).ListItem.Property(squaresubmenu),enable)">
+                    <include>HomeSimpleVertical_FocusedMainMenuItem_tile</include>
+                </focusedlayout>
+                <content><include>skinshortcuts-mainmenu</include></content>
+            </control>
+            
+            <!--submenu inline-->
+            <include condition="!Skin.HasSetting(DisableAllSubmenus) + Skin.HasSetting(VerticalHomeInlineSubmenu)">HomeSimpleVerticalSubMenuInline</include>
+            <!-- Power button -->
+            <control type="group">
+                <posx>20</posx>
+                <bottom>5</bottom>
+                <width>60</width>
+                <height>60</height>
+                <include content="PowerButton" condition="!Skin.HasSetting(EnableTouchSupport) + !Skin.HasSetting(DisablePowerMenu)">
+                    <param name="visibility" value="!Skin.HasSetting(HidePowerMenu)" />
+                </include>
+            </control>
+            <!-- touchscreen support -->
+            <include condition="Skin.HasSetting(EnableTouchSupport)">TouchControlsFooter</include>
+        
+        </control>
+    </include>
+	<include name="HomeSimpleVertical_FocusedMainMenuItem">
+		<!-- menu label -->
+		<control type="label">
+			<right>0</right>
+			<width>350</width>
+			<height>80</height>
+            <include condition="Skin.HasSetting(SimpleVerHomeLeftAlign)">align_left</include>
+			<align>right</align>
+			<aligny>center</aligny>
+			<textcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</textcolor>
+			<label>[B]$INFO[ListItem.Label][/B]</label>
+			<font>Reg38</font>
+            <scroll>true</scroll>
+            <animation effect="fade" start="100" end="60" time="150" condition="!Control.HasFocus(900)">Conditional</animation>
+            <animation effect="zoom" start="80" end="102" center="left" time="150" tween="elastic" easing="inout" pulse="false" condition="Skin.HasSetting(Vertical_Home_Animation)">Focus</animation>
+		</control>
+        <include>HiddenHomeMenuButton</include>
+	</include>
+	<include name="HomeSimpleVertical_FocusedMainMenuItem_tile">
+		<control type="group">
+			<width>375</width>
+			<height>verthome_tiles_height</height>
+			<control type="image">
+				<texture>home/home_matte2.png</texture>
+				<colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
+                <visible>!Skin.HasSetting(ColorizeHomeVerticalTiles)</visible>
+			</control>
+			<control type="image">
+				<bordersize>8</bordersize>
+				<texture background="true" diffuse="home/home_matte2.png" fallback="resource://resource.images.skinicons.wide/addons.png">$INFO[ListItem.Icon]</texture>
+				<aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
+                <visible>!Skin.HasSetting(ColorizeHomeVerticalTiles)</visible>
+			</control>
+            <control type="image">
+				<bordersize>8</bordersize>
+				<texture background="true" diffuse="home/home_matte2.png" fallback="resource://resource.images.skinicons.wide/addons.png">$INFO[ListItem.Icon]</texture>
+				<aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
+                <colordiffuse>$INFO[Skin.String(MainMenuFocusTextColor)]</colordiffuse>
+                <visible>Skin.HasSetting(ColorizeHomeVerticalTiles)</visible>
+			</control>
+			<control type="group">
+				<include condition="!Skin.HasSetting(NoTitleOnHomeMenuTiles)">ThumbsTagOverlay</include>
+				<visible>!String.IsEqual(ListItem.Property(disableLabel), disable)</visible>
+			</control>
+			<include>HiddenHomeMenuButton</include>
+		</control>
+	</include>
+    <include name="HomeSimpleVertical_AltHeight">
+        <height>850</height>
+    </include>
+    <include name="HomeSimpleVerticalSubMenuNormal">
+		<!-- submenu -->
+		<control type="group">
+			<posx>420</posx>
+			<posy>170</posy>
+			<animation type="Conditional" condition="Control.IsVisible(4444)">
+				<effect type="fade" start="0" end="100" time="250" delay="0" />
+			</animation>
+			<animation type="Conditional" condition="!Control.IsVisible(4444) | Control.IsVisible(4446)">
+				<effect type="fade" start="100" end="0" time="150" delay="0" />
+			</animation>
+            <animation type="Conditional" condition="!Control.IsVisible(4444) | Control.IsVisible(4446)">
+				<effect type="slide" start="0" end="-300" time="5" delay="145" />
+			</animation>
+			<animation type="Conditional" condition="Integer.IsGreater(Container(900).Position,0) + !String.IsEqual(Skin.String(HomeLayout),simplever_tiles)">
+				<effect type="slide" end="0,80" time="0" delay="0" />
+			</animation>
+			<animation type="Conditional" condition="Integer.IsGreater(Container(900).Position,1) + !String.IsEqual(Skin.String(HomeLayout),simplever_tiles)">
+				<effect type="slide" end="0,80" time="0" delay="0" />
+			</animation>
+			<animation type="Conditional" condition="Integer.IsGreater(Container(900).Position,2) + !String.IsEqual(Skin.String(HomeLayout),simplever_tiles)">
+				<effect type="slide" end="0,80" time="0" delay="0" />
+			</animation>
+			<animation type="Conditional" condition="Integer.IsGreater(Container(900).Position,3) + !String.IsEqual(Skin.String(HomeLayout),simplever_tiles)">
+				<effect type="slide" end="0,80" time="0" delay="0" />
+			</animation>
+			<animation type="Conditional" condition="Integer.IsGreater(Container(900).Position,4) + !String.IsEqual(Skin.String(HomeLayout),simplever_tiles)">
+				<effect type="slide" end="0,80" time="0" delay="0" />
+			</animation>
+			<animation type="Conditional" condition="Integer.IsGreater(Container(900).Position,0) + String.IsEqual(Skin.String(HomeLayout),simplever_tiles)">
+				<effect type="slide" end="0,170" time="0" delay="0" />
+			</animation>
+			<animation type="Conditional" condition="Integer.IsGreater(Container(900).Position,1) + String.IsEqual(Skin.String(HomeLayout),simplever_tiles)">
+				<effect type="slide" end="0,170" time="0" delay="0" />
+			</animation>
+			<animation type="Conditional" condition="Integer.IsGreater(Container(900).Position,2) + String.IsEqual(Skin.String(HomeLayout),simplever_tiles)">
+				<effect type="slide" end="0,170" time="0" delay="0" />
+			</animation>
+			<animation type="Conditional" condition="Integer.IsGreater(Container(900).Position,3) + String.IsEqual(Skin.String(HomeLayout),simplever_tiles)">
+				<effect type="slide" end="0,10" time="0" delay="0" />
+			</animation>
+
+			<!--Panel-->
+            <control type="group">
+                <visible>Skin.String(MainMenuPanelColor) + !Skin.String(MainMenuPanelColor,None)</visible>
+                <posy>-10</posy>
+                <posx>-20</posx>
+                <width>360</width>
+                <control type="image">
+                    <height>410</height>
+                    <texture border="5">diffuse/panel.png</texture>
+                    <colordiffuse>$INFO[Skin.String(MainMenuPanelColor)]</colordiffuse>
+                    <visible>Integer.IsGreater(Container(4444).NumItems,5)</visible>
+                    <aspectratio>stretch</aspectratio>
+                </control>
+                <control type="image">
+                    <height>345</height>
+                    <texture border="5">diffuse/panel.png</texture>
+                    <colordiffuse>$INFO[Skin.String(MainMenuPanelColor)]</colordiffuse>
+                    <visible>String.IsEqual(Container(4444).NumItems,5)</visible>
+                    <aspectratio>stretch</aspectratio>
+                </control>
+                <control type="image">
+                    <height>280</height>
+                    <texture border="5">diffuse/panel.png</texture>
+                    <colordiffuse>$INFO[Skin.String(MainMenuPanelColor)]</colordiffuse>
+                    <visible>String.IsEqual(Container(4444).NumItems,4)</visible>
+                    <aspectratio>stretch</aspectratio>
+                </control>
+                <control type="image">
+                    <height>215</height>
+                    <texture border="5">diffuse/panel.png</texture>
+                    <colordiffuse>$INFO[Skin.String(MainMenuPanelColor)]</colordiffuse>
+                    <visible>String.IsEqual(Container(4444).NumItems,3)</visible>
+                    <aspectratio>stretch</aspectratio>
+                </control>
+                <control type="image">
+                    <height>150</height>
+                    <texture border="5">diffuse/panel.png</texture>
+                    <colordiffuse>$INFO[Skin.String(MainMenuPanelColor)]</colordiffuse>
+                    <visible>String.IsEqual(Container(4444).NumItems,2)</visible>
+                    <aspectratio>stretch</aspectratio>
+                </control>
+                <control type="image">
+                    <height>85</height>
+                    <texture border="5">diffuse/panel.png</texture>
+                    <colordiffuse>$INFO[Skin.String(MainMenuPanelColor)]</colordiffuse>
+                    <visible>String.IsEqual(Container(4444).NumItems,1)</visible>
+                    <aspectratio>stretch</aspectratio>
+                </control>
+            </control>
+			<control type="list" id="4444">
+				<visible allowhiddenfocus="true">[String.Contains(Window(Home).Property(submenu),show) | Control.HasFocus(4444)] + Integer.IsGreater(Container(4445).NumItems,0) + !String.IsEqual(Container(900).ListItem.Property(squaresubmenu),enable)</visible>
+				<visible>!Skin.HasSetting(DisableAllSubmenus)</visible>
+				<width>310</width>
+				<height>390</height>
+				<itemgap>3</itemgap>
+				<onleft>900</onleft>
+				<onleft>ClearProperty(submenu,Home)</onleft>
+				<onright condition="!Skin.HasSetting(AutoShowSubmenu)">ClearProperty(submenu,Home)</onright>
+				<onright>77777</onright>
+				<onup>4444</onup>
+				<ondown>4444</ondown>
+				<onback>900</onback>
+				<onback>ClearProperty(submenu,Home)</onback>
+				<focusposition>0</focusposition>
+				<movement>3</movement>
+				<itemlayout width="320" height="65">
+                    <control type="label">
+                        <posx>10</posx>
+                        <width>290</width>
+                        <align>left</align>
+                        <font>Reg26</font>
+                        <height>60</height>
+                        <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+				</itemlayout>
+				<focusedlayout width="320" height="65">
+                    <control type="label">
+                        <posx>10</posx>
+                        <width>290</width>
+                        <align>left</align>
+                        <font>Reg28</font>
+                        <height>60</height>
+                        <textcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</textcolor>
+                        <label>[B]$INFO[ListItem.Label][/B]</label>
+                        <scroll>true</scroll>
+                    </control>
+                    <control type="button">
+                        <label/>
+                        <visible>false</visible>
+                        <onfocus>SetProperty(submenu,show,Home)</onfocus>
+                    </control>
+				</focusedlayout>
+				<content>
+                    <include condition="!Skin.HasSetting(DisableAllSubmenus)">skinshortcuts-submenu</include>
+				</content>
+			</control>
+		</control>
+	</include>
+	<include name="HomeSimpleVerticalSubMenuInline">
+		<control type="group">
+			<posx>25</posx>
+			<posy>150</posy>
+			<animation type="Conditional" condition="Integer.IsGreater(Container(900).Position,0) + !String.IsEqual(Skin.String(HomeLayout),simplever_tiles)">
+				<effect type="slide" end="0,80" time="0" delay="0" />
+			</animation>
+			<animation type="Conditional" condition="Integer.IsGreater(Container(900).Position,1) + !String.IsEqual(Skin.String(HomeLayout),simplever_tiles)">
+				<effect type="slide" end="0,80" time="0" delay="0" />
+			</animation>
+			<animation type="Conditional" condition="Integer.IsGreater(Container(900).Position,2) + !String.IsEqual(Skin.String(HomeLayout),simplever_tiles)">
+				<effect type="slide" end="0,80" time="0" delay="0" />
+			</animation>
+			<animation type="Conditional" condition="Integer.IsGreater(Container(900).Position,3) + !String.IsEqual(Skin.String(HomeLayout),simplever_tiles)">
+				<effect type="slide" end="0,80" time="0" delay="0" />
+			</animation>
+			<animation type="Conditional" condition="Integer.IsGreater(Container(900).Position,4) + !String.IsEqual(Skin.String(HomeLayout),simplever_tiles)">
+				<effect type="slide" end="0,80" time="0" delay="0" />
+			</animation>
+			<animation type="Conditional" condition="Integer.IsGreater(Container(900).Position,5) + !String.IsEqual(Skin.String(HomeLayout),simplever_tiles)">
+				<effect type="slide" end="0,80" time="0" delay="0" />
+			</animation>
+			<animation type="Conditional" condition="String.IsEqual(Skin.String(HomeLayout),simplever_tiles)">
+				<effect type="slide" end="0,70" time="0" delay="0" />
+			</animation>
+			<animation type="Conditional" condition="Integer.IsGreater(Container(900).Position,0) + String.IsEqual(Skin.String(HomeLayout),simplever_tiles)">
+				<effect type="slide" end="0,170" time="0" delay="0" />
+			</animation>
+			<animation type="Conditional" condition="Integer.IsGreater(Container(900).Position,1) + String.IsEqual(Skin.String(HomeLayout),simplever_tiles)">
+				<effect type="slide" end="0,170" time="0" delay="0" />
+			</animation>
+			<animation type="Conditional" condition="Integer.IsGreater(Container(900).Position,2) + String.IsEqual(Skin.String(HomeLayout),simplever_tiles)">
+				<effect type="slide" end="0,170" time="0" delay="0" />
+			</animation>
+			<animation type="Conditional" condition="Integer.IsGreater(Container(900).Position,3) + String.IsEqual(Skin.String(HomeLayout),simplever_tiles)">
+				<effect type="slide" end="0,170" time="0" delay="0" />
+			</animation>
+			<animation type="Conditional" condition="Integer.IsGreater(Container(900).Position,4) + String.IsEqual(Skin.String(HomeLayout),simplever_tiles)">
+				<effect type="slide" end="0,170" time="0" delay="0" />
+			</animation>
+			<animation type="Conditional" condition="Integer.IsGreater(Container(900).Position,5) + String.IsEqual(Skin.String(HomeLayout),simplever_tiles)">
+				<effect type="slide" end="0,170" time="0" delay="0" />
+			</animation>
+		
+			<control type="list" id="4444">
+				<visible allowhiddenfocus="true">[String.Contains(Window(Home).Property(submenu),show) | Control.HasFocus(4444)] + Integer.IsGreater(Container(4445).NumItems,0)</visible>
+				<visible>!Skin.HasSetting(DisableAllSubmenus) + !String.IsEqual(Container(900).ListItem.Property(squaresubmenu),enable)</visible>
+				<animation effect="slide" end="-580" time="0" condition="!String.Contains(Window(Home).Property(submenu),show)">Conditional</animation>
+				<animation effect="slide" start="0" end="0,80" time="0" reversible="false" condition="Skin.HasSetting(VerticalHomeInlineSubmenu)">Conditional</animation>
+				<width>350</width>
+				<posx>0</posx>
+				<posy>0</posy>
+				<height>440</height>
+				<itemgap>3</itemgap>
+				<onleft>900</onleft>
+				<onleft condition="!Skin.HasSetting(AutoShowSubmenu)">ClearProperty(submenu,Home)</onleft>
+				<onright>77777</onright>
+				<onright condition="!Skin.HasSetting(AutoShowSubmenu)">ClearProperty(submenu,Home)</onright>
+				<onup condition="!Skin.HasSetting(AutoShowSubmenu)">ClearProperty(submenu,Home)</onup>
+				<ondown condition="!Skin.HasSetting(AutoShowSubmenu)">ClearProperty(submenu,Home)</ondown>
+				<onup>900</onup>
+				<ondown>Control.Move(900,1)</ondown>
+				<ondown>900</ondown>
+				<onback>900</onback>
+				<onback condition="!Skin.HasSetting(AutoShowSubmenu)">ClearProperty(submenu,Home)</onback>
+				<focusposition>0</focusposition>
+				<movement>3</movement>
+				<itemlayout width="400" height="65">
+                    <control type="label">
+                        <posx>0</posx>
+                        <width>350</width>
+                        <align>right</align>
+                        <font>Reg28</font>
+                        <height>60</height>
+                        <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
+                        <label>$INFO[ListItem.Label]</label>
+                        <animation effect="fade" time="200" start="100" end="60" reversible="true" condition="!Control.HasFocus(4444)">Conditional</animation>
+                    </control>
+                </itemlayout>
+				<focusedlayout width="320" height="65">
+                    <control type="label">
+                        <posx>0</posx>
+                        <width>350</width>
+                        <align>right</align>
+                        <font>Reg28</font>
+                        <height>60</height>
+                        <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
+                        <label>$INFO[ListItem.Label]</label>
+                        <visible>!Control.HasFocus(4444)</visible>
+                        <animation effect="fade" time="200" start="100" end="60" reversible="true" condition="!Control.HasFocus(4444)">Conditional</animation>
+                    </control>
+                    <control type="label">
+                        <posx>0</posx>
+                        <width>350</width>
+                        <align>right</align>
+                        <font>Reg28</font>
+                        <height>60</height>
+                        <textcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</textcolor>
+                        <label>$INFO[ListItem.Label]</label>
+                        <visible>Control.HasFocus(4444)</visible>
+                        <animation effect="fade" time="200" start="100" end="60" reversible="true" condition="!Control.HasFocus(4444)">Conditional</animation>
+                    </control>
+                    <control type="button">
+                        <label/>
+                        <visible>false</visible>
+                        <onfocus>SetProperty(submenu,show,Home)</onfocus>
+                    </control>
+				</focusedlayout>
+				<content>
+                    <include>skinshortcuts-submenu</include>
+				</content>
+            </control>
+		</control>
+    </include>
+    
+    <!-- Big Vertical Home -->
+    <include name="HomeBigVertical">
+		
+        <!-- Header -->
+		<include>Header</include>
+        
+        <control type="group">
+			<top>0</top>
+			<animation effect="slide" tween="cubic" time="600" start="-818" end="0" reversible="false">WindowOpen</animation>
+			<animation effect="slide" tween="cubic" time="150" start="0" end="-818" reversible="false">WindowClose</animation>
+			<animation effect="slide" tween="cubic" time="600" start="-818" end="0" reversible="false">Visible</animation>
+			<animation effect="slide" tween="cubic" time="150" start="0" end="-818" reversible="false">Hidden</animation>
+			
+            <!-- Submenu -->
+            <include>HomeBigVertical_submenu</include>
+            <!-- MainMenu -->
+            <include>HomeBigVertical_mainmenu</include>
+			
+        </control>
+    </include>
+    <include name="HomeBigVertical_submenu">
+        <control type="group" id="9001">
+            <control type="list" id="4444">
+                <visible>!String.IsEqual(Container(900).ListItem.Property(squaresubmenu),enable)</visible>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,120" condition="Container(900).Position(1) + [String.IsEqual(Container(4444).NumItems,1) | String.IsEqual(Container(4444).NumItems,2) | String.IsEqual(Container(4444).NumItems,3) | String.IsEqual(Container(4444).NumItems,4) | String.IsEqual(Container(4444).NumItems,5) | String.IsEqual(Container(4444).NumItems,6) | String.IsEqual(Container(4444).NumItems,7) | String.IsEqual(Container(4444).NumItems,8) | String.IsEqual(Container(4444).NumItems,9) | String.IsEqual(Container(4444).NumItems,10) | String.IsEqual(Container(4444).NumItems,11) | String.IsEqual(Container(4444).NumItems,12) | String.IsEqual(Container(4444).NumItems,13)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,72" condition="Container(900).Position(1) + [String.IsEqual(Container(4444).NumItems,14)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,240" condition="Container(900).Position(2) + [String.IsEqual(Container(4444).NumItems,1) | String.IsEqual(Container(4444).NumItems,2) | String.IsEqual(Container(4444).NumItems,3) | String.IsEqual(Container(4444).NumItems,4) | String.IsEqual(Container(4444).NumItems,5) | String.IsEqual(Container(4444).NumItems,6) | String.IsEqual(Container(4444).NumItems,7) | String.IsEqual(Container(4444).NumItems,8) | String.IsEqual(Container(4444).NumItems,9) | String.IsEqual(Container(4444).NumItems,10) | String.IsEqual(Container(4444).NumItems,11)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,216" condition="Container(900).Position(2) + [String.IsEqual(Container(4444).NumItems,12)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,144" condition="Container(900).Position(2) + [String.IsEqual(Container(4444).NumItems,13)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,72" condition="Container(900).Position(2) + [String.IsEqual(Container(4444).NumItems,14)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,360" condition="Container(900).Position(3) + [String.IsEqual(Container(4444).NumItems,1) | String.IsEqual(Container(4444).NumItems,2) | String.IsEqual(Container(4444).NumItems,3) | String.IsEqual(Container(4444).NumItems,4) | String.IsEqual(Container(4444).NumItems,5) | String.IsEqual(Container(4444).NumItems,6) | String.IsEqual(Container(4444).NumItems,7) | String.IsEqual(Container(4444).NumItems,8) | String.IsEqual(Container(4444).NumItems,9) | String.IsEqual(Container(4444).NumItems,10)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,288" condition="Container(900).Position(3) + [String.IsEqual(Container(4444).NumItems,11)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,216" condition="Container(900).Position(3) + [String.IsEqual(Container(4444).NumItems,12)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,144" condition="Container(900).Position(3) + [String.IsEqual(Container(4444).NumItems,13)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,72" condition="Container(900).Position(3) + [String.IsEqual(Container(4444).NumItems,14)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,480" condition="Container(900).Position(4) + [String.IsEqual(Container(4444).NumItems,1) | String.IsEqual(Container(4444).NumItems,2) | String.IsEqual(Container(4444).NumItems,3) | String.IsEqual(Container(4444).NumItems,4) | String.IsEqual(Container(4444).NumItems,5) | String.IsEqual(Container(4444).NumItems,6) | String.IsEqual(Container(4444).NumItems,7) | String.IsEqual(Container(4444).NumItems,8)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,432" condition="Container(900).Position(4) + [String.IsEqual(Container(4444).NumItems,9)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,360" condition="Container(900).Position(4) + [String.IsEqual(Container(4444).NumItems,10)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,288" condition="Container(900).Position(4) + [String.IsEqual(Container(4444).NumItems,11)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,216" condition="Container(900).Position(4) + [String.IsEqual(Container(4444).NumItems,12)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,144" condition="Container(900).Position(4) + [String.IsEqual(Container(4444).NumItems,13)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,72" condition="Container(900).Position(4) + [String.IsEqual(Container(4444).NumItems,14)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,600" condition="Container(900).Position(5) + [String.IsEqual(Container(4444).NumItems,1) | String.IsEqual(Container(4444).NumItems,2) | String.IsEqual(Container(4444).NumItems,3) | String.IsEqual(Container(4444).NumItems,4) | String.IsEqual(Container(4444).NumItems,5) | String.IsEqual(Container(4444).NumItems,6)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,576" condition="Container(900).Position(5) + [String.IsEqual(Container(4444).NumItems,7)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,504" condition="Container(900).Position(5) + [String.IsEqual(Container(4444).NumItems,8)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,432" condition="Container(900).Position(5) + [String.IsEqual(Container(4444).NumItems,9)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,360" condition="Container(900).Position(5) + [String.IsEqual(Container(4444).NumItems,10)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,288" condition="Container(900).Position(5) + [String.IsEqual(Container(4444).NumItems,11)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,216" condition="Container(900).Position(5) + [String.IsEqual(Container(4444).NumItems,12)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,144" condition="Container(900).Position(5) + [String.IsEqual(Container(4444).NumItems,13)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,72" condition="Container(900).Position(5) + [String.IsEqual(Container(4444).NumItems,14)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,720" condition="Container(900).Position(6) + [String.IsEqual(Container(4444).NumItems,1) | String.IsEqual(Container(4444).NumItems,2) | String.IsEqual(Container(4444).NumItems,3) | String.IsEqual(Container(4444).NumItems,4) | String.IsEqual(Container(4444).NumItems,5)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,648" condition="Container(900).Position(6) + [String.IsEqual(Container(4444).NumItems,6)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,576" condition="Container(900).Position(6) + [String.IsEqual(Container(4444).NumItems,7)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,504" condition="Container(900).Position(6) + [String.IsEqual(Container(4444).NumItems,8)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,432" condition="Container(900).Position(6) + [String.IsEqual(Container(4444).NumItems,9)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,360" condition="Container(900).Position(6) + [String.IsEqual(Container(4444).NumItems,10)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,288" condition="Container(900).Position(6) + [String.IsEqual(Container(4444).NumItems,11)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,216" condition="Container(900).Position(6) + [String.IsEqual(Container(4444).NumItems,12)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,144" condition="Container(900).Position(6) + [String.IsEqual(Container(4444).NumItems,13)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,72" condition="Container(900).Position(6) + [String.IsEqual(Container(4444).NumItems,14)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,840" condition="Container(900).Position(7) + [String.IsEqual(Container(4444).NumItems,1) | String.IsEqual(Container(4444).NumItems,2) | String.IsEqual(Container(4444).NumItems,3)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,792" condition="Container(900).Position(7) + [String.IsEqual(Container(4444).NumItems,4)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,720" condition="Container(900).Position(7) + [String.IsEqual(Container(4444).NumItems,5)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,648" condition="Container(900).Position(7) + [String.IsEqual(Container(4444).NumItems,6)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,576" condition="Container(900).Position(7) + [String.IsEqual(Container(4444).NumItems,7)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,504" condition="Container(900).Position(7) + [String.IsEqual(Container(4444).NumItems,8)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,432" condition="Container(900).Position(7) + [String.IsEqual(Container(4444).NumItems,9)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,360" condition="Container(900).Position(7) + [String.IsEqual(Container(4444).NumItems,10)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,288" condition="Container(900).Position(7) + [String.IsEqual(Container(4444).NumItems,11)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,216" condition="Container(900).Position(7) + [String.IsEqual(Container(4444).NumItems,12)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,144" condition="Container(900).Position(7) + [String.IsEqual(Container(4444).NumItems,13)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,72" condition="Container(900).Position(7) + [String.IsEqual(Container(4444).NumItems,14)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,960" condition="Container(900).Position(8) + [String.IsEqual(Container(4444).NumItems,1)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,936" condition="Container(900).Position(8) + [String.IsEqual(Container(4444).NumItems,2)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,864" condition="Container(900).Position(8) + [String.IsEqual(Container(4444).NumItems,3)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,792" condition="Container(900).Position(8) + [String.IsEqual(Container(4444).NumItems,4)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,720" condition="Container(900).Position(8) + [String.IsEqual(Container(4444).NumItems,5)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,648" condition="Container(900).Position(8) + [String.IsEqual(Container(4444).NumItems,6)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,576" condition="Container(900).Position(8) + [String.IsEqual(Container(4444).NumItems,7)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,504" condition="Container(900).Position(8) + [String.IsEqual(Container(4444).NumItems,8)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,432" condition="Container(900).Position(8) + [String.IsEqual(Container(4444).NumItems,9)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,360" condition="Container(900).Position(8) + [String.IsEqual(Container(4444).NumItems,10)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,288" condition="Container(900).Position(8) + [String.IsEqual(Container(4444).NumItems,11)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,216" condition="Container(900).Position(8) + [String.IsEqual(Container(4444).NumItems,12)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,144" condition="Container(900).Position(8) + [String.IsEqual(Container(4444).NumItems,13)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,72" condition="Container(900).Position(8) + [String.IsEqual(Container(4444).NumItems,14)]">Conditional</animation>
+                
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,1080" condition="Container(900).Position(9) + [String.IsEqual(Container(4444).NumItems,1)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,1056" condition="Container(900).Position(9) + [String.IsEqual(Container(4444).NumItems,2)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,984" condition="Container(900).Position(9) + [String.IsEqual(Container(4444).NumItems,3)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,912" condition="Container(900).Position(9) + [String.IsEqual(Container(4444).NumItems,4)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,840" condition="Container(900).Position(9) + [String.IsEqual(Container(4444).NumItems,5)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,768" condition="Container(900).Position(9) + [String.IsEqual(Container(4444).NumItems,6)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,696" condition="Container(900).Position(9) + [String.IsEqual(Container(4444).NumItems,7)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,624" condition="Container(900).Position(9) + [String.IsEqual(Container(4444).NumItems,8)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,552" condition="Container(900).Position(9) + [String.IsEqual(Container(4444).NumItems,9)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,480" condition="Container(900).Position(9) + [String.IsEqual(Container(4444).NumItems,10)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,408" condition="Container(900).Position(9) + [String.IsEqual(Container(4444).NumItems,11)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,336" condition="Container(900).Position(9) + [String.IsEqual(Container(4444).NumItems,12)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,264" condition="Container(900).Position(9) + [String.IsEqual(Container(4444).NumItems,13)]">Conditional</animation>
+                <animation effect="slide" time="150" tween="cubic" easing="inout" start="0" end="0,192" condition="Container(900).Position(9) + [String.IsEqual(Container(4444).NumItems,14)]">Conditional</animation>
+                <animation effect="slide" time="150" start="0" end="818" condition="Control.HasFocus(4444) | String.Contains(Window(Home).Property(submenu),show)">Conditional</animation>
+                <animation effect="fade" start="0" end="100" time="50" delay="250" condition="Control.HasFocus(4444) | String.Contains(Window(Home).Property(submenu),show)">Conditional</animation>
+                <left>-384</left>
+                <top>0</top>
+                <width>384</width>
+                <height>1080</height>
+                <onup>4444</onup>
+                <ondown>4444</ondown>
+                <onleft>900</onleft>
+                <onback>ClearProperty(submenu,Home)</onback>
+                <onleft>ClearProperty(submenu,Home)</onleft>
+                <onright>ClearProperty(submenu,Home)</onright>
+                <onright condition="String.IsEqual(Skin.String(HomeLayout),bingie)">ClearProperty(ShowViewSubMenu,Home)</onright>
+                <onback condition="String.IsEqual(Skin.String(HomeLayout),bingie)">ClearProperty(ShowViewSubMenu,Home)</onback>
+                <onright condition="String.IsEqual(Skin.String(HomeLayout),bingie)">9000</onright>
+                <onback condition="String.IsEqual(Skin.String(HomeLayout),bingie)">9000</onback>
+                <onright>77777</onright>
+                <onback>900</onback>
+                <pagecontrol/>
+                <scrolltime tween="quadratic" easing="out">300</scrolltime>
+                <focusposition>1</focusposition>
+                <movement>2</movement>
+                <orientation>vertical</orientation>
+                <itemlayout height="72" width="384">
+                    <control type="image">
+                        <texture>colors/color_white.png</texture>
+                        <colordiffuse>$INFO[Skin.String(MainMenuPanelColor)]</colordiffuse>
+                    </control>
+                    <control type="label">
+                        <width>94%</width>
+                        <height>100%</height>
+                        <left>3%</left>
+                        <font>Light26</font>
+                        <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
+                        <selectedcolor>$INFO[Skin.String(MainMenuTextColor)]</selectedcolor>
+                        <align>left</align>
+                        <aligny>center</aligny>
+                        <label>$VAR[homemenuitem_label]</label>
+                    </control>
+                </itemlayout>
+                <focusedlayout height="72" width="384">
+                    <control type="image">
+                        <!-- focus sub menu -->
+                        <texture>colors/color_white.png</texture>
+                        <colordiffuse>$INFO[Skin.String(HomeViewDetailsFocusColor)]</colordiffuse>
+                        <visible>Control.HasFocus(4444)</visible>
+                    </control>
+                    <control type="image">
+                        <texture>colors/color_white.png</texture>
+                        <colordiffuse>$INFO[Skin.String(MainMenuPanelColor)]</colordiffuse>
+                        <visible>!Control.HasFocus(4444)</visible>
+                    </control>
+                    <control type="label">
+                        <width>94%</width>
+                        <height>100%</height>
+                        <left>3%</left>
+                        <font>Light26</font>
+                        <textcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</textcolor>
+                        <align>left</align>
+                        <aligny>center</aligny>
+                        <scroll>true</scroll>
+                        <label>$VAR[homemenuitem_label]</label>
+                        <visible>Control.HasFocus(4444)</visible>
+                    </control>
+                    <control type="label">
+                        <width>94%</width>
+                        <height>100%</height>
+                        <left>3%</left>
+                        <font>Light26</font>
+                        <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
+                        <align>left</align>
+                        <aligny>center</aligny>
+                        <scroll>true</scroll>
+                        <label>$VAR[homemenuitem_label]</label>
+                        <visible>!Control.HasFocus(4444)</visible>
+                    </control>
+                    <control type="button">
+                        <label/>
+                        <visible>false</visible>
+                        <onfocus>SetProperty(submenu,show,Home)</onfocus>
+                    </control>
+                </focusedlayout>
+                <content>
+                    <include condition="!Skin.HasSetting(DisableAllSubmenus)">skinshortcuts-submenu</include>
+                </content>
+            </control>
+        </control>
+    </include>
+
+    <include name="HomeBigVertical_mainmenu">
+        <control type="image">
+            <!-- Panel -->
+            <top>0</top>
+            <width>434</width>
+            <height>100%</height>
+            <texture>colors/color_white.png</texture>
+            <colordiffuse>$INFO[Skin.String(MainMenuPanelColor)]</colordiffuse>
+        </control>
+        <control type="image">
+            <!-- Home Focus panel -->
+            <left>0</left>
+            <top>0</top>
+            <width>434</width>
+            <height>120</height>
+            <animation effect="fade" start="100" end="60" time="150" condition="!Control.HasFocus(900)">Conditional</animation>
+            <texture>colors/color_white.png</texture>
+            <colordiffuse>$INFO[Skin.String(HomeViewDetailsFocusColor)]</colordiffuse>
+            <animation effect="slide" end="0,120" time="150" tween="cubic" easing="inout" condition="Container(900).Position(9)">Conditional</animation>
+            <animation effect="slide" end="0,120" time="150" tween="cubic" easing="inout" condition="Container(900).Position(9) | Container(900).Position(8)">Conditional</animation>
+            <animation effect="slide" end="0,120" time="150" tween="cubic" easing="inout" condition="Container(900).Position(9) | Container(900).Position(8) | Container(900).Position(7)">Conditional</animation>
+            <animation effect="slide" end="0,120" time="150" tween="cubic" easing="inout" condition="Container(900).Position(9) | Container(900).Position(8) | Container(900).Position(7) | Container(900).Position(6)">Conditional</animation>
+            <animation effect="slide" end="0,120" time="150" tween="cubic" easing="inout" condition="Container(900).Position(9) | Container(900).Position(8) | Container(900).Position(7) | Container(900).Position(6) | Container(900).Position(5)">Conditional</animation>
+            <animation effect="slide" end="0,120" time="150" tween="cubic" easing="inout" condition="Container(900).Position(9) | Container(900).Position(8) | Container(900).Position(7) | Container(900).Position(6) | Container(900).Position(5) | Container(900).Position(4)">Conditional</animation>
+            <animation effect="slide" end="0,120" time="150" tween="cubic" easing="inout" condition="Container(900).Position(9) | Container(900).Position(8) | Container(900).Position(7) | Container(900).Position(6) | Container(900).Position(5) | Container(900).Position(4) | Container(900).Position(3)">Conditional</animation>
+            <animation effect="slide" end="0,120" time="150" tween="cubic" easing="inout" condition="Container(900).Position(9) | Container(900).Position(8) | Container(900).Position(7) | Container(900).Position(6) | Container(900).Position(5) | Container(900).Position(4) | Container(900).Position(3) | Container(900).Position(2)">Conditional</animation>
+            <animation effect="slide" end="0,120" time="150" tween="cubic" easing="inout" condition="Container(900).Position(9) | Container(900).Position(8) | Container(900).Position(7) | Container(900).Position(6) | Container(900).Position(5) | Container(900).Position(4) | Container(900).Position(3) | Container(900).Position(2) | Container(900).Position(1)">Conditional</animation>
+        </control>
+        <control type="list" id="900">
+            <animation effect="fade" start="100" end="50" time="150" condition="!Control.HasFocus(900)">Conditional</animation>
+            <left>0</left>
+            <top>0</top>
+            <width>434</width>
+            <height>100%</height>
+            <onleft condition="!Skin.HasSetting(DisablePowerMenu)">ActivateWindow(ShutdownMenu)</onleft>
+            <ondown>900</ondown>
+            <onup>900</onup>
+            <onback condition="String.IsEqual(Skin.String(HomeLayout),bingie)">9000</onback>
+            <onback condition="String.IsEqual(Skin.String(HomeLayout),bingie)">ClearProperty(ShowViewSubMenu,Home)</onback>
+            <onright condition="Control.IsVisible(4446)">Control.SetFocus(4446,0)</onright>
+            <onright condition="!Control.IsVisible(4446) + Integer.IsGreater(Container(4445).NumItems,0) + !Skin.HasSetting(OpenSubMenuOnClick)">Control.SetFocus(4444,0)</onright>
+            <onright condition="!String.IsEqual(Skin.String(HomeLayout),bingie) + !Control.IsVisible(4446) + [Skin.HasSetting(OpenSubMenuOnClick) | !Integer.IsGreater(Container(4445).NumItems,0)]">$VAR[focusWidget]</onright>
+            <onright condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Control.IsVisible(4446) + [Skin.HasSetting(OpenSubMenuOnClick) | !Integer.IsGreater(Container(4445).NumItems,0)]">9000</onright>
+            <onright condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Control.IsVisible(4446) + [Skin.HasSetting(OpenSubMenuOnClick) | !Integer.IsGreater(Container(4445).NumItems,0)]">ClearProperty(ShowViewSubMenu,Home)</onright>
+            <pagecontrol/>
+            <scrolltime tween="quadratic" easing="out">150</scrolltime>
+            <orientation>Vertical</orientation>
+            <itemlayout height="120" width="434">
+                <control type="label">
+                    <width>94%</width>
+                    <height>100%</height>
+                    <left>5%</left>
+                    <font>Light44</font>
+                    <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <label>$VAR[homemenuitem_label]</label>
+                </control>
+            </itemlayout>
+            <focusedlayout height="120" width="434">
+                <control type="label">
+                    <width>94%</width>
+                    <height>100%</height>
+                    <left>5%</left>
+                    <font>Light44</font>
+                    <textcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</textcolor>
+                    <selectedcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</selectedcolor>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <scroll>true</scroll>
+                    <label>$VAR[homemenuitem_label]</label>
+                </control>
+                <include>HiddenHomeMenuButton</include>
+            </focusedlayout>
+            <content><include>skinshortcuts-mainmenu</include></content>
+        </control>
+		
+    </include>
+
+    <!--  includes for widgets -->
+    <include name="VerticalWidgets">
+        <control type="grouplist" id="77777">
+            <width>1305</width>
+            <right>50</right>
+            <top>180</top>
+            <bottom>50</bottom>
+            <ondown>77777</ondown>
+            <onleft condition="!Skin.HasSetting(EnhancedHome_Circular)">900</onleft>
+            <onup>77777</onup>
+            <onback>900</onback>
+            <itemgap>0</itemgap>
+            <pagecontrol>317</pagecontrol>
+            <!-- lower panel if no rss or infoline present -->
+            <animation effect="slide" start="0,0" end="0,50" time="0" delay="0" condition="!system.getbool(lookandfeel.enablerssfeeds) + [String.IsEmpty(Container(900).ListItem.Property(infoline)) | String.IsEqual(Container(900).ListItem.Property(infoline),none)]">Conditional</animation>
+            
+            <!-- lower widgets if enabled -->
+            <animation effect="slide" start="0" end="0,550" time="0" condition="[String.IsEqual(Container(900).ListItem.Property(widgetstyle),poster) | [String.IsEmpty(Container(900).ListItem.Property(widgetstyle)) + Skin.String(widgetstyle,poster)]] + String.IsEqual(Container(900).ListItem.Property(lowerwidgets),enable) + String.IsEqual(Container(900).ListItem.Property(multiwidget),single)">Conditional</animation>
+            <animation effect="slide" start="0" end="0,550" time="0" condition="[String.IsEqual(Container(900).ListItem.Property(widgetstyle),posterdetails) | [String.IsEmpty(Container(900).ListItem.Property(widgetstyle)) + Skin.String(widgetstyle,posterdetails)]] + String.IsEqual(Container(900).ListItem.Property(lowerwidgets),enable) + String.IsEqual(Container(900).ListItem.Property(multiwidget),single)">Conditional</animation>
+            <animation effect="slide" start="0" end="0,676" time="0" condition="[String.IsEqual(Container(900).ListItem.Property(widgetstyle),smallposter) | [String.IsEmpty(Container(900).ListItem.Property(widgetstyle)) + Skin.String(widgetstyle,smallposter)]] + String.IsEqual(Container(900).ListItem.Property(lowerwidgets),enable) + String.IsEqual(Container(900).ListItem.Property(multiwidget),single)">Conditional</animation>
+            <animation effect="slide" start="0" end="0,660" time="0" condition="[String.IsEqual(Container(900).ListItem.Property(widgetstyle),square) | [String.IsEmpty(Container(900).ListItem.Property(widgetstyle)) + Skin.String(widgetstyle,square)]] + String.IsEqual(Container(900).ListItem.Property(lowerwidgets),enable) + String.IsEqual(Container(900).ListItem.Property(multiwidget),single)">Conditional</animation>
+            <animation effect="slide" start="0" end="0,800" time="0" condition="[String.IsEqual(Container(900).ListItem.Property(widgetstyle),minisquare) | [String.IsEmpty(Container(900).ListItem.Property(widgetstyle)) + Skin.String(widgetstyle,minisquare)]] + String.IsEqual(Container(900).ListItem.Property(lowerwidgets),enable) + String.IsEqual(Container(900).ListItem.Property(multiwidget),single)">Conditional</animation>
+            <animation effect="slide" start="0" end="0,740" time="0" condition="[String.IsEqual(Container(900).ListItem.Property(widgetstyle),landscape) | [String.IsEmpty(Container(900).ListItem.Property(widgetstyle)) + Skin.String(widgetstyle,landscape)]] + String.IsEqual(Container(900).ListItem.Property(lowerwidgets),enable) + String.IsEqual(Container(900).ListItem.Property(multiwidget),single)">Conditional</animation>
+            <animation effect="slide" start="0" end="0,655" time="0" condition="[String.IsEqual(Container(900).ListItem.Property(widgetstyle),landscapelarge) | [String.IsEmpty(Container(900).ListItem.Property(widgetstyle)) + Skin.String(widgetstyle,landscapelarge)]] + String.IsEqual(Container(900).ListItem.Property(lowerwidgets),enable) + String.IsEqual(Container(900).ListItem.Property(multiwidget),single)">Conditional</animation>
+            <animation effect="slide" start="0" end="0,762" time="0" condition="[String.IsEqual(Container(900).ListItem.Property(widgetstyle),landscapesmall) | [String.IsEmpty(Container(900).ListItem.Property(widgetstyle)) + Skin.String(widgetstyle,landscapesmall)]] + String.IsEqual(Container(900).ListItem.Property(lowerwidgets),enable) + String.IsEqual(Container(900).ListItem.Property(multiwidget),single)">Conditional</animation>
+            <animation effect="slide" start="0" end="0,720" time="0" condition="[String.IsEqual(Container(900).ListItem.Property(widgetstyle),landscapedetails) | [String.IsEmpty(Container(900).ListItem.Property(widgetstyle)) + Skin.String(widgetstyle,landscapedetails)]] + String.IsEqual(Container(900).ListItem.Property(lowerwidgets),enable) + String.IsEqual(Container(900).ListItem.Property(multiwidget),single)">Conditional</animation>
+            <animation effect="slide" start="0" end="0,760" time="0" condition="[String.IsEqual(Container(900).ListItem.Property(widgetstyle),banner) | [String.IsEmpty(Container(900).ListItem.Property(widgetstyle)) + Skin.String(widgetstyle,banner)]] + String.IsEqual(Container(900).ListItem.Property(lowerwidgets),enable) + String.IsEqual(Container(900).ListItem.Property(multiwidget),single)">Conditional</animation>
+            <animation effect="slide" start="0" end="0,570" time="0" condition="[String.IsEqual(Container(900).ListItem.Property(widgetstyle),singlebox) | [String.IsEmpty(Container(900).ListItem.Property(widgetstyle)) + Skin.String(widgetstyle,singlebox)]] + String.IsEqual(Container(900).ListItem.Property(lowerwidgets),enable) + String.IsEqual(Container(900).ListItem.Property(multiwidget),single)">Conditional</animation>
+            <animation effect="slide" start="0" end="0,670" time="0" condition="[String.IsEqual(Container(900).ListItem.Property(widgetstyle),widebox) | [String.IsEmpty(Container(900).ListItem.Property(widgetstyle)) + Skin.String(widgetstyle,widebox)]] + String.IsEqual(Container(900).ListItem.Property(lowerwidgets),enable) + String.IsEqual(Container(900).ListItem.Property(multiwidget),single)">Conditional</animation>
+            
+            <animation effect="slide" start="0" end="0,-120" time="0" condition="!String.IsEqual(Skin.AspectRatio,16:10) + String.IsEqual(Container(900).ListItem.Property(lowerwidgets),enable) + String.IsEqual(Container(900).ListItem.Property(multiwidget),single)">Conditional</animation>
+            <animation effect="slide" start="0" end="0,-100" time="0" condition="String.IsEqual(Container(900).ListItem.Property(squaresubmenu),enable) + String.IsEqual(Container(900).ListItem.Property(lowerwidgets),enable) + String.IsEqual(Container(900).ListItem.Property(multiwidget),single)">Conditional</animation>
+
+            <!-- square submenu -->
+            <include condition="!Skin.HasSetting(DisableAllSubmenus)">VerticalHomeSquareSubMenu</include>
+            
+            <!-- all widgets -->
+            <include>skinshortcuts-template-Widgets</include>
+
+        </control>
+        <control type="scrollbar" id="317"> 
+            <right>0</right>
+            <top>180</top>
+            <bottom>50</bottom>
+            <onleft>77777</onleft>
+            <onright>900</onright>
+            <showonepage>false</showonepage>
+            <visible>[Skin.HasSetting(EnableTouchSupport) | Skin.HasSetting(alwaysShowScrollbars) | Control.HasFocus(317)]</visible>
+            <animation effect="slide" start="0,0" end="0,50" time="0" delay="0" condition="!system.getbool(lookandfeel.enablerssfeeds) + [String.IsEmpty(Container(900).ListItem.Property(infoline)) | String.IsEqual(Container(900).ListItem.Property(infoline),none)]">Conditional</animation>
+        </control>
+            
+    </include>
+    <include name="VerticalWidgetsLarge">
+        <control type="grouplist" id="77777">
+            <left>470</left>
+            <right>0</right>
+            <include condition="Skin.String(home_header,disable)">VerticalWidgetsExtraLarge</include>
+            <top>140</top>
+            <bottom>0</bottom>
+            <ondown>77777</ondown>
+            <itemgap>0</itemgap>
+            <onleft condition="!Skin.HasSetting(EnhancedHome_Circular)">900</onleft>
+            <onup>77777</onup>
+            <onback>900</onback>
+            <pagecontrol>317</pagecontrol>
+            
+            <!-- lower widgets if enabled -->
+            <animation effect="slide" start="0" end="0,730" time="0" condition="[String.IsEqual(Container(900).ListItem.Property(widgetstyle),poster) | [String.IsEmpty(Container(900).ListItem.Property(widgetstyle)) + Skin.String(widgetstyle,poster)]] + String.IsEqual(Container(900).ListItem.Property(lowerwidgets),enable) + String.IsEqual(Container(900).ListItem.Property(multiwidget),single)">Conditional</animation>
+            <animation effect="slide" start="0" end="0,730" time="0" condition="[String.IsEqual(Container(900).ListItem.Property(widgetstyle),posterdetails) | [String.IsEmpty(Container(900).ListItem.Property(widgetstyle)) + Skin.String(widgetstyle,posterdetails)]] + String.IsEqual(Container(900).ListItem.Property(lowerwidgets),enable) + String.IsEqual(Container(900).ListItem.Property(multiwidget),single)">Conditional</animation>
+            <animation effect="slide" start="0" end="0,856" time="0" condition="[String.IsEqual(Container(900).ListItem.Property(widgetstyle),smallposter) | [String.IsEmpty(Container(900).ListItem.Property(widgetstyle)) + Skin.String(widgetstyle,smallposter)]] + String.IsEqual(Container(900).ListItem.Property(lowerwidgets),enable) + String.IsEqual(Container(900).ListItem.Property(multiwidget),single)">Conditional</animation>
+            <animation effect="slide" start="0" end="0,840" time="0" condition="[String.IsEqual(Container(900).ListItem.Property(widgetstyle),square) | [String.IsEmpty(Container(900).ListItem.Property(widgetstyle)) + Skin.String(widgetstyle,square)]] + String.IsEqual(Container(900).ListItem.Property(lowerwidgets),enable) + String.IsEqual(Container(900).ListItem.Property(multiwidget),single)">Conditional</animation>
+            <animation effect="slide" start="0" end="0,980" time="0" condition="[String.IsEqual(Container(900).ListItem.Property(widgetstyle),minisquare) | [String.IsEmpty(Container(900).ListItem.Property(widgetstyle)) + Skin.String(widgetstyle,minisquare)]] + String.IsEqual(Container(900).ListItem.Property(lowerwidgets),enable) + String.IsEqual(Container(900).ListItem.Property(multiwidget),single)">Conditional</animation>
+            <animation effect="slide" start="0" end="0,920" time="0" condition="[String.IsEqual(Container(900).ListItem.Property(widgetstyle),landscape) | [String.IsEmpty(Container(900).ListItem.Property(widgetstyle)) + Skin.String(widgetstyle,landscape)]] + String.IsEqual(Container(900).ListItem.Property(lowerwidgets),enable) + String.IsEqual(Container(900).ListItem.Property(multiwidget),single)">Conditional</animation>
+            <animation effect="slide" start="0" end="0,835" time="0" condition="[String.IsEqual(Container(900).ListItem.Property(widgetstyle),landscapelarge) | [String.IsEmpty(Container(900).ListItem.Property(widgetstyle)) + Skin.String(widgetstyle,landscapelarge)]] + String.IsEqual(Container(900).ListItem.Property(lowerwidgets),enable) + String.IsEqual(Container(900).ListItem.Property(multiwidget),single)">Conditional</animation>
+            <animation effect="slide" start="0" end="0,942" time="0" condition="[String.IsEqual(Container(900).ListItem.Property(widgetstyle),landscapesmall) | [String.IsEmpty(Container(900).ListItem.Property(widgetstyle)) + Skin.String(widgetstyle,landscapesmall)]] + String.IsEqual(Container(900).ListItem.Property(lowerwidgets),enable) + String.IsEqual(Container(900).ListItem.Property(multiwidget),single)">Conditional</animation>
+            <animation effect="slide" start="0" end="0,900" time="0" condition="[String.IsEqual(Container(900).ListItem.Property(widgetstyle),landscapedetails) | [String.IsEmpty(Container(900).ListItem.Property(widgetstyle)) + Skin.String(widgetstyle,landscapedetails)]] + String.IsEqual(Container(900).ListItem.Property(lowerwidgets),enable) + String.IsEqual(Container(900).ListItem.Property(multiwidget),single)">Conditional</animation>
+            <animation effect="slide" start="0" end="0,940" time="0" condition="[String.IsEqual(Container(900).ListItem.Property(widgetstyle),banner) | [String.IsEmpty(Container(900).ListItem.Property(widgetstyle)) + Skin.String(widgetstyle,banner)]] + String.IsEqual(Container(900).ListItem.Property(lowerwidgets),enable) + String.IsEqual(Container(900).ListItem.Property(multiwidget),single)">Conditional</animation>
+            <animation effect="slide" start="0" end="0,750" time="0" condition="[String.IsEqual(Container(900).ListItem.Property(widgetstyle),singlebox) | [String.IsEmpty(Container(900).ListItem.Property(widgetstyle)) + Skin.String(widgetstyle,singlebox)]] + String.IsEqual(Container(900).ListItem.Property(lowerwidgets),enable) + String.IsEqual(Container(900).ListItem.Property(multiwidget),single)">Conditional</animation>
+            <animation effect="slide" start="0" end="0,850" time="0" condition="[String.IsEqual(Container(900).ListItem.Property(widgetstyle),widebox) | [String.IsEmpty(Container(900).ListItem.Property(widgetstyle)) + Skin.String(widgetstyle,widebox)]] + String.IsEqual(Container(900).ListItem.Property(lowerwidgets),enable) + String.IsEqual(Container(900).ListItem.Property(multiwidget),single)">Conditional</animation>
+            
+            <animation effect="slide" start="0" end="0,-120" time="0" condition="!String.IsEqual(Skin.AspectRatio,16:10) + String.IsEqual(Container(900).ListItem.Property(lowerwidgets),enable) + String.IsEqual(Container(900).ListItem.Property(multiwidget),single)">Conditional</animation>
+            <animation effect="slide" start="0" end="0,-100" time="0" condition="String.IsEqual(Container(900).ListItem.Property(squaresubmenu),enable) + String.IsEqual(Container(900).ListItem.Property(lowerwidgets),enable) + String.IsEqual(Container(900).ListItem.Property(multiwidget),single)">Conditional</animation>
+
+            <!-- square submenu -->
+            <include condition="!Skin.HasSetting(DisableAllSubmenus)">VerticalHomeSquareSubMenu</include>
+            
+            <include>skinshortcuts-template-Widgets</include>
+            
+        </control>
+        <control type="scrollbar" id="317"> 
+            <left>450</left>
+            <right>60</right>
+            <include condition="Skin.String(home_header,disable)">VerticalWidgetsExtraLarge</include>
+            <top>140</top>
+            <bottom>0</bottom>
+            <onleft>77777</onleft>
+            <onright>900</onright>
+            <showonepage>false</showonepage>
+            <visible>[Skin.HasSetting(EnableTouchSupport) | Skin.HasSetting(alwaysShowScrollbars) | Control.HasFocus(317)]</visible>
+        </control>
+            
+    </include>
+    <include name="VerticalWidgetsExtraLarge">
+        <top>10</top>
+    </include>
+    <include name="VerticalHomeSquareSubMenu">
+        <control type="group" id="14446">
+            <width>100%</width>
+            <height>1</height>
+            <visible>Control.HasFocus(4446)</visible>
+            <control type="label">
+                <right>0</right>
+                <posy>0</posy>
+                <width>100%</width>
+                <height>100</height>
+                <include condition="Skin.HasSetting(WidgetAlignRight)">align_left</include>
+                <align>right</align>
+                <info>Container(4446).ListItem.Label</info>
+                <font>Reg36</font>
+                <textcolor>$INFO[Skin.String(HeaderTextColor)]</textcolor>
+                <shadowcolor>$INFO[Skin.String(HeaderTextShadowColor)]</shadowcolor>
+            </control>
+        </control>
+        <control type="panel" id="4446">
+            <visible>String.IsEqual(Container(900).ListItem.Property(squaresubmenu),enable)</visible>
+            <width>100%</width>
+            <height>100</height>
+            <orientation>horizontal</orientation>
+            <animation effect="slide" start="0" end="10" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+            <animation effect="slide" start="0" end="108" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,11) + !Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+            <animation effect="slide" start="0" end="108" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,10) + !Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+            <animation effect="slide" start="0" end="108" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,9) + !Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+            <animation effect="slide" start="0" end="108" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,8) + !Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+            <animation effect="slide" start="0" end="108" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,7) + !Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+            <animation effect="slide" start="0" end="108" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,6) + !Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+            <animation effect="slide" start="0" end="108" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,5) + !Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+            <animation effect="slide" start="0" end="108" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,4) + !Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+            <animation effect="slide" start="0" end="108" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,3) + !Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+            <animation effect="slide" start="0" end="108" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,2) + !Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+            <animation effect="slide" start="0" end="108" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,1) + !Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+            
+            <animation effect="slide" start="0" end="5" time="0" condition="Skin.HasSetting(WidgetAlignRight) + Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+            <animation effect="slide" start="0" end="111" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,12) + Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+            <animation effect="slide" start="0" end="111" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,11) + Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+            <animation effect="slide" start="0" end="111" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,10) + Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+            <animation effect="slide" start="0" end="111" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,9) + Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+            <animation effect="slide" start="0" end="111" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,8) + Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+            <animation effect="slide" start="0" end="111" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,7) + Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+            <animation effect="slide" start="0" end="111" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,6) + Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+            <animation effect="slide" start="0" end="111" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,5) + Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+            <animation effect="slide" start="0" end="111" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,4) + Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+            <animation effect="slide" start="0" end="111" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,3) + Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+            <animation effect="slide" start="0" end="111" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,2) + Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+            <animation effect="slide" start="0" end="111" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container(4445).NumItems,1) + Skin.HasSetting(VerticalHomeLargeWidget)">Conditional</animation>
+            
+            <itemlayout height="100" width="108" condition="!Skin.HasSetting(VerticalHomeLargeWidget)">
+              <control type="group">
+                    <width>100</width>
+                    <height>100</height>
+                    <include>SquarePosterPanelLayout</include>
+                </control>
+            </itemlayout>
+            <focusedlayout height="100" width="108" condition="!Skin.HasSetting(VerticalHomeLargeWidget)">
+              <control type="group">
+                    <width>100</width>
+                    <height>100</height>
+                    <include>SquarePosterPanelLayoutFocus</include>
+                </control>
+            </focusedlayout>
+            <itemlayout height="100" width="111" condition="Skin.HasSetting(VerticalHomeLargeWidget)">
+              <control type="group">
+                    <width>100</width>
+                    <height>100</height>
+                    <include>SquarePosterPanelLayout</include>
+                </control>
+            </itemlayout>
+            <focusedlayout height="100" width="111" condition="Skin.HasSetting(VerticalHomeLargeWidget)">
+              <control type="group">
+                    <width>100</width>
+                    <height>100</height>
+                    <include>SquarePosterPanelLayoutFocus</include>
+                </control>
+            </focusedlayout>
+            <content>
+                <include>skinshortcuts-submenu</include>
+            </content> 
+        </control>
+    </include>
+    
+ </includes>

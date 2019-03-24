@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+    
+    <include name="HorizontalHome">
+        
+        <!-- Header -->
+		<include>Header</include>
+        
+        <!-- widgets -->
+        <include condition="!Skin.HasSetting(DisableAllWidgets)">HorizontalWidgets</include>
+		
+        <!-- mainmenu-->
+        <include condition="String.IsEqual(Skin.String(HomeLayout),simplehor)">HomeSimpleHorizontal</include>
+        <include condition="String.Contains(Skin.String(HomeLayout), lowhorizontal)">HomeLowHorizontal</include>
+        
+        
+    </include>
+    
+    <!-- Simple Horizontal Home Includes -->
+    <include name="HomeSimpleHorizontal">
+		<control type="group">
+		  <control type="group">
+			<posy>90</posy>
+			<animation type="Conditional" condition="Control.IsVisible(77551)">
+                <effect type="slide" start="0,0" end="0,600" time="400" tween="cubic" easing="inout" delay="0"/>
+            </animation>
+            <control type="group">
+			 
+			 <control type="image">
+			    <posx>0</posx>
+				<posy>670</posy>
+				<width>100%</width>
+				<height>180</height>
+				<texture border="5">diffuse/panel.png</texture>
+				<colordiffuse>$INFO[Skin.String(MainMenuPanelColor)]</colordiffuse>
+			  </control>
+
+			  <control type="image">
+				<posx>0</posx>
+				<posy>710</posy>
+				<width>100%</width>
+				<height>100</height>
+				<texture border="5">diffuse/panel.png</texture>
+				<colordiffuse>$INFO[Skin.String(MainMenuPanelColor)]</colordiffuse>
+			  </control>
+			</control>
+            <!-- main menu -->
+			<include condition="Skin.HasSetting(EnhancedHome_Circular)">HomeSimpleHorizontalWrap</include>
+            <include condition="!Skin.HasSetting(EnhancedHome_Circular) + !Skin.HasSetting(UseFixedHomeFocus)">HomeSimpleHorizontalNormal</include>
+            <include condition="!Skin.HasSetting(EnhancedHome_Circular) + Skin.HasSetting(UseFixedHomeFocus)">HomeSimpleHorizontalFixed</include>
+			
+            <!-- sub menu -->
+            <control type="list" id="4444">
+			  <animation effect="fade" time="200" start="100" end="25" reversible="true" condition="!Control.HasFocus(4444)">Conditional</animation>
+			  <animation effect="fade" time="200" start="100" end="0" reversible="true" condition="!Control.HasFocus(4444) + !Skin.HasSetting(AutoShowSubmenu)">Conditional</animation>
+              <visible>!Skin.HasSetting(DisableAllSubmenus)</visible>
+			  <posx>0</posx>
+			  <width>1920</width>
+			  <posy>803</posy>
+			  <height>50</height>
+			  <onleft>4444</onleft>
+			  <onright>4444</onright>
+			  <viewtype>list</viewtype>
+			  <orientation>horizontal</orientation>
+			  <focusposition>3</focusposition>
+			  <movement>3</movement>
+			  <onup>900</onup>
+			  <itemgap>6</itemgap>
+			  <onback>SetFocus(900)</onback>
+			  <ondown condition="!Skin.HasSetting(DisablePowerMenu)">ActivateWindow(ShutdownMenu)</ondown>
+              <animation type="Conditional" condition="String.IsEqual(Container(4444).NumItems,1)">
+				<effect type="slide" end="768" time="0" delay="0" />
+              </animation>
+              <animation type="Conditional" condition="String.IsEqual(Container(4444).NumItems,2)">
+				<effect type="slide" end="576" time="0" delay="0" />
+              </animation>
+              <animation type="Conditional" condition="String.IsEqual(Container(4444).NumItems,3)">
+				<effect type="slide" end="384" time="0" delay="0" />
+              </animation>
+              <animation type="Conditional" condition="String.IsEqual(Container(4444).NumItems,4)">
+				<effect type="slide" end="192" time="0" delay="0" />
+              </animation>
+			  <itemlayout width="384" height="50">
+				<control type="label">
+				  <posx>3</posx>
+				  <posy>0</posy>
+				  <height>50</height>
+				  <width>384</width>
+				  <align>center</align>
+				  <aligny>center</aligny>
+				  <font>Reg26</font>
+				  <scroll>false</scroll>
+				  <label>$INFO[ListItem.Label]</label>
+				  <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
+				</control>
+			  </itemlayout>
+			  <focusedlayout width="384" height="50">
+				<control type="label">
+				  <visible>!Control.HasFocus(4444)</visible>
+				  <posx>3</posx>
+				  <posy>0</posy>
+				  <height>50</height>
+				  <width>384</width>
+				  <align>center</align>
+				  <aligny>center</aligny>
+				  <font>Reg26</font>
+				  <label>$INFO[ListItem.Label]</label>
+				  <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
+				</control>
+				<control type="label">
+				  <visible>Control.HasFocus(4444)</visible>
+				  <posx>3</posx>
+				  <posy>0</posy>
+				  <height>50</height>
+				  <width>384</width>
+				  <align>center</align>
+				  <aligny>center</aligny>
+				  <font>Reg26</font>
+				  <label>$INFO[ListItem.Label]</label>
+				  <textcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</textcolor>
+				</control>
+			  </focusedlayout>
+			  <content>
+				<include condition="!Skin.HasSetting(DisableAllSubmenus)">skinshortcuts-submenu</include>
+			  </content>
+			</control>
+		  </control>
+          <!--Footer-->
+          <include condition="!Skin.HasSetting(nofooterbar)">Footer</include>
+          
+          <!-- Power button -->
+         <control type="group">
+            <posx>930</posx>
+            <bottom>20</bottom>
+            <width>60</width>
+            <height>60</height>
+            <visible>!Control.isVisible(77551)</visible>
+            <include content="PowerButton" condition="!Skin.HasSetting(EnableTouchSupport) + !Skin.HasSetting(DisablePowerMenu)">
+                <param name="visibility" value="![!String.IsEmpty(Container(900).ListItem.Property(infoline)) + !String.IsEqual(Container(900).ListItem.Property(infoline),none)] + !system.getbool(lookandfeel.enablerssfeeds) + !Skin.HasSetting(HidePowerMenu)" />
+            </include>
+            <animation type="Conditional" condition="Skin.HasTheme(classic)">
+                <effect type="slide" start="0,0" end="0,-15" time="0" tween="cubic" easing="inout" delay="0" />
+            </animation>
+         </control>
+
+    </control>
+	</include>
+    <include name="HomeSimpleHorizontalNormal">
+        <control type="panel" id="900">
+            <posx>0</posx>
+            <width>1920</width>
+            <include>HomeSimpleHorizontalLayout</include>
+        </control>
+    </include>
+    <include name="HomeSimpleHorizontalFixed">
+        <control type="fixedlist" id="900">
+            <animation effect="slide" time="200" start="0" end="-519" delay="0" condition="String.IsEmpty(Container(900).ListItemNoWrap(1).Label)">Conditional</animation>
+            <animation effect="slide" time="200" start="0" end="519" delay="0" condition="String.IsEmpty(Container(900).ListItemNoWrap(-1).Label)">Conditional</animation>
+            <focusposition>2</focusposition>
+            <posx>-338</posx>
+            <width>3069</width>
+            <include>HomeSimpleHorizontalLayout</include>
+        </control>
+    </include>
+    <include name="HomeSimpleHorizontalWrap">
+        <control type="wraplist" id="900">
+            <posx>-338</posx>
+            <width>3069</width>
+            <focusposition>2</focusposition>
+            <include>HomeSimpleHorizontalLayout</include>
+        </control>
+    </include>
+    <include name="HomeSimpleHorizontalLayout">
+          <animation effect="fade" time="200" start="100" end="25" reversible="true" condition="!Control.HasFocus(900)">Conditional</animation>
+          <posy>725</posy>
+          <height>72</height>
+          <onleft>900</onleft>
+          <onright>900</onright>
+          <ondown>4444</ondown>
+          <onup>$VAR[HomeButtonUpAction]</onup>
+          <pagecontrol/>
+          <movement>1</movement>
+          <preloaditems>4</preloaditems>
+          <orientation>horizontal</orientation>
+          <animation effect="slide" time="0" start="0" end="0,-10" delay="0" condition="Skin.HasSetting(UseSingleShortcut)">Conditional</animation>
+          <itemlayout height="70" width="519" condition="!Skin.HasSetting(UseSingleShortcut)">
+            <control type="label">
+              <posx>0</posx>
+              <posy>0</posy>
+              <width>519</width>
+              <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
+              <height>70</height>
+              <align>center</align>
+              <aligny>top</aligny>
+              <textoffsety>2</textoffsety>
+              <scroll>false</scroll>
+              <label>[B]$VAR[homemenuitem_label][/B]</label>
+              <font>Reg50</font>
+            </control>
+          </itemlayout>
+          <focusedlayout height="70" width="519" condition="!Skin.HasSetting(UseSingleShortcut)">
+            <control type="label">
+                  <posx>0</posx>
+                  <posy>0</posy>
+                  <width>519</width>
+                  <textcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</textcolor>
+                  <height>70</height>
+                  <align>center</align>
+                  <aligny>top</aligny>
+                  <textoffsety>2</textoffsety>
+                  <label>[B]$VAR[homemenuitem_label][/B]</label>
+                  <font>Reg50</font>
+            </control>
+            <include>HiddenHomeMenuButton</include>
+          </focusedlayout>
+          
+          <itemlayout height="70" width="1920" condition="Skin.HasSetting(UseSingleShortcut)">
+            <control type="label">
+              <posx>0</posx>
+              <posy>0</posy>
+              <width>100%</width>
+              <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
+              <height>70</height>
+              <align>center</align>
+              <aligny>top</aligny>
+              <textoffsety>2</textoffsety>
+              <scroll>false</scroll>
+              <label>[B]$VAR[homemenuitem_label][/B]</label>
+              <font>Reg64</font>
+            </control>
+          </itemlayout>
+          <focusedlayout height="70" width="1920" condition="Skin.HasSetting(UseSingleShortcut)">
+            <control type="label">
+                  <posx>0</posx>
+                  <posy>0</posy>
+                  <width>100%</width>
+                  <textcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</textcolor>
+                  <height>70</height>
+                  <align>center</align>
+                  <aligny>top</aligny>
+                  <textoffsety>2</textoffsety>
+                  <label>[B]$VAR[homemenuitem_label][/B]</label>
+                  <font>Reg64</font>
+            </control>
+            <include>HiddenHomeMenuButton</include>
+          </focusedlayout>
+          
+          
+          <content><include>skinshortcuts-mainmenu</include></content>
+    </include>
+    
+    <!-- Low Horizontal Menu Includes -->
+    <include name="HomeLowHorizontal">
+		<control type="group">
+			<bottom>0</bottom>
+            <height>190</height>
+			<animation effect="slide" tween="cubic" time="600" start="0,700" end="0,0" reversible="false">WindowOpen</animation>
+			<animation effect="slide" tween="cubic" time="300" start="0,0" end="0,700" reversible="false">WindowClose</animation>
+			<animation effect="slide" tween="cubic" time="600" start="0,700" end="0,0" reversible="false">Visible</animation>
+			<animation effect="slide" tween="cubic" time="300" start="0,0" end="0,700" reversible="false">Hidden</animation>
+			<animation type="Conditional" condition="Control.IsVisible(77551)">
+                <effect type="slide" start="0,0" end="0,600" time="400" tween="cubic" easing="inout" delay="0"/>
+            </animation>
+			<control type="image">
+				<width>100%</width>
+				<height>700</height>
+				<texture border="5">diffuse/panel.png</texture>
+				<colordiffuse>$INFO[Skin.String(MainMenuPanelColor)]</colordiffuse>
+			</control>
+			<control type="image">
+				<left>0</left>
+				<width>100%</width>
+				<height>120</height>
+				<texture border="5">diffuse/panel.png</texture>
+				<colordiffuse>$INFO[Skin.String(MainMenuPanelColor)]</colordiffuse>
+			</control>
+            
+			<!-- main menu -->
+            <control type="image">
+                <!-- focus main menu -->
+                <left>768</left>
+                <width>384</width>
+                <height>120</height>
+                <texture>colors/color_white.png</texture>
+                <colordiffuse>$INFO[Skin.String(HomeViewDetailsFocusColor)]</colordiffuse>
+                <visible>!String.IsEqual(Skin.String(HomeLayout),lowhorizontal_big)</visible>
+                <visible>Skin.HasSetting(EnhancedHome_Circular) | Skin.HasSetting(UseFixedHomeFocus)</visible>
+                <animation effect="fade" start="100" end="50" time="300" condition="!Control.HasFocus(900)">Conditional</animation>
+            </control>
+            <control type="image">
+                <!-- focus main menu -->
+                <left>590</left>
+                <width>740</width>
+                <height>120</height>
+                <texture>colors/color_white.png</texture>
+                <colordiffuse>$INFO[Skin.String(HomeViewDetailsFocusColor)]</colordiffuse>
+                <visible>String.IsEqual(Skin.String(HomeLayout),lowhorizontal_big)</visible>
+                <visible>Skin.HasSetting(EnhancedHome_Circular) | Skin.HasSetting(UseFixedHomeFocus)</visible>
+                <animation effect="fade" start="100" end="50" time="300" condition="!Control.HasFocus(900)">Conditional</animation>
+            </control>
+			<include condition="Skin.HasSetting(EnhancedHome_Circular)">HomeLowHorizontalWrap</include>
+            <include condition="!Skin.HasSetting(EnhancedHome_Circular) + !Skin.HasSetting(UseFixedHomeFocus)">HomeLowHorizontalNormal</include>
+            <include condition="!Skin.HasSetting(EnhancedHome_Circular) + Skin.HasSetting(UseFixedHomeFocus)">HomeLowHorizontalFixed</include>
+			
+            <!-- touch controls -->
+            <control type="group">
+                <height>60</height>
+                <bottom>-20</bottom>
+                <include condition="Skin.HasSetting(EnableTouchSupport)">TouchControlsFooter</include>
+                <visible>!Control.IsVisible(4444)</visible>
+            </control>
+            <!-- rss feed -->
+            <control type="rss">	
+                <description>RSS Feed without touch controls</description>
+                <posx>0</posx>
+                <bottom>20</bottom>
+                <width>100%</width>
+                <height>30</height>
+                <font>Light28</font>
+                <urlset>1</urlset>
+                <titlecolor>$INFO[Skin.String(HomeViewDetailsFocusColor)]</titlecolor>
+                <headlinecolor>$INFO[Skin.String(MainMenuTextColor)]</headlinecolor>
+                <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
+                <visible>System.getbool(lookandfeel.enablerssfeeds)</visible>
+                <visible>!Window.IsVisible(shutdownmenu)</visible>
+                <visible>!Control.IsVisible(4444) + [String.IsEmpty(Container(900).ListItem.Property(infoline)) | String.IsEqual(Container(900).ListItem.Property(infoline),none)]</visible>
+                <visible>![Skin.HasSetting(AutoShowSubmenu) + Integer.IsGreater(Container(4444).NumItems,0)]</visible>
+                <visible>!Skin.HasSetting(EnableTouchSupport)</visible>
+            </control>
+            <!-- rss feed -->
+            <control type="rss">	
+                <description>RSS Feed with touch controls</description>
+                <posx>400</posx>
+                <bottom>20</bottom>
+                <width>1120</width>
+                <height>30</height>
+                <font>Light28</font>
+                <urlset>1</urlset>
+                <titlecolor>$INFO[Skin.String(HomeViewDetailsFocusColor)]</titlecolor>
+                <headlinecolor>$INFO[Skin.String(MainMenuTextColor)]</headlinecolor>
+                <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
+                <visible>System.getbool(lookandfeel.enablerssfeeds)</visible>
+                <visible>!Window.IsVisible(shutdownmenu)</visible>
+                <visible>!Control.IsVisible(4444) + [String.IsEmpty(Container(900).ListItem.Property(infoline)) | String.IsEqual(Container(900).ListItem.Property(infoline),none)]</visible>
+                <visible>![Skin.HasSetting(AutoShowSubmenu) + Integer.IsGreater(Container(4444).NumItems,0)]</visible>
+                <visible>Skin.HasSetting(EnableTouchSupport)</visible>
+            </control>
+            <!--infoline-->
+            <control type="label">	
+                <description>InfoLine</description>
+                <posx>0</posx>
+                <bottom>20</bottom>
+                <width>100%</width>
+                <height>30</height>
+                <font>Light28</font>
+                <font>Reg28</font>
+                <align>center</align>
+                <label>[UPPERCASE]$VAR[infolinevar][/UPPERCASE]</label>
+                <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
+                <visible>!Window.IsVisible(shutdownmenu)</visible>
+                <visible>!Control.HasFocus(4444)</visible>
+                <include>animation_fade_visible_hidden</include>
+            </control>
+		
+            
+            <!-- submenu -->
+            <control type="list" id="4444">
+                <include>animation_fade_visible_hidden</include>
+                <left>0</left>
+                <top>120</top>
+                <width>1920</width>
+                <height>70</height>
+                <onup>900</onup>
+                <ondown condition="!Skin.HasSetting(DisablePowerMenu)">ActivateWindow(ShutdownMenu)</ondown>
+                <scrolltime tween="sine" easing="inout">300</scrolltime>
+                <orientation>horizontal</orientation>
+                <animation effect="slide" time="0" start="0,0" end="0,200" condition="!Control.IsVisible(4444)">Conditional</animation>
+                
+                <animation effect="slide" time="0" start="0" end="384" delay="0" condition="!Integer.IsGreater(Container(4444).NumItems,3)">Conditional</animation>
+                <visible allowhiddenfocus="true">[String.Contains(Window(Home).Property(submenu),show) | Control.HasFocus(4444) | Skin.HasSetting(AutoShowSubmenu)] + !Control.HasFocus(2) + Integer.IsGreater(Container(4444).NumItems,0)</visible>
+                <itemlayout height="70" width="384">
+                    <control type="label">
+                        <width>94%</width>
+                        <height>100%</height>
+                        <left>3%</left>
+                        <font>Light26</font>
+                        <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
+                        <textoffsetx>0</textoffsetx>
+                        <selectedcolor>$INFO[Skin.String(MainMenuTextColor)]</selectedcolor>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <label>$VAR[homemenuitem_label]</label>
+                    </control>
+                </itemlayout>
+                <focusedlayout height="70" width="384">
+                    <control type="image">
+                        <!-- focus sub menu -->
+                        <texture>colors/color_white.png</texture>
+                        <colordiffuse>$INFO[Skin.String(HomeViewDetailsFocusColor)]</colordiffuse>
+                        <visible>Control.HasFocus(4444)</visible>
+                    </control>
+                    <control type="label">
+                        <width>94%</width>
+                        <height>100%</height>
+                        <left>3%</left>
+                        <font>Light26</font>
+                        <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
+                        <textoffsetx>0</textoffsetx>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <scroll>true</scroll>
+                        <label>$VAR[homemenuitem_label]</label>
+                        <visible>!Control.HasFocus(4444)</visible>
+                    </control>
+                    <control type="label">
+                        <width>94%</width>
+                        <height>100%</height>
+                        <left>3%</left>
+                        <font>Light26</font>
+                        <textcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</textcolor>
+                        <textoffsetx>0</textoffsetx>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <scroll>true</scroll>
+                        <label>$VAR[homemenuitem_label]</label>
+                        <visible>Control.HasFocus(4444)</visible>
+                    </control>
+                </focusedlayout>
+                <content>
+                    <include condition="!Skin.HasSetting(DisableAllSubmenus)">skinshortcuts-submenu</include>
+                </content>
+            </control>
+            <control type="button">
+                <left>5</left>
+                <top>141</top>
+                <width>30</width>
+                <height>30</height>
+                <texturefocus colordiffuse="$INFO[Skin.String(MainMenuTextColor)]">home/home_arrow_left.png</texturefocus>
+                <texturenofocus>home/home_arrow_left.png</texturenofocus>
+                <visible>Container(4444).HasPrevious + Control.IsVisible(4444)</visible>
+                <onclick>Control.Move(4444,-1)</onclick>
+            </control>
+            <control type="button">
+                <left>1885</left>
+                <top>141</top>
+                <width>30</width>
+                <height>30</height>
+                <texturefocus colordiffuse="$INFO[Skin.String(MainMenuTextColor)]">home/home_arrow_right.png</texturefocus>
+                <texturenofocus>home/home_arrow_right.png</texturenofocus>
+                <visible>Container(4444).HasNext+ Control.IsVisible(4444)</visible>
+                <onclick>Control.Move(4444,1)</onclick>
+            </control>
+
+        </control>
+	</include>
+    <include name="HomeLowHorizontalBig">
+        <focusposition>1</focusposition>
+    </include>
+    <include name="HomeLowHorizontalNormal">
+        <control type="panel" id="900">
+            <include>HomeLowHorizontalLayout</include>
+        </control>
+    </include>
+    <include name="HomeLowHorizontalFixed">
+        <control type="fixedlist" id="900">
+            <animation effect="slide" time="200" start="0" end="-384" delay="0" condition="String.IsEmpty(Container(900).ListItemNoWrap(1).Label) + !String.IsEqual(Skin.String(HomeLayout),lowhorizontal_big)">Conditional</animation>
+            <animation effect="slide" time="200" start="0" end="384" delay="0" condition="String.IsEmpty(Container(900).ListItemNoWrap(-1).Label) + !String.IsEqual(Skin.String(HomeLayout),lowhorizontal_big)">Conditional</animation>
+            <animation effect="slide" time="200" start="0" end="-590" delay="0" condition="String.IsEmpty(Container(900).ListItemNoWrap(1).Label) + String.IsEqual(Skin.String(HomeLayout),lowhorizontal_big)">Conditional</animation>
+            <animation effect="slide" time="200" start="0" end="590" delay="0" condition="String.IsEmpty(Container(900).ListItemNoWrap(-1).Label) + String.IsEqual(Skin.String(HomeLayout),lowhorizontal_big)">Conditional</animation>
+            <include condition="String.IsEqual(Skin.String(HomeLayout),lowhorizontal_big)">HomeLowHorizontalBig</include>
+            <focusposition>2</focusposition>
+            <include>HomeLowHorizontalLayout</include>
+        </control>
+    </include>
+    <include name="HomeLowHorizontalWrap">
+        <control type="wraplist" id="900">
+            <include condition="String.IsEqual(Skin.String(HomeLayout),lowhorizontal_big)">HomeLowHorizontalBig</include>
+            <focusposition>2</focusposition>
+            <include>HomeLowHorizontalLayout</include>
+        </control>
+    </include>
+    <include name="HomeLowHorizontalLayout">
+		<animation effect="fade" start="100" end="50" time="300" condition="!Control.HasFocus(900)">Conditional</animation>
+		<left>0</left>
+		<top>0</top>
+		<width>100%</width>
+		<height>120</height>
+		<onup>$VAR[HomeButtonUpAction]</onup>
+        <ondown condition="Integer.IsGreater(Container(4444).NumItems,3)">SetFocus(4444,2)</ondown>
+        <ondown condition="String.IsEqual(Container(4444).NumItems,3) | String.IsEqual(Container(4444).NumItems,2)">SetFocus(4444,1)</ondown>
+        <ondown condition="String.IsEqual(Container(4444).NumItems,1)">SetFocus(4444,0)</ondown>
+        <ondown condition="!Integer.IsGreater(Container(4445).NumItems,0) + !Skin.HasSetting(DisablePowerMenu)">ActivateWindow(ShutdownMenu)</ondown>
+		<pagecontrol/>
+		<movement>1</movement>
+		<scrolltime tween="sine" easing="inout">300</scrolltime>
+		<orientation>horizontal</orientation>
+		<itemlayout height="120" width="384" condition="!String.IsEqual(Skin.String(HomeLayout),lowhorizontal_big)">
+			<control type="label">
+				<width>94%</width>
+                <height>100%</height>
+                <left>3%</left>
+				<font>Light44</font>
+				<textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$VAR[homemenuitem_label]</label>
+			</control>
+		</itemlayout>
+		<focusedlayout height="120" width="384" condition="!String.IsEqual(Skin.String(HomeLayout),lowhorizontal_big)">
+			<control type="image">
+				<texture>colors/color_white.png</texture>
+                <colordiffuse>$INFO[Skin.String(HomeViewDetailsFocusColor)]</colordiffuse>
+                <visible>!Skin.HasSetting(UseFixedHomeFocus) + !Skin.HasSetting(EnhancedHome_Circular)</visible>
+			</control>
+			<control type="label">
+				<width>94%</width>
+                <height>100%</height>
+                <left>3%</left>
+				<font>Light44</font>
+				<textcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</textcolor>
+				<selectedcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</selectedcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+                <scroll>true</scroll>
+				<label>$VAR[homemenuitem_label]</label>
+			</control>
+            <include>HiddenHomeMenuButton</include>
+		</focusedlayout>
+		<itemlayout height="120" width="590" condition="String.IsEqual(Skin.String(HomeLayout),lowhorizontal_big)">
+			<control type="group">
+				<animation effect="zoom" time="0" tween="sine" easing="inout" start="70" end="70" center="auto" condition="true">Conditional</animation>
+				<control type="label">
+					<width>94%</width>
+                    <height>100%</height>
+                    <left>3%</left>
+					<font>Light75</font>
+					<textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$VAR[homemenuitem_label]</label>
+				</control>
+			</control>
+		</itemlayout>
+		<focusedlayout height="120" width="740" condition="String.IsEqual(Skin.String(HomeLayout),lowhorizontal_big)">
+			<control type="image">
+				<texture>colors/color_white.png</texture>
+                <colordiffuse>$INFO[Skin.String(HomeViewDetailsFocusColor)]</colordiffuse>
+                <visible>!Skin.HasSetting(UseFixedHomeFocus) + !Skin.HasSetting(EnhancedHome_Circular)</visible>
+			</control>
+			<control type="group">
+				<animation effect="zoom" time="150" tween="sine" easing="inout" start="70" end="100" center="auto" condition="[Container(900).OnScrollNext | Container(900).OnScrollPrevious] + [Skin.HasSetting(UseFixedHomeFocus) | Skin.HasSetting(EnhancedHome_Circular)]">Focus</animation>
+				<animation effect="zoom" time="150" tween="sine" easing="inout" start="100" end="70" center="auto" condition="Control.HasFocus(900) + [Skin.HasSetting(UseFixedHomeFocus) | Skin.HasSetting(EnhancedHome_Circular)]">UnFocus</animation>
+				<control type="label">
+					<width>94%</width>
+                    <height>100%</height>
+                    <left>3%</left>
+					<font>Light75</font>
+					<textcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</textcolor>
+					<selectedcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</selectedcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+                    <scroll>true</scroll>
+					<label>$VAR[homemenuitem_label]</label>
+				</control>
+			</control>
+            <include>HiddenHomeMenuButton</include>
+		</focusedlayout>
+        <content><include>skinshortcuts-mainmenu</include></content>
+	</include>
+    
+</includes>

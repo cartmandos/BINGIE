@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BINGIE -->
+<includes>
+
+    <include name="DefaultSkinSettings">
+        <include condition="!Skin.HasSetting(HomeMenuDefaults46) | String.IsEmpty(Window(Home).Property(startupDone))">DefaultSkinSettingsValues</include>
+        <!-- initialize some addons on startup -->
+        <include condition="String.IsEmpty(Window(Home).Property(startupDone))">startupskinsettingsvalues</include>
+        <!-- correct some stuff on theme switch -->
+        <onload condition="Skin.HasTheme(classic) + !Skin.String(mediaflagsstyle,classic)">Skin.SetString(mediaflagsstyle,classic)</onload>
+        <onload condition="Skin.HasTheme(classic) + !Skin.String(osdmediaflagsstyle,classic)">Skin.SetString(osdmediaflagsstyle,classic)</onload>
+    </include>
+
+    <include name="startupskinsettingsvalues">
+        <!-- initialize 3th party addons -->
+        <onload condition="System.HasAddon(script.games.rom.collection.browser)">RunScript(script.games.rom.collection.browser,limit=10)</onload>
+        <onload>SetProperty(startupDone,loaded,Home)</onload>
+    </include>
+
+    <include name="DefaultSkinSettingsValues">
+        <!-- various default settings  -->
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(ShowFanartBackground)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(DetailsShowFanart)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(View502_ShowCDart)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(View514_ShowCDart)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(View513_ShowCDart)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(View508_ShowCDart)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(View58_ShowCDart)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(PanelViewShowInfo)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(ShowlabelsLandscape)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(AnimateDiscArt)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetString(SkinHelper.ShowInfoAtPlaybackStart, 4)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetString(GuideRows, 9)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(GuideShowInfo)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(HideWatchedRecentlyAdded)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(IsTitanSkin)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(SmartShortcuts.playlists)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(OSDShowInfoOnPause)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(PVRShowPreview)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(SmartShortcuts.emby)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(SmartShortcuts.netflix)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(PVRGuideBackSideblade)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(SkinHelper.EnablePVRThumbs)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(pvrGuideOnFullscreenVideo)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(enableArtistBio)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(ShowLabelsPosterEpisodes)</onload>
+        <onload condition="!Skin.String(BackgroundOverlayTexture.label)">Skin.SetString(BackgroundOverlayTexture.label,Default)</onload>
+        <onload condition="!Skin.String(BackgroundOverlayTexture)">Skin.SetString(BackgroundOverlayTexture,overlays/black.png)</onload>
+        <onload condition="!Skin.String(WatchedIndicator.Watched.Color)">Skin.SetBool(WatchedIndicator.Watched)</onload>
+        <onload condition="!Skin.String(WatchedIndicator.Progress.Color)">Skin.SetBool(WatchedIndicator.Progress)</onload>
+        <onload condition="!Skin.String(WatchedIndicator.Sets.Color)">Skin.SetBool(WatchedIndicator.Sets)</onload>
+        <onload condition="!Skin.String(WatchedIndicator.Episodes.Color)">Skin.SetBool(WatchedIndicator.Episodes)</onload>
+        <onload condition="!Skin.String(SkinHelper.ForcedViews.movies)">Skin.SetString(SkinHelper.ForcedViews.movies,523)</onload>
+        <onload condition="!Skin.String(SkinHelper.ForcedViews.tvshows)">Skin.SetString(SkinHelper.ForcedViews.tvshows,523)</onload>
+        <onload condition="!Skin.String(SkinHelper.ForcedViews.seasons)">Skin.SetString(SkinHelper.ForcedViews.seasons,525)</onload>
+        <onload condition="!Skin.String(SkinHelper.ForcedViews.episodes)">Skin.SetString(SkinHelper.ForcedViews.episodes,525)</onload>
+        <onload condition="!Skin.String(SkinHelper.ForcedViews.sets)">Skin.SetString(SkinHelper.ForcedViews.sets,50)</onload>
+        <onload condition="!Skin.String(SkinHelper.ForcedViews.setmovies)">Skin.SetString(SkinHelper.ForcedViews.setmovies,50)</onload>
+        <onload condition="!Skin.String(SkinHelper.SpinnerTexture.label)">Skin.SetString(SkinHelper.SpinnerTexture.Label, Default)</onload>
+        <onload condition="!Skin.String(SkinHelper.WidgetSpinnerTexture.label)">Skin.SetString(SkinHelper.WidgetSpinnerTexture.Label, Default)</onload>
+        <onload condition="!Skin.String(SpinnerTexture.Color)">Skin.SetString(SpinnerTexture.Color, ccff0000)</onload>
+        <onload condition="!Skin.String(WidgetSpinnerTexture.Color)">Skin.SetString(WidgetSpinnerTexture.Color, ff8c8c8c)</onload>
+        <onload condition="!Skin.String(mediaflagsstyle)">Skin.SetString(mediaflagsstyle, classic)</onload>
+        <onload condition="!Skin.String(osdmediaflagsstyle)">Skin.SetString(osdmediaflagsstyle, disabled)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(BingieHomeShowLargeThumb)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(View523_DetailsShowFanart)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(WatchedIndicator.Playing)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(SkinHelper.EnableMusicArt)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(View525_HidePanel)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(View59_DetailsShowFanart)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(UseBingieOSDPanel)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(EnableOSDInfo)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(EnableOSDInfoBingie)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(NoFooterBar)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(DisableNowPlayingClock)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(DisableHeader)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(EnableBufferingProgressOSD)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(ShowEpisodePlotInfoDialog)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(WidgetsPreferPlotOutline)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(DisablePlotAutoScroll)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(HideWidgetPanelBackground)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetString(AutoYoutubeTrailer,true)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(EnableFixedFocusWidgets)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(EnableFixedFrameWidgets)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(ShowInformationBypass)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(PreferTvShowThumbWidget)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(HideRowDetailsEpisodes)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(EnableMonochromeRatingInBingieViews)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(BingieViewsDisableRating)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(DisableMediaCodecInfoInHome)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(LockHubWidgets)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(AllowTVShowsTrailer)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(EnableStudioLogo)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(EnableIMDBRating)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(EnableRTAndMetaCriticRating)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(EnableTVdbAndTMdbRating)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(AutoHideDetailsOnTrailer)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetString(SkinHelper.AutoCloseVideoOSD, 4)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(DisableNowPlayingInfoBar)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(UseBingieInfoDialog)</onload>
+
+        <!-- default color settings (titan default theme - BINGIE) -->
+        <onload condition="!Skin.String(HomeViewDetailsFocusColor)">Skin.SetString(HomeViewDetailsFocusColor, cce0e0e0)</onload>
+        <onload condition="!Skin.String(HomeViewDetailsFocusColor.name)">Skin.SetString(HomeViewDetailsFocusColor.name, Light Gray)</onload>
+        <onload condition="!Skin.String(HomeViewDetailsBorderFocusColor)">Skin.SetString(HomeViewDetailsBorderFocusColor, ffe8e8e8)</onload>
+        <onload condition="!Skin.String(HomeViewDetailsBorderFocusColor.name)">Skin.SetString(HomeViewDetailsBorderFocusColor.name, Light Gray)</onload>
+        <onload condition="!Skin.String(HomeWidgetsBorderColor)">Skin.SetString(HomeWidgetsBorderColor, None)</onload>
+        <onload condition="!Skin.String(HomeWidgetsBorderColor.name)">Skin.SetString(HomeWidgetsBorderColor.name, None)</onload>
+        <onload condition="!Skin.String(HeaderTextColor)">Skin.SetString(HeaderTextColor,f2e0e0e0)</onload>
+        <onload condition="!Skin.String(HeaderTextColor.name)">Skin.SetString(HeaderTextColor.name, Light Gray)</onload>
+        <onload condition="!Skin.String(HeaderTextShadowColor)">Skin.SetString(HeaderTextShadowColor, ff000000)</onload>
+        <onload condition="!Skin.String(HeaderTextShadowColor.name)">Skin.SetString(HeaderTextShadowColor.name, Black)</onload>
+        <onload condition="!Skin.String(ViewDetailsTextShadowColor)">Skin.SetString(ViewDetailsTextShadowColor, ff181818)</onload>
+        <onload condition="!Skin.String(ViewDetailsTextShadowColor.name)">Skin.SetString(ViewDetailsTextShadowColor.name, Dark Gray)</onload>
+        <onload condition="!Skin.String(ViewDetailsTextColor)">Skin.SetString(ViewDetailsTextColor,f2e0e0e0)</onload>
+        <onload condition="!Skin.String(ViewDetailsTextColor.name)">Skin.SetString(ViewDetailsTextColor.name, Light Gray)</onload>
+        <onload condition="!Skin.String(ViewDetailsHighlightTextColor)">Skin.SetString(ViewDetailsHighlightTextColor,ffcc0001)</onload>
+        <onload condition="!Skin.String(ViewDetailsHighlightTextColor.name)">Skin.SetString(ViewDetailsHighlightTextColor.name, Strong Red)</onload>
+        <onload condition="!Skin.String(ViewDetailsHighlightTextShadowColor)">Skin.SetString(ViewDetailsHighlightTextShadowColor, None)</onload>
+        <onload condition="!Skin.String(ViewDetailsHighlightTextShadowColor.name)">Skin.SetString(ViewDetailsHighlightTextShadowColor.name, None)</onload>
+        <onload condition="!Skin.String(ViewDetailsListItemTextColor)">Skin.SetString(ViewDetailsListItemTextColor,f2e0e0e0)</onload>
+        <onload condition="!Skin.String(ViewDetailsListItemTextColor.name)">Skin.SetString(ViewDetailsListItemTextColor.name, Light Gray)</onload>
+        <onload condition="!Skin.String(ViewDetailsListItemTextFocusColor)">Skin.SetString(ViewDetailsListItemTextFocusColor,ffffffff)</onload>
+        <onload condition="!Skin.String(ViewDetailsListItemTextFocusColor.name)">Skin.SetString(ViewDetailsListItemTextFocusColor.name, White)</onload>
+        <onload condition="!Skin.String(ViewDetailsFocusColor)">Skin.SetString(ViewDetailsFocusColor, ff990100)</onload>
+        <onload condition="!Skin.String(ViewDetailsFocusColor.name)">Skin.SetString(ViewDetailsFocusColor.name, Dark Red)</onload>
+        <onload condition="!Skin.String(ViewDetailsBorderFocusColor)">Skin.SetString(ViewDetailsBorderFocusColor, ffe8e8e8)</onload>
+        <onload condition="!Skin.String(ViewDetailsBorderFocusColor.name)">Skin.SetString(ViewDetailsBorderFocusColor.name, Very light gray)</onload>
+        <onload condition="!Skin.String(ButtonFocusColor)">Skin.SetString(ButtonFocusColor, cce0e0e0)</onload>
+        <onload condition="!Skin.String(ButtonFocusColor.name)">Skin.SetString(ButtonFocusColor.name, Very light gray)</onload>
+
+        <onload condition="!Skin.String(GeneralPanelsColor)">Skin.SetString(GeneralPanelsColor,cc0a0a0a)</onload>
+        <onload condition="!Skin.String(GeneralPanelsColor.name)">Skin.SetString(GeneralPanelsColor.name, Black)</onload>
+        <onload condition="!Skin.String(FooterTextColor)">Skin.SetString(FooterTextColor,ffffffff)</onload>
+        <onload condition="!Skin.String(FooterTextColor.name)">Skin.SetString(FooterTextColor.name, White)</onload>
+        <onload condition="!Skin.String(ButtonTextColor)">Skin.SetString(ButtonTextColor,ffbababa)</onload>
+        <onload condition="!Skin.String(ButtonTextColor.name)">Skin.SetString(ButtonTextColor.name, Gray)</onload>
+        <onload condition="!Skin.String(ButtonFocusTextColor)">Skin.SetString(ButtonFocusTextColor, ff000000)</onload>
+        <onload condition="!Skin.String(ButtonFocusTextColor.name)">Skin.SetString(ButtonFocusTextColor.name, Black)</onload>
+        <onload condition="!Skin.String(GeneralTextColor)">Skin.SetString(GeneralTextColor,ffffffff)</onload>
+        <onload condition="!Skin.String(GeneralTextColor.name)">Skin.SetString(GeneralTextColor.name, White)</onload>
+        <onload condition="!Skin.String(GeneralHighlightTextColor)">Skin.SetString(GeneralHighlightTextColor,ffd0d0d0)</onload>
+        <onload condition="!Skin.String(GeneralHighlightTextColor.name)">Skin.SetString(GeneralHighlightTextColor.name, Light Gray)</onload>
+        <onload condition="!Skin.String(BingiePrimaryTextColor)">Skin.SetString(BingiePrimaryTextColor,ffa4a4a4)</onload>
+        <onload condition="!Skin.String(BingiePrimaryTextColor.name)">Skin.SetString(BingiePrimaryTextColor.name, Light Dimgray)</onload>
+        <onload condition="!Skin.String(BingieSecondaryTextColor)">Skin.SetString(BingieSecondaryTextColor,gray)</onload>
+        <onload condition="!Skin.String(BingieSecondaryTextColor.name)">Skin.SetString(BingieSecondaryTextColor.name, Gray)</onload>
+        <onload condition="!Skin.String(MainMenuFocusButtonColor)">Skin.SetString(MainMenuFocusButtonColor,ff8c8c8c)</onload>
+        <onload condition="!Skin.String(MainMenuFocusButtonColor.name)">Skin.SetString(MainMenuFocusButtonColor.name, Dark Gray)</onload>
+        <onload condition="!Skin.String(MainMenuSecondaryFocusButtonColor)">Skin.SetString(MainMenuSecondaryFocusButtonColor,ff5b5b5b)</onload>
+        <onload condition="!Skin.String(MainMenuSecondaryFocusButtonColor.name)">Skin.SetString(MainMenuSecondaryFocusButtonColor.name, Very dark gray)</onload>
+        <onload condition="!Skin.String(BingieDetailsFlagColor)">Skin.SetString(BingieDetailsFlagColor, 9a373737)</onload>
+        <onload condition="!Skin.String(BingieDetailsFlagColor.name)">Skin.SetString(BingieDetailsFlagColor.name, Light Gray)</onload>
+        <onload condition="!Skin.String(RatingsLogoColor)">Skin.SetString(RatingsLogoColor, e6d0d0d0)</onload>
+        <onload condition="!Skin.String(RatingsLogoColor.name)">Skin.SetString(RatingsLogoColor.name, Light gray)</onload>
+        <onload condition="!Skin.String(BingieRatingInDetailsColor)">Skin.SetString(BingieRatingInDetailsColor, e656da62)</onload>
+        <onload condition="!Skin.String(BingieRatingInDetailsColor.name)">Skin.SetString(BingieRatingInDetailsColor.name, Green)</onload>
+        <onload condition="!Skin.String(BingieNewEpisodesTagColor)">Skin.SetString(BingieNewEpisodesTagColor, red)</onload>
+        <onload condition="!Skin.String(BingieNewEpisodesTagColor.name)">Skin.SetString(BingieNewEpisodesTagColor.name, Red)</onload>
+        <onload condition="!Skin.String(BingieInfoDialogIconColor)">Skin.SetString(BingieInfoDialogIconColor, gray)</onload>
+        <onload condition="!Skin.String(BingieInfoDialogIconColor.name)">Skin.SetString(BingieInfoDialogIconColor.name, Gray)</onload>
+        <onload condition="!Skin.String(BingieSubLabelTextColor)">Skin.SetString(BingieSubLabelTextColor, f2e0e0e0)</onload>
+        <onload condition="!Skin.String(BingieSubLabelTextColor.name)">Skin.SetString(BingieSubLabelTextColor.name, Light Gray)</onload>
+
+        <onload condition="!Skin.String(BackgroundOverlayColor)">Skin.SetString(BackgroundOverlayColor,None)</onload>
+        <onload condition="!Skin.String(BackgroundOverlayColor.name)">Skin.SetString(BackgroundOverlayColor.name,None)</onload>
+        <onload condition="!Skin.String(BackgroundOverlayColor.base)">Skin.SetString(BackgroundOverlayColor.base,None)</onload>
+        <onload condition="!Skin.String(BackgroundDiffuseColor)">Skin.SetString(BackgroundDiffuseColor,None)</onload>
+        <onload condition="!Skin.String(BackgroundDiffuseColor.name)">Skin.SetString(BackgroundDiffuseColor.name,None)</onload>
+        <onload condition="!Skin.String(FooterPanelColor)">Skin.SetString(FooterPanelColor,ff000000)</onload>
+        <onload condition="!Skin.String(FooterPanelColor.name)">Skin.SetString(FooterPanelColor.name,Black)</onload>
+        <onload condition="!Skin.String(ViewDetailsPanelColor)">Skin.SetString(ViewDetailsPanelColor,ff000000)</onload>
+        <onload condition="!Skin.String(ViewDetailsPanelColor.name)">Skin.SetString(ViewDetailsPanelColor.name,Black)</onload>
+        <onload condition="!Skin.String(OSDPanelColor)">Skin.SetString(OSDPanelColor,cc000000)</onload>
+        <onload condition="!Skin.String(OSDPanelColor.name)">Skin.SetString(OSDPanelColor.name,Black)</onload>
+        <onload condition="!Skin.String(ButtonColor)">Skin.SetString(ButtonColor,ff0f0f0f)</onload>
+        <onload condition="!Skin.String(ButtonColor.name)">Skin.SetString(ButtonColor.name,Onyx)</onload>
+        <onload condition="!Skin.String(FooterTextShadowColor)">Skin.SetString(FooterTextShadowColor,None)</onload>
+        <onload condition="!Skin.String(FooterTextShadowColor.name)">Skin.SetString(FooterTextShadowColor.name,None)</onload>
+        <onload condition="!Skin.String(OSDPrimaryTextColor)">Skin.SetString(OSDPrimaryTextColor,ffffffff)</onload>
+        <onload condition="!Skin.String(OSDPrimaryTextColor.name)">Skin.SetString(OSDPrimaryTextColor.name,White)</onload>
+        <onload condition="!Skin.String(OSDPrimaryTextShadowColor)">Skin.SetString(OSDPrimaryTextShadowColor,None)</onload>
+        <onload condition="!Skin.String(OSDPrimaryTextShadowColor.name)">Skin.SetString(OSDPrimaryTextShadowColor.name,None)</onload>
+        <onload condition="!Skin.String(OSDSecondaryTextColor)">Skin.SetString(OSDSecondaryTextColor, ffe8e8e8)</onload>
+        <onload condition="!Skin.String(OSDSecondaryTextColor.name)">Skin.SetString(OSDSecondaryTextColor.name,Very light gray)</onload>
+        <onload condition="!Skin.String(OSDSecondaryTextShadowColor)">Skin.SetString(OSDSecondaryTextShadowColor,None)</onload>
+        <onload condition="!Skin.String(OSDSecondaryTextShadowColor.name)">Skin.SetString(OSDSecondaryTextShadowColor.name,None)</onload>
+        <onload condition="!Skin.String(OSDProgressBarColor)">Skin.SetString(OSDProgressBarColor,ffff0000)</onload>
+        <onload condition="!Skin.String(OSDProgressBarColor.name)">Skin.SetString(OSDProgressBarColor.name, Red)</onload>
+        <onload condition="!Skin.String(OSDProgressBarBackgroundColor)">Skin.SetString(OSDProgressBarBackgroundColor,bb0f0f0f)</onload>
+        <onload condition="!Skin.String(OSDProgressBarBackgroundColor.name)">Skin.SetString(OSDProgressBarBackgroundColor.name,Very dark gray)</onload>
+
+        <onload condition="!Skin.String(OSDProgressBarCacheColor)">Skin.SetString(OSDProgressBarCacheColor,4dff1919)</onload>
+        <onload condition="!Skin.String(OSDProgressBarCacheColor.name)">Skin.SetString(OSDProgressBarCacheColor.name,Light Red)</onload>
+        <onload condition="!Skin.String(OSDProgressBarBorderColor)">Skin.SetString(OSDProgressBarBorderColor,b33b3b3b)</onload>
+        <onload condition="!Skin.String(OSDProgressBarBorderColor.name)">Skin.SetString(OSDProgressBarBorderColor.name,Very dark gray)</onload>
+        <onload condition="!Skin.String(OSDButtonsFocusColor)">Skin.SetString(OSDButtonsFocusColor, ffe8e8e8)</onload>
+        <onload condition="!Skin.String(OSDButtonsFocusColor.name)">Skin.SetString(OSDButtonsFocusColor.name,Very light gray)</onload>
+        <onload condition="!Skin.String(OSDButtonsColor)">Skin.SetString(OSDButtonsColor,d9afafaf)</onload>
+        <onload condition="!Skin.String(OSDButtonsColor.name)">Skin.SetString(OSDButtonsColor.name,Gray)</onload>
+        <onload condition="!Skin.String(OSDBufferingSpinnerColor)">Skin.SetString(OSDBufferingSpinnerColor,a6d73229)</onload>
+        <onload condition="!Skin.String(OSDBufferingSpinnerColor.name)">Skin.SetString(OSDBufferingSpinnerColor.name,Red)</onload>
+        <onload condition="!Skin.String(ScrollbarBackgroundColor)">Skin.SetString(ScrollbarBackgroundColor,bb0f0f0f)</onload>
+        <onload condition="!Skin.String(ScrollbarBackgroundColor.name)">Skin.SetString(ScrollbarBackgroundColor.name,Very dark gray)</onload>
+        <onload condition="!Skin.String(ScrollbarUnfocusedColor)">Skin.SetString(ScrollbarUnfocusedColor,ff3b3b3b)</onload>
+        <onload condition="!Skin.String(ScrollbarUnfocusedColor.name)">Skin.SetString(ScrollbarUnfocusedColor.name,Very dark gray)</onload>
+        <onload condition="!Skin.String(ScrollbarFocusedColor)">Skin.SetString(ScrollbarFocusedColor,ffd1d1d1)</onload>
+        <onload condition="!Skin.String(ScrollbarFocusedColor.name)">Skin.SetString(ScrollbarFocusedColor.name,Light gray)</onload>
+        <!-- watched indicator colors -->
+        <onload condition="!Skin.String(WatchedIndicator.Watched.Color)">Skin.SetString(WatchedIndicator.Watched.Color,cc800000)</onload>
+        <onload condition="!Skin.String(WatchedIndicator.Watched.Color.name)">Skin.SetString(WatchedIndicator.Watched.Color.name,Light red)</onload>
+        <onload condition="!Skin.String(WatchedIndicator.Watched.TextColor)">Skin.SetString(WatchedIndicator.Watched.TextColor,ffffffff)</onload>
+        <onload condition="!Skin.String(WatchedIndicator.Watched.TextColor.name)">Skin.SetString(WatchedIndicator.Watched.TextColor.name,white)</onload>
+        <onload condition="!Skin.String(WatchedIndicator.UnWatched.Color)">Skin.SetString(WatchedIndicator.UnWatched.Color,cc800000)</onload>
+        <onload condition="!Skin.String(WatchedIndicator.UnWatched.Color.name)">Skin.SetString(WatchedIndicator.UnWatched.Color.name,Light red)</onload>
+        <onload condition="!Skin.String(WatchedIndicator.UnWatched.TextColor)">Skin.SetString(WatchedIndicator.UnWatched.TextColor,ffffffff)</onload>
+        <onload condition="!Skin.String(WatchedIndicator.UnWatched.TextColor.name)">Skin.SetString(WatchedIndicator.UnWatched.TextColor.name,white)</onload>
+
+        <onload condition="!Skin.String(WatchedIndicator.Progress.Color)">Skin.SetString(WatchedIndicator.Progress.Color,cc800000)</onload>
+        <onload condition="!Skin.String(WatchedIndicator.Progress.Color.name)">Skin.SetString(WatchedIndicator.Progress.Color.name,Light red)</onload>
+        <onload condition="!Skin.String(WatchedIndicator.Progress.TextColor)">Skin.SetString(WatchedIndicator.Progress.TextColor,ffffffff)</onload>
+        <onload condition="!Skin.String(WatchedIndicator.Progress.TextColor.name)">Skin.SetString(WatchedIndicator.Progress.TextColor.name,white)</onload>
+
+        <onload condition="!Skin.String(WatchedIndicator.Sets.Color)">Skin.SetString(WatchedIndicator.Sets.Color,ffffbf00)</onload>
+        <onload condition="!Skin.String(WatchedIndicator.Sets.Color.name)">Skin.SetString(WatchedIndicator.Sets.Color.name,Amber)</onload>
+        <onload condition="!Skin.String(WatchedIndicator.Sets.TextColor)">Skin.SetString(WatchedIndicator.Sets.TextColor,ffffffff)</onload>
+        <onload condition="!Skin.String(WatchedIndicator.Sets.TextColor.name)">Skin.SetString(WatchedIndicator.Sets.TextColor.name,white)</onload>
+        <onload condition="!Skin.String(WatchedIndicator.Episodes.Color)">Skin.SetString(WatchedIndicator.Episodes.Color,cc800000)</onload>
+        <onload condition="!Skin.String(WatchedIndicator.Episodes.Color.name)">Skin.SetString(WatchedIndicator.Episodes.Color.name,Light red)</onload>
+        <onload condition="!Skin.String(WatchedIndicator.Episodes.TextColor)">Skin.SetString(WatchedIndicator.Episodes.TextColor,ffffffff)</onload>
+        <onload condition="!Skin.String(WatchedIndicator.Episodes.TextColor.name)">Skin.SetString(WatchedIndicator.Episodes.TextColor.name,white)</onload>
+
+        <onload condition="!Skin.String(WatchedIndicator.Playing.Color)">Skin.SetString(WatchedIndicator.Playing.Color,cc181818)</onload>
+        <onload condition="!Skin.String(WatchedIndicator.Playing.Color.name)">Skin.SetString(WatchedIndicator.Playing.Color.name,grey)</onload>
+        <onload condition="!Skin.String(WatchedIndicator.Playing.TextColor)">Skin.SetString(WatchedIndicator.Playing.TextColor,ffffffff)</onload>
+        <onload condition="!Skin.String(WatchedIndicator.Playing.TextColor.name)">Skin.SetString(WatchedIndicator.Playing.TextColor.name,white)</onload>
+
+        <onload condition="!Skin.String(CaseOverlays.Color)">Skin.SetString(CaseOverlays.Color,ff333333)</onload>
+        <onload condition="!Skin.String(CaseOverlays.Color.name)">Skin.SetString(CaseOverlays.Color.name,Gray)</onload>
+        <onload condition="!Skin.String(CaseOverlays.TextColor)">Skin.SetString(CaseOverlays.TextColor,cc333333)</onload>
+        <onload condition="!Skin.String(CaseOverlays.TextColor.name)">Skin.SetString(CaseOverlays.TextColor.name,Gray)</onload>
+        <onload condition="!Skin.String(SideBladePanelColor) + Skin.String(GeneralPanelsColor.base)">Skin.SetString(SideBladePanelColor,$INFO[Skin.String(GeneralPanelsColor.base)])</onload>
+        <onload condition="!Skin.String(SideBladePanelColor.name) + Skin.String(GeneralPanelsColor.base)">Skin.SetString(SideBladePanelColor.name,$INFO[Skin.String(GeneralPanelsColor.name)])</onload>
+        <onload condition="!Skin.String(SideBladePanelColor) + !Skin.String(GeneralPanelsColor.base)">Skin.SetString(SideBladePanelColor,ff333333)</onload>
+        <onload condition="!Skin.String(SideBladePanelColor.name) + !Skin.String(GeneralPanelsColor.base)">Skin.SetString(SideBladePanelColor.name,Very dark gray)</onload>
+
+        <onload condition="!Skin.String(SideBladeTextColor)">Skin.SetString(SideBladeTextColor,$INFO[Skin.String(GeneralTextColor)])</onload>
+        <onload condition="!Skin.String(SideBladeTextColor.name)">Skin.SetString(SideBladeTextColor.name,$INFO[Skin.String(GeneralTextColor.name)])</onload>
+        <onload condition="!Skin.String(TagOverlaysPanelColor)">Skin.SetString(TagOverlaysPanelColor,dd000000)</onload>
+        <onload condition="!Skin.String(TagOverlaysPanelColor.name)">Skin.SetString(TagOverlaysPanelColor.name,Black)</onload>
+        <onload condition="!Skin.String(TagOverlaysTextColor)">Skin.SetString(TagOverlaysTextColor,ffffffff)</onload>
+        <onload condition="!Skin.String(TagOverlaysTextColor.name)">Skin.SetString(TagOverlaysTextColor.name,White)</onload>
+
+        <onload condition="!Skin.String(LyricsOverlayColor)">Skin.SetString(LyricsOverlayColor,cc000000)</onload>
+        <onload condition="!Skin.String(LyricsOverlayColor.name)">Skin.SetString(LyricsOverlayColor.name,Black)</onload>
+        <onload condition="!Skin.String(LyricsTextColor)">Skin.SetString(LyricsTextColor,aaffffff)</onload>
+        <onload condition="!Skin.String(LyricsTextColor.name)">Skin.SetString(LyricsTextColor.name,White)</onload>
+        <onload condition="!Skin.String(LyricsTextShadowColor)">Skin.SetString(LyricsTextShadowColor,none)</onload>
+        <onload condition="!Skin.String(LyricsTextShadowColor.name)">Skin.SetString(LyricsTextShadowColor.name,None)</onload>
+        <onload condition="!Skin.String(LyricsFocusTextColor)">Skin.SetString(LyricsFocusTextColor,ffffffff)</onload>
+        <onload condition="!Skin.String(LyricsFocusTextColor.name)">Skin.SetString(LyricsFocusTextColor.name,White)</onload>
+        <onload condition="!Skin.String(LyricsFocusTextShadowColor)">Skin.SetString(LyricsFocusTextShadowColor,none)</onload>
+        <onload condition="!Skin.String(LyricsFocusTextShadowColor.name)">Skin.SetString(LyricsFocusTextShadowColor.name,None)</onload>
+
+        <onload condition="!Skin.String(MainMenuPanelColor)">Skin.SetString(MainMenuPanelColor,ff373737)</onload>
+        <onload condition="!Skin.String(MainMenuPanelColor.name)">Skin.SetString(MainMenuPanelColor.name,Onyx)</onload>
+        <onload condition="!Skin.String(MainMenuTextColor)">Skin.SetString(MainMenuTextColor,ffd0d0d0)</onload>
+        <onload condition="!Skin.String(MainMenuTextColor.name)">Skin.SetString(MainMenuTextColor.name,Very light gray)</onload>
+
+        <!--
+        <onload condition="!Skin.String(MainMenuPanelColor) + !Skin.String(MainMenuPanelColor.name) + !Skin.HasSetting(HideWidgetDetailsPanel)">Skin.SetString(MainMenuPanelColor.name,$INFO[Skin.String(ViewDetailsPanelColor.name)])</onload>
+        <onload condition="!Skin.String(MainMenuPanelColor) + !Skin.HasSetting(HideWidgetDetailsPanel)">Skin.SetString(MainMenuPanelColor,$INFO[Skin.String(ViewDetailsPanelColor)])</onload>
+        <onload condition="!Skin.String(MainMenuPanelColor) + !Skin.String(MainMenuPanelColor.name) + Skin.HasSetting(HideWidgetDetailsPanel)">Skin.SetString(MainMenuPanelColor.name,None)</onload>
+        <onload condition="!Skin.String(MainMenuPanelColor) + Skin.HasSetting(HideWidgetDetailsPanel)">Skin.SetString(MainMenuPanelColor,none)</onload>
+        <onload condition="!Skin.String(MainMenuTextColor) + !Skin.String(MainMenuTextColor.name)">Skin.SetString(MainMenuTextColor.name,$INFO[Skin.String(ViewDetailsTextColor.name)])</onload>
+        <onload condition="!Skin.String(MainMenuTextColor)">Skin.SetString(MainMenuTextColor,$INFO[Skin.String(ViewDetailsTextColor)])</onload>
+        -->
+
+        <onload condition="!Skin.String(MainMenuFocusTextColor) + !Skin.String(MainMenuFocusTextColor.name)">Skin.SetString(MainMenuFocusTextColor.name,White)</onload>
+        <onload condition="!Skin.String(MainMenuFocusTextColor)">Skin.SetString(MainMenuFocusTextColor,ffffffff)</onload>
+
+        <onload condition="!Skin.String(HeaderPanelColor) + !Skin.String(HeaderPanelColor.name)">Skin.SetString(HeaderPanelColor.name,None)</onload>
+        <onload condition="!Skin.String(HeaderPanelColor)">Skin.SetString(HeaderPanelColor,None)</onload>
+
+        <onload condition="!Skin.String(ActiveSpinControlColor) + !Skin.String(ActiveSpinControlColor.name)">Skin.SetString(ActiveSpinControlColor.name,White)</onload>
+        <onload condition="!Skin.String(ActiveSpinControlColor)">Skin.SetString(ActiveSpinControlColor,ffffffff)</onload>
+        <!-- pvr colors -->
+        <onload condition="!Skin.String(PVRGuideItemColorUnfocus)">Skin.SetString(PVRGuideItemColorUnfocus,$INFO[Skin.String(ButtonColor)])</onload>
+        <onload condition="!Skin.String(PVRGuideItemColorUnfocus.name)">Skin.SetString(PVRGuideItemColorUnfocus.name,$INFO[Skin.String(ButtonColor.name)])</onload>
+        <onload condition="!Skin.String(PVRGuideItemColorFocus)">Skin.SetString(PVRGuideItemColorFocus,$INFO[Skin.String(ButtonFocusColor)])</onload>
+        <onload condition="!Skin.String(PVRGuideItemColorFocus.name)">Skin.SetString(PVRGuideItemColorFocus.name,$INFO[Skin.String(ButtonFocusColor.name)])</onload>
+        <onload condition="!Skin.String(PVRGuideItemTextColorUnfocus)">Skin.SetString(PVRGuideItemTextColorUnfocus,$INFO[Skin.String(ButtonTextColor)])</onload>
+        <onload condition="!Skin.String(PVRGuideItemTextColorUnfocus.name)">Skin.SetString(PVRGuideItemTextColorUnfocus.name,$INFO[Skin.String(ButtonTextColor.name)])</onload>
+        <onload condition="!Skin.String(PVRGuideItemTextColorFocus)">Skin.SetString(PVRGuideItemTextColorFocus,$INFO[Skin.String(ButtonFocusTextColor)])</onload>
+        <onload condition="!Skin.String(PVRGuideItemTextColorFocus.name)">Skin.SetString(PVRGuideItemTextColorFocus.name,$INFO[Skin.String(ButtonFocusTextColor.name)])</onload>
+
+        <onload condition="!Skin.String(defaultcolorpalette.label)">Skin.SetString(defaultcolorpalette.label,basic)</onload>
+        <onload condition="!Skin.String(defaultcolorpalette)">Skin.SetString(defaultcolorpalette,basic)</onload>
+
+        <onload condition="!Skin.String(volumestyle.label)">Skin.SetString(volumestyle.label,modern)</onload>
+        <onload condition="!Skin.String(volumestyle)">Skin.SetString(volumestyle,modern)</onload>
+        <onload condition="Skin.HasSetting(LowPerformanceMode) + !Skin.String(volumestyle.label,basic)">Skin.SetString(volumestyle.label,basic)</onload>
+        <onload condition="Skin.HasSetting(LowPerformanceMode) + !Skin.String(volumestyle,basic)">Skin.SetString(volumestyle,basic)</onload>
+        <onload>Skin.SetString(CompareTxtDisable, disable)</onload>
+        <onload>Skin.SetString(CompareTxtTop, top)</onload>
+        <onload>Skin.SetString(CompareTxtBottom, bottom)</onload>
+        <onload>Skin.SetString(CompareTxtLarge, large)</onload>
+        <onload>Skin.SetString(CompareTxtDefault, default)</onload>
+
+        <!-- finish default settings -->
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(HomeMenuDefaults46)</onload>
+    </include>
+
+</includes>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BINGIE -->
+<includes>
+    <include name="View_56_BannerPlex">
+        <!--Panel-->
+        <control type="group">
+            <visible>Control.IsVisible(56)</visible>
+            <include>animation_view_change</include>
+			
+            <!-- ID="52" -->
+            <control type="panel" id="56">
+                <posx>65</posx>
+                <bottom>13%</bottom>
+                <width>1800</width>
+                <height>675</height>
+                <onup>56</onup>
+                <ondown>56</ondown>
+                <onleft>9000</onleft>
+                <onright condition="Skin.HasSetting(EnableQuickJump)">6000</onright>
+        <onright condition="!Skin.HasSetting(EnableQuickJump)">60</onright>
+                <pagecontrol>60</pagecontrol>
+                <viewtype label="31425">bigwide</viewtype>
+                <scrolltime tween="Cubic" easing="inout">500</scrolltime>
+                <focusposition>0</focusposition>
+                <orientation>vertical</orientation>
+                <preloaditems>2</preloaditems>
+				<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),56) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
+                <itemlayout height="135" width="600" condition="!Skin.HasSetting(View56_LargeBanners)">
+                    <control type="group">
+                        <width>590</width>
+                        <height>125</height>
+                        <control type="image">
+                            <texture border="5">diffuse/banner.png</texture>
+                            <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
+                            <aspectratio scalediffuse="false" align="left">stretch</aspectratio>
+                            <include>thumbsborder_unfocused</include>
+                        </control>
+                        <include>BannerLayout</include>
+					</control>
+                </itemlayout>
+                <focusedlayout height="135" width="600" condition="!Skin.HasSetting(View56_LargeBanners)">
+                    <control type="group">
+                        <width>590</width>
+                        <height>125</height>
+                        <animation type="focus">
+							<effect type="zoom" start="100" end="105" center="auto" time="150" />
+						</animation>
+						<animation type="unfocus">
+							<effect type="zoom" start="105" end="100" center="auto" time="150" />
+						</animation>
+                        <control type="image">
+                            <texture border="5">diffuse/banner.png</texture>
+                            <colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
+                            <aspectratio scalediffuse="false" align="left">stretch</aspectratio>
+                            <include>thumbsborder_focused</include>
+                        </control>
+                        <include>BannerLayout</include>
+					</control>
+                </focusedlayout>
+                <itemlayout height="225" width="900" condition="Skin.HasSetting(View56_LargeBanners)">
+                    <control type="group">
+                        <width>890</width>
+                        <height>205</height>
+                        <control type="image">
+                            <texture border="5">diffuse/banner.png</texture>
+                            <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
+                            <aspectratio scalediffuse="false" align="left">stretch</aspectratio>
+                            <include>thumbsborder_unfocused</include>
+                        </control>
+                        <include>BannerLayout</include>
+					</control>
+                </itemlayout>
+                <focusedlayout height="225" width="900" condition="Skin.HasSetting(View56_LargeBanners)">
+                    <control type="group">
+                        <width>890</width>
+                        <height>205</height>
+                        <animation type="focus">
+							<effect type="zoom" start="100" end="105" center="auto" time="150" />
+						</animation>
+						<animation type="unfocus">
+							<effect type="zoom" start="105" end="100" center="auto" time="150" />
+						</animation>
+                        <control type="image">
+                            <texture border="5">diffuse/banner.png</texture>
+                            <colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
+                            <aspectratio scalediffuse="false" align="left">stretch</aspectratio>
+                            <include>thumbsborder_focused</include>
+                        </control>
+                        <include>BannerLayout</include>
+					</control>
+                </focusedlayout>
+
+			</control>
+ 			<!--vertical Scollbar-->
+			<control type="scrollbar" id="60">
+				<visible>Control.IsVisible(56) + Integer.IsGreater(Container.NumItems,0)</visible>
+				<right>15</right>
+				<bottom>13%</bottom>
+				<height>675</height>
+				<onup>60</onup>
+				<ondown>6000</ondown>
+				<onleft>56</onleft>
+				<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] + !Control.IsVisible(6002)">Conditional</animation>
+				<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] | Control.IsVisible(6002)">Conditional</animation>
+			</control>
+
+		
+		
+		</control>
+   </include>
+</includes>

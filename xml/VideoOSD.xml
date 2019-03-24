@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BINGIE -->
+<window>
+    <zorder>2</zorder>
+    <onload>SetFocus(200)</onload>
+	<onload condition="!VideoPlayer.Content(livetv) + ![Skin.String(defaultosdbutton_video,203) + !Player.PauseEnabled] + ![[Skin.String(defaultosdbutton_video,202) | Skin.String(defaultosdbutton_video,203)] + !Player.SeekEnabled]">SetFocus($INFO[Skin.String(defaultosdbutton_video)])</onload>
+    <onload condition="VideoPlayer.Content(livetv) + ![Skin.String(defaultosdbutton_livetv,203) + !Player.PauseEnabled] + ![[Skin.String(defaultosdbutton_livetv,202) | Skin.String(defaultosdbutton_livetv,203)] + !Player.SeekEnabled]">SetFocus($INFO[Skin.String(defaultosdbutton_livetv)])</onload>
+
+	<onunload>ClearProperty(subtitlemenu,Home)</onunload>
+    <controls>
+		
+        <!--OSD Panel-->
+        <control type="group">
+            <!-- OSD buttons -->
+            <include condition="Skin.HasTheme(classic)">OSDButtonsClassic</include>
+            <include condition="!Skin.HasTheme(classic)">OSDButtonsModern</include>
+            <animation effect="slide" start="0,400" end="0,0" tween="cubic" easing="out" delay="0" time="250" reversible="false" condition="!Player.ShowInfo + !Skin.HasSetting(LowPerformanceMode)">WindowOpen</animation>
+            <animation effect="fade" start="0" end="100" delay="0" time="300" reversible="false" condition="Player.ShowInfo">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" delay="0" time="300" reversible="false" condition="Player.ShowInfo">WindowClose</animation>
+            <include>HideOsdConditions</include>
+		</control>
+    </controls>
+</window>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BINGIE -->
+<window>
+    <defaultcontrol always="true">52</defaultcontrol>
+	
+    <controls>
+        <control type="group">
+            <!--Global Background-->
+            <include>GlobalBackground</include>
+            <include>Header</include>
+
+            <!-- window title -->
+            <control type="label" id="2">
+                <visible>false</visible>
+            </control>
+
+            <!-- Who's watching -->
+            <control type="label">
+                <posy>250</posy>
+                <align>center</align>
+                <font>Reg56</font>
+                <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
+                <label>31856</label>
+            </control>
+            
+            <!--Login Screen-->
+            <control type="group">
+                <control type="list" id="52">
+                    <orientation>horizontal</orientation>
+                    <posx>425</posx>
+                    <posy>400</posy>
+                    <width>1400</width>
+                    <height>500</height>
+                    <onleft>52</onleft>
+                    <onright>52</onright>
+                    <ondown>53</ondown>
+                    <pagecontrol/>
+                    <scrolltime tween="cubic" easing="out">500</scrolltime>
+                    <movement>1</movement>
+                    <itemlayout height="370" width="350">
+                        <control type="image">
+                            <posx>8</posx>
+                            <posy>8</posy>
+                            <width>300</width>
+                            <height>300</height>
+                            <texture background="true" fallback="common/profil/avatar.png">$INFO[Listitem.Icon]</texture>
+                            <aspectratio>keep</aspectratio>
+                        </control>
+                        <control type="label">
+                            <align>center</align>
+                            <posy>320</posy>
+                            <width>300</width>
+                            <height>50</height>
+                            <textcolor fallback="white">$INFO[Skin.String(GeneralTextColor)]</textcolor>
+                            <label>$INFO[ListItem.Label]</label>
+                            <font>Reg42</font>
+                            <aligny>center</aligny>
+                        </control>
+                    </itemlayout>
+                    <focusedlayout height="370" width="350">
+                        <control type="group">
+                            <animation effect="fade" start="100" end="30" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(52)">Conditional</animation>
+                            <control type="image">
+                                <align>left</align>
+                                <aligny>top</aligny>
+                                <width>316</width>
+                                <height>316</height>
+                                <aspectratio>keep</aspectratio>
+                                <bordertexture colordiffuse="d9ffffff">colors/color_white.png</bordertexture>
+                                <bordersize>8</bordersize>
+                                <texture background="true" fallback="common/profil/avatar.png">$INFO[Listitem.Icon]</texture>
+                            </control>
+                            <control type="label">
+                                <align>center</align>
+                                <posy>320</posy>
+                                <width>300</width>
+                                <height>50</height>
+                                <textcolor fallback="white">$INFO[Skin.String(GeneralTextColor)]</textcolor>
+                                <label>$INFO[ListItem.Label]</label>
+                                <font>Reg42</font>
+                                <aligny>center</aligny>
+                            </control>
+                        </control>
+                    </focusedlayout>
+                </control>
+            </control>
+        
+            <!-- Power button -->
+            <control type="button" id="53">
+                <description>powerbutton</description>
+                <posx>930</posx>
+                <bottom>20</bottom>
+                <width>60</width>
+                <height>60</height>
+                <onup>52</onup>
+                <ondown>52</ondown>
+                <onright>52</onright>
+                <onleft>52</onleft>
+                <texturefocus colordiffuse="$INFO[Skin.String(MainMenuFocusTextColor)]">common/shutdown2.png</texturefocus>
+                <texturenofocus colordiffuse="$INFO[Skin.String(MainMenuTextColor)]">common/shutdown2.png</texturenofocus>
+                <onclick condition="System.CanPowerDown">ActivateWindow(shutdownmenu)</onclick>
+                <onclick condition="!System.CanPowerDown">Quit()</onclick>
+                <visible>System.ShowExitButton</visible>
+            </control>
+        </control>
+    </controls>
+</window>

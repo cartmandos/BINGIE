@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BINGIE -->
+<window>
+    <controls>
+		<include condition="Skin.HasSetting(SpinnerDimScreen)">DialogOverlayExtra</include>
+        <control type="group">
+            <visible>![String.IsEqual(Skin.String(HomeLayout),bingie) + Skin.HasSetting(BingieAutoTrailer) + $EXP[IsBingieViewsActive]]</visible>
+            <visible>![Skin.HasSetting(DetailsAutoTrailer) + Window.IsVisible(Videos) + Control.IsVisible(523)]</visible>
+            <visible>!Window.IsVisible(startup)</visible>
+            <include>Busy_Spinner</include>
+        </control>
+    </controls>
+</window>

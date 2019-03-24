@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BINGIE -->
+<window>
+    <defaultcontrol always="true">3012</defaultcontrol>
+    <zorder>1</zorder>
+    <controls>
+        <!-- Hidden Buttons section -->
+        <control type="grouplist">
+            <include>HiddenObject</include>
+            <!-- Watch now -->
+            <control type="button" id="3012">
+                <onfocus condition="Control.IsVisible(500397)">SetFocus(3097)</onfocus>
+                <onback>SendClick(3013)</onback>
+            </control>
+            <!-- Cancel - onback -->
+            <control type="button" id="3013">
+                <visible allowhidden="true">false</visible>
+            </control>
+        </control>
+
+        <!-- OSD -->
+        <!-- Buttons Notification -->
+        <control type="group" id="500397">
+            <visible>Skin.HasSetting(NextUpNotificationSlim)</visible>
+            <include>animation_fade_visible_hidden</include>
+            <control type="grouplist">
+                <bottom>60</bottom>
+                <right>40</right>
+                <orientation>horizontal</orientation>
+                <itemgap>25</itemgap>
+                <width>675</width>
+                <height>65</height>
+                <control type="button" id="3096">
+                    <width>225</width>
+                    <height>65</height>
+                    <aligny>center</aligny>
+                    <align>center</align>
+                    <font>Reg30</font>
+                    <textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
+                    <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
+                    <label>222</label>
+                    <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframefo.png</texturefocus>
+                    <texturenofocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframenf.png</texturenofocus>
+                    <onclick>SendClick(3013)</onclick>
+                </control>
+                <control type="radiobutton" id="3097">
+                    <width>415</width>
+                    <height>65</height>
+                    <aligny>center</aligny>
+                    <align>left</align>
+                    <textoffsetx>60</textoffsetx>
+                    <font>Reg30</font>
+                    <textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
+                    <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
+                    <label>[CAPITALIZE]$LOCALIZE[31212][/CAPITALIZE]$INFO[Player.TimeRemaining(ss), $LOCALIZE[1405] ,s]</label>
+                    <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframefo.png</texturefocus>
+                    <texturenofocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframenf.png</texturenofocus>
+                    <textureradioonfocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">dialogs/videoinfo/info/play.png</textureradioonfocus>
+                    <textureradioofffocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">dialogs/videoinfo/info/play.png</textureradioofffocus>
+                    <textureradioonnofocus colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">dialogs/videoinfo/info/play.png</textureradioonnofocus>
+                    <textureradiooffnofocus colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">dialogs/videoinfo/info/play.png</textureradiooffnofocus>
+                    <radioposx>25</radioposx>
+                    <radiowidth>23</radiowidth>
+                    <radioheight>23</radioheight>
+                    <onclick>SendClick(3012)</onclick>
+                </control>
+            </control>
+        </control>
+
+            <!-- Full Info Notification -->
+            <control type="group">
+                <visible>!Skin.HasSetting(NextUpNotificationSlim)</visible>
+                <!-- gradient overlay, cornered would be better -->
+                <control type="image">
+                    <bottom>0</bottom>
+                    <width>100%</width>
+                    <height>820</height>
+                    <texture border="5">diffuse/gradient.png</texture>
+                    <colordiffuse>$INFO[Skin.String(OSDPanelColor)]</colordiffuse>
+                </control>
+                <!-- NextUp Info -->
+                <control type="grouplist">
+                    <bottom>20</bottom>
+                    <right>50</right>
+                    <orientation>vertical</orientation>
+                    <height>615</height>
+                    <width>750</width>
+                    <!-- TVshow Title -->
+                    <control type="label">
+                        <width>500</width>
+                        <height>40</height>
+                        <font>Bold36</font>
+                        <textcolor>white</textcolor>
+                        <align>left</align>
+                        <aligny>center</aligny>
+                        <label>$INFO[Window.Property(tvshowtitle)]</label>
+                    </control>
+                    <!-- Starting in ... -->
+                    <control type="label">
+                        <width>auto</width>
+                        <height>33</height>
+                        <font>Bold32</font>
+                        <aligny>center</aligny>
+                        <textcolor>white</textcolor>
+                        <label>[LIGHT]$INFO[Player.TimeRemaining(ss),$LOCALIZE[31850] , $LOCALIZE[31231,,...]][/LIGHT]</label>
+                    </control>
+                    <!-- Thumb/Fanart -->
+                    <control type="group">
+                        <visible>!String.IsEmpty(Window.Property(fanart)) | !String.IsEmpty(Window.Property(thumb))</visible>
+                        <width>550</width>
+                        <height>315</height>
+                        <control type="image">
+                            <width>550</width>
+                            <height>315</height>
+                            <bordersize>6</bordersize>
+                            <bordertexture>colors/color_white.png</bordertexture>
+                            <texture background="true">$VAR[NextUpThumb]</texture>
+                            <aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
+                        </control>
+                        <!-- bottom gradient -->
+                        <control type="image">
+                            <bottom>7</bottom>
+                            <left>7</left>
+                            <width>536</width>
+                            <align>center</align>
+                            <height>55</height>
+                            <texture background="true" border="8">diffuse/gradient.png</texture>
+                            <colordiffuse>$INFO[Skin.String(OSDPanelColor)]</colordiffuse>
+                        </control>
+                        <control type="image">
+                            <left>207</left>
+                            <top>90</top>
+                            <width>135</width>
+                            <height>135</height>
+                            <aspect>keep</aspect>
+                            <texture colordiffuse="ffeeeeee">$INFO[Player.TimeRemaining(ss),dialogs/nextup/,.png]</texture>
+                            <visible>!Integer.IsGreater(Player.TimeRemaining(ss),30)</visible>
+                        </control>
+                        <!-- Sxx: Exx -->
+                        <control type="label">
+                            <bottom>25</bottom>
+                            <left>25</left>
+                            <height>20</height>
+                            <width>auto</width>
+                            <textcolor>white</textcolor>
+                            <font>Bold26</font>
+                            <label>$INFO[Window.Property(season),S,: ]$INFO[Window.Property(episode),E,]</label>
+                        </control>
+                    </control>
+                    <!-- Episode Name -->
+                    <control type="label">
+                        <width>auto</width>
+                        <height>30</height>
+                        <aligny>center</aligny>
+                        <font>Bold28</font>
+                        <textcolor>white</textcolor>
+                        <label>$INFO[Window.Property(title)]</label>
+                        <visible>!String.IsEmpty(Window.Property(title))</visible>
+                    </control>
+                    <!-- Details Row -->
+                    <control type="grouplist">
+                        <orientation>horizontal</orientation>
+                        <usecontrolcoords>true</usecontrolcoords>
+                        <height>40</height>
+                        <itemgap>15</itemgap>
+
+                        <!-- Premiered year -->
+                        <control type="label">
+                            <posy>2</posy>
+                            <width>auto</width>
+                            <height>40</height>
+                            <aligny>center</aligny>
+                            <font>Reg24</font>
+                            <textcolor>white</textcolor>
+                            <label>$INFO[Window.Property(year)]</label>
+                            <visible>!String.IsEmpty(Window.Property(year))</visible>
+                        </control>
+
+                        <!-- MPAA -->
+                        <control type="group" id="3098">
+                            <visible>!String.IsEmpty(Control.GetLabel(30981))</visible>
+                            <width>90</width>
+                            <height>36</height>
+                            <control type="image">
+                                <height>100%</height>
+                                <width>100%</width>
+                                <texture colordiffuse="$INFO[Skin.String(BingieDetailsFlagColor)]">bingie/flags/square-rounded.png</texture>
+                            </control>
+                            <control type="label" id="30981">
+                                <height>100%</height>
+                                <width>100%</width>
+                                <font>Reg24</font>
+                                <textcolor>white</textcolor>
+                                <align>center</align>
+                                <aligny>center</aligny>
+                                <scroll>false</scroll>
+                                <label>$INFO[VideoPlayer.MPAA]</label>
+                            </control>
+                        </control>
+
+                        <!-- Resolution (currently not supported in up-next)
+                        <control type="group">
+                            <visible>!String.IsEmpty(Control.GetLabel(3099))</visible>
+                            <width>65</width>
+                            <height>40</height>
+                            <control type="image">
+                                <height>100%</height>
+                                <width>100%</width>
+                                <texture colordiffuse="$INFO[Skin.String(BingieDetailsFlagColor)]">bingie/flags/frame.png</texture>
+                            </control>
+                            <control type="label" id="3099">
+                                <width>100%</width>
+                                <height>100%</height>
+                                <aligny>center</aligny>
+                                <align>center</align>
+                                <textcolor>white</textcolor>
+                                <font>Reg24</font>
+                                <scroll>false</scroll>
+                                <label>$VAR[NextUpResolution]</label>
+                            </control>
+                        </control> -->
+                    </control>
+                    <!-- Plot -->
+                    <control type="textbox">
+                        <width>auto</width>
+                        <height max="100">auto</height>
+                        <align>justify</align>
+                        <textcolor>white</textcolor>
+                        <label>$INFO[Window.Property(plot)]</label>
+                    </control>
+                </control>
+            </control>
+
+    </controls>
+</window>

@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BINGIE -->
+<includes>
+    <!-- item main label -->
+    <variable name="View525MainLabel">
+        <value condition="!String.IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
+        <value>$INFO[ListItem.Label]</value>
+    </variable>
+
+    <!-- item sublabel - premiered for episodes / year mpaa totalepisodes (unwatched) for seasons -->
+    <variable name="View525SubLabel">
+        <value condition="Container.Content(episodes)">$INFO[ListItem.Premiered]</value>
+        <value>$VAR[View525SeasonTotalEpisodesInfoLabel]</value>
+    </variable>
+
+    <!-- year mpaa totalepisodes (unwatched) format for seasons -->
+    <variable name="View525SeasonTotalEpisodesInfoLabel">
+        <value condition="Container.Content(seasons) + !String.IsEmpty(ListItem.Property(TotalEpisodes)) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) + !String.IsEqual(ListItem.Property(UnWatchedEpisodes),ListItem.Property(TotalEpisodes))">$INFO[ListItem.Year,,   ]$INFO[ListItem.MPAA,,   ]$INFO[ListItem.Property(TotalEpisodes),, $LOCALIZE[20360] ]$INFO[ListItem.Property(UnWatchedEpisodes),(, $LOCALIZE[16101])]</value>
+        <value condition="Container.Content(seasons) + !String.IsEmpty(ListItem.Property(TotalEpisodes))">$INFO[ListItem.Year,,   ]$INFO[ListItem.MPAA,,   ]$INFO[ListItem.Property(TotalEpisodes),, $LOCALIZE[20360]]</value>
+    </variable>
+
+    <!-- View 525 SxxExx format -->
+    <variable name="View525SeasonEpisodeFormat">
+        <value condition="!String.IsEmpty(ListItem.Season)">$INFO[ListItem.Season,$LOCALIZE[31871],]$INFO[ListItem.Episode,: $LOCALIZE[31872],]</value>
+        <value condition="String.IsEmpty(ListItem.Season) + !String.IsEmpty(ListItem.Episode) + !String.Contains(ListItem.Episode,S)">$INFO[ListItem.Episode,$LOCALIZE[31873,,.] ,]</value>
+        <value condition="String.IsEmpty(ListItem.Season) + !String.IsEmpty(ListItem.Episode) + String.Contains(ListItem.Episode,S)">$INFO[ListItem.Episode]</value>
+    </variable>
+
+    <!-- workaround for Total Season/s IN EPISODE LEVEL -->
+    <variable name="View525TotalSeasons">
+        <value condition="Integer.IsGreater(Container(5250).NumItems,1)">$INFO[Container(5250).NumItems,, $LOCALIZE[33054]]</value>
+        <value>$INFO[Container(5250).NumItems,, $LOCALIZE[20373]]</value>
+    </variable>
+
+    <!-- Total episode/s -->
+    <variable name="View525TotalEpisodes">
+        <value condition="Integer.IsGreater(ListItem.Property(TotalEpisodes),1)">$INFO[ListItem.Property(TotalEpisodes),, $LOCALIZE[20453]]</value>
+        <value>$INFO[ListItem.Property(TotalEpisodes),, $LOCALIZE[20452]]</value>
+    </variable>
+
+    <!-- Season x / Special label -->
+    <variable name="View525CurrentSeason">
+        <!-- case special episode -->
+        <value condition="!String.IsEmpty(ListItem.Episode) + String.Contains(ListItem.Episode,S)">$LOCALIZE[20381]</value>
+        <!-- default case -->
+        <value>$INFO[ListItem.Season,$LOCALIZE[20373] ,]</value>
+    </variable>
+
+    <!-- hidden button to extract tvshowid -->
+    <include name="Hidden_TVShowID_Extractor_Button">
+        <control type="button">
+            <visible allowhiddenfocus="true">false</visible>
+            <onfocus condition="Container(525).Content(episodes) + !String.IsEmpty(Container(525).ListItem.DBID)">RunScript(script.bingie.helper,action=gettvshowid,dbid=$INFO[ListItem.DBID])</onfocus>
+        </control>
+    </include>
+
+    <!-- panel defs with focus under landscape -->
+    <include name="View_525_Panel_Focus_Defs">
+        <width>1000</width>
+        <height>280</height>
+        <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
+        <bordertexture colordiffuse="$VAR[ViewDetailsBorderFocusColor]">colors/color_white.png</bordertexture>
+    </include>
+
+    <!-- panel defs with no focus under landscape -->
+    <include name="View_525_Panel_No_Focus_Defs">
+        <width>1000</width>
+        <height>280</height>
+    </include>
+
+    <!-- view525 landscape layout -->
+    <include name="View_525_Landscape_Defs">
+        <control type="group">
+            <left>0</left>
+            <height>280</height>
+            <width>480</width>
+            <!-- landscape image-->
+            <control type="image">
+                <width>480</width>
+                <height>280</height>
+                <bordersize>8</bordersize>
+                <texture background="true" diffuse="diffuse/wide.png">$VAR[LandscapeImage]</texture>
+                <aspectratio scalediffuse="false" align="left" aligny="center">stretch</aspectratio>
+            </control>
+            <!-- gradient overlay -->
+            <control type="image">
+                <bottom>8</bottom>
+                <left>8</left>
+                <width>464</width>
+                <height>65</height>
+                <texture border="8">overlays/gradient_bottom.png</texture>
+                <colordiffuse>$INFO[Skin.String(OSDPanelColor)]</colordiffuse>
+            </control>
+            <!-- watched indicator -->
+            <control type="group">
+                <visible>!Container.Content(episodes)</visible>
+                <width>464</width>
+                <height>264</height>
+                <top>8</top>
+                <left>8</left>
+                <include>WatchedIndicatorNormal</include>
+            </control>
+            <!-- Episode/Season Sxx:Exx format -->
+            <control type="label">
+                <visible>Container.Content(episodes)</visible>
+                <left>25</left>
+                <bottom>20</bottom>
+                <height>35</height>
+                <width>150</width>
+                <font>Reg26</font>
+                <align>left</align>
+                <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                <label>[B]$VAR[View525SeasonEpisodeFormat][/B]</label>
+            </control>
+            <!-- progress bar -->
+            <control type="progress">
+                <visible>Container.Content(episodes)</visible>
+                <visible>Integer.IsGreater(ListItem.PercentPlayed,0)</visible>
+                <left>25</left>
+                <bottom>13</bottom>
+                <description>progress bar</description>
+                <width>430</width>
+                <height>8</height>
+                <texturebg colordiffuse="white" border="2">diffuse/panel.png</texturebg>
+                <lefttexture/>
+                <midtexture colordiffuse="$INFO[Skin.String(ViewDetailsHighlightTextColor)]" border="2">diffuse/panel.png</midtexture>
+                <righttexture/>
+                <info>ListItem.PercentPlayed</info>
+            </control>
+            <!-- fake progress bar for watched & not resumable -->
+            <control type="progress">
+                <visible>Container.Content(episodes) + Integer.IsGreater(ListItem.PlayCount,0) + !ListItem.IsResumable</visible>
+                <left>25</left>
+                <bottom>13</bottom>
+                <description>progress bar</description>
+                <width>430</width>
+                <height>8</height>
+                <texturebg colordiffuse="$INFO[Skin.String(ViewDetailsHighlightTextColor)]" border="2">diffuse/panel.png</texturebg>
+                <lefttexture/>
+                <midtexture colordiffuse="$INFO[Skin.String(ViewDetailsHighlightTextColor)]" border="2">diffuse/panel.png</midtexture>
+                <righttexture/>
+                <info>ListItem.PercentPlayed</info>
+            </control>
+            <!-- dim landscape -->
+            <control type="image">
+                <visible>!Control.HasFocus(525) + !Control.HasFocus(60)</visible>
+                <animation effect="fade" start="0" end="60" time="150" condition="!Control.HasFocus(525) + !Control.HasFocus(60)">Conditional</animation>
+                <width>464</width>
+                <height>264</height>
+                <top>8</top>
+                <left>8</left>
+                <texture background="true">colors/color_black.png</texture>
+            </control>
+        </control>
+    </include>
+
+    <!-- view525 seasons container itemlayout when NO-FOCUS -->
+    <include name="View_525_Seasons_List_No_Focus">
+        <!-- bingie button border -->
+        <control type="image">
+            <visible>!String.IsEmpty(Container(5250).ListItem.Season) + String.IsEqual(Container(5250).ListItem.Season,Container(525).ListItem.Season)</visible>
+            <width>600</width>
+            <height>65</height>
+            <aligny>top</aligny>
+            <align>left</align>
+            <aspectratio align="left" aligny="top">stretch</aspectratio>
+            <colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
+            <texture background="true">bingie/border/default_button_fo.png</texture>
+        </control>
+        <!-- Season x label -->
+        <control type="label">
+            <left>15</left>
+            <width>250</width>
+            <height>65</height>
+            <aligny>center</aligny>
+            <align>left</align>
+            <font>Reg32</font>
+            <textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
+            <label>$INFO[ListItem.Label]</label>
+        </control>
+        <!-- x Episodes label -->
+        <control type="label">
+            <visible>String.IsEqual(Container(5250).ListItem.Season,Container(525).ListItem.Season)</visible>
+            <right>15</right>
+            <width>250</width>
+            <height>65</height>
+            <aligny>center</aligny>
+            <align>right</align>
+            <font>Reg28</font>
+            <textcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</textcolor>
+            <label>[LOWERCASE]$VAR[View525TotalEpisodes][/LOWERCASE]</label>
+        </control>
+    </include>
+
+    <!-- view525 container item details -->
+    <include name="View_525_Details_Defs">
+        <!-- details -->
+        <control type="group">
+            <animation effect="fade" start="100" end="50" time="150" condition="!Control.HasFocus(525) + !Control.HasFocus(60)">Conditional</animation>
+            <left>500</left>
+            <height>280</height>
+            <width>550</width>
+            <!-- item title -->
+            <control type="label">
+                <top>8</top>
+                <width>100%</width>
+                <aligny>center</aligny>
+                <height>35</height>
+                <align>left</align>
+                <font>Bold30</font>
+                <textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
+                <selectedcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</selectedcolor>
+                <label>$VAR[View525MainLabel]</label>
+                <scroll>false</scroll>
+            </control>
+            <!-- item sublabel -->
+            <control type="label">
+                <top>45</top>
+                <width>100%</width>
+                <aligny>center</aligny>
+                <height>30</height>
+                <align>left</align>
+                <font>Reg20</font>
+                <textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
+                <selectedcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</selectedcolor>
+                <label>$VAR[View525SubLabel]</label>
+            </control>
+            <!-- plot -->
+            <control type="textbox">
+                <visible>Container.Content(episodes)</visible>
+                <width>545</width>
+                <top>80</top>
+                <height>155</height>
+                <align>left</align>
+                <font>Reg26</font>
+                <textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
+                <selectedcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</selectedcolor>
+                <label>$VAR[ViewsPlotWithOutline]</label>
+                <autoscroll delay="8000" time="6000" repeat="2000">!Skin.HasSetting(DisablePlotAutoScroll) + Control.HasFocus(525)</autoscroll>
+            </control>
+            <!-- duration -->
+            <control type="label">
+                <visible>Container.Content(episodes)</visible>
+                <width>100%</width>
+                <bottom>8</bottom>
+                <height>35</height>
+                <align>left</align>
+                <font>Reg26</font>
+                <textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
+                <selectedcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</selectedcolor>
+                <label>$INFO[ListItem.Duration(mins),(,m)]</label>
+            </control>
+        </control>
+    </include>
+
+    <!-- View 525 row details -->
+    <include name="View_525_Row_Details">
+        <control type="grouplist">
+            <orientation>horizontal</orientation>
+            <usecontrolcoords>true</usecontrolcoords>
+            <height>45</height>
+            <itemgap>15</itemgap>
+
+            <include>New_Tag_Details_Row</include>
+            <include condition="!Skin.HasSetting(DisableThumbsUpDown)">Thumbs_Up_Down_Details_Row</include>
+            <include condition="Skin.HasSetting(PreferStarsRatingBingie)">Stars_Rating_Details_Row</include>
+            <include condition="!Skin.HasSetting(PreferStarsRatingBingie)">Percentage_Rating_Details_Row</include>
+
+            <!-- Year -->
+            <control type="label" id="611111">
+                <visible>!String.IsEmpty(Control.GetLabel(611111))</visible>
+                <posy>5</posy>
+                <height>35</height>
+                <width>auto</width>
+                <aligny>center</aligny>
+                <font>Reg24</font>
+                <textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
+                <label>$VAR[GetYear]</label>
+                <include>Default_Visible_Fade</include>
+            </control>
+
+            <include>MPAA_Details_Row</include>
+
+
+            <!-- Total Seasons -->
+            <control type="label" id="611117">
+                <posy>5</posy>
+                <visible>!String.IsEmpty(Control.GetLabel(611117)) + Control.IsVisible(5250)</visible>
+                <width>auto</width>
+                <label>$VAR[View525TotalSeasons]</label>
+                <height>35</height>
+                <aligny>center</aligny>
+                <textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
+                <font>Reg24</font>
+                <include>Default_Visible_Fade</include>
+            </control>
+
+            <!-- TV Show Status -->
+            <control type="group" id="611116">
+                <visible>!String.IsEmpty(Control.GetLabel(6111161))</visible>
+                <width>160</width>
+                <height>45</height>
+                <include>Default_Visible_Fade</include>
+                <control type="image">
+                    <height>100%</height>
+                    <width>100%</width>
+                    <texture background="true" colordiffuse="$INFO[Skin.String(BingieDetailsFlagColor)]">bingie/flags/frame_long.png</texture>
+                </control>
+                <control type="label" id="6111161">
+                    <width>100%</width>
+                    <height>100%</height>
+                    <aligny>center</aligny>
+                    <align>center</align>
+                    <textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
+                    <font>Reg24</font>
+                    <scroll>false</scroll>
+                    <label>$INFO[Window(Home).Property(SkinHelper.ListItem.Status)]</label>
+                </control>
+            </control>
+        </control>
+    </include>
+
+    <!-- View525 Content -->
+    <include name="View_525_Episodes">
+        <control type="group">
+            <visible>Control.IsVisible(525)</visible>
+            <visible>String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView)) | String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),525)</visible>
+            <!-- base bg -->
+            <control type="image">
+                <width>100%</width>
+                <height>100%</height>
+                <texture background="true" colordiffuse="$VAR[BingiePanelColor]">colors/color_white.png</texture>
+                <animation effect="fade" start="100" end="75" time="0" condition="true">Conditional</animation>
+            </control>
+
+            <!--studio logo -->
+            <control type="image" id="6990">
+                <visible>!String.IsEmpty(Control.GetLabel(6990))</visible>
+                <left>65</left>
+                <width>450</width>
+                <height>160</height>
+                <bottom>30</bottom>
+                <aspectratio aligny="top" align="left">keep</aspectratio>
+                <include condition="!String.Contains(Skin.String(SkinHelper.StudioLogos.Path),colo)">videoInfoColorDiffuse</include>
+                <texture background="true">$VAR[StudioLogoImg]</texture>
+            </control>
+
+            <!-- left group -->
+            <control type="grouplist">
+                <posy>65</posy>
+                <posx>65</posx>
+                <usecontrolcoords>true</usecontrolcoords>
+                <orientation>vertical</orientation>
+
+                <!-- window close animation -->
+                <animation type="WindowClose" reversible="false" condition="!Skin.HasSetting(LowPerformanceMode)">
+                    <effect type="slide" start="0" end="-150" easing="in" tween="sine" time="250"/>
+                    <effect type="fade" start="100" end="0" time="300"/>
+                </animation>
+
+                <!-- clearlogo title -->
+                <control type="image" id="887767">
+                    <visible>!Skin.HasSetting(NoClearLogoBingie) + !String.IsEmpty(Control.GetLabel(887767))</visible>
+                    <height>230</height>
+                    <width>593</width>
+                    <align>left</align>
+                    <top>0</top>
+                    <fadetime>600</fadetime>
+                    <aspectratio align="left" aligny="center">keep</aspectratio>
+                    <texture background="true">$VAR[ListItemClearLogo]</texture>
+                </control>
+
+                <!-- text title -->
+                <control type="textbox">
+                    <visible>Skin.HasSetting(NoClearLogoBingie) | String.IsEmpty(Control.GetLabel(887767))</visible>
+                    <top>55</top>
+                    <width max="700">auto</width>
+                    <height>auto</height>
+                    <font>Reg48</font>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <textcolor>$INFO[Skin.String(HeaderTextColor)]</textcolor>
+                    <label>[B]$VAR[TVShowTitle][/B]</label>
+                    <label>$INFO[ListItem.FolderPath]</label>
+                    <shadowcolor>$INFO[Skin.String(HeaderTextShadowColor)]</shadowcolor>
+                </control>
+
+                <!-- row details -->
+                <control type="group">
+                    <width>750</width>
+                    <height>40</height>
+                    <include>View_525_Row_Details</include>
+                </control>
+
+                <!-- seasons list -->
+                <control type="group">
+                    <height>390</height>
+                    <!-- fallback season list -->
+                    <control type="group">
+                        <visible>!Control.IsVisible(5250)</visible>
+                        <animation effect="fade" start="100" end="55" time="150" condition="Control.HasFocus(525)">Conditional</animation>
+                        <animation effect="fade" start="100" end="0" time="150" condition="Control.IsVisible(5250)">Conditional</animation>
+                        <top>80</top>
+                        <width>600</width>
+                        <height>65</height>
+                        <!-- bingie button border -->
+                        <control type="image">
+                            <width>600</width>
+                            <height>65</height>
+                            <aligny>top</aligny>
+                            <align>left</align>
+                            <aspectratio align="left" aligny="top">stretch</aspectratio>
+                            <colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
+                            <texture background="true">bingie/border/default_button_fo.png</texture>
+                            <visible>!String.IsEmpty(Control.GetLabel(52510)) | !String.IsEmpty(Control.GetLabel(52511))</visible>
+                        </control>
+                        <!-- Season x label -->
+                        <control type="label" id="52510">
+                            <visible>!String.IsEmpty(Control.GetLabel(52510))</visible>
+                            <left>15</left>
+                            <width>250</width>
+                            <height>65</height>
+                            <aligny>center</aligny>
+                            <align>left</align>
+                            <font>Reg32</font>
+                            <textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
+                            <label>$VAR[View525CurrentSeason]</label>
+                        </control>
+                        <!-- Episode x label -->
+                        <control type="label" id="52511">
+                            <visible>!String.IsEmpty(Control.GetLabel(52511))</visible>
+                            <right>15</right>
+                            <width>250</width>
+                            <height>65</height>
+                            <aligny>center</aligny>
+                            <align>right</align>
+                            <font>Reg28</font>
+                            <textcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</textcolor>
+                            <label>$VAR[View525TotalEpisodes,[LOWERCASE],[/LOWERCASE]]</label>
+                        </control>
+                    </control>
+
+                    <!-- Seasons list -->
+                    <control type="list" id="5250">
+                        <visible allowhiddenfocus="true">Container.Content(episodes)</visible>
+                        <visible>Integer.IsGreater(Container(5250).NumItems,0) + !Container(5250).IsUpdating</visible>
+                        <animation effect="fade" start="0" end="100" time="250">Visible</animation>
+                        <animation effect="fade" start="100" end="55" time="150" condition="!Control.HasFocus(5250)">Conditional</animation>
+                        <left>0</left>
+                        <top>80</top>
+                        <width>600</width>
+                        <height>454</height>
+                        <preloaditems>1</preloaditems>
+                        <orientation>vertical</orientation>
+                        <onleft condition="!Skin.HasSetting(KioskMode)">9000</onleft>
+                        <onright>525</onright>
+                        <onup>5250</onup>
+                        <ondown>5250</ondown>
+                        <onback condition="!String.IsEmpty(Window(Home).Property(ListItem.TVShowID))">ClearProperty(ListItem.TVShowID,Home)</onback>
+                        <onclick condition="String.IsEqual(Window(Home).Property(BaseWindow),InfoDialog)">ActivateWindow(Videos,$ESCINFO[Container(5250).ListItem.FolderPath],return)</onclick>
+                        <onclick condition="!String.IsEqual(Window(Home).Property(BaseWindow),InfoDialog)">ActivateWindow(Videos,$ESCINFO[Container(5250).ListItem.FolderPath])</onclick>
+                        <scrolltime tween="sine" easing="inout">400</scrolltime>
+                        <itemlayout height="65" width="600" condition="Control.HasFocus(5250)">
+                            <!-- Season x label -->
+                            <control type="label">
+                                <left>15</left>
+                                <width>250</width>
+                                <height>65</height>
+                                <aligny>center</aligny>
+                                <align>left</align>
+                                <font>Reg32</font>
+                                <textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
+                                <label>$INFO[ListItem.Label]</label>
+                            </control>
+                        </itemlayout>
+                        <itemlayout height="65" width="600" condition="!Control.HasFocus(5250)">
+                            <include>View_525_Seasons_List_No_Focus</include>
+                        </itemlayout>
+                        <focusedlayout height="65" width="600" condition="Control.HasFocus(5250)">
+                            <!-- bingie button border -->
+                            <control type="image">
+                                <width>600</width>
+                                <height>65</height>
+                                <aligny>top</aligny>
+                                <align>left</align>
+                                <aspectratio align="left" aligny="top">stretch</aspectratio>
+                                <colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
+                                <texture background="true">bingie/border/default_button_fo.png</texture>
+                            </control>
+                            <!-- Season x label -->
+                            <control type="label">
+                                <left>15</left>
+                                <width>250</width>
+                                <height>65</height>
+                                <aligny>center</aligny>
+                                <align>left</align>
+                                <font>Reg32</font>
+                                <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                                <label>$INFO[ListItem.Label]</label>
+                            </control>
+                            <!-- x Episodes label -->
+                            <control type="label">
+                                <animation effect="fade" start="100" end="80" condition="true">Conditional</animation>
+                                <right>15</right>
+                                <width>250</width>
+                                <height>65</height>
+                                <aligny>center</aligny>
+                                <align>right</align>
+                                <font>Reg28</font>
+                                <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                                <label>[LOWERCASE]$VAR[View525TotalEpisodes][/LOWERCASE]</label>
+                            </control>
+                        </focusedlayout>
+                        <focusedlayout height="65" width="600" condition="!Control.HasFocus(5250)">
+                            <include>View_525_Seasons_List_No_Focus</include>
+                        </focusedlayout>
+                        <content target="video">$VAR[View525SeasonsContent]</content>
+                    </control>
+                </control>
+
+            </control>
+
+            <!-- right group -->
+            <control type="group">
+                <!-- main container -->
+                <control type="fixedlist" id="525">
+                    <top>-160</top>
+                    <posx>800</posx>
+                    <height>1280</height>
+                    <width>1050</width>
+                    <orientation>vertical</orientation>
+                    <onup>525</onup>
+                    <ondown>525</ondown>
+                    <onleft condition="Control.IsVisible(5250)">5250</onleft>
+                    <onleft condition="!Control.IsVisible(5250) + !Skin.HasSetting(KioskMode)">9000</onleft>
+                    <onright condition="Skin.HasSetting(EnableQuickJump)">6000</onright>
+                    <onright condition="!Skin.HasSetting(EnableQuickJump)">60</onright>
+                    <onback condition="!String.IsEmpty(Window(Home).Property(ListItem.TVShowID))">ClearProperty(ListItem.TVShowID,Home)</onback>
+                    <pagecontrol>60</pagecontrol>
+                    <preloaditems>2</preloaditems>
+                    <focusposition>1</focusposition>
+                    <viewtype label="31827">wide</viewtype>
+                    <scrolltime tween="sine" easing="inout">350</scrolltime>
+                    <itemlayout width="1050" height="280">
+                        <!-- panel/border -->
+                        <control type="image">
+                            <include condition="!Skin.HasSetting(View525_HidePanel)">View_525_Panel_No_Focus_Defs</include>
+                            <height>280</height>
+                            <width>480</width>
+                            <texture background="true" border="5">diffuse/wide.png</texture>
+                            <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
+                            <include>thumbsborder_unfocused</include>
+                        </control>
+                        <!-- landscape content -->
+                        <include>View_525_Landscape_Defs</include>
+                        <!-- details content -->
+                        <include>View_525_Details_Defs</include>
+                    </itemlayout>
+                    <focusedlayout width="1050" height="280">
+                        <!-- panel/border -->
+                        <control type="image">
+                            <visible>Skin.HasSetting(DisableFixedBingieFrame)</visible>
+                            <visible>Control.HasFocus(525)</visible>
+                            <include condition="!Skin.HasSetting(View525_HidePanel)">View_525_Panel_Focus_Defs</include>
+                            <height>280</height>
+                            <width>480</width>
+                            <texture background="true" border="5">diffuse/wide.png</texture>
+                            <colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
+                            <include>thumbsborder_unfocused</include>
+                        </control>
+                        <!-- landscape content -->
+                        <include>View_525_Landscape_Defs</include>
+                        <!-- details content -->
+                        <include>View_525_Details_Defs</include>
+                        <!-- hidden button -->
+                        <include>Hidden_TVShowID_Extractor_Button</include>
+                    </focusedlayout>
+                </control>
+
+                <!-- fixed border moving with screen -->
+                <control type="image">
+                    <visible>!Skin.HasSetting(DisableFixedBingieFrame) + Integer.IsGreater(Container(525).NumItems,0) + Control.HasFocus(525)</visible>
+                    <top>120</top>
+                    <posx>800</posx>
+                    <width>480</width>
+                    <height>280</height>
+                    <texture background="true" border="-4">$INFO[Skin.String(thumbsborder_focused),bingie/border/thumb_fo_,.png]</texture>
+                    <colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
+                    <bordersize>8</bordersize>
+                    <include>Frame_Scrolling_Fade</include>
+                </control>
+
+                <!-- vertical Scrollbar -->
+                <control type="scrollbar" id="60">
+                    <visible>Control.IsVisible(525) + Integer.IsGreater(Container.NumItems,0)</visible>
+                    <top>15</top>
+                    <right>2</right>
+                    <width>15</width>
+                    <height>97%</height>
+                    <onup>60</onup>
+                    <ondown condition="Skin.HasSetting(EnableQuickJump)">6000</ondown>
+                    <onleft>525</onleft>
+                    <animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Skin.HasSetting(alwaysShowScrollbars)] + !Control.IsVisible(6002)">Conditional</animation>
+                    <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Skin.HasSetting(alwaysShowScrollbars)] | Control.IsVisible(6002)">Conditional</animation>
+                </control>
+
+            </control>
+         </control>
+    </include>
+</includes>

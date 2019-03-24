@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BINGIE -->
+<window>
+    <defaultcontrol always="true">200</defaultcontrol>
+    <onload>SetFocus($INFO[Skin.String(defaultosdbutton_music)])</onload>
+    <controls>
+		<!-- hidden button to exit dialog in touchscreen mode -->
+		<control type="button">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>100%</width>
+			<height>100%</height>
+			<align>center</align>
+			<aligny>center</aligny>
+			<font>Light28</font>
+			<label/>
+			<textcolor/>
+			<focusedcolor/>
+			<disabledcolor/>
+			<texturefocus>colors/color_transparent.png</texturefocus>
+			<texturenofocus/>
+			<onclick>back</onclick>
+			<visible>Skin.HasSetting(EnableTouchSupport)</visible>
+		</control>
+        <control type="group">
+			<include condition="Skin.HasTheme(classic)">MusicOSDClassic</include>
+			<include condition="!Skin.HasTheme(classic)">OSDButtonsModern</include>
+            <animation effect="slide" end="0,-50" time="0" condition="Skin.HasSetting(enableArtistBio)">Conditional</animation>
+            <animation effect="slide" start="0,400" end="0,0" tween="cubic" easing="out" delay="300" time="250" reversible="false" condition="!Player.ShowInfo + !Skin.HasSetting(LowPerformanceMode)">WindowOpen</animation>
+			<animation effect="slide" start="0,0" end="0,400" tween="cubic" easing="out" delay="300" time="250" reversible="false" condition="!Player.ShowInfo + !Skin.HasSetting(LowPerformanceMode)">WindowClose</animation>
+            <animation effect="fade" start="0" end="100" delay="0" time="300" reversible="false">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" delay="0" time="300" reversible="false">WindowClose</animation>
+		</control>
+	</controls>
+</window>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BINGIE -->
+<includes>
+    <!-- Skin Shortcuts includes -->
+    <include name="skinshortcuts-widgetselect">
+        <control type="label" id="900$PARAM[widgetpos]0">
+            <width>500</width>
+            <align>left</align>
+            <height>40</height>
+            <font>Reg26</font>
+            <label>[B]$LOCALIZE[31499] $PARAM[widgetpos][/B]</label>
+        </control>
+        <control type="button" id="900$PARAM[widgetpos]1">
+            <description>select widget</description>
+            <width>500</width>
+            <height>45</height>
+            <align>left</align>
+            <onclick>SetProperty(widgetID, $PARAM[widgetid])</onclick>
+            <onclick>SendClick(312)</onclick>
+            <textoffsetx>10</textoffsetx>
+            <font>Reg22</font>
+            <label>$ADDON[script.skinshortcuts 32044] >></label>
+        </control>
+        <control type="button" id="900$PARAM[widgetpos]2">
+            <description>widget style</description>
+            <width>500</width>
+            <height>45</height>
+            <align>left</align>
+            <label>$LOCALIZE[31507]:</label>
+            <font>Reg22</font>
+            <label2>$VAR[widgetstylelabel$PARAM[widgetpos]]</label2>
+            <textoffsetx>10</textoffsetx>
+            <onclick>RunScript(script.skin.helper.service,action=setskinshortcutsproperty,setting=widgetstyle,header=$LOCALIZE[31507],property=widgetstyle$PARAM[widgetprop])</onclick>
+            <visible>!String.IsEmpty(Container(211).ListItem.Property(widget$PARAM[widgetprop]))</visible>
+            <visible>!String.IsEqual(Skin.String(HomeLayout),enhanced) + !String.IsEqual(Skin.String(HomeLayout),bingie) | [String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnableFixedFocusWidgets)]</visible>
+        </control>
+        <control type="button" id="900$PARAM[widgetpos]3">
+            <description>widget label</description>
+            <width>500</width>
+            <height>45</height>
+            <align>left</align>
+            <font>Reg22</font>
+            <label>$ADDON[script.skinshortcuts 32025]:</label>
+            <label2>$INFO[Container(211).ListItem.Property(widgetName$PARAM[widgetprop])]</label2>
+            <textoffsetx>10</textoffsetx>
+            <onclick>RunScript(script.skin.helper.service,action=setskinshortcutsproperty,header=$ADDON[script.skinshortcuts 32025],property=widgetName$PARAM[widgetprop])</onclick>
+            <visible>!String.IsEmpty(Container(211).ListItem.Property(widget$PARAM[widgetprop]))</visible>
+        </control>
+        <control type="button" id="900$PARAM[widgetpos]4">
+            <description>show infopanel (win10)</description>
+            <width>500</width>
+            <height>45</height>
+            <align>left</align>
+            <font>Reg22</font>
+            <textoffsetx>10</textoffsetx>
+            <label>$LOCALIZE[31185]:</label>
+            <label2>$VAR[widgetinfopanellabel$PARAM[widgetpos]]</label2>
+            <onclick>RunScript(script.skin.helper.service,action=setskinshortcutsproperty,setting=widgetInfoPanel,header=$LOCALIZE[31185],property=widgetInfoPanel$PARAM[widgetprop])</onclick>
+            <visible>String.IsEqual(Skin.String(HomeLayout),win10)</visible>
+            <visible>!String.IsEmpty(Container(211).ListItem.Property(widget$PARAM[widgetprop]))</visible>
+        </control>
+        <control type="button" id="900$PARAM[widgetpos]5">
+            <description>widget tags</description>
+            <width>500</width>
+            <height>45</height>
+            <align>left</align>
+            <font>Reg22</font>
+            <label>$LOCALIZE[31675]:</label>
+            <label2>$INFO[Container(211).ListItem.Property(widgetTags$PARAM[widgetprop])]</label2>
+            <textoffsetx>10</textoffsetx>
+            <onclick>RunScript(script.skin.helper.service,action=setskinshortcutsproperty,header=$LOCALIZE[31675],property=widgetTags$PARAM[widgetprop],setting=Widgets_DisplayTags)</onclick>
+            <visible>!String.IsEmpty(Container(211).ListItem.Property(widget$PARAM[widgetprop]))</visible>
+            <visible>String.IsEqual(Skin.String(Widgets_DisplayTags),override)</visible>
+            <visible>!String.Contains(Container(211).ListItem.Property(widgetstyle$PARAM[widgetprop]),box) + ![String.IsEmpty(Container(211).ListItem.Property(widgetstyle$PARAM[widgetprop])) + String.Contains(Skin.String(widgetstyle),box)]</visible>
+        </control>
+        <control type="radiobutton" id="900$PARAM[widgetpos]6">
+            <description>widget force refresh</description>
+            <width>500</width>
+            <label>31717</label>
+            <font>Reg22</font>
+            <align>left</align>
+            <textoffsetx>10</textoffsetx>
+            <radiowidth>100</radiowidth>
+            <radioheight>65</radioheight>
+            <radioposx>415</radioposx>
+            <onclick condition="!String.IsEqual(Container(211).ListItem.Property(widgetForceRefresh$PARAM[widgetprop]), refresh)">SetProperty(customProperty, widgetForceRefresh$PARAM[widgetprop])</onclick>
+            <onclick condition="!String.IsEqual(Container(211).ListItem.Property(widgetForceRefresh$PARAM[widgetprop]), refresh)">SetProperty(customValue, refresh)</onclick>
+            <onclick condition="String.IsEqual(Container(211).ListItem.Property(widgetForceRefresh$PARAM[widgetprop]), refresh)">SetProperty(customProperty, widgetForceRefresh$PARAM[widgetprop])</onclick>
+            <onclick condition="String.IsEqual(Container(211).ListItem.Property(widgetForceRefresh$PARAM[widgetprop]), refresh)">SetProperty(customValue, "")</onclick>
+            <onclick>SendClick(404)</onclick>
+            <selected>String.IsEqual(Container(211).ListItem.Property(widgetForceRefresh$PARAM[widgetprop]), refresh)</selected>
+            <visible>!String.IsEmpty(Container(211).ListItem.Property(widget$PARAM[widgetprop]))</visible>
+            <visible>String.IsEqual(Container(211).ListItem.Property(widget$PARAM[widgetprop]), Addon) | String.Contains(Container(211).ListItem.Property(widgetPath$PARAM[widgetprop]), favourite) | String.Contains(Container(211).ListItem.Property(widgetPath$PARAM[widgetprop]), xsp)</visible>
+        </control>
+        <control type="radiobutton" id="900$PARAM[widgetpos]7">
+            <description>widget auto rotate</description>
+            <width>500</width>
+            <label>31723</label>
+            <font>Reg22</font>
+            <align>left</align>
+            <textoffsetx>10</textoffsetx>
+            <radiowidth>100</radiowidth>
+            <radioheight>65</radioheight>
+            <radioposx>415</radioposx>
+            <onclick condition="!String.IsEqual(Container(211).ListItem.Property(widgetAutoRotate$PARAM[widgetprop]), enabled)">SetProperty(customProperty, widgetAutoRotate$PARAM[widgetprop])</onclick>
+            <onclick condition="!String.IsEqual(Container(211).ListItem.Property(widgetAutoRotate$PARAM[widgetprop]), enabled)">SetProperty(customValue, enabled)</onclick>
+            <onclick condition="String.IsEqual(Container(211).ListItem.Property(widgetAutoRotate$PARAM[widgetprop]), enabled)">SetProperty(customProperty, widgetAutoRotate$PARAM[widgetprop])</onclick>
+            <onclick condition="String.IsEqual(Container(211).ListItem.Property(widgetAutoRotate$PARAM[widgetprop]), enabled)">SetProperty(customValue, "")</onclick>
+            <onclick>SendClick(404)</onclick>
+            <selected>String.IsEqual(Container(211).ListItem.Property(widgetAutoRotate$PARAM[widgetprop]), enabled)</selected>
+            <visible>Skin.String(widgets_rotate,override)</visible>
+            <visible>!String.IsEmpty(Container(211).ListItem.Property(widget$PARAM[widgetprop]))</visible>
+        </control>
+        <control type="radiobutton" id="900$PARAM[widgetpos]8">
+            <description>widget static focus</description>
+            <width>500</width>
+            <label>31823</label>
+            <font>Reg22</font>
+            <align>left</align>
+            <textoffsetx>10</textoffsetx>
+            <radiowidth>100</radiowidth>
+            <radioheight>65</radioheight>
+            <radioposx>415</radioposx>
+            <onclick condition="!String.IsEqual(Container(211).ListItem.Property(widgetFixedFocus$PARAM[widgetprop]), enabled)">SetProperty(customProperty, widgetFixedFocus$PARAM[widgetprop])</onclick>
+            <onclick condition="!String.IsEqual(Container(211).ListItem.Property(widgetFixedFocus$PARAM[widgetprop]), enabled)">SetProperty(customValue, enabled)</onclick>
+            <onclick condition="String.IsEqual(Container(211).ListItem.Property(widgetFixedFocus$PARAM[widgetprop]), enabled)">SetProperty(customProperty, widgetFixedFocus$PARAM[widgetprop])</onclick>
+            <onclick condition="String.IsEqual(Container(211).ListItem.Property(widgetFixedFocus$PARAM[widgetprop]), enabled)">SetProperty(customValue, "")</onclick>
+            <onclick>SendClick(404)</onclick>
+            <selected>String.IsEqual(Container(211).ListItem.Property(widgetFixedFocus$PARAM[widgetprop]), enabled) | String.Contains(Container(211).ListItem.Property(widgetstyle$PARAM[widgetprop]),details)</selected>
+            <visible>!String.IsEmpty(Container(211).ListItem.Property(widget$PARAM[widgetprop])) + !String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
+        </control>
+    </include>
+</includes>
+

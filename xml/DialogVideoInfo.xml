@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BINGIE -->
+<window>
+    <defaultcontrol always="true">8000</defaultcontrol>
+    <onload condition="!String.IsEmpty(Window(Home).Property(ListItem.TVShowID))">ClearProperty(ListItem.TVShowID,Home)</onload>
+    <onload condition="String.IsEqual(Window(Home).Property(BaseWindow), InfoDialog)">ClearProperty(BaseWindow,Home)</onload>
+    <onload condition="!String.IsEmpty(Window.Property(AdditionalInfo))">ClearProperty(AdditionalInfo,Home)</onload>
+	<onload condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,silent)</onload>
+	<!-- set trailerplaying property if started directly from PlayMedia command in previous window -->
+    <onload condition="$EXP[IsPlayingUnrecognizedContent]">SetProperty(TrailerOnLoad,windowed,Home)</onload>
+	<onload condition="$EXP[IsPlayingUnrecognizedContent]">SetProperty(TrailerPlaying,windowed,Home)</onload>
+    <!-- extract TVShowID for episodes -->
+    <onload condition="Skin.HasSetting(UseBingieInfoDialog) + !String.IsEmpty(ListItem.DBID) + [String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)]">RunScript(script.bingie.helper,action=gettvshowid,dbid=$INFO[ListItem.DBID])</onload>
+    <!-- checks if TVShow is tagged 'mylist' (workaround for ListItem.Tag working inconsistently with tvshows) -->
+    <onload condition="Skin.HasSetting(UseBingieInfoDialog) + !String.IsEmpty(ListItem.DBID) + [String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.Property(DBTYPE),tvshow)]">RunScript(script.bingie.helper,action=ismylist)</onload>
+    <include condition="Skin.HasSetting(UseExtendedInfoDialog)">ExtendedInfo_OnLoad_Action</include>
+    <include condition="!Skin.HasSetting(UseExtendedInfoDialog)">NoExtendedInfo_OnLoad_Action</include>
+
+    <onunload condition="!String.IsEmpty(Window(Home).Property(ListItem.TVShowID)) + String.IsEmpty(Window(Home).Property(KeepTVShowID))">ClearProperty(ListItem.TVShowID,Home)</onunload>
+    <onunload condition="!String.IsEmpty(Window(Home).Property(IsInMyList))">ClearProperty(IsInMyList,Home)</onunload>
+    <onunload condition="!String.IsEmpty(Window(Home).Property(RateTitle))">ClearProperty(RateTitle,Home)</onunload>
+    <onunload condition="!String.IsEmpty(Window(Home).Property(RateTitle.Action))">ClearProperty(RateTitle.Action,Home)</onunload>
+    <onunload condition="!String.IsEmpty(Window(Home).Property(TrailerPlaying)) + !String.IsEqual(Window(Home).Property(TrailerPlaying),fullscreen)">PlayerControl(Stop)</onunload>
+	<!-- focus play/info buttons on bingie homescreen if called from spotlight -->
+	<onunload condition="!String.IsEmpty(Window(Home).Property(ShowSpotlightInfo))">SetFocus(505)</onunload>
+	<onunload condition="!String.IsEmpty(Window(Home).Property(ShowSpotlightInfo))">ClearProperty(ShowSpotlightInfo,Home)</onunload>
+    <onunload condition="!String.IsEmpty(Window(Home).Property(TrailerOnLoad))">ClearProperty(TrailerOnLoad,Home)</onunload>
+
+    <controls>
+        <include condition="Skin.HasSetting(UseBingieInfoDialog) + !Skin.HasSetting(UseExtendedInfoDialog)">BingieInfo</include>
+        <include condition="!Skin.HasSetting(UseBingieInfoDialog) + !Skin.HasSetting(UseExtendedInfoDialog)">TitanInfo</include>
+		<include condition="Skin.HasSetting(DebugGrid) | Skin.HasSetting(DebugInfo)">DebugInfo</include>
+	</controls>
+</window>

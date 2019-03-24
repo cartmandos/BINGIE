@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BINGIE -->
+<window>
+    <defaultcontrol always="true">1000</defaultcontrol>
+    <menucontrol>900</menucontrol>
+
+    <!-- defaults -->
+    <include>DefaultSkinSettings</include>
+    <include condition="String.IsEqual(Skin.String(HomeLayout),bingie)">DefaultSkinHubs</include>
+
+    <include condition="Skin.HasSetting(KeepWidgetFocus)">WidgetPlaybackFocus</include>
+    <!-- bingie -->
+    <onload condition="!String.IsEmpty(Skin.String(CustomSearchTerm))">Skin.Reset(CustomSearchTerm)</onload>
+    <onload condition="String.IsEqual(Skin.String(HomeLayout),bingie) + String.IsEmpty(Window(Home).Property(random))">SetProperty(random,$INFO[System.Time(ss)],home)</onload>
+    <onload condition="String.IsEqual(Skin.String(HomeLayout),bingie)">SetProperty(bingieviews,1,Home)</onload>
+    <!-- build menu -->
+    <onload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=900&amp;group=mainmenu|powermenu)</onload>
+    <onload condition="String.IsEmpty(Window(Home).Property(widgetstyle))">SetProperty(widgetstyle, $INFO[Skin.String(widgetstyle)])</onload>
+
+    <!-- first run -->
+    <onload condition="$EXP[IsFirstRun]">ReplaceWindow($VAR[StartUpWindow])</onload>
+
+    <onunload condition="!Skin.HasSetting(SectionBackgroundHomeOnly)">SetProperty(SectionBackground,$INFO[Control.GetLabel(99004)])</onunload>
+    <onunload condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,silent)</onunload>
+    <onunload>ClearProperty(submenu,Home)</onunload>
+    <onunload>ClearProperty(ShowWidget,Home)</onunload>
+    <onunload>ClearProperty(ShowViewSubMenu,Home)</onunload>
+    <onunload>ClearProperty(SkinHelper.WidgetContainer)</onunload>
+    <onunload>ClearProperty(bingieviews,Home)</onunload>
+    <include condition="Skin.String(widgets_rotate) + !String.IsEqual(Skin.String(widgets_rotate),disabled)">WidgetsAutoRotateUnload</include>
+
+    <include condition="String.IsEqual(Skin.String(HomeLayout),bingie)">BingieViews_WindowOpen_Fade</include>
+	<controls>
+        <!-- Global Background -->
+        <include>GlobalBackground</include>
+
+        <control type="button" id="1000">
+            <include>HiddenObject</include>
+            <onfocus condition="String.IsEmpty(Window(Home).Property(HomeFirstLoadDone)) + String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(BingieHomeDisableFirstRow) + !Skin.HasSetting(AutoFocusHome) + Skin.HasSetting(EnableFixedFocusWidgets)">AlarmClock(focus_delay,SetFocus(1508),00:01,silent)</onfocus>
+            <onfocus condition="String.IsEmpty(Window(Home).Property(HomeFirstLoadDone)) + [[String.IsEqual(Skin.String(HomeLayout),bingie) + Skin.HasSetting(BingieHomeDisableFirstRow)] | String.IsEqual(Skin.String(HomeLayout),win10)] + !Skin.HasSetting(AutoFocusHome)">AlarmClock(focus_delay,SetFocus(77777),00:00,silent)</onfocus>
+            <onfocus condition="!String.IsEmpty(Window(Home).Property(HomeFirstLoadDone)) + [String.IsEqual(Skin.String(HomeLayout),bingie) | String.IsEqual(Skin.String(HomeLayout),win10)] + !Skin.HasSetting(AutoFocusHome) + String.IsEmpty(Window(Home).Property(LastFocusWidget))">SetFocus(77777)</onfocus>
+            <onfocus condition="[[!String.IsEqual(Skin.String(HomeLayout),bingie) + !String.IsEqual(Skin.String(HomeLayout),win10)] | Skin.HasSetting(AutoFocusHome)] + String.IsEmpty(Window(Home).Property(LastFocusWidget))">SetFocus($VAR[DefaultMenuFocus])</onfocus>
+            <onfocus condition="String.IsEmpty(Window(Home).Property(HomeFirstLoadDone))">SetProperty(HomeFirstLoadDone,1)</onfocus>
+
+            <include content="WidgetsAutoRotate" condition="!String.IsEmpty(Skin.String(widgets_rotate_delay)) + !String.IsEqual(Skin.String(widgets_rotate),disabled) + [String.IsEqual(Skin.String(HomeLayout),bingie) | String.IsEqual(Skin.String(HomeLayout),win10)]">
+                <param name="interval" value="$INFO[Skin.String(widgets_rotate_delay)]" />
+            </include>
+            <include content="ButtonMovementAction">
+                <param name="action" value="900" />
+            </include>
+        </control>
+
+        <!-- Preload Weather Conditions -->
+        <control type="label">
+            <label>$INFO[Weather.Conditions]</label>
+            <include>HiddenObject</include>
+        </control>
+
+        <!-- Preload submenu for count calculations -->
+        <include condition="!String.IsEqual(Skin.String(HomeLayout),enhanced) + !Skin.HasSetting(DisableAllSubmenus)">hiddenSubmenu</include>
+
+		<!-- NowPlaying Background -->
+		<include condition="!Skin.HasTheme(classic)">NowPlayingBackground</include>
+        
+        <!-- NowPlaying Info Bar  -->
+		<include condition="Skin.HasTheme(classic)">NowPlayingMusicClassic</include>
+		<include condition="Skin.HasTheme(classic)">NowPlayingVideoClassic</include>
+		<include condition="!Skin.HasTheme(classic) + !Skin.HasSetting(DisableNowPlayingInfoBar)">NowPlayingInfoBar</include>
+        
+        <!-- PVR recording icon -->
+        <include condition="Skin.HasSetting(Home_RecordingIndicator)">NowRecordingIcon</include>
+	
+		<!-- Home Screen -->
+        <include condition="String.IsEqual(Skin.String(HomeLayout),bingie)">HomeBingie</include>
+        <include condition="$EXP[IsTilesLayout]">HomeTitanTiles</include>
+        <include condition="$EXP[IsHorizontalLayout]">HorizontalHome</include>
+        <include condition="$EXP[IsVerticalLayout]">VerticalHome</include>
+        <include condition="String.IsEqual(Skin.String(HomeLayout),enhanced)">EnhancedHome</include>
+        <include condition="String.IsEqual(Skin.String(HomeLayout),win10)">HomeWin10</include>
+
+		<!-- Debug -->
+        <include condition="Skin.HasSetting(DebugGrid) | Skin.HasSetting(DebugInfo)">DebugInfo</include>
+	</controls>
+</window>

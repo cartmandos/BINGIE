@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- BINGIE -->
+<window type="dialog" id="1103">
+	<defaultcontrol always="true">10</defaultcontrol>
+	<zorder>999</zorder>
+	<!--<onload>AlarmClock(intro,PlayMedia(special://skin/extras/media/bingie_intro.mp4,1),Home),00:00,silent)</onload>-->
+
+	<onunload condition="String.IsEqual(Skin.String(HomeLayout),bingie) + Control.IsVisible(1508)">SetFocus(1508)</onunload>
+	<onunload condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(DisableWelcomeMsg) + !String.IsEqual(Window(Home).Property(WelcomeMsg),System.ProfileName)">Notification(,$VAR[WelcomeNotificationMsg],3000,$INFO[System.ProfileThumb])</onunload>
+	<onunload condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(DisableWelcomeMsg)">AlarmClock(welcomedone,SetProperty(WelcomeMsg, $INFO[System.ProfileName],Home),00:01,silent)</onunload>
+	<visible>!String.IsEmpty(Window(Home).Property(startup)) | Control.IsVisible(12345)</visible>
+	<controls>
+        <!-- image -->
+        <control type="image">
+			<animation effect="fade" end="0" time="250">WindowClose</animation>
+            <include>FullscreenDimensions</include>
+            <aspectratio>stretch</aspectratio>
+            <texture background="true">$VAR[SplashImage]</texture>
+        </control>
+		<!-- block input button -->
+		<control type="button" id="10">
+			<include>HiddenObject</include>
+			<include content="ButtonMovementAction">
+				<param name="action" value="noop" />
+			</include>
+		</control>
+		<!-- busy spinner -->
+		<include content="Busy_Spinner">
+			<param name="centerleft" value="47.65%" />
+			<param name="centertop" value="75%"/>
+			<param name="visibility" value="!String.IsEmpty(Window(Home).Property(startup)) + !Player.HasVideo"/>
+			<param name="size" value="90"/>
+		</include>
+
+		<!-- intro
+		<control type="group" id="12345">
+			<visible>Player.HasVideo</visible>
+			<control type="image">
+				<include>FullscreenDimensions</include>
+				<texture>colors/color_black.png</texture>
+			</control>
+			<control type="videowindow">
+				<include>FullscreenDimensions</include>
+			</control>
+		</control>-->
+	</controls>
+</window>

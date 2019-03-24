@@ -1,0 +1,1497 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BINGIE -->
+<includes>
+	
+	<!-- Footer -->
+	<include name="Footer">
+		<control type="group">
+			<animation type="Conditional" condition="Control.IsVisible(77551)">
+                <effect type="slide" start="0,0" end="0,800" time="400" tween="cubic" easing="inout" delay="0" />
+            </animation>
+			<animation type="Conditional" condition="Skin.HasTheme(classic) + !String.IsEqual(Skin.AspectRatio,16:10) + Window.IsMedia">
+                <effect type="slide" start="0,0" end="0,-45" time="0" tween="cubic" easing="inout" delay="0" />
+            </animation>
+            <animation type="Conditional" condition="Skin.HasTheme(classic) + String.IsEqual(Skin.AspectRatio,16:10) + Window.IsMedia">
+                <effect type="slide" start="0,0" end="0,-60" time="0" tween="cubic" easing="inout" delay="0" />
+            </animation>
+            <animation type="Conditional" condition="String.IsEqual(Window(Home).Property(showinfopanel),show)">
+                <effect type="slide" start="0,0" end="0,300" time="800" tween="cubic" easing="inout" delay="0" />
+            </animation>
+            <visible>![Window.IsActive(pictures) + Skin.HasSetting(MyPicsDisableFooter)]</visible>
+
+			<!--Footer Background-->
+			<control type="group">						
+				<control type="image">	
+					<posx>50</posx>
+					<bottom>40</bottom>
+					<width>1820</width>
+					<height>84</height>
+					<animation type="Conditional" condition="Window.IsActive(settings) | Window.IsActive(SettingsCategory.xml) | Window.IsActive(skinsettings) | Window.IsActive(systeminfo) | Window.IsActive(profiles)">
+						<effect type="slide" start="0,0" end="0,-30" time="0" tween="cubic" easing="inout" delay="0" />
+					</animation>
+					<texture colordiffuse="$INFO[Skin.String(FooterPanelColor)]">dialogs/footer_classic.png</texture>
+					<visible>!Skin.HasSetting(NoFooterBar) + Skin.HasTheme(classic)</visible>
+					<visible>![Window.IsActive(Home) + Skin.HasSetting(NoFooterBarOnHome)]</visible>
+					<visible>![$EXP[IsTilesLayout] + Control.IsVisible(4444) + [Skin.String(SubmenuLayout, horizontal) | Skin.String(SubmenuLayout, tiles)]]</visible>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<bottom>0</bottom>
+					<width>100%</width>
+					<height>110</height>
+					<texture border="5">diffuse/panel.png</texture>
+					<colordiffuse>$INFO[Skin.String(FooterPanelColor)]</colordiffuse>
+					<visible>!Skin.HasTheme(classic) + !Skin.HasSetting(nofooterbar)</visible>
+					<visible>![Window.IsActive(Home) + Skin.HasSetting(NoFooterBarOnHome)]</visible>
+				</control>
+			</control>
+			
+			<!-- touchscreen support -->
+			<include condition="Skin.HasSetting(EnableTouchSupport)">TouchControlsFooter</include>
+
+			<!-- PVR Content -->
+            <include condition="Window.IsActive(tvchannels) | Window.IsActive(tvguide) | Window.IsActive(tvrecordings) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch)">FooterContentPVR</include>
+
+            <!-- Normal Content -->
+            <include condition="![Window.IsActive(tvchannels) | Window.IsActive(tvguide) | Window.IsActive(tvrecordings) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch)] + !Window.IsActive(Home)">FooterContentGeneral</include>
+
+            <!--footer on home -->
+            <include condition="Window.IsActive(Home)">FooterContentHome</include>
+            
+            <!-- codec info normal-->
+			<control type="group">
+				<posx>60</posx>
+				<height>50</height>
+				<bottom>20</bottom>
+				<include condition="[Window.IsActive(Videos) | Window.IsActive(videoplaylist)]">mediaflags</include>
+                <animation type="Conditional" condition="Skin.HasTheme(classic)">
+                    <effect type="slide" start="0,0" end="0,-12" time="0" tween="cubic" easing="inout" delay="0" />
+                </animation>
+                <!-- slide if touchcontrols present -->
+                <animation type="Conditional" condition="Control.IsVisible(99123)">
+                    <effect type="slide" start="0" end="280" time="0" tween="cubic" easing="inout" delay="0" />
+                </animation>
+            </control>
+			
+			<!--Rating normal-->
+			<include condition="Window.IsActive(Videos) + !Skin.HasTheme(classic) + ![Skin.HasSetting(EnableStudioLogo) | Skin.HasSetting(EnableIMDBRating) | Skin.HasSetting(TV_TMdbRatingInFooter) | Skin.HasSetting(EnableRTAndMetaCriticRating)]">StarRatingFooter</include>
+            <include condition="Window.IsActive(Videos) + Skin.HasTheme(classic)">StarRatingFooterClassic</include>
+            <include condition="Window.IsActive(Videos) + !Skin.HasTheme(classic)">Footer_RatingAndStudio_Hor</include>
+			<include condition="Window.IsActive(MyMusicNav.xml)">StarRatingMusicFooter</include>
+		</control>
+	</include>
+    
+    <include name="footerColorDiffuse">
+        <colordiffuse>$INFO[Skin.String(FooterTextColor)]</colordiffuse>
+    </include>
+    <include name="videoInfoColorDiffuse">
+        <colordiffuse>$INFO[Skin.String(ViewDetailsTextColor)]</colordiffuse>
+    </include>
+    
+    <include name="ImdbTop250">
+        <!-- IMDB Top 250 -->
+        <control type="group">
+            <height>70</height>
+            <width>85</width>
+            <control type="image">
+                <height>70</height>
+                <width>84</width>
+                <texture border="5">diffuse/panel.png</texture>
+                <colordiffuse>$VAR[AdvancedRatings_PanelColor]</colordiffuse>
+                <aspectratio>stretch</aspectratio>
+            </control>
+            <control type="image">
+                <!--imdb logo-->
+                <top>0</top>
+                <width>84</width>
+                <height>40</height>
+                <bordersize>2</bordersize>
+                <texture>flags/imdb_logo_250.png</texture>
+            </control>
+            <control type="label">
+                <!--Rating modern-->
+                <top>38</top>
+                <width>84</width>
+                <height>30</height>
+                <align>center</align>
+                <aligny>center</aligny>
+                <font>flags</font>
+                <textcolor>$VAR[AdvancedRatings_TextColor]</textcolor>
+                <label>$INFO[Window(Home).Property(SkinHelper.ListItem.IMDB.Top250)]</label>		<!-- $INFO[Window(Home).Property(SkinHelper.ListItem.IMDB.Top250)] -->
+            </control>
+        </control>
+    </include>
+    
+	<include name="ImdbTop250VD">
+        <!-- IMDB Top 250 VD -->
+        <control type="group">
+		
+            <control type="image">
+                <!--imdb logo-->
+                <top>0</top>
+                <width>74</width>
+                <height>35</height>
+                <bordersize>2</bordersize>
+                <texture>flags/imdb_logo_250.png</texture>
+            </control>
+            <control type="label">
+                <!--Rating modern-->
+                <top>28</top>
+                <width>84</width>
+                <height>30</height>
+                <align>center</align>
+                <aligny>center</aligny>
+                <font>Bold22</font>
+				<left>-5</left>
+                <textcolor>$VAR[AdvancedRatings_TextColor]</textcolor>
+                <label>$INFO[Window(Home).Property(SkinHelper.ListItem.IMDB.Top250)]</label>
+            </control>
+        </control>
+    </include>
+	
+    <variable name="AdvancedRatings_PanelColor">
+        <value condition="[Window.IsMedia + Control.IsVisible(523)] | [Window.IsMedia + Control.IsVisible(525)] | [Window.IsActive(Home) + String.IsEqual(Skin.String(HomeLayout),bingie)]">None</value>
+        <value condition="Skin.String(FooterPanelColor) + !Skin.String(FooterPanelColor, None)">$INFO[Skin.String(FooterPanelColor)]</value>
+        <value>ff000000</value>
+    </variable>
+    <variable name="AdvancedRatings_TextColor">
+        <value condition="[Window.IsMedia + Control.IsVisible(523)] | [Window.IsMedia + Control.IsVisible(525)] | [Window.IsActive(Home) + String.IsEqual(Skin.String(HomeLayout),bingie)]">$INFO[Skin.String(ViewDetailsTextColor)]</value>
+        <value condition="Skin.String(FooterTextColor) + !Skin.String(FooterPanelColor, None)">$INFO[Skin.String(FooterTextColor)]</value>
+        <value>ffffffff</value>
+    </variable>
+    
+    <include name="AdvancedRatingLayout">
+        <control type="group">
+            <height>70</height>
+            <width>85</width>
+            <control type="image">
+                <height>70</height>
+                <width>84</width>
+                <texture border="5">diffuse/panel.png</texture>
+                <colordiffuse>$VAR[AdvancedRatings_PanelColor]</colordiffuse>
+                <aspectratio>stretch</aspectratio>
+            </control>
+            <control type="image">
+                <height>70</height>
+                <width>85</width>
+                <bordersize>2</bordersize>
+                <texture border="5">diffuse/panel.png</texture>
+                <colordiffuse>$INFO[AdvancedRatings_PanelColor]</colordiffuse>
+                <aspectratio>stretch</aspectratio>
+            </control>
+            <control type="image">
+                <!--top image-->
+                <top>0</top>
+                <width>84</width>
+                <height>40</height>
+                <bordersize>2</bordersize>
+                <texture background="true">$PARAM[image]</texture>
+            </control>
+            <control type="label">
+                <!--rating text-->
+                <top>40</top>
+                <width>84</width>
+                <height>30</height>
+                <align>center</align>
+                <aligny>center</aligny>
+                <font>flags</font>
+                <textcolor>$VAR[AdvancedRatings_TextColor]</textcolor>
+                <label>$PARAM[text]</label>
+            </control>
+        </control>
+    </include>
+    
+    <include name="TomatoMeter">
+        <!-- Rotten Tomatoes Meter -->
+        <control type="group">
+            <height>70</height>
+            <width>85</width>
+            <control type="image">
+                <height>70</height>
+                <width>84</width>
+                <texture border="5">diffuse/panel.png</texture>
+                <colordiffuse>$VAR[AdvancedRatings_PanelColor]</colordiffuse>
+                <aspectratio>stretch</aspectratio>
+            </control>
+            <control type="image">
+                <description>Rotten tomatoes image</description>
+                <top>2</top>
+                <width>84</width>
+                <height>37</height>
+                <bordersize>2</bordersize>
+                <aspectratio>keep</aspectratio>
+                <texture background="true">$INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Image),flags/,.png]</texture>
+            </control>
+            <control type="label">
+                <top>38</top>
+                <width>84</width>
+                <height>30</height>
+                <align>center</align>
+                <aligny>center</aligny>
+                <font>flags</font>
+                <textcolor>$VAR[AdvancedRatings_TextColor]</textcolor>
+                <label>$INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter),,%]</label>
+            </control>
+        </control>
+    </include>
+    
+	<!-- Rotten Tomatoes Meter Video Info-->
+	<include name="TomatoMeterVD">
+        <!-- Rotten Tomatoes Meter -->
+        <control type="group">
+           
+            
+            <control type="image">
+                <description>Rotten tomatoes image</description>
+                <top>-5</top>
+                <width>45</width>
+                <height>45</height>
+                <bordersize>2</bordersize>
+                <aspectratio>keep</aspectratio>
+                <texture background="true">$INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Image),flags/,.png]</texture>
+            </control>
+            <control type="label">
+                <top>5</top>
+				<left>35</left>
+                <width>84</width>
+                <height>30</height>
+                <align>center</align>
+                <aligny>center</aligny>
+                <font>Reg26</font>
+                <textcolor>$VAR[AdvancedRatings_TextColor]</textcolor>
+                <label>$INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter),,%]</label>
+            </control>
+        </control>
+    </include>
+	
+    <include name="TomatoAudience">
+        <!-- Rotten Tomatoes Meter -->
+        <control type="group">
+            <height>70</height>
+            <width>85</width>
+            <control type="image">
+                <height>70</height>
+                <width>84</width>
+                <texture border="5">diffuse/panel.png</texture>
+                <colordiffuse>$VAR[AdvancedRatings_PanelColor]</colordiffuse>
+                <aspectratio>stretch</aspectratio>
+            </control>
+            <control type="image">
+                <top>0</top>
+                <width>84</width>
+                <height>37</height>
+                <bordersize>2</bordersize>
+                <aspectratio>keep</aspectratio>
+                <texture>flags/popcorn.png</texture>
+                <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter),59)</visible>
+            </control>
+            <control type="image">
+                <top>0</top>
+                <width>84</width>
+                <height>37</height>
+                <bordersize>2</bordersize>
+                <aspectratio>keep</aspectratio>
+                <texture>flags/popcorn2.png</texture>
+                <visible>!Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter),59)</visible>
+            </control>
+            <control type="label">
+                <top>38</top>
+                <width>84</width>
+                <height>30</height>
+                <align>center</align>
+                <aligny>center</aligny>
+                <font>flags</font>
+                <textcolor>$VAR[AdvancedRatings_TextColor]</textcolor>
+                <label>$INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter),,%]</label>
+            </control>
+        </control>
+    </include>
+    
+	<include name="TomatoAudienceVD">
+        <!-- Rotten Tomatoes Meter -->
+        <control type="group">
+            <height>70</height>
+            <width>85</width>
+           
+            <control type="image">
+                <top>0</top>
+                <width>84</width>
+                <height>37</height>
+                <bordersize>2</bordersize>
+                <aspectratio>keep</aspectratio>
+                <texture>flags/popcorn.png</texture>
+                <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter),59)</visible>
+            </control>
+            <control type="image">
+                <top>0</top>
+                <width>84</width>
+                <height>37</height>
+                <bordersize>2</bordersize>
+                <aspectratio>keep</aspectratio>
+                <texture>flags/popcorn2.png</texture>
+                <visible>!Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter),59)</visible>
+            </control>
+            <control type="label">
+                <top>38</top>
+                <width>84</width>
+                <height>30</height>
+                <align>center</align>
+                <aligny>center</aligny>
+                <font>flags</font>
+                <textcolor>$VAR[AdvancedRatings_TextColor]</textcolor>
+                <label>$INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter),,%]</label>
+            </control>
+        </control>
+    </include>
+	
+    <include name="MetaCriticRating">
+        <!-- MetaCritic Rating -->
+        <control type="group">
+            <height>70</height>
+            <width>85</width>
+            <control type="image">
+                <height>70</height>
+                <width>84</width>
+                <texture border="5">diffuse/panel.png</texture>
+                <colordiffuse>$VAR[AdvancedRatings_PanelColor]</colordiffuse>
+                <aspectratio>stretch</aspectratio>
+            </control>
+            <control type="image">
+                <top>2</top>
+                <width>84</width>
+                <height>37</height>
+                <bordersize>2</bordersize>
+                <aspectratio>keep</aspectratio>
+                <texture background="true">flags/metacritic.png</texture>
+            </control>
+            <control type="label">
+                <top>38</top>
+                <width>84</width>
+                <height>30</height>
+                <align>center</align>
+                <aligny>center</aligny>
+                <font>flags</font>
+                <textcolor>$VAR[AdvancedRatings_TextColor]</textcolor>
+                <label>$INFO[Window(Home).Property(SkinHelper.ListItem.MetaCritic.Rating)]</label>
+            </control>
+        </control>
+    </include>
+	
+	<!-- MetaCritic VD -->
+	<include name="MetaCriticRatingVD">
+        <control type="group">
+            <control type="image">
+				<top>0</top>
+                <width>40</width>
+                <height>40</height>
+                <bordersize>2</bordersize>
+                <aspectratio>keep</aspectratio>
+                <texture>flags/metacritic.png</texture>
+            </control>
+            <control type="label">
+                <top>5</top>
+				<left>25</left>
+                <width>100</width>
+                <height>30</height>
+                <align>center</align>
+                <aligny>center</aligny>
+                <font>Reg26</font>
+                <textcolor>$VAR[AdvancedRatings_TextColor]</textcolor>
+                <label>$INFO[Window(Home).Property(SkinHelper.ListItem.MetaCritic.Rating),,%]</label>
+            </control>
+        </control>
+    </include>
+	
+	<!-- TV db rating footer -->
+	<include name="TVdb_footer">
+        <control type="group">
+			<control type="image">
+                <right>0</right>
+                <top>-5</top>
+                <width>80</width>
+                <height>45</height>
+                <bordersize>2</bordersize>
+                <texture>flags/flags_color/addratings/tvdbtrans.png</texture>
+            </control>
+            <control type="label">
+                <right>-5</right>
+                <top>35</top>
+                <width>80</width>
+                <height>30</height>
+                <align>center</align>
+                <aligny>center</aligny>
+                <font>flags</font>
+                <textcolor>$VAR[AdvancedRatings_TextColor]</textcolor>
+                <label>$INFO[Window(Home).Property(SkinHelper.ListItem.Rating.TVDB)]</label>
+			</control>	
+		</control>
+    </include>
+
+	<!-- TM db rating footer -->
+	<include name="TMdb_footer">
+        <control type="group">
+			
+			<control type="image">
+                <!--TMDB logo-->
+                <right>0</right>
+                <top>-10</top>
+                <width>70</width>
+                <height>60</height>
+                <bordersize>2</bordersize>
+                <texture>flags/flags_color/addratings/tmdbtp.png</texture>
+            </control>
+            <control type="label">
+                <!--TMDB Rating modern-->
+                <right>0</right>
+                <bottom>-12</bottom>
+                <width>70</width>
+                <height>60</height>
+                <align>center</align>
+                <aligny>center</aligny>
+                <font>flags</font>
+                <textcolor>$VAR[AdvancedRatings_TextColor]</textcolor>
+                <label>$INFO[Window(Home).Property(SkinHelper.ListItem.Rating.TMDB)]</label>
+			</control>	
+		</control>
+    </include>
+	
+	<include name="AltRatingFooter">
+        <!--Advanced Ratings + Studio-->
+        <control type="group">
+            <bottom>15</bottom>
+            <right>50</right>
+            <include>AltRating</include>
+        </control>	
+    </include>
+    
+    <include name="AltRating">
+	<!-- Tomatometer -->
+        <control type="group">
+            <height>70</height>
+            <width>85</width>
+            <bottom>0</bottom>
+            <right>0</right>
+            <include>TomatoMeter</include>
+            <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter)) + Skin.HasSetting(EnableRTAndMetaCriticRating)</visible>
+            <animation effect="slide" end="-100" time="0" condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter))">Conditional</animation>
+            <animation effect="slide" end="-100" time="0" condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MetaCritic.Rating))">Conditional</animation>
+        </control>
+        
+    <!-- Tomatoaudience -->
+        <control type="group">
+            <height>70</height>
+            <width>85</width>
+            <bottom>0</bottom>
+            <right>0</right>
+            <include>TomatoAudience</include>
+            <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter)) + Skin.HasSetting(EnableRTAndMetaCriticRating)</visible>
+            <animation effect="slide" end="-100" time="0" condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MetaCritic.Rating))">Conditional</animation>
+        </control>
+    <!-- MetaCritic -->
+        <control type="group">
+            <height>70</height>
+            <width>85</width>
+            <bottom>0</bottom>
+            <right>0</right>
+            <include>MetaCriticRating</include>
+            <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MetaCritic.Rating)) + Skin.HasSetting(EnableRTAndMetaCriticRating)</visible>
+        </control>
+        
+	<!-- TVdb -->
+        <control type="group">
+            <height>70</height>
+            <width>85</width>
+            <bottom>-2</bottom>
+            <right>0</right>
+            <include>TVdb_footer</include>
+            <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.TVDB)) + Skin.HasSetting(TV_TMdbRatingInFooter)</visible>           			
+			<animation effect="slide" end="-100" time="0" condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter)) + Skin.HasSetting(EnableRTAndMetaCriticRating)">Conditional</animation>
+            <animation effect="slide" end="-100" time="0" condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter)) + Skin.HasSetting(EnableRTAndMetaCriticRating)">Conditional</animation>
+            <animation effect="slide" end="-100" time="0" condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MetaCritic.Rating)) + Skin.HasSetting(EnableRTAndMetaCriticRating)">Conditional</animation>
+		</control>
+		
+	<!-- TMdb -->
+        <control type="group">
+            <height>70</height>
+            <width>85</width>
+            <bottom>-2</bottom>
+            <right>0</right>
+            <include>TMdb_footer</include>
+            <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.TMDB)) + Skin.HasSetting(TV_TMdbRatingInFooter)</visible>
+			<animation effect="slide" end="-100" time="0" condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter)) + Skin.HasSetting(EnableRTAndMetaCriticRating)">Conditional</animation>
+            <animation effect="slide" end="-100" time="0" condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter)) + Skin.HasSetting(EnableRTAndMetaCriticRating)">Conditional</animation>
+            <animation effect="slide" end="-100" time="0" condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MetaCritic.Rating)) + Skin.HasSetting(EnableRTAndMetaCriticRating)">Conditional</animation>
+		</control>
+		
+    <!-- IMDB Top 250 -->
+        <control type="group">
+            <height>70</height>
+            <width>85</width>
+            <bottom>0</bottom>
+            <right>0</right>
+            <include>ImdbTop250</include>
+            <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.IMDB.Top250)) + Skin.HasSetting(EnableIMDBRating)</visible>
+			<animation effect="slide" end="-100" time="0" condition="[!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.TMDB)) + Skin.HasSetting(TV_TMdbRatingInFooter)] | [!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.TVDB)) + Skin.HasSetting(TV_TMdbRatingInFooter)]">Conditional</animation>
+			<animation effect="slide" end="-100" time="0" condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter)) + Skin.HasSetting(EnableRTAndMetaCriticRating)">Conditional</animation>
+            <animation effect="slide" end="-100" time="0" condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter)) + Skin.HasSetting(EnableRTAndMetaCriticRating)">Conditional</animation>
+            <animation effect="slide" end="-100" time="0" condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MetaCritic.Rating)) + Skin.HasSetting(EnableRTAndMetaCriticRating)">Conditional</animation>
+        </control>
+        
+        <!--studio logo -->
+        <control type="image">
+            <right>0</right>
+            <bottom>-10</bottom>
+            <width>400</width>
+            <height>90</height>
+            <aspectratio aligny="center" align="right">keep</aspectratio>
+            <fadetime>300</fadetime>
+            <include condition="!String.Contains(Skin.String(SkinHelper.StudioLogos.Path),colo)">footerColorDiffuse</include>
+            <bordersize>2</bordersize>
+            <texture background="true">$INFO[Window(Home).Property(SkinHelper.ListItem.StudioLogo)]</texture>
+            <visible>Skin.HasSetting(EnableStudioLogo)</visible>
+            <animation effect="slide" end="-120" time="0" condition="!String.IsEmpty(Control.GetLabel(414783)) + Skin.HasSetting(EnableIMDBRating)">Conditional</animation>
+			<animation effect="slide" end="-100" time="0" condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.IMDB.Top250)) + Skin.HasSetting(EnableIMDBRating)">Conditional</animation>
+			<animation effect="slide" end="-100" time="0" condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.TMDB)) + Skin.HasSetting(TV_TMdbRatingInFooter) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.TVDB)) + Skin.HasSetting(TV_TMdbRatingInFooter)">Conditional</animation>
+            <animation effect="slide" end="-100" time="0" condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter)) + Skin.HasSetting(EnableRTAndMetaCriticRating)">Conditional</animation>
+            <animation effect="slide" end="-100" time="0" condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter)) + Skin.HasSetting(EnableRTAndMetaCriticRating)">Conditional</animation>
+            <animation effect="slide" end="-100" time="0" condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MetaCritic.Rating)) + Skin.HasSetting(EnableRTAndMetaCriticRating)">Conditional</animation>
+        </control>
+        
+        <!-- IMDB -->
+        <control type="group">
+			<visible>!String.IsEmpty(Control.GetLabel(414783)) + !String.StartsWith(Control.GetLabel(414783),songrating) + Skin.HasSetting(EnableIMDBRating)</visible>
+            <height>70</height>
+            <width>85</width>
+            <bottom>0</bottom>
+            <right>0</right>
+            <animation effect="slide" end="-100" time="0" condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.IMDB.Top250))">Conditional</animation>
+			
+			<animation effect="slide" end="-100" time="0" condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.TMDB)) + Skin.HasSetting(TV_TMdbRatingInFooter) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.TVDB)) + Skin.HasSetting(TV_TMdbRatingInFooter)">Conditional</animation>
+			
+            <animation effect="slide" end="-100" time="0" condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter)) + Skin.HasSetting(EnableRTAndMetaCriticRating)">Conditional</animation>
+            <animation effect="slide" end="-100" time="0" condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter)) + Skin.HasSetting(EnableRTAndMetaCriticRating)">Conditional</animation>
+            <animation effect="slide" end="-100" time="0" condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MetaCritic.Rating)) + Skin.HasSetting(EnableRTAndMetaCriticRating)">Conditional</animation>
+            
+			<control type="image">
+                <!--imdb logo-->
+                <right>0</right>
+                <top>0</top>
+                <width>84</width>
+                <height>40</height>
+                <bordersize>2</bordersize>
+                <texture>flags/imdb_logo.png</texture>
+            </control>
+            <control type="label" id="414783">
+                <!--Rating modern-->
+                <right>0</right>
+                <bottom>2</bottom>
+                <width>84</width>
+                <height>30</height>
+                <align>center</align>
+                <aligny>center</aligny>
+                <font>flags</font>
+                <textcolor>$VAR[AdvancedRatings_TextColor]</textcolor>
+                <label>$VAR[IMDBRatingValue]</label> <!-- default $VAR[IMDBRatingValue], $INFO[Window(Home).Property(SkinHelper.ListItem.Rating.IMDB), ,   ], dont show other ratings if no votes  -->
+            </control>			
+        </control>		
+    </include>
+	
+	<include name="AltRatingNoStudio">
+		
+        <!-- Tomatometer -->
+        <control type="group">
+            <height>70</height>
+            <width>85</width>
+            <bottom>0</bottom>
+            <left>675</left>
+            <include>TomatoMeterVD</include>
+            <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter))</visible>
+           
+        </control>
+        
+        <!-- Tomatoaudience -->
+        <control type="group">
+            <height>70</height>
+            <width>85</width>
+            <bottom>0</bottom>
+            <right>0</right>
+            <include>TomatoAudienceVD</include> <!-- look again logfile-->
+            <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter))</visible>
+            <animation effect="slide" end="-100" time="0" condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MetaCritic.Rating))">Conditional</animation>
+        </control>
+		
+        <!-- MetaCritic -->
+        <control type="group">
+            <height>70</height>
+            <width>85</width>
+            <bottom>0</bottom>
+            <left>795</left>
+            <include>MetaCriticRatingVD</include>
+            <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MetaCritic.Rating))</visible>
+        </control>
+        
+        <!-- IMDB Top 250 -->
+        <control type="group">
+            <height>70</height>
+            <width>85</width>
+            <bottom>5</bottom>
+            <left>990</left>
+            <include>ImdbTop250VD</include>
+            <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.IMDB.Top250))</visible>  
+        </control>
+   
+		<!-- MOVIE IMDB & TMdb -->
+        <control type="group">
+            <visible>!String.IsEqual(ListItem.DBTYPE,tvshow)</visible>
+            <height>70</height>
+            <width>85</width>
+            <bottom>0</bottom>
+            <left>0</left>
+           
+			<!-- imdb -->
+            <control type="image">
+                <!--imdb logo-->
+                <left>345</left>
+                <top>-3</top>
+                <width>45</width>
+                <height>45</height>
+                <bordersize>2</bordersize>
+                <texture>flags/flags_color/addratings/imdb.png</texture>
+            </control>
+            <control type="label">
+                <!--IMDB Rating and votes modern-->
+                <left>390</left>
+                <top>5</top>
+                <width>300</width>
+                <height>30</height>
+                <align>left</align>
+                <aligny>center</aligny>
+                <font>Reg26</font>
+                <textcolor>$VAR[AdvancedRatings_TextColor]</textcolor>
+                <label>$VAR[rating_value_imdb_2]</label>
+            </control>
+			
+            <control type="image">
+                <!--TMDB logo-->
+                <left>0</left>
+                <top>-5</top>
+                <width>55</width>
+                <height>50</height>
+                <bordersize>2</bordersize>
+                <texture>flags/flags_color/addratings/tmdbtp.png</texture>
+            </control>
+            <control type="label">
+                <!--TMDB Rating modern-->
+                <left>50</left>
+                <top>-10</top>
+                <width>300</width>
+                <height>60</height>
+                <align>left</align>
+                <aligny>center</aligny>
+                <font>Reg26</font>
+                <textcolor>$VAR[AdvancedRatings_TextColor]</textcolor>
+                <label>$VAR[rating_value_tmdb]</label> <!-- $INFO[Window(Home).Property(SkinHelper.ListItem.Rating.TMDB), ,   ] -->
+			</control>												
+        </control>
+			
+    </include>
+	
+    <include name="FooterContentPVR">
+        <!--Progress (PVR)-->
+        <control type="group">
+            <animation effect="slide" end="30,-15" time="0" condition="Skin.HasTheme(classic)">Conditional</animation>
+            <visible>[Window.IsActive(tvchannels) | Window.IsActive(tvguide)] + !Control.IsVisible(99123)</visible>
+            <bottom>20</bottom>
+            <height>65</height>
+            <control type="label">
+                <!--Start-->
+                <posx>60</posx>
+                <posy>0</posy>
+                <width>400</width>
+                <font>flags</font>
+                <textcolor>$INFO[Skin.String(FooterTextColor)]</textcolor>
+                <shadowcolor>$INFO[Skin.String(FooterTextShadowColor)]</shadowcolor>
+                <info>ListItem.StartTime</info>
+            </control>
+            <control type="progress">
+                <!--Progress Bar-->
+                <posx>200</posx>
+                <posy>25</posy>
+                <width>150</width>
+                <info>ListItem.Progress</info>
+                <visible>Skin.HasTheme(classic)</visible>
+            </control>
+            <control type="progress">
+                <!--Progress Bar-->
+                <posx>200</posx>
+                <posy>23</posy>
+                <width>150</width>
+                <height>20</height>
+                <info>ListItem.Progress</info>
+                <visible>!Skin.HasTheme(classic)</visible>
+            </control>
+            <control type="label">
+                <!--End-->
+                <posx>375</posx>
+                <posy>0</posy>
+                <width>400</width>
+                <font>flags</font>
+                <textcolor>$INFO[Skin.String(FooterTextColor)]</textcolor>
+                <shadowcolor>$INFO[Skin.String(FooterTextShadowColor)]</shadowcolor>
+                <info>ListItem.EndTime</info>
+            </control>
+        </control>
+        <!-- Programname etc -->
+        <control type="group">
+            <animation effect="slide" end="0,-16" time="0" condition="Skin.HasTheme(classic)">Conditional</animation>
+            <bottom>35</bottom>
+            <height>65</height>
+            <control type="label">
+                <!--live tv channel-->
+                <visible>String.IsEmpty(Control.Getlabel(44123))</visible>
+                <right>60</right>
+                <posy>16</posy>
+                <width>500</width>
+                <align>right</align>
+                <font>Reg30</font>
+                <textcolor>$INFO[Skin.String(FooterTextColor)]</textcolor>
+                <shadowcolor>$INFO[Skin.String(FooterTextShadowColor)]</shadowcolor>
+                <label>$INFO[ListItem.ChannelName]</label>
+            </control>
+            <control type="label">
+                <!--live tv programname-->
+                <posx>610</posx>
+                <posy>16</posy>
+                <width>700</width>
+                <align>center</align>
+                <font>Bold30</font>
+                <textcolor>$INFO[Skin.String(FooterTextColor)]</textcolor>
+                <shadowcolor>$INFO[Skin.String(FooterTextShadowColor)]</shadowcolor>
+                <label>$INFO[ListItem.Title]</label>
+                <visible>!Control.IsVisible(884)</visible>
+            </control>
+                 <control type="image" id="44123">
+                <visible>!Skin.HasTheme(classic)</visible>
+                <right>60</right>
+                <posy>0</posy>
+                <width>260</width>
+                <height>100</height>
+                <texture background="true">$VAR[channellogo]</texture>
+                <aspectratio align="right" aligny="center">keep</aspectratio>
+            </control>
+            <control type="label">
+                <!--live tv diskspace-->
+                <visible>Window.IsActive(tvrecordings) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch)</visible>
+                <left>60</left>
+                <posy>16</posy>
+                <width>500</width>
+                <align>left</align>
+                <font>Reg30</font>
+                <textcolor>$INFO[Skin.String(FooterTextColor)]</textcolor>
+                <shadowcolor>$INFO[Skin.String(FooterTextShadowColor)]</shadowcolor>
+                <label>$INFO[PVR.backenddiskspace]</label>
+                <visible>!Control.IsVisible(99123)</visible>
+            </control>
+             </control>
+    </include>
+
+    <include name="FooterContentGeneral">
+        <control type="group">
+            <!--Title-->
+            <visible>!Window.IsActive(DialogVideoInfo.xml) + !Window.IsVisible(favourites)</visible>
+            <animation effect="slide" end="0,16" time="0" condition="!Skin.HasTheme(classic)">Conditional</animation>
+            <height>80</height>
+            <bottom>20</bottom>
+            <control type="label">
+                <!--Label (classic only)-->
+                <posx>560</posx>
+                <posy>0</posy>
+                <width>800</width>
+                <align>center</align>
+                <font>Bold30</font>
+                <textcolor>$INFO[Skin.String(FooterTextColor)]</textcolor>
+                <shadowcolor>$INFO[Skin.String(FooterTextShadowColor)]</shadowcolor>
+                <label>$INFO[ListItem.label]</label>
+                <visible>!Control.IsVisible(884)</visible>
+                <scroll>true</scroll>
+                <visible>![Window.IsActive(Videos) | Window.IsActive(videoplaylist)] | ListItem.IsCollection | Skin.HasTheme(classic) | String.IsEmpty(ListItem.VideoAspect) | Skin.String(mediaflagsstyle,disabled) | Skin.String(mediaflagsstyle,classic)</visible>
+            </control>
+            <control type="label">
+                <visible>Container.Content(songs)</visible>
+                <visible>!Control.IsVisible(99123)</visible>
+                <!--Album, Songs-->
+                <left>60</left>
+                <align>left</align>
+                <posy>0</posy>
+                <width>500</width>
+                <font>Reg30</font>
+                <textcolor>$INFO[Skin.String(FooterTextColor)]</textcolor>
+                <shadowcolor>$INFO[Skin.String(FooterTextShadowColor)]</shadowcolor>
+                <label>$INFO[ListItem.Album]</label>
+            </control>
+            <control type="label">
+                <!--Artist-->
+                <visible>[Container.Content(albums) | Container.Content(songs)] + [String.IsEmpty(Container.ListItem.UserRating) + String.IsEmpty(Container.ListItem.Rating)]</visible>
+                <right>60</right>
+                <posy>0</posy>
+                <width>500</width>
+                <align>right</align>
+                <font>Reg30</font>
+                <textcolor>$INFO[Skin.String(FooterTextColor)]</textcolor>
+                <shadowcolor>$INFO[Skin.String(FooterTextShadowColor)]</shadowcolor>
+                <label>$INFO[ListItem.Artist]</label>
+            </control>
+            <control type="label">
+                <!--Playlist length-->
+                <visible>Window.IsActive(videoplaylist)</visible>
+                <right>60</right>
+                <posy>0</posy>
+                <width>500</width>
+                <align>right</align>
+                <font>Reg30</font>
+                <textcolor>$INFO[Skin.String(FooterTextColor)]</textcolor>
+                <shadowcolor>$INFO[Skin.String(FooterTextShadowColor)]</shadowcolor>
+                <label>$INFO[Container.Totaltime,$LOCALIZE[31597]: ]</label>
+            </control>
+            <!-- repo last updated label -->
+            <control type="label">
+                <right>60</right>
+                <align>right</align>
+                <posy>0</posy>
+                <width>550</width>
+                <font>Reg30</font>
+                <textcolor>$INFO[Skin.String(FooterTextColor)]</textcolor>
+                <shadowcolor>$INFO[Skin.String(FooterTextShadowColor)]</shadowcolor>
+                <label>$LOCALIZE[31334]: $INFO[Window().Property(Updated)]</label>
+                <visible>Window.IsActive(AddonBrowser)</visible>
+                <visible>!Control.IsVisible(99123)</visible>
+            </control>
+        </control>
+    </include>
+    
+    <include name="FooterContentHome">
+        
+        <!-- RSS Feed -->
+        <control type="rss">	
+            <description>RSS Feed Normal - normal or touch with disabled battery</description>
+            <posx>0</posx>
+            <bottom>20</bottom>
+            <width>1920</width>
+            <height>50</height>
+            <font>Reg28</font>
+            <urlset>1</urlset>
+            <titlecolor>$INFO[Skin.String(GeneralHighlightTextColor)]</titlecolor>
+            <headlinecolor>$INFO[Skin.String(FooterTextColor)]</headlinecolor>
+            <textcolor>$INFO[Skin.String(GeneralHighlightTextColor)]</textcolor>
+            <shadowcolor>$INFO[Skin.String(FooterTextShadowColor)]</shadowcolor>
+            <visible>system.getbool(lookandfeel.enablerssfeeds)</visible>
+            <visible>!Skin.HasTheme(classic) + ![Control.IsVisible(99123) + !Skin.HasSetting(HideBatteryStatus)]</visible>
+            <visible>![[Control.IsVisible(4444) + Integer.IsGreater(Container(4444).NumItems,0)] + [Skin.String(SubmenuLayout, horizontal) | Skin.String(SubmenuLayout, tiles)]] | String.IsEqual(Skin.String(HomeLayout),simplehor)</visible>
+            <visible>!Window.IsVisible(shutdownmenu) + [String.IsEmpty(Container(900).ListItem.Property(infoline)) | String.IsEqual(Container(900).ListItem.Property(infoline),none)]</visible>
+            <animation effect="slide" start="0,0" end="-15,-2" time="0" condition="Skin.HasTheme(classic)">Conditional</animation>
+            <animation effect="slide" start="0" end="400" time="0" condition="Control.IsVisible(99123)">Conditional</animation>
+        </control>
+        <control type="rss">	
+            <description>RSS Feed Normal or Classic - With touch buttons enabled</description>
+            <posx>400</posx>
+            <bottom>20</bottom>
+            <width>1300</width>
+            <height>50</height>
+            <font>Reg28</font>
+            <urlset>1</urlset>
+            <titlecolor>$INFO[Skin.String(GeneralHighlightTextColor)]</titlecolor>
+            <headlinecolor>$INFO[Skin.String(FooterTextColor)]</headlinecolor>
+            <textcolor>$INFO[Skin.String(GeneralHighlightTextColor)]</textcolor>
+            <shadowcolor>$INFO[Skin.String(FooterTextShadowColor)]</shadowcolor>
+            <visible>system.getbool(lookandfeel.enablerssfeeds)</visible>
+            <visible>Control.IsVisible(99123) + !Skin.HasSetting(HideBatteryStatus)</visible>
+            <visible>![[Control.IsVisible(4444) + Integer.IsGreater(Container(4444).NumItems,0)] + [Skin.String(SubmenuLayout, horizontal) | Skin.String(SubmenuLayout, tiles)]] | String.IsEqual(Skin.String(HomeLayout),simplehor)</visible>
+            <visible>!Window.IsVisible(shutdownmenu) + [String.IsEmpty(Container(900).ListItem.Property(infoline)) | String.IsEqual(Container(900).ListItem.Property(infoline),none)]</visible>
+            <animation effect="slide" start="0,0" end="-15,-2" time="0" condition="Skin.HasTheme(classic)">Conditional</animation>
+        </control>
+        <control type="rss">	
+            <description>RSS Feed Classic theme</description>
+            <posx>80</posx>
+            <bottom>35</bottom>
+            <width>1765</width>
+            <height>50</height>
+            <font>Reg28</font>
+            <urlset>1</urlset>
+            <titlecolor>$INFO[Skin.String(FooterTextColor)]</titlecolor>
+            <headlinecolor>$INFO[Skin.String(FooterTextColor)]</headlinecolor>
+            <textcolor>$INFO[Skin.String(FooterTextColor)]</textcolor>
+            <shadowcolor>$INFO[Skin.String(FooterTextShadowColor)]</shadowcolor>
+            <visible>system.getbool(lookandfeel.enablerssfeeds)</visible>
+            <visible>Skin.HasTheme(classic) + !Control.IsVisible(99123)</visible>
+            <visible>![[Control.IsVisible(4444) + Integer.IsGreater(Container(4444).NumItems,0)] + [Skin.String(SubmenuLayout, horizontal) | Skin.String(SubmenuLayout, tiles)]] | String.IsEqual(Skin.String(HomeLayout),simplehor)</visible>
+            <visible>[String.IsEmpty(Container(900).ListItem.Property(infoline)) | String.IsEqual(Container(900).ListItem.Property(infoline),none)]</visible>
+        </control>
+            
+        <!--infoline-->
+        <control type="label">	
+            <description>InfoLine</description>
+            <posx>20%</posx>
+            <bottom>28</bottom>
+            <width>60%</width>
+            <height>50</height>
+            <font>Reg28</font>
+            <align>center</align>
+            <label>$VAR[infolinevar]</label>
+            <textcolor>$INFO[Skin.String(FooterTextColor)]</textcolor>
+            <shadowcolor>$INFO[Skin.String(FooterTextShadowColor)]</shadowcolor>
+            <visible>![Window.IsVisible(shutdownmenu) + !Skin.HasTheme(classic)]</visible>
+            <visible>![[Control.IsVisible(4444) + Integer.IsGreater(Container(4444).NumItems,0)] + [Skin.String(SubmenuLayout, horizontal) | Skin.String(SubmenuLayout, tiles)]] | String.IsEqual(Skin.String(HomeLayout),simplehor)</visible>
+        </control>        
+        
+    </include>
+
+    <!-- Power button -->
+	<include name="PowerButton">
+		<control type="button" id="2">
+            <description>powerbutton</description>
+            <width>60</width>
+            <height>60</height>
+            <onup>900</onup>
+            <onright>900</onright>
+            <onleft>900</onleft>
+            <texturefocus colordiffuse="$INFO[Skin.String(ButtonFocusColor)]">common/shutdown2.png</texturefocus>
+            <texturenofocus colordiffuse="white">common/shutdown2.png</texturenofocus>
+            <onclick>ActivateWindow(111)</onclick>
+            <onfocus>ActivateWindow(111)</onfocus>
+            <include>animation_fade_visible_hidden</include>
+            <visible allowhiddenfocus="true">$PARAM[visibility]</visible>
+        </control>
+	</include>
+    
+    <include name="StarRatingFooter">
+        <control type="group">
+            <bottom>25</bottom>
+            <right>60</right>
+            <width>315</width>
+            <height>55</height>
+            <include>StarRating</include>
+        </control>
+    </include>
+    <include name="StarRatingFooterClassic">
+        <control type="group">
+            <bottom>40</bottom>
+            <right>60</right>
+            <width>315</width>
+            <height>55</height>
+            <include>StarRating</include>
+        </control>
+    </include>
+    
+    <include name="StarRating">
+        <control type="group">
+            <width>315</width>
+            <height>55</height>
+            <right>0</right>
+            <control type="label">
+                <right>0</right>
+                <height>55</height>
+                <width>315</width>
+                <font>Reg36</font>
+                <align>right</align>
+                <aligny>center</aligny>
+                <textcolor>$INFO[Skin.String(FooterTextColor)]</textcolor>
+                <label>$VAR[rating_value_label]</label>
+            </control>
+            <control type="image">
+                <right>0</right>
+                <width>315</width>
+                <height>55</height>
+                <aspectratio align="left" aligny="center">keep</aspectratio>
+                <colordiffuse>$INFO[Skin.String(FooterTextColor)]</colordiffuse>
+                <texture background="true">$VAR[rating_value_texture]</texture>
+            </control>
+        </control>
+    </include>
+    <!-- NEW rating STARS for bingie view/home menu .. -->
+	<include name="StarRatingBingie">
+		<control type="image">
+			<left>0</left>
+			<width>180</width>
+			<height>55</height>
+			<aspectratio align="left" aligny="center">keep</aspectratio>
+			<colordiffuse>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</colordiffuse>
+			<texture background="true">$VAR[rating_value_texture]</texture>
+		</control>
+	</include>	
+	
+    <variable name="rating_value_texture">
+        <value condition="!String.IsEmpty(ListItem.UserRating)">$INFO[ListItem.UserRating,ratings/star_rating/,.png]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.UserRating))">$INFO[Window(Home).Property(ListItem.UserRating),ratings/star_rating/,.png]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.UserRating))">$INFO[Window(Home).Property(SkinHelper.ListItem.UserRating),ratings/star_rating/,.png]</value>
+        <value condition="!String.IsEmpty(ListItem.Rating)">$INFO[ListItem.Rating,ratings/star_rating/,.png]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Rating))">$INFO[Window(Home).Property(ListItem.Rating),ratings/star_rating/,.png]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating))">$INFO[Window(Home).Property(SkinHelper.ListItem.Rating),ratings/star_rating/,.png]</value>
+    </variable>
+    <variable name="rating_value_label">
+        <value condition="!String.IsEmpty(ListItem.UserRating)">$INFO[ListItem.UserRating]</value>
+        <value condition="!String.IsEmpty(ListItem.Rating)">$INFO[ListItem.Rating]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.UserRating))">$INFO[Window(Home).Property(ListItem.UserRating)]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Rating))">$INFO[Window(Home).Property(ListItem.Rating)]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.UserRating))">$INFO[Window(Home).Property(SkinHelper.ListItem.UserRating)]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating))">$INFO[Window(Home).Property(SkinHelper.ListItem.Rating)]</value>
+    </variable>
+	<!--
+	<variable name="rating_value_tvdb"> 
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.TVDB))">$INFO[Window(Home).Property(SkinHelper.ListItem.Rating.TVDB)]</value>
+        <value condition="!String.IsEmpty(ListItem.Rating(tvdb))">$INFO[ListItem.Rating(tvdb)]</value>
+    </variable>
+	-->
+	<variable name="rating_value_imdb_2">
+        <value condition="!String.IsEmpty(ListItem.RatingAndVotes(imdb))"> $INFO[ListItem.RatingAndVotes(imdb)]</value>
+		<value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.IMDB))">$INFO[Window(Home).Property(SkinHelper.ListItem.Rating.IMDB), ,]$INFO[Window(Home).Property(SkinHelper.ListItem.Votes.IMDB), (, $LOCALIZE[205])]</value>
+    </variable>
+	
+	<variable name="rating_value_tmdb">
+       <value condition="!String.IsEmpty(ListItem.RatingAndVotes(themoviedb))"> $INFO[ListItem.RatingAndVotes(themoviedb)]</value>
+	   <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.TMDB))">$INFO[Window(Home).Property(SkinHelper.ListItem.Rating.TMDB), ,]$INFO[Window(Home).Property(SkinHelper.ListItem.Votes.TMDB), (, $LOCALIZE[205])]</value>
+    </variable>
+    
+    <include name="StarRatingMusicFooter">
+        <control type="group">
+            <bottom>20</bottom>
+            <height>80</height>
+            <right>60</right>
+            <control type="image">
+                <!--Stars classic-->
+                <visible>Skin.HasTheme(classic)</visible>
+                <right>0</right>
+                <posy>18</posy>
+                <width>270</width>
+                <height>25</height>
+                <texture>$VAR[musicrating_stars]</texture>
+                <aspectratio>keep</aspectratio>
+            </control>
+            <control type="image">
+                <!--Stars modern-->
+                <visible>!Skin.HasTheme(classic)</visible>
+                <right>0</right>
+                <posy>20</posy>
+                <width>220</width>
+                <height>55</height>
+                <colordiffuse>$INFO[Skin.String(FooterTextColor)]</colordiffuse>
+                <texture>$VAR[musicrating_stars]</texture>
+                <aspectratio>keep</aspectratio>
+            </control>
+        </control>
+    </include>
+
+    <!-- BINGIE FOOTER REVISIT -->
+
+    <!-- Horizontal Rating Flags Definitions -->
+    <!-- Rotten Tomatoes Meter Flag Horizontal -->
+    <include name="TomatoMeter_Hor">
+        <control type="group">
+            <visible>!String.IsEmpty(Control.GetLabel(699706))</visible>
+            <width>100</width>
+            <height>85</height>
+            <right>0</right>
+            <bottom>0</bottom>
+            <include>Default_Visible_Fade</include>
+            <control type="image">
+                <top>20</top>
+                <width>40</width>
+                <height>40</height>
+                <bordersize>2</bordersize>
+                <aspectratio>keep</aspectratio>
+                <colordiffuse>$PARAM[colordiffuse]</colordiffuse>
+                <texture background="true">$PARAM[fresh_texture]</texture>
+                <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter)) + Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter),59)</visible>
+            </control>
+            <control type="image">
+                <top>20</top>
+                <width>40</width>
+                <height>40</height>
+                <bordersize>2</bordersize>
+                <aspectratio>keep</aspectratio>
+                <colordiffuse>$PARAM[colordiffuse]</colordiffuse>
+                <texture background="true">$PARAM[rotten_texture]</texture>
+                <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter)) + !Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter),59)</visible>
+            </control>
+            <control type="label" id="699706">
+                <left>44</left>
+                <width>50</width>
+                <height>85</height>
+                <align>left</align>
+                <aligny>center</aligny>
+                <font>flags</font>
+                <textcolor>$PARAM[textcolor]</textcolor>
+                <label>$VAR[RottenTomatoesRatingValue]</label>
+            </control>
+        </control>
+    </include>
+
+    <!-- MetaCritic Flag Horizontal -->
+    <include name="MetaCritic_Hor">
+        <control type="group">
+            <visible>!String.IsEmpty(Control.GetLabel(699705))</visible>
+            <width>108</width>
+            <height>85</height>
+            <right>0</right>
+            <bottom>0</bottom>
+            <include>Default_Visible_Fade</include>
+            <control type="image">
+                <top>20</top>
+                <width>40</width>
+                <height>40</height>
+                <bordersize>2</bordersize>
+                <aspectratio>keep</aspectratio>
+                <colordiffuse>$PARAM[colordiffuse]</colordiffuse>
+                <texture background="true">$PARAM[texture]</texture>
+            </control>
+            <control type="label" id="699705">
+                <left>44</left>
+                <width>64</width>
+                <height>85</height>
+                <align>left</align>
+                <aligny>center</aligny>
+                <font>flags</font>
+                <textcolor>$PARAM[textcolor]</textcolor>
+                <label>$VAR[MetaCriticRatingValue]</label>
+            </control>
+        </control>
+    </include>
+
+    <!-- TVDB Flag Horizontal -->
+    <include name="TVDB_Hor">
+        <control type="group">
+            <visible>!String.IsEmpty(Control.GetLabel(699704))</visible>
+            <width>125</width>
+            <height>85</height>
+            <right>0</right>
+            <bottom>0</bottom>
+            <include>Default_Visible_Fade</include>
+            <control type="image">
+                <left>5</left>
+                <top>22</top>
+                <width>65</width>
+                <height>40</height>
+                <bordersize>2</bordersize>
+                <colordiffuse>$PARAM[colordiffuse]</colordiffuse>
+                <texture background="true">$PARAM[texture]</texture>
+            </control>
+            <control type="label" id="699704">
+                <left>73</left>
+                <width>50</width>
+                <height>85</height>
+                <align>left</align>
+                <aligny>center</aligny>
+                <font>flags</font>
+                <textcolor>$PARAM[textcolor]</textcolor>
+                <label>$VAR[TVDBRatingValue]</label>
+            </control>
+        </control>
+    </include>
+
+    <!-- TMDB Flag Horizontal -->
+    <include name="TMDB_Hor">
+        <control type="group">
+            <visible>!String.IsEmpty(Control.GetLabel(699703))</visible>
+            <width>110</width>
+            <height>85</height>
+            <right>0</right>
+            <bottom>0</bottom>
+            <include>Default_Visible_Fade</include>
+            <control type="image">
+                <top>15</top>
+                <width>70</width>
+                <height>53</height>
+                <bordersize>2</bordersize>
+                <colordiffuse>$PARAM[colordiffuse]</colordiffuse>
+                <texture background="true">$PARAM[texture]</texture>
+            </control>
+            <control type="label" id="699703">
+                <left>69</left>
+                <width>50</width>
+                <height>85</height>
+                <align>left</align>
+                <aligny>center</aligny>
+                <font>flags</font>
+                <textcolor>$PARAM[textcolor]</textcolor>
+                <label>$VAR[TMDBRatingValue]</label>
+            </control>
+        </control>
+    </include>
+
+    <!-- IMDB Flag Horizontal -->
+    <include name="IMDB_Hor">
+        <control type="group">
+            <visible>!String.IsEmpty(Control.GetLabel(699702))</visible>
+            <width>130</width>
+            <height>85</height>
+            <right>0</right>
+            <bottom>0</bottom>
+            <include>Default_Visible_Fade</include>
+            <control type="image">
+                <top>$PARAM[top]</top>
+                <width>84</width>
+                <height>$PARAM[texture_height]</height>
+                <bordersize>2</bordersize>
+                <colordiffuse>$PARAM[colordiffuse]</colordiffuse>
+                <texture background="true">$PARAM[texture]</texture>
+            </control>
+            <control type="label" id="699702">
+                <left>87</left>
+                <width>43</width>
+                <height>85</height>
+                <align>left</align>
+                <aligny>center</aligny>
+                <font>flags</font>
+                <textcolor>$PARAM[textcolor]</textcolor>
+                <label>$VAR[IMDBRatingValue]</label>
+            </control>
+        </control>
+    </include>
+
+    <!-- IMDB TOP250 Flag Horizontal -->
+    <include name="IMDB_Top250_Hor">
+        <control type="group">
+            <visible>!String.IsEmpty(Control.GetLabel(699701))</visible>
+            <width>137</width>
+            <height>85</height>
+            <right>0</right>
+            <bottom>0</bottom>
+            <include>Default_Visible_Fade</include>
+            <control type="image">
+                <top>$PARAM[top]</top>
+                <width>84</width>
+                <height>$PARAM[texture_height]</height>
+                <bordersize>2</bordersize>
+                <colordiffuse>$PARAM[colordiffuse]</colordiffuse>
+                <texture>$PARAM[texture]</texture>
+            </control>
+            <control type="label" id="699701">
+                <left>87</left>
+                <width>50</width>
+                <height>85</height>
+                <align>left</align>
+                <aligny>center</aligny>
+                <font>flags</font>
+                <textcolor>$PARAM[textcolor]</textcolor>
+                <label>$VAR[IMDBTop250RatingValue]</label>
+            </control>
+        </control>
+    </include>
+
+    <!-- Monochrome/Color Flags Includes -->
+    <include name="TomatoMeter_Color_Hor">
+        <include content="TomatoMeter_Hor">
+            <param name="colordiffuse" value="" />
+            <param name="fresh_texture" value="flags/fresh.png" />
+            <param name="rotten_texture" value="flags/rotten.png" />
+            <param name="textcolor" value="$VAR[AdvancedRatings_TextColor]" />
+        </include>
+    </include>
+    <include name="TomatoMeter_Monochrome_Hor">
+        <include content="TomatoMeter_Hor">
+            <param name="colordiffuse" value="$INFO[Skin.String(RatingsLogoColor)]" />
+            <param name="fresh_texture" value="flags/white/fresh.png" />
+            <param name="rotten_texture" value="flags/white/rotten.png" />
+            <param name="textcolor" value="$VAR[WhiteRatingColorDiffuseTextColor]" />
+        </include>
+    </include>
+
+    <include name="MetaCritic_Color_Hor">
+        <include content="MetaCritic_Hor">
+            <param name="colordiffuse" value="" />
+            <param name="texture" value="flags/metacritic.png" />
+            <param name="textcolor" value="$VAR[AdvancedRatings_TextColor]" />
+        </include>
+    </include>
+    <include name="MetaCritic_Monochrome_Hor">
+        <include content="MetaCritic_Hor">
+            <param name="colordiffuse" value="$INFO[Skin.String(RatingsLogoColor)]" />
+            <param name="texture" value="flags/white/metacritic.png" />
+            <param name="textcolor" value="$VAR[WhiteRatingColorDiffuseTextColor]" />
+        </include>
+    </include>
+
+    <include name="TVDB_Color_Hor">
+        <include content="TVDB_Hor">
+            <param name="colordiffuse" value="" />
+            <param name="texture" value="flags/tvdbtrans.png" />
+            <param name="textcolor" value="$VAR[AdvancedRatings_TextColor]" />
+        </include>
+    </include>
+    <include name="TVDB_Monochrome_Hor">
+        <include content="TVDB_Hor">
+            <param name="colordiffuse" value="$INFO[Skin.String(RatingsLogoColor)]" />
+            <param name="texture" value="flags/white/tvdbtrans.png" />
+            <param name="textcolor" value="$VAR[WhiteRatingColorDiffuseTextColor]" />
+        </include>
+    </include>
+
+    <include name="TMDB_Color_Hor">
+        <include content="TMDB_Hor">
+            <param name="colordiffuse" value="" />
+            <param name="texture" value="flags/tmdbtp.png" />
+            <param name="textcolor" value="$VAR[AdvancedRatings_TextColor]" />
+        </include>
+    </include>
+    <include name="TMDB_Monochrome_Hor">
+        <include content="TMDB_Hor">
+            <param name="colordiffuse" value="$INFO[Skin.String(RatingsLogoColor)]" />
+            <param name="texture" value="flags/white/tmdbtp.png" />
+            <param name="textcolor" value="$VAR[WhiteRatingColorDiffuseTextColor]" />
+        </include>
+    </include>
+
+    <include name="IMDB_Color_Hor">
+        <include content="IMDB_Hor">
+            <param name="top" value="20" />
+            <param name="texture_height" value="45" />
+            <param name="colordiffuse" value="" />
+            <param name="texture" value="flags/imdb_logo.png" />
+            <param name="textcolor" value="$VAR[AdvancedRatings_TextColor]" />
+        </include>
+    </include>
+    <include name="IMDB_Monochrome_Hor">
+        <include content="IMDB_Hor">
+            <param name="top" value="" />
+            <param name="texture_height" value="85" />
+            <param name="colordiffuse" value="$INFO[Skin.String(RatingsLogoColor)]" />
+            <param name="texture" value="flags/white/imdb_logo.png" />
+            <param name="textcolor" value="$VAR[WhiteRatingColorDiffuseTextColor]" />
+        </include>
+    </include>
+
+    <include name="IMDB_Top250_Color_Hor">
+        <include content="IMDB_Top250_Hor">
+            <param name="top" value="20" />
+            <param name="texture_height" value="45" />
+            <param name="colordiffuse" value="" />
+            <param name="texture" value="flags/imdb_logo_250.png" />
+            <param name="textcolor" value="$VAR[AdvancedRatings_TextColor]" />
+        </include>
+    </include>
+    <include name="IMDB_Top250_Monochrome_Hor">
+        <include content="IMDB_Top250_Hor">
+            <param name="top" value="" />
+            <param name="texture_height" value="85" />
+            <param name="colordiffuse" value="$INFO[Skin.String(RatingsLogoColor)]" />
+            <param name="texture" value="flags/white/imdb_logo_250.png" />
+            <param name="textcolor" value="$VAR[WhiteRatingColorDiffuseTextColor]" />
+        </include>
+    </include>
+
+    <!-- Studio Logo Image -->
+    <include name="StudioLogo">
+            <control type="image" id="6990">
+                <visible>!String.IsEmpty(Control.GetLabel(6990))</visible>
+                <right>0</right>
+                <bottom>0</bottom>
+                <width>155</width>
+                <height>90</height>
+                <aspectratio aligny="center" align="right">keep</aspectratio>
+                <fadetime>300</fadetime>
+                <include condition="!String.Contains(Skin.String(SkinHelper.StudioLogos.Path),colo)">footerColorDiffuse</include>
+                <bordersize>2</bordersize>
+                <texture background="true">$VAR[StudioLogoImg]</texture>
+            </control>
+    </include>
+
+    <include name="Bingie_RatingsAndStudio_Hor">
+        <control type="grouplist">
+            <orientation>horizontal</orientation>
+            <height>90</height>
+            <itemgap>15</itemgap>
+            <align>right</align>
+            <include condition="!Skin.HasSetting(BingieViewsDisableRating) + Skin.HasSetting(EnableMonochromeRatingInBingieViews)">Rating_Monochrome_Hor</include>
+            <include condition="!Skin.HasSetting(BingieViewsDisableRating) + !Skin.HasSetting(EnableMonochromeRatingInBingieViews)">Rating_Color_Hor</include>
+            <include condition="!Skin.HasSetting(BingieViewsDisableStudio) + Skin.HasSetting(EnableStudioLogo)">StudioLogo</include>
+        </control>
+    </include>
+
+    <include name="Bingie_InfoDialog_Ratings_Hor">
+        <control type="grouplist">
+            <orientation>horizontal</orientation>
+            <posx>65</posx>
+            <height>90</height>
+            <itemgap>100</itemgap>
+            <align>left</align>
+            <include condition="Skin.HasSetting(EnableMonochromeRatingInBingieViews)">Rating_Monochrome_Hor</include>
+            <include condition="!Skin.HasSetting(EnableMonochromeRatingInBingieViews)">Rating_Color_Hor</include>
+        </control>
+    </include>
+
+    <include name="Footer_RatingAndStudio_Hor">
+        <control type="group">
+            <bottom>50</bottom>
+            <right>50</right>
+            <height>50</height>
+            <width>1000</width>
+            <control type="grouplist">
+                <orientation>horizontal</orientation>
+                <height>90</height>
+                <itemgap>15</itemgap>
+                <align>right</align>
+                <include condition="Skin.HasSetting(EnableMonochromeRatingInFooter)">Rating_Monochrome_Hor</include>
+                <include condition="!Skin.HasSetting(EnableMonochromeRatingInFooter)">Rating_Color_Hor</include>
+                <include condition="Skin.HasSetting(EnableStudioLogo)">StudioLogo</include>
+            </control>
+        </control>
+    </include>
+
+    <include name="Rating_Color_Hor">
+        <include condition="Skin.HasSetting(EnableIMDBRating)">IMDB_Top250_Color_Hor</include>
+        <include condition="Skin.HasSetting(EnableIMDBRating)">IMDB_Color_Hor</include>
+        <include condition="Skin.HasSetting(EnableTVdbAndTMdbRating)">TVDB_Color_Hor</include>
+        <include condition="Skin.HasSetting(EnableTVdbAndTMdbRating)">TMDB_Color_Hor</include>
+        <include condition="Skin.HasSetting(EnableRTAndMetaCriticRating)">TomatoMeter_Color_Hor</include>
+        <include condition="Skin.HasSetting(EnableRTAndMetaCriticRating)">MetaCritic_Color_Hor</include>
+    </include>
+
+    <include name="Rating_Monochrome_Hor">
+        <include condition="Skin.HasSetting(EnableIMDBRating)">IMDB_Top250_Monochrome_Hor</include>
+        <include condition="Skin.HasSetting(EnableIMDBRating)">IMDB_Monochrome_Hor</include>
+        <include condition="Skin.HasSetting(EnableTVdbAndTMdbRating)">TVDB_Monochrome_Hor</include>
+        <include condition="Skin.HasSetting(EnableTVdbAndTMdbRating)">TMDB_Monochrome_Hor</include>
+        <include condition="Skin.HasSetting(EnableRTAndMetaCriticRating)">TomatoMeter_Monochrome_Hor</include>
+        <include condition="Skin.HasSetting(EnableRTAndMetaCriticRating)">MetaCritic_Monochrome_Hor</include>
+    </include>
+
+    <variable name="WhiteRatingColorDiffuseTextColor">
+        <value condition="!Skin.String(RatingsLogoColor,none)">$INFO[Skin.String(RatingsLogoColor)]</value>
+        <value>$VAR[AdvancedRatings_TextColor]</value>
+    </variable>
+
+    <variable name="IMDBRatingValue">
+        <value condition="!String.IsEmpty(ListItem.Rating(imdb))">$INFO[ListItem.Rating(imdb)]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.IMDB))">$INFO[Window(Home).Property(SkinHelper.ListItem.Rating.IMDB)]</value>
+    </variable>
+
+    <variable name="IMDBTop250RatingValue">
+        <value condition="!String.IsEmpty(ListItem.Top250)">$INFO[ListItem.Top250]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.IMDB.Top250))">$INFO[Window(Home).Property(SkinHelper.ListItem.IMDB.Top250)]</value>
+    </variable>
+
+    <variable name="TVDBRatingValue">
+        <value condition="!String.IsEmpty(ListItem.Rating(tvdb))">$INFO[ListItem.Rating(tvdb)]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.TVDB))">$INFO[Window(Home).Property(SkinHelper.ListItem.Rating.TVDB)]</value>
+    </variable>
+
+    <variable name="TMDBRatingValue">
+        <value condition="!String.IsEmpty(ListItem.Rating(themoviedb))">$INFO[ListItem.Rating(themoviedb)]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.TMDB))">$INFO[Window(Home).Property(SkinHelper.ListItem.Rating.TMDB)]</value>
+    </variable>
+
+    <variable name="MetaCriticRatingValue">
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MetaCritic.Rating))">$INFO[Window(Home).Property(SkinHelper.ListItem.MetaCritic.Rating),,%]</value>
+        <value condition="!String.IsEmpty(ListItem.Rating(metacritic))">$INFO[ListItem.Rating(metacritic)]</value>
+    </variable>
+
+    <variable name="RottenTomatoesRatingValue">
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter))">$INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter),,%]</value>
+        <!--<value condition="!String.IsEmpty(ListItem.Rating(rottentomatoes))">$INFO[ListItem.Rating(rottentomatoes)]</value>-->
+    </variable>
+
+    <variable name="StudioLogoImg">
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.StudioLogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.StudioLogo)]</value>
+        <value condition="!String.IsEmpty(Skin.String(SkinHelper.StudioLogos.Path)) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Studio))">$INFO[Skin.String(SkinHelper.StudioLogos.Path)]$INFO[Window(Home).Property(SkinHelper.ListItem.Studio),,.png]</value>
+        <!--<value condition="Skin.String(SkinHelper.StudioLogos.Path) + !String.IsEmpty(ListItem.Studio) + !String.Contains(ListItem.Studio,/)">$INFO[Skin.String(SkinHelper.StudioLogos.Path)]$INFO[ListItem.Studio,,.png]</value> -->
+    </variable>
+</includes>

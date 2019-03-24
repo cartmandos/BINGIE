@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- BINGIE -->
+<window id="1102">
+	<zorder>999</zorder>
+	<defaultcontrol>101</defaultcontrol>
+	<controls>
+		<control type="group">
+			<control type="image">
+				<animation effect="fade" end="100" time="200">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+				<animation effect="fade" end="100" time="200">Visible</animation>
+				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+				<include>FullscreenDimensions</include>
+				<texture background="true" colordiffuse="$VAR[BingiePanelColor]">colors/color_white.png</texture>
+			</control>
+			<control type="image">
+				<include>FullscreenDimensions</include>
+				<texture background="true" border="50">special://home/addons/resource.images.backgroundoverlays.basic/resources/Square Grey.png</texture>
+			</control>
+			<control type="scrollbar" id="3000">
+				<include>HiddenObject</include>
+			</control>
+			<control type="grouplist">
+				<include>Startup_Dialog_OpenClose</include>
+				<centerleft>50%</centerleft>
+				<centertop>50%</centertop>
+				<width>800</width>
+				<height max="940">auto</height>
+				<orientation>vertical</orientation>
+				<itemgap>25</itemgap>
+				<align>center</align>
+				<!-- logo -->
+				<control type="group">
+					<width>324</width>
+					<height>94</height>
+					<control type="image">
+						<left>238</left>
+						<align>left</align>
+						<width>100%</width>
+						<height>100%</height>
+						<aspectratio align="center">keep</aspectratio>
+						<texture background="true">bingie_logo.png</texture>
+					</control>
+				</control>
+				<!-- message -->
+				<control id="5" type="textbox">
+					<centerleft>50%</centerleft>
+					<width>100%</width>
+					<height max="745">auto</height>
+					<font>Light24</font>
+					<autoscroll>false</autoscroll>
+					<align>left</align>
+					<textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
+					<aligny>top</aligny>
+					<pagecontrol>3000</pagecontrol>
+					<label>31395</label>
+				</control>
+				<!-- Button -->
+				<control type="grouplist" id="100">
+					<height>55</height>
+					<width>100%</width>
+					<orientation>horizontal</orientation>
+					<itemgap>25</itemgap>
+					<align>center</align>
+					<onright>noop</onright>
+					<onleft>noop</onleft>
+					<control type="button" id="101">
+						<width min="300">auto</width>
+						<height>55</height>
+						<font>Reg24</font>
+						<textcolor>white</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<selectedcolor>white</selectedcolor>
+						<textoffsetx>20</textoffsetx>
+						<aligny>center</aligny>
+						<align>center</align>
+						<texturefocus border="10" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframefo.png</texturefocus>
+						<texturenofocus border="10" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframenf.png</texturenofocus>
+						<alttexturefocus border="10" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframefo.png</alttexturefocus>
+						<alttexturenofocus border="10" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframenf.png</alttexturenofocus>
+						<label>31396</label>
+						<onclick>Skin.SetBool(BingieSecondStartupDone)</onclick>
+						<onclick>SetProperty(finishBingieStartup2,1,Home)</onclick>
+						<onclick>AlarmClock(clear_property,ClearProperty(finishBingieStartup2,Home),00:02,silent)</onclick>
+						<onclick>AlarmClock(delay_window,ReplaceWindow(Videos,sources://video/),00:01,silent)</onclick>
+						<onup>PageUp(3000)</onup>
+						<ondown>PageDown(3000)</ondown>
+					</control>
+
+					<control type="button" id="102">
+						<width min="300">auto</width>
+						<height>55</height>
+						<font>Reg24</font>
+						<textcolor>white</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<selectedcolor>white</selectedcolor>
+						<textoffsetx>20</textoffsetx>
+						<aligny>center</aligny>
+						<align>center</align>
+						<texturefocus border="10" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframefo.png</texturefocus>
+						<texturenofocus border="10" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframenf.png</texturenofocus>
+						<alttexturefocus border="10" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframefo.png</alttexturefocus>
+						<alttexturenofocus border="10" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframenf.png</alttexturenofocus>
+						<label>$LOCALIZE[31397]</label>
+						<onclick>Skin.SetBool(BingieSecondStartupDone)</onclick>
+						<onclick>SetProperty(finishBingieStartup2,1,Home)</onclick>
+						<onclick>AlarmClock(clear_property,ClearProperty(finishBingieStartup2,Home),00:02,silent)</onclick>
+						<onclick>AlarmClock(delay_window,ReplaceWindow($VAR[StartUpWindow]),00:01,silent)</onclick>
+						<onup>PageUp(3000)</onup>
+						<ondown>PageDown(3000)</ondown>
+					</control>
+				</control>
+
+				<!-- fake progress -->
+				<control type="group">
+					<width>800</width>
+					<height>10</height>
+					<control type="image">
+						<width>100%</width>
+						<height>100%</height>
+						<texture colordiffuse="cc515151" border="2">colors/color_white.png</texture>
+					</control>
+					<control type="image">
+						<width>50%</width>
+						<height>100%</height>
+						<texture colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]" border="4">colors/color_white.png</texture>
+						<animation effect="zoom" end="200,100" easing="in" tween="cubic" time="600" condition="!String.IsEmpty(Window(Home).Property(finishBingieStartup2))">Conditional</animation>
+					</control>
+				</control>
+			</control>
+		</control>
+	</controls>
+</window>

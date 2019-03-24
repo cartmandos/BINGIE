@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BINGIE -->
+<includes>
+
+	<include name="BiglistLayout">
+
+		<!--Title-->
+		<control type="label">
+			<posx>100</posx>
+            <width>80%</width>
+			<posy>10</posy>
+			<height>40</height>
+			<align>left</align>
+			<label>$INFO[ListItem.Label]</label>
+			<textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
+			<font>Reg36</font>
+		</control>
+		<!--Details-->
+		<control type="label">
+			<posx>100</posx>
+            <width>80%</width>
+			<posy>50</posy>
+			<height>60</height>
+			<align>left</align>
+			<label>$VAR[ListDetails]</label>
+			<textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
+            <visible>!String.IsEqual(ListItem.Label,..)</visible>
+			<font>Light28</font>
+		</control>
+		<control type="image">
+			<bottom>0</bottom>
+			<posy>0</posy>
+			<height>1</height>
+			<texture>diffuse/panel.png</texture>
+			<colordiffuse>grey</colordiffuse>
+		</control>
+        <include>WatchedIndicatorNormal</include>
+		<control type="image">
+			<!--icon-->
+			<posy>5%</posy>
+			<left>8</left>
+			<width>70</width>
+			<height>90%</height>
+			<texture background="true">$VAR[PosterThumbList]</texture>
+			<aspectratio align="center" aligny="center">keep</aspectratio>
+		</control>
+		
+		<!--Rating-->
+		<control type="label">
+			<right>0</right>
+			<posy>10</posy>
+			<height>40</height>
+			<width>80</width>
+			<align>center</align>
+			<label>$INFO[ListItem.Rating]</label>
+			<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+			<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+			<font>Light28</font>
+			<visible>![[Skin.HasSetting(WatchedIndicator.Watched) + String.IsEqual(ListItem.Overlay,OverlayWatched.png)] | [Skin.HasSetting(WatchedIndicator.Sets) + String.Contains(ListItem.Path,videodb://movies/sets/)] | [Skin.HasSetting(WatchedIndicator.Progress) + ListItem.IsResumable] | [Skin.HasSetting(WatchedIndicator.Episodes) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | ListItem.IsPlaying | ListItem.IsRecording | Skin.HasSetting(WatchedIndicator.UnWatched)]</visible>
+		</control>
+		<!--quality-->
+		<control type="label">
+			<right>0</right>
+			<posy>50</posy>
+			<height>60</height>
+			<width>80</width>
+			<align>center</align>
+			<label>[B]$VAR[HDIndicator][/B]</label>
+			<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+			<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+			<font>Light28</font>
+			<visible>![[Skin.HasSetting(WatchedIndicator.Watched) + String.IsEqual(ListItem.Overlay,OverlayWatched.png)] | [Skin.HasSetting(WatchedIndicator.Sets) + String.Contains(ListItem.Path,videodb://movies/sets/)] | [Skin.HasSetting(WatchedIndicator.Progress) + ListItem.IsResumable] | [Skin.HasSetting(WatchedIndicator.Episodes) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | ListItem.IsPlaying | ListItem.IsRecording | Skin.HasSetting(WatchedIndicator.UnWatched)]</visible>
+		</control>
+	</include>
+
+    <include name="BigListFocusLayout">
+		<control type="image">
+			<posx>0</posx>
+			<posy>0</posy>
+			<texture border="5">diffuse/panel.png</texture>
+			<colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
+		</control>
+		<!--Title-->
+		<control type="label">
+			<posx>100</posx>
+            <width>80%</width>
+			<posy>10</posy>
+			<height>40</height>
+			<align>left</align>
+			<label>$INFO[ListItem.Label]</label>
+			<textcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</textcolor>
+			<font>Reg36</font>
+			<scroll>true</scroll>
+		</control>
+		<!--Details-->
+		<control type="label">
+			<posx>100</posx>
+            <width>80%</width>
+			<posy>50</posy>
+			<height>60</height>
+			<align>left</align>
+			<label>$VAR[ListDetails]</label>
+			<textcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</textcolor>
+			<font>Light28</font>
+			<scroll>true</scroll>
+		</control>
+		<control type="image">
+			<bottom>0</bottom>
+			<posy>0</posy>
+			<height>1</height>
+			<texture>diffuse/panel.png</texture>
+			<colordiffuse>grey</colordiffuse>
+		</control>
+        <include>WatchedIndicatorNormal</include>
+		<control type="image">
+			<!--icon-->
+			<posy>5%</posy>
+			<left>8</left>
+			<width>70</width>
+			<height>90%</height>
+			<texture background="true">$VAR[PosterThumbList]</texture>
+			<aspectratio align="center" aligny="center">keep</aspectratio>
+		</control>
+		
+		<!--Rating-->
+		<control type="label">
+			<right>0</right>
+			<posy>10</posy>
+			<height>40</height>
+			<width>80</width>
+			<align>center</align>
+			<label>$INFO[ListItem.Rating]</label>
+			<textcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</textcolor>
+			<font>Light28</font>
+			<visible>![[Skin.HasSetting(WatchedIndicator.Watched) + String.IsEqual(ListItem.Overlay,OverlayWatched.png)] | [Skin.HasSetting(WatchedIndicator.Sets) + String.Contains(ListItem.Path,videodb://movies/sets/)] | [Skin.HasSetting(WatchedIndicator.Progress) + ListItem.IsResumable] | [Skin.HasSetting(WatchedIndicator.Episodes) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | ListItem.IsPlaying | ListItem.IsRecording | Skin.HasSetting(WatchedIndicator.UnWatched)]</visible>
+		</control>
+		<!--quality-->
+		<control type="label">
+			<right>0</right>
+			<posy>50</posy>
+			<height>60</height>
+			<width>80</width>
+			<align>center</align>
+			<label>[B]$VAR[HDIndicator][/B]</label>
+			<textcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</textcolor>
+			<font>Light28</font>
+			<visible>![[Skin.HasSetting(WatchedIndicator.Watched) + String.IsEqual(ListItem.Overlay,OverlayWatched.png)] | [Skin.HasSetting(WatchedIndicator.Sets) + String.Contains(ListItem.Path,videodb://movies/sets/)] | [Skin.HasSetting(WatchedIndicator.Progress) + ListItem.IsResumable] | [Skin.HasSetting(WatchedIndicator.Episodes) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | ListItem.IsPlaying | ListItem.IsRecording | Skin.HasSetting(WatchedIndicator.UnWatched)]</visible>
+		</control>
+		
+	</include>
+	
+	<include name="BiglistSlimLayout">
+
+		<!--Title-->
+		<control type="label">
+			<posx>10</posx>
+			<align>left</align>
+			<width>80%</width>
+			<label>[B]$INFO[ListItem.Label][/B]</label>
+			<textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
+			<font>Light30</font>
+		</control>		
+		
+		<!--runtime-->
+		<control type="label">
+			<right>0</right>
+			<width>140</width>
+			<align>right</align>
+			<label>$INFO[ListItem.Duration,, min.]</label>
+			<textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
+			<font>Light28</font>
+            <visible>![[Skin.HasSetting(WatchedIndicator.Watched) + String.IsEqual(ListItem.Overlay,OverlayWatched.png)] | [Skin.HasSetting(WatchedIndicator.Sets) + String.Contains(ListItem.Path,videodb://movies/sets/)] | [Skin.HasSetting(WatchedIndicator.Progress) + ListItem.IsResumable] | [Skin.HasSetting(WatchedIndicator.Episodes) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | ListItem.IsPlaying | ListItem.IsRecording]</visible>
+		</control>
+		
+		<!--Year-->
+		<control type="label">
+			<right>160</right>
+			<width>110</width>
+			<align>center</align>
+			<label>$INFO[ListItem.Year]</label>
+			<textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
+			<font>Light28</font>
+		</control>
+		
+		<control type="group">
+			<!--Watched Overlay-->
+			<include>WatchedIndicatorSmall</include>
+		</control>
+		
+		<control type="image">
+			<bottom>0</bottom>
+			<posy>0</posy>
+			<height>1</height>
+			<texture>diffuse/panel.png</texture>
+			<colordiffuse>grey</colordiffuse>
+			
+		</control>
+	</include>
+
+    <include name="BigListSlimLayoutFocus">
+		<control type="image">
+			<posx>0</posx>
+			<posy>0</posy>
+			<texture border="5">diffuse/panel.png</texture>
+			<colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
+			
+		</control>
+		<!--Title-->
+		<control type="label">
+			<posx>10</posx>
+			<align>left</align>
+			<width>65%</width>
+			<label>[B]$INFO[ListItem.Label][/B]</label>
+			<textcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</textcolor>
+			<font>Light30</font>
+			<scroll>true</scroll>
+		</control>
+         <!--runtime-->
+		<control type="label">
+			<right>0</right>
+			<width>140</width>
+			<align>right</align>
+			<label>$INFO[ListItem.Duration,, min.]</label>
+			<textcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</textcolor>
+			<font>Light28</font>
+            <visible>![[Skin.HasSetting(WatchedIndicator.Watched) + String.IsEqual(ListItem.Overlay,OverlayWatched.png)] | [Skin.HasSetting(WatchedIndicator.Sets) + String.Contains(ListItem.Path,videodb://movies/sets/)] | [Skin.HasSetting(WatchedIndicator.Progress) + ListItem.IsResumable] | [Skin.HasSetting(WatchedIndicator.Episodes) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | ListItem.IsPlaying | ListItem.IsRecording]</visible>
+		</control>
+		
+		<!--Year-->
+		<control type="label">
+			<right>160</right>
+			<width>110</width>
+			<align>center</align>
+			<label>$INFO[ListItem.Year]</label>
+			<textcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</textcolor>
+			<font>Light28</font>
+		</control>
+		
+		<control type="group">
+			<!--Watched Overlay-->
+			<include>WatchedIndicatorSmall</include>
+		</control>
+		
+		<control type="image">
+			<bottom>0</bottom>
+			<posy>0</posy>
+			<height>1</height>
+			<texture>diffuse/panel.png</texture>
+			<colordiffuse>grey</colordiffuse>
+			
+		</control>
+	</include>
+	
+	<include name="View_51_BigList">
+	
+		<control type="group">
+			<defaultcontrol always="true">51</defaultcontrol>
+			<visible>Control.IsVisible(51)</visible>
+			<include>animation_view_change</include>
+            <!-- Background Panel-->
+			<control type="image">
+				<left>50</left>
+                <bottom>13%</bottom>
+				<width>1180</width>
+                <height>736</height>
+				<texture border="15">diffuse/bgpanel.png</texture>
+				<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
+				<visible>!Skin.HasSetting(View51_HidePanel) + Skin.HasSetting(BigListViewShowInfo)</visible>
+                <visible>Integer.IsGreater(Container.NumItems,0)</visible>
+                <animation effect="slide" end="637" time="0" condition="!Skin.HasSetting(View51_ShowInfoRight) + Skin.HasSetting(BigListViewShowInfo)">Conditional</animation>
+			</control>
+            <control type="image">
+				<left>50</left>
+                <bottom>13%</bottom>
+				<width>1302</width>
+                <height>736</height>
+				<texture border="15">diffuse/bgpanel.png</texture>
+				<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
+				<visible>!Skin.HasSetting(View51_HidePanel) + !Skin.HasSetting(BigListViewShowInfo)</visible>
+                <visible>Integer.IsGreater(Container.NumItems,0)</visible>
+                <animation effect="slide" end="627" time="0" condition="!Skin.HasSetting(View51_ShowInfoRight) + Skin.HasSetting(BigListViewShowInfo)">Conditional</animation>
+			</control>
+		
+			<control type="panel" id="51">
+				<animation effect="slide" end="635" time="0" condition="Skin.HasSetting(BigListViewShowInfo) + !Skin.HasSetting(View51_ShowInfoRight)">Conditional</animation>
+				<bottom>13%</bottom>
+                <height>724</height>	
+				<left>60</left>
+				<width>1290</width>
+				<onup>51</onup>
+				<ondown>51</ondown>
+				<onleft>9000</onleft>
+				<onright condition="Skin.HasSetting(EnableQuickJump)">6000</onright>
+                <onright condition="!Skin.HasSetting(EnableQuickJump)">60</onright>
+				<viewtype label="31444">list</viewtype>
+				<orientation>vertical</orientation>
+				<pagecontrol>60</pagecontrol>
+				<scrolltime tween="cubic" easing="out">600</scrolltime>
+				<preloaditems>2</preloaditems>
+				<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),51) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
+                         <!-- not info & not slim -->
+				<itemlayout width="1290" height="103" condition="!Skin.HasSetting(View51_UseSlimList) + !Skin.HasSetting(BigListViewShowInfo)">		
+					<include>BiglistLayout</include>
+				</itemlayout>
+				<focusedlayout width="1290" height="103" condition="!Skin.HasSetting(View51_UseSlimList) + !Skin.HasSetting(BigListViewShowInfo)">
+					<include>BigListFocusLayout</include>
+				</focusedlayout>
+				
+                <!-- info & not slim -->
+				<itemlayout width="1290" height="103" condition="!Skin.HasSetting(View51_UseSlimList) + Skin.HasSetting(BigListViewShowInfo)">		
+                    <control type="group">
+                        <left>0</left>
+                        <width>1160</width>
+                        <include>BiglistLayout</include>
+                    </control>
+				</itemlayout>
+				<focusedlayout width="1290" height="103" condition="!Skin.HasSetting(View51_UseSlimList) + Skin.HasSetting(BigListViewShowInfo)">
+                    <control type="group">
+                        <left>0</left>
+                        <width>1160</width>
+                        <include>BigListFocusLayout</include>
+                        <include>AutoTrailerButton</include>
+                    </control>
+				</focusedlayout>
+				
+				<!-- not info & slim -->
+				<itemlayout width="1290" height="60" condition="Skin.HasSetting(View51_UseSlimList) + !Skin.HasSetting(BigListViewShowInfo)">		
+					<include>BiglistSlimLayout</include>
+				</itemlayout>
+				<focusedlayout width="1290" height="60" condition="Skin.HasSetting(View51_UseSlimList) + !Skin.HasSetting(BigListViewShowInfo)">
+					<include>BigListSlimLayoutFocus</include>
+				</focusedlayout>
+				
+                <!-- info & slim -->
+				<itemlayout width="1290" height="60" condition="Skin.HasSetting(View51_UseSlimList) + Skin.HasSetting(BigListViewShowInfo)">		
+                    <control type="group">
+                        <left>0</left>
+                        <width>1160</width>
+                        <include>BiglistSlimLayout</include>
+                    </control>
+				</itemlayout>
+				<focusedlayout width="1290" height="60" condition="Skin.HasSetting(View51_UseSlimList) + Skin.HasSetting(BigListViewShowInfo)">
+                    <control type="group">
+                        <left>0</left>
+                        <width>1160</width>
+                        <include>BigListSlimLayoutFocus</include>
+                        <include>AutoTrailerButton</include>
+                    </control>
+				</focusedlayout>
+
+			</control>
+            <!-- info panel -->
+            <include>MovieDetailsLeft</include>
+            <!--large poster-->
+			<control type="group">
+				<visible>!Skin.HasSetting(BigListViewShowInfo)</visible>
+                <visible>Integer.IsGreater(Container.NumItems,0)</visible>
+                <right>50</right>
+                <bottom>13%</bottom>
+                <height>736</height>
+                <width>500</width>
+                <control type="image">
+                    <include>PosterThumbBG</include>
+                    <visible>!Skin.HasSetting(View51_HidePanel)</visible>
+                </control>
+                <control type="image">
+					<!--cdart image normal-->
+                    <width>500</width>
+                    <height>500</height>
+                    <top>118</top>
+					<texture background="true" diffuse="diffuse/cdmask_new.png">$VAR[DiscArtImage]</texture>
+					<aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
+					<animation effect="slide" start="0,0" end="-230,0" tween="cubic" easing="inout" time="1200" delay="600" condition="Skin.HasSetting(View51_ShowCDart)">Conditional</animation>
+					<animation effect="fade" start="0" end="100" delay="600" time="800" pulse="false" condition="Skin.HasSetting(View51_ShowCDart)">Conditional</animation>
+					<animation effect="rotate" end="-360" center="auto" time="20000" loop="true" reversible="false" condition="Skin.HasSetting(AnimateDiscArt)">Conditional</animation>
+                    <visible>Skin.HasSetting(View51_ShowCDart) + Window.IsActive(Videos) + [!String.IsEmpty(ListItem.Art(poster)) | !String.IsEmpty(ListItem.Art(tvshow.poster)) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Poster))]</visible>
+                    <visible>![ListItem.IsCollection + Skin.HasSetting(EmbyCovertArtEnabled)]</visible>
+				</control>
+                <control type="image">
+					<!--cdart image music-->
+                    <width>500</width>
+                    <height>500</height>
+                    <bottom>0</bottom>
+					<texture background="true" diffuse="diffuse/cdmask_new.png">$VAR[DiscArtImage]</texture>
+					<aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
+					<animation effect="slide" start="0,0" end="0,-200" tween="cubic" easing="inout" time="1200" delay="600" condition="Skin.HasSetting(View51_ShowCDart)">Conditional</animation>
+					<animation effect="fade" start="0" end="100" delay="600" time="800" pulse="false" condition="Skin.HasSetting(View51_ShowCDart)">Conditional</animation>
+					<animation effect="rotate" end="-360" center="auto" time="20000" loop="true" reversible="false" condition="Skin.HasSetting(AnimateDiscArt)">Conditional</animation>
+                    <visible>Skin.HasSetting(View51_ShowCDart) + [Container.Content(albums) | Container.Content(songs)] + !String.IsEmpty(ListItem.Album) + !String.IsEmpty(ListItem.Art(thumb))</visible>
+				</control>
+                <control type="image">
+					<aspectratio align="center" aligny="center" scalediffuse="true">stretch</aspectratio>
+					<texture background="true" diffuse="diffuse/poster.png" fallback="DefaultVideo.png">$VAR[PosterThumb]</texture>
+					<bordersize>8</bordersize>
+                    <visible>[!String.IsEmpty(ListItem.Art(poster)) | !String.IsEmpty(ListItem.Art(tvshow.poster))]</visible>
+                    <visible>![ListItem.IsCollection + Skin.HasSetting(EmbyCovertArtEnabled)]</visible>
+				</control>
+                <control type="image">
+					<aspectratio align="center" aligny="center" scalediffuse="true">keep</aspectratio>
+					<texture background="true" diffuse="diffuse/poster.png" fallback="DefaultVideo.png">$VAR[PosterThumb]</texture>
+					<bordersize>8</bordersize>
+                    <visible>[ListItem.IsCollection + Skin.HasSetting(EmbyCovertArtEnabled)]</visible>
+				</control>
+                <control type="image">
+					<aspectratio align="center" aligny="bottom" scalediffuse="true">keep</aspectratio>
+					<texture background="true" diffuse="diffuse/poster.png" fallback="DefaultVideo.png">$VAR[PosterThumb]</texture>
+					<bordersize>8</bordersize>
+                    <visible>![ListItem.IsCollection + Skin.HasSetting(EmbyCovertArtEnabled)]</visible>
+                    <visible>String.IsEmpty(ListItem.Art(poster)) + String.IsEmpty(ListItem.Art(tvshow.poster))</visible>
+				</control>
+                <control type="group">
+                    <right>8</right>
+                    <top>8</top>
+                    <include>WatchedIndicatorLarge</include>
+                    <visible>[!String.IsEmpty(ListItem.Art(poster)) | !String.IsEmpty(ListItem.Art(tvshow.poster))]</visible>
+                    <visible>![ListItem.IsCollection + Skin.HasSetting(EmbyCovertArtEnabled)]</visible>
+                </control>
+			</control>
+            <!--vertical Scollbar-->
+			<control type="scrollbar" id="60">
+				<visible>Control.IsVisible(51) + Integer.IsGreater(Container.NumItems,0)</visible>
+				<right>15</right>
+				<bottom>13%</bottom>
+				<height>726</height>
+				<onup>60</onup>
+				<ondown>6000</ondown>
+				<onleft>51</onleft>
+				<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] + !Control.IsVisible(6002)">Conditional</animation>
+				<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] | Control.IsVisible(6002)">Conditional</animation>
+			</control>
+    
+
+		</control>
+		
+	</include>
+
+</includes>

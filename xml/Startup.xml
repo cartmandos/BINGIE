@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BINGIE -->
+<window>
+    <defaultcontrol always="true">10</defaultcontrol>
+    <include>DefaultSkinSettings</include>
+    <!-- start up mask - preload -->
+    <onload condition="String.IsEmpty(Skin.String(SplashScreen)) + String.IsEmpty(Skin.String(AutoStartPlayList))">SetProperty(startup,1,home)</onload>
+    <onload condition="String.IsEmpty(Skin.String(SplashScreen)) + String.IsEmpty(Skin.String(AutoStartPlayList))">AlarmClock(startup,ClearProperty(startup,home),00:06,silent)</onload>
+    <onload condition="String.IsEmpty(Skin.String(SplashScreen)) + String.IsEmpty(Skin.String(AutoStartPlayList))">AlarmClock(startup_delay,ReplaceWindow($VAR[StartUpWindow]),00:00,silent)</onload>
+
+    <onload condition="!String.IsEmpty(Skin.String(SplashScreen)) + String.IsEmpty(Skin.String(AutoStartPlayList))">RunScript(script.skin.helper.service,action=splashscreen,file=$INFO[Skin.String(SplashScreen)])</onload>
+    <onload condition="String.IsEmpty(Skin.String(SplashScreen)) + !String.IsEmpty(Skin.String(AutoStartPlayList))">PlayMedia($INFO[Skin.String(AutoStartPlayList)])</onload>
+    <onunload condition="Player.HasVideo + String.IsEmpty(Skin.String(AutoStartPlayList))">PlayerControl(Stop)</onunload>
+    <controls>
+        <!-- block input button -->
+        <control type="button">
+            <include>HiddenObject</include>
+            <include content="ButtonMovementAction">
+                <param name="action" value="noop" />
+            </include>
+        </control>
+        <!-- image -->
+        <control type="image">
+            <include>FullscreenDimensions</include>
+            <fadetime>300</fadetime>
+			<aspectratio>keep</aspectratio>
+            <texture background="true">$VAR[SplashImage]</texture>
+			<visible>String.IsEmpty(Skin.String(AutoStartPlayList))</visible>
+		</control>
+         <!-- video -->
+        <control type="group">
+            <visible>Player.HasVideo</visible>
+            <control type="image">
+                <include>FullscreenDimensions</include>
+                <texture>colors/color_black.png</texture>
+            </control>
+            <control type="videowindow">
+                <include>FullscreenDimensions</include>
+            </control>
+        </control>
+     </controls>
+</window>

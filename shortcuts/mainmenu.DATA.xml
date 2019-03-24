@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BINGIE -->
+<shortcuts>
+	<!-- live tv -->
+	<shortcut>
+		<label>32022</label>
+		<label2>32022</label2>
+		<icon>shortcuts/antenna.png</icon>
+		<thumb>$INFO[Window(Home).Property(SkinHelper.PvrBackground)]</thumb>
+		<action>ActivateWindow(TVChannels)</action>
+	</shortcut>
+
+	<!-- search -->
+	<shortcut>
+		<label>137</label>
+		<label2>137</label2>
+		<icon>shortcuts/search.png</icon>
+		<thumb/>
+		<action>ActivateWindow(1109,return)</action>
+	</shortcut>
+
+	<!-- home -->
+	<shortcut>
+		<label>10000</label>
+		<label2>10000</label2>
+		<icon>shortcuts/home.png</icon>
+		<thumb />
+		<action>ActivateWindow(home,return)</action>
+		<visible>String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
+	</shortcut>
+
+	<!-- series hub -->
+	<shortcut>
+		<label>20343</label>
+		<label2>20343</label2>
+		<icon>shortcuts/tv.png</icon>
+        <thumb>$INFO[Window(Home).Property(SkinHelper.AllTvShowsBackground)]</thumb>
+		<action>ActivateWindow(1110,return)</action>
+	</shortcut>
+
+	<!-- movies hub -->
+	<shortcut>
+		<label>342</label>
+		<label2>342</label2>
+		<icon>shortcuts/clapperboard.png</icon>
+        <thumb>$INFO[Window(Home).Property(SkinHelper.AllMoviesBackground)]</thumb>
+		<action>ActivateWindow(1111,return)</action>
+	</shortcut>
+
+	<!-- my list hub -->
+    <shortcut>
+        <label>31534</label>
+        <label2>31534</label2>
+        <icon>shortcuts/mylist.png</icon>
+        <thumb />
+        <action>ActivateWindow(1114,return)</action>
+        <visible>String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
+    </shortcut>
+
+	<!-- new hub -->
+	<shortcut>
+		<label>31837</label>
+		<label2>31837</label2>
+		<icon>shortcuts/new.png</icon>
+		<thumb />
+		<action>ActivateWindow(1112,return)</action>
+        <visible>String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
+	</shortcut>
+</shortcuts>
