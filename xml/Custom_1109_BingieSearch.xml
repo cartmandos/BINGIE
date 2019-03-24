@@ -155,6 +155,7 @@
             <font>Reg42</font>
             <align>center</align>
             <aligny>top</aligny>
+            <wrapmultiline>true</wrapmultiline>
             <textcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</textcolor>
             <label>$VAR[EmptySearchResultsString]</label>
             <visible>!Container(77777).IsUpdating + !Integer.IsGreater(Container(77777).NumItems,0)</visible>

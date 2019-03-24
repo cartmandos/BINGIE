@@ -511,21 +511,6 @@
         
 	</include>
 
-    <variable name="EnhancedHomeSpotLightWidgetButtonText">
-		<value condition="Integer.IsGreater(Window(Home).Property(ListItem.Episode),9) + Integer.IsGreater(Window(Home).Property(ListItem.Season),9)">$INFO[Window(Home).Property(ListItem.TvShowTitle)] $INFO[Window(Home).Property(ListItem.Season),S]$INFO[Window(Home).Property(ListItem.Episode),E]: $INFO[Window(Home).Property(ListItem.Title)]</value>
-		<value condition="!Integer.IsGreater(Window(Home).Property(SkinHelper..ListItem.Episode),9) + Integer.IsGreater(Window(Home).Property(ListItem.Season),9)">$INFO[Window(Home).Property(ListItem.TvShowTitle)] $INFO[Window(Home).Property(ListItem.Season),S]$INFO[Window(Home).Property(ListItem.Episode),E0]: $INFO[Window(Home).Property(ListItem.Title)]</value>
-		<value condition="Integer.IsGreater(Window(Home).Property(ListItem.Episode),9)">$INFO[Window(Home).Property(ListItem.TvShowTitle)] $INFO[Window(Home).Property(ListItem.Season),S0]$INFO[Window(Home).Property(ListItem.Episode),E]: $INFO[Window(Home).Property(ListItem.Title)]</value>
-		<value condition="!String.IsEmpty(Window(Home).Property(ListItem.Season)) + !String.IsEmpty(Window(Home).Property(ListItem.Episode))">$INFO[Window(Home).Property(ListItem.TvShowTitle)] $INFO[Window(Home).Property(ListItem.Season),S0]$INFO[Window(Home).Property(ListItem.Episode),E0]: $INFO[Window(Home).Property(ListItem.Title)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Title))">$INFO[Window(Home).Property(ListItem.Title)]</value>
-        
-        <value condition="Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.Episode),9) + Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.Season),9)">$INFO[Window(Home).Property(SkinHelper.ListItem.TvShowTitle)] $INFO[Window(Home).Property(SkinHelper.ListItem.Season),S]$INFO[Window(Home).Property(SkinHelper.ListItem.Episode),E]: $INFO[Window(Home).Property(SkinHelper.ListItem.Title)]</value>
-		<value condition="!Integer.IsGreater(Window(Home).Property(SkinHelper..ListItem.Episode),9) + Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.Season),9)">$INFO[Window(Home).Property(SkinHelper.ListItem.TvShowTitle)] $INFO[Window(Home).Property(SkinHelper.ListItem.Season),S]$INFO[Window(Home).Property(SkinHelper.ListItem.Episode),E0]: $INFO[Window(Home).Property(SkinHelper.ListItem.Title)]</value>
-		<value condition="Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.Episode),9)">$INFO[Window(Home).Property(SkinHelper.ListItem.TvShowTitle)] $INFO[Window(Home).Property(SkinHelper.ListItem.Season),S0]$INFO[Window(Home).Property(SkinHelper.ListItem.Episode),E]: $INFO[Window(Home).Property(SkinHelper.ListItem.Title)]</value>
-		<value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Season)) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Episode))">$INFO[Window(Home).Property(SkinHelper.ListItem.TvShowTitle)] $INFO[Window(Home).Property(SkinHelper.ListItem.Season),S0]$INFO[Window(Home).Property(SkinHelper.ListItem.Episode),E0]: $INFO[Window(Home).Property(SkinHelper.ListItem.Title)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Title))">$INFO[Window(Home).Property(SkinHelper.ListItem.Title)]</value>
-		<value condition="!String.IsEmpty(Container(900).ListItem.Property(widgetName.99))">$INFO[Container(900).ListItem.Property(widgetName.99)]</value>
-        <value>$LOCALIZE[31185]</value>
-	</variable>
     <variable name="EnhancedHomeSpotLightWidgetImage">
         <value condition="!ControlGroup(77777).HasFocus + Control.IsVisible(1508) + !String.IsEmpty(Container(1508).ListItem.ChannelName)">resource://resource.images.skinbackgrounds.titanium/hover_my tv.jpg</value>
         <value condition="!ControlGroup(77777).HasFocus + Control.IsVisible(1508) + !String.IsEmpty(Container(1508).ListItem.Art(fanart))">$INFO[Container(1508).ListItem.Art(fanart)]</value>

@@ -48,8 +48,8 @@
                     <radioposy>20</radioposy>
                     <radiowidth>80</radiowidth>
                     <radioheight>40</radioheight>
-                    <textureradioonfocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">bingie/keyboard/space.png</textureradioonfocus>
-                    <textureradioofffocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">bingie/keyboard/space.png</textureradioofffocus>
+                    <textureradioonfocus colordiffuse="$INFO[Skin.String(ButtonFocusTextColor)]">bingie/keyboard/space.png</textureradioonfocus>
+                    <textureradioofffocus colordiffuse="$INFO[Skin.String(ButtonFocusTextColor)]">bingie/keyboard/space.png</textureradioofffocus>
                     <textureradioonnofocus colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">bingie/keyboard/space.png</textureradioonnofocus>
                     <textureradiooffnofocus colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">bingie/keyboard/space.png</textureradiooffnofocus>
                     <include>ExtraSmallKey</include>
@@ -64,8 +64,8 @@
                     <radioposy>15</radioposy>
                     <radiowidth>130</radiowidth>
                     <radioheight>40</radioheight>
-                    <textureradioonfocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">bingie/keyboard/backspace.png</textureradioonfocus>
-                    <textureradioofffocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">bingie/keyboard/backspace.png</textureradioofffocus>
+                    <textureradioonfocus colordiffuse="$INFO[Skin.String(ButtonFocusTextColor)]">bingie/keyboard/backspace.png</textureradioonfocus>
+                    <textureradioofffocus colordiffuse="$INFO[Skin.String(ButtonFocusTextColor)]">bingie/keyboard/backspace.png</textureradioofffocus>
                     <textureradioonnofocus colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">bingie/keyboard/backspace.png</textureradioonnofocus>
                     <textureradiooffnofocus colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">bingie/keyboard/backspace.png</textureradiooffnofocus>
                     <include>ExtraSmallKey</include>
@@ -436,8 +436,8 @@
                     <radioposy>20</radioposy>
                     <radiowidth>30</radiowidth>
                     <radioheight>30</radioheight>
-                    <textureradioonfocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">dialogs/keyboard/remove.png</textureradioonfocus>
-                    <textureradioofffocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">dialogs/keyboard/remove.png</textureradioofffocus>
+                    <textureradioonfocus colordiffuse="$INFO[Skin.String(ButtonFocusTextColor)]">dialogs/keyboard/remove.png</textureradioonfocus>
+                    <textureradioofffocus colordiffuse="$INFO[Skin.String(ButtonFocusTextColor)]">dialogs/keyboard/remove.png</textureradioofffocus>
                     <textureradioonnofocus colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">dialogs/keyboard/remove.png</textureradioonnofocus>
                     <textureradiooffnofocus colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">dialogs/keyboard/remove.png</textureradiooffnofocus>
                     <label/>
@@ -450,8 +450,8 @@
                     <radioposy>20</radioposy>
                     <radiowidth>30</radiowidth>
                     <radioheight>30</radioheight>
-                    <textureradioonfocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">dialogs/keyboard/done.png</textureradioonfocus>
-                    <textureradioofffocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">dialogs/keyboard/done.png</textureradioofffocus>
+                    <textureradioonfocus colordiffuse="$INFO[Skin.String(ButtonFocusTextColor)]">dialogs/keyboard/done.png</textureradioonfocus>
+                    <textureradioofffocus colordiffuse="$INFO[Skin.String(ButtonFocusTextColor)]">dialogs/keyboard/done.png</textureradioofffocus>
                     <textureradioonnofocus colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">dialogs/keyboard/done.png</textureradioonnofocus>
                     <textureradiooffnofocus colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">dialogs/keyboard/done.png</textureradiooffnofocus>
                     <label/>
@@ -670,7 +670,6 @@
                 <ondown>1000</ondown>
                 <align>center</align>
                 <aligny>center</aligny>
-                <scroll>true</scroll>
                 <label>$INFO[Control.GetLabel(311)]</label>
                 <font>Reg30</font>
                 <include>KeyBoardKeyRadio</include>

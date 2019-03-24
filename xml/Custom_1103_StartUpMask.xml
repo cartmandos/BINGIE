@@ -8,7 +8,7 @@
 	<onunload condition="String.IsEqual(Skin.String(HomeLayout),bingie) + Control.IsVisible(1508)">SetFocus(1508)</onunload>
 	<onunload condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(DisableWelcomeMsg) + !String.IsEqual(Window(Home).Property(WelcomeMsg),System.ProfileName)">Notification(,$VAR[WelcomeNotificationMsg],3000,$INFO[System.ProfileThumb])</onunload>
 	<onunload condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(DisableWelcomeMsg)">AlarmClock(welcomedone,SetProperty(WelcomeMsg, $INFO[System.ProfileName],Home),00:01,silent)</onunload>
-	<visible>!String.IsEmpty(Window(Home).Property(startup)) | Control.IsVisible(12345)</visible>
+	<visible>!String.IsEmpty(Window(Home).Property(startup))</visible> <!--  | Control.IsVisible(12345) -->
 	<controls>
         <!-- image -->
         <control type="image">

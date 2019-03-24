@@ -1565,7 +1565,9 @@
     <include name="widget_header_single">
         <control type="radiobutton" id="$PARAM[mainmenuid]505">
             <include condition="String.IsEqual(Skin.String(HomeLayout),enhanced)">widget_header_enhancedhome</include>
-            <include condition="!Skin.HasSetting(WidgetAlignRight) + String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">widget_single_header_leftalign_netflix_no_circular</include>
+            <include content="textoffsetx" condition="!Skin.HasSetting(WidgetAlignRight) + String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">
+                <param name="textoffsetx" value="90" />
+            </include>
             <include condition="!Skin.HasSetting(WidgetAlignRight)">widget_single_header_leftalign</include>
             <include condition="Skin.HasSetting(WidgetAlignRight) + !String.IsEqual(Skin.String(HomeLayout),enhanced)">widget_header_rightalign</include>
             <include condition="![String.IsEqual(Skin.String(HomeLayout),bingie) | $EXP[IsVerticalLayout] | String.IsEqual(Skin.String(HomeLayout),enhanced)]">widget_header_single_fade</include>
@@ -1641,7 +1643,9 @@
                 <left>10</left>
                 <width>98%</width>
                 <height>80</height>
-                <include condition="!Skin.HasSetting(WidgetAlignRight) + String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">widget_single_header_leftalign_bingie_no_circular</include>
+                <include content="textoffsetx" condition="!Skin.HasSetting(WidgetAlignRight) + String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">
+                    <param name="textoffsetx" value="90" />
+                </include>
                 <include condition="!Skin.HasSetting(WidgetAlignRight)">widget_single_header_leftalign</include>
                 <include condition="Skin.HasSetting(WidgetAlignRight) + !String.IsEqual(Skin.String(HomeLayout),enhanced)">widget_header_rightalign</include>
                 <aspectratio align="left">keep</aspectratio>
@@ -1669,13 +1673,14 @@
         <aspectratio align="right">keep</aspectratio>
     </include>
     <include name="widget_header_leftalign">
-        <left>65</left>
+        <include content="left">
+            <param name="left" value="65" />
+        </include>
     </include>
     <include name="widget_single_header_leftalign">
-        <textoffsetx>65</textoffsetx>
-    </include>
-    <include name="widget_single_header_leftalign_bingie_no_circular">
-        <textoffsetx>90</textoffsetx>
+        <include content="textoffsetx">
+            <param name="textoffsetx" value="65" />
+        </include>
     </include>
     <include name="widget_header_enhancedhome">
         <font>Reg26</font>

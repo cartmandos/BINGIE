@@ -45,7 +45,7 @@
 					<height>26</height>
 					<font>Bold28</font>
 					<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-					<autoscroll>false</autoscroll>
+					<scroll>false</scroll>
 					<align>left</align>
 					<aligny>top</aligny>
 					<label>$LOCALIZE[31387]</label>

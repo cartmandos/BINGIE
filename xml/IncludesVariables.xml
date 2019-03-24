@@ -225,11 +225,6 @@
         <value condition="Container.Content(tvshows)">$INFO[ListItem.Property(TotalEpisodes)] ($LOCALIZE[16101]: $INFO[ListItem.Property(UnwatchedEpisodes)])</value>
         <value condition="Container.Content(episodes) + !String.IsEmpty(ListItem.Duration)">$VAR[ListItemDuration]</value>
     </variable>
-	
-	<variable name="WeatherFanArtPath">
-		<value condition="Skin.String(CustomWeatherFanArtPath)">$INFO[Skin.String(CustomWeatherFanArtPath)]</value>
-        <value>special://skin/extras/weather/</value>
-	</variable>
 
 	<variable name="NextAiredThumb">
         <value condition="!String.IsEmpty(Window(Home).Property(NextAired.0.Art(fanart)))">$INFO[Window(Home).Property(NextAired.0.Art(fanart))]</value>

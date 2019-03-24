@@ -2837,17 +2837,6 @@
 		<value>$INFO[Window(Home).Property(SkinHelper.ListItem.Languages),[CAPITALIZE]$LOCALIZE[21447]: ,[/CAPITALIZE]]</value>
 	</variable>
 
-    <!-- temp - default infodialog revisit -->
-    <variable name="Rating_Spacing_Label_While_Trailer_IMDB">
-        <value condition="Player.HasVideo">  </value>
-    </variable>
-    <variable name="Rating_Spacing_Label_While_Trailer_TMDB">
-        <value condition="Player.HasVideo">    </value>
-    </variable>
-    <variable name="Rating_Spacing_Label_While_Trailer_TVDB">
-        <value condition="Player.HasVideo"> </value>
-    </variable>
-
 	<!-- rating variables -->
 	<variable name="infodialog_rating_value_imdb">
         <value condition="!String.IsEmpty(ListItem.Rating(imdb))">$INFO[ListItem.Rating(imdb)]</value>

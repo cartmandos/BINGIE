@@ -62,7 +62,6 @@
             <onup>5</onup>
             <ondown>5</ondown>
             <orientation>vertical</orientation>
-			<visible>!Control.HasFocus(3003)</visible>
 			
         </control>
         <control type="button" id="7">
