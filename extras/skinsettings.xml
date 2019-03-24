@@ -367,9 +367,9 @@
     <setting id="CaseOverlays.Fallback" value="Clear" label="$LOCALIZE[192]" condition="" icon="" description=""/>
 
     <!--thumbs border size unfocused-->
-    <setting id="thumbsborder_unfocused" value="0" label="$LOCALIZE[1223]" condition="" icon="" description=""/>
+    <setting id="thumbsborder_unfocused" value="0" label="$LOCALIZE[1223]" condition="" icon="" description="" default="true" />
     <setting id="thumbsborder_unfocused" value="2" label="$LOCALIZE[31729]" condition="" icon="" description=""/>
-    <setting id="thumbsborder_unfocused" value="4" label="$LOCALIZE[31729]" condition="" icon="" description="" default="true"/>
+    <setting id="thumbsborder_unfocused" value="4" label="$LOCALIZE[31729]" condition="" icon="" description=""/>
     <setting id="thumbsborder_unfocused" value="6" label="$LOCALIZE[31729]" condition="" icon="" description=""/>
 
     <!--thumbs border size focused-->

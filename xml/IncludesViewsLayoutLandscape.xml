@@ -176,6 +176,8 @@
     <!-- TAG OVERLAYS -->
 	<include name="LandscapeTagOverlayVisibility">
         <visible>
+            ![String.IsEmpty(ListItem.DBType) + String.IsEqual(ListItem.Property(DBTYPE),categorie)] +
+            ![String.IsEmpty(ListItem.DBType) + String.IsEqual(ListItem.Property(DBTYPE),genre) + System.HasAddon(resource.images.moviegenreicons.bingie)] +
             ![Control.IsVisible(501) + Skin.String(View501.Tags,disable)] +
             ![Control.IsVisible(502) + Skin.String(View502.Tags,disable)] + 
             ![Control.IsVisible(505) + Skin.String(View505.Tags,disable)] + 
@@ -187,7 +189,7 @@
             !String.IsEqual(ListItem.Label,..)
         </visible>
         <visible>
-            [Control.IsVisible(501) + Skin.String(View501.Tags,enable)] | 
+            [Control.IsVisible(501) + Skin.String(View501.Tags,enable)] |
             [Control.IsVisible(502) + Skin.String(View502.Tags,enable)] | 
             [Control.IsVisible(505) + Skin.String(View505.Tags,enable)] | 
             [[!Window.IsActive(Home) + Control.IsVisible(511)] + Skin.String(View511.Tags,enable)] | 
