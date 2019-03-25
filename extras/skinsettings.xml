@@ -146,15 +146,15 @@
     <setting id="widgetstyle" value="banner" label="$LOCALIZE[31055]" condition="String.IsEqual(Skin.String(HomeLayout),win10)" icon="special://skin/extras/viewthumbs/widget_win10_banner.jpg" description=""/>
 
     <!-- widget style: vertical -->
-    <setting id="widgetstyle" value="poster" label="$LOCALIZE[31053]" condition="$EXP[IsVerticalLayout]" icon="special://skin/extras/viewthumbs/widget_ver_poster.jpg" description=""/>
-    <setting id="widgetstyle" value="landscape" label="$LOCALIZE[31056]" condition="$EXP[IsVerticalLayout]" icon="special://skin/extras/viewthumbs/widget_ver_landscape.jpg" description=""/>
-    <setting id="widgetstyle" value="landscapesmall" label="$LOCALIZE[31932]" condition="$EXP[IsVerticalLayout]" icon="special://skin/extras/viewthumbs/widget_ver_landscape.jpg" description=""/>
-    <setting id="widgetstyle" value="singlebox" label="$LOCALIZE[31933]" condition="$EXP[IsVerticalLayout]" icon="special://skin/extras/viewthumbs/widget_ver_singlebox.jpg" description=""/>
-    <setting id="widgetstyle" value="square" label="$LOCALIZE[31934]" condition="$EXP[IsVerticalLayout]" icon="special://skin/extras/viewthumbs/widget_ver_square.jpg" description=""/>
-    <setting id="widgetstyle" value="minisquare" label="$LOCALIZE[31935]" condition="$EXP[IsVerticalLayout]" icon="special://skin/extras/viewthumbs/widget_ver_square.jpg" description=""/>
-    <setting id="widgetstyle" value="smallposter" label="$LOCALIZE[31936]" condition="$EXP[IsVerticalLayout]" icon="special://skin/extras/viewthumbs/widget_ver_smallposter.jpg" description=""/>
-    <setting id="widgetstyle" value="widebox" label="$LOCALIZE[31413]" condition="$EXP[IsVerticalLayout]" icon="special://skin/extras/viewthumbs/widget_ver_widebox.jpg" description=""/>
-    <setting id="widgetstyle" value="banner" label="$LOCALIZE[31055]" condition="$EXP[IsVerticalLayout]" icon="special://skin/extras/viewthumbs/widget_win10_banner.jpg" description=""/>
+    <setting id="widgetstyle" value="poster" label="$LOCALIZE[31053]" condition="String.IsEqual(Skin.String(HomeLayout),simplever) | String.IsEqual(Skin.String(HomeLayout),simplever_tiles) | String.IsEqual(Skin.String(HomeLayout),verticalbig)" icon="special://skin/extras/viewthumbs/widget_ver_poster.jpg" description=""/>
+    <setting id="widgetstyle" value="landscape" label="$LOCALIZE[31056]" condition="String.IsEqual(Skin.String(HomeLayout),simplever) | String.IsEqual(Skin.String(HomeLayout),simplever_tiles) | String.IsEqual(Skin.String(HomeLayout),verticalbig)" icon="special://skin/extras/viewthumbs/widget_ver_landscape.jpg" description=""/>
+    <setting id="widgetstyle" value="landscapesmall" label="$LOCALIZE[31932]" condition="String.IsEqual(Skin.String(HomeLayout),simplever) | String.IsEqual(Skin.String(HomeLayout),simplever_tiles) | String.IsEqual(Skin.String(HomeLayout),verticalbig)" icon="special://skin/extras/viewthumbs/widget_ver_landscape.jpg" description=""/>
+    <setting id="widgetstyle" value="singlebox" label="$LOCALIZE[31933]" condition="String.IsEqual(Skin.String(HomeLayout),simplever) | String.IsEqual(Skin.String(HomeLayout),simplever_tiles) | String.IsEqual(Skin.String(HomeLayout),verticalbig)" icon="special://skin/extras/viewthumbs/widget_ver_singlebox.jpg" description=""/>
+    <setting id="widgetstyle" value="square" label="$LOCALIZE[31934]" condition="String.IsEqual(Skin.String(HomeLayout),simplever) | String.IsEqual(Skin.String(HomeLayout),simplever_tiles) | String.IsEqual(Skin.String(HomeLayout),verticalbig)" icon="special://skin/extras/viewthumbs/widget_ver_square.jpg" description=""/>
+    <setting id="widgetstyle" value="minisquare" label="$LOCALIZE[31935]" condition="String.IsEqual(Skin.String(HomeLayout),simplever) | String.IsEqual(Skin.String(HomeLayout),simplever_tiles) | String.IsEqual(Skin.String(HomeLayout),verticalbig)" icon="special://skin/extras/viewthumbs/widget_ver_square.jpg" description=""/>
+    <setting id="widgetstyle" value="smallposter" label="$LOCALIZE[31936]" condition="String.IsEqual(Skin.String(HomeLayout),simplever) | String.IsEqual(Skin.String(HomeLayout),simplever_tiles) | String.IsEqual(Skin.String(HomeLayout),verticalbig)" icon="special://skin/extras/viewthumbs/widget_ver_smallposter.jpg" description=""/>
+    <setting id="widgetstyle" value="widebox" label="$LOCALIZE[31413]" condition="String.IsEqual(Skin.String(HomeLayout),simplever) | String.IsEqual(Skin.String(HomeLayout),simplever_tiles) | String.IsEqual(Skin.String(HomeLayout),verticalbig)" icon="special://skin/extras/viewthumbs/widget_ver_widebox.jpg" description=""/>
+    <setting id="widgetstyle" value="banner" label="$LOCALIZE[31055]" condition="String.IsEqual(Skin.String(HomeLayout),simplever) | String.IsEqual(Skin.String(HomeLayout),simplever_tiles) | String.IsEqual(Skin.String(HomeLayout),verticalbig)" icon="special://skin/extras/viewthumbs/widget_win10_banner.jpg" description=""/>
 
     <!-- widgetstyle: bingie -->
     <setting id="widgetstyle" value="landscapelarge" label="$LOCALIZE[31937]" condition="!String.IsEqual(Skin.String(HomeLayout),win10)" icon="special://skin/extras/viewthumbs/widget_landscapelarge.jpg" description=""/>
@@ -354,10 +354,10 @@
     <setting id="LogoImageAlignment" value="left" label="$LOCALIZE[31962]" condition="" icon="" description=""/>
 
     <!-- vertical home widget rows -->
-    <setting id="WidgetRows" value="single2" label="$LOCALIZE[31752]" condition="$EXP[IsVerticalLayout]" icon="" description="$LOCALIZE[31980]"/>
+    <setting id="WidgetRows" value="single2" label="$LOCALIZE[31752]" condition="String.IsEqual(Skin.String(HomeLayout),simplever) | String.IsEqual(Skin.String(HomeLayout),simplever_tiles) | String.IsEqual(Skin.String(HomeLayout),verticalbig)" icon="" description="$LOCALIZE[31980]"/>
     <setting id="WidgetRows" value="single" label="$LOCALIZE[31751]" condition="" icon="" description="$LOCALIZE[31981]"/>
     <setting id="WidgetRows" value="multi" label="$LOCALIZE[31753]" condition="" icon="" description="$LOCALIZE[31982]"/>
-    <setting id="WidgetRows" value="multi2" label="$LOCALIZE[31754]" condition="$EXP[IsVerticalLayout]" icon="" description="$LOCALIZE[31983]"/>
+    <setting id="WidgetRows" value="multi2" label="$LOCALIZE[31754]" condition="String.IsEqual(Skin.String(HomeLayout),simplever) | String.IsEqual(Skin.String(HomeLayout),simplever_tiles) | String.IsEqual(Skin.String(HomeLayout),verticalbig)" icon="" description="$LOCALIZE[31983]"/>
 
     <!-- case overlay fallback -->
     <setting id="CaseOverlays.Fallback" value="None" label="$LOCALIZE[16018]" condition="" icon="" description=""/>

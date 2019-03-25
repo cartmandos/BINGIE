@@ -32,7 +32,7 @@
             <textoffsetx>10</textoffsetx>
             <onclick>RunScript(script.skin.helper.service,action=setskinshortcutsproperty,setting=widgetstyle,header=$LOCALIZE[31507],property=widgetstyle$PARAM[widgetprop])</onclick>
             <visible>!String.IsEmpty(Container(211).ListItem.Property(widget$PARAM[widgetprop]))</visible>
-            <visible>!String.IsEqual(Skin.String(HomeLayout),enhanced) + !String.IsEqual(Skin.String(HomeLayout),bingie) | [String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnableFixedFocusWidgets)]</visible>
+            <visible>!String.IsEqual(Skin.String(HomeLayout),enhanced) + !Skin.HasSetting(EnableFixedFocusWidgets)</visible>
         </control>
         <control type="button" id="900$PARAM[widgetpos]3">
             <description>widget label</description>
