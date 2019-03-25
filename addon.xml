@@ -26,19 +26,19 @@
 		<email></email>
 		<source>https://github.com/cartmandos/skin.titan.bingie/</source>
 		<assets>
-			<icon>icon.png</icon>
-			<fanart>fanart.jpg</fanart>
-			<screenshot>screenshots/screenshot000.jpg</screenshot>
-			<screenshot>screenshots/screenshot001.jpg</screenshot>
-			<screenshot>screenshots/screenshot002.jpg</screenshot>
-			<screenshot>screenshots/screenshot003.jpg</screenshot>
-			<screenshot>screenshots/screenshot004.jpg</screenshot>
-			<screenshot>screenshots/screenshot005.jpg</screenshot>
-			<screenshot>screenshots/screenshot006.jpg</screenshot>
-			<screenshot>screenshots/screenshot007.jpg</screenshot>
-			<screenshot>screenshots/screenshot008.jpg</screenshot>
-			<screenshot>screenshots/screenshot009.jpg</screenshot>
-            <screenshot>screenshots/screenshot010.jpg</screenshot>
+			<icon>resources/icon.png</icon>
+			<fanart>resources/fanart.jpg</fanart>
+			<screenshot>resources/screenshot000.jpg</screenshot>
+			<screenshot>resources/screenshot001.jpg</screenshot>
+			<screenshot>resources/screenshot002.jpg</screenshot>
+			<screenshot>resources/screenshot003.jpg</screenshot>
+			<screenshot>resources/screenshot004.jpg</screenshot>
+			<screenshot>resources/screenshot005.jpg</screenshot>
+			<screenshot>resources/screenshot006.jpg</screenshot>
+			<screenshot>resources/screenshot007.jpg</screenshot>
+			<screenshot>resources/screenshot008.jpg</screenshot>
+			<screenshot>resources/screenshot009.jpg</screenshot>
+            <screenshot>resources/screenshot010.jpg</screenshot>
 		</assets>
 		<news>
 			[B]Titan BINGIE v1[/B][CR]Follow the forum thread about the latest news for the skin.[CR]https://forum.kodi.tv/showthread.php?tid=334820
