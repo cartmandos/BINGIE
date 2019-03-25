@@ -266,7 +266,7 @@
 	<propertydefault defaultID="10000" property="widgetTarget">video</propertydefault>
 	<propertydefault defaultID="10000" property="widgetType">episodes</propertydefault>
 	<propertydefault defaultID="10000" property="widgetPath">plugin://script.skin.helper.widgets/?action=next&amp;mediatype=episodes&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload-episodes)]</propertydefault>
-	<propertydefault defaultID="10000" property="widgetName">$LOCALIZE[31535]</propertydefault>
+	<propertydefault defaultID="10000" property="widgetName">[CAPITALIZE]$LOCALIZE[31535][/CAPITALIZE]</propertydefault>
 
 	<propertydefault defaultID="10000" property="widget.1">recentshowsandmovies</propertydefault>
 	<propertydefault defaultID="10000" property="widgetTarget.1">video</propertydefault>

@@ -915,8 +915,8 @@
 
     <!-- Home Spotlight default content -->
     <variable name="SpotlightDefaultContent">
-        <value condition="Integer.IsGreater(Window(Home).Property(random),20)">special://skin/extras/widgetplaylists/recommendedmovies.xsp</value>
-        <value condition="Integer.IsLessOrEqual(Window(Home).Property(random),20)">special://skin/extras/widgetplaylists/recommendedtvshows.xsp</value>
+        <value condition="Library.HasContent(movies) + [Integer.IsGreater(Window(Home).Property(random),20) | !Library.HasContent(tvshows)]">special://skin/extras/widgetplaylists/recommendedmovies.xsp</value>
+        <value condition="Library.HasContent(tvshows) + [Integer.IsLessOrEqual(Window(Home).Property(random),20) | !Library.HasContent(movies)]">special://skin/extras/widgetplaylists/recommendedtvshows.xsp</value>
     </variable>
 
     <include name="Spotlight_Trailer_Action">
