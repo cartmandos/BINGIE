@@ -171,6 +171,8 @@
             <onup>9900</onup>
             <onleft>9000</onleft>
             <onback>9000</onback>
+            <ondown>SetProperty(BounceDown,1,Home)</ondown>
+            <include>Bounce_Down</include>
             <!-- Suggestions Result -->
             <include content="SearchResultWidget">
                 <param name="id" value="500" />

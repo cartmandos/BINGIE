@@ -587,14 +587,6 @@
         <height>420</height>
     </include>
 
-    <!-- bounce up animation -->
-    <include name="Bounce_Up">
-        <animation condition="Window.IsVisible(1150)" reversible="false" type="Conditional">
-            <effect easing="out" end="0,-30" start="0,0" time="60" tween="sine" type="slide" />
-            <effect delay="80" easing="out" end="0,30" start="0,0" time="120" tween="sine" type="slide" />
-        </animation>
-    </include>
-
     <!-- title text fallback -->
     <variable name="View523_FallbackTitle">
         <value condition="Container.Content(episodes) | Container.Content(seasons)">[B]$INFO[ListItem.TvshowTitle][/B]</value>

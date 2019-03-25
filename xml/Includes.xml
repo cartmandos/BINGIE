@@ -228,6 +228,21 @@
         <aspectratio align="left">keep</aspectratio>
     </include>
 
+    <!-- bounce up animation -->
+    <include name="Bounce_Up">
+        <animation condition="Window.IsVisible(1150)" reversible="false" type="Conditional">
+            <effect easing="out" end="0,-30" start="0,0" time="60" tween="sine" type="slide" />
+            <effect delay="80" easing="out" end="0,30" start="0,0" time="120" tween="sine" type="slide" />
+        </animation>
+    </include>
+    <!-- bounce down animation -->
+    <include name="Bounce_Down">
+        <animation condition="Window.IsVisible(1149)" reversible="false" type="Conditional">
+            <effect easing="out" end="0,30" start="0,0" time="60" tween="sine" type="slide" />
+            <effect delay="80" easing="out" end="0,-30" start="0,0" time="120" tween="sine" type="slide" />
+        </animation>
+    </include>
+
     <!--Dialog Color/Font-->
     <include name="DialogHeader">
         <!--Dialog Header-->
