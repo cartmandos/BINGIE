@@ -609,7 +609,7 @@
             <label>31719</label>
             <onclick>Skin.ToggleSetting(EnableInfoOverlay)</onclick>
             <selected>Skin.HasSetting(EnableInfoOverlay)</selected>
-            <visible>[Container.Content(movies) | Container.Content(episodes)  | Container.Content(sets)] + !Control.IsVisible(525) + !Control.IsVisible(523)</visible>
+            <visible>[Container.Content(movies) | Container.Content(episodes)  | Container.Content(sets)]</visible>
         </control>
         
         <control type="radiobutton" id="3059">
