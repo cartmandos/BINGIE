@@ -223,7 +223,7 @@
                     <control type="group">
                         <top>10</top>
                         <visible>!Control.IsVisible(588688)</visible>
-                        <include condition="!Skin.HasSetting(DisableBingieMoreDetails)">Bingie_Additional_Info</include>
+                        <include condition="!Skin.HasSetting(DisableBingieMoreDetailsInViews)">Bingie_Additional_Info</include>
                     </control>
 
                 </control>
@@ -238,14 +238,14 @@
                         <top>30</top>
                         <posx>65</posx>
                         <height>50</height>
-                        <include condition="!Skin.HasSetting(DisableMediaCodecInfoInHome) + Skin.HasSetting(DisableBingieMoreDetails)">mediaflags</include>
+                        <include condition="Skin.HasSetting(DisableBingieMoreDetailsInViews)">mediaflags</include>
                     </control>
                     <!-- ratings & studio -->
                     <control type="group">
                         <right>30</right>
                         <height>50</height>
                         <width>1000</width>
-                        <include>Bingie_RatingsAndStudio_Hor</include>
+                        <include>View_523_RatingsAndStudio_Hor</include>
                     </control>
                 </control>
             </control>
@@ -579,6 +579,18 @@
             <animation effect="slide" end="$PARAM[xAxisAnim],0" time="150" condition="Integer.IsGreater(Container(523).Column, 5)">Conditional</animation>
             <!-- horizontal - supporting up to 2 rows -->
             <animation effect="slide" end="0,$PARAM[yAxisAnim]" time="200" condition="Skin.HasSetting(View_523_HorizontalNavigation) + Integer.IsGreater(Container(523).Row, 0)">Conditional</animation>
+        </control>
+    </include>
+
+    <include name="View_523_RatingsAndStudio_Hor">
+        <control type="grouplist">
+            <orientation>horizontal</orientation>
+            <height>90</height>
+            <itemgap>15</itemgap>
+            <align>right</align>
+            <include condition="Skin.HasSetting(EnableMonochromeRatingInFooter)">Rating_Monochrome_Hor</include>
+            <include condition="!Skin.HasSetting(EnableMonochromeRatingInFooter)">Rating_Color_Hor</include>
+            <include condition="Skin.HasSetting(EnableStudioLogo)">StudioLogo</include>
         </control>
     </include>
 
