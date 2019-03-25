@@ -38,6 +38,22 @@
         <animation effect="slide" end="0,$PARAM[FixedAnimationHeight]" condition="Integer.IsGreater(Container(77777).Position,46)">Conditional</animation>
         <animation effect="slide" end="0,$PARAM[FixedAnimationHeight]" condition="Integer.IsGreater(Container(77777).Position,48)">Conditional</animation>
         <animation effect="slide" end="0,$PARAM[FixedAnimationHeight]" condition="Integer.IsGreater(Container(77777).Position,50)">Conditional</animation>
+        <animation effect="slide" end="0,$PARAM[FixedAnimationHeight]" condition="Integer.IsGreater(Container(77777).Position,52)">Conditional</animation>
+        <animation effect="slide" end="0,$PARAM[FixedAnimationHeight]" condition="Integer.IsGreater(Container(77777).Position,54)">Conditional</animation>
+        <animation effect="slide" end="0,$PARAM[FixedAnimationHeight]" condition="Integer.IsGreater(Container(77777).Position,56)">Conditional</animation>
+        <animation effect="slide" end="0,$PARAM[FixedAnimationHeight]" condition="Integer.IsGreater(Container(77777).Position,58)">Conditional</animation>
+        <animation effect="slide" end="0,$PARAM[FixedAnimationHeight]" condition="Integer.IsGreater(Container(77777).Position,60)">Conditional</animation>
+        <animation effect="slide" end="0,$PARAM[FixedAnimationHeight]" condition="Integer.IsGreater(Container(77777).Position,62)">Conditional</animation>
+        <animation effect="slide" end="0,$PARAM[FixedAnimationHeight]" condition="Integer.IsGreater(Container(77777).Position,64)">Conditional</animation>
+        <animation effect="slide" end="0,$PARAM[FixedAnimationHeight]" condition="Integer.IsGreater(Container(77777).Position,66)">Conditional</animation>
+        <animation effect="slide" end="0,$PARAM[FixedAnimationHeight]" condition="Integer.IsGreater(Container(77777).Position,68)">Conditional</animation>
+        <animation effect="slide" end="0,$PARAM[FixedAnimationHeight]" condition="Integer.IsGreater(Container(77777).Position,70)">Conditional</animation>
+        <animation effect="slide" end="0,$PARAM[FixedAnimationHeight]" condition="Integer.IsGreater(Container(77777).Position,72)">Conditional</animation>
+        <animation effect="slide" end="0,$PARAM[FixedAnimationHeight]" condition="Integer.IsGreater(Container(77777).Position,74)">Conditional</animation>
+        <animation effect="slide" end="0,$PARAM[FixedAnimationHeight]" condition="Integer.IsGreater(Container(77777).Position,76)">Conditional</animation>
+        <animation effect="slide" end="0,$PARAM[FixedAnimationHeight]" condition="Integer.IsGreater(Container(77777).Position,78)">Conditional</animation>
+        <animation effect="slide" end="0,$PARAM[FixedAnimationHeight]" condition="Integer.IsGreater(Container(77777).Position,80)">Conditional</animation>
+
         <!-- up/down animation -->
         <animation effect="fade" start="100" end="0" condition="Integer.IsGreater(Container(77777).Position, Window(Home).Property(PrevWidgetPos))
          + Integer.IsGreater(Window(Home).Property(CurrentWidgetID), $PARAM[widgetid])">Conditional</animation>
