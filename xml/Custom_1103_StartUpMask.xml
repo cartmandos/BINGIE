@@ -5,7 +5,7 @@
 	<zorder>999</zorder>
 	<!--<onload>AlarmClock(intro,PlayMedia(special://skin/extras/media/bingie_intro.mp4,1),Home),00:00,silent)</onload>-->
 
-	<onunload condition="String.IsEqual(Skin.String(HomeLayout),bingie) + Control.IsVisible(1508)">SetFocus(1508)</onunload>
+	<onunload condition="String.IsEqual(Skin.String(HomeLayout),bingie) + Control.IsVisible(1508) + !Skin.HasSetting(DisableSpotlightContent) + !Skin.HasSetting(BingieHomeDisableFirstRow)">SetFocus(1508)</onunload>
 	<onunload condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(DisableWelcomeMsg) + !String.IsEqual(Window(Home).Property(WelcomeMsg),System.ProfileName)">Notification(,$VAR[WelcomeNotificationMsg],3000,$INFO[System.ProfileThumb])</onunload>
 	<onunload condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(DisableWelcomeMsg)">AlarmClock(welcomedone,SetProperty(WelcomeMsg, $INFO[System.ProfileName],Home),00:01,silent)</onunload>
 	<visible>!String.IsEmpty(Window(Home).Property(startup))</visible> <!--  | Control.IsVisible(12345) -->
@@ -26,7 +26,7 @@
 		</control>
 		<!-- busy spinner -->
 		<include content="Busy_Spinner">
-			<param name="centerleft" value="47.65%" />
+			<param name="centerleft" value="49%" />
 			<param name="centertop" value="75%"/>
 			<param name="visibility" value="!String.IsEmpty(Window(Home).Property(startup)) + !Player.HasVideo"/>
 			<param name="size" value="90"/>
