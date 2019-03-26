@@ -233,9 +233,17 @@
 				<posx>510</posx>
 				<posy>210</posy>
 				<width>810</width>
+				<visible>!VideoPlayer.Content(livetv)</visible>
 				<info>Player.Progress</info>
 			</control>
-			
+			<control type="progress" id="23">
+				<description>Progress Bar</description>
+				<posx>510</posx>
+				<posy>210</posy>
+				<width>810</width>
+				<visible>VideoPlayer.Content(livetv)</visible>
+				<info>PVR.EpgEventProgress</info>
+			</control>
 		</control>
 	</include>
     
@@ -413,7 +421,7 @@
 					<height>20</height>
 					<width>700</width>
 					<info>Player.Progress</info>
-					<visible>Player.HasDuration + !VideoPlayer.Content(livetv)</visible>
+					<visible>Player.HasDuration + ![VideoPlayer.Content(livetv) +  + PVR.HasEpg]</visible>
 					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
 					<texturebg border="5" colordiffuse="$VAR[OSDProgressBarBackgroundColor]">diffuse/panel_trans.png</texturebg>
 					<lefttexture/>
@@ -421,7 +429,7 @@
 					<righttexture/>
 					<overlaytexture/>
 				</control>
-				<control type="progress">
+				<control type="progress" id="23">
 					<description>Progress Bar</description>
 					<posx>540</posx>
 					<posy>160</posy>
@@ -547,7 +555,7 @@
 				<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
 				<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
 				<label>$VAR[TotalDuration,[B]$LOCALIZE[180]: [/B]]</label>
-				<visible>Player.HasDuration | Player.HasEpg</visible>
+				<visible>Player.HasDuration | [PVR.IsPlayingTV | VideoPlayer.HasEpg]</visible>
 				<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
 			</control>
             
@@ -643,21 +651,8 @@
 				<fadetime>200</fadetime>
 				<texture background="true">$VAR[OSDImage]</texture>
 				<aspectratio align="left" aligny="bottom">stretch</aspectratio>
-				<visible>[!String.IsEmpty(Player.Art(poster)) | !String.IsEmpty(Player.Art(tvshow.poster)) | !String.IsEmpty(Window(Home).Property(SkinHelper.Player.Art.Poster))]</visible>
 			</control>
-			
-			<!--Cover no poster-->
-			<control type="image">
-				<posx>40</posx>
-				<bottom>20</bottom>
-				<width>165</width>
-				<height>165</height>
-				<fadetime>200</fadetime>
-				<texture background="true">$INFO[ListItem.Art(poster)]</texture>
-				<aspectratio align="left" aligny="bottom">keep</aspectratio>
-				<visible>String.IsEmpty(Player.Art(poster)) + String.IsEmpty(Player.Art(tvshow.poster)) + String.IsEmpty(Window(Home).Property(SkinHelper.Player.Art.Poster))</visible>
-			</control>
-			
+
 			<!--clearlogo-->
 			<control type="image" id="1">
 				<posx>250</posx>
@@ -726,18 +721,18 @@
 					<midtexture border="5" colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]">diffuse/panel.png</midtexture>
 					<righttexture/>
 					<overlaytexture/>
-					<visible>Player.HasDuration + !VideoPlayer.Content(livetv)</visible>
+					<visible>!VideoPlayer.Content(livetv)</visible>
 					<visible>!String.IsEqual(Window(Home).Property(subtitlemenu), show)</visible>
 				</control>
-				<control type="progress">
+				<control type="progress" id="23">
 					<description>Progress Bar</description>
 					<left>250</left>
 					<right>40</right>
 					<width>1630</width>
 					<posy>150</posy>
 					<height>33</height>
+					<visible>VideoPlayer.Content(livetv)</visible>
 					<info>PVR.EpgEventProgress</info>
-					<visible>VideoPlayer.Content(livetv) + PVR.HasEpg</visible>
 					<texturebg border="5" colordiffuse="$VAR[OSDProgressBarBackgroundColor]">diffuse/panel_trans.png</texturebg>
 					<lefttexture/>
 					<midtexture border="5" colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]">diffuse/panel.png</midtexture>
@@ -873,7 +868,7 @@
 					<overlaytexture/>
 					<visible>!VideoPlayer.Content(livetv)</visible>
 				</control>
-				<control type="progress">
+				<control type="progress" id="23">
 					<posx>384</posx>
 					<posy>169</posy>
 					<height>7</height>
@@ -1192,9 +1187,9 @@
 					<midtexture border="5" colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]">diffuse/panel.png</midtexture>
 					<righttexture/>
 					<overlaytexture/>
-					<visible>Player.HasDuration + !VideoPlayer.Content(livetv)</visible>
+					<visible>!VideoPlayer.Content(livetv)</visible>
 				</control>
-				<control type="progress">
+				<control type="progress" id="23">
 					<description>Progress Bar</description>
 					<left>430</left>
 					<right>40</right>
@@ -1202,7 +1197,7 @@
 					<posy>150</posy>
 					<height>33</height>
 					<info>PVR.EpgEventProgress</info>
-					<visible>VideoPlayer.Content(livetv) + PVR.HasEpg</visible>
+					<visible>VideoPlayer.Content(livetv)</visible>
 					<texturebg border="5" colordiffuse="$VAR[OSDProgressBarBackgroundColor]">diffuse/panel_trans.png</texturebg>
 					<lefttexture/>
 					<midtexture border="5" colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]">diffuse/panel.png</midtexture>
@@ -1654,8 +1649,16 @@
 				<posx>700</posx>
 				<posy>205</posy>
 				<width>800</width>
+				<visible>!VideoPlayer.Content(livetv)</visible>
 				<info>Player.Progress</info>
-				<visible>true</visible>
+			</control>
+			<control type="progress" id="23">
+				<description>Progress Bar</description>
+				<posx>700</posx>
+				<posy>205</posy>
+				<width>800</width>
+				<info>PVR.EpgEventProgress</info>
+				<visible>VideoPlayer.Content(livetv)</visible>
 			</control>
 		</control>
 	</include>
@@ -2530,7 +2533,7 @@
 				<font>Reg20</font>
 				<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
 				<label>$VAR[TotalDuration,[B]$LOCALIZE[180]: [/B]]</label>
-				<visible>Player.HasDuration | Player.HasEpg</visible>
+				<visible>Player.HasDuration | [PVR.IsPlayingTV | VideoPlayer.HasEpg]</visible>
 			</control>
 
 			<control type="image">
@@ -2605,6 +2608,16 @@
 				<width>230</width>
 				<height>15</height>
 				<info>Player.Progress</info>
+				<visible>!VideoPlayer.Content(livetv)</visible>
+			</control>
+			<control type="progress" id="23">
+				<description>Progress Bar</description>
+				<left>120</left>
+				<top>104</top>
+				<width>230</width>
+				<height>15</height>
+				<info>PVR.EpgEventProgress</info>
+				<visible>VideoPlayer.Content(livetv)</visible>
 			</control>
                  <control type="slider" id="401">
 				<description>Seek Slider</description>
@@ -3107,27 +3120,27 @@
 	</variable>
 
 	<variable name="PlayTime">
-		<value condition="VideoPlayer.Content(LiveTV) + VideoPlayer.HasEPG">$INFO[PVR.EpgEventElapsedTime]</value>
+		<value condition="[PVR.IsPlayingTV | VideoPlayer.HasEpg] + !String.IsEmpty(PVR.EpgEventElapsedTime)">$INFO[PVR.EpgEventElapsedTime]</value>
 		<value>$INFO[Player.Time]</value>
 	</variable>
 
 	<variable name="RemainingTime">
-		<value condition="VideoPlayer.Content(LiveTV) + VideoPlayer.HasEPG">$INFO[PVR.EpgEventRemainingTime]</value>
+		<value condition="[PVR.IsPlayingTV | VideoPlayer.HasEpg] + !String.IsEmpty(PVR.EpgEventRemainingTime)">$INFO[PVR.EpgEventRemainingTime]</value>
 		<value>$INFO[Player.TimeRemaining]</value>
 	</variable>
 
 	<variable name="TotalDuration">
-		<value condition="VideoPlayer.Content(LiveTV) + VideoPlayer.HasEPG">$INFO[PVR.EpgEventDuration]</value>
+		<value condition="[PVR.IsPlayingTV | VideoPlayer.HasEpg] + !String.IsEmpty(PVR.EpgEventDuration)">$INFO[PVR.EpgEventDuration]</value>
 		<value>$INFO[Player.Duration]</value>
 	</variable>
 
 	<variable name="SeekTime">
-		<value condition="VideoPlayer.Content(LiveTV) + VideoPlayer.HasEPG">$INFO[PVR.EpgEventSeekTime]</value>
+		<value condition="[PVR.IsPlayingTV | VideoPlayer.HasEpg] + !String.IsEmpty(PVR.EpgEventSeekTime)">$INFO[PVR.EpgEventSeekTime]</value>
 		<value>$INFO[Player.SeekTime]</value>
 	</variable>
 
 	<variable name="FinishTime">
-		<value condition="VideoPlayer.Content(LiveTV) + VideoPlayer.HasEPG">$INFO[PVR.EpgEventFinishTime]</value>
+		<value condition="[PVR.IsPlayingTV | VideoPlayer.HasEpg] + !String.IsEmpty(PVR.EpgEventFinishTime)">$INFO[PVR.EpgEventFinishTime]</value>
 		<value>$INFO[Player.FinishTime]</value>
 	</variable>
 
