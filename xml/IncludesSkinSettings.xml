@@ -2791,6 +2791,13 @@
             <onclick>Skin.ToggleSetting(LockHubWidgets)</onclick>
             <selected>Skin.HasSetting(LockHubWidgets)</selected>
         </control>
+        <!-- set global items limit -->
+        <control type="button" id="31211">
+            <include>SkinSettings_Button</include>
+            <label>31037</label>
+            <label2>$INFO[Skin.String(WidgetsGlobalLimit)]</label2>
+            <onclick>Skin.SetNumeric(WidgetsGlobalLimit)</onclick>
+        </control>
         <!-- empty label -->
         <control type="label" id="6004">
             <height>20</height>

@@ -98,6 +98,7 @@
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetString(SkinHelper.AutoCloseVideoOSD, 4)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(DisableNowPlayingInfoBar)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(UseBingieInfoDialog)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetString(WidgetsGlobalLimit, 250)</onload>
 
         <!-- default color settings (titan default theme - BINGIE) -->
         <onload condition="!Skin.String(HomeViewDetailsFocusColor)">Skin.SetString(HomeViewDetailsFocusColor, cce0e0e0)</onload>

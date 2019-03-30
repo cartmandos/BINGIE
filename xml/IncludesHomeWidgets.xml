@@ -1962,6 +1962,7 @@
                 <param name="multiRows" value="$PARAM[multiRows]" />
             </include>
             <include content="widget_base_content_$PARAM[contentStyle]">
+                <param name="global_limit" value="$INFO[Skin.String(WidgetsGlobalLimit)]" />
                 <param name="widgetid" value="$PARAM[widgetid]" />
                 <param name="submenuid" value="$PARAM[submenuid]" />
                 <param name="widgetTarget" value="$PARAM[widgetTarget]" />
@@ -1977,7 +1978,7 @@
     </include>
     
     <include name="widget_base_content_normal">
-        <content target="$PARAM[widgetTarget]">$PARAM[widgetPath]</content>
+        <content limit="$PARAM[global_limit]" target="$PARAM[widgetTarget]">$PARAM[widgetPath]</content>
     </include>
     <include name="widget_base_content_refresh">
         <content target="$PARAM[widgetTarget]">$VAR[$PARAM[widgetid]-refresh]</content>

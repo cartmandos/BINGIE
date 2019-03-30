@@ -163,16 +163,10 @@ msgid "Random TV Shows"
 msgstr ""
 
 msgctxt "#31037"
-msgid "Trailers"
+msgid "Set max number of items for all widgets"
 msgstr ""
 
-msgctxt "#31038"
-msgid "Use custom image for skin background"
-msgstr ""
-
-msgctxt "#31039"
-msgid "Use custom image for skin background"
-msgstr ""
+# empty strings 31038-31039
 
 msgctxt "#31040"
 msgid "Now playing"
