@@ -166,7 +166,11 @@ msgctxt "#31037"
 msgid "Set max number of items for all widgets"
 msgstr ""
 
-# empty strings 31038-31039
+msgctxt "#31038"
+msgid "Search Music Videos, Albums, Artists or Songs"
+msgstr ""
+
+# empty strings 31039
 
 msgctxt "#31040"
 msgid "Now playing"

@@ -47,6 +47,16 @@
 		<action>ActivateWindow(1111,return)</action>
 	</shortcut>
 
+	<!-- music -->
+	<shortcut>
+		<label>2</label>
+		<label2>2</label2>
+		<icon>resource://resource.images.skinicons.wide/music_6.png</icon>
+		<thumb>$INFO[Window(Home).Property(SkinHelper.AllMusicBackground)]</thumb>
+		<thumb />
+		<action>ActivateWindow(Music,musicdb://albums/,return)</action>
+	</shortcut>
+
 	<!-- my list hub -->
     <shortcut>
         <label>31534</label>

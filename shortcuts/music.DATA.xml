@@ -9,6 +9,14 @@
 		<action>ActivateWindow(10502,return)</action>
 	</shortcut>
 	<shortcut>
+		<label>137</label>
+		<label2 />
+		<defaultID>137</defaultID>
+		<icon>shortcuts/search.png</icon>
+		<thumb />
+		<action>ActivateWindow(1107,return)</action>
+	</shortcut>
+	<shortcut>
 		<label>19021</label>
 		<label2 />
 		<defaultID>19021</defaultID>

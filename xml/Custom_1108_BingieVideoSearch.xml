@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- BINGIE -->
+<window id="1108">
+    <defaultcontrol always="true">9000</defaultcontrol>
+    <onload>SetProperty(CustomSearch,1,home)</onload>
+    <include>BingieViews_WindowOpen_Fade</include>
+	<controls>
+        <!-- Global Background -->
+        <include content="GlobalFanartWithOverlay" condition="Skin.HasSetting(EnableBingieSearchFanart)">
+            <param name="overlay_percent" value="75%" />
+        </include>
+        <!-- Now Playing -->
+        <include>NowPlayingBackground</include>
+        <include>NowPlayingInfoBar</include>
+        <!-- Hidden Result Scrollbar -->
+        <control type="scrollbar" id="666">
+            <visible>[Skin.HasSetting(EnableTouchSupport) | Skin.HasSetting(alwaysShowScrollbars)] + Integer.IsGreater(Container(77777).NumItems,0)</visible>
+            <right>0</right>
+            <top>127</top>
+            <height>930</height>
+            <width>15</width>
+            <orientation>vertical</orientation>
+            <onleft>77777</onleft>
+            <showonepage>false</showonepage>
+        </control>
+
+        <!-- ########## Left Layout ########## -->
+        <!-- Pseudo-Keyboard Layout -->
+        <control type="grouplist" id="9000">
+            <include>SearchSuggestionsAnim</include>
+            <visible>!$EXP[IsActualKeyboardActive]</visible>
+            <top>65</top>
+            <left>90</left>
+            <height>500</height>
+            <orientation>vertical</orientation>
+            <itemgap>-10</itemgap>
+            <defaultcontrol>101</defaultcontrol>
+            <onup>9900</onup>
+            <ondown>1007</ondown>
+            <onright condition="!Integer.IsGreater(Container(77777).NumItems,0)">9900</onright>
+            <!-- Space / Backspace Row -->
+            <include content="SearchKeyboardRow">
+                <param name="id" value="1000" />
+                <param name="onleft" value="noop" />
+                <param name="onright" value="77777" />
+                <param name="row_include" value="SearchKeyboardRow_BackspaceAndSpace_Row" />
+            </include>
+            <!-- First Row -->
+            <include content="SearchKeyboardRow">
+                <param name="id" value="1001" />
+                <param name="onleft" value="noop" />
+                <param name="onright" value="77777" />
+                <param name="row_include" value="SearchKeyboardRow_First_Row" />
+            </include>
+            <!-- Second Row -->
+            <include content="SearchKeyboardRow">
+                <param name="id" value="1002" />
+                <param name="onleft" value="noop" />
+                <param name="onright" value="77777" />
+                <param name="row_include" value="SearchKeyboardRow_Second_Row" />
+            </include>
+            <!-- Third Row -->
+            <include content="SearchKeyboardRow">
+                <param name="id" value="1003" />
+                <param name="onleft" value="noop" />
+                <param name="onright" value="77777" />
+                <param name="row_include" value="SearchKeyboardRow_Third_Row" />
+            </include>
+            <!-- Fourth Row -->
+            <include content="SearchKeyboardRow">
+                <param name="id" value="1004" />
+                <param name="onleft" value="noop" />
+                <param name="onright" value="77777" />
+                <param name="row_include" value="SearchKeyboardRow_Fourth_Row" />
+            </include>
+            <!-- Fifth Row -->
+            <include content="SearchKeyboardRow">
+                <param name="id" value="1005" />
+                <param name="onleft" value="noop" />
+                <param name="onright" value="77777" />
+                <param name="row_include" value="SearchKeyboardRow_Fifth_Row" />
+            </include>
+            <!-- Sixth Row -->
+            <include content="SearchKeyboardRow">
+                <param name="id" value="1006" />
+                <param name="onleft" value="noop" />
+                <param name="onright" value="77777" />
+                <param name="row_include" value="SearchKeyboardRow_Sixth_Row" />
+            </include>
+        </control>
+
+        <!-- Auto-Complete & Static Suggestions List -->
+        <include content="Search_Suggestions_Container">
+            <include>SearchSuggestionsAnim</include>
+            <param name="id" value="1007" />
+            <param name="onitemfocus" value="SetProperty(SuggestionPath,$INFO[ListItem.Property(path)])" />
+            <param name="onitemfocus2" value="SetProperty(CustomSearch,1,home)" />
+            <onclick condition="!String.IsEmpty(Skin.String(CustomSearchTerm))">Skin.SetString(CustomSearchTerm,$INFO[ListItem.Label])</onclick>
+            <onclick condition="String.IsEmpty(Skin.String(CustomSearchTerm))">SetFocus(77777)</onclick>
+            <visible>!$EXP[IsActualKeyboardActive]</visible>
+            <content>$VAR[SearchAutoCompleteContentProvider]</content>
+            <include>Search_Suggestions_Content</include>
+        </include>
+
+        <!--- ########## Right Layout ########## -->
+        <control type="grouplist" id="9900">
+            <left>505</left>
+            <top>33</top>
+            <height>70</height>
+            <width>1315</width>
+            <orientation>horizontal</orientation>
+            <itemgap>25</itemgap>
+            <usecontrolcoords>true</usecontrolcoords>
+            <onleft>9000</onleft>
+            <onback>9000</onback>
+            <ondown condition="Integer.IsGreater(Container(77777).NumItems,0)">77777</ondown>
+            <ondown condition="!Integer.IsGreater(Container(77777).NumItems,0)">9000</ondown>
+            <!-- VirtualKeyboard -->
+            <control type="button" id="990">
+                <aligny>top</aligny>
+                <width>60</width>
+                <height>60</height>
+                <label/>
+                <onclick>Skin.SetString(CustomSearchTerm)</onclick>
+                <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">bingie/keyboard/keyboard.png</texturefocus>
+                <texturenofocus colordiffuse="$INFO[Skin.String(BingieSecondaryTextColor)]">bingie/keyboard/keyboard.png</texturenofocus>
+                <visible>Skin.HasSetting(EnableBingieSearchFullKeyboard)</visible>
+            </control>
+            <!-- Search Term -->
+            <control type="label">
+                <visible>!$EXP[IsActualKeyboardActive]</visible>
+                <top>7</top>
+                <width>1230</width>
+                <height>70</height>
+                <font>Reg42</font>
+                <align>left</align>
+                <aligny>top</aligny>
+                <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                <label>$VAR[SearchString]</label>
+            </control>
+        </control>
+        <!-- Initial Msg / No Results Label -->
+        <control type="label">
+            <top>280</top>
+            <left>500</left>
+            <width>1320</width>
+            <height>auto</height>
+            <font>Reg42</font>
+            <align>center</align>
+            <aligny>top</aligny>
+            <wrapmultiline>true</wrapmultiline>
+            <textcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</textcolor>
+            <label>$VAR[EmptySearchResultsString]</label>
+            <visible>!Container(77777).IsUpdating + !Integer.IsGreater(Container(77777).NumItems,0)</visible>
+        </control>
+
+        <!-- Results -->
+        <control type="grouplist" id="77777">
+            <top>125</top>
+            <left>500</left>
+            <orientation>vertical</orientation>
+            <pagecontrol>666</pagecontrol>
+            <onright>666</onright>
+            <onup>9900</onup>
+            <onleft>9000</onleft>
+            <onback>9000</onback>
+            <ondown>SetProperty(BounceDown,1,Home)</ondown>
+            <include>Bounce_Down</include>
+            <!-- Suggestions Result -->
+            <include content="SearchResultWidget">
+                <param name="id" value="500" />
+                <param name="height" value="999" />
+                <param name="orientation" value="vertical" />
+                <param name="allow_showinfo_onclick" value="false" />
+                <param name="visibility" value="String.IsEmpty(Skin.String(CustomSearchTerm)) + !String.IsEmpty(Window.Property(SuggestionPath))" />
+                <onleft>1007</onleft>
+                <visible>ControlGroup(77777).HasFocus() | Control.HasFocus(1007)</visible>
+                <content limit="100" target="videos">$INFO[Window.Property(SuggestionPath)]</content>
+            </include>
+            <!-- By Title (Movies & TV Shows) -->
+            <include content="SearchResultWidgetTopLabel">
+                <param name="groupid" value="5100" />
+                <param name="id" value="510" />
+                <param name="label" value="$INFO[Skin.String(CustomSearchTerm),$LOCALIZE[31551] &quot;,&quot;]" />
+                <visible>Control.IsVisible(510)</visible>
+            </include>
+            <include content="SearchResultWidget">
+                <param name="id" value="510" />
+                <param name="allow_showinfo_onclick" value="false" />
+                <param name="visibility" value="!String.IsEmpty(Skin.String(CustomSearchTerm))" />
+                <content limit="100" target="videos">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</content>
+                <content limit="100" target="videos">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</content>
+            </include>
+            <!-- By Genre (Movies & TV Shows) -->
+            <include content="SearchResultWidgetTopLabel">
+                <param name="groupid" value="5200" />
+                <param name="id" value="520" />
+                <param name="label" value="$INFO[Skin.String(CustomSearchTerm),$LOCALIZE[31552] &quot;,&quot;]" />
+                <visible>Control.IsVisible(520)</visible>
+            </include>
+            <include content="SearchResultWidget">
+                <param name="id" value="520" />
+                <param name="allow_showinfo_onclick" value="false" />
+                <param name="visibility" value="!String.IsEmpty(Skin.String(CustomSearchTerm))" />
+                <content limit="100" target="videos">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</content>
+                <content limit="100" target="videos">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</content>
+            </include>
+            <!-- By Release Year (Movies & TV Shows) -->
+            <include content="SearchResultWidgetTopLabel">
+                <param name="groupid" value="5300" />
+                <param name="id" value="530" />
+                <param name="label" value="$INFO[Skin.String(CustomSearchTerm),$LOCALIZE[31553] &quot;,&quot;]" />
+                <visible>Control.IsVisible(530)</visible>
+            </include>
+            <include content="SearchResultWidget">
+                <param name="id" value="530" />
+                <param name="allow_showinfo_onclick" value="false" />
+                <param name="visibility" value="!String.IsEmpty(Skin.String(CustomSearchTerm))" />
+                <content limit="100" target="videos">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22year%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</content>
+                <content limit="100" target="videos">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22year%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</content>
+            </include>
+            <!-- By Studio (Movies & TV Shows) -->
+            <include content="SearchResultWidgetTopLabel">
+                <param name="groupid" value="5400" />
+                <param name="id" value="540" />
+                <param name="label" value="$INFO[Skin.String(CustomSearchTerm),$LOCALIZE[31554] &quot;,&quot;]" />
+                <visible>Control.IsVisible(540)</visible>
+            </include>
+            <include content="SearchResultWidget">
+                <param name="id" value="540" />
+                <param name="allow_showinfo_onclick" value="false" />
+                <param name="visibility" value="!String.IsEmpty(Skin.String(CustomSearchTerm))" />
+                <content limit="100" target="videos">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22studio%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</content>
+                <content limit="100" target="videos">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22studio%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</content>
+            </include>
+            <!-- By Actor (Movies & TV Shows) -->
+            <include content="SearchResultWidgetTopLabel">
+                <param name="groupid" value="5500" />
+                <param name="id" value="550" />
+                <param name="label" value="$INFO[Skin.String(CustomSearchTerm),$LOCALIZE[31555] &quot;,&quot;]" />
+                <visible>Control.IsVisible(550)</visible>
+            </include>
+            <include content="SearchResultWidget">
+                <param name="id" value="550" />
+                <param name="allow_showinfo_onclick" value="false" />
+                <param name="visibility" value="!String.IsEmpty(Skin.String(CustomSearchTerm))" />
+                <content limit="100" target="videos">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22actor%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</content>
+                <content limit="100" target="videos">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22actor%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</content>
+            </include>
+            <!-- By Director (Movies) -->
+            <include content="SearchResultWidgetTopLabel">
+                <param name="groupid" value="5600" />
+                <param name="id" value="560" />
+                <param name="label" value="$INFO[Skin.String(CustomSearchTerm),$LOCALIZE[31556] &quot;,&quot;]" />
+                <visible>Control.IsVisible(560)</visible>
+            </include>
+            <include content="SearchResultWidget">
+                <param name="id" value="560" />
+                <param name="allow_showinfo_onclick" value="false" />
+                <param name="visibility" value="!String.IsEmpty(Skin.String(CustomSearchTerm))" />
+                <content limit="100" target="videos">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22director%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</content>
+            </include>
+            <!-- By Country (Movies) -->
+            <include content="SearchResultWidgetTopLabel">
+                <param name="groupid" value="5700" />
+                <param name="id" value="570" />
+                <param name="label" value="$INFO[Skin.String(CustomSearchTerm),$LOCALIZE[31300] &quot;,&quot;]" />
+                <visible>Control.IsVisible(570)</visible>
+            </include>
+            <include content="SearchResultWidget">
+                <param name="id" value="570" />
+                <param name="allow_showinfo_onclick" value="false" />
+                <param name="visibility" value="!String.IsEmpty(Skin.String(CustomSearchTerm))" />
+                <content limit="100" target="videos">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22country%22%2C%22operator%22%3A%22is%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</content>
+            </include>
+            <!-- Search Episodes By Name -->
+            <include content="EpisodeSearchResultWidget" condition="Library.HasContent(tvshows) + Skin.HasSetting(EnableBingieSearchEpisodes)">
+                <param name="id" value="580" />
+            </include>
+        </control>
+
+        <!-- Loading Suggestions -->
+        <include content="Busy_Spinner">
+            <param name="centerleft" value="60%"/>
+            <param name="centertop" value="47%"/>
+            <param name="visibility" value="Control.IsVisible(500) + Container(500).IsUpdating + !Integer.IsGreater(Container(500).NumItems,0)"/>
+            <param name="size" value="100"/>
+        </include>
+	</controls>
+</window>

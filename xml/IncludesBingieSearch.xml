@@ -9,6 +9,7 @@
 
     <variable name="EmptySearchResultsString">
         <value condition="Control.HasFocus(1007) + String.IsEmpty(Skin.String(CustomSearchTerm))">$LOCALIZE[31558]</value>
+        <value condition="String.IsEmpty(Skin.String(CustomSearchTerm)) + Window.IsActive(1107)">$LOCALIZE[31038]</value>
         <value condition="String.IsEmpty(Skin.String(CustomSearchTerm))">$LOCALIZE[31559]</value>
         <value>$LOCALIZE[31578]</value>
     </variable>

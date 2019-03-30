@@ -21,7 +21,7 @@
 			<shortcut label="31867" grouping="32029" icon="resource://resource.images.skinicons.wide/mylist.png" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">ActivateWindow(1114,return)</shortcut>
 			<shortcut label="31252" grouping="32029" icon="resource://resource.images.skinicons.wide/widget.png" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">ActivateWindow(1113,return)</shortcut>
 			<shortcut label="31383" grouping="32029" icon="resource://resource.images.skinicons.wide/widget.png" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">ActivateWindow(1115,return)</shortcut>
-			<shortcut label="2" grouping="32029" icon="resource://resource.images.skinicons.wide/music_6.png" thumb="$INFO[Window(Home).Property(SkinHelper.AllMusicBackground)]">ActivateWindow(10502,musicdb://,return)</shortcut>
+			<shortcut label="2" grouping="32029" icon="resource://resource.images.skinicons.wide/music_6.png" thumb="$INFO[Window(Home).Property(SkinHelper.AllMusicBackground)]">ActivateWindow(Music,musicdb://albums/,return)</shortcut>
 			<shortcut label="20389" grouping="32029" icon="$INFO[Window(Home).Property(SkinHelper.AllMusicVideosBackground)]">ActivateWindow(Videos,videodb://musicvideos/titles/,return)</shortcut>
 			<shortcut label="12600" grouping="32029" icon="$INFO[Skin.String(WeatherFanArtPack.path)]$INFO[Window(Weather).Property(Current.FanartCode)]$VAR[WeatherFanArtExtension]">ActivateWindow(Weather)</shortcut>
 			<shortcut label="10002" grouping="32029" icon="$INFO[Window(Home).Property(SkinHelper.PicturesBackground)]">ActivateWindow(pictures,return)</shortcut>
@@ -41,7 +41,7 @@
 
 		<!-- video library-->
 		<node label="32030">
-			<shortcut label="19140" grouping="1211" type="1211">RunScript(script.skin.helper.service,action=VIDEOSEARCH)</shortcut>
+			<shortcut label="19140" grouping="1211" type="1211">ActivateWindow(1108,return)</shortcut>
 			<shortcut label="20381" type="32010">||BROWSE||script.skin.helper.widgets</shortcut>
 			<content>video</content>
 			<node label="32040">
@@ -59,10 +59,10 @@
 		</node>
 		
 		<!-- music -->
-		<node label="32031">
-			<shortcut label="2" grouping="32029" icon="resource://resource.images.skinicons.wide/music.png">ActivateWindow(10502,musicdb://,return)</shortcut>
+		<node label="32031" condition="Library.HasContent(music)">
+			<shortcut label="2" grouping="32029" icon="resource://resource.images.skinicons.wide/music_6.png">ActivateWindow(10502,musicdb://,return)</shortcut>
 			<shortcut label="19021" grouping="32029" icon="resource://resource.images.skinicons.wide/radio.png">ActivateWindow(radiochannels,return)</shortcut>
-            <shortcut label="19140" grouping="1211" type="1211">RunScript(script.skin.helper.service,action=MUSICSEARCH)</shortcut>
+            <shortcut label="19140" grouping="1211" type="1211">ActivateWindow(1107,return)</shortcut>
 			<shortcut label="589" grouping="1211" type="1211">PlayerControl(Partymode(music))</shortcut>
             <content>music</content>
 			<node label="32040">
@@ -256,7 +256,6 @@
 	<!-- default widgets -->
 	<widgetdefaultnode defaultID="movies" group="mainmenu" label="$LOCALIZE[31102]" type="movies" path="special://skin/extras/widgetplaylists/randommovies.xsp" target="video">randommovies</widgetdefaultnode>
 	<widgetdefaultnode defaultID="tvshows" group="mainmenu" label="$LOCALIZE[31036]" type="tvshows" path="special://skin/extras/widgetplaylists/randomtvshows.xsp" target="video">randomshows</widgetdefaultnode>
-	<widgetdefaultnode defaultID="music" group="mainmenu" label="$LOCALIZE[359]" type="albums" path="plugin://script.skin.helper.widgets/?action=recent&amp;mediatype=albums&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload-music)]" target="music">recentalbums</widgetdefaultnode>
 	<widgetdefaultnode defaultID="musicvideos" group="mainmenu" label="$LOCALIZE[20390]" type="musicvideos" path="plugin://script.skin.helper.widgets/?action=recent&amp;mediatype=musicvideos&amp;reload=$INFO[Window(Home).Property(widgetreload-musicvideos)]" target="video">recentmusicvideos</widgetdefaultnode>
 	<widgetdefaultnode defaultID="weather" group="mainmenu" label="$LOCALIZE[8]" type="static" path="$INCLUDE[WeatherWidget]" target="static">weather</widgetdefaultnode>
 	<widgetdefaultnode defaultID="settings" group="mainmenu" label="$LOCALIZE[130]" type="static" path="$INCLUDE[SystemInfoWidget]" target="static">systeminfo</widgetdefaultnode>
