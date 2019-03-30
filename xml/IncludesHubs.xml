@@ -112,7 +112,7 @@
                 <param name="widgetTags" value="WidgetTagOverlayAuto" />
                 <param name="multiRows" value="false" />
             </include>
-            <content target="$INFO[Skin.String($PARAM[skinsetting].target)]">$INFO[Skin.String($PARAM[skinsetting].path)]</content>
+            <content limit="$INFO[Skin.String(WidgetsGlobalLimit)]" target="$INFO[Skin.String($PARAM[skinsetting].target)]">$INFO[Skin.String($PARAM[skinsetting].path)]</content>
             <visible>Skin.String($PARAM[skinsetting].path)</visible>
         </control>
     </include>
