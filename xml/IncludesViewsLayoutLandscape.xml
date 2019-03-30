@@ -203,7 +203,7 @@
 	<include name="ThumbsTagOverlay">
         <control type="image">
             <!--Panel Ovelay-->
-            <visible>![String.IsEqual(Skin.String(HomeLayout),bingie) + $EXP[IsTvShowDBType] + $EXP[IsTVShowInLastEpisodes]]</visible>
+            <visible>![$EXP[IsTvShowDBType] + $EXP[IsTVShowInLastEpisodes]]</visible>
             <bordersize>8</bordersize>
             <texture diffuse="home/home_matte2.png">diffuse/home_overlay.png</texture>
             <include condition="!Window.IsActive(Home)">LandscapeTagOverlayVisibility</include>
@@ -211,7 +211,7 @@
         </control>
         <control type="textbox">
             <!--Label-->
-            <visible>![String.IsEqual(Skin.String(HomeLayout),bingie) + $EXP[IsTvShowDBType] + $EXP[IsTVShowInLastEpisodes]]</visible>
+            <visible>![$EXP[IsTvShowDBType] + $EXP[IsTVShowInLastEpisodes]]</visible>
             <left>16</left>
             <right>16</right>
             <bottom>10</bottom>
@@ -275,6 +275,7 @@
     <!-- New Episodes Tag Overlay -->
     <include name="New_Episodes_Tag_Overlay">
         <control type="group">
+            <visible>!Skin.HasSetting(DisableNewEpisodesIndicator)</visible>
             <visible>$EXP[IsTvShowDBType] + $EXP[IsTVShowInLastEpisodes]</visible>
             <width>46%</width>
             <height>30</height>

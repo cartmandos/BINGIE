@@ -1652,12 +1652,6 @@
             <param name="label" value="$LOCALIZE[31836]" />
             <param name="skinsetting" value="BingieRatingInDetailsColor" />
         </include>
-        <!--Bingie New Episodes Flag Color-->
-        <include content="SkinSettings_ColorButton">
-            <param name="id" value="31008" />
-            <param name="label" value="$LOCALIZE[31008]" />
-            <param name="skinsetting" value="BingieNewEpisodesTagColor" />
-        </include>
         <!--Bingie Info Dialog Icons Color-->
         <include content="SkinSettings_ColorButton">
             <param name="id" value="31010" />
@@ -1839,7 +1833,7 @@
             <param name="label" value="$LOCALIZE[31604]" />
             <param name="skinsetting" value="TagOverlaysTextColor" />
         </include>
-        <!--label overlay text color-->
+        <!--home widgets border color-->
         <include content="SkinSettings_ColorButton">
             <param name="id" value="31735" />
             <param name="label" value="$LOCALIZE[31735]" />
@@ -2769,6 +2763,18 @@
             <param name="visible" value="true" />
         </include>
         <!-- empty label -->
+        <control type="label" id="6028">
+            <height>20</height>
+            <label/>
+        </control>
+        <!-- set global items limit -->
+        <control type="button" id="31211">
+            <include>SkinSettings_Button</include>
+            <label>31037</label>
+            <label2>$INFO[Skin.String(WidgetsGlobalLimit)]</label2>
+            <onclick>Skin.SetNumeric(WidgetsGlobalLimit)</onclick>
+        </control>
+        <!-- empty label -->
         <control type="label" id="23028">
             <visible>String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
             <height>20</height>
@@ -2790,13 +2796,6 @@
             <visible>String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
             <onclick>Skin.ToggleSetting(LockHubWidgets)</onclick>
             <selected>Skin.HasSetting(LockHubWidgets)</selected>
-        </control>
-        <!-- set global items limit -->
-        <control type="button" id="31211">
-            <include>SkinSettings_Button</include>
-            <label>31037</label>
-            <label2>$INFO[Skin.String(WidgetsGlobalLimit)]</label2>
-            <onclick>Skin.SetNumeric(WidgetsGlobalLimit)</onclick>
         </control>
         <!-- empty label -->
         <control type="label" id="6004">
@@ -3496,6 +3495,20 @@
             <param name="labelprefix" value="  --- " />
             <param name="skinsetting" value="WatchedIndicator.Playing.TextColor" />
             <param name="visible" value="Skin.HasSetting(WatchedIndicator.Playing)" />
+        </include>
+        <!--Bingie New Episodes Flag -->
+        <control type="radiobutton" id="31039">
+            <include>SkinSettings_Button</include>
+            <label>31039</label>
+            <onclick>Skin.ToggleSetting(DisableNewEpisodesIndicator)</onclick>
+            <selected>Skin.HasSetting(DisableNewEpisodesIndicator)</selected>
+        </control>
+        <include content="SkinSettings_ColorButton">
+            <param name="id" value="31008" />
+            <param name="label" value="$LOCALIZE[31008]" />
+            <param name="labelprefix" value="  --- " />
+            <param name="skinsetting" value="BingieNewEpisodesTagColor" />
+            <param name="visible" value="!Skin.HasSetting(DisableNewEpisodesIndicator)" />
         </include>
     </include>
 

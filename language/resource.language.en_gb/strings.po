@@ -170,7 +170,9 @@ msgctxt "#31038"
 msgid "Search Music Videos, Albums, Artists or Songs"
 msgstr ""
 
-# empty strings 31039
+msgctxt "#31039"
+msgid "Disable 'New Episodes' Indicator"
+msgstr ""
 
 msgctxt "#31040"
 msgid "Now playing"
@@ -2080,7 +2082,7 @@ msgid "Use fixed focus"
 msgstr ""
 
 msgctxt "#31512"
-msgid "Watched indicators"
+msgid "Media Items indicators"
 msgstr ""
 
 msgctxt "#31513"

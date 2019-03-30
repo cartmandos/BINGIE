@@ -694,7 +694,7 @@
                     <include content="$PARAM[widgetTags]" condition="String.IsEqual(Skin.String(Widgets_DisplayTags),override)">
                         <param name="prefix" value="Landscape"/>
                     </include>
-                    <include condition="String.IsEqual(Skin.String(HomeLayout),bingie)">New_Episodes_Tag_Overlay</include>
+                    <include>New_Episodes_Tag_Overlay</include>
                 </control>
             </control>
         </itemlayout>
@@ -713,7 +713,7 @@
                     <include content="$PARAM[widgetTags]" condition="String.IsEqual(Skin.String(Widgets_DisplayTags),override)">
                         <param name="prefix" value="Landscape"/>
                     </include>
-                    <include condition="String.IsEqual(Skin.String(HomeLayout),bingie)">New_Episodes_Tag_Overlay</include>
+                    <include>New_Episodes_Tag_Overlay</include>
                 </control>
             </control>
         </focusedlayout>
@@ -733,7 +733,7 @@
                     <include content="$PARAM[widgetTags]" condition="String.IsEqual(Skin.String(Widgets_DisplayTags),override)">
                         <param name="prefix" value="Landscape"/>
                     </include>
-                    <include condition="String.IsEqual(Skin.String(HomeLayout),bingie)">New_Episodes_Tag_Overlay</include>
+                    <include>New_Episodes_Tag_Overlay</include>
                 </control>
                 <include content="HiddenWidgetButton">
                     <param name="widgetstyle" value="landscape"/>
@@ -806,7 +806,7 @@
                     <include content="$PARAM[widgetTags]" condition="String.IsEqual(Skin.String(Widgets_DisplayTags),override)">
                         <param name="prefix" value="Landscape" />
                     </include>
-                    <include condition="String.IsEqual(Skin.String(HomeLayout),bingie)">New_Episodes_Tag_Overlay</include>
+                    <include>New_Episodes_Tag_Overlay</include>
                 </control>
             </control>
         </itemlayout>
@@ -826,7 +826,7 @@
                     <include content="$PARAM[widgetTags]" condition="String.IsEqual(Skin.String(Widgets_DisplayTags),override)">
                         <param name="prefix" value="Landscape" />
                     </include>
-                    <include condition="String.IsEqual(Skin.String(HomeLayout),bingie)">New_Episodes_Tag_Overlay</include>
+                    <include>New_Episodes_Tag_Overlay</include>
                 </control>
                 <include content="HiddenWidgetButton">
                     <param name="widgetstyle" value="landscapelarge" />
@@ -849,7 +849,7 @@
                     <include content="$PARAM[widgetTags]" condition="String.IsEqual(Skin.String(Widgets_DisplayTags),override)">
                         <param name="prefix" value="Landscape" />
                     </include>
-                    <include condition="String.IsEqual(Skin.String(HomeLayout),bingie)">New_Episodes_Tag_Overlay</include>
+                    <include>New_Episodes_Tag_Overlay</include>
                 </control>
             </control>
         </focusedlayout>
