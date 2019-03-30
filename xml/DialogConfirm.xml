@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <window>
-	<onload condition="Skin.HasSetting(DialogYesNo_FocusNO) + !Control.IsVisible(12)">SetFocus(10)</onload>
+	<onload condition="Skin.HasSetting(DialogYesNo_FocusNO) + Control.IsVisible(10)">SetFocus(10)</onload>
+	<onload condition="!Skin.HasSetting(DialogYesNo_FocusNO)">SetFocus(11)</onload>
 	<onload condition="Control.IsVisible(12)">SetFocus(12)</onload>
     <controls>
 	<control type="group">
