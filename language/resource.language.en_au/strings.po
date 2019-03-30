@@ -24,10 +24,6 @@ msgctxt "#31005"
 msgid "General skin settings"
 msgstr "General skin settings"
 
-msgctxt "#31037"
-msgid "Trailers"
-msgstr "Trailers"
-
 msgctxt "#31040"
 msgid "Now playing"
 msgstr "Now playing"

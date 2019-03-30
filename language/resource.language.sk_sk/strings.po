@@ -20,10 +20,6 @@ msgctxt "#31005"
 msgid "General skin settings"
 msgstr "Všeobecné nastavenia vzhľadu "
 
-msgctxt "#31037"
-msgid "Trailers"
-msgstr "Ukážky"
-
 msgctxt "#31044"
 msgid "New added movies"
 msgstr "Nové pridané filmy"

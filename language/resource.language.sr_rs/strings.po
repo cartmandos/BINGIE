@@ -132,18 +132,6 @@ msgctxt "#31035"
 msgid "Movies in progress"
 msgstr "Филмови у току"
 
-msgctxt "#31037"
-msgid "Trailers"
-msgstr "Најава"
-
-msgctxt "#31038"
-msgid "Use custom image for skin background"
-msgstr "Користи прилагођену слику за позадину маске"
-
-msgctxt "#31039"
-msgid "Use custom image for skin background"
-msgstr "Користи прилагођену слику за позадину маске"
-
 msgctxt "#31040"
 msgid "Now playing"
 msgstr "Сада пуштено"

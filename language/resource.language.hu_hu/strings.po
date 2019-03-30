@@ -124,18 +124,6 @@ msgctxt "#31035"
 msgid "Movies in progress"
 msgstr "Folyamatban lévő filmek"
 
-msgctxt "#31037"
-msgid "Trailers"
-msgstr "Bemutatók"
-
-msgctxt "#31038"
-msgid "Use custom image for skin background"
-msgstr "Egyéni kép használata a felület háttereként"
-
-msgctxt "#31039"
-msgid "Use custom image for skin background"
-msgstr "Egyéni kép használata a felület háttereként"
-
 msgctxt "#31040"
 msgid "Now playing"
 msgstr "Most játszott"

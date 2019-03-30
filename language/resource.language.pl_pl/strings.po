@@ -132,18 +132,6 @@ msgctxt "#31035"
 msgid "Movies in progress"
 msgstr "Filmy w trakcie oglądania"
 
-msgctxt "#31037"
-msgid "Trailers"
-msgstr "Zwiastuny"
-
-msgctxt "#31038"
-msgid "Use custom image for skin background"
-msgstr "Używaj niestandardowego obrazu"
-
-msgctxt "#31039"
-msgid "Use custom image for skin background"
-msgstr "Używaj niestandardowego obrazu"
-
 msgctxt "#31040"
 msgid "Now playing"
 msgstr "Teraz odtwarzane"

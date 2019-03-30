@@ -16,10 +16,6 @@ msgstr ""
 "Language: es_AR\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgctxt "#31037"
-msgid "Trailers"
-msgstr "Trailers"
-
 msgctxt "#31040"
 msgid "Now playing"
 msgstr "Reproduciendo ahora"

@@ -132,18 +132,6 @@ msgctxt "#31035"
 msgid "Movies in progress"
 msgstr "Nu bekeken films"
 
-msgctxt "#31037"
-msgid "Trailers"
-msgstr "Trailers"
-
-msgctxt "#31038"
-msgid "Use custom image for skin background"
-msgstr "Gebruik eigen afbeelding"
-
-msgctxt "#31039"
-msgid "Use custom image for skin background"
-msgstr "Gebruik een eigen afbeelding als skinachtergrond"
-
 msgctxt "#31040"
 msgid "Now playing"
 msgstr "Bezig met afspelen"

@@ -120,18 +120,6 @@ msgctxt "#31035"
 msgid "Movies in progress"
 msgstr "正在播放中的电影"
 
-msgctxt "#31037"
-msgid "Trailers"
-msgstr "预告片"
-
-msgctxt "#31038"
-msgid "Use custom image for skin background"
-msgstr "使用自定义图像皮肤背景"
-
-msgctxt "#31039"
-msgid "Use custom image for skin background"
-msgstr "使用自定义图像皮肤背景"
-
 msgctxt "#31040"
 msgid "Now playing"
 msgstr "正在播放"

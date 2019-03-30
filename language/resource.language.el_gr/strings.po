@@ -48,10 +48,6 @@ msgctxt "#31035"
 msgid "Movies in progress"
 msgstr "Ταινίες σε εξέλιξη"
 
-msgctxt "#31037"
-msgid "Trailers"
-msgstr "Διαφημιστικά"
-
 msgctxt "#31040"
 msgid "Now playing"
 msgstr "Τώρα εκτελείται"

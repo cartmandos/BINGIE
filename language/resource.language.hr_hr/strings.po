@@ -132,18 +132,6 @@ msgctxt "#31035"
 msgid "Movies in progress"
 msgstr "Filmovi u tijeku"
 
-msgctxt "#31037"
-msgid "Trailers"
-msgstr "Najave"
-
-msgctxt "#31038"
-msgid "Use custom image for skin background"
-msgstr "Koristi prilagođenu sliku za pozadinu presvlake"
-
-msgctxt "#31039"
-msgid "Use custom image for skin background"
-msgstr "Koristi prilagođenu sliku za pozadinu presvlake"
-
 msgctxt "#31040"
 msgid "Now playing"
 msgstr "Trenutno se reproducira"

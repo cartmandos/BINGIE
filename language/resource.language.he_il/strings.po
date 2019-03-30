@@ -132,18 +132,6 @@ msgctxt "#31035"
 msgid "Movies in progress"
 msgstr "סרטים בתהליך"
 
-msgctxt "#31037"
-msgid "Trailers"
-msgstr "קדימונים"
-
-msgctxt "#31038"
-msgid "Use custom image for skin background"
-msgstr "תשתמש בתמונה מותאמת אישית עבור רקע המעטפת"
-
-msgctxt "#31039"
-msgid "Use custom image for skin background"
-msgstr "תשתמש בתמונה מותאמת אישית עבור רקע המעטפת"
-
 msgctxt "#31040"
 msgid "Now playing"
 msgstr "מנגן כעת"

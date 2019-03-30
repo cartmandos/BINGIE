@@ -36,10 +36,6 @@ msgctxt "#31022"
 msgid "Background settings"
 msgstr "Ajusts del fons"
 
-msgctxt "#31037"
-msgid "Trailers"
-msgstr "Tràilers"
-
 msgctxt "#31048"
 msgid "Latest Movies"
 msgstr "Pel·lícules més recents"

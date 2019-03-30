@@ -16,10 +16,6 @@ msgstr ""
 "Language: vi_VN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgctxt "#31037"
-msgid "Trailers"
-msgstr "Phim giới thiệu"
-
 msgctxt "#31048"
 msgid "Latest Movies"
 msgstr "Phim Mới"

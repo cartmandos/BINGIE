@@ -24,10 +24,6 @@ msgctxt "#31005"
 msgid "General skin settings"
 msgstr "스킨 일반 설정"
 
-msgctxt "#31037"
-msgid "Trailers"
-msgstr "예고편"
-
 msgctxt "#31040"
 msgid "Now playing"
 msgstr "지금 재생중"

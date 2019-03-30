@@ -132,18 +132,6 @@ msgctxt "#31035"
 msgid "Movies in progress"
 msgstr "Cereka sedang dimainkan"
 
-msgctxt "#31037"
-msgid "Trailers"
-msgstr "Treler"
-
-msgctxt "#31038"
-msgid "Use custom image for skin background"
-msgstr "Guna imej suai untuk latar belakang kulit"
-
-msgctxt "#31039"
-msgid "Use custom image for skin background"
-msgstr "Guna imej suai untuk latar belakang kulit"
-
 msgctxt "#31040"
 msgid "Now playing"
 msgstr "Kini dimainkan"

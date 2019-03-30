@@ -16,10 +16,6 @@ msgstr ""
 "Language: th_TH\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgctxt "#31037"
-msgid "Trailers"
-msgstr "หนังตัวอย่าง"
-
 msgctxt "#31048"
 msgid "Latest Movies"
 msgstr "ภาพยนตร์ ล่าสุด"

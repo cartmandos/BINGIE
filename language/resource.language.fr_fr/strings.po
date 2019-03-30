@@ -132,18 +132,6 @@ msgctxt "#31035"
 msgid "Movies in progress"
 msgstr "Films en cours"
 
-msgctxt "#31037"
-msgid "Trailers"
-msgstr "Bandes-annonces"
-
-msgctxt "#31038"
-msgid "Use custom image for skin background"
-msgstr "Utiliser une image personnalisée comme arrière-plan d'habillage"
-
-msgctxt "#31039"
-msgid "Use custom image for skin background"
-msgstr "Utiliser une image personnalisée comme arrière-plan d'habillage"
-
 msgctxt "#31040"
 msgid "Now playing"
 msgstr "Lecture en cours"

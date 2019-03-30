@@ -92,10 +92,6 @@ msgctxt "#31035"
 msgid "Movies in progress"
 msgstr "Pågående filmer"
 
-msgctxt "#31037"
-msgid "Trailers"
-msgstr "Trailers"
-
 msgctxt "#31040"
 msgid "Now playing"
 msgstr "Spelas nu"

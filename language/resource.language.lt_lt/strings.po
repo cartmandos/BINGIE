@@ -132,18 +132,6 @@ msgctxt "#31035"
 msgid "Movies in progress"
 msgstr "Nebaigti žiūrėti filmai"
 
-msgctxt "#31037"
-msgid "Trailers"
-msgstr "Anonsai"
-
-msgctxt "#31038"
-msgid "Use custom image for skin background"
-msgstr "Naudoti savą atvaizdą teminės išvaizdos fone"
-
-msgctxt "#31039"
-msgid "Use custom image for skin background"
-msgstr "Naudoti savą atvaizdą teminės išvaizdos fone"
-
 msgctxt "#31040"
 msgid "Now playing"
 msgstr "Dabar atkuriama"

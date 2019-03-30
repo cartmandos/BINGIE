@@ -32,10 +32,6 @@ msgctxt "#31035"
 msgid "Movies in progress"
 msgstr "Filme în curs de vizionare"
 
-msgctxt "#31037"
-msgid "Trailers"
-msgstr "Trailere"
-
 msgctxt "#31040"
 msgid "Now playing"
 msgstr "În redare"

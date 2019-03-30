@@ -16,10 +16,6 @@ msgstr ""
 "Language: eu_ES\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgctxt "#31037"
-msgid "Trailers"
-msgstr "Trailerra"
-
 msgctxt "#31052"
 msgid "Artwork Downloader"
 msgstr "Artwork Downloader"

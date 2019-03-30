@@ -40,10 +40,6 @@ msgctxt "#31030"
 msgid "Display weather"
 msgstr "Vis vær"
 
-msgctxt "#31037"
-msgid "Trailers"
-msgstr "Trailere"
-
 msgctxt "#31040"
 msgid "Now playing"
 msgstr "Nå spilles"

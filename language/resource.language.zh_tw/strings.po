@@ -24,10 +24,6 @@ msgctxt "#31005"
 msgid "General skin settings"
 msgstr "一般佈景主題設定"
 
-msgctxt "#31037"
-msgid "Trailers"
-msgstr "預告片"
-
 msgctxt "#31048"
 msgid "Latest Movies"
 msgstr "最新電影"

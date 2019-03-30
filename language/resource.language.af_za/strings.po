@@ -16,10 +16,6 @@ msgstr ""
 "Language: af_ZA\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgctxt "#31037"
-msgid "Trailers"
-msgstr "Voorskoue"
-
 msgctxt "#31048"
 msgid "Latest Movies"
 msgstr "Nuutste Flieks"

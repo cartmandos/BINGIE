@@ -16,10 +16,6 @@ msgstr ""
 "Language: sq_AL\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgctxt "#31037"
-msgid "Trailers"
-msgstr "Trailer"
-
 msgctxt "#31054"
 msgid "Fanart"
 msgstr "Fanart"

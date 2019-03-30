@@ -132,18 +132,6 @@ msgctxt "#31035"
 msgid "Movies in progress"
 msgstr "Süren filmler"
 
-msgctxt "#31037"
-msgid "Trailers"
-msgstr "Fragmanlar"
-
-msgctxt "#31038"
-msgid "Use custom image for skin background"
-msgstr "Arka plan için özel resim kullan"
-
-msgctxt "#31039"
-msgid "Use custom image for skin background"
-msgstr "Arka plan için özel resim kullan"
-
 msgctxt "#31040"
 msgid "Now playing"
 msgstr "Şimdi yürütülüyor..."

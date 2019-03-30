@@ -16,10 +16,6 @@ msgstr ""
 "Language: mk_MK\n"
 "Plural-Forms: nplurals=2; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : 1;\n"
 
-msgctxt "#31037"
-msgid "Trailers"
-msgstr "Трејлер"
-
 msgctxt "#31053"
 msgid "Poster"
 msgstr "Постер"

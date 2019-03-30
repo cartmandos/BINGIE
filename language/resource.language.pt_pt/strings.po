@@ -124,18 +124,6 @@ msgctxt "#31035"
 msgid "Movies in progress"
 msgstr "Filmes em progresso"
 
-msgctxt "#31037"
-msgid "Trailers"
-msgstr "Trailers"
-
-msgctxt "#31038"
-msgid "Use custom image for skin background"
-msgstr "Usar imagem personalizada para plano de fundo do tema"
-
-msgctxt "#31039"
-msgid "Use custom image for skin background"
-msgstr "Usar imagem personalizada para plano de fundo do tema"
-
 msgctxt "#31040"
 msgid "Now playing"
 msgstr "Reproduzindo"

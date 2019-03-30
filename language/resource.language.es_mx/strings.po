@@ -16,10 +16,6 @@ msgstr ""
 "Language: es_MX\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgctxt "#31037"
-msgid "Trailers"
-msgstr "Trailers"
-
 msgctxt "#31048"
 msgid "Latest Movies"
 msgstr "Películas más recientes"
