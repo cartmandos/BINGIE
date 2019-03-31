@@ -132,50 +132,50 @@
 			<orientation>horizontal</orientation>
             <control type="image">
                 <include>mediaflags_large_layout</include>
-                <texture background="true">$VAR[mediaflags_large_path]$INFO[Window(Home).Property(ListItem.VideoResolution),/resolution/,.png]</texture>
+                <texture>$VAR[mediaflags_large_path]$INFO[Window(Home).Property(ListItem.VideoResolution),/resolution/,.png]</texture>
                 <visible>!String.IsEmpty(Window(Home).Property(ListItem.VideoResolution))</visible>
             </control>
             <control type="image">
                 <include>mediaflags_large_layout</include>
-                <texture background="true">$VAR[mediaflags_large_path]$INFO[Window(Home).Property(ListItem.AudioCodec),/audio/,.png]</texture>
+                <texture>$VAR[mediaflags_large_path]$INFO[Window(Home).Property(ListItem.AudioCodec),/audio/,.png]</texture>
                 <visible>!String.IsEmpty(Window(Home).Property(ListItem.AudioCodec))</visible>
             </control>
             <control type="image">
                 <include>mediaflags_large_layout</include>
-                <texture background="true">$VAR[mediaflags_large_path]$INFO[Window(Home).Property(ListItem.AudioChannels),/channels/,.png]</texture>
+                <texture>$VAR[mediaflags_large_path]$INFO[Window(Home).Property(ListItem.AudioChannels),/channels/,.png]</texture>
                 <visible>!String.IsEmpty(Window(Home).Property(ListItem.AudioChannels))</visible>
             </control>
             <control type="image">
                 <include>mediaflags_large_layout</include>
-                <texture background="true">$VAR[mediaflags_large_path]$VAR[mediaflags_large_source_widgets,/video/,.png]</texture>
+                <texture>$VAR[mediaflags_large_path]$VAR[mediaflags_large_source_widgets,/video/,.png]</texture>
                 <visible>!String.IsEmpty(Window(Home).Property(ListItem.VideoCodec))</visible>
             </control>
             <control type="image">
                 <include>mediaflags_large_layout</include>
-                <texture background="true">$VAR[mediaflags_large_path]$INFO[Window(Home).Property(ListItem.VideoAspect),/aspectratio/,.png]</texture>
+                <texture>$VAR[mediaflags_large_path]$INFO[Window(Home).Property(ListItem.VideoAspect),/aspectratio/,.png]</texture>
                 <visible>!String.IsEmpty(Window(Home).Property(ListItem.VideoAspect))</visible>
             </control>
             <control type="image">
                 <include>mediaflags_large_layout</include>
-                <texture background="true">$VAR[mediaflags_large_path]/cc.png</texture>
-                <visible>!String.IsEmpty(ListItem.SubtitleLanguage) + !Skin.String(mediaflagsstyle,large_color)</visible>
+                <texture fallback="flags/flags_large/mpaa/nr.png">$VAR[mediaflags_large_rating_widgets]</texture>
+                <visible>!String.IsEmpty(Window(Home).Property(ListItem.MPAA)) + !String.IsEqual(Window(Home).Property(ListItem.MPAA),nr.png)</visible>
             </control>
-            <control type="image" >
-                <height>95</height>
+            <control type="image">
                 <include>mediaflags_large_layout</include>
-                <texture background="true">$VAR[LanguageFlagIconPath]$INFO[ListItem.AudioLanguage].png</texture>
-                <visible>!String.IsEmpty(ListItem.AudioLanguage) + Skin.String(mediaflagsstyle,large_color)</visible>
+                <texture>$VAR[mediaflags_large_path]/cc.png</texture>
+                <visible>!String.IsEmpty(ListItem.SubtitleLanguage) + !Skin.String(mediaflagsstyle,large_color)</visible>
             </control>
             <control type="image">
                 <height>95</height>
                 <include>mediaflags_large_layout</include>
-                <texture background="true">$VAR[LanguageFlagIconPath]$INFO[ListItem.SubtitleLanguage].png</texture>
+                <texture>$VAR[LanguageFlagIconPath]$INFO[ListItem.SubtitleLanguage].png</texture>
                 <visible>!String.IsEmpty(ListItem.SubtitleLanguage) + Skin.String(mediaflagsstyle,large_color)</visible>
             </control>
-            <control type="image" id="11510">
+            <control type="image" >
+                <height>95</height>
                 <include>mediaflags_large_layout</include>
-                <texture fallback="flags/flags_large/mpaa/nr.png">$VAR[mediaflags_large_rating_widgets]</texture>
-                <visible>!String.IsEmpty(Window(Home).Property(ListItem.MPAA)) + !String.IsEqual(Window(Home).Property(ListItem.MPAA),nr.png)</visible>
+                <texture>$VAR[LanguageFlagIconPath]$INFO[ListItem.AudioLanguage].png</texture>
+                <visible>!String.IsEmpty(ListItem.AudioLanguage) + Skin.String(mediaflagsstyle,large_color)</visible>
             </control>
         </control>
     </include>

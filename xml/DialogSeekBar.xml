@@ -4,6 +4,16 @@
     <visible>[Window.IsActive(videoosd) | Player.ShowInfo | Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding] + Window.IsActive(fullscreenvideo)</visible>
 	<controls>
         <control type="group">
+            <!--BG-->
+            <control type="image">
+                <width>100%</width>
+                <height>100%</height>
+                <texture background="true" border="15">special://home/addons/resource.images.backgroundoverlays.basic/resources/vignette.png</texture>
+                <colordiffuse>$INFO[Skin.String(OSDPanelColor)]</colordiffuse>
+                <visible>Skin.HasSetting(UseBingieOSDPanel) + [Window.IsActive(videoosd) | VideoPlayer.Content(livetv) | Player.ShowInfo]</visible>
+                <visible>!Window.IsActive(sliderdialog) + !Window.IsActive(pvrosdchannels) + !Window.IsActive(DialogSettings.xml)</visible>
+                <animation effect="fade" time="400">VisibleChange</animation>
+            </control>
             
             <!--Info Panel-->
             <include>OSDInfoPanel</include>

@@ -68,7 +68,7 @@
 			<top>40</top>
 			<height>180</height>
 			<width>500</width>
-			<visible>[!String.IsEmpty(Player.SeekNumeric) | !String.IsEmpty(PVR.ChannelNumberInput)] + !Window.IsVisible(VideoOSD) + !Window.IsVisible(SeekBar)</visible>
+			<visible>[!String.IsEmpty(Player.SeekNumeric) | !String.IsEmpty(PVR.ChannelNumberInput)]</visible>
 			<animation effect="fade" start="0" end="100" time="250">Visible</animation>
 			<animation effect="fade" start="100" end="0" time="300">Hidden</animation>
 			<control type="image" id="1">
@@ -105,16 +105,15 @@
 				<visible>!String.IsEmpty(Player.SeekNumeric)</visible>
 			</control>
 			<control type="label" id="2">
-				<left>30</left>
-				<top>80</top>
+				<top>60</top>
 				<width>500</width>
 				<height>50</height>
-				<label>$INFO[PVR.ChannelNumberInput,$LOCALIZE[19029]: ,]</label>
-				<font>Light40</font>
+				<label>$INFO[PVR.ChannelNumberInput,$LOCALIZE[19029]: [B],[/B]]</label>
+				<font>Light44</font>
 				<textcolor>white</textcolor>
 				<shadowcolor>black</shadowcolor>
 				<aligny>center</aligny>
-				<align>left</align>
+				<align>center</align>
 				<visible>!String.IsEmpty(PVR.ChannelNumberInput)</visible>
 			</control>
 		</control>

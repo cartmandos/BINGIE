@@ -285,7 +285,6 @@
                         <height min="50" max="138">auto</height>
                         <width>650</width>
                         <textcolor>$VAR[BingiePlotTextColor]</textcolor>
-                        <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
                         <align>justify</align>
                         <font>Reg28</font>
                         <label>$VAR[BingiePlot]</label>
