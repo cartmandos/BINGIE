@@ -64,7 +64,6 @@
 	<include file="IncludesHomeVertical.xml" />
     <include file="IncludesHomeWin10.xml"/>
     <include file="IncludesSkinShortcuts.xml" />
-	<include file="IncludesTouchSupport.xml" />
 	<include file="IncludesDefaultSkinSettings.xml" />
     <include file="IncludesDefaultSkinHubs.xml" />
 	<include file="IncludesBackgroundBuilding.xml" />
@@ -73,6 +72,7 @@
     <include file="IncludesFooter.xml" />
     <include file="IncludesOSDDialogs.xml" />
 	<include file="script-skinshortcuts-includes.xml"/>
+    <include file="IncludesTouchSupport.xml" condition="Skin.HasSetting(EnableTouchSupport)" />
     <include file="IncludesDebugInfo.xml" condition="Skin.HasSetting(DebugGrid) | Skin.HasSetting(DebugInfo)" />
 
     <!-- Constants -->
