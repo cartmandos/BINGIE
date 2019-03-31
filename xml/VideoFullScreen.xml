@@ -64,35 +64,23 @@
 
 	<!-- Jump to Time Code Overlay -->
 		<control type="group" id="1">
-			<visible>[!String.IsEmpty(Player.SeekNumeric) | !String.IsEmpty(PVR.ChannelNumberInput)] + !Window.IsVisible(VideoOSD)</visible>
-			<animation type="Visible" condition="!Window.IsVisible(SeekBar)">
-				<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
-				<effect type="fade" start="0" end="100" time="200"/>
-			</animation>
+			<right>20</right>
+			<top>40</top>
+			<height>180</height>
+			<width>500</width>
+			<visible>[!String.IsEmpty(Player.SeekNumeric) | !String.IsEmpty(PVR.ChannelNumberInput)] + !Window.IsVisible(VideoOSD) + !Window.IsVisible(SeekBar)</visible>
+			<animation effect="fade" start="0" end="100" time="250">Visible</animation>
+			<animation effect="fade" start="100" end="0" time="300">Hidden</animation>
 			<control type="image" id="1">
-				<left>70</left>
-				<top>300</top>
 				<width>500</width>
-				<height>110</height>
-				<texture border="5">diffuse/panel.png</texture>
-				<colordiffuse>$INFO[Skin.String(OSDPanelColor)]</colordiffuse>
+				<height>180</height>
+				<texture>dialogs/dialog-bg-nobo.png</texture>
+				<bordertexture border="21">overlays/shadow.png</bordertexture>
+				<bordersize>20</bordersize>
 			</control>
 			<control type="label" id="1">
-				<left>75</left>
-				<top>350</top>
-				<width>140</width>
-				<height>50</height>
-				<label>$INFO[Player.SeekNumeric(hh:mm:ss)]</label>
-				<font>Bold30</font>
-                <textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
-                <shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
-				<aligny>center</aligny>
-				<align>center</align>
-				<visible>!String.IsEmpty(Player.SeekNumeric)</visible>
-			</control>
-			<control type="label" id="1">
-				<left>75</left>
-				<top>300</top>
+				<left>30</left>
+				<top>30</top>
 				<width>500</width>
 				<height>50</height>
 				<label>$LOCALIZE[31806]</label>
@@ -103,19 +91,32 @@
 				<align>Left</align>
 				<visible>!String.IsEmpty(Player.SeekNumeric)</visible>
 			</control>
-		</control>
-		<control type="label" id="2">
-			<right>20</right>
-			<top>40</top>
-			<width>500</width>
-			<height>50</height>
-			<label>$INFO[PVR.ChannelNumberInput]</label>
-			<font>Light40</font>
-			<textcolor>white</textcolor>
-			<shadowcolor>black</shadowcolor>
-			<aligny>center</aligny>
-			<align>left</align>
-			<visible>!String.IsEmpty(PVR.ChannelNumberInput)</visible>
+			<control type="label" id="1">
+				<left>30</left>
+				<top>80</top>
+				<width>140</width>
+				<height>50</height>
+				<label>$INFO[Player.SeekNumeric(hh:mm:ss)]</label>
+				<font>Bold30</font>
+                <textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
+                <shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
+				<aligny>center</aligny>
+				<align>center</align>
+				<visible>!String.IsEmpty(Player.SeekNumeric)</visible>
+			</control>
+			<control type="label" id="2">
+				<left>30</left>
+				<top>80</top>
+				<width>500</width>
+				<height>50</height>
+				<label>$INFO[PVR.ChannelNumberInput,$LOCALIZE[19029]: ,]</label>
+				<font>Light40</font>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<aligny>center</aligny>
+				<align>left</align>
+				<visible>!String.IsEmpty(PVR.ChannelNumberInput)</visible>
+			</control>
 		</control>
 
 	<!-- Buffering Progress Overlay -->
