@@ -822,8 +822,11 @@
      </variable>
      
      <variable name="LanguageFlagIconPath">
-       <value condition="Skin.String(MusicGenreIconPack.path,resource://resource.images.languageflags.colour-flat/)">resource://resource.images.languageflags.colour-flat/</value>
-       <value>resource://resource.images.languageflags.colour/</value>
+         <value condition="System.HasAddon(resource.images.languageflags.colour) + Skin.String(LanguageFlags.path, resource://resource.images.languageflags.colour/)">resource://resource.images.languageflags.colour/</value>
+         <value condition="System.HasAddon(resource.images.languageflags.completepack) + Skin.String(LanguageFlags.path, resource://resource.images.languageflags.completepack/)">resource://resource.images.languageflags.completepack/</value>
+         <!-- no preference set -->
+         <value condition="System.HasAddon(resource.images.languageflags.colour)">resource://resource.images.languageflags.colour/</value>
+         <value condition="System.HasAddon(resource.images.languageflags.completepack)">resource://resource.images.languageflags.completepack/</value>
      </variable>
      
      <variable name="similarInfo">

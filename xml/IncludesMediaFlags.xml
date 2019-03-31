@@ -158,19 +158,19 @@
             <control type="image">
                 <include>mediaflags_large_layout</include>
                 <texture background="true">$VAR[mediaflags_large_path]/cc.png</texture>
-                <visible>!String.IsEmpty(Window(Home).Property(ListItem.SubtitleLanguage)) + !Skin.String(mediaflagsstyle,large_color)</visible>
+                <visible>!String.IsEmpty(ListItem.SubtitleLanguage) + !Skin.String(mediaflagsstyle,large_color)</visible>
             </control>
             <control type="image" >
                 <height>95</height>
                 <include>mediaflags_large_layout</include>
-                <texture background="true">$INFO[Window(Home).Property(ListItem.AudioLanguage),$VAR[LanguageFlagIconPath],.png]</texture>
-                <visible>!String.IsEmpty(Window(Home).Property(ListItem.AudioLanguage)) + Skin.String(mediaflagsstyle,large_color)</visible>
+                <texture background="true">$VAR[LanguageFlagIconPath]$INFO[ListItem.AudioLanguage].png</texture>
+                <visible>!String.IsEmpty(ListItem.AudioLanguage) + Skin.String(mediaflagsstyle,large_color)</visible>
             </control>
             <control type="image">
                 <height>95</height>
                 <include>mediaflags_large_layout</include>
-                <texture background="true">$INFO[Window(Home).Property(ListItem.SubtitleLanguage),$VAR[LanguageFlagIconPath],.png]</texture>
-                <visible>!String.IsEmpty(Window(Home).Property(ListItem.SubtitleLanguage)) + Skin.String(mediaflagsstyle,large_color)</visible>
+                <texture background="true">$VAR[LanguageFlagIconPath]$INFO[ListItem.SubtitleLanguage].png</texture>
+                <visible>!String.IsEmpty(ListItem.SubtitleLanguage) + Skin.String(mediaflagsstyle,large_color)</visible>
             </control>
             <control type="image" id="11510">
                 <include>mediaflags_large_layout</include>
@@ -795,7 +795,7 @@
 					<width>80</width>
 					<right>0</right>
 					<textcolor>$VAR[mediaFlagsFontColor]</textcolor>
-					<label>$INFO[ListItem.Rating]$INFO[Window(Home).Property(ListItem.Rating)]</label>
+					<label>$VAR[rating_value_label]</label>
                 	<align>center</align>
 					<aligny>center</aligny>
 					<height>36</height>
