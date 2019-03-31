@@ -3128,7 +3128,8 @@
             <description>force global search addon</description>
             <include>SkinSettings_Button</include>
             <label>31420</label>
-            <onclick>Skin.ToggleSetting(UseGlobalSearch)</onclick>
+            <onclick condition="!Skin.HasSetting(UseGlobalSearch) + !System.HasAddon(script.globalsearch)">RunPlugin(plugin://script.globalsearch)</onclick>
+            <onclick condition="System.HasAddon(script.globalsearch)">Skin.ToggleSetting(UseGlobalSearch)</onclick>
             <selected>Skin.HasSetting(UseGlobalSearch)</selected>
         </control>
         <control type="radiobutton" id="32109">
@@ -3137,15 +3138,15 @@
             <label>31550</label>
             <onclick>Skin.ToggleSetting(EnableBingieSearchFullKeyboard)</onclick>
             <selected>Skin.HasSetting(EnableBingieSearchFullKeyboard)</selected>
+            <visible>!Skin.HasSetting(UseGlobalSearch)</visible>
         </control>
         <control type="radiobutton" id="32103">
             <description>enable fanart in background</description>
             <include>SkinSettings_Button</include>
             <label>31141</label>
-            <onclick condition="!Skin.HasSetting(UseGlobalSearch) + !System.HasAddon(script.globalsearch)">RunPlugin(plugin://script.globalsearch)</onclick>
-            <onclick condition="System.HasAddon(script.globalsearch)">Skin.ToggleSetting(EnableBingieSearchFanart)</onclick>
+            <onclick>Skin.ToggleSetting(EnableBingieSearchFanart)</onclick>
             <selected>Skin.HasSetting(EnableBingieSearchFanart)</selected>
-            <visible>!Skin.HasSetting(UseGlobalSearch) + String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
+            <visible>!Skin.HasSetting(UseGlobalSearch)</visible>
         </control>
         <control type="radiobutton" id="32104">
             <description>enable search results for episodes</description>
@@ -3153,7 +3154,7 @@
             <label>31416</label>
             <onclick>Skin.ToggleSetting(EnableBingieSearchEpisodes)</onclick>
             <selected>Skin.HasSetting(EnableBingieSearchEpisodes)</selected>
-            <visible>!Skin.HasSetting(UseGlobalSearch) + String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
+            <visible>!Skin.HasSetting(UseGlobalSearch)</visible>
         </control>
         <control type="radiobutton" id="32105">
             <description>enable search results for music</description>
@@ -3161,7 +3162,7 @@
             <label>31418</label>
             <onclick>Skin.ToggleSetting(EnableBingieSearchMusic)</onclick>
             <selected>Skin.HasSetting(EnableBingieSearchMusic)</selected>
-            <visible>!Skin.HasSetting(UseGlobalSearch) + String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
+            <visible>!Skin.HasSetting(UseGlobalSearch)</visible>
         </control>
         <control type="radiobutton" id="32106">
             <description>enable search results for music videos</description>
@@ -3169,7 +3170,7 @@
             <label>31417</label>
             <onclick>Skin.ToggleSetting(EnableBingieSearchMusicVideos)</onclick>
             <selected>Skin.HasSetting(EnableBingieSearchMusicVideos)</selected>
-            <visible>!Skin.HasSetting(UseGlobalSearch) + String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
+            <visible>!Skin.HasSetting(UseGlobalSearch)</visible>
         </control>
         <control type="radiobutton" id="32107">
             <description>enable search results from youtube</description>
@@ -3177,7 +3178,7 @@
             <label>31419</label>
             <onclick>Skin.ToggleSetting(EnableBingieSearchYoutube)</onclick>
             <selected>Skin.HasSetting(EnableBingieSearchYoutube)</selected>
-            <visible>!Skin.HasSetting(UseGlobalSearch) + String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
+            <visible>!Skin.HasSetting(UseGlobalSearch)</visible>
         </control>
     </include>
 

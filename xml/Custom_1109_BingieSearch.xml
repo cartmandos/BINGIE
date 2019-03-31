@@ -4,7 +4,7 @@
     <menucontrol>900</menucontrol>
     <defaultcontrol always="true">9000</defaultcontrol>
     <backgroundcolor>$VAR[BingiePanelColor]</backgroundcolor>
-    <include>CustomBingieWinProps</include>
+    <include condition="String.IsEqual(Skin.String(HomeLayout),bingie)">CustomBingieWinProps</include>
     <onload>SetProperty(CustomSearch,1,home)</onload>
     <onunload>ClearProperty(SuggestionPath)</onunload>
     <include>BingieViews_WindowOpen_Fade</include>
@@ -314,6 +314,6 @@
             <param name="size" value="100"/>
         </include>
         <!-- Main Menu -->
-        <include>BingieSideBladeMainMenu</include>
+        <include condition="String.IsEqual(Skin.String(HomeLayout),bingie)">BingieSideBladeMainMenu</include>
 	</controls>
 </window>

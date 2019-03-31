@@ -137,6 +137,8 @@
                         <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
                         <label>$VAR[View523_FallbackTitle]</label>
                         <animation effect="fade" time="200">Visible</animation>
+                        <!-- adjust for genres -->
+                        <animation effect="slide" start="0,0" end="0,170" time="0" condition="[Container.Content(genres) | String.IsEqual(ListItem.DBTYPE,genre)]">Conditional</animation>
                     </control>
 
                     <!-- spotlight row details -->
@@ -601,8 +603,9 @@
 
     <!-- title text fallback -->
     <variable name="View523_FallbackTitle">
-        <value condition="Container.Content(episodes) | Container.Content(seasons)">[B]$INFO[ListItem.TvshowTitle][/B]</value>
-        <value>[B]$INFO[ListItem.Title][/B]</value>
+        <value condition="[Container.Content(episodes) | Container.Content(seasons)] + !String.IsEmpty(ListItem.TVShowTitle)">[B]$INFO[ListItem.TVShowTitle][/B]</value>
+        <value condition="!String.IsEmpty(ListItem.Title)">[B]$INFO[ListItem.Title][/B]</value>
+        <value>[B]$INFO[ListItem.Label][/B]</value>
     </variable>
 
     <!-- Content header -->

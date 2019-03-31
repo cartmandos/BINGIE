@@ -10,8 +10,7 @@
 		<!-- common items -->
 		<node label="32029">
 			<shortcut label="32022" grouping="32029" icon="resource://resource.images.skinicons.wide/antenna.png" condition="PVR.HasTVChannels">ActivateWindow(TVChannels)</shortcut>
-			<shortcut label="137" grouping="32029" icon="resource://resource.images.skinicons.wide/search.png" condition="!String.IsEqual(Skin.String(HomeLayout),bingie)">RunAddOn(script.globalsearch)</shortcut>
-			<shortcut label="137" grouping="32029" icon="resource://resource.images.skinicons.wide/search.png" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">ActivateWindow(1109,return)</shortcut>
+			<shortcut label="137" grouping="32029" icon="resource://resource.images.skinicons.wide/search.png">ActivateWindow(1109,return)</shortcut>
 			<shortcut label="10000" grouping="32029" icon="resource://resource.images.skinicons.wide/home.png" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">ActivateWindow(home,return)</shortcut>
 			<shortcut label="342" grouping="32029" icon="$INFO[Window(Home).Property(SkinHelper.AllMoviesBackground)]">ActivateWindow(Videos,videodb://movies/titles/,return)</shortcut>
 			<shortcut label="20343" grouping="32029" icon="$INFO[Window(Home).Property(SkinHelper.AllTvShowsBackground)]">ActivateWindow(Videos,videodb://tvshows/titles/,return)</shortcut>
@@ -377,20 +376,20 @@
 	<!-- TV Shows / Movies shortcut default action -->
 	<override action="ActivateWindow(1110,return)" group="mainmenu">
 		<condition>!String.IsEqual(Skin.String(HomeLayout),bingie)</condition>
-		<action>ActivateWindow(Videos,videodb://tvshows/titles/,return)</action>
+		<action>ReplaceWindow(Videos,videodb://tvshows/titles/)</action>
 	</override>
 	<override action="ActivateWindow(1111,return)" group="mainmenu">
 		<condition>!String.IsEqual(Skin.String(HomeLayout),bingie)</condition>
-		<action>ActivateWindow(Videos,videodb://movies/titles/,return)</action>
+		<action>ReplaceWindow(Videos,videodb://movies/titles/)</action>
 	</override>
 	<!-- switch bingiesearch/globalsearch -->
 	<override action="ActivateWindow(1109,return)" group="mainmenu">
-		<condition>[!String.IsEqual(Skin.String(HomeLayout),bingie) | Skin.HasSetting(UseGlobalSearch)] + System.HasAddon(script.globalsearch)</condition>
+		<condition>Skin.HasSetting(UseGlobalSearch) + System.HasAddon(script.globalsearch)</condition>
 		<action>ReplaceWindow(home,return)</action>
 		<action>RunAddon(script.globalsearch)</action>
 	</override>
 	<override action="ActivateWindow(1109,return)" group="mainmenu">
-		<condition>[!String.IsEqual(Skin.String(HomeLayout),bingie) | Skin.HasSetting(UseGlobalSearch)] + !System.HasAddon(script.globalsearch)</condition>
+		<condition>Skin.HasSetting(UseGlobalSearch) + !System.HasAddon(script.globalsearch)</condition>
 		<action>ReplaceWindow(home,return)</action>
 		<action>RunPlugin(plugin://script.globalsearch)</action>
 	</override>
