@@ -970,7 +970,7 @@
         <control type="radiobutton" id="131768">
             <include>SkinSettings_Button</include>
             <label>31006</label>
-            <onclick condition="Skin.HasSetting(DisableMediaCodecInfoInHome) + !Skin.HasSetting(DisableBingieMoreDetails)"> RunScript(script.skin.helper.service,action=dialogok,header=$LOCALIZE[31376],message=$LOCALIZE[31398])</onclick>
+            <onclick condition="Skin.HasSetting(DisableMediaCodecInfoInHome) + !Skin.HasSetting(DisableBingieMoreDetails)">RunScript(script.skin.helper.service,action=dialogok,header=$LOCALIZE[31376],message=$LOCALIZE[31398])</onclick>
             <onclick>Skin.ToggleSetting(DisableMediaCodecInfoInHome)</onclick>
             <visible>String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(NoFooterBarOnHome) + !Skin.HasSetting(BingieHomeDisableFirstRow)</visible>
             <selected>Skin.HasSetting(DisableMediaCodecInfoInHome)</selected>
@@ -3061,7 +3061,7 @@
             <include>SkinSettings_Button</include>
             <label>31209</label>
             <onclick>Skin.ToggleSetting(EnableTouchSupport)</onclick>
-            <onclick>ReloadSkin()</onclick>
+            <onclick>RunScript(script.skin.helper.service,action=dialogok,header=$LOCALIZE[31376],message=$LOCALIZE[31546])</onclick>
             <selected>Skin.HasSetting(EnableTouchSupport)</selected>
         </control>
         <control type="radiobutton" id="5149">
