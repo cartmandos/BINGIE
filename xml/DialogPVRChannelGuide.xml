@@ -49,7 +49,7 @@
 				<posy>25</posy>
 				<width>100</width>
 				<height>100</height>
-				<texture background="true">$INFO[ListItem.Art(poster)]</texture>
+				<texture background="true">$INFO[VideoPlayer.Cover]</texture>
 				<aspectratio>keep</aspectratio>
 			</control>
 
