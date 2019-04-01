@@ -327,11 +327,14 @@
             <visible>String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView)) | String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),525)</visible>
             <!-- base bg -->
             <control type="image">
-                <width>100%</width>
-                <height>100%</height>
+                <visible>!$EXP[IsPlayingRecognizedContent]</visible>
+                <include>FullscreenDimensions</include>
                 <texture background="true" colordiffuse="$VAR[BingiePanelColor]">colors/color_white.png</texture>
-                <animation effect="fade" start="100" end="75" time="0" condition="true">Conditional</animation>
             </control>
+            <!-- Global Background -->
+            <include content="GlobalFanartWithOverlay" condition="Skin.HasSetting(EnableBingieSearchFanart)">
+                <param name="overlay_percent" value="75%" />
+            </include>
 
             <!--studio logo -->
             <control type="image" id="6990">

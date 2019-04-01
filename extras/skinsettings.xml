@@ -7,6 +7,8 @@
         <onselect condition="True">Skin.Reset(CompactHeader)</onselect>
         <onselect condition="True">Skin.Reset(WidgetAlignRight)</onselect>
         <onselect condition="True">Skin.SetBool(ShowAllWidgets)</onselect>
+        <onselect condition="True">Skin.SetBool(UseBingieInfoDialog)</onselect>
+
     </setting>
 
     <!-- home layout -->
@@ -22,6 +24,7 @@
         <onselect condition="True">Skin.Reset(CompactHeader)</onselect>
         <onselect condition="True">Skin.Reset(ShowAllWidgets)</onselect>
         <onselect condition="True">Skin.Reset(EnableFixedFocusWidgets)</onselect>
+        <onselect condition="True">Skin.Reset(UseBingieInfoDialog)</onselect>
     </setting>
     <setting id="HomeLayout_titantiles" value="2" label="$LOCALIZE[31031]" condition="" icon="special://skin/extras/viewthumbs/homelayout_2.jpg" description="$LOCALIZE[31031]">
         <onselect condition="True">Skin.SetBool(OpenSubMenuOnClick)</onselect>
@@ -31,6 +34,7 @@
         <onselect condition="True">Skin.Reset(LowerWidgets)</onselect>
         <onselect condition="True">Skin.Reset(ShowAllWidgets)</onselect>
         <onselect condition="True">Skin.Reset(EnableFixedFocusWidgets)</onselect>
+        <onselect condition="True">Skin.Reset(UseBingieInfoDialog)</onselect>
     </setting>
     <setting id="HomeLayout_titantiles" value="3" label="$LOCALIZE[31032]" condition="" icon="special://skin/extras/viewthumbs/homelayout_3.jpg" description="$LOCALIZE[31032]">
         <onselect condition="True">Skin.SetBool(OpenSubMenuOnClick)</onselect>
@@ -39,6 +43,7 @@
         <onselect condition="True">Skin.Reset(CompactHeader)</onselect>
         <onselect condition="True">Skin.Reset(ShowAllWidgets)</onselect>
         <onselect condition="True">Skin.Reset(EnableFixedFocusWidgets)</onselect>
+        <onselect condition="True">Skin.Reset(UseBingieInfoDialog)</onselect>
     </setting>
     <setting id="HomeLayout_titantiles" value="1small" label="$LOCALIZE[31649]" condition="" icon="special://skin/extras/viewthumbs/homelayout_1small.jpg" description="$LOCALIZE[31649]">
         <onselect condition="True">Skin.Reset(OpenSubMenuOnClick)</onselect>
@@ -47,6 +52,7 @@
         <onselect condition="True">Skin.Reset(CompactHeader)</onselect>
         <onselect condition="True">Skin.Reset(ShowAllWidgets)</onselect>
         <onselect condition="True">Skin.Reset(EnableFixedFocusWidgets)</onselect>
+        <onselect condition="True">Skin.Reset(UseBingieInfoDialog)</onselect>
     </setting>
     <setting id="HomeLayout_titantiles" value="2small" label="$LOCALIZE[31650]" condition="" icon="special://skin/extras/viewthumbs/homelayout_2small.jpg" description="$LOCALIZE[31650]">
         <onselect condition="True">Skin.SetBool(OpenSubMenuOnClick)</onselect>
@@ -56,6 +62,7 @@
         <onselect condition="True">Skin.Reset(LowerWidgets)</onselect>
         <onselect condition="True">Skin.Reset(ShowAllWidgets)</onselect>
         <onselect condition="True">Skin.Reset(EnableFixedFocusWidgets)</onselect>
+        <onselect condition="True">Skin.Reset(UseBingieInfoDialog)</onselect>
     </setting>
     <setting id="HomeLayout_titantiles" value="3small" label="$LOCALIZE[31651]" condition="" icon="special://skin/extras/viewthumbs/homelayout_3small.jpg" description="$LOCALIZE[31651]">
         <onselect condition="True">Skin.SetBool(OpenSubMenuOnClick)</onselect>
@@ -64,6 +71,7 @@
         <onselect condition="True">Skin.Reset(CompactHeader)</onselect>
         <onselect condition="True">Skin.Reset(ShowAllWidgets)</onselect>
         <onselect condition="True">Skin.Reset(EnableFixedFocusWidgets)</onselect>
+        <onselect condition="True">Skin.Reset(UseBingieInfoDialog)</onselect>
     </setting>
 
     <!-- horizontal home layouts -->
@@ -75,6 +83,7 @@
         <onselect condition="True">Skin.Reset(CompactHeader)</onselect>
         <onselect condition="True">Skin.Reset(ShowAllWidgets)</onselect>
         <onselect condition="True">Skin.Reset(EnableFixedFocusWidgets)</onselect>
+        <onselect condition="True">Skin.Reset(UseBingieInfoDialog)</onselect>
     </setting>
     <setting id="HomeLayout_horizontal" value="lowhorizontal" label="$LOCALIZE[31682]" condition="" icon="special://skin/extras/viewthumbs/homelayout_horizontal_low.jpg" description="$LOCALIZE[31682]">
         <onselect condition="True">Skin.Reset(OpenSubMenuOnClick)</onselect>
@@ -84,6 +93,7 @@
         <onselect condition="True">Skin.SetBool(UseFixedHomeFocus)</onselect>
         <onselect condition="True">Skin.Reset(ShowAllWidgets)</onselect>
         <onselect condition="True">Skin.Reset(EnableFixedFocusWidgets)</onselect>
+        <onselect condition="True">Skin.Reset(UseBingieInfoDialog)</onselect>
     </setting>
     <setting id="HomeLayout_horizontal" value="lowhorizontal_big" label="$LOCALIZE[31684]" condition="" icon="special://skin/extras/viewthumbs/homelayout_horizontal_low_big.jpg" description="$LOCALIZE[31684]">
         <onselect condition="True">Skin.Reset(OpenSubMenuOnClick)</onselect>
@@ -93,6 +103,7 @@
         <onselect condition="True">Skin.SetBool(UseFixedHomeFocus)</onselect>
         <onselect condition="True">Skin.Reset(ShowAllWidgets)</onselect>
         <onselect condition="True">Skin.Reset(EnableFixedFocusWidgets)</onselect>
+        <onselect condition="True">Skin.Reset(UseBingieInfoDialog)</onselect>
     </setting>
 
     <!-- vertical homelayouts -->
@@ -102,6 +113,7 @@
         <onselect condition="True">Skin.SetString(widgetstyle.label,Poster)</onselect>
         <onselect condition="True">Skin.Reset(CompactHeader)</onselect>
         <onselect condition="True">Skin.Reset(EnableFixedFocusWidgets)</onselect>
+        <onselect condition="True">Skin.Reset(UseBingieInfoDialog)</onselect>
     </setting>
     <setting id="HomeLayout_vertical" value="simplever_tiles" label="$LOCALIZE[31262] (tiles)" condition="" icon="special://skin/extras/viewthumbs/homelayout_vertical_tiles.jpg" description="$LOCALIZE[31262] (tiles)">
         <onselect condition="True">Skin.Reset(OpenSubMenuOnClick)</onselect>
@@ -109,6 +121,7 @@
         <onselect condition="True">Skin.SetString(widgetstyle.label,Poster)</onselect>
         <onselect condition="True">Skin.Reset(CompactHeader)</onselect>
         <onselect condition="True">Skin.Reset(EnableFixedFocusWidgets)</onselect>
+        <onselect condition="True">Skin.Reset(UseBingieInfoDialog)</onselect>
     </setting>
     <setting id="HomeLayout_vertical" value="verticalbig" label="$LOCALIZE[31686]" condition="" icon="special://skin/extras/viewthumbs/homelayout_verticalbig.jpg" description="$LOCALIZE[31686]">
         <onselect condition="True">Skin.Reset(OpenSubMenuOnClick)</onselect>
@@ -117,6 +130,7 @@
         <onselect condition="True">Skin.SetString(widgetstyle.label,Poster)</onselect>
         <onselect condition="True">Skin.Reset(CompactHeader)</onselect>
         <onselect condition="True">Skin.Reset(EnableFixedFocusWidgets)</onselect>
+        <onselect condition="True">Skin.Reset(UseBingieInfoDialog)</onselect>
     </setting>
 
     <!-- enhanced home -->
@@ -125,12 +139,14 @@
         <onselect condition="True">Skin.Reset(CompactHeader)</onselect>
         <onselect condition="True">Skin.Reset(ShowAllWidgets)</onselect>
         <onselect condition="True">Skin.Reset(EnableFixedFocusWidgets)</onselect>
+        <onselect condition="True">Skin.Reset(UseBingieInfoDialog)</onselect>
     </setting>
     <!-- win10 home -->
     <setting id="HomeLayout" value="win10" label="$LOCALIZE[31931]" condition="" icon="special://skin/extras/viewthumbs/homelayout_win10.jpg" description="$LOCALIZE[31931]">
         <onselect condition="True">Skin.Reset(OpenSubMenuOnClick)</onselect>
         <onselect condition="True">Skin.SetBool(CompactHeader)</onselect>
         <onselect condition="True">Skin.Reset(EnableFixedFocusWidgets)</onselect>
+        <onselect condition="True">Skin.Reset(UseBingieInfoDialog)</onselect>
     </setting>
 
     <!-- submenu layout -->
@@ -220,17 +236,10 @@
 
     <!-- Global Background -->
     <setting id="CustomBackgroundSetting" value="colors/color_transparent.png" label="$LOCALIZE[16018]" condition="" icon="colors/color_transparent.png" description="$LOCALIZE[16018]" default="true"/>
+    <setting id="CustomBackgroundSetting" value="special://skin/extras/media/global_bingie.jpg" label="$LOCALIZE[31100]" condition="" icon="special://skin/extras/media/global_bingie.jpg" description=""/>
     <setting id="CustomBackgroundSetting" value="resource://resource.images.skinbackgrounds.titanium/global_blue.jpg" label="$LOCALIZE[31023]" condition="" icon="resource://resource.images.skinbackgrounds.titanium/global_blue.jpg" description=""/>
     <setting id="CustomBackgroundSetting" value="$INFO[Skin.String(WeatherFanArtPack.path)]$INFO[Window(Weather).Property(Current.fanartCode)]$INFO[Skin.String(WeatherFanArtPack.ext)]" label="$LOCALIZE[31025]" condition="!String.IsEmpty(Window(Weather).Property(current.fanartCode)) + Skin.String(WeatherFanArtPack.path)" icon="$INFO[Skin.String(WeatherFanArtPack.path)]$INFO[Window(Weather).Property(Current.fanartCode)]$INFO[Skin.String(WeatherFanArtPack.ext)]" description=""/>
     <setting id="CustomBackgroundSetting" value="widgetfanart" label="$LOCALIZE[31612]" condition="!String.IsEmpty(Container(211).ListItem.Property(widget))" />
-    <!-- temporary menu icons -->
-    <setting id="CustomBackgroundSetting" value="shortcuts/antenna.png" icon="shortcuts/antenna.png" label="Live TV" description="Default Live TV"/>
-    <setting id="CustomBackgroundSetting" value="shortcuts/home.png" icon="shortcuts/home.png" label="Home" description="Default Home"/>
-    <setting id="CustomBackgroundSetting" value="shortcuts/clapperboard.png" icon="shortcuts/clapperboard.png" label="Movies" description="Default Movies"/>
-    <setting id="CustomBackgroundSetting" value="shortcuts/tv.png" icon="shortcuts/tv.png" label="TV Shows" description="Default TV Shows"/>
-    <setting id="CustomBackgroundSetting" value="shortcuts/search.png" icon="shortcuts/search.png" label="Search" description="Default Search"/>
-    <setting id="CustomBackgroundSetting" value="shortcuts/mylist.png" icon="shortcuts/mylist.png" label="My List" description="Default My List"/>
-    <setting id="CustomBackgroundSetting" value="shortcuts/new.png" icon="shortcuts/new.png" label="New" description="Default New"/>
 
 
     <!--Home Screens Auto Trailer Interval-->

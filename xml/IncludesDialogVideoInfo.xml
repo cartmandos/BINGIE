@@ -1529,10 +1529,9 @@
 					<texture background="true" colordiffuse="$VAR[BingiePanelColor]">colors/color_white.png</texture>
 					<animation effect="fade" start="100" end="70" time="0">Visible</animation>
 				</control>
-
 				<!-- studio logo -->
 				<control type="image" id="6990">
-					<visible>!String.IsEmpty(Control.GetLabel(6990))</visible>
+					<visible>!String.IsEmpty(Control.GetLabel(6990)) + !Skin.HasSetting(DisableStudioLogoInfoDialog)</visible>
 					<right>40</right>
 					<width>450</width>
 					<height>160</height>
@@ -1542,7 +1541,6 @@
 					<texture background="true">$VAR[StudioLogoImg]</texture>
 					<animation effect="fade" start="100" end="0" time="900" condition="String.IsEqual(Window(Home).Property(TrailerPlaying),windowed)">Conditional</animation>
 				</control>
-
 				<!-- additional info header -->
 				<control type="label">
 					<visible>!String.IsEmpty(Window.Property(AdditionalInfo))</visible>
@@ -2432,7 +2430,7 @@
         <!-- MetaCritic -->
         <control type="group">
             <height>70</height>
-            <width>130</width>
+            <width>140</width>
             <left>10</left>
             <include>infodialog_MetaCriticRatingVD</include>
             <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MetaCritic.Rating))</visible>
@@ -2503,7 +2501,7 @@
 		</control>
 		<control type="label">
 			<top>5</top>
-			<left>25</left>
+			<left>20</left>
 			<width>100</width>
 			<height>30</height>
 			<align>center</align>
@@ -2841,19 +2839,22 @@
 	<variable name="infodialog_rating_value_imdb">
         <value condition="!String.IsEmpty(ListItem.Rating(imdb))">$INFO[ListItem.Rating(imdb)]</value>
         <value condition="!String.IsEmpty(ListItem.RatingAndVotes(imdb))">$INFO[ListItem.RatingAndVotes(imdb)]</value>
+		<value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.IMDB))">$INFO[Window(Home).Property(SkinHelper.ListItem.Rating.IMDB)]</value>
     </variable>
 	<variable name="infodialog_rating_value_tmdb">
 		<value condition="!String.IsEmpty(ListItem.Rating(themoviedb))">$INFO[ListItem.Rating(themoviedb)]</value>
         <value condition="!String.IsEmpty(ListItem.RatingAndVotes(themoviedb))">$INFO[ListItem.RatingAndVotes(themoviedb)]</value>
+		<value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.TMDB))">$INFO[Window(Home).Property(SkinHelper.ListItem.Rating.TMDB)]</value>
     </variable>
 	<variable name="infodialog_rating_value_tvdb">
 		<value condition="!String.IsEmpty(ListItem.Rating(tvdb))">$INFO[ListItem.Rating(tvdb)]</value>
         <value condition="!String.IsEmpty(ListItem.RatingAndVotes(tvdb))">$INFO[ListItem.RatingAndVotes(tvdb)]</value>
+		<value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.TVDB))">$INFO[Window(Home).Property(SkinHelper.ListItem.Rating.TVDB)]</value>
     </variable>
 	<variable name="infodialog_rating_value_meta">
-       <value condition="!String.IsEmpty(ListItem.RatingAndVotes(metacritic))">$INFO[ListItem.RatingAndVotes(metacritic)]</value>
-	   <value condition="String.IsEmpty(ListItem.RatingAndVotes(metacritic)) + !String.IsEmpty(ListItem.Rating(metacritic))">$INFO[ListItem.Rating(metacritic)]</value>
-	   <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MetaCritic.Rating))">$INFO[Window(Home).Property(SkinHelper.ListItem.MetaCritic.Rating), ,]$INFO[Window(Home).Property(SkinHelper.ListItem.MetaCritic.Votes), (, $LOCALIZE[205])]</value>
+       <value condition="!String.IsEmpty(ListItem.RatingAndVotes(metacritic))">$INFO[ListItem.RatingAndVotes(metacritic),,%]</value>
+	   <value condition="!String.IsEmpty(ListItem.Rating(metacritic))">$INFO[ListItem.Rating(metacritic),,%]%</value>
+	   <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MetaCritic.Rating))">$INFO[Window(Home).Property(SkinHelper.ListItem.MetaCritic.Rating),,%]$INFO[Window(Home).Property(SkinHelper.ListItem.MetaCritic.Votes), (, $LOCALIZE[205])]</value>
     </variable>
 	<variable name="infodialog_rating_value_250">
        <value condition="!String.IsEmpty(ListItem.Top250)">$INFO[ListItem.Top250,[B],[/B]]</value>

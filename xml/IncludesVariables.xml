@@ -1568,7 +1568,7 @@
     </variable>
 
     <variable name="ActualIcon">
-        <value condition="!String.IsEmpty(ListItem.ActualIcon)">$INFO[ListItem.ActualIcon]</value>
+        <value condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !String.IsEmpty(ListItem.ActualIcon)">$INFO[ListItem.ActualIcon]</value>
         <value>ListItem.Icon</value>
     </variable>
 </includes>

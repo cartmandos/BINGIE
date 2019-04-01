@@ -15,7 +15,7 @@
 		<label>137</label>
 		<label2>137</label2>
 		<icon>shortcuts/search.png</icon>
-		<thumb/>
+		<thumb>special://skin/extras/media/global_bingie.jpg</thumb>
 		<action>ActivateWindow(1109,return)</action>
 	</shortcut>
 
@@ -75,5 +75,15 @@
 		<thumb />
 		<action>ActivateWindow(1112,return)</action>
         <visible>String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
+	</shortcut>
+
+	<!-- settings -->
+	<shortcut>
+		<label>10004</label>
+		<label2>10004</label2>
+		<icon>resource://resource.images.skinicons.wide/settings.png</icon>
+		<thumb />
+		<action>ActivateWindow(Settings)</action>
+		<visible>!String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
 	</shortcut>
 </shortcuts>

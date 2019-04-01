@@ -848,6 +848,16 @@
             <selected>Skin.HasSetting(ShowEpisodesPlotAll)</selected>
             <visible>String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
         </control>
+        <!-- enlarge plot -->
+        <control type="radiobutton" id="39278">
+            <include>SkinSettings_Button</include>
+            <label>31043</label>
+            <onclick condition="!Skin.HasSetting(EnlargeBingiePlot)">Skin.SetBool(DisableBingieMoreDetails)</onclick>
+            <onclick condition="Skin.HasSetting(EnlargeBingiePlot)">Skin.Reset(DisableBingieMoreDetails)</onclick>
+            <onclick>Skin.ToggleSetting(EnlargeBingiePlot)</onclick>
+            <selected>Skin.HasSetting(EnlargeBingiePlot)</selected>
+            <visible>String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
+        </control>
     </include>
 
     <!-- Thumbs UP/DOWN Settings -->
@@ -1523,6 +1533,13 @@
             <label>31908</label>
             <onclick>Skin.ToggleSetting(EnableDetailsIconsInfoDialog)</onclick>
             <selected>Skin.HasSetting(EnableDetailsIconsInfoDialog)</selected>
+            <visible>!Skin.HasSetting(UseExtendedInfoDialog) + Skin.HasSetting(UseBingieInfoDialog)</visible>
+        </control>
+        <control type="radiobutton" id="46657">
+            <include>SkinSettings_Button</include>
+            <label>31042</label>
+            <onclick>Skin.ToggleSetting(DisableStudioLogoInfoDialog)</onclick>
+            <selected>Skin.HasSetting(DisableStudioLogoInfoDialog)</selected>
             <visible>!Skin.HasSetting(UseExtendedInfoDialog) + Skin.HasSetting(UseBingieInfoDialog)</visible>
         </control>
         <!-- actor list behaviour in videoinfo -->
@@ -3683,6 +3700,15 @@
             <label>31724</label>
             <onclick>Skin.ToggleSetting(DisableHoursDuration)</onclick>
             <selected>Skin.HasSetting(DisableHoursDuration)</selected>
+        </control>
+        <control type="radiobutton" id="8021">
+            <!-- disable default video splash -->
+            <description/>
+            <include>SkinSettings_Button</include>
+            <label>31041</label>
+            <onclick>Skin.ToggleSetting(DisableDefaultSplashIntro)</onclick>
+            <selected>Skin.HasSetting(DisableDefaultSplashIntro)</selected>
+            <visible>String.IsEmpty(Skin.String(SplashScreen)) + String.IsEmpty(Skin.String(AutoStartPlayList))</visible>
         </control>
         <control type="radiobutton" id="8020">
             <!-- enable splash image or movie -->

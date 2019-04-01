@@ -131,7 +131,7 @@
 		</node>
 		
 		<!-- settings -->
-		<node label="10004">
+		<node label="10004" condition="!String.IsEqual(Skin.String(HomeLayout),bingie)">
 			<shortcut label="7" grouping="32029" icon="resource://resource.images.skinicons.wide/filemanager.png">ActivateWindow(filemanager)</shortcut>
             <shortcut label="130" grouping="32029" icon="resource://resource.images.skinbackgrounds.titanium/systeminfo.jpg">ActivateWindow(systeminfo)</shortcut>
 			<content>settings</content>
@@ -228,7 +228,6 @@
 	<propertydefault defaultID="tvshows" property="backgroundName">$ADDON[script.skin.helper.service 32043]</propertydefault>
 	<backgrounddefault defaultID="new">$INFO[Window(Home).Property(SkinHelper.RecentVideosBackground)]</backgrounddefault>
 	<propertydefault defaultID="new" property="backgroundName">$LOCALIZE[31837]</propertydefault>
-	
 	<backgrounddefault defaultID="music">$INFO[Window(Home).Property(SkinHelper.AllMusicBackground)]</backgrounddefault>
 	<propertydefault defaultID="music" property="backgroundName">$ADDON[script.skin.helper.service 32048]</propertydefault>
 	<backgrounddefault defaultID="musicvideos">$INFO[Window(Home).Property(SkinHelper.AllMusicVideosBackground)]</backgrounddefault>
@@ -257,14 +256,13 @@
 	<widgetdefaultnode defaultID="tvshows" group="mainmenu" label="$LOCALIZE[31036]" type="tvshows" path="special://skin/extras/widgetplaylists/randomtvshows.xsp" target="video">randomshows</widgetdefaultnode>
 	<widgetdefaultnode defaultID="musicvideos" group="mainmenu" label="$LOCALIZE[20390]" type="musicvideos" path="plugin://script.skin.helper.widgets/?action=recent&amp;mediatype=musicvideos&amp;reload=$INFO[Window(Home).Property(widgetreload-musicvideos)]" target="video">recentmusicvideos</widgetdefaultnode>
 	<widgetdefaultnode defaultID="weather" group="mainmenu" label="$LOCALIZE[8]" type="static" path="$INCLUDE[WeatherWidget]" target="static">weather</widgetdefaultnode>
-	<widgetdefaultnode defaultID="settings" group="mainmenu" label="$LOCALIZE[130]" type="static" path="$INCLUDE[SystemInfoWidget]" target="static">systeminfo</widgetdefaultnode>
 
     <!-- home widgets -->
 	<propertydefault defaultID="10000" property="widget">continuewatching</propertydefault>
 	<propertydefault defaultID="10000" property="widgetTarget">video</propertydefault>
 	<propertydefault defaultID="10000" property="widgetType">episodes</propertydefault>
 	<propertydefault defaultID="10000" property="widgetPath">plugin://script.skin.helper.widgets/?action=next&amp;mediatype=episodes&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload-episodes)]</propertydefault>
-	<propertydefault defaultID="10000" property="widgetName">[CAPITALIZE]$LOCALIZE[31535][/CAPITALIZE]</propertydefault>
+	<propertydefault defaultID="10000" property="widgetName">$LOCALIZE[31535]</propertydefault>
 
 	<propertydefault defaultID="10000" property="widget.1">recentshowsandmovies</propertydefault>
 	<propertydefault defaultID="10000" property="widgetTarget.1">video</propertydefault>
@@ -307,12 +305,6 @@
 	<propertydefault defaultID="10000" property="widgetType.7">video</propertydefault>
 	<propertydefault defaultID="10000" property="widgetPath.7">plugin://script.skin.helper.widgets/?action=categories&amp;mediatype=media&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</propertydefault>
 	<propertydefault defaultID="10000" property="widgetName.7">$ADDON[script.skin.helper.widgets 32098]</propertydefault>
-
-    <propertydefault defaultID="music" property="widget.1">recentsongs</propertydefault>
-    <propertydefault defaultID="music" property="widgetTarget.1">music</propertydefault>
-    <propertydefault defaultID="music" property="widgetType.1">songs</propertydefault>
-    <propertydefault defaultID="music" property="widgetPath.1">plugin://script.skin.helper.widgets/?action=recent&amp;mediatype=songs&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload-music)]</propertydefault>
-    <propertydefault defaultID="music" property="widgetName.1">$ADDON[script.skin.helper.widgets 32012]</propertydefault>
     
     <!-- spotlight widgets -->
     <propertydefault defaultID="movies" property="widget.99">spotlightmovies</propertydefault>
@@ -345,7 +337,6 @@
     
     <propertydefault defaultID="music" property="widgetstyle">square</propertydefault>
     <widgetRename>False</widgetRename> 
-
 
 	<override action="submenu">
 		<condition>true</condition>
@@ -385,12 +376,12 @@
 	<!-- switch bingiesearch/globalsearch -->
 	<override action="ActivateWindow(1109,return)" group="mainmenu">
 		<condition>Skin.HasSetting(UseGlobalSearch) + System.HasAddon(script.globalsearch)</condition>
-		<action>ReplaceWindow(home,return)</action>
+		<action>ReplaceWindow(home)</action>
 		<action>RunAddon(script.globalsearch)</action>
 	</override>
 	<override action="ActivateWindow(1109,return)" group="mainmenu">
 		<condition>Skin.HasSetting(UseGlobalSearch) + !System.HasAddon(script.globalsearch)</condition>
-		<action>ReplaceWindow(home,return)</action>
+		<action>ReplaceWindow(home)</action>
 		<action>RunPlugin(plugin://script.globalsearch)</action>
 	</override>
 </overrides>

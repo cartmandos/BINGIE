@@ -179,40 +179,18 @@ msgid "Now playing"
 msgstr ""
 
 msgctxt "#31041"
-msgid "Use small settings button at footer of home"
+msgid "Show default splash image instead of animated intro"
 msgstr ""
 
 msgctxt "#31042"
-msgid "Quick resume movies you are watching"
+msgid "Disable Studio Logo"
 msgstr ""
 
 msgctxt "#31043"
-msgid "Quick resume TV shows you are watching"
+msgid "Enable larger plot area instead additional info"
 msgstr ""
 
-msgctxt "#31044"
-msgid "New added movies"
-msgstr ""
-
-msgctxt "#31045"
-msgid "Musicvideos"
-msgstr ""
-
-msgctxt "#31046"
-msgid "My List - TV Shows"
-msgstr ""
-
-msgctxt "#31047"
-msgid "My List - Movies"
-msgstr ""
-
-msgctxt "#31048"
-msgid "Latest Movies"
-msgstr ""
-
-msgctxt "#31049"
-msgid "Latest TV Shows"
-msgstr ""
+# empty strings 31042-49
 
 msgctxt "#31050"
 msgid "All Movies"

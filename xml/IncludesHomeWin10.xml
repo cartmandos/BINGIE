@@ -219,7 +219,6 @@
 				<focusedlayout height="70" width="370">
 					<control type="button">
 						<include>SideBladeMenuButton</include>
-						<label>$INFO[ListItem.Label]</label>
 					</control>
                     <control type="image">
                         <texture>colors/color_white.png</texture>

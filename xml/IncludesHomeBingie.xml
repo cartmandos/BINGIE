@@ -11,7 +11,7 @@
 
         <control type="group" id="9000">
             <!-- animation for seamless transition to dialog info -->
-            <include>Hide_On_InfoDialog_Transition</include>
+            <include>Hide_Window_Anim</include>
 
             <!-- background image -->
             <control type="image">
@@ -282,6 +282,7 @@
                         <visible>![[String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)] +
                             [!Integer.IsEqual(ListItem.PercentPlayed,0) | ![!Integer.IsEqual(ListItem.PlayCount,0) + !ListItem.IsResumable]] +
                             !Skin.HasSetting(ShowEpisodesPlotAll)]</visible>
+                        <include condition="Skin.HasSetting(EnlargeBingiePlot)">Alt_Bingie_Plot_Height</include>
                         <height min="50" max="138">auto</height>
                         <width>650</width>
                         <textcolor>$VAR[BingiePlotTextColor]</textcolor>
@@ -516,6 +517,10 @@
         <value condition="!String.IsEmpty(Skin.String(CustomLogoImage))">$INFO[Skin.String(CustomLogoImage)]</value>
     </variable>
 
+    <include name="Alt_Bingie_Plot_Height">
+        <height min="50" max="200">auto</height>
+    </include>
+
     <!-- menu includes -->
     <include name="Bingie_Submenu_Label">
         <control type="label">
@@ -597,9 +602,9 @@
         </control>
     </include>
 
-    <!-- hide on info-dialog transition -->
-    <include name="Hide_On_InfoDialog_Transition">
-        <animation time="0" effect="fade" start="100" end="0" condition="System.HasAlarm(loadinfo)">Conditional</animation>
+    <!-- hide on info-dialog transition / startup-mask -->
+    <include name="Hide_Window_Anim">
+        <animation time="0" effect="fade" start="100" end="0" condition="System.HasAlarm(loadinfo) | System.HasAlarm(startup)">Conditional</animation>
     </include>
 
     <!-- dim on menu animation -->
@@ -933,7 +938,7 @@
     <include name="BingieSideBladeMainMenu">
         <control type="group" id="9001">
             <visible>![Window.IsActive(virtualkeyboard) + !Window.IsActive(1109)]</visible>
-            <include>Hide_On_InfoDialog_Transition</include>
+            <include>Hide_Window_Anim</include>
             <include content="posx" condition="!Skin.HasSetting(EnhancedHome_Circular)">
                 <param name="posx" value="-315" />
             </include>

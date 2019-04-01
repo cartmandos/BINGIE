@@ -1,7 +1,7 @@
 <views>
     <view id="Simple List" value="10" languageid="31567" type="tvchannels,tvrecordings"/>
     <view id="List" value="50" languageid="31443" type="all" excludefromdisable="true"/>
-    <view id="Bingie Main" value="523" languageid="31018" type="all" />
+    <view id="Bingie Main" value="523" languageid="31018" type="movies,setmovies,tvshows,musicvideos,seasons,sets,genres" />
     <view id="Bingie Episodes" value="525" languageid="31827" type="seasons,episodes" />
     <view id="Big List" value="51" languageid="31444" type="all" />
     <view id="Big List 2" value="504" languageid="31643" type="all" />

@@ -168,8 +168,8 @@
         <onload condition="!Skin.String(BackgroundOverlayColor.base)">Skin.SetString(BackgroundOverlayColor.base,None)</onload>
         <onload condition="!Skin.String(BackgroundDiffuseColor)">Skin.SetString(BackgroundDiffuseColor,None)</onload>
         <onload condition="!Skin.String(BackgroundDiffuseColor.name)">Skin.SetString(BackgroundDiffuseColor.name,None)</onload>
-        <onload condition="!Skin.String(FooterPanelColor)">Skin.SetString(FooterPanelColor,ff000000)</onload>
-        <onload condition="!Skin.String(FooterPanelColor.name)">Skin.SetString(FooterPanelColor.name,Black)</onload>
+        <onload condition="!Skin.String(FooterPanelColor)">Skin.SetString(FooterPanelColor,None)</onload>
+        <onload condition="!Skin.String(FooterPanelColor.name)">Skin.SetString(FooterPanelColor.name,None)</onload>
         <onload condition="!Skin.String(ViewDetailsPanelColor)">Skin.SetString(ViewDetailsPanelColor,ff000000)</onload>
         <onload condition="!Skin.String(ViewDetailsPanelColor.name)">Skin.SetString(ViewDetailsPanelColor.name,Black)</onload>
         <onload condition="!Skin.String(OSDPanelColor)">Skin.SetString(OSDPanelColor,cc000000)</onload>
