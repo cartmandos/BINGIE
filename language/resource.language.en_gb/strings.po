@@ -179,7 +179,7 @@ msgid "Now playing"
 msgstr ""
 
 msgctxt "#31041"
-msgid "Show default splash image instead of animated intro"
+msgid "Disable animated splash screen (image instead)"
 msgstr ""
 
 msgctxt "#31042"
@@ -190,7 +190,15 @@ msgctxt "#31043"
 msgid "Enable larger plot area instead additional info"
 msgstr ""
 
-# empty strings 31042-49
+msgctxt "#31044"
+msgid "Use Alternative (shorter) Animated Intro"
+msgstr ""
+
+msgctxt "#31045"
+msgid "Use Alternative Splash Image"
+msgstr ""
+
+# empty strings 31046-49
 
 msgctxt "#31050"
 msgid "All Movies"
@@ -2536,7 +2544,7 @@ msgid "Skin Helper settings (music/pvr artwork etc.)"
 msgstr ""
 
 msgctxt "#31631"
-msgid "Enable splashscreen/intro at startup (photo, video or music)"
+msgid "Use custom splashscreen/intro at startup (photo, video or music)"
 msgstr ""
 
 msgctxt "#31632"

@@ -132,42 +132,6 @@ msgctxt "#31040"
 msgid "Now playing"
 msgstr "Сейчас играет"
 
-msgctxt "#31041"
-msgid "Use small settings button at footer of home"
-msgstr "Использовать маленькую кнопку настроек внизу основного экрана"
-
-msgctxt "#31042"
-msgid "Quick resume movies you are watching"
-msgstr "Быстрое возобновление просмотра фильмов"
-
-msgctxt "#31043"
-msgid "Quick resume TV shows you are watching"
-msgstr "Быстрое возобновление просмотра ТВ Шоу"
-
-msgctxt "#31044"
-msgid "New added movies"
-msgstr "Добавленные фильмы"
-
-msgctxt "#31045"
-msgid "Musicvideos"
-msgstr "Музыкальное видео"
-
-msgctxt "#31046"
-msgid "My List - TV Shows"
-msgstr "Мой список - ТВ Шоу"
-
-msgctxt "#31047"
-msgid "My List - Movies"
-msgstr "Мой список - Фильмы"
-
-msgctxt "#31048"
-msgid "Latest Movies"
-msgstr "Последние фильмы"
-
-msgctxt "#31049"
-msgid "Latest TV Shows"
-msgstr "Последние ТВ Шоу"
-
 msgctxt "#31050"
 msgid "All Movies"
 msgstr "Все фильмы"

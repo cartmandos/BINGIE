@@ -136,42 +136,6 @@ msgctxt "#31040"
 msgid "Now playing"
 msgstr "Now playing"
 
-msgctxt "#31041"
-msgid "Use small settings button at footer of home"
-msgstr "Use small settings button at footer of home"
-
-msgctxt "#31042"
-msgid "Quick resume movies you are watching"
-msgstr "Quick resume movies you are watching"
-
-msgctxt "#31043"
-msgid "Quick resume TV shows you are watching"
-msgstr "Quick resume TV shows you are watching"
-
-msgctxt "#31044"
-msgid "New added movies"
-msgstr "New added movies"
-
-msgctxt "#31045"
-msgid "Musicvideos"
-msgstr "Musicvideos"
-
-msgctxt "#31046"
-msgid "My List - TV Shows"
-msgstr "My List - TV Shows"
-
-msgctxt "#31047"
-msgid "My List - Movies"
-msgstr "My List - Movies"
-
-msgctxt "#31048"
-msgid "Latest Movies"
-msgstr "Latest Movies"
-
-msgctxt "#31049"
-msgid "Latest TV Shows"
-msgstr "Latest TV Shows"
-
 msgctxt "#31050"
 msgid "All Movies"
 msgstr "All Movies"

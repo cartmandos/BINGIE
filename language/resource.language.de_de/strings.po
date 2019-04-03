@@ -136,42 +136,6 @@ msgctxt "#31040"
 msgid "Now playing"
 msgstr "Gerade läuft"
 
-msgctxt "#31041"
-msgid "Use small settings button at footer of home"
-msgstr "Kleine Einstellungsschaltfläche in der Fußzeile des Startbildschirms verwenden"
-
-msgctxt "#31042"
-msgid "Quick resume movies you are watching"
-msgstr "Bereits begonnene Filme an der letzten Position fortsetzen"
-
-msgctxt "#31043"
-msgid "Quick resume TV shows you are watching"
-msgstr "Bereits begonnene Serien-Episoden an der letzten Position fortsetzen"
-
-msgctxt "#31044"
-msgid "New added movies"
-msgstr "Neu hinzugefügte Filme"
-
-msgctxt "#31045"
-msgid "Musicvideos"
-msgstr "Musikvideos"
-
-msgctxt "#31046"
-msgid "My List - TV Shows"
-msgstr "Meine Liste - Fernsehserien"
-
-msgctxt "#31047"
-msgid "My List - Movies"
-msgstr "Meine Liste - Filme"
-
-msgctxt "#31048"
-msgid "Latest Movies"
-msgstr "Neueste Filme"
-
-msgctxt "#31049"
-msgid "Latest TV Shows"
-msgstr "Neueste Fernsehserien"
-
 msgctxt "#31050"
 msgid "All Movies"
 msgstr "Alle Filme"

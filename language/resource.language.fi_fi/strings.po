@@ -136,42 +136,6 @@ msgctxt "#31040"
 msgid "Now playing"
 msgstr "Nyt toistetaan"
 
-msgctxt "#31041"
-msgid "Use small settings button at footer of home"
-msgstr "Näytä pieni asetuskuvake alapalkissa"
-
-msgctxt "#31042"
-msgid "Quick resume movies you are watching"
-msgstr "Jatka suoraan keskeneräisten elokuvien katsomista"
-
-msgctxt "#31043"
-msgid "Quick resume TV shows you are watching"
-msgstr "Jatka suoraan keskeneräisten sarjojen katsomista"
-
-msgctxt "#31044"
-msgid "New added movies"
-msgstr "Viimeksi lisätyt elokuvat"
-
-msgctxt "#31045"
-msgid "Musicvideos"
-msgstr "Musiikkivideot"
-
-msgctxt "#31046"
-msgid "My List - TV Shows"
-msgstr "Oma lista - Tv-sarjat"
-
-msgctxt "#31047"
-msgid "My List - Movies"
-msgstr "Oma lista - Elokuvat"
-
-msgctxt "#31048"
-msgid "Latest Movies"
-msgstr "Uudet elokuvat"
-
-msgctxt "#31049"
-msgid "Latest TV Shows"
-msgstr "Uudet tv-sarjat"
-
 msgctxt "#31050"
 msgid "All Movies"
 msgstr "Kaikki elokuvat"

@@ -126,24 +126,24 @@
     <!--Common-->
     <!--BINGIE Version-->
     <include name="BingieVersion">
-        <control type="grouplist">
-            <width>180</width>
-            <height>72</height>
-            <orientation>vertical</orientation>
-            <itemgap>0</itemgap>
-            <bottom>25</bottom>
+        <control type="group">
+            <bottom>10</bottom>
             <right>50</right>
+            <width>180</width>
+            <height>120</height>
             <align>right</align>
             <control type="image">
-                <width>100%</width>
-                <height>52</height>
+                <width>176</width>
+                <height>99</height>
                 <aspectratio align="left">keep</aspectratio>
                 <texture background="true">bingie_logo.png</texture>
             </control>
             <control type="label">
-                <width>96%</width>
-                <height>20</height>
                 <align>right</align>
+                <left>40</left>
+                <top>80</top>
+                <width>auto</width>
+                <height>20</height>
                 <font>Light22</font>
                 <textcolor>$INFO[Skin.String(FooterTextColor)]</textcolor>
                 <label>$INFO[Window(Home).Property(SkinHelper.skin_version)]</label>
@@ -160,10 +160,6 @@
         <texturenofocus />
         <label/>
         <font/>
-    </include>
-
-    <include name="Empty_Include">
-        <control type="group"/>
     </include>
 
     <include name="FullscreenDimensions">
@@ -315,6 +311,7 @@
         <param name="visibility" default="true"/>
         <definition>
             <control type="multiimage">
+                <nested/>
                 <visible>$PARAM[visibility]</visible>
                 <animation effect="fade" start="0" end="100" time="0">WindowOpen</animation>
                 <animation effect="fade" start="100" end="0" time="500" delay="500">WindowClose</animation>

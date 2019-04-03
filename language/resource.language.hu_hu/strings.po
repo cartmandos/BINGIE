@@ -128,42 +128,6 @@ msgctxt "#31040"
 msgid "Now playing"
 msgstr "Most játszott"
 
-msgctxt "#31041"
-msgid "Use small settings button at footer of home"
-msgstr "Kicsi beállításgomb használata a főképernyő láblécében"
-
-msgctxt "#31042"
-msgid "Quick resume movies you are watching"
-msgstr "Gyors visszatérés a nézett filmekhez"
-
-msgctxt "#31043"
-msgid "Quick resume TV shows you are watching"
-msgstr "Az éppen nézett sorozatok gyors folytatása"
-
-msgctxt "#31044"
-msgid "New added movies"
-msgstr "Új hozzáadott filmek"
-
-msgctxt "#31045"
-msgid "Musicvideos"
-msgstr "Zenei videók"
-
-msgctxt "#31046"
-msgid "My List - TV Shows"
-msgstr "Saját lista - Sorozatok"
-
-msgctxt "#31047"
-msgid "My List - Movies"
-msgstr "Saját lista - Filmek"
-
-msgctxt "#31048"
-msgid "Latest Movies"
-msgstr "Legfrissebb filmek  "
-
-msgctxt "#31049"
-msgid "Latest TV Shows"
-msgstr "Legutóbbi sorozatok"
-
 msgctxt "#31050"
 msgid "All Movies"
 msgstr "Minden Film"

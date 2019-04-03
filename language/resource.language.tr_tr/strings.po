@@ -136,42 +136,6 @@ msgctxt "#31040"
 msgid "Now playing"
 msgstr "Şimdi yürütülüyor..."
 
-msgctxt "#31041"
-msgid "Use small settings button at footer of home"
-msgstr "Ana sayfada altta küçük ayarlar tuşu kullan"
-
-msgctxt "#31042"
-msgid "Quick resume movies you are watching"
-msgstr "İzlediğiniz filmleri kolayca devam ettirin"
-
-msgctxt "#31043"
-msgid "Quick resume TV shows you are watching"
-msgstr "İzlediğiniz dizileri kolayca devam ettirin"
-
-msgctxt "#31044"
-msgid "New added movies"
-msgstr "Yeni eklenen filmler"
-
-msgctxt "#31045"
-msgid "Musicvideos"
-msgstr "Müzik videoları"
-
-msgctxt "#31046"
-msgid "My List - TV Shows"
-msgstr "Listem - Diziler"
-
-msgctxt "#31047"
-msgid "My List - Movies"
-msgstr "Listem - Filmler"
-
-msgctxt "#31048"
-msgid "Latest Movies"
-msgstr "En Son Filmler"
-
-msgctxt "#31049"
-msgid "Latest TV Shows"
-msgstr "Yeni diziler"
-
 msgctxt "#31050"
 msgid "All Movies"
 msgstr "Bütün Filmler"

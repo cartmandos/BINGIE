@@ -136,42 +136,6 @@ msgctxt "#31040"
 msgid "Now playing"
 msgstr "Kini dimainkan"
 
-msgctxt "#31041"
-msgid "Use small settings button at footer of home"
-msgstr "Guna butang tetapan kecil pada pengaki rumah"
-
-msgctxt "#31042"
-msgid "Quick resume movies you are watching"
-msgstr "Sambung semula secara pantas cereka yang anda tonton"
-
-msgctxt "#31043"
-msgid "Quick resume TV shows you are watching"
-msgstr "Sambung semula secara pantas rancangan TV yang anda tonton"
-
-msgctxt "#31044"
-msgid "New added movies"
-msgstr "Cereka ditambah baharu"
-
-msgctxt "#31045"
-msgid "Musicvideos"
-msgstr "Video Muzik"
-
-msgctxt "#31046"
-msgid "My List - TV Shows"
-msgstr "Senarai Saya - Rancangan TV"
-
-msgctxt "#31047"
-msgid "My List - Movies"
-msgstr "Senarai Saya - Cereka"
-
-msgctxt "#31048"
-msgid "Latest Movies"
-msgstr "Cereka Terkini"
-
-msgctxt "#31049"
-msgid "Latest TV Shows"
-msgstr "Rancangan TV Terkini"
-
 msgctxt "#31050"
 msgid "All Movies"
 msgstr "Semua Cereka"

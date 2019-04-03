@@ -124,42 +124,6 @@ msgctxt "#31040"
 msgid "Now playing"
 msgstr "正在播放"
 
-msgctxt "#31041"
-msgid "Use small settings button at footer of home"
-msgstr "在主页页脚使用小按钮设置"
-
-msgctxt "#31042"
-msgid "Quick resume movies you are watching"
-msgstr "快速恢您正在观看复电影"
-
-msgctxt "#31043"
-msgid "Quick resume TV shows you are watching"
-msgstr "快速恢复你正在看电视"
-
-msgctxt "#31044"
-msgid "New added movies"
-msgstr "新添加的电影"
-
-msgctxt "#31045"
-msgid "Musicvideos"
-msgstr "音乐视频"
-
-msgctxt "#31046"
-msgid "My List - TV Shows"
-msgstr "我的列表 - 电视节目"
-
-msgctxt "#31047"
-msgid "My List - Movies"
-msgstr "我的列表 - 电影"
-
-msgctxt "#31048"
-msgid "Latest Movies"
-msgstr "最新的电影"
-
-msgctxt "#31049"
-msgid "Latest TV Shows"
-msgstr "最新的电视节目"
-
 msgctxt "#31050"
 msgid "All Movies"
 msgstr "所有电影"

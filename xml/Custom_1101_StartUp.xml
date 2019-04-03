@@ -28,8 +28,8 @@
 				<align>center</align>
 				<!-- logo -->
 				<control type="group">
-					<width>324</width>
-					<height>94</height>
+					<width>320</width>
+					<height>180</height>
 					<control type="image">
 						<left>238</left>
 						<align>left</align>

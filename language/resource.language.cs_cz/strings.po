@@ -100,34 +100,6 @@ msgctxt "#31040"
 msgid "Now playing"
 msgstr "Nyní přehrávám"
 
-msgctxt "#31041"
-msgid "Use small settings button at footer of home"
-msgstr "V zápatí na domovské obrazovce použít malá tlačítka pro nastavení"
-
-msgctxt "#31043"
-msgid "Quick resume TV shows you are watching"
-msgstr "Rychle obnovit televizní pořady které sledujete"
-
-msgctxt "#31044"
-msgid "New added movies"
-msgstr "Nové přidané filmy"
-
-msgctxt "#31045"
-msgid "Musicvideos"
-msgstr "Hudební klipy"
-
-msgctxt "#31047"
-msgid "My List - Movies"
-msgstr "Můj seznam – filmy"
-
-msgctxt "#31048"
-msgid "Latest Movies"
-msgstr "Nejnovější filmy"
-
-msgctxt "#31049"
-msgid "Latest TV Shows"
-msgstr "Nejnovější televizní pořady"
-
 msgctxt "#31050"
 msgid "All Movies"
 msgstr "Všechny filmy"

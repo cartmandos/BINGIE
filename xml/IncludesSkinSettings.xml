@@ -125,18 +125,6 @@
 
     <!-- Tab Factory -->
     <include name="SkinSettings_Tab">
-        <param name="include1" default="Empty_Include" />
-        <param name="include2" default="Empty_Include" />
-        <param name="include3" default="Empty_Include" />
-        <param name="include4" default="Empty_Include" />
-        <param name="include5" default="Empty_Include" />
-        <param name="include6" default="Empty_Include" />
-        <param name="include7" default="Empty_Include" />
-        <param name="include8" default="Empty_Include" />
-        <param name="include9" default="Empty_Include" />
-        <param name="include10" default="Empty_Include" />
-        <param name="include11" default="Empty_Include" />
-        <param name="include12" default="Empty_Include" />
         <definition>
             <control type="grouplist" id="$PARAM[id]000">
                 <description>Control Area</description>
@@ -151,18 +139,7 @@
                 <onright>3$PARAM[id]</onright>
                 <pagecontrol>3$PARAM[id]</pagecontrol>
                 <visible>String.IsEqual(Window(Home).Property(SkinSettingSection),$PARAM[id])</visible>
-                <include>$PARAM[include1]</include>
-                <include>$PARAM[include2]</include>
-                <include>$PARAM[include3]</include>
-                <include>$PARAM[include4]</include>
-                <include>$PARAM[include5]</include>
-                <include>$PARAM[include6]</include>
-                <include>$PARAM[include7]</include>
-                <include>$PARAM[include8]</include>
-                <include>$PARAM[include9]</include>
-                <include>$PARAM[include10]</include>
-                <include>$PARAM[include11]</include>
-                <include>$PARAM[include12]</include>
+                <nested />
             </control>
             <control type="scrollbar" id="3$PARAM[id]">
                 <right>-45</right>
@@ -180,14 +157,14 @@
         <include content="SkinSettings_Tab">
             <param name="id" value="12"/>
             <!-- content -->
-            <param name="include1" value="Home_Layout_Settings"/>
-            <param name="include2" value="Home_Spotlight_Settings"/>
-            <param name="include3" value="Home_Widgets_Settings"/>
-            <param name="include4" value="Home_Details_Settings"/>
-            <param name="include5" value="Thumbs_Up_Down_Settings"/>
-            <param name="include6" value="Home_Footer_Media_Flags_Ratings"/>
-            <param name="include7" value="Home_Menu_Settings"/>
-            <param name="include8" value="Home_General_Settings"/>
+            <include>Home_Layout_Settings</include>
+            <include>Home_Spotlight_Settings</include>
+            <include>Home_Widgets_Settings</include>
+            <include>Home_Details_Settings</include>
+            <include>Thumbs_Up_Down_Settings</include>
+            <include>Home_Footer_Media_Flags_Ratings</include>
+            <include>Home_Menu_Settings</include>
+            <include>Home_General_Settings</include>
         </include>
     </include>
 
@@ -196,7 +173,7 @@
         <include content="SkinSettings_Tab">
             <param name="id" value="9"/>
             <!-- content -->
-            <param name="include1" value="Shortcuts_Config"/>
+            <include>Shortcuts_Config</include>
         </include>
     </include>
 
@@ -205,18 +182,19 @@
         <include content="SkinSettings_Tab">
             <param name="id" value="6"/>
             <!-- content -->
-            <param name="include1" value="General_Skin_Settings"/>
-            <param name="include2" value="Bingie_Search_Settings"/>
-            <param name="include3" value="General_Trailers_Settings"/>
-            <param name="include4" value="General_Artwork_Details_Settings"/>
-            <param name="include5" value="General_Header_Settings"/>
-            <param name="include6" value="General_Thumbs_Border_Settings"/>
-            <param name="include7" value="General_Watched_Indicators_Settings"/>
-            <param name="include8" value="General_Poster_Overlays_Settings"/>
-            <param name="include9" value="General_Spinner_Settings"/>
-            <param name="include10" value="General_Resources_Settings"/>
-            <param name="include11" value="General_Advanced_Settings"/>
-            <param name="include12" value="General_Skin_Helper_Settings"/>
+            <include>General_Skin_Settings</include>
+            <include>Bingie_Search_Settings</include>
+            <include>General_Trailers_Settings</include>
+            <include>General_Artwork_Details_Settings</include>
+            <include>General_Header_Settings</include>
+            <include>General_Thumbs_Border_Settings</include>
+            <include>General_Indicators_Settings</include>
+            <include>General_Poster_Overlays_Settings</include>
+            <include>General_Spinner_Settings</include>
+            <include>General_Resources_Settings</include>
+            <include>General_Splash_Screen_Settings</include>
+            <include>General_Advanced_Settings</include>
+            <include>General_Skin_Helper_Settings</include>
         </include>
     </include>
 
@@ -225,10 +203,10 @@
         <include content="SkinSettings_Tab">
             <param name="id" value="17"/>
             <!-- content -->
-            <param name="include1" value="Media_Library_Main_Section"/>
-            <param name="include2" value="Media_Library_Alphabet_Navigation_Settings"/>
-            <param name="include3" value="Media_Library_Flags_Settings"/>
-            <param name="include4" value="Media_Library_Video_Dialog_Settings"/>
+            <include>Media_Library_Main_Section</include>
+            <include>Media_Library_Alphabet_Navigation_Settings</include>
+            <include>Media_Library_Flags_Settings</include>
+            <include>Media_Library_Video_Dialog_Settings</include>
         </include>
     </include>
 
@@ -237,7 +215,7 @@
         <include content="SkinSettings_Tab">
             <param name="id" value="18"/>
             <!-- content -->
-            <param name="include1" value="PVR_Settings"/>
+            <include>PVR_Settings</include>
         </include>
     </include>
 
@@ -246,12 +224,12 @@
         <include content="SkinSettings_Tab">
             <param name="id" value="16"/>
             <!-- content -->
-            <param name="include1" value="OSD_General_Settings"/>
-            <param name="include2" value="OSD_Info_Panel_Settings"/>
-            <param name="include3" value="OSD_Up_Next_Settings"/>
-            <param name="include4" value="OSD_Video_Playback_Settings"/>
-            <param name="include5" value="OSD_Music_Playback_Settings"/>
-            <param name="include6" value="OSD_Now_Playing_Settings"/>
+            <include>OSD_General_Settings</include>
+            <include>OSD_Info_Panel_Settings</include>
+            <include>OSD_Up_Next_Settings</include>
+            <include>OSD_Video_Playback_Settings</include>
+            <include>OSD_Music_Playback_Settings</include>
+            <include>OSD_Now_Playing_Settings</include>
         </include>
     </include>
 
@@ -260,13 +238,13 @@
         <include content="SkinSettings_Tab">
             <param name="id" value="20"/>
             <!-- content -->
-            <param name="include1" value="CustomColors_General_Colors_Settings"/>
-            <param name="include2" value="CustomColors_Library_Colors_Settings"/>
-            <param name="include3" value="CustomColors_Bingie_Colors_Settings"/>
-            <param name="include4" value="CustomColors_Header_Colors_Settings"/>
-            <param name="include5" value="CustomColors_Footer_Colors_Settings"/>
-            <param name="include6" value="CustomColors_OSD_Colors_Settings"/>
-            <param name="include7" value="CustomColors_PVR_Colors_Settings"/>
+            <include>CustomColors_General_Colors_Settings</include>
+            <include>CustomColors_Library_Colors_Settings</include>
+            <include>CustomColors_Bingie_Colors_Settings</include>
+            <include>CustomColors_Header_Colors_Settings</include>
+            <include>CustomColors_Footer_Colors_Settings</include>
+            <include>CustomColors_OSD_Colors_Settings</include>
+            <include>CustomColors_PVR_Colors_Settings</include>
         </include>
     </include>
 
@@ -275,9 +253,9 @@
         <include content="SkinSettings_Tab">
             <param name="id" value="15"/>
             <!-- content -->
-            <param name="include1" value="ColorThemes_Theme_Settings"/>
-            <param name="include2" value="ColorThemes_DayNight_Settings"/>
-            <param name="include3" value="ColorThemes_Pallete_Settings"/>
+            <include>ColorThemes_Theme_Settings</include>
+            <include>ColorThemes_DayNight_Settings</include>
+            <include>ColorThemes_Pallete_Settings</include>
         </include>
     </include>
 
@@ -286,8 +264,8 @@
         <include content="SkinSettings_Tab">
             <param name="id" value="8"/>
             <!-- content -->
-            <param name="include1" value="Background_Global_Settings"/>
-            <param name="include2" value="Conditional_Background"/>
+            <include>Background_Global_Settings</include>
+            <include>Conditional_Background</include>
         </include>
     </include>
 
@@ -296,7 +274,7 @@
         <include content="SkinSettings_Tab">
             <param name="id" value="7"/>
             <!-- content -->
-            <param name="include1" value="ForcedViews_Settings"/>
+            <include>ForcedViews_Settings</include>
         </include>
     </include>
 
@@ -305,7 +283,7 @@
         <include content="SkinSettings_Tab">
             <param name="id" value="19"/>
             <!-- content -->
-            <param name="include1" value="Smart_Shortcuts_Settings"/>
+            <include>Smart_Shortcuts_Settings</include>
         </include>
     </include>
 
@@ -314,7 +292,7 @@
         <include content="SkinSettings_Tab">
             <param name="id" value="14"/>
             <!-- content -->
-            <param name="include1" value="Backup_Settings"/>
+            <include>Backup_Settings</include>
         </include>
     </include>
 
@@ -323,7 +301,7 @@
         <include content="SkinSettings_Tab">
             <param name="id" value="31"/>
             <!-- content -->
-            <param name="include1" value="Supported_Addons_Settings"/>
+            <include>Supported_Addons_Settings</include>
         </include>
     </include>
 
@@ -3387,7 +3365,7 @@
     </include>
 
     <!-- General Watched Indicators Settings -->
-    <include name="General_Watched_Indicators_Settings">
+    <include name="General_Indicators_Settings">
         <!-- watched indicators -->
         <control type="label" id="17130">
             <include>SkinSettings_Header</include>
@@ -3669,6 +3647,59 @@
         </control>
     </include>
 
+    <!-- Splash Screen Settings -->
+    <include name="General_Splash_Screen_Settings">
+        <control type="label" id="8014">
+            <include>SkinSettings_Header</include>
+            <label>Splash Screen Settings</label>
+            <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
+        </control>
+        <control type="radiobutton" id="8028">
+            <!-- Use alternative animated splash (shorter) -->
+            <description/>
+            <include>SkinSettings_Button</include>
+            <label>31044</label>
+            <onclick>Skin.ToggleSetting(UseAltDefaultIntro)</onclick>
+            <selected>Skin.HasSetting(UseAltDefaultIntro)</selected>
+            <visible>!Skin.HasSetting(DisableAnimatedIntro) + String.IsEmpty(Skin.String(SplashScreen)) + String.IsEmpty(Skin.String(AutoStartPlayList))</visible>
+        </control>
+        <control type="radiobutton" id="8021">
+            <!-- disable video splash -->
+            <description/>
+            <include>SkinSettings_Button</include>
+            <label>31041</label>
+            <onclick>Skin.ToggleSetting(DisableAnimatedIntro)</onclick>
+            <selected>Skin.HasSetting(DisableAnimatedIntro)</selected>
+            <visible>String.IsEmpty(Skin.String(SplashScreen)) + String.IsEmpty(Skin.String(AutoStartPlayList))</visible>
+        </control>
+        <control type="radiobutton" id="8029">
+            <!-- Use alternative splash image -->
+            <description/>
+            <include>SkinSettings_Button</include>
+            <label>31045</label>
+            <onclick>Skin.ToggleSetting(UseAltDefaultSplashImage)</onclick>
+            <selected>Skin.HasSetting(UseAltDefaultSplashImage)</selected>
+            <visible>Skin.HasSetting(DisableAnimatedIntro) + String.IsEmpty(Skin.String(SplashScreen)) + String.IsEmpty(Skin.String(AutoStartPlayList))</visible>
+        </control>
+        <control type="radiobutton" id="8020">
+            <!-- use custom splash image or video -->
+            <description/>
+            <include>SkinSettings_Button</include>
+            <label>31631</label>
+            <onclick condition="String.IsEmpty(Skin.String(SplashScreen))">Skin.SetFile(SplashScreen)</onclick>
+            <onclick condition="Skin.String(SplashScreen)">Skin.Reset(SplashScreen)</onclick>
+            <selected>Skin.String(SplashScreen)</selected>
+        </control>
+        <!-- set playlist on startup -->
+        <control type="radiobutton" id="5144">
+            <include>SkinSettings_Button</include>
+            <label>31726</label>
+            <onclick condition="!Skin.String(AutoStartPlayList)">Skin.SetFile(AutoStartPlayList,,special://musicplaylists/)</onclick>
+            <onclick condition="Skin.String(AutoStartPlayList)">Skin.Reset(AutoStartPlayList)</onclick>
+            <selected>Skin.String(AutoStartPlayList)</selected>
+        </control>
+    </include>
+
     <!-- General Advanced Settings -->
     <include name="General_Advanced_Settings">
         <!-- advanced settings -->
@@ -3700,31 +3731,6 @@
             <label>31724</label>
             <onclick>Skin.ToggleSetting(DisableHoursDuration)</onclick>
             <selected>Skin.HasSetting(DisableHoursDuration)</selected>
-        </control>
-        <control type="radiobutton" id="8021">
-            <!-- disable default video splash -->
-            <description/>
-            <include>SkinSettings_Button</include>
-            <label>31041</label>
-            <onclick>Skin.ToggleSetting(DisableDefaultSplashIntro)</onclick>
-            <selected>Skin.HasSetting(DisableDefaultSplashIntro)</selected>
-            <visible>String.IsEmpty(Skin.String(SplashScreen)) + String.IsEmpty(Skin.String(AutoStartPlayList))</visible>
-        </control>
-        <control type="radiobutton" id="8020">
-            <!-- enable splash image or movie -->
-            <description/>
-            <include>SkinSettings_Button</include>
-            <label>31631</label>
-            <onclick condition="String.IsEmpty(Skin.String(SplashScreen))">Skin.SetFile(SplashScreen)</onclick>
-            <onclick condition="Skin.String(SplashScreen)">Skin.Reset(SplashScreen)</onclick>
-            <selected>Skin.String(SplashScreen)</selected>
-        </control>
-        <control type="radiobutton" id="5144">
-            <include>SkinSettings_Button</include>
-            <label>31726</label>
-            <onclick condition="!Skin.String(AutoStartPlayList)">Skin.SetFile(AutoStartPlayList,,special://musicplaylists/)</onclick>
-            <onclick condition="Skin.String(AutoStartPlayList)">Skin.Reset(AutoStartPlayList)</onclick>
-            <selected>Skin.String(AutoStartPlayList)</selected>
         </control>
         <control type="radiobutton" id="8024">
             <!-- dialog yesno default focus to NO -->

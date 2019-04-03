@@ -136,42 +136,6 @@ msgctxt "#31040"
 msgid "Now playing"
 msgstr "מנגן כעת"
 
-msgctxt "#31041"
-msgid "Use small settings button at footer of home"
-msgstr "תשתמש בלחצן הגדרות קטן בסרגל כותרת תחתונה של הבית"
-
-msgctxt "#31042"
-msgid "Quick resume movies you are watching"
-msgstr "חידוש ניגון מהיר לסרטים בהם אתה צופה"
-
-msgctxt "#31043"
-msgid "Quick resume TV shows you are watching"
-msgstr "חידוש ניגון מהיר לסדרות בהם אתה צופה"
-
-msgctxt "#31044"
-msgid "New added movies"
-msgstr "סרטים חדשים שנוספו"
-
-msgctxt "#31045"
-msgid "Musicvideos"
-msgstr "סרטוני מוזיקה"
-
-msgctxt "#31046"
-msgid "My List - TV Shows"
-msgstr "הרשימה שלי - סדרות"
-
-msgctxt "#31047"
-msgid "My List - Movies"
-msgstr "הרשימה שלי - סרטים"
-
-msgctxt "#31048"
-msgid "Latest Movies"
-msgstr "סרטים אחרונים"
-
-msgctxt "#31049"
-msgid "Latest TV Shows"
-msgstr "סדרות אחרונות"
-
 msgctxt "#31050"
 msgid "All Movies"
 msgstr "כל הסרטים"

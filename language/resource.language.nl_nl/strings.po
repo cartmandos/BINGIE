@@ -136,42 +136,6 @@ msgctxt "#31040"
 msgid "Now playing"
 msgstr "Bezig met afspelen"
 
-msgctxt "#31041"
-msgid "Use small settings button at footer of home"
-msgstr "Gebruik kleine \"instellingen\" knop onderaan home"
-
-msgctxt "#31042"
-msgid "Quick resume movies you are watching"
-msgstr "Snel hervatten van films die je aan het kijken bent"
-
-msgctxt "#31043"
-msgid "Quick resume TV shows you are watching"
-msgstr "Snel hervatten van Tv-series die je aan het bekijken bent"
-
-msgctxt "#31044"
-msgid "New added movies"
-msgstr "Nieuwe films die toegevoegd zijn"
-
-msgctxt "#31045"
-msgid "Musicvideos"
-msgstr "Muziekvideo's"
-
-msgctxt "#31046"
-msgid "My List - TV Shows"
-msgstr "Mijn lijst - TV Series"
-
-msgctxt "#31047"
-msgid "My List - Movies"
-msgstr "Mijn lijst - Films"
-
-msgctxt "#31048"
-msgid "Latest Movies"
-msgstr "Nieuwe films"
-
-msgctxt "#31049"
-msgid "Latest TV Shows"
-msgstr "Nieuwe TV Series"
-
 msgctxt "#31050"
 msgid "All Movies"
 msgstr "Alle films"

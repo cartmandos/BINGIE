@@ -979,8 +979,8 @@
                 <!-- logo -->
                 <control type="group">
                     <visible>!System.HasLoginScreen + !Skin.HasSetting(DisableLogoMainMenu)</visible>
-                    <height>80</height>
-                    <width>275</width>
+                    <width>272</width>
+                    <height>153</height>
                     <left>50</left>
                     <control type="image">
                         <height>100%</height>

@@ -128,42 +128,6 @@ msgctxt "#31040"
 msgid "Now playing"
 msgstr "Reproduzindo"
 
-msgctxt "#31041"
-msgid "Use small settings button at footer of home"
-msgstr "Usar botão de configurações pequeno no rodapé da página inicial"
-
-msgctxt "#31042"
-msgid "Quick resume movies you are watching"
-msgstr "Retomar rapidamente os filmes em progresso"
-
-msgctxt "#31043"
-msgid "Quick resume TV shows you are watching"
-msgstr "Retomar rapidamente as séries em progresso"
-
-msgctxt "#31044"
-msgid "New added movies"
-msgstr "Novos filmes adicionados"
-
-msgctxt "#31045"
-msgid "Musicvideos"
-msgstr "Vídeos de música"
-
-msgctxt "#31046"
-msgid "My List - TV Shows"
-msgstr "Minha lista - Séries"
-
-msgctxt "#31047"
-msgid "My List - Movies"
-msgstr "Minha lista - Filmes"
-
-msgctxt "#31048"
-msgid "Latest Movies"
-msgstr "Filmes recentes"
-
-msgctxt "#31049"
-msgid "Latest TV Shows"
-msgstr "Séries recentes"
-
 msgctxt "#31050"
 msgid "All Movies"
 msgstr "Todos os filmes"

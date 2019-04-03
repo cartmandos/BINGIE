@@ -1265,8 +1265,8 @@
 			<left>107</left>
 			<!-- default Logo image -->
 			<control type="image">
-				<height>80</height>
-				<width>275</width>
+				<width>272</width>
+				<height>153</height>
 				<aspectratio align="left">keep</aspectratio>
 				<colordiffuse>$INFO[Skin.String(HeaderTextColor)]</colordiffuse>
 				<texture background="true">bingie_logo.png</texture>

@@ -136,42 +136,6 @@ msgctxt "#31040"
 msgid "Now playing"
 msgstr "Сада пуштено"
 
-msgctxt "#31041"
-msgid "Use small settings button at footer of home"
-msgstr "Користи мали тастер подешавања на подножју главног екрана"
-
-msgctxt "#31042"
-msgid "Quick resume movies you are watching"
-msgstr "Брзо настави филмове које сте гледали"
-
-msgctxt "#31043"
-msgid "Quick resume TV shows you are watching"
-msgstr "Брзо настави ТВ серије које сте гледали"
-
-msgctxt "#31044"
-msgid "New added movies"
-msgstr "Ново додати филмови"
-
-msgctxt "#31045"
-msgid "Musicvideos"
-msgstr "Музички спотови"
-
-msgctxt "#31046"
-msgid "My List - TV Shows"
-msgstr "Моја Листа - ТВ Серије"
-
-msgctxt "#31047"
-msgid "My List - Movies"
-msgstr "Моја Листа - Филмови"
-
-msgctxt "#31048"
-msgid "Latest Movies"
-msgstr "Најновији Филмови"
-
-msgctxt "#31049"
-msgid "Latest TV Shows"
-msgstr "Најновије ТВ Серије"
-
 msgctxt "#31050"
 msgid "All Movies"
 msgstr "Сви Филмови"

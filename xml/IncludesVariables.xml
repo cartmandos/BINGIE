@@ -12,7 +12,8 @@
     <variable name="SplashImage">
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.SplashScreen))">$INFO[Window(Home).Property(SkinHelper.SplashScreen)]</value>
         <value condition="Skin.String(SplashScreen)">$INFO[Skin.String(SplashScreen)]</value>
-        <value>special://skin/extras/media/splash.jpg</value>
+        <value condition="!Skin.HasSetting(UseAltDefaultSplashImage)">special://skin/extras/media/bingie_splash.png</value>
+        <value condition="Skin.HasSetting(UseAltDefaultSplashImage)">special://skin/extras/media/bingie_splash2.png</value>
     </variable>
 
     <variable name="DefaultMenuFocus">
