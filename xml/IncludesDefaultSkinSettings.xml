@@ -98,6 +98,7 @@
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetString(SkinHelper.AutoCloseVideoOSD, 4)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(DisableNowPlayingInfoBar)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(UseBingieInfoDialog)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(DisableLogoMainMenu)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetString(WidgetsGlobalLimit, 250)</onload>
 
         <!-- default color settings (titan default theme - BINGIE) -->
@@ -263,7 +264,7 @@
         <onload condition="!Skin.String(LyricsFocusTextShadowColor)">Skin.SetString(LyricsFocusTextShadowColor,none)</onload>
         <onload condition="!Skin.String(LyricsFocusTextShadowColor.name)">Skin.SetString(LyricsFocusTextShadowColor.name,None)</onload>
 
-        <onload condition="!Skin.String(MainMenuPanelColor)">Skin.SetString(MainMenuPanelColor,ff373737)</onload>
+        <onload condition="!Skin.String(MainMenuPanelColor)">Skin.SetString(MainMenuPanelColor,ff242424)</onload>
         <onload condition="!Skin.String(MainMenuPanelColor.name)">Skin.SetString(MainMenuPanelColor.name,Onyx)</onload>
         <onload condition="!Skin.String(MainMenuTextColor)">Skin.SetString(MainMenuTextColor,ffd0d0d0)</onload>
         <onload condition="!Skin.String(MainMenuTextColor.name)">Skin.SetString(MainMenuTextColor.name,Very light gray)</onload>

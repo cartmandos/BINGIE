@@ -252,8 +252,6 @@
         <value condition="[Window.IsActive(script-ExtendedInfo Script-DialogVideoInfo.xml) | Window.IsActive(script-ExtendedInfo Script-DialogInfo.xml)]">$VAR[fanartBackground_extendedinfo]</value>
         <!--nextaired script backgrounds -->
         <value condition="[Window.IsActive(script-NextAired-TVGuide.xml) | Window.IsActive(script-NextAired-TVGuide2.xml)]">$VAR[fanartBackground_nextaired]</value>
-        <!-- custom search -->
-        <value condition="Window.IsActive(script-skin_helper_service-CustomSearch.xml)">$VAR[fanartBackground_search]</value>
         <!-- genre fanart -->
         <value condition="Container.Content(Genres) + String.Contains(Skin.String(moviegenrefanart.path),script.skin.helper) + !String.IsEmpty(ListItem.label) + !String.IsEqual(ListItem.label,..)">http://localhost:52307/getmoviegenreimagesrandom&amp;title=$INFO[Listitem.Label]&amp;type=fanart.0</value>
         <value condition="Container.Content(Genres) + Skin.String(moviegenrefanart.path) + !String.IsEmpty(ListItem.label) + !String.IsEqual(ListItem.label,..)">$INFO[Skin.String(moviegenrefanartpath)]/$INFO[ListItem.Label].jpg</value>
@@ -327,11 +325,6 @@
         <value condition="Control.IsVisible(213) + !String.IsEmpty(Container(213).ListItem.Property(Fanart))">$INFO[Container(213).ListItem.Property(Fanart)]</value>
         <value condition="Control.IsVisible(214) + !String.IsEmpty(Container(214).ListItem.Property(Fanart))">$INFO[Container(214).ListItem.Property(Fanart)]</value>
         <value condition="Control.IsVisible(215) + !String.IsEmpty(Container(215).ListItem.Property(Fanart))">$INFO[Container(215).ListItem.Property(Fanart)]</value>
-    </variable>
-    <variable name="fanartBackground_search">
-        <value condition="Control.HasFocus(3110) + !String.IsEmpty(Container(3110).ListItem.Art(fanart))">$INFO[Container(3110).ListItem.Art(fanart)]</value>
-        <value condition="Control.HasFocus(3111) + !String.IsEmpty(Container(3111).ListItem.Art(fanart))">$INFO[Container(3111).ListItem.Art(fanart)]</value>
-        <value condition="Control.HasFocus(3112) + !String.IsEmpty(Container(3112).ListItem.Art(tvshow.fanart))">$INFO[Container(3112).ListItem.Art(tvshow.fanart)]</value>
     </variable>
     
     <variable name="backgroundVar">
