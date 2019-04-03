@@ -55,16 +55,6 @@
                 <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
             </item>
             <item>
-                <label>$LOCALIZE[31181]</label>
-                <property name="path">special://skin/playlists/netflixoriginalseries.xsp</property>
-                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
-            </item>
-            <item>
-                <label>$LOCALIZE[31182]</label>
-                <property name="path">special://skin/playlists/netlfixoriginalmovies.xsp</property>
-                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
-            </item>
-            <item>
                 <label>$LOCALIZE[31532]</label>
                 <property name="path">special://skin/playlists/topratedmovies.xsp</property>
                 <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
@@ -80,6 +70,11 @@
                 <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
             </item>
             <item>
+                <label>$LOCALIZE[31181]</label>
+                <property name="path">special://skin/playlists/netflixoriginalseries.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
                 <label>$LOCALIZE[31536]</label>
                 <property name="path">special://skin/playlists/actionandcrimemovies.xsp</property>
                 <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
@@ -90,13 +85,43 @@
                 <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
             </item>
             <item>
+                <label>$LOCALIZE[31046]</label>
+                <property name="path">special://skin/playlists/anime.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
+                <label>$LOCALIZE[31048]</label>
+                <property name="path">special://skin/playlists/horrormovies.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
+                <label>$LOCALIZE[31049]</label>
+                <property name="path">special://skin/playlists/musicandmusical.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
+                <label>$LOCALIZE[31047]</label>
+                <property name="path">special://skin/playlists/romanticmovies.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
                 <label>$LOCALIZE[31164]</label>
                 <property name="path">special://skin/playlists/actionandcrimeseries.xsp</property>
                 <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
             </item>
             <item>
+                <label>$LOCALIZE[31160]</label>
+                <property name="path">special://skin/playlists/docuseries.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
                 <label>$LOCALIZE[31162]</label>
                 <property name="path">special://skin/playlists/adventureandfantasymovies.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
+                <label>$LOCALIZE[31182]</label>
+                <property name="path">special://skin/playlists/netlfixoriginalmovies.xsp</property>
                 <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
             </item>
             <item>
@@ -129,12 +154,6 @@
                 <property name="path">special://skin/playlists/documentaries.xsp</property>
                 <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
             </item>
-
-            <item>
-                <label>$LOCALIZE[31160]</label>
-                <property name="path">special://skin/playlists/docuseries.xsp</property>
-                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
-            </item>
             <item>
                 <label>$LOCALIZE[31161]</label>
                 <property name="path">special://skin/playlists/europeanmovies.xsp</property>
@@ -145,7 +164,6 @@
                 <property name="path">special://skin/playlists/foodandtravelshows.xsp</property>
                 <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
             </item>
-
             <item>
                 <label>$LOCALIZE[31188]</label>
                 <property name="path">special://skin/playlists/hboshows.xsp</property>
@@ -161,7 +179,6 @@
                 <property name="path">special://skin/playlists/huluoriginalshows.xsp</property>
                 <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
             </item>
-
             <item>
                 <label>$LOCALIZE[31191]</label>
                 <property name="path">special://skin/playlists/marvelseries.xsp</property>
@@ -177,7 +194,6 @@
                 <property name="path">special://skin/playlists/standup.xsp</property>
                 <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
             </item>
-
             <item>
                 <label>$LOCALIZE[31194]</label>
                 <property name="path">special://skin/playlists/syfymovies.xsp</property>

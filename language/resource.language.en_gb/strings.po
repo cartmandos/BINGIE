@@ -198,7 +198,21 @@ msgctxt "#31045"
 msgid "Use Alternative Splash Image"
 msgstr ""
 
-# empty strings 31046-49
+msgctxt "#31046"
+msgid "Anime"
+msgstr ""
+
+msgctxt "#31047"
+msgid "Romantic Movies"
+msgstr ""
+
+msgctxt "#31048"
+msgid "Horror Movies"
+msgstr ""
+
+msgctxt "#31049"
+msgid "Music & Musicals"
+msgstr ""
 
 msgctxt "#31050"
 msgid "All Movies"
@@ -773,7 +787,7 @@ msgid "Reality TV"
 msgstr ""
 
 msgctxt "#31193"
-msgid "Stand-up"
+msgid "Stand-Up Comedy"
 msgstr ""
 
 msgctxt "#31194"
