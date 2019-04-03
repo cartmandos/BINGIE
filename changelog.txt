@@ -1,0 +1,30 @@
+v1.0.1 (03.04.2019)
+    - New: BINGIE Start-up Animations in 4k (yeah buddy!), new Logos and Splash Screen Images.
+      Splash Screen settings got its own section inside general settings tab, in which you could toggle between the two options for animations (full & shorter versions) or change to an image (also there's 2 options).
+      (courtesy of @samfisher amazing work!)
+    - Integrated Bingie Search to ALL layouts!
+    - Integrated Bingie Search to music/video library and removed use of old SH search.
+    - Fixed issue with widget styles missing for some layouts.
+    - Fixed issue when pressing tvshows/movie in non-bingie layout returns to bingie hubs.
+    - Fixed (but still wip) some issues regarding PVR osd art/info/progress-bar and updated Channel number input / seek time notification.
+    - Fixed issue with focus on startup without spotlight.
+    - Fixed (hopefully) issue with auto-trailers looping inside library view / for addons.
+    - Fixed operation of the setting to default focus 'no' in dialogconfirm.
+    - Fixed issue with media flags/codec needed disabling of additional info in home settings (now disabling is just for this view in context-menu)
+    - Fixed issue with big plot overlay cannot be turned off in view523 (option is now available in context-menu)
+    - Fixed language flags for large colored media flags and avoid missing gaps (but many language won't work since resources need to adapt ISO 639-2 three character code)
+    - Added option to enlarge plot instead of additional info in bingie home.
+    - Added option to disable studio logo in bingie dialog-info.
+    - Added Game Controller Dialog (thanks @"mardukL")
+    - Added setting to limit number of items in all widgets (global limit)
+    - Added more categories in search suggestions: Anime, Romantic Movies, Horror Movies, Music & Musicals.
+    - Added 'Settings' shortcut to non-bingie layout.
+    - Added support up-to 40 widgets with fixed vertical scrolling.
+    - Hide tag overlay on categories (bingie bricks)
+    - Moved 'New Episodes' tag-overlay setting to indicators (general settings) and added option to disable.
+    - Changes to default color scheme: Darker color to Mainmenu Panel & OSD Cache Progress Bar, Transparent Footer Panel.
+    - Changes to default settings: Showing profile logo and switch profile by default instead of logo, Unfocused border size=0.
+    - Other minor stuff, fixes and code clean-up.
+
+v1.0.0 (23.03.2019)
+    - Initial Release
