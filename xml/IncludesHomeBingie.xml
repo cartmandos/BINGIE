@@ -165,8 +165,8 @@
                     <!-- clearlogo [800x310] -->
                     <control type="image" id="29475">
                         <visible>!Skin.HasSetting(NoClearLogoBingie) + !String.IsEmpty(Control.GetLabel(29475))</visible>
-                        <height>218</height>
-                        <width>563</width>
+                        <height>186</height>
+                        <width>480</width>
                         <align>left</align>
                         <fadetime>350</fadetime>
                         <aspectratio align="left" aligny="center">keep</aspectratio>
@@ -361,7 +361,7 @@
                 <animation effect="slide" end="-700" condition="!ControlGroup(505).HasFocus">Conditional</animation>
                 <animation effect="fade" start="20" end="100" time="1000" delay="100">Visible</animation>
                 <orientation>horizontal</orientation>
-                <top>395</top>
+                <top>363</top>
                 <include condition="!Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Left</include>
                 <left>65</left>
                 <width>600</width>

@@ -118,8 +118,8 @@
                     <!-- clearlogo [800x310] -->
                     <control type="image" id="29475">
                         <visible>!Skin.HasSetting(NoClearLogoBingie) + !String.IsEmpty(Control.GetLabel(29475))</visible>
-                        <height>230</height>
-                        <width>593</width>
+                        <height>186</height>
+                        <width>480</width>
                         <align>left</align>
                         <aspectratio align="left" aligny="center">keep</aspectratio>
                         <texture background="true">$VAR[ListItemClearLogo]</texture>
