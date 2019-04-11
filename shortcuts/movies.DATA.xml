@@ -18,15 +18,6 @@
 		<thumb />
 		<action>ActivateWindow(Videos,videodb://recentlyaddedmovies/,return)</action>
 	</shortcut>
-	<!-- movie genres -->
-	<shortcut>
-		<label>135</label>
-		<label2>Movies</label2>
-		<defaultID>135</defaultID>
-		<icon>$INFO[Window(Home).Property(SkinHelper.AllMoviesBackground)]</icon>
-		<thumb />
-		<action>ActivateWindow(Videos,videodb://movies/genres/,return)</action>
-	</shortcut>
 	<!-- movies in progress -->
 	<shortcut>
 		<label>31035</label>
@@ -44,5 +35,22 @@
 		<icon>$INFO[Window(Home).Property(SkinHelper.UnwatchedMoviesBackground)]</icon>
 		<thumb />
 		<action>ActivateWindow(Videos,special://skin/extras/widgetplaylists/unwatchedmovies.xsp,return)</action>
+	</shortcut>
+	<!-- movie genres -->
+	<shortcut>
+		<label>135</label>
+		<label2>Movies</label2>
+		<defaultID>135</defaultID>
+		<icon>$INFO[Window(Home).Property(SkinHelper.AllMoviesBackground)]</icon>
+		<thumb />
+		<action>ActivateWindow(Videos,videodb://movies/genres/,return)</action>
+	</shortcut>
+	<shortcut>
+		<label>20434</label>
+		<label2>Movies</label2>
+		<defaultID>135</defaultID>
+		<icon>$INFO[Window(Home).Property(SkinHelper.AllMoviesBackground)]</icon>
+		<thumb />
+		<action>ActivateWindow(Videos,videodb://movies/sets/,return)</action>
 	</shortcut>
 </shortcuts>

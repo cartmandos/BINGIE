@@ -1000,13 +1000,13 @@
         <control type="grouplist">
             <orientation>horizontal</orientation>
             <animation effect="slide" end="25,25" time="0" condition="Skin.String(mediaflagsstyle,large) | Skin.String(mediaflagsstyle,large_color)">Conditional</animation>
-            <visible>String.StartsWith(ListItem.Path,videodb://movies/sets/) + !String.IsEmpty(Window(Home).Property(ListItem.Count))</visible>
+            <visible>[String.IsEqual(ListItem.DBTYPE,set) | String.StartsWith(ListItem.Path,videodb://movies/sets/)] + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Count))</visible>
             <width>1000</width>
             <height>40</height>
                 <control type="label">
                 <font>Reg30</font>
                 <width>auto</width>
-                <label>$INFO[Window(Home).Property(ListItem.UnwatchedCount)]/$INFO[Window(Home).Property(ListItem.Count)]  </label>
+                <label>$INFO[Window(Home).Property(SkinHelper.ListItem.UnwatchedCount)]/$INFO[Window(Home).Property(SkinHelper.ListItem.Count)]  </label>
                 <textcolor>$INFO[Skin.String(FooterTextColor)]</textcolor>
                 <align>left</align>
                 <aligny>center</aligny>
@@ -1021,7 +1021,7 @@
                     <height>40</height>
                     <colordiffuse>$INFO[Skin.String(FooterTextColor)]</colordiffuse>
                     <texture>flags/discsets/DiskMain_w.png</texture>
-                    <visible>Integer.IsGreater(Window(Home).Property(ListItem.WatchedCount),0)</visible>
+                    <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.WatchedCount),0)</visible>
                 </control>
                 <control type="image">
                     <width>40</width>
@@ -1034,14 +1034,14 @@
             <control type="group">
                 <width>15</width>
                 <height>40</height>
-                <visible>Integer.IsGreater(Window(Home).Property(ListItem.Count),1)</visible>
+                <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.Count),1)</visible>
                 <control type="image">
                     <posx>-45</posx>
                     <width>60</width>
                     <height>40</height>
                     <colordiffuse>$INFO[Skin.String(FooterTextColor)]</colordiffuse>
                     <texture>flags/discsets/diskadd_w.png</texture>
-                    <visible>Integer.IsGreater(Window(Home).Property(ListItem.WatchedCount),1)</visible>
+                    <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.WatchedCount),1)</visible>
                 </control>
                 <control type="image">
                     <posx>-45</posx>
@@ -1055,14 +1055,14 @@
             <control type="group">
                 <width>15</width>
                 <height>40</height>
-                <visible>Integer.IsGreater(Window(Home).Property(ListItem.Count),2)</visible>
+                <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.Count),2)</visible>
                 <control type="image">
                     <posx>-45</posx>
                     <width>60</width>
                     <height>40</height>
                     <colordiffuse>$INFO[Skin.String(FooterTextColor)]</colordiffuse>
                     <texture>flags/discsets/diskadd_w.png</texture>
-                    <visible>Integer.IsGreater(Window(Home).Property(ListItem.WatchedCount),2)</visible>
+                    <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.WatchedCount),2)</visible>
                 </control>
                 <control type="image">
                     <posx>-45</posx>
@@ -1076,14 +1076,14 @@
             <control type="group">
                 <width>15</width>
                 <height>40</height>
-                <visible>Integer.IsGreater(Window(Home).Property(ListItem.Count),3)</visible>
+                <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.Count),3)</visible>
                 <control type="image">
                     <posx>-45</posx>
                     <width>60</width>
                     <height>40</height>
                     <colordiffuse>$INFO[Skin.String(FooterTextColor)]</colordiffuse>
                     <texture>flags/discsets/diskadd_w.png</texture>
-                    <visible>Integer.IsGreater(Window(Home).Property(ListItem.WatchedCount),3)</visible>
+                    <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.WatchedCount),3)</visible>
                 </control>
                 <control type="image">
                     <posx>-45</posx>
@@ -1097,14 +1097,14 @@
             <control type="group">
                 <width>15</width>
                 <height>40</height>
-                <visible>Integer.IsGreater(Window(Home).Property(ListItem.Count),4)</visible>
+                <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.Count),4)</visible>
                 <control type="image">
                     <posx>-45</posx>
                     <width>60</width>
                     <height>40</height>
                     <colordiffuse>$INFO[Skin.String(FooterTextColor)]</colordiffuse>
                     <texture>flags/discsets/diskadd_w.png</texture>
-                    <visible>Integer.IsGreater(Window(Home).Property(ListItem.WatchedCount),4)</visible>
+                    <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.WatchedCount),4)</visible>
                 </control>
                 <control type="image">
                     <posx>-45</posx>
@@ -1118,14 +1118,14 @@
             <control type="group">
                 <width>15</width>
                 <height>40</height>
-                <visible>Integer.IsGreater(Window(Home).Property(ListItem.Count),5)</visible>
+                <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.Count),5)</visible>
                 <control type="image">
                     <posx>-45</posx>
                     <width>60</width>
                     <height>40</height>
                     <colordiffuse>$INFO[Skin.String(FooterTextColor)]</colordiffuse>
                     <texture>flags/discsets/diskadd_w.png</texture>
-                    <visible>Integer.IsGreater(Window(Home).Property(ListItem.WatchedCount),5)</visible>
+                    <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.WatchedCount),5)</visible>
                 </control>
                 <control type="image">
                     <posx>-45</posx>
@@ -1139,14 +1139,14 @@
             <control type="group">
                 <width>15</width>
                 <height>40</height>
-                <visible>Integer.IsGreater(Window(Home).Property(ListItem.Count),6)</visible>
+                <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.Count),6)</visible>
                 <control type="image">
                     <posx>-45</posx>
                     <width>60</width>
                     <height>40</height>
                     <colordiffuse>$INFO[Skin.String(FooterTextColor)]</colordiffuse>
                     <texture>flags/discsets/diskadd_w.png</texture>
-                    <visible>Integer.IsGreater(Window(Home).Property(ListItem.WatchedCount),6)</visible>
+                    <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.WatchedCount),6)</visible>
                 </control>
                 <control type="image">
                     <posx>-45</posx>
@@ -1160,14 +1160,14 @@
             <control type="group">
                 <width>15</width>
                 <height>40</height>
-                <visible>Integer.IsGreater(Window(Home).Property(ListItem.Count),7)</visible>
+                <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.Count),7)</visible>
                 <control type="image">
                     <posx>-45</posx>
                     <width>60</width>
                     <height>40</height>
                     <colordiffuse>$INFO[Skin.String(FooterTextColor)]</colordiffuse>
                     <texture>flags/discsets/diskadd_w.png</texture>
-                    <visible>Integer.IsGreater(Window(Home).Property(ListItem.WatchedCount),7)</visible>
+                    <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.WatchedCount),7)</visible>
                 </control>
                 <control type="image">
                     <posx>-45</posx>
@@ -1181,14 +1181,14 @@
             <control type="group">
                 <width>15</width>
                 <height>40</height>
-                <visible>Integer.IsGreater(Window(Home).Property(ListItem.Count),8)</visible>
+                <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.Count),8)</visible>
                 <control type="image">
                     <posx>-45</posx>
                     <width>60</width>
                     <height>40</height>
                     <colordiffuse>$INFO[Skin.String(FooterTextColor)]</colordiffuse>
                     <texture>flags/discsets/diskadd_w.png</texture>
-                    <visible>Integer.IsGreater(Window(Home).Property(ListItem.WatchedCount),8)</visible>
+                    <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.WatchedCount),8)</visible>
                 </control>
                 <control type="image">
                     <posx>-45</posx>
@@ -1202,14 +1202,14 @@
             <control type="group">
                 <width>15</width>
                 <height>40</height>
-                <visible>Integer.IsGreater(Window(Home).Property(ListItem.Count),9)</visible>
+                <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.Count),9)</visible>
                 <control type="image">
                     <posx>-45</posx>
                     <width>60</width>
                     <height>40</height>
                     <colordiffuse>$INFO[Skin.String(FooterTextColor)]</colordiffuse>
                     <texture>flags/discsets/diskadd_w.png</texture>
-                    <visible>Integer.IsGreater(Window(Home).Property(ListItem.WatchedCount),9)</visible>
+                    <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.WatchedCount),9)</visible>
                 </control>
                 <control type="image">
                     <posx>-45</posx>
@@ -1223,14 +1223,14 @@
             <control type="group">
                 <width>15</width>
                 <height>40</height>
-                <visible>Integer.IsGreater(Window(Home).Property(ListItem.Count),10)</visible>
+                <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.Count),10)</visible>
                 <control type="image">
                     <posx>-45</posx>
                     <width>60</width>
                     <height>40</height>
                     <colordiffuse>$INFO[Skin.String(FooterTextColor)]</colordiffuse>
                     <texture>flags/discsets/diskadd_w.png</texture>
-                    <visible>Integer.IsGreater(Window(Home).Property(ListItem.WatchedCount),10)</visible>
+                    <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.WatchedCount),10)</visible>
                 </control>
                 <control type="image">
                     <posx>-45</posx>
@@ -1244,14 +1244,14 @@
             <control type="group">
                 <width>15</width>
                 <height>40</height>
-                <visible>Integer.IsGreater(Window(Home).Property(ListItem.Count),11)</visible>
+                <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.Count),11)</visible>
                 <control type="image">
                     <posx>-45</posx>
                     <width>60</width>
                     <height>40</height>
                     <colordiffuse>$INFO[Skin.String(FooterTextColor)]</colordiffuse>
                     <texture>flags/discsets/diskadd_w.png</texture>
-                    <visible>Integer.IsGreater(Window(Home).Property(ListItem.WatchedCount),11)</visible>
+                    <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.WatchedCount),11)</visible>
                 </control>
                 <control type="image">
                     <posx>-45</posx>
@@ -1265,14 +1265,14 @@
             <control type="group">
                 <width>15</width>
                 <height>40</height>
-                <visible>Integer.IsGreater(Window(Home).Property(ListItem.Count),12)</visible>
+                <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.Count),12)</visible>
                 <control type="image">
                     <posx>-45</posx>
                     <width>60</width>
                     <height>40</height>
                     <colordiffuse>$INFO[Skin.String(FooterTextColor)]</colordiffuse>
                     <texture>flags/discsets/diskadd_w.png</texture>
-                    <visible>Integer.IsGreater(Window(Home).Property(ListItem.WatchedCount),12)</visible>
+                    <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.WatchedCount),12)</visible>
                 </control>
                 <control type="image">
                     <posx>-45</posx>
@@ -1286,14 +1286,14 @@
             <control type="group">
                 <width>15</width>
                 <height>40</height>
-                <visible>Integer.IsGreater(Window(Home).Property(ListItem.Count),13)</visible>
+                <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.Count),13)</visible>
                 <control type="image">
                     <posx>-45</posx>
                     <width>60</width>
                     <height>40</height>
                     <colordiffuse>$INFO[Skin.String(FooterTextColor)]</colordiffuse>
                     <texture>flags/discsets/diskadd_w.png</texture>
-                    <visible>Integer.IsGreater(Window(Home).Property(ListItem.WatchedCount),13)</visible>
+                    <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.WatchedCount),13)</visible>
                 </control>
                 <control type="image">
                     <posx>-45</posx>
@@ -1307,14 +1307,14 @@
             <control type="group">
                 <width>15</width>
                 <height>40</height>
-                <visible>Integer.IsGreater(Window(Home).Property(ListItem.Count),14)</visible>
+                <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.Count),14)</visible>
                 <control type="image">
                     <posx>-45</posx>
                     <width>60</width>
                     <height>40</height>
                     <colordiffuse>$INFO[Skin.String(FooterTextColor)]</colordiffuse>
                     <texture>flags/discsets/diskadd_w.png</texture>
-                    <visible>Integer.IsGreater(Window(Home).Property(ListItem.WatchedCount),14)</visible>
+                    <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.WatchedCount),14)</visible>
                 </control>
                 <control type="image">
                     <posx>-45</posx>
@@ -1328,14 +1328,14 @@
             <control type="group">
                 <width>15</width>
                 <height>40</height>
-                <visible>Integer.IsGreater(Window(Home).Property(ListItem.Count),15)</visible>
+                <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.Count),15)</visible>
                 <control type="image">
                     <posx>-45</posx>
                     <width>60</width>
                     <height>40</height>
                     <colordiffuse>$INFO[Skin.String(FooterTextColor)]</colordiffuse>
                     <texture>flags/discsets/diskadd_w.png</texture>
-                    <visible>Integer.IsGreater(Window(Home).Property(ListItem.WatchedCount),15)</visible>
+                    <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.WatchedCount),15)</visible>
                 </control>
                 <control type="image">
                     <posx>-45</posx>
@@ -1349,14 +1349,14 @@
             <control type="group">
                 <width>15</width>
                 <height>40</height>
-                <visible>Integer.IsGreater(Window(Home).Property(ListItem.Count),16)</visible>
+                <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.Count),16)</visible>
                 <control type="image">
                     <posx>-45</posx>
                     <width>60</width>
                     <height>40</height>
                     <colordiffuse>$INFO[Skin.String(FooterTextColor)]</colordiffuse>
                     <texture>flags/discsets/diskadd_w.png</texture>
-                    <visible>Integer.IsGreater(Window(Home).Property(ListItem.WatchedCount),16)</visible>
+                    <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.WatchedCount),16)</visible>
                 </control>
                 <control type="image">
                     <posx>-45</posx>
@@ -1370,14 +1370,14 @@
             <control type="group">
                 <width>15</width>
                 <height>40</height>
-                <visible>Integer.IsGreater(Window(Home).Property(ListItem.Count),17)</visible>
+                <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.Count),17)</visible>
                 <control type="image">
                     <posx>-45</posx>
                     <width>60</width>
                     <height>40</height>
                     <colordiffuse>$INFO[Skin.String(FooterTextColor)]</colordiffuse>
                     <texture>flags/discsets/diskadd_w.png</texture>
-                    <visible>Integer.IsGreater(Window(Home).Property(ListItem.WatchedCount),17)</visible>
+                    <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.WatchedCount),17)</visible>
                 </control>
                 <control type="image">
                     <posx>-45</posx>
@@ -1391,14 +1391,14 @@
             <control type="group">
                 <width>15</width>
                 <height>40</height>
-                <visible>Integer.IsGreater(Window(Home).Property(ListItem.Count),18)</visible>
+                <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.Count),18)</visible>
                 <control type="image">
                     <posx>-45</posx>
                     <width>60</width>
                     <height>40</height>
                     <colordiffuse>$INFO[Skin.String(FooterTextColor)]</colordiffuse>
                     <texture>flags/discsets/diskadd_w.png</texture>
-                    <visible>Integer.IsGreater(Window(Home).Property(ListItem.WatchedCount),18)</visible>
+                    <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.WatchedCount),18)</visible>
                 </control>
                 <control type="image">
                     <posx>-45</posx>
@@ -1412,14 +1412,14 @@
             <control type="group">
                 <width>15</width>
                 <height>40</height>
-                <visible>Integer.IsGreater(Window(Home).Property(ListItem.Count),19)</visible>
+                <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.Count),19)</visible>
                 <control type="image">
                     <posx>-45</posx>
                     <width>60</width>
                     <height>40</height>
                     <colordiffuse>$INFO[Skin.String(FooterTextColor)]</colordiffuse>
                     <texture>flags/discsets/diskadd_w.png</texture>
-                    <visible>Integer.IsGreater(Window(Home).Property(ListItem.WatchedCount),19)</visible>
+                    <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.WatchedCount),19)</visible>
                 </control>
                 <control type="image">
                     <posx>-45</posx>
@@ -1433,14 +1433,14 @@
             <control type="group">
                 <width>15</width>
                 <height>40</height>
-                <visible>Integer.IsGreater(Window(Home).Property(ListItem.Count),20)</visible>
+                <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.Count),20)</visible>
                 <control type="image">
                     <posx>-45</posx>
                     <width>60</width>
                     <height>40</height>
                     <colordiffuse>$INFO[Skin.String(FooterTextColor)]</colordiffuse>
                     <texture>flags/discsets/diskadd_w.png</texture>
-                    <visible>Integer.IsGreater(Window(Home).Property(ListItem.WatchedCount),20)</visible>
+                    <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.WatchedCount),20)</visible>
                 </control>
                 <control type="image">
                     <posx>-45</posx>
@@ -1454,14 +1454,14 @@
             <control type="group">
                 <width>15</width>
                 <height>40</height>
-                <visible>Integer.IsGreater(Window(Home).Property(ListItem.Count),21)</visible>
+                <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.Count),21)</visible>
                 <control type="image">
                     <posx>-45</posx>
                     <width>60</width>
                     <height>40</height>
                     <colordiffuse>$INFO[Skin.String(FooterTextColor)]</colordiffuse>
                     <texture>flags/discsets/diskadd_w.png</texture>
-                    <visible>Integer.IsGreater(Window(Home).Property(ListItem.WatchedCount),21)</visible>
+                    <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.WatchedCount),21)</visible>
                 </control>
                 <control type="image">
                     <posx>-45</posx>
@@ -1475,14 +1475,14 @@
             <control type="group">
                 <width>15</width>
                 <height>40</height>
-                <visible>Integer.IsGreater(Window(Home).Property(ListItem.Count),22)</visible>
+                <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.Count),22)</visible>
                 <control type="image">
                     <posx>-45</posx>
                     <width>60</width>
                     <height>40</height>
                     <colordiffuse>$INFO[Skin.String(FooterTextColor)]</colordiffuse>
                     <texture>flags/discsets/diskadd_w.png</texture>
-                    <visible>Integer.IsGreater(Window(Home).Property(ListItem.WatchedCount),22)</visible>
+                    <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.WatchedCount),22)</visible>
                 </control>
                 <control type="image">
                     <posx>-45</posx>
@@ -1496,14 +1496,14 @@
             <control type="group">
                 <width>15</width>
                 <height>40</height>
-                <visible>Integer.IsGreater(Window(Home).Property(ListItem.Count),23)</visible>
+                <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.Count),23)</visible>
                 <control type="image">
                     <posx>-45</posx>
                     <width>60</width>
                     <height>40</height>
                     <colordiffuse>$INFO[Skin.String(FooterTextColor)]</colordiffuse>
                     <texture>flags/discsets/diskadd_w.png</texture>
-                    <visible>Integer.IsGreater(Window(Home).Property(ListItem.WatchedCount),23)</visible>
+                    <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.WatchedCount),23)</visible>
                 </control>
                 <control type="image">
                     <posx>-45</posx>
@@ -1517,14 +1517,14 @@
             <control type="group">
                 <width>15</width>
                 <height>40</height>
-                <visible>Integer.IsGreater(Window(Home).Property(ListItem.Count),24)</visible>
+                <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.Count),24)</visible>
                 <control type="image">
                     <posx>-45</posx>
                     <width>60</width>
                     <height>40</height>
                     <colordiffuse>$INFO[Skin.String(FooterTextColor)]</colordiffuse>
                     <texture>flags/discsets/diskadd_w.png</texture>
-                    <visible>Integer.IsGreater(Window(Home).Property(ListItem.WatchedCount),24)</visible>
+                    <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.WatchedCount),24)</visible>
                 </control>
                 <control type="image">
                     <posx>-45</posx>
@@ -1538,14 +1538,14 @@
             <control type="group">
                 <width>15</width>
                 <height>40</height>
-                <visible>Integer.IsGreater(Window(Home).Property(ListItem.Count),25)</visible>
+                <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.Count),25)</visible>
                 <control type="image">
                     <posx>-45</posx>
                     <width>60</width>
                     <height>40</height>
                     <colordiffuse>$INFO[Skin.String(FooterTextColor)]</colordiffuse>
                     <texture>flags/discsets/diskadd_w.png</texture>
-                    <visible>Integer.IsGreater(Window(Home).Property(ListItem.WatchedCount),25)</visible>
+                    <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.WatchedCount),25)</visible>
                 </control>
                 <control type="image">
                     <posx>-45</posx>
@@ -1559,14 +1559,14 @@
             <control type="group">
                 <width>15</width>
                 <height>40</height>
-                <visible>Integer.IsGreater(Window(Home).Property(ListItem.Count),26)</visible>
+                <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.Count),26)</visible>
                 <control type="image">
                     <posx>-45</posx>
                     <width>60</width>
                     <height>40</height>
                     <colordiffuse>$INFO[Skin.String(FooterTextColor)]</colordiffuse>
                     <texture>flags/discsets/diskadd_w.png</texture>
-                    <visible>Integer.IsGreater(Window(Home).Property(ListItem.WatchedCount),26)</visible>
+                    <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.WatchedCount),26)</visible>
                 </control>
                 <control type="image">
                     <posx>-45</posx>
@@ -1580,14 +1580,14 @@
             <control type="group">
                 <width>15</width>
                 <height>40</height>
-                <visible>Integer.IsGreater(Window(Home).Property(ListItem.Count),27)</visible>
+                <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.Count),27)</visible>
                 <control type="image">
                     <posx>-45</posx>
                     <width>60</width>
                     <height>40</height>
                     <colordiffuse>$INFO[Skin.String(FooterTextColor)]</colordiffuse>
                     <texture>flags/discsets/diskadd_w.png</texture>
-                    <visible>Integer.IsGreater(Window(Home).Property(ListItem.WatchedCount),27)</visible>
+                    <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.WatchedCount),27)</visible>
                 </control>
                 <control type="image">
                     <posx>-45</posx>
@@ -1601,14 +1601,14 @@
             <control type="group">
                 <width>15</width>
                 <height>40</height>
-                <visible>Integer.IsGreater(Window(Home).Property(ListItem.Count),28)</visible>
+                <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.Count),28)</visible>
                 <control type="image">
                     <posx>-45</posx>
                     <width>60</width>
                     <height>40</height>
                     <colordiffuse>$INFO[Skin.String(FooterTextColor)]</colordiffuse>
                     <texture>flags/discsets/diskadd_w.png</texture>
-                    <visible>Integer.IsGreater(Window(Home).Property(ListItem.WatchedCount),28)</visible>
+                    <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.WatchedCount),28)</visible>
                 </control>
                 <control type="image">
                     <posx>-45</posx>
@@ -1622,14 +1622,14 @@
             <control type="group">
                 <width>15</width>
                 <height>40</height>
-                <visible>Integer.IsGreater(Window(Home).Property(ListItem.Count),29)</visible>
+                <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.Count),29)</visible>
                 <control type="image">
                     <posx>-45</posx>
                     <width>60</width>
                     <height>40</height>
                     <colordiffuse>$INFO[Skin.String(FooterTextColor)]</colordiffuse>
                     <texture>flags/discsets/diskadd_w.png</texture>
-                    <visible>Integer.IsGreater(Window(Home).Property(ListItem.WatchedCount),29)</visible>
+                    <visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.WatchedCount),29)</visible>
                 </control>
                 <control type="image">
                     <posx>-45</posx>
@@ -1639,7 +1639,6 @@
                     <texture>flags/discsets/diskadd_u.png</texture>
                 </control>
             </control>
-
         </control>
      </include>
     
