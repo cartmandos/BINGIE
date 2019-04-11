@@ -3651,7 +3651,7 @@
     <include name="General_Splash_Screen_Settings">
         <control type="label" id="8014">
             <include>SkinSettings_Header</include>
-            <label>Splash Screen Settings</label>
+            <label>31176</label>
             <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
         </control>
         <control type="radiobutton" id="8028">

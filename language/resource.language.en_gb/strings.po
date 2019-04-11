@@ -719,7 +719,7 @@ msgid "Change Shortcut"
 msgstr ""
 
 msgctxt "#31176"
-msgid "This will allow you to change the action of the shortcut and keep the current assigned widget and submenu.[CR][CR][B] TIP To open the submenu on click, type submenu as custom action.[/B]"
+msgid "Splash Screen Settings"
 msgstr ""
 
 msgctxt "#31177"
