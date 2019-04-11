@@ -9,12 +9,14 @@ msgstr ""
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Kodi Translation Team\n"
-"Language-Team: French (France) (http://www.transifex.com/projects/p/kodi-skins/language/fr_FR/)\n"
+"Language-Team:French (France) (http://www.transifex.com/projects/p/kodi-skins/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr_FR\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language:fr_FR\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+# BINGIE Strings
 
 msgctxt "#31001"
 msgid "Other settings"
@@ -28,17 +30,41 @@ msgctxt "#31003"
 msgid "Bordersize for unfocused thumbs/tiles"
 msgstr "Taille des bordures des vignettes/tuiles"
 
+msgctxt "#31004"
+msgid "Disable Moving Frame"
+msgstr "Désactiver le coulissement des images"
+
 msgctxt "#31005"
 msgid "General skin settings"
-msgstr "Paramètres généraux de l'habillage"
+msgstr "Paramètres généraux de l’habillage"
+
+msgctxt "#31006"
+msgid "Disable Media/Codec Info in Bingie Views"
+msgstr "Désactiver les infos Media/Codec dans les vues Bingie"
+
+msgctxt "#31007"
+msgid "NEW EPISODES"
+msgstr "NOUVEL ÉPISODE"
+
+msgctxt "#31008"
+msgid "Bingie New Episodes Tag Panel Color"
+msgstr "Couleur de l’étiquette Nouveaux Épisodes"
+
+msgctxt "#31009"
+msgid "Show Plot when Spotlight Plays Trailer"
+msgstr "Afficher l'intrigue quand Spotlight affiche la bande-annonce"
 
 msgctxt "#31010"
 msgid "--- Use random fanart for tile image"
-msgstr "--- Utiliser un fanart aléatoire pour l'image de tuile"
+msgstr "--- Utiliser un fanart aléatoire pour l’image de tuile"
 
 msgctxt "#31011"
 msgid "Set custom tile image"
-msgstr "Définir l'image de tuile personnalisée"
+msgstr "Définir l’image de tuile personnalisée"
+
+msgctxt "#31012"
+msgid "Enable Fixed Focused Widgets in Vertical Scrolling"
+msgstr "Activer le focus fixe des widget dans la navigation verticale"
 
 msgctxt "#31013"
 msgid "Configure shortcuts"
@@ -50,19 +76,19 @@ msgstr "Modifier les raccourcis du menu"
 
 msgctxt "#31015"
 msgid "--- Use default tile picture"
-msgstr "--- Utiliser l'image de tuile prédéfinie"
+msgstr "---Utiliser l’image de tuile prédéfinie"
 
 msgctxt "#31016"
 msgid "--- Use own image for tile"
-msgstr "--- Utiliser l'image propre à la tuile"
+msgstr "--- Utiliser l’image propre à la tuile"
 
 msgctxt "#31017"
 msgid "--- Open TV Guide instead of Live TV"
 msgstr "--- Ouvrir le Guide des programmes au lieu de la TV en Direct"
 
 msgctxt "#31018"
-msgid "Netflix"
-msgstr "Netflix"
+msgid "Bingie Main"
+msgstr "Bingie Principal"
 
 msgctxt "#31019"
 msgid "--- Open folderpath with music instead of library"
@@ -70,7 +96,7 @@ msgstr "--- Ouvrir le chemin du dossier musique à la place de la médiathèque"
 
 msgctxt "#31020"
 msgid "Open folderpath with radio streams instead of PVR for Radio"
-msgstr "Ouvrir le chemin des flux radio à la place de l'enregistreur radio"
+msgstr "Ouvrir le chemin des flux radio à la place de l'Enregistreur Radio"
 
 msgctxt "#31021"
 msgid "--- Display temperature in tile"
@@ -105,8 +131,8 @@ msgid "Other skin tweaks"
 msgstr "Autres ajustements d'habillage"
 
 msgctxt "#31029"
-msgid "Do not show footer bar"
-msgstr "Ne pas afficher la barre en bas"
+msgid "Do not show footer bar in views"
+msgstr "Ne pas afficher la barre de pied-de-page dans les vues"
 
 msgctxt "#31030"
 msgid "Display weather"
@@ -132,9 +158,61 @@ msgctxt "#31035"
 msgid "Movies in progress"
 msgstr "Films en cours"
 
+msgctxt "#31036"
+msgid "Random TV Shows"
+msgstr "Série TV au hasard"
+
+msgctxt "#31037"
+msgid "Trailers"
+msgstr "Bandes-annonces"
+
+msgctxt "#31038"
+msgid "Use custom image for skin background"
+msgstr "Utiliser une image personnalisée comme arrière-plan d'habillage"
+
+msgctxt "#31039"
+msgid "Use custom image for skin background"
+msgstr "Utiliser une image personnalisée comme arrière-plan d'habillage"
+
 msgctxt "#31040"
 msgid "Now playing"
 msgstr "Lecture en cours"
+
+msgctxt "#31041"
+msgid "Disable animated splash screen (image instead)"
+msgstr "Désactiver l'écran d'introduction animé (image fixe)"
+
+msgctxt "#31042"
+msgid "Disable Studio Logo"
+msgstr "Désactiver les logos Studios"
+
+msgctxt "#31043"
+msgid "Enable larger plot area instead additional info"
+msgstr "Activer une intrigue élargie à la place des informations supplémentaires"
+
+msgctxt "#31044"
+msgid "Use Alternative (shorter) Animated Intro"
+msgstr "Utiliser l'introduction animée alternative (plus courte)"
+
+msgctxt "#31045"
+msgid "Use Alternative Splash Image"
+msgstr "Utiliser une image d'introduction alternative"
+
+msgctxt "#31046"
+msgid "Anime"
+msgstr "Animés"
+
+msgctxt "#31047"
+msgid "Romantic Movies"
+msgstr "Films à l'eau de rose"
+
+msgctxt "#31048"
+msgid "Horror Movies"
+msgstr "Films d'horreur"
+
+msgctxt "#31049"
+msgid "Music & Musicals"
+msgstr "Musique & Comédies musicales"
 
 msgctxt "#31050"
 msgid "All Movies"
@@ -146,7 +224,7 @@ msgstr "Toutes les séries TV"
 
 msgctxt "#31052"
 msgid "Artwork Downloader"
-msgstr "Téléchargeur d'illustration"
+msgstr "Téléchargement des illustrations"
 
 msgctxt "#31053"
 msgid "Poster"
@@ -162,7 +240,7 @@ msgstr "Bannière"
 
 msgctxt "#31056"
 msgid "Landscape"
-msgstr "Paysage"
+msgstr "Paysages"
 
 msgctxt "#31057"
 msgid "ClearArt"
@@ -182,7 +260,7 @@ msgstr "SOUS-TITRES Kodi"
 
 msgctxt "#31061"
 msgid "Press Back or OK to exit"
-msgstr "Appuyer sur Back ou OK pour quitter"
+msgstr "Appuyer sur Retour ou OK pour quitter"
 
 msgctxt "#31062"
 msgid "YouTube"
@@ -218,7 +296,7 @@ msgstr "Vitrine MediaInfo"
 
 msgctxt "#31070"
 msgid "Banner list"
-msgstr "Liste banière"
+msgstr "Liste bannière"
 
 msgctxt "#31071"
 msgid "Setting level"
@@ -234,7 +312,7 @@ msgstr "Classer les tuiles du menu d'accueil"
 
 msgctxt "#31074"
 msgid "Arrange the homescreen tiles just the way you want it. [CR]Usage select a direction below and click on the tile's title (in the list on the right) to move it's position. [CR]Because settings are applied on the fly the screen may blink for one second."
-msgstr "Organisez les tuiles de l'écran d'accueil comme vous le souhaitez. [CR]Sélectionnez une direction ci-dessous et cliquez sur le titre de la tuile (dans la liste, à droite) pour changer sa position. [CR]En raison de l'application instantanée des paramètres, un clignotement d'une seconde peut se produire. "
+msgstr "Organisez les tuiles de l'écran d'accueil comme vous le souhaitez. [CR]Sélectionnez une direction ci-dessous et cliquez sur le titre de la tuile (dans la liste, à droite) pour changer sa position. [CR]En raison de l'application instantanée des paramètres, un clignotement d'une seconde peut se produire."
 
 msgctxt "#31075"
 msgid "Direction to move"
@@ -249,28 +327,28 @@ msgid "DOWN"
 msgstr "BAS"
 
 msgctxt "#31078"
-msgid "Skin Mode (replace libraries)"
-msgstr "Mode de l'habillage (remplace les médiathèques)"
+msgid "Blockbuster Movies"
+msgstr "Blockbusters"
 
 msgctxt "#31079"
-msgid "Changing the skin mode enables you to replace the default Kodi libraries with a third party product like MediaBrowser or Netflix. Not only the default tiles will be adjusted, also items like recent movies widgets etc. You can change the skinmode on a per-library base, this way you can decide for example to use MediaBrowser for your movies, and default Kodi library for TV shows."
-msgstr "Changer le mode de l'habillage vous permet de remplacer les médiathèques par défaut de Kodi par un programme externe comme MediaBrowser ou Netflix. Non seulement les tuiles par défaut seront modifiées, mais aussi d'autres éléments comme les widgets de films récents etc. Vous pouvez changer le mode de l'habillage individuellement pour chaque médiathèque, de cette manière vous pouvez décider par exemple d'utiliser MediaBrowser pour vos films et la médiathèque prédéfinie de Kodi pour les séries TV."
+msgid "Binge-worthy TV Shows"
+msgstr "Séries TV qui valent le binge"
 
 msgctxt "#31080"
-msgid "Netflix integration"
-msgstr "Intégration de Netflix"
+msgid "New Releases in Movies"
+msgstr "Films sorts récemment"
 
 msgctxt "#31081"
-msgid "Netflix Mode"
-msgstr "Mode Netflix"
+msgid "Artists named"
+msgstr "Artistes nommés"
 
 msgctxt "#31082"
-msgid "Use Netflix Mode for"
-msgstr "Utiliser le Mode Netflix pour"
+msgid "Song titles related to"
+msgstr "Morceaux de musiques en relation"
 
 msgctxt "#31083"
 msgid "REC"
-msgstr "REC"
+msgstr "ENREGISTRER"
 
 msgctxt "#31084"
 msgid "TIME"
@@ -278,7 +356,7 @@ msgstr "DURÉE"
 
 msgctxt "#31085"
 msgid "Schedule"
-msgstr "Planifier"
+msgstr "Planning"
 
 msgctxt "#31086"
 msgid "Do not show title on home menu tiles"
@@ -290,7 +368,7 @@ msgstr "Activer les paroles pendant la lecture de la musique"
 
 msgctxt "#31088"
 msgid "Live-TV"
-msgstr "TV en direct"
+msgstr "TV en direct (PVR)"
 
 msgctxt "#31089"
 msgid "XBMB3C add-on"
@@ -318,7 +396,7 @@ msgstr "Masquer les icônes déjà vues"
 
 msgctxt "#31095"
 msgid "PleKodi"
-msgstr "PleKodi"
+msgstr "PlexKodi"
 
 msgctxt "#31096"
 msgid "[CUSTOM BUTTON] click to select favorite as content"
@@ -329,24 +407,28 @@ msgid "Extended"
 msgstr "Étendu"
 
 msgctxt "#31098"
-msgid "BannerPlex"
-msgstr "Bannières Plex"
+msgid "Critically-acclaimed TV Shows"
+msgstr "Séries TV salués par la critique"
+
+msgctxt "#31099"
+msgid "Enable Automatic Download of Artwork During Library Scan"
+msgstr "Activer le téléchargement automatique des artworks durant le scan"
 
 msgctxt "#31100"
-msgid "==unused position=="
-msgstr "==position inutilisée=="
+msgid "BINGIE"
+msgstr "BINGIE"
 
 msgctxt "#31101"
-msgid "Netflix Suggestions"
-msgstr "Suggestions Netflix"
+msgid "Recently Added Series"
+msgstr "Séries TV récemment ajoutées"
 
 msgctxt "#31102"
-msgid "Random movies"
-msgstr "Films aléatoires"
+msgid "Random Movies"
+msgstr "Film aléatoire"
 
 msgctxt "#31103"
 msgid "Random episodes"
-msgstr "Épisodes aléatoires"
+msgstr "Épisodes aléatoire"
 
 msgctxt "#31104"
 msgid "In progress episodes"
@@ -358,7 +440,7 @@ msgstr "Épisodes ajoutés récemment"
 
 msgctxt "#31106"
 msgid "Recently added songs"
-msgstr "Titres ajoutés récemment"
+msgstr "Morceaux ajoutés récemment"
 
 msgctxt "#31107"
 msgid "Recently added albums"
@@ -378,7 +460,7 @@ msgstr "Morceaux récemment joués"
 
 msgctxt "#31111"
 msgid "Auto show the widget for the selected home tile"
-msgstr "Affiche automatiquement le widget pour la tuile d'accueil sélectionnée"
+msgstr "Affichage auto. du widget pour la tuile d'accueil sélectionnée"
 
 msgctxt "#31112"
 msgid "Finishes at"
@@ -386,15 +468,15 @@ msgstr "Se termine à"
 
 msgctxt "#31113"
 msgid "Auto show the submenu for the selected home tile"
-msgstr "Affiche automatiquement le sous-menu pour la tuile d'accueil sélectionnée"
+msgstr "Affichage auto. du sous-menu pour la tuile d'accueil sélectionnée"
 
 msgctxt "#31114"
 msgid "Show large thumbnail"
-msgstr "Afficher les grandes vignettes"
+msgstr "Afficher les vignettes élargies"
 
 msgctxt "#31115"
 msgid "Homescreen layout"
-msgstr "Disposition de l'écran d'accueil"
+msgstr "Écran d'accueil"
 
 msgctxt "#31116"
 msgid "Submenu items for this collection"
@@ -424,9 +506,13 @@ msgctxt "#31122"
 msgid "Homescreen options"
 msgstr "Options de l'écran d'accueil"
 
+msgctxt "#31123"
+msgid "Enable Fixed Frame in Home & Hubs (moving frame)"
+msgstr "Activer le coulissement des images sur l'accueil et les hubs"
+
 msgctxt "#31124"
 msgid "Please select your preference for the homescreen layout"
-msgstr "SVP choisissez votre disposition d'écran d'accueil préférée"
+msgstr "Veuillez choisir votre disposition d'écran d'accueil préférée"
 
 msgctxt "#31125"
 msgid "Other home screen settings"
@@ -434,7 +520,7 @@ msgstr "Autres paramètres d'écran d'accueil"
 
 msgctxt "#31126"
 msgid "Use vertical submenu layout (instead of default horizontal)"
-msgstr "Utiliser une disposition verticale de sous-menu (au lieu d'horizontale par défaut)"
+msgstr "Disposition verticale du sous-menu (au lieu d'horizontale par défaut)"
 
 msgctxt "#31127"
 msgid "Recently added"
@@ -462,7 +548,7 @@ msgstr "Activer l'arrière plan de l'élément"
 
 msgctxt "#31133"
 msgid "Show plot in video infopanel or onscreen display"
-msgstr "Afficher le résumé dans le panneau d'infos vidéo ou dans le menu à l'écran"
+msgstr "Afficher le résumé dans le panneau d'infos ou dans le menu à l'écran"
 
 msgctxt "#31134"
 msgid "Profile"
@@ -546,19 +632,55 @@ msgstr "Utiliser les couleurs claires"
 
 msgctxt "#31154"
 msgid "Use dark colors"
-msgstr "Utiliser les couleurs foncées"
+msgstr "Utiliser les couleurs sombres"
 
 msgctxt "#31155"
 msgid "Hide panel background"
 msgstr "Masquer l'arrière-plan du panneau"
 
+msgctxt "#31156"
+msgid "Amazon Original Series"
+msgstr "Series Amazon Original"
+
+msgctxt "#31157"
+msgid "Comedy Movies"
+msgstr "Comédies"
+
+msgctxt "#31158"
+msgid "Disney & Pixar Films"
+msgstr "Films de Disney et Pixar"
+
+msgctxt "#31159"
+msgid "Documentaries"
+msgstr "Documentaires"
+
+msgctxt "#31160"
+msgid "Docuseries"
+msgstr "Docu-séries"
+
+msgctxt "#31161"
+msgid "European Movies"
+msgstr "Films européens"
+
+msgctxt "#31162"
+msgid "Adventure & Fantasy Movies"
+msgstr "Films d'aventure et de Fantasy"
+
+msgctxt "#31163"
+msgid "Adventure & Fantasy Series"
+msgstr "Séries d'aventure et de fantaisy"
+
+msgctxt "#31164"
+msgid "Action & Crime Series"
+msgstr "Séries d'action et polars"
+
 msgctxt "#31165"
 msgid "Edit Main Menu"
-msgstr "Éditer le menu principal"
+msgstr "Modifier le menu principal"
 
 msgctxt "#31166"
 msgid "Edit Submenu"
-msgstr "Éditer le sous-menu"
+msgstr "Modifier le sous-menu"
 
 msgctxt "#31167"
 msgid "Configure the Home screen menu layout"
@@ -566,7 +688,7 @@ msgstr "Configurer l'agencement du menu de l'écran d'accueil"
 
 msgctxt "#31168"
 msgid "This skin is integrated with the skinshortcuts script to provide you maximized flexibility in how you want to arrange your homescreen menu’s. You’re able to add and delete tiles on the homescreen, change the images, define submenus etc. Click the button below to get started modifying the skin menu’s to your own preferences."
-msgstr "Cet habillage est intégré au script de raccourcis d'habillage pour vous fournir une souplesse maximale d'organisation du menu de l'écran d'accueil. Vous pouvez ajouter et supprimer des tuiles sur l'écran d'accueil, changer les images, définir les sous-menus, etc. Cliquez sur le bouton ci-dessous pour commencer à modifier le menu de l'habillage à votre goût."
+msgstr "L'intégration ddu script SkinShortcut permet de vous fournir une souplesse maximale pour organiser le menu de l'Écran d'Accueil. Vous pouvez ajouter et supprimer des tuiles, changer les images, définir les sous-menus, etc... [CR]Cliquez sur le bouton ci-dessous pour commencer à modifier le menu principal à votre goût."
 
 msgctxt "#31169"
 msgid "Override background"
@@ -578,7 +700,7 @@ msgstr "Réinitialiser le menu aux valeurs prédéfinies par l'habillage"
 
 msgctxt "#31171"
 msgid "One of the main advantages of using the skinshortcuts-script is that your menu layout is shared across skins that support this addon. This is not always convenient as you won’t get the skins default menu layout which is optimized for the skin or you have played a bit in another skin and you don’t like the menu layout now. If you see weird behavior on your home menu or you just want to start fresh and get the most out of this skin, you can reset the menu structures to the skins default settings with the button below."
-msgstr "Un des avantages principaux d'utiliser le script des raccourcis de l'habillage est que la disposition de votre menu soit partagé par tous les habillages compatibles avec cette extension. Ce n'est pas toujours pratique car vous n'obtiendrez pas la disposition de menu prédéfinie optimisée pour l'habillage, ou bien parce que vous avez joué un peu avec un autre habillage et maintenant vous n'aimez plus cette disposition. Si vous constatez un comportement étrange de votre menu d'accueil ou que vous voulez repartir du départ et tirer le meilleur parti de ce habillage, vous pouvez réinitialiser les structures du menu aux paramètres prédéfinis par l'habillage avec le bouton ci-dessous."
+msgstr "L'avantage du script SkinShortcut, c'est que la disposition de votre menu peut être partagée avec tous les habillages compatibles. Mais cela peut devenir un problème si vous l'avez déjà configuré pour un autre habillage, car vous risquez de ne pas retrouver la disposition de menu optimisée pour Bingie.[CR]Si vous constatez un comportement étrange sur votre menu d'Accueil ou si vous voulez repartir à zéro pour tirer le meilleur parti de Bingie, vous pouvez réinitialiser les paramètres prédéfinis du menu avec le bouton ci-dessous."
 
 msgctxt "#31172"
 msgid "Do not use overlay"
@@ -596,6 +718,10 @@ msgctxt "#31175"
 msgid "Change Shortcut"
 msgstr "Changer le raccourci"
 
+msgctxt "#31176"
+msgid "Splash Screen Settings"
+msgstr "Paramètres de l'écran d'introduction"
+
 msgctxt "#31177"
 msgid "None (use global background)"
 msgstr "Aucun (utiliser l'arrière-plan global)"
@@ -606,19 +732,19 @@ msgstr "* indique le choix recommandé"
 
 msgctxt "#31179"
 msgid "Always open fullscreen music playback"
-msgstr "Toujours ouvrir la lecture de musique en plein écran"
+msgstr "Toujours lancer la lecture de musique en plein écran"
 
 msgctxt "#31180"
 msgid "Focus color"
 msgstr "Couleur de surbrillance"
 
 msgctxt "#31181"
-msgid "Plex Media Server integration"
-msgstr "Intégration du serveur multimédia Plex"
+msgid "Netflix Original Series"
+msgstr "Série Original Netflix"
 
 msgctxt "#31182"
-msgid "Use Plex mode for"
-msgstr "Utiliser le mode Plex pour"
+msgid "Netflix Original Movies"
+msgstr "Film Original Netflix"
 
 msgctxt "#31183"
 msgid "Enhanced all-in-one homescreen"
@@ -630,51 +756,55 @@ msgstr "Sous-menu"
 
 msgctxt "#31185"
 msgid "Spotlight"
-msgstr "Recommandés"
+msgstr "Spotlight (Mise en avant du contenu)"
 
 msgctxt "#31186"
 msgid "Do not show OSD on playback start"
-msgstr "Ne pas montrer l'incrustation à l'écran en début de lecture"
+msgstr "Ne pas afficher l'OSD en début de lecture"
+
+msgctxt "#31187"
+msgid "Food & Travel"
+msgstr "Cuisine et Voyages"
 
 msgctxt "#31188"
-msgid "Edit widget contents"
-msgstr "Modifier les contenus des widgets"
+msgid "HBO Shows"
+msgstr "Séries HBO"
 
 msgctxt "#31189"
-msgid "Movies widget"
-msgstr "Widget Films"
+msgid "History & War Movies"
+msgstr "Films d'Histoire et de Guerre"
 
 msgctxt "#31190"
-msgid "TV-Shows widget"
-msgstr "Widget Séries TV"
+msgid "Hulu Original Series"
+msgstr "Series Hulu Original"
 
 msgctxt "#31191"
-msgid "Netflix widget"
-msgstr "Widget Netflix"
+msgid "Marvel TV Shows"
+msgstr "Séries Marvel TV"
 
 msgctxt "#31192"
-msgid "YouTube widget"
-msgstr "Widget YouTube"
+msgid "Reality TV"
+msgstr "Télé-Réalité"
 
 msgctxt "#31193"
-msgid "Music widget"
-msgstr "Widget Musique"
+msgid "Stand-up"
+msgstr "Stand-Up"
 
 msgctxt "#31194"
-msgid "Weather widget"
-msgstr "Widget Météo"
+msgid "Science Fiction Movies"
+msgstr "Films de Science-fiction"
 
 msgctxt "#31195"
-msgid "Custom collection widget"
-msgstr "Widget personnalisé de collection"
+msgid "SyFy Series"
+msgstr "Série SyFy"
 
 msgctxt "#31196"
-msgid "Use submenu items as widget"
-msgstr "Utiliser les éléments de sous-menu comme widget"
+msgid "Thriller & Suspense Movies"
+msgstr "Films Thriller & Suspense"
 
 msgctxt "#31197"
-msgid "Use tiles (instead of text only) for the submenu"
-msgstr "Utiliser des tuiles (au lieu de seulement du texte) pour les sous-menus"
+msgid "Thriller & Suspense Series"
+msgstr "Séries Thriller & Suspense"
 
 msgctxt "#31198"
 msgid "Disable powermenu on home"
@@ -714,7 +844,7 @@ msgstr "Cacher l'arrière-plan du panneau des widgets"
 
 msgctxt "#31207"
 msgid "Use Extra Fanart"
-msgstr "Utiliser le FanArt supplémentaire"
+msgstr "Utiliser les FanArts supplémentaire"
 
 msgctxt "#31208"
 msgid "Disable shadow on home tiles"
@@ -722,11 +852,11 @@ msgstr "Désactiver l'ombrage des tuiles de l'accueil"
 
 msgctxt "#31209"
 msgid "Enable mouse and touch support"
-msgstr "Activer la prise en charge des souris et du tactile"
+msgstr "Activer la prise en charge de la souris et du tactile"
 
 msgctxt "#31210"
 msgid "Prefer fanart in landscape views"
-msgstr "Préférer le fanart dans les vues en paysage"
+msgstr "Préférer les FanArts dans les vues en paysage"
 
 msgctxt "#31211"
 msgid "Disable splash screen (not recommended for slow systems)"
@@ -734,15 +864,15 @@ msgstr "Désactiver l'écran de garde (non recommandé pour les systèmes lents)
 
 msgctxt "#31212"
 msgid "Next episode"
-msgstr "Next episode"
+msgstr "Épisode suivant"
 
 msgctxt "#31213"
 msgid "Airs"
-msgstr "Diffuse"
+msgstr "Diffusé"
 
 msgctxt "#31214"
 msgid "Latest Episode"
-msgstr "Épisode le plus récent"
+msgstr "Dernier épisode"
 
 msgctxt "#31215"
 msgid "Hide mourse cursor (for touchscreens)"
@@ -754,11 +884,11 @@ msgstr "Utiliser un chemin personnalisé pour le fanart météo"
 
 msgctxt "#31217"
 msgid "Set subtitles as default button in OSD"
-msgstr "Définir les sous-titres comme bouton prédéfini de l'incrustation à l'écran"
+msgstr "Définir les sous-titres comme bouton prédéfinie dans l’OSD"
 
 msgctxt "#31218"
 msgid "Do not show unwatched items count on posters"
-msgstr "Ne pas montrer le total d'éléments non lus sur les affiches"
+msgstr "Ne pas afficher le total d'éléments non lus sur les affiches"
 
 msgctxt "#31219"
 msgid "Textcolor for header"
@@ -786,7 +916,15 @@ msgstr "Opacité du panneau de détails du média"
 
 msgctxt "#31225"
 msgid "Show clearlogo in upper right instead of bottom"
-msgstr "Montrer ClearLogo en haut à droite au lieu d'en bas"
+msgstr "Afficher le ClearLogo en haut à droite au lieu d'en bas"
+
+msgctxt "#31226"
+msgid "Media details header/highlights color"
+msgstr "Entête des infos média/Couleur claires"
+
+msgctxt "#31227"
+msgid "Media details header/highlights shadow color"
+msgstr "Entête des infos média/Couleur sombres"
 
 msgctxt "#31228"
 msgid "NextUp episodes"
@@ -798,7 +936,7 @@ msgstr "Rechercher dans le navigateur multimédia"
 
 msgctxt "#31230"
 msgid "Auto show OSD infopanel on video playback start"
-msgstr "Incruster automatiquement le panneau d'infos au démarrage de la vidéo"
+msgstr "Affichage auto. du panneau d'infos au démarrage de la vidéo"
 
 msgctxt "#31231"
 msgid "seconds"
@@ -806,15 +944,15 @@ msgstr "secondes"
 
 msgctxt "#31232"
 msgid "Do not hide OSD infopanel on fullscreen music playback"
-msgstr "Ne pas cacher le panneau d''infos incrusté à l'écran durant la lecture de musique en plein écran"
+msgstr "Ne pas cacher le panneau d'infos durant la lecture de musique en plein écran"
 
 msgctxt "#31233"
 msgid "Focuscolor for buttons in the skin"
-msgstr "Couleur de sélection des boutons de l'habillage"
+msgstr "Couleur de surbrillance des boutons de l'habillage"
 
 msgctxt "#31234"
 msgid "Apply background overlay only to media views"
-msgstr "Appliquer un incrsutation d'arrière-plan seulement pour les vues médias"
+msgstr "Appliquer une incrustation d'arrière-plan seulement pour les vues médias"
 
 msgctxt "#31235"
 msgid "Show video title in header"
@@ -822,7 +960,7 @@ msgstr "Afficher le titre des vidéos dans l'en-tête"
 
 msgctxt "#31236"
 msgid "PVR views"
-msgstr "Vues d'enregistreur numérique"
+msgstr "Vues de l'Enregistreur Numérique"
 
 msgctxt "#31237"
 msgid "Use genre colors in EPG timeline"
@@ -830,7 +968,7 @@ msgstr "Utiliser des couleurs de genre dans l'horaire du Guide des Programmes"
 
 msgctxt "#31238"
 msgid "Use 8 rows in EPG timeline instead of 5"
-msgstr "Utiliser 8 lignes au lieu de 5 dans la chonologie du Guide des Programmes"
+msgstr "Utiliser 8 lignes au lieu de 5 dans la chronologie du Guide des Programmes"
 
 msgctxt "#31239"
 msgid "Use alternative EPG progress indicator"
@@ -844,12 +982,16 @@ msgctxt "#31241"
 msgid "Apply background overlay only to home screen"
 msgstr "N'appliquer l'incrustation d'arrière-plan que sur l'écran d'accueil"
 
+msgctxt "#31242"
+msgid "OSD panel opacity"
+msgstr "Opacité du panneau OSD"
+
 msgctxt "#31243"
 msgid "Show cache level progress"
-msgstr "Montrer la progression du niveau de cache"
+msgstr "Afficher la progression du niveau de cache"
 
 msgctxt "#31244"
-msgid "Force disabling of subtitles (experimental)"
+msgid "Force disabling of subtitles"
 msgstr "Forcer la désactivation des sous-titres (expérimental)"
 
 msgctxt "#31245"
@@ -880,6 +1022,10 @@ msgctxt "#31251"
 msgid "PAUSED"
 msgstr "PAUSE"
 
+msgctxt "#31252"
+msgid "My Hub"
+msgstr "Mon Hub"
+
 msgctxt "#31253"
 msgid "FAST FORWARD"
 msgstr "AVANCE RAPIDE"
@@ -894,15 +1040,19 @@ msgstr "POSITIONNEMENT"
 
 msgctxt "#31256"
 msgid "Enable large onscreen playback and seek indicators"
-msgstr "Activer la grande lecture à l'écran et les indicateurs de positionnement"
+msgstr "Affichage agrandis pour les bouton de lecture et le positionnement"
 
 msgctxt "#31257"
 msgid "Memory Usage"
 msgstr "Utilisation de la mémoire"
 
+msgctxt "#31258"
+msgid "Hide watched items from recently added movies/episodes (doesn't apply to widgets)"
+msgstr "Cacher les films/épisodes vus des éléments récemment ajoutés (ne s'applique pas aux widgets)"
+
 msgctxt "#31259"
 msgid "Show OSD infopanel on pause and seek"
-msgstr "Incruster le panneau d'infos durant une pause ou un positionnement"
+msgstr "Panneau d'infos durant une pause ou une recherche"
 
 msgctxt "#31260"
 msgid "General panels color"
@@ -942,7 +1092,7 @@ msgstr "Désactiver FanArt"
 
 msgctxt "#31269"
 msgid "Extended Info"
-msgstr "Info Avancée"
+msgstr "Plus d'informations"
 
 msgctxt "#31270"
 msgid "Advanced settings"
@@ -1002,7 +1152,7 @@ msgstr "Choisir un dossier pour créer le fichier de sauvegarde"
 
 msgctxt "#31284"
 msgid "Are you sure you want to reset the skin to default settings ?"
-msgstr "Êtes-vous certain de vouloir réinitialiser l'habillage à ses paramètres prédéfinis ?"
+msgstr "Êtes-vous certain de vouloir réinitialiser l'habillage à ses paramètres prédéfinis ?"
 
 msgctxt "#31285"
 msgid "Overview"
@@ -1044,9 +1194,13 @@ msgctxt "#31294"
 msgid "Weather Notification"
 msgstr "Notification Météo"
 
+msgctxt "#31295"
+msgid "Notification TV-Shows airing today"
+msgstr "Notification des séries diffusés aujourd'hui"
+
 msgctxt "#31296"
 msgid "Time to show each fanart image (in seconds)"
-msgstr "Temps d'affichage de chaque image fanArt (en secondes)"
+msgstr "Temps d'affichage de chaques images FanArt (en secondes)"
 
 msgctxt "#31297"
 msgid "Unwatched movies"
@@ -1060,13 +1214,17 @@ msgctxt "#31299"
 msgid "Global/mixed fanart image"
 msgstr "Image de FanArt globale/mélangée"
 
+msgctxt "#31300"
+msgid "Movie titles from country"
+msgstr "Titres de films originaires de country"
+
 msgctxt "#31301"
 msgid "Auto focus the first unwatched episode in lists"
 msgstr "Sélectionner automatiquement le premier épisode non vu des listes"
 
 msgctxt "#31302"
 msgid "Enable Next Aired notifications for TV Shows"
-msgstr "Activer les notifications de prochaine diffusion pour les séries TV"
+msgstr "Activer les notifications de prochaine diffusion pour les séries"
 
 msgctxt "#31303"
 msgid "Enable Weather alerts"
@@ -1074,7 +1232,7 @@ msgstr "Activer les alertes Météo"
 
 msgctxt "#31304"
 msgid "Prefer TV Show thumb for episodes in widgets"
-msgstr "Préférer les vignettes de Série TV pour les épisodes dans les widgets"
+msgstr "Préférer les vignettes Série TV pour les épisodes dans les widgets"
 
 msgctxt "#31305"
 msgid "View"
@@ -1084,9 +1242,25 @@ msgctxt "#31306"
 msgid "Assign widget"
 msgstr "Attribuer un widget"
 
+msgctxt "#31307"
+msgid "Spotlight widget"
+msgstr "Widget Spotlight"
+
 msgctxt "#31308"
 msgid "Close"
 msgstr "Fermer"
+
+msgctxt "#31309"
+msgid "Titan tiles"
+msgstr "Tuiles Titan"
+
+msgctxt "#31310"
+msgid "Number of rows with tiles"
+msgstr "Nombres de colonnes avec tuiles"
+
+msgctxt "#31311"
+msgid "[B]CONFIGURE TV SETTINGS[/B][CR][CR]Change fullscreen info · Manage EPG data settings"
+msgstr "[B]CONFIGURE LES PARAMETRES TV[/B][CR][CR]Modifie les infos en plein écran · Gérer les paramètre données d'EPG"
 
 msgctxt "#31312"
 msgid "Submenu layout"
@@ -1110,7 +1284,7 @@ msgstr "Utiliser des sous-pages avec des tuiles pour le sous-menu"
 
 msgctxt "#31317"
 msgid "Disable auto-refresh for home menu widgets"
-msgstr "Désactiver l'actualisation automatique des widgets du menu d'accueil"
+msgstr "Désactiver l'auto-rafraichissement des widgets du menu d'accueil"
 
 msgctxt "#31318"
 msgid "Enable Kiosk-mode"
@@ -1142,7 +1316,7 @@ msgstr "Utiliser un agencement par vignettes/icônes au lieu de textuel pour les
 
 msgctxt "#31325"
 msgid "Show current weather in the video info & video on-screen displays"
-msgstr "Montrer la météo actuelle dans les infos des vidéos et dans les affichages à l'écran des vidéos"
+msgstr "Afficher la météo actuelle dans les infos des vidéos et dans les affichages à l'écran des vidéos"
 
 msgctxt "#31326"
 msgid "Adjust settings for low performance systems"
@@ -1154,7 +1328,7 @@ msgstr "Afficher ClearLogo (si disponible)"
 
 msgctxt "#31328"
 msgid "footer"
-msgstr "bas"
+msgstr "Pied-de-page"
 
 msgctxt "#31329"
 msgid "top left"
@@ -1182,11 +1356,11 @@ msgstr "Dernière mise à jour"
 
 msgctxt "#31335"
 msgid "SERIES FINALE"
-msgstr "FIN DE SÉRIE"
+msgstr "ÉPISODE FINAL"
 
 msgctxt "#31336"
 msgid "SEASON FINALE"
-msgstr "FIN DE SAISON"
+msgstr "FINAL DE LA SAISON"
 
 msgctxt "#31337"
 msgid "Use custom image instead of Kodi logo"
@@ -1194,7 +1368,7 @@ msgstr "Utiliser une image personnalisée au lieu du logo Kodi"
 
 msgctxt "#31338"
 msgid "Show video preview in PVR section"
-msgstr "Montrer l'aperçu de la vidéo dans la section de l'Enregistreur Numérique"
+msgstr "Afficher l'aperçu vidéo dans la section Enregistreur Numérique"
 
 msgctxt "#31339"
 msgid "Enable smart shortcuts for the Emby addon"
@@ -1220,49 +1394,378 @@ msgctxt "#31344"
 msgid "Always show the scrollbars (do not hide them)"
 msgstr "Toujours afficher les barres de défilement (ne pas les masquer)"
 
+msgctxt "#31345"
+msgid "Disable header completely"
+msgstr "Désactiver totalement l'entête"
+
+msgctxt "#31346"
+msgid "Only show Weather (right)"
+msgstr "Afficher seulement la météo (à droite)"
+
+msgctxt "#31347"
+msgid "Only show Weather (left)"
+msgstr "Afficher seulement la météo (à gauche)"
+
+msgctxt "#31348"
+msgid "Only Show Profile"
+msgstr "Afficher seulement le profil"
+
+msgctxt "#31349"
+msgid "Use Genre for guide listings"
+msgstr "Utiliser les Genres pour les listes guides."
+
+msgctxt "#31350"
+msgid "Use GenreType for guide listings (Kodi default)"
+msgstr "Utiliser les types de Genres pour les listes guides (Kodi par défaut)"
+
+msgctxt "#31351"
+msgid "Let skin decide based on content/artwork"
+msgstr "Laisser l'habillage choisir selon les contenus/artworks"
+
+msgctxt "#31352"
+msgid "Use small info panel"
+msgstr "Utiliser le petit panneau d'information"
+
+msgctxt "#31353"
+msgid "Use big info panel (will lower the posters)"
+msgstr "Utiliser le grand panneau d'information"
+
+msgctxt "#31354"
+msgid "Panel will slide in after 3 seconds of inactivity"
+msgstr "Le panneau se referme après 3 secondes d'inactivité"
+
+msgctxt "#31355"
+msgid "Never show tags"
+msgstr "Ne jamais afficher les étiquettes"
+
+msgctxt "#31356"
+msgid "Always show tags"
+msgstr "Toujours afficher les étiquettes"
+
+msgctxt "#31357"
+msgid "Do not auto rotate the widgets"
+msgstr "Ne pas faire tourner automatiquement les widgets"
+
+msgctxt "#31358"
+msgid "Only rotate the spotlight widget every"
+msgstr "Faire seulement tourner le widget en surbrillance toutes les"
+
+msgctxt "#31359"
+msgid "Rotate the first widget (if assigned) every"
+msgstr "Faire tourner le premier widget (si assigné) toute les"
+
+msgctxt "#31360"
+msgid "Rotate the second widget (if assigned) every"
+msgstr "Faire tourner le deuxième widget (si assigné) toutes les"
+
+msgctxt "#31361"
+msgid "Rotate the third widget (if assigned) every"
+msgstr "Faire tourner le troisième widget (si assigné) toutes les"
+
+msgctxt "#31362"
+msgid "Rotate the fourth widget (if assigned) every"
+msgstr "Faire tourner le quatrième widget (si assigné) toutes les"
+
+msgctxt "#31363"
+msgid "Rotate all widgets (including spotlight) every"
+msgstr "Faire tourner tous les widgets (spotlight inclus) toutes les"
+
+msgctxt "#31364"
+msgid "Use the shortcuts editor to enable rotation for a widget"
+msgstr "Utiliser l'éditeur de raccourcis pour activer la rotation d'un widget"
+
+msgctxt "#31365"
+msgid "Press UP to Play Trailer"
+msgstr "Appuyez sur HAUT pour lancer la bande-annonce"
+
+msgctxt "#31366"
+msgid "You're watching"
+msgstr "Vous regardez"
+
+msgctxt "#31367"
+msgid "Small poster"
+msgstr "Petite affiche"
+
+msgctxt "#31368"
+msgid "Disc Art"
+msgstr "Disc Art"
+
+msgctxt "#31369"
+msgid "Set Icon"
+msgstr "Choisir une icône"
+
+msgctxt "#31370"
+msgid "Widget Loading Image"
+msgstr "Image de chargement des widgets"
+
+msgctxt "#31371"
+msgid "No items in My List.[CR]Start adding Movies & TV Shows you like, just press the 'Add to My List' button from information page."
+msgstr "Aucun élément dans Ma Liste. [CR]Commencez à ajouter les films et des séries TV que vous aimez, appuyez sur 'Ajouter à Ma Liste' dans la page d'information."
+
+msgctxt "#31372"
+msgid "No items in hub."
+msgstr "Aucun élément dans le hub."
+
+msgctxt "#31373"
+msgid "Are you sure?"
+msgstr "Vous êtes sûr ?"
+
+msgctxt "#31374"
+msgid "Option 'Enable Experimental Recommended Widgets' must be enabled in Skin Helper Widgets Settings."
+msgstr "L'option 'Enable Experimental Recommended Widgets' (Activer les widgets expérimentaux de recommandation) doit être activée dans les paramètres de Skin Helper Widgets."
+
+msgctxt "#31375"
+msgid "Restoring Widgets in Hubs will overrite all current widgets in hubs."
+msgstr "Restaurer les widgets dans les hubs vont remplacer les widgets actuellement configurés."
+
+msgctxt "#31376"
+msgid "Notice"
+msgstr "Attention"
+
+msgctxt "#31377"
+msgid "This setting is experimental.[CR]Note that when enabled all widgets will have the same layout as set in layout default."
+msgstr "Ce paramètre est expérimental. [CR]Notez que si activé, tous les widgets reprendront la disposition par défaut de l'habillage."
+
+msgctxt "#31378"
+msgid "Use Bingie Video Info Dialog"
+msgstr "Utiliser l'écran d'informations vidéo Bingie"
+
+msgctxt "#31379"
+msgid "Budget"
+msgstr "Budget"
+
+msgctxt "#31380"
+msgid "Total Revenue"
+msgstr "Revenus"
+
+msgctxt "#31381"
+msgid "Box Office"
+msgstr "Box Office"
+
+msgctxt "#31382"
+msgid "Episode Index"
+msgstr "Index des épisodes"
+
+msgctxt "#31383"
+msgid "My Custom List"
+msgstr "Ma liste personnalisé"
+
+msgctxt "#31384"
+msgid "Set Content"
+msgstr "Choisir du contenu"
+
+msgctxt "#31385"
+msgid "Recommended TV Shows"
+msgstr "Séries TV recommandées"
+
+msgctxt "#31386"
+msgid "Use 'Options' text instead of arrow indicator"
+msgstr "Utiliser l'étiquette textuelle 'Options' à la place d'une flèche"
+
+msgctxt "#31387"
+msgid "Welcome to BINGIE !"
+msgstr "Bienvenue sur BINGIE !"
+
+msgctxt "#31388"
+msgid ""
+"The new Titan skin for Kodi Leia."
+"[CR]This skin has many different layouts to choose from, let us start with the "
+"BINGIE main layout. This layout is designed to simulate Netflix user experience "
+"for TV.[CR]In "
+"order to get everything running as it should, it's recommended to set the "
+"following Kodi options:[CR][CR][COLOR e656da62]    - Disable mouse[CR]    - Hide "
+"parent folder items[CR]    - Auto focus first unwatched episode"
+"[CR]    - Flatten TV Shows' seasons (show all episodes)[/COLOR][CR][CR]Note that this settings are global "
+"and will be valid for all installed skins.[CR]But no worries, all settings "
+"can be reverted in Kodi settings."
+msgstr "Le nouvel habillage Titan pour Kodi Leia."
+"[CR]Cet habillage vous laisse choisir plusieurs agencements, mais on va commencer avec"
+" l'agencement principal de BINGIE. Cette disposition est conçue pour simuler l'expérience utilisateur de Netflix"
+" pour la télévision.[CR]Afin"
+" d'être certain que tout fonctionne comme prévu, il est recommandé de paramétrer"
+" Kodi avec ces options:[CR][CR][COLOR e656da62]    - Désactiver la souris[CR]    - Cacher"
+" l'élément dossier parent[CR]    - Sélectionner épisode/saison non vu d'une série TV"
+"[CR]    - Réduire l'arborescence des saisons des séries TV[/COLOR][CR][CR]Notez que ces paramètre sont généraux"
+" et resteront valides pour tous les skins installés.[CR]Mais pas d'inquiétude, tous les paramètres"
+" peuvent être modifiés."
+
+msgctxt "#31389"
+msgid "OK, do it for me!"
+msgstr "Ok, fais le pour moi !"
+
+msgctxt "#31390"
+msgid "I want to keep my current config"
+msgstr "Je suis bien comme ça"
+
+msgctxt "#31391"
+msgid "Did you add content to your library yet?"
+msgstr "Avez vous ajouter du contenu à votre médiathèque ?"
+
+msgctxt "#31392"
+msgid "Add video files to library now"
+msgstr "Ajouter des vidéos à la médiathèque"
+
+msgctxt "#31393"
+msgid "Hubs can be configured with their own widgets here, but they need to be unlocked first.[CR]When you're done, lock them in:[CR]Settings -> Skin Settings -> Configure Shortcuts tab -> Lock Hubs."
+msgstr "Les hubs peuvent êtres configurés avec leurs propres widgets ici, mais ils doivent d'abord être déverrouillés. [CR]Quand vous avez terminé, verrouillez les dans:[CR]Paramètres -> Paramètres d'habillage -> Configurer les raccourcis du menu -> Verrouiller les hubs."
+
+msgctxt "#31394"
+msgid "Unlock Hubs now"
+msgstr "Déverrouiller les hubs maintenant"
+
+msgctxt "#31395"
+msgid "With Bingie you can have all of your Kodi and library content in one place, through the use of widgets.[CR][CR]"
+"Home widgets can be configured from:[CR]"
+"[COLOR gray]    - Skin Settings -> Configure Shortcuts tab -> Edit Menu Shortcuts[/COLOR][CR][CR]"
+"There are also Hubs for Movies, TV Shows, New and you can add your own.[CR]"
+"Hubs can have their own spotlight and widgets and everything is set from the hub's screen, when the hub is UNLOCKED.[CR]"
+"[COLOR gray]    - Skin Settings -> Configure Shortcuts tab -> Tick off the 'Lock Hubs' button[/COLOR][CR]"
+"When you're done, don't forget to lock the hubs![CR][CR]"
+"[COLOR e656da62]The skin is pre-packed with widgets for Movies & TV Shows.[CR]"
+"If you haven't added files to your video library yet, now is a good time![CR]"
+"Otherwise, you'd be staring at a blank screen...[/COLOR]"
+msgstr "Avec Bingie vous pouvez avoir tous vos contenus Kodi et médiathèques au même endroit, grâce à l'utilisation des widgets.[CR][CR]"
+"Les widgets de l'Accueil peuvent être configurés depuis:[CR]"
+"[COLOR gray]    - Paramètres d'habillage -> Configurer les raccourcis -> Configurer les raccourcis du menu[/COLOR][CR][CR]"
+"Il y a aussi des hubs pour les films, les séries, les nouveautés mais vous pouvez aussi ajouter les votre.[CR]"
+"Les hubs peuvent avoir leur propre Spotlight, widgets et tout peut être configuré depuis l'écran des hubs quand ils sont DÉVÉRROUILLÉS.[CR]"
+"[COLOR gray]    - Paramètres d'habillage -> Configurer les raccourcis du menu -> Décochez 'Verrouiller les Hubs'[/COLOR][CR]"
+"Quand vous avez terminé, n'oubliez pas de re-verrouiller les hubs ![CR][CR]"
+"[COLOR e656da62]L'habillage est pré-configuré avec des widgets pour les films et les séries TV.[CR]"
+"Si vous n'avez rien ajouté à votre médiathèque vidéo, c'est le bon moment pour le faire ![CR]"
+"Sinon vous risquez de vous retrouver devant un écran noir...[/COLOR]"
+
+msgctxt "#31396"
+msgid "Alright, let's do it"
+msgstr "Ok viens on fait ça"
+
+msgctxt "#31397"
+msgid "Nah, I'll figure it out myself"
+msgstr "Naaan, c'est bon j'me débrouille"
+
+msgctxt "#31398"
+msgid "In order to show Media Codec in Home you must disable Additional Info first."
+msgstr "Pour afficher les codecs du média sur l'Accueil, vous devez d'abord désactiver les informations supplémentaires."
+
+msgctxt "#31399"
+msgid "The skin has two different themes to change the look and feel [CR][CR][B]Classic[/B] Is the original look and feel of the MediaPortal skin. [CR][B]Default/Modern[/B] Is the evolution of the skin to a more modern approach by the creator of this skin. [CR] [CR]You can decide for yourself which theme you like best. [CR]To switch the theme press the button in the left menu or go to the appearance settings from Kodi."
+msgstr ""
+
+msgctxt "#31400"
+msgid "[B]CONFIGURE APPEARANCE SETTINGS[/B][CR][CR]Change the skin · Set language and region · Change file listing options · Set up a screensaver"
+msgstr "[B]CONFIGURER L'APPARENCE DE L'INTERFACE[/B][CR][CR]Changer l'habillage · Choisir la langue et la région · Changer les options de listing des fichiers · Configurer un écran de veille"
+
+msgctxt "#31401"
+msgid "[B]CONFIGURE VIDEO SETTINGS[/B][CR][CR]Manage your video library · Set video playback options · Change video listing options · Set subtitle fonts"
+msgstr "[B]CONFIGURER LES PARAMÈTRES VIDÉO[/B][CR][CR]Gérer votre médiathèque vidéo · Gérer les options d'affichage vidéo · Changer les options de listing vidéo · Choisir la police des sous-titres"
+
 msgctxt "#31402"
 msgid "[B]CONFIGURE MUSIC SETTINGS[/B][CR][CR]Manage your music library · Set music playback options · Change music listing options · Setup song submission · Set karaoke options"
 msgstr "[B]CONFIGURER LES PARAMÈTRES MUSICAUX[/B][CR][CR]Gérer la bibliothèque musicale[CR]Choisir les options de lecture musicale[CR]Changer les options de listing[CR]Configurer l'envoi de morceaux"
 
 msgctxt "#31403"
 msgid "[B]CONFIGURE PICTURE SETTINGS[/B][CR][CR]Set picture listing options · Configure slideshows"
-msgstr "[B]CONFIGURATION DES PARAMÈTRES IMAGE[/B][CR][CR]Définir les options de lecture · Configurer les diaporamas"
+msgstr "[B]CONFIGURER LES PARAMÈTRES IMAGE[/B][CR][CR]Définir les options de lecture · Configurer les diaporamas"
 
 msgctxt "#31404"
 msgid "[B]CONFIGURE WEATHER SETTINGS[/B][CR][CR]Set three cities to collect weather information"
-msgstr "[B]CONFIGURATION DES PARAMÈTRES MÉTÉO[/B][CR][CR]Choisir trois villes pour lesquelles recueillir les informations météorologiques"
+msgstr "[B]CONFIGURER LES PARAMÈTRES MÉTÉO[/B][CR][CR]Choisir trois villes pour lesquelles recueillir les informations météorologiques"
+
+msgctxt "#31405"
+msgid "[B]CONFIGURE NETWORK SETTINGS[/B][CR][CR]Setup control of Kodi via UPnP and HTTP · Configure file sharing · Set internet access options"
+msgstr "[B]CONFIGURER LES PARAMÈTRES RÉSEAU[/B][CR][CR]Initialiser le contrôle de Kodi via UPnP et HTTP · Configurer le partage de fichier · Choisir les options d'accès à Internet"
+
+msgctxt "#31406"
+msgid "[B]CONFIGURE SYSTEM SETTINGS[/B][CR][CR]Setup and calibrate displays · Configure audio output · Setup remote controls · Set power saving options · Enable debugging · Setup master lock"
+msgstr "[B]CONFIGURER LES PARAMÈTRES SYSTÈME[/B][CR][CR]Configurer et calibrer les écrans · Configurer la sortie audio · Configurer les périphériques de contrôle · Configurer l'économie d'énergie · Activer le debugging · Configurer le verrouillage maitre"
 
 msgctxt "#31407"
 msgid "[B]CONFIGURE SKIN SETTINGS[/B][CR][CR]Setup the Titan skin · Add and remove home menu items · Change skin backgrounds"
-msgstr "[B]CONFIGURATION DES PARAMÈTRES D'HABILLAGE[/B][CR][CR]Configurer l'habillage Titan · Ajouter et supprimer des éléments du menu d'accueil · Modifier les arrière-plans de l'habillage"
+msgstr "[B]CONFIGURATION DES PARAMÈTRES D'HABILLAGE[/B][CR][CR]Configurer l'habillage Bingie · Ajouter et supprimer des éléments du menu d'accueil · Modifier les arrière-plans de l'habillage"
+
+msgctxt "#31408"
+msgid "[B]CONFIGURE ADD-ONS[/B][CR][CR]Manage your installed Add-ons · Browse for and install Add-ons from kodi.tv · Modify Add-on settings"
+msgstr "[B]GÉRER LES EXTENSIONS[/B][CR][CR]Gérez les extensions installées · Rechercher et installer des extensions de kodi.tv · Modifier les paramètres des extensions"
+
+msgctxt "#31409"
+msgid "[B]SYSTEM INFO[/B][CR][CR]Summary · Storage · Network · Video · Hardware"
+msgstr "[B]INFORMATIONS SYSTÈME[/B][CR][CR]Résumé · Stockage · Réseau · Vidéo · Matériel"
+
+msgctxt "#31410"
+msgid "[B]Live-TV[/B][CR][CR]Configure PVR settings"
+msgstr "[B]TV EN DIRECT[/B][CR][CR]Configurer les paramètres de l'Enregistreur Numérique (PVR)"
+
+msgctxt "#31411"
+msgid "Bingie Info Dialog Icon Color"
+msgstr "Couleur des fenêtre d'information Bingie"
+
+msgctxt "#31412"
+msgid "Bingie Sublabel Text Color"
+msgstr "Couleur du text des sous-étiquettes Bingie"
+
+msgctxt "#31413"
+msgid "Wide Box"
+msgstr "Boite large"
+
+msgctxt "#31414"
+msgid "Disable Moving Frame for Buttons"
+msgstr "Désactiver les images coulissantes comme bouton"
+
+msgctxt "#31415"
+msgid "Bingie Search Settings"
+msgstr "Paramètre de la Recherche Bingie"
+
+msgctxt "#31416"
+msgid "Search for Episodes by name"
+msgstr "Chercher les Épisodes par leurs titres"
+
+msgctxt "#31417"
+msgid "Search for Music Videos"
+msgstr "Chercher les clips musicaux"
+
+msgctxt "#31418"
+msgid "Search for Music Albums, Artists and Songs"
+msgstr "Chercher dans les Albums, Artistes et Morceaux"
+
+msgctxt "#31419"
+msgid "Search YouTube"
+msgstr "Chercher sur Youtube"
+
+msgctxt "#31420"
+msgid "Use Global Search Add-on"
+msgstr "Utiliser l'extension Global Search"
+
+msgctxt "#31421"
+msgid "[B]SELECT YOUR KODI USER PROFILE[/B][CR][CR]to login and continue"
+msgstr "[B]SELECTIONNEZ VOTRE PROFIL KODI[/B][CR][CR]Gérer les profils d'utilisateur de Kodi"
 
 msgctxt "#31422"
 msgid "Panel details"
-msgstr "Détails du panneau"
+msgstr "Panneaux détaillés"
 
 msgctxt "#31423"
 msgid "Panel Wall"
-msgstr "Mur de panneaux"
+msgstr "Mur avec panneau"
 
 msgctxt "#31424"
 msgid "Banner list"
-msgstr "Liste de bannières"
+msgstr "Liste des bannières"
 
 msgctxt "#31425"
 msgid "Banner Plex"
-msgstr "Bannière Plex"
+msgstr "Bannières à la Plex"
 
 msgctxt "#31426"
 msgid "Big Panel"
-msgstr "Grand panneau"
+msgstr "Grands panneaux"
 
 msgctxt "#31427"
 msgid "Large Poster"
-msgstr "Affiche large"
+msgstr "Grandes affiches"
 
 msgctxt "#31428"
 msgid "Big Panel details"
-msgstr "Détails du grand panneau"
+msgstr "Grands panneaux détaillés"
 
 msgctxt "#31429"
 msgid "Showcase"
@@ -1274,11 +1777,11 @@ msgstr "Paysage"
 
 msgctxt "#31431"
 msgid "Landscape Single Row"
-msgstr "Paysage, une rangée"
+msgstr "Paysage sur une seule ligne"
 
 msgctxt "#31432"
 msgid "Landscape details"
-msgstr "Détails du paysage"
+msgstr "Paysage détaillé"
 
 msgctxt "#31433"
 msgid "Extended"
@@ -1290,15 +1793,15 @@ msgstr "FanArt"
 
 msgctxt "#31435"
 msgid "Single Poster"
-msgstr "Affiche unique"
+msgstr "Simple poster"
 
 msgctxt "#31436"
 msgid "Panel Square"
-msgstr "Carré de panneau"
+msgstr "Panneaux carrés"
 
 msgctxt "#31437"
 msgid "Panel Square details"
-msgstr "Détails du carré de panneau"
+msgstr "Panneaux carrés détaillés"
 
 msgctxt "#31438"
 msgid "Thumbs"
@@ -1306,19 +1809,19 @@ msgstr "Vignettes"
 
 msgctxt "#31439"
 msgid "Thumbs details"
-msgstr "Détails des vignettes"
+msgstr "Vignettes détaillés"
 
 msgctxt "#31440"
 msgid "Poster Row"
-msgstr "Rangée d'affiches"
+msgstr "Ligne d'affiche"
 
 msgctxt "#31441"
 msgid "Poster Shift"
-msgstr "Déplacement d'affiches"
+msgstr "Alternance d'affiches"
 
 msgctxt "#31442"
 msgid "Low List"
-msgstr "Liste réduite"
+msgstr "Liste basse"
 
 msgctxt "#31443"
 msgid "List"
@@ -1334,23 +1837,23 @@ msgstr "Panneau horizontal"
 
 msgctxt "#31446"
 msgid "    - Show Current Weather Conditions (instead of Today's Forecast) for Weather on Home"
-msgstr "- Montrer les conditions météo actuelles (au lieu des Prévisions du jour) pour la météo de l'accueil"
+msgstr "    - Montrer les conditions météo actuelles (plutôt que le résumé quotidien) sur la météo de l'Accueil"
 
 msgctxt "#31447"
 msgid "Prefer ClearArt"
-msgstr "Préférer les illustrations transparentes"
+msgstr "Préférer les ClearArt"
 
 msgctxt "#31448"
 msgid "Use custom path for music artwork"
-msgstr "Utiliser un chemin personnalisé pour les illustrations de la musique"
+msgstr "Utiliser un chemin personnalisé pour les artworks musicaux"
 
 msgctxt "#31449"
 msgid "Interval (in seconds) for multi-image and random fanart backgrounds"
-msgstr "Intervalle (en secondes) pour les multi-images et les fanarts  d'arrière-plan aléatoires"
+msgstr "Intervalle (en secondes) pour les arrières-plans multi-images et les FanArts aléatoires"
 
 msgctxt "#31450"
 msgid "Slim List"
-msgstr "Liste fine"
+msgstr "liste fine"
 
 msgctxt "#31451"
 msgid "Use extended layout for weather"
@@ -1367,6 +1870,10 @@ msgstr "Utiliser une liste réduite"
 msgctxt "#31454"
 msgid "Use TV-show banners"
 msgstr "Utiliser les bannières des Séries TV"
+
+msgctxt "#31455"
+msgid "Textcolor for footer"
+msgstr "Couleur du texte en pied-de-page"
 
 msgctxt "#31456"
 msgid "Background overlay opacity"
@@ -1386,7 +1893,7 @@ msgstr "Couleur de texte sélectionné pour les boutons de l'habillage"
 
 msgctxt "#31460"
 msgid "General textcolor"
-msgstr "Couleur de texte globale"
+msgstr "Couleur globale du texte"
 
 msgctxt "#31461"
 msgid "Logos"
@@ -1426,11 +1933,11 @@ msgstr "Incrustation de l'arrière-plan"
 
 msgctxt "#31470"
 msgid "Background overlay texture"
-msgstr "Texture de l'incrustation de l'arrière-plan"
+msgstr "Texture d'incrustation de l'arrière-plan"
 
 msgctxt "#31471"
 msgid "Footer panel color"
-msgstr "Couleur du panneau du bas"
+msgstr "Couleur du pied-de-page"
 
 msgctxt "#31472"
 msgid "Media details panel color"
@@ -1438,11 +1945,11 @@ msgstr "Couleur du panneau des détails de médias"
 
 msgctxt "#31473"
 msgid "OSD panel color"
-msgstr "Couleur du panneau incrusté à l'écran"
+msgstr "Couleur du panneau incrusté à l'écran OSD"
 
 msgctxt "#31474"
 msgid "Footer panel opacity"
-msgstr "Opacité du panneau du bas"
+msgstr "Opacité du panneau du pied-de-page"
 
 msgctxt "#31475"
 msgid "Color for buttons in the skin"
@@ -1450,7 +1957,7 @@ msgstr "Couleur des boutons de l'habillage"
 
 msgctxt "#31476"
 msgid "Use slim OSD panel"
-msgstr "Utiliser un mince panneau incrusté à l'écran"
+msgstr "Utiliser un panneau OSD. Réduit"
 
 msgctxt "#31477"
 msgid "Shadow color for footer"
@@ -1458,35 +1965,35 @@ msgstr "Couleur d'ombrage du bas"
 
 msgctxt "#31478"
 msgid "OSD panel primary text color"
-msgstr "Couleur de texte principal du panneau incrusté à l'écran"
+msgstr "Couleur de texte principal du panneau OSD"
 
 msgctxt "#31479"
 msgid "OSD panel primary text shadow color"
-msgstr "Couleur d'ombre de texte principal du panneau incrusté à l'écran"
+msgstr "Couleur d'ombre de texte principal du panneau OSD"
 
 msgctxt "#31480"
 msgid "OSD panel secondary text color"
-msgstr "Couleur de texte secondaire du panneau incrusté à l'écran"
+msgstr "Couleur de texte secondaire du panneau OSD"
 
 msgctxt "#31481"
 msgid "OSD panel secondary text shadow color"
-msgstr "Couleur d'ombrage de texte secondaire du panneau incrusté à l'écran"
+msgstr "Couleur d'ombrage de texte secondaire du panneau OSD"
 
 msgctxt "#31482"
 msgid "OSD progress bar background color"
-msgstr "Couleur d'arrière-plan de barre de progression de l'incrustation à l'écran"
+msgstr "Couleur d'arrière-plan de barre de progression de l’OSD"
 
 msgctxt "#31483"
 msgid "OSD progress bar color"
-msgstr "Couleur de barre de progression de l'incrustation à l'écran"
+msgstr "Couleur de barre de progression de l’OSD"
 
 msgctxt "#31484"
 msgid "OSD buttons color"
-msgstr "Couleur des boutons incrustés à l'écran"
+msgstr "Couleur des boutons OSD"
 
 msgctxt "#31485"
 msgid "OSD buttons color focus"
-msgstr "Couleur de sélection des boutons incrustés à l'écran"
+msgstr "Couleur de sélection des boutons OSD"
 
 msgctxt "#31486"
 msgid "General color settings"
@@ -1518,11 +2025,11 @@ msgstr "Vue forcée pour les épisodes"
 
 msgctxt "#31493"
 msgid "Use rounded icons in OSD"
-msgstr "Utiliser des icônes arrondies dans l'incrustation à l'écran"
+msgstr "Utiliser des icônes arrondies dans l’OSD"
 
 msgctxt "#31494"
 msgid "Do not show footer bar on home"
-msgstr "Ne pas afficher la barre du bas de l'accueil"
+msgstr "Ne pas afficher le pied-de-page sur l'accueil"
 
 msgctxt "#31495"
 msgid "Scrollbar background color"
@@ -1538,7 +2045,7 @@ msgstr "Couleur de la barre de défilement sélectionnée"
 
 msgctxt "#31498"
 msgid "Use fake discart when no discart exists for a media item"
-msgstr "Utiliser une fausse illustration de disque quand aucune n'existe pour un élément multimédia"
+msgstr "Utiliser un DiscArt générique quand aucun n'existe"
 
 msgctxt "#31499"
 msgid "Widget"
@@ -1572,9 +2079,17 @@ msgctxt "#31506"
 msgid "Dim screen when the busy animation is active"
 msgstr "Atténuer l'écran lorsque l'animation Occupé est active"
 
+msgctxt "#31507"
+msgid "Layout for widgets"
+msgstr "Disposition des widgets"
+
 msgctxt "#31508"
-msgid "Use extended video info dialog"
-msgstr "Utiliser la boîte d'information étendue des vidéos"
+msgid "Use Extended Video Info Dialog"
+msgstr "Utiliser la boîte d'information étendue"
+
+msgctxt "#31509"
+msgid "Display Studio logo in footer instead of stars rating"
+msgstr "Affichier le logo du Studio en pied-de-page à la place de la note étoilé"
 
 msgctxt "#31510"
 msgid "Use custom path for studio logo images"
@@ -1606,7 +2121,7 @@ msgstr "Activer l'indicateur pour les épisodes non vus"
 
 msgctxt "#31517"
 msgid "color for indicator background (triangle)"
-msgstr "couleur d'arrière-plan d'indicateur (triangle)"
+msgstr "couleur d'arrière-plan de l'indicateur (triangle)"
 
 msgctxt "#31518"
 msgid "Forced views"
@@ -1614,15 +2129,19 @@ msgstr "Vues forcées"
 
 msgctxt "#31519"
 msgid "Hide animated discart on OSD"
-msgstr "Masquer l'illustration de disque animée dans l'incrustation à l'écran"
+msgstr "Masquer l'illustration de disque animée dans l’OSD"
+
+msgctxt "#31520"
+msgid "Widget loading animation color diffuse"
+msgstr "Couleur diffuse de l'animation de chargement des Widgets"
 
 msgctxt "#31521"
 msgid "color for indicator image or text"
-msgstr "couleur de l'image ou du texte d'indicateur"
+msgstr "couleur de l'image ou du texte de l'indicateur"
 
 msgctxt "#31522"
 msgid "Open submenu in-line instead of right popout"
-msgstr "Dérouler les sous-menus plutôt que par clic droit"
+msgstr "Dérouler les sous-menus à la place d'un affichage à droite"
 
 msgctxt "#31523"
 msgid "Use tiles instead of text for menu"
@@ -1630,11 +2149,11 @@ msgstr "Utiliser des tuiles au lieu de texte pour le menu"
 
 msgctxt "#31524"
 msgid "Poster case overlays"
-msgstr "Surcouches de boîtier d'affiche "
+msgstr "Surcouches de boîtier d'affiche"
 
 msgctxt "#31525"
 msgid "Enable Poster case overlays with media quality"
-msgstr "Activer les surcouches de boîtier d'affiche avec la qualité du média"
+msgstr "Afficher un boitier en surcouche sur les affiches avec la qualité du média"
 
 msgctxt "#31526"
 msgid "Case overlay color"
@@ -1661,12 +2180,12 @@ msgid "Smart shortcuts"
 msgstr "Raccourcis intelligents"
 
 msgctxt "#31532"
-msgid "Enable smart shortcuts for the Plex addon"
-msgstr "Activer les raccourcis intelligents pour l'extension Plex"
+msgid "Critically-acclaimed Movies"
+msgstr "Films salués par la critiques"
 
 msgctxt "#31533"
-msgid "Enable smart shortcuts for the Netflix addon"
-msgstr "Activer les raccourcis intelligents pour l'extension Netflix"
+msgid "Marvel Movies"
+msgstr "Films du Marvel Cinematic Universe"
 
 msgctxt "#31534"
 msgid "My list"
@@ -1674,11 +2193,19 @@ msgstr "Ma liste"
 
 msgctxt "#31535"
 msgid "Continue watching"
-msgstr "Continuer le visionnage"
+msgstr "Continuer à regarder"
+
+msgctxt "#31536"
+msgid "Action & Crime Movies"
+msgstr "Films d'action et polar"
+
+msgctxt "#31537"
+msgid "Kids & Family Movies"
+msgstr "Films pour toute la famille"
 
 msgctxt "#31538"
 msgid "Select an existing color theme"
-msgstr "Sélectionner un thème de couleurs existant"
+msgstr ""
 
 msgctxt "#31539"
 msgid "Color theme created succesfully"
@@ -1701,8 +2228,8 @@ msgid "Because you watched"
 msgstr "Parce que vous avez regardé"
 
 msgctxt "#31544"
-msgid "Netflix style homemenu layout"
-msgstr "Disposition du menu principal dans le style Netflix"
+msgid "BINGIE - Netflix Style Layout"
+msgstr "BINGIE - Disposition à la Netflix"
 
 msgctxt "#31545"
 msgid "Because you watched"
@@ -1714,11 +2241,63 @@ msgstr "Un redémarrage de Kodi pourrait être nécessaire pour la prise en comp
 
 msgctxt "#31547"
 msgid "OSD progress bar border color"
-msgstr "Couleur de la barre de progression pour l'incrustation à l'écran"
+msgstr "Couleur de la barre de progression pour l’OSD"
 
 msgctxt "#31548"
 msgid "Background options"
 msgstr "Options d'arrière-plan"
+
+msgctxt "#31549"
+msgid "[B]Note[/B] After enabling smart shortcuts for a particular section you must manually add those shortcuts to your menu. Go to [I]configure shortcuts[/I] and press Add, you will see the smart shortcuts listed there."
+msgstr "[B]A Noter[/B] Après l'activation des raccourcis intelligents pour une section particulière ajoutée manuellement, ajoutez les à vos menus. Allez dans [I]Configurer les raccourcis[/I], sélectionnez Ajouter et vous trouverez ici une liste de raccourcis intelligents."
+
+msgctxt "#31550"
+msgid "Enable option for a complete keyboard"
+msgstr "Activer l'option pour un clavier étendu"
+
+msgctxt "#31551"
+msgid "Titles related to"
+msgstr "Titres en relation avec"
+
+msgctxt "#31552"
+msgid "Titles in genre"
+msgstr "Titres dans le genre"
+
+msgctxt "#31553"
+msgid "Titles released in year"
+msgstr "Titres sortis durant l'année"
+
+msgctxt "#31554"
+msgid "Titles from studio"
+msgstr "Titre du studio"
+
+msgctxt "#31555"
+msgid "Titles featuring actor"
+msgstr "Titres figurant l'acteur"
+
+msgctxt "#31556"
+msgid "Movie titles by director"
+msgstr "Films du réalisteur"
+
+msgctxt "#31557"
+msgid "Movie titles from country"
+msgstr "Titres de film par pays"
+
+msgctxt "#31558"
+msgid "There are no matches for this category."
+msgstr "Il n'y a rien dans cette catégorie"
+
+msgctxt "#31559"
+msgid "Search by Title, Genre, Actor, Director, Country, Studio or Year"
+msgstr "Faites une recherche par Titre, Genre, Acteur, Réalisateur, Pays, Studio ou Année"
+
+msgctxt "#31560"
+msgid "Back button in guide opens sideblade menu"
+msgstr "Le bouton retour dans le guide ouvre le menu latéral"
+
+msgctxt "#31561"
+msgid "Open/Focus submenu at click on mainmenu item"
+msgstr "Ouvrir le sous-menu lors de la sélection d'un élément du menu"
 
 msgctxt "#31562"
 msgid "Recommended Movies"
@@ -1734,15 +2313,175 @@ msgstr "Widgets"
 
 msgctxt "#31565"
 msgid "Open submenu"
-msgstr "Ouvrir sous-menu"
+msgstr "ouvrir sous-menu"
+
+msgctxt "#31566"
+msgid "Enable PVR artwork"
+msgstr "Activer les artworks pour l'Enregistreur Numérique"
+
+msgctxt "#31567"
+msgid "Simple list (PVR)"
+msgstr "Liste simple (Enregistreur numérique)"
+
+msgctxt "#31568"
+msgid "Enable indicator for unwatched items"
+msgstr "Activer l'indicateur pour les éléments non-vus"
+
+msgctxt "#31569"
+msgid "Media listitem text color (unfocused)"
+msgstr "Couleur du texte des médias listés (désélectionnés)"
+
+msgctxt "#31570"
+msgid "Media listitem text color (focused)"
+msgstr "Couleur du texte des médias listés (sélectionnés)"
+
+msgctxt "#31571"
+msgid "Media listitem focus color"
+msgstr "Couleur de la sélection des média listés"
+
+msgctxt "#31572"
+msgid "General text color for highlights and headers"
+msgstr "Couleur de texte générale pour la sélection et l'entête"
+
+msgctxt "#31573"
+msgid "OSD progress bar buffer cache color"
+msgstr "Couleur du cache dans la barre de progression"
+
+msgctxt "#31574"
+msgid "Background color diffuse"
+msgstr "Couleur diffuse du fond d'écran"
+
+msgctxt "#31575"
+msgid "Similar Movies"
+msgstr "Films similaires"
+
+msgctxt "#31576"
+msgid "Similar TV Shows"
+msgstr "Séries similaires"
+
+msgctxt "#31577"
+msgid "New Releases"
+msgstr "Nouvelles sorties"
+
+msgctxt "#31578"
+msgid "There are no matches for your search."
+msgstr "Nous ne trouvons rien"
+
+msgctxt "#31579"
+msgid "Episode titles related to"
+msgstr "Titres d'épisodes en relation"
+
+msgctxt "#31580"
+msgid "Music videos title related to"
+msgstr "Clips musicaux en relation"
+
+msgctxt "#31581"
+msgid "Forced view for PVR channels"
+msgstr "Vue forcée pour les chaines de l'Enregistreur Numérique"
+
+msgctxt "#31582"
+msgid "Forced view for PVR recordings"
+msgstr "Vue forcée pour les enregistrements numériques"
+
+msgctxt "#31583"
+msgid "Forced view for Addons"
+msgstr "Vue forcée pour les Extensions"
+
+msgctxt "#31584"
+msgid "Forced view for Files and main plugin listings"
+msgstr "Vue forcée pour les Fichiers et la liste des extensions"
+
+msgctxt "#31585"
+msgid "Forced view for Music Artists"
+msgstr "Vue forcée pour les Artistes musicaux"
+
+msgctxt "#31586"
+msgid "Forced view for Music Albums"
+msgstr "Vue forcée pour les Albums"
+
+msgctxt "#31587"
+msgid "Forced view for Music Songs"
+msgstr "Vue forcée pour les morceaux de musique"
+
+msgctxt "#31588"
+msgid "Forced view for Pictures"
+msgstr "Vue forcée pour les Images"
+
+msgctxt "#31589"
+msgid "Enable day/night color themes"
+msgstr "Activer les thèmes de couleur jour/nuit"
 
 msgctxt "#31590"
 msgid "You can configure the skin to automatically enable a different theme during day or night time"
 msgstr "Vous pouvez configurer l'habillage pour activer automatiquement un thème différent le jour et la nuit."
 
+msgctxt "#31591"
+msgid "Color theme during day time"
+msgstr "Thème de couleur durant la journée"
+
+msgctxt "#31592"
+msgid "Color theme during night time"
+msgstr "Thème de couleur durant la nuit"
+
+msgctxt "#31593"
+msgid "Album titles related to"
+msgstr "Titres d'Albums en relation"
+
+msgctxt "#31594"
+msgid "Hide power menu (and not disable it)"
+msgstr "Cacher le bouton d'alimentation (sans le désactiver)"
+
+msgctxt "#31595"
+msgid "Configure Widget Rows"
+msgstr "Configurer les colonnes de widgets"
+
+msgctxt "#31596"
+msgid "Disable the Now Playing info bar"
+msgstr "Désactiver la barre d'information 'En cours de lecture'"
+
 msgctxt "#31597"
 msgid "Total duration"
 msgstr "Durée totale"
+
+msgctxt "#31598"
+msgid "Use large banners"
+msgstr "Utiliser de grandes bannières"
+
+msgctxt "#31599"
+msgid "Show infopanel right"
+msgstr "Afficher le panneau d'information à droite"
+
+msgctxt "#31600"
+msgid "Align labels on thumbs/tiles in center"
+msgstr "Aligner les étiquettes des vignettes/tuiles au centre"
+
+msgctxt "#31601"
+msgid "Sideblade/options menu panel color"
+msgstr "Couleur du Panneau d'options latéral "
+
+msgctxt "#31602"
+msgid "Sideblade/options menu text color"
+msgstr "Couleur du texte sur le panneau d'option latéral"
+
+msgctxt "#31603"
+msgid "Label overlays on posters and thumbs panel color"
+msgstr "Couleur de l'incrustation des étiquettes sur les affiches et les vignettes"
+
+msgctxt "#31604"
+msgid "Label overlays on posters and thumbs text color"
+msgstr "Couleur du texte sur les étiquettes incrustés sur les affiches et les vignettes"
+
+msgctxt "#31605"
+msgid "Alternate aspectratio"
+msgstr "Proportions de l'écran alternative"
+
+msgctxt "#31606"
+msgid "PVR artwork settings"
+msgstr "Paramètre de l'Enregistreur Numérique"
+
+msgctxt "#31607"
+msgid "Display IMDB logo with rating in footer"
+msgstr "Afficher le logo IMDB avec la note en pied-de-page"
 
 msgctxt "#31608"
 msgid "Critics"
@@ -1756,33 +2495,193 @@ msgctxt "#31610"
 msgid "Nominations"
 msgstr "Nominations"
 
+msgctxt "#31611"
+msgid "Critics consensus"
+msgstr "Consensus critique"
+
+msgctxt "#31612"
+msgid "Use fanart from widget 1 as background"
+msgstr "Utiliser le fanart du widget 1 comme arrière-plan"
+
+msgctxt "#31613"
+msgid "Disable sideblade/options menu indicator"
+msgstr "Désactiver l'indicateur du menu d'option latéral"
+
+msgctxt "#31614"
+msgid "Use custom path for genre images"
+msgstr "Utiliser un chemin personnalisé pour les images de genre"
+
+msgctxt "#31615"
+msgid "Enable music wall background while playing music"
+msgstr "Activer l'arrière-plan du mur musical pendant la lecture"
+
+msgctxt "#31616"
+msgid "Enable mini guide on fullscreen Live TV"
+msgstr "Activer le mini-guide en plein écran sur la TV en Direct"
+
+msgctxt "#31617"
+msgid "Animate music background"
+msgstr "Animer l'arrière-plan musical"
+
+msgctxt "#31618"
+msgid "Align logo image"
+msgstr "Aligner l'image du logo"
+
+msgctxt "#31619"
+msgid "Enable circular navigation"
+msgstr "Activer la navigation circulaire"
+
+msgctxt "#31620"
+msgid "Enable home menu animation"
+msgstr "Activer l'animation du menu principal"
+
+msgctxt "#31621"
+msgid "Enable bounce animation on widgets"
+msgstr "Activer l'effet de rebond sur les widgets"
+
 msgctxt "#31622"
 msgid "Similar"
 msgstr "Similaires"
 
+msgctxt "#31623"
+msgid "Select Weather Icons"
+msgstr "Sélectionner les Icônes Météo"
+
+msgctxt "#31624"
+msgid "Select Weather FanArt"
+msgstr "Sélectionner les FanArt Météo"
+
+msgctxt "#31625"
+msgid "Select Studio Icons"
+msgstr "Sélectionner les Icônes Studio"
+
+msgctxt "#31626"
+msgid "Select Movie/TV Genre icons"
+msgstr "Sélectionner les Icônes de Genre pour Films/TV"
+
+msgctxt "#31627"
+msgid "Select Music Genre icons"
+msgstr "Sélectionner les Icônes de Genre pour la Musique"
+
+msgctxt "#31628"
+msgid "Bordersize for focused thumbs/tiles"
+msgstr "Taille de la bordure pour les vignettes/tuiles sélectionnées"
+
+msgctxt "#31629"
+msgid "Auto close OSD (0 to disable auto close)"
+msgstr "Fermeture automatique de l'OSD (0 pour désactiver)"
+
 msgctxt "#31630"
 msgid "Skin Helper settings (music/pvr artwork etc.)"
-msgstr "Paramètres de l'assistant d'habillage (illustrations de musique ou d'enregistrement, etc.)"
+msgstr "Paramètres de Skin Helper (artworks pour musique et Enregistreur Numérique)"
+
+msgctxt "#31631"
+msgid "Enable splashscreen/intro at startup (photo, video or music)"
+msgstr "Activer une animation d'accueil/introduction au démarrage (photo, vidéo ou musique)"
+
+msgctxt "#31632"
+msgid "Style for media/codec info"
+msgstr "Style des informations media/codec"
+
+msgctxt "#31633"
+msgid "Auto lookup missing actor thumbs in videoinfo dialog"
+msgstr "Recherche auto. des vignettes d'acteurs manquantes dans les infos vidéo"
+
+msgctxt "#31634"
+msgid "Disable discart in Now Playing info bar"
+msgstr "Désactiver le DiscArt dans la barre de lecture"
+
+msgctxt "#31635"
+msgid "Horizontal navigation"
+msgstr "Navigation horizontale"
 
 msgctxt "#31636"
 msgid "Weather Alerts"
-msgstr "Alertes Météo"
+msgstr "Alertes météo"
+
+msgctxt "#31637"
+msgid "No active weather alerts"
+msgstr "Pas d'alertes météo active"
+
+msgctxt "#31638"
+msgid "Allow transparent home tiles (alternate border)"
+msgstr "Permettre les tuiles transparentes à l'accueil (bordures alternatives)"
+
+msgctxt "#31639"
+msgid "Disable Spotlight widget (Only show widgets rows)"
+msgstr "Désactiver le widget Spotlight (affiche seulement les lignes de widget)"
+
+msgctxt "#31640"
+msgid "Show artist biography on OSD while playing music"
+msgstr "Afficher la biographie des artistes durant la lecture de musique"
+
+msgctxt "#31641"
+msgid "None (use global setting)"
+msgstr "Aucun (utiliser les paramètres généraux)"
+
+msgctxt "#31642"
+msgid "Do not display channel numbers in the guide"
+msgstr "Ne pas afficher le numéro des chaines TV dans le guide"
 
 msgctxt "#31643"
 msgid "Big list 2"
 msgstr "Grande liste 2"
 
+msgctxt "#31644"
+msgid "Enable Snow effect on Home"
+msgstr "Activer l'effet de neige sur l'accueil"
+
 msgctxt "#31645"
 msgid "Expand snow effect to other parts of the skin"
-msgstr "Étendre l'effet de neige aux autres parties de l'habillage"
+msgstr "Activer l'effet de neige dans tout l'habillage"
+
+msgctxt "#31646"
+msgid "Global background"
+msgstr "Arrière-plan général"
+
+msgctxt "#31647"
+msgid "Allow override of global background on per-shortcut base"
+msgstr "Permettre d'outrepasser l'arrière-plan général sur des raccourcis particuliers"
+
+msgctxt "#31648"
+msgid "Display tags/labels for episodes on posters"
+msgstr "Afficher une étiquettes Nouveaux Épisodes sur les affiches"
+
+msgctxt "#31649"
+msgid "Titan tiles (1 row of small tiles)"
+msgstr "Tuiles Titan (1 ligne de petites tuiles)"
+
+msgctxt "#31650"
+msgid "Titan tiles (2 rows of small tiles)"
+msgstr "Tuiles Titan (2 lignes de petites tuiles)"
+
+msgctxt "#31651"
+msgid "Titan tiles (3 rows of small tiles)"
+msgstr "Tuiles Titan (3 lignes de petites tuiles)"
+
+msgctxt "#31652"
+msgid "Prefer ClearArt images over landscape images"
+msgstr "Préférer les images ClearArt à la place des paysages"
 
 msgctxt "#31653"
 msgid "Disable ExtraFanart"
-msgstr "Désactiver ExtraFanart"
+msgstr "Désactiver les Fanart supplémantaires"
 
 msgctxt "#31654"
 msgid "Back..."
 msgstr "Retour..."
+
+msgctxt "#31655"
+msgid "Enable multiple widget rows"
+msgstr "Activer les widgets à plusieurs lignes"
+
+msgctxt "#31656"
+msgid "Set default focus to NO button in confirmation dialog (yes/no)"
+msgstr "Fixer la sélection par défaut sur NON dans les fenêtre de confirmation (oui/non)"
+
+msgctxt "#31657"
+msgid "In library"
+msgstr "En médiathèque"
 
 msgctxt "#31658"
 msgid "Cards"
@@ -1792,41 +2691,493 @@ msgctxt "#31659"
 msgid "Wide"
 msgstr "Large"
 
+msgctxt "#31660"
+msgid "Lower the widgets"
+msgstr "Abaisser les widgets"
+
+msgctxt "#31661"
+msgid "Use gradient color effect for OSD panel"
+msgstr "Utiliser un effet de dégradé sur le panneau de l’OSD"
+
+msgctxt "#31662"
+msgid "Default OSD button for video playback"
+msgstr "Bouton du menu incrusté OSD par défaut durant la lecture de vidéo"
+
+msgctxt "#31663"
+msgid "Default OSD button for Live TV playback"
+msgstr "Bouton du menu incrusté OSD par défaut durant la lecture de TV en Direct"
+
+msgctxt "#31664"
+msgid "Default OSD button for music playback"
+msgstr "Bouton du menu OSD par défaut durant la lecture de musique"
+
+msgctxt "#31665"
+msgid "Show artist logo on fullscreen music playback"
+msgstr "Afficher le logo de l'artiste en plein écran durant la lecture de musique"
+
+msgctxt "#31666"
+msgid "Big Panel Wall"
+msgstr "Mur de grands panneaux"
+
+msgctxt "#31667"
+msgid "Custom color settings"
+msgstr "Paramètres de couleur personnalisés"
+
+msgctxt "#31668"
+msgid "Playback & OSD"
+msgstr "Lecture et menu incrusté (OSD)"
+
+msgctxt "#31669"
+msgid "Now Playing infobar/background"
+msgstr "Barre d'information/arrière plan en cours de lecture"
+
+msgctxt "#31670"
+msgid "Music playback"
+msgstr "Lecture de musique"
+
+msgctxt "#31671"
+msgid "Use compact (windows 10 style) header"
+msgstr "Utiliser une entête compacte (dans le style de Windows 10)"
+
+msgctxt "#31672"
+msgid "Auto rotate widgets"
+msgstr "Rotation automatique des widgets"
+
+msgctxt "#31673"
+msgid "Do not display channel logo in the guide"
+msgstr "Ne pas afficher le logo des chaines TV dans le guide"
+
+msgctxt "#31674"
+msgid "Do not display filename in the Video Information screen"
+msgstr "Ne pas afficher le nom du fichier dans l'écran d'information vidéo"
+
+msgctxt "#31675"
+msgid "Display tags on widgets"
+msgstr "Affichage des étiquettes sur les widgets"
+
+msgctxt "#31676"
+msgid "Advanced: Get EPG genre labels from"
+msgstr "Avancé: Obtenir les étiquettes de genre EPG depuis"
+
+msgctxt "#31677"
+msgid "Advanced: Use custom folder with epg genre images"
+msgstr "Avancée: Utiliser un dossier personnalisé pour les images de genre EPG"
+
+msgctxt "#31678"
+msgid "Please manually place your custom images in:[CR] [Kodi data folder]\\userdata\\addon_data\\custom-epg-genres"
+msgstr "Veuillez placer manuellement vos images personnalisés dans:[CR] [Kodi data folder]\\userdata\\addon_data\\custom-epg-genres"
+
+msgctxt "#31679"
+msgid "Widget auto rotation interval"
+msgstr "Intervale de rotation auto. des widgets"
+
 msgctxt "#31680"
 msgid "Panel"
-msgstr "Panneau"
+msgstr "Panneaux"
+
+msgctxt "#31681"
+msgid "Panel Low"
+msgstr "Panneaux inférieurs"
+
+msgctxt "#31682"
+msgid "Modern Low Horizontal Home"
+msgstr "Accueil moderne inférieur horizontal"
+
+msgctxt "#31683"
+msgid "Horizontal Homescreen layout"
+msgstr "Agencement du menu d'accueil horizontal"
+
+msgctxt "#31684"
+msgid "Modern Low Horizontal Home Big"
+msgstr "Grand accueil moderne inférieur horizontal"
+
+msgctxt "#31685"
+msgid "Vertical Homescreen layout"
+msgstr "Agencement de l'écran d'accueil vertical"
+
+msgctxt "#31686"
+msgid "Modern Big Vertical Homescreen layout"
+msgstr "Agencement Grand écran d'accueil moderne vertival "
+
+msgctxt "#31687"
+msgid "Set infoline"
+msgstr "Choisir la ligne d'information"
+
+msgctxt "#31688"
+msgid "Set infoline for subheader"
+msgstr "Choisi la ligne d'information pour l'entête inférieur"
 
 msgctxt "#31689"
 msgid "Default behaviour of cast list in video info"
-msgstr "Comportement prédéfini de la liste du casting dans la fenêtre vidéo"
+msgstr "Comportement par défaut de la liste du cast dans les informations vidéo"
+
+msgctxt "#31690"
+msgid "Show list of content in library"
+msgstr "Afficher la liste des contenus de la médiathèque"
+
+msgctxt "#31691"
+msgid "Show extended info"
+msgstr "Afficher les informations supplémentaires"
+
+msgctxt "#31692"
+msgid "Hide last login info"
+msgstr "Cacher les dernières information d'identification"
+
+msgctxt "#31693"
+msgid "Disable contextmenu"
+msgstr "Désactiver le menu contextuel"
+
+msgctxt "#31694"
+msgid "Default action for trailers"
+msgstr "Action par défaut pour les bandes-annonces"
+
+msgctxt "#31695"
+msgid "Select which buttons to show in videoinfo"
+msgstr "Sélectionner les boutons à afficher dans les informations vidéo"
+
+msgctxt "#31696"
+msgid "Supported Addons"
+msgstr "Extensions supportées"
+
+msgctxt "#31697"
+msgid "Use slim icons in OSD"
+msgstr "Utiliser des icônes fines dans le menu OSD"
+
+msgctxt "#31698"
+msgid "Style for OSD buttons"
+msgstr "Style des boutons du menu OSD"
+
+msgctxt "#31699"
+msgid "Extra large"
+msgstr "Très grand"
+
+msgctxt "#31700"
+msgid "Display indicator on homescreen when recording is in progress"
+msgstr "Afficher un indicateur d'enregistrement est en cours sur l'écran d'accueil"
+
+msgctxt "#31701"
+msgid "Use extra large info panel"
+msgstr "Utiliser le panneau d'information étendu"
+
+msgctxt "#31702"
+msgid "Configure Header for all windows (except home)"
+msgstr "Configurer l'entête pour toutes les fenêtres (hors Accueil)"
+
+msgctxt "#31703"
+msgid "Configure Header for Home screen"
+msgstr "Configurer l'entête pour l'Accueil"
+
+msgctxt "#31704"
+msgid "Settings for header"
+msgstr "Paramètres de l'entête"
 
 msgctxt "#31705"
 msgid "Clock"
 msgstr "Horloge"
 
+msgctxt "#31706"
+msgid "Prefer animated posters (if available)"
+msgstr "Préférer les Affiches animés (si disponibles)"
+
+msgctxt "#31707"
+msgid "Disable widget details panel (on focus)"
+msgstr "Désactiver le panneau de détail du widgets (à la sélection)"
+
+msgctxt "#31708"
+msgid "Enable artwork lookups for PVR"
+msgstr "Activer la recherche des Illustrations pour l’Enregistreur Numérique"
+
+msgctxt "#31709"
+msgid "PVR artwork settings"
+msgstr "Paramètres de Illustrations de l'Enregistreur Numérique"
+
 msgctxt "#31710"
 msgid "Enable skin helper artwork lookups for addons"
-msgstr "Activer la recherche d'illustrations par l'assistant d'habillage pour les extensions"
+msgstr "Activer la recherche d'Illustrations skin helper pour les extensions"
+
+msgctxt "#31711"
+msgid "Hide Row Details for Unwatched/In-Progress Episodes"
+msgstr "Cacher les détails pour les épisodes non-vus/En cours de lecture"
+
+msgctxt "#31712"
+msgid "Auto-align widgets to the right"
+msgstr "Aligner automatiquement les widgets à droite"
+
+msgctxt "#31713"
+msgid "Swap poster"
+msgstr "Échanger les affiches"
 
 msgctxt "#31714"
 msgid "Reload skin"
 msgstr "Recharger l'habillage"
 
+msgctxt "#31715"
+msgid "Disable Kodi screensaver on fullscreen music playback"
+msgstr "Désactiver l'écran de veille de Kodi lors de la lecture de musique"
+
+msgctxt "#31716"
+msgid "Recently Added Movies"
+msgstr "Films ajoutés récemment"
+
+msgctxt "#31717"
+msgid "Enable widget force refresh"
+msgstr "Activer le rafraichissement forcé des widgets"
+
+msgctxt "#31718"
+msgid "Apply the per-shortcut background to homescreen only"
+msgstr "Appliquer l'arrière plan par raccourcis à l'accueil uniquement"
+
+msgctxt "#31719"
+msgid "Big plot overlay"
+msgstr "Incrustation de l'intrigue en grand"
+
+msgctxt "#31720"
+msgid "Use small context/sidebar menu"
+msgstr "Utiliser un menu contextuel/latéral réduit"
+
+msgctxt "#31721"
+msgid "Only show one shortcut at a time in the menu"
+msgstr "Montrer seulement un raccourcis à la fois dans le menu"
+
+msgctxt "#31722"
+msgid "Right List"
+msgstr "Liste à doite"
+
+msgctxt "#31723"
+msgid "Enable auto rotate"
+msgstr "Activer la rotation automatique"
+
+msgctxt "#31724"
+msgid "Show total minutes instead of hour representation in duration"
+msgstr "Afficher la durée totale en minutes plutôt qu'en heures"
+
+msgctxt "#31725"
+msgid "Focus the homemenu when entering homescreen"
+msgstr "Focus sur le menu principal à l'ouverture de l'Accueil"
+
+msgctxt "#31726"
+msgid "Enable playlist at startup"
+msgstr "Lancer une liste de lecture au démarrage"
+
+msgctxt "#31727"
+msgid "Default position to focus in home menu"
+msgstr "Position par défaut sur le menu d'Accueil"
+
 msgctxt "#31728"
 msgid "Position %s"
-msgstr "Position %s"
+msgstr "Position en %"
 
 msgctxt "#31729"
 msgid "%s pixels"
-msgstr "%s pixels"
+msgstr "% pixels"
+
+msgctxt "#31730"
+msgid "All widgets"
+msgstr "Tous les widgets"
+
+msgctxt "#31731"
+msgid "Configure individually per-widget"
+msgstr "Configurer individuellement par widgets"
+
+msgctxt "#31732"
+msgid "Show large scrolling text while music playback"
+msgstr "Afficher du texte défilant durant la lecture de musique"
+
+msgctxt "#31733"
+msgid "Show clearart (if available) at top-right if OSD-panel active"
+msgstr "Afficher ClearArt (si disponible) en haut à droite de l'OSD"
+
+msgctxt "#31734"
+msgid "Disable the Now Playing music background/visualization"
+msgstr "Désactiver l'arrière-plan de la lecture musicale en cours"
 
 msgctxt "#31735"
 msgid "Bordercolor for (unfocused) widgets/tiles on home"
-msgstr "Couleur des contours des widgets (non sélectionnés) sur l'écran d'accueil"
+msgstr "Couleur de la bordure des widgets/tuiles non sélectionnés sur l'Accueil"
+
+msgctxt "#31736"
+msgid "Disable clearart in Now Playing info bar"
+msgstr "Désactiver clearart dans la barre d'info de la lecture en cours"
+
+msgctxt "#31737"
+msgid "Enable square submenu"
+msgstr "Activer le sous menu carré"
+
+msgctxt "#31738"
+msgid "Disable letters popup while scrolling"
+msgstr "Désactiver l'affichage des lettres durant le défilement"
+
+msgctxt "#31739"
+msgid "Title of current (random) background (if available)"
+msgstr "Titre de l'oeuvre affiché en arrière-plan (si disponible)"
+
+msgctxt "#31740"
+msgid "Show logo of current (random) background on home"
+msgstr "Afficher le logo de l'oeuvre affichée en arrière plan sur l'accueil"
+
+msgctxt "#31741"
+msgid "Use large widget details panel"
+msgstr "Utiliser un grand panneau d'information des widgets"
+
+msgctxt "#31742"
+msgid "Home mainmenu/submenu panel color"
+msgstr "Couleur du panneau des menus d'Accueil/sous-menu"
+
+msgctxt "#31743"
+msgid "Home mainmenu/submenu unfocused text color"
+msgstr "Couleur du texte désélectionné sur le menu d'accueil"
+
+msgctxt "#31744"
+msgid "Home mainmenu/submenu focused text color"
+msgstr "Couleur du texte sélectionné sur le menu d'accueil"
+
+msgctxt "#31745"
+msgid "Video playback"
+msgstr "Lecture Vidéo"
+
+msgctxt "#31746"
+msgid "Enable Quick-Jump alphabet navigation strip"
+msgstr "Activer la navigation alphabétique accélérée"
+
+msgctxt "#31747"
+msgid "Randomize images (multi-image only)"
+msgstr "Images au hasard (seulement multi-images)"
+
+msgctxt "#31748"
+msgid "Show mediaflags under the plot"
+msgstr "Afficher les infos média sous l'intrigue"
 
 msgctxt "#31749"
 msgid "Show info"
-msgstr "Afficher les informations"
+msgstr "Informations"
+
+msgctxt "#31750"
+msgid "Widget rows"
+msgstr "Ligne de widget"
+
+msgctxt "#31751"
+msgid "Single widget"
+msgstr "Simple widget"
+
+msgctxt "#31752"
+msgid "Single widget large"
+msgstr "Simple widget agrandi"
+
+msgctxt "#31753"
+msgid "Multiple widgets"
+msgstr "Multiple widgets"
+
+msgctxt "#31754"
+msgid "Multiple widgets - multiple rows"
+msgstr "Multiples widgets - multiples lignes"
+
+msgctxt "#31755"
+msgid "Colorize mainmenu tile images"
+msgstr "Coloriser les images de tuiles du menu d'Accueil "
+
+msgctxt "#31756"
+msgid "Use fanart from widget 2 as background"
+msgstr "Utiliser le fanart du widget 2 comme arrière-plan"
+
+msgctxt "#31757"
+msgid "Use fanart from widget 3 as background"
+msgstr "Utiliser le fanart du widget 3 comme arrière-plan"
+
+msgctxt "#31758"
+msgid "Use fanart from widget 4 as background"
+msgstr "Utiliser le fanart du widget 4 comme arrière-plan"
+
+msgctxt "#31759"
+msgid "Use fanart from spotlight widget as background"
+msgstr "Utiliser le fanart du widget Spotlight comme arrière-plan"
+
+msgctxt "#31760"
+msgid "Align menu items to the left"
+msgstr "Aligner les éléments de menu à gauche"
+
+msgctxt "#31761"
+msgid "Use large widget area"
+msgstr "Utiliser une grande zone de widget"
+
+msgctxt "#31762"
+msgid "Keep widget focused when starting playback from home widget"
+msgstr "Garder le focus du widget au démarrage de la lecture depuis l'Accueil"
+
+msgctxt "#31763"
+msgid "Enable zoom effect on focused widget"
+msgstr "Activer l'effet de zoom sur le widget sélectionné"
+
+msgctxt "#31764"
+msgid "Disable all scroll bars (instead of hiding them)"
+msgstr "Désactiver toutes les barres de défilement (plutôt que de les masquer)"
+
+msgctxt "#31765"
+msgid "Enable Emby coverart plugin compatability"
+msgstr "Activer la compatibilité des CoverArt de l'extension Emby"
+
+msgctxt "#31766"
+msgid "Do not display the IMDB rating icon and studio logo"
+msgstr "Ne pas afficher la note IMDB et le logo du studio"
+
+msgctxt "#31767"
+msgid "Default Palette for Color Picker"
+msgstr "Palette de couleur par défaut"
+
+msgctxt "#31768"
+msgid "Select a Default Palette for Color Picker"
+msgstr "Sélectionner une palette de couleurs par défaut"
+
+msgctxt "#31769"
+msgid "You can select which palette is displayed by default when the color picker is called by the skin."
+msgstr "Vous pouvez sélectionner quelle palette est affichée par défaut quand la sélection couleur est appelée par l'habillage."
+
+msgctxt "#31770"
+msgid "Height of the menu tiles in the mainmenu"
+msgstr "Hauteur des tuiles du menu principal"
+
+msgctxt "#31771"
+msgid "Disable auto scroll for plots/descriptions"
+msgstr "Désactiver le défilement automatique de l'intrigue"
+
+msgctxt "#31772"
+msgid "Select Movie Genre fanart"
+msgstr "Sélectionner les fanarts de Genre de Films"
+
+msgctxt "#31773"
+msgid "Submenu heading"
+msgstr "Choisir l'entête du sous-menu"
+
+msgctxt "#31774"
+msgid "Show submenu after widgets instead of before widgets"
+msgstr "Afficher le sous-menu sous le widget plutôt que devant"
+
+msgctxt "#31775"
+msgid "Enable Rotten Tomatoes and MetaCritic Rating"
+msgstr "Activer les notes de Rotten Tomatoes et MetaCritic"
+
+msgctxt "#31776"
+msgid "Highlight channel row in guide"
+msgstr "Mettre en surbrillance la chaine dans le guide"
+
+msgctxt "#31777"
+msgid "PVR Guide unfocused item color"
+msgstr "Couleur d'un élément désélectionné dans le Guide des Programmes"
+
+msgctxt "#31778"
+msgid "PVR Guide focused item color"
+msgstr "Couleur d'un élément sélectionné dans le Guide des Programmes"
+
+msgctxt "#31779"
+msgid "PVR Guide unfocused item textcolor"
+msgstr "Couleur du texte désélectionné dans le Guide des Programmes"
+
+msgctxt "#31780"
+msgid "PVR Guide focused item textcolor"
+msgstr "Couleur du texte sélectionné dans le Guide des Programmes"
+
+msgctxt "#31781"
+msgid "Video process information"
+msgstr "Information du processus vidéo"
 
 msgctxt "#31782"
 msgid "Hardware decoding"
@@ -1840,6 +3191,861 @@ msgctxt "#31784"
 msgid "Decoder"
 msgstr "Décodeur"
 
+msgctxt "#31785"
+msgid "Audio Process Information"
+msgstr "Information de processus audio"
+
+msgctxt "#31786"
+msgid "Player process info"
+msgstr "Information du processus de lecture"
+
+msgctxt "#31787"
+msgid "Software"
+msgstr "Logiciel"
+
+msgctxt "#31788"
+msgid "Focused/active color for radiobuttons and spin controls"
+msgstr "Couleur des boutons de la radio et contrôles pivotants sélectionnés"
+
+msgctxt "#31789"
+msgid "Enable indicator if item is playing or is recording/timer (pvr)"
+msgstr "Activer l'indicateur si un élément est joué ou enregistré (PVR)"
+
+msgctxt "#31790"
+msgid "Color for play icon"
+msgstr "Couleur de l'icône Lecture"
+
+msgctxt "#31791"
+msgid "Header panel color"
+msgstr "Couleur du panneau d'entête"
+
+msgctxt "#31792"
+msgid "Enable small PVR Channels OSD"
+msgstr "Activer l’OSD réduite pour la TV en Direct"
+
+msgctxt "#31793"
+msgid "Auto show trailer"
+msgstr "Afficher automatiquement la bande-annonce"
+
+msgctxt "#31794"
+msgid "Prefer short plot outline in widget details"
+msgstr "Réduire l'intrigue dans les infos du widget"
+
+msgctxt "#31795"
+msgid "Show small seekpanel when video is paused"
+msgstr "Afficher un petit panneau de recherche lors de la pause"
+
+msgctxt "#31796"
+msgid "Allow youtube lookup for trailer if no trailer exists"
+msgstr "Permette la recherche de BA sur Youtube si inexistante"
+
+msgctxt "#31797"
+msgid "Youtube Videos"
+msgstr "Vidéo Youtube"
+
+msgctxt "#31798"
+msgid "Auto play trailer for Spotlight content"
+msgstr "Lire automatiquement la bande-annonce du contenu Spotlight"
+
+msgctxt "#31799"
+msgid "Default widgets"
+msgstr "Widgets par défauts"
+
+msgctxt "#31800"
+msgid "Manage color themes"
+msgstr "Gérer les thèmes de couleur"
+
+msgctxt "#31801"
+msgid "Manage skin backups"
+msgstr "Gérér les sauvegarde de l'habillage"
+
+msgctxt "#31802"
+msgid "Show animated art only in details/info (not in lists)"
+msgstr "Afficher uniquement les artworkd animés dans détails/infos (hors listes)"
+
+msgctxt "#31803"
+msgid "Use animated fanart as background (if available)"
+msgstr "Utiliser des fanart animés en arrière-plan (si dispo)"
+
+msgctxt "#31804"
+msgid "Use fanart from widget as background"
+msgstr "Utiliser les fanart du widgets comme arrière-plan"
+
+msgctxt "#31805"
+msgid "Enable zoom effect"
+msgstr "Activer l'effet de zoom"
+
+msgctxt "#31806"
+msgid "Jump to a specific time (hh:mm:ss)"
+msgstr "Sauter à un minutage précis (hh:mm:ss)"
+
+msgctxt "#31807"
+msgid "Enable OSD of buffering progess during video playback"
+msgstr "Affichage de la mise en cache durant la lecture vidéo"
+
+msgctxt "#31808"
+msgid "Enable weather alert icon overlay (if supported by weather addon)"
+msgstr "Activer l'icône d'alerte météo incrusté (si supporté par l'extension)"
+
+msgctxt "#31809"
+msgid "Volume Display/Change Indicator Style"
+msgstr "Affichage du volume - Changer le style de l'indicateur"
+
+msgctxt "#31810"
+msgid "Don't use UPPERCASE font on the homemenu titles"
+msgstr "N'utilisez pas de MAJUSCULES dans les titres du menu d'accueil"
+
+msgctxt "#31811"
+msgid "Hide poster panel"
+msgstr "Cacher le panneau d'Affiches"
+
+msgctxt "#31812"
+msgid "Enable automatic creation of wall backgrounds"
+msgstr "Activer la création automatique d'un mur d'arrière-plan"
+
+msgctxt "#31813"
+msgid "Diffuse color for lyrics overlay"
+msgstr "Couleur diffuser de l'affichage des paroles"
+
+msgctxt "#31814"
+msgid "Textcolor for unfocused lyrics"
+msgstr "Couleur du texte des paroles déselectionnés"
+
+msgctxt "#31815"
+msgid "Textcolor for focused lyrics"
+msgstr "Couleur du texte des paroles sélectionnés"
+
+msgctxt "#31816"
+msgid "Shadowcolor for unfocused lyrics text"
+msgstr "Couleur sombre du texte des paroles déselectionnés"
+
+msgctxt "#31817"
+msgid "Shadowcolor for focused lyrics text"
+msgstr "Couleur sombre du texte des paroles sélectionnés"
+
+msgctxt "#31818"
+msgid "Disable Clearlogo in Bingie Views (Text title instead)"
+msgstr "Désactiver les Clearlogo dans la vue Bingie (Titre en texte à la place)"
+
+msgctxt "#31819"
+msgid "Hide default playback controls from the OSD"
+msgstr "Cacher les contrôles de lecture dans le menu incrusté OSD"
+
+msgctxt "#31820"
+msgid "Show all widgets (detach from main menu focus)"
+msgstr "Afficher tous les widgets (Détachée de la sélection du menu principal)"
+
+msgctxt "#31821"
+msgid "Pause Rotating if Widget is Focused"
+msgstr "Mettre la rotation du widget en pause si sélectionné"
+
+msgctxt "#31822"
+msgid "No widget assigned [click to configure]"
+msgstr "Pas de widgets assignés [clique pour configurer]"
+
 msgctxt "#31823"
 msgid "Use fixed focus"
-msgstr "Utiliser une sélection fixe"
+msgstr "L'affichage suit la sélection"
+
+msgctxt "#31824"
+msgid "Default music background (as fallback if no artist fanart or fanart disabled)"
+msgstr "Musique de fond par défaut (en repli si les fanart de l'artiste sont indisponibles ou désactivés)"
+
+msgctxt "#31825"
+msgid "Don't use rich artwork on the OSD at livetv playback"
+msgstr "Ne pas utiliser d'artwork riches sur le menu à l'écran de la TV en Direct"
+
+msgctxt "#31826"
+msgid "Select country flags / icons"
+msgstr "Sélectionner les drapeau/icônes de pays"
+
+msgctxt "#31827"
+msgid "Bingie Episodes"
+msgstr "Épisodes Bingie"
+
+msgctxt "#31828"
+msgid "Media listitem border focus color"
+msgstr "Couleur des bordures des listes d'éléments média sélectionné"
+
+msgctxt "#31829"
+msgid "Home border focus color"
+msgstr "Couleur des bordures de l'Accueil sélectionné"
+
+msgctxt "#31830"
+msgid "Bingie primary text color"
+msgstr "Couleur du texte Bingie principal"
+
+msgctxt "#31831"
+msgid "Bingie secondary text color"
+msgstr "Couleur du texte Bingie Secondaire"
+
+msgctxt "#31832"
+msgid "Bingie flags color"
+msgstr "Couleur des icônes Bingie"
+
+msgctxt "#31833"
+msgid "Ratings Logo Color"
+msgstr "Couleur des logos de notation"
+
+msgctxt "#31834"
+msgid "Mainmenu Focus Button Color"
+msgstr "Couleur du bouton sélectionné dans le menu principal"
+
+msgctxt "#31835"
+msgid "Mainmenu Secondary Focus Button Color"
+msgstr "Couleur du bouton secondaire sélectionné dans le menu principal"
+
+msgctxt "#31836"
+msgid "Bingie Ratings in Details Row Color"
+msgstr "Couleur de la ligne de notation Bingie"
+
+msgctxt "#31837"
+msgid "New"
+msgstr "Nouveautés"
+
+msgctxt "#31838"
+msgid "More Info"
+msgstr "Plus d'informations"
+
+msgctxt "#31839"
+msgid "Switch Profiles"
+msgstr "Changer de profil"
+
+msgctxt "#31840"
+msgid "Watch Season 1 Now"
+msgstr "Regardez la saison 1 maintenant"
+
+msgctxt "#31841"
+msgid "Watch Now"
+msgstr "A regarder tout de suite"
+
+msgctxt "#31842"
+msgid "Set Spotlight Content to Recommendations Based on Recently Watched"
+msgstr "Baser le contenu Spotlight selon des recommandation basée sur du contenu vu récemment"
+
+msgctxt "#31843"
+msgid "Details Options"
+msgstr "Options de détails"
+
+msgctxt "#31844"
+msgid "Thumbs Up/Down Options"
+msgstr "Options du pouce en l'air/en bas"
+
+msgctxt "#31845"
+msgid "Footer (Media Flags, Ratings & Studio Logo)"
+msgstr "Pied-de-page (Infos médias, notes et logos du studio)"
+
+msgctxt "#31846"
+msgid "Menu Options"
+msgstr "Options du menu"
+
+msgctxt "#31847"
+msgid "Alphabet Letters Pop-Up & Navigation"
+msgstr "Affichage des lettres de l'alphabet et Navigation"
+
+msgctxt "#31848"
+msgid "Media Flags, Rating & Studio Logo in Views"
+msgstr "Infos médias, notes et logos des studios dans les vues"
+
+msgctxt "#31849"
+msgid "Trailers Settings"
+msgstr "Paramètres des bandes-annonces (BA)"
+
+msgctxt "#31850"
+msgid "Starting in"
+msgstr "Démarrage dans"
+
+msgctxt "#31851"
+msgid "Widget Content"
+msgstr "Contenu du widget"
+
+msgctxt "#31852"
+msgid "Background Image"
+msgstr "Image d'arrière plan"
+
+msgctxt "#31853"
+msgid "More episodes"
+msgstr "Plus d'épisodes"
+
+msgctxt "#31854"
+msgid "Rate this title"
+msgstr "Noter ce titre"
+
+msgctxt "#31855"
+msgid "Change rating"
+msgstr "Changer la note"
+
+msgctxt "#31856"
+msgid "Who's watching?"
+msgstr "Qui regarde ?"
+
+msgctxt "#31857"
+msgid "Liked"
+msgstr "Aimé"
+
+msgctxt "#31858"
+msgid "Welcome Back"
+msgstr "Bon retour parmi nous !"
+
+msgctxt "#31859"
+msgid "in IMDB Top 250"
+msgstr "Dans le Top 250 IMDB"
+
+msgctxt "#31860"
+msgid "Top Picks"
+msgstr "Les meilleurs films"
+
+msgctxt "#31861"
+msgid "Continue Watching"
+msgstr "Continuer de regarder"
+
+msgctxt "#31862"
+msgid "for"
+msgstr "pour"
+
+msgctxt "#31863"
+msgid "for You"
+msgstr "pour vous"
+
+msgctxt "#31864"
+msgid "TV Shows Hub"
+msgstr "Hub Séries TV"
+
+msgctxt "#31865"
+msgid "Movies Hub"
+msgstr "Hub Films"
+
+msgctxt "#31866"
+msgid "New Hub"
+msgstr "Hub des nouveautés"
+
+msgctxt "#31867"
+msgid "My List"
+msgstr "Ma liste"
+
+msgctxt "#31868"
+msgid "Play trailer"
+msgstr "Voir la bande-annonce"
+
+msgctxt "#31869"
+msgid "Add to My List"
+msgstr "Ajouter dans Ma liste"
+
+msgctxt "#31870"
+msgid "Remove from My List"
+msgstr "Enlever de Ma liste"
+
+#. first letter of 'Season'
+msgctxt "#31871"
+msgid "S"
+msgstr "S"
+
+#. first letter of 'Episode'
+msgctxt "#31872"
+msgid "E"
+msgstr "E"
+
+#. short naming for 'Episode'
+msgctxt "#31873"
+msgid "Ep"
+msgstr "Ep"
+
+msgctxt "#31874"
+msgid "Set Custom Spotlight Content"
+msgstr "Choisir du contenu Spotlight personnalisé"
+
+msgctxt "#31875"
+msgid "Border Size for Thumbs/Tiles"
+msgstr "Taille des bordure pour les vignettes/tuiles"
+
+msgctxt "#31876"
+msgid "Busy Spinner Options"
+msgstr "Option de l'indicateur de chargement"
+
+msgctxt "#31877"
+msgid "Set Custom Logo"
+msgstr "Choisir un logo personnalisé"
+
+msgctxt "#31878"
+msgid "Skin Resources Settings"
+msgstr "Paramètres des ressources de l'habillage"
+
+msgctxt "#31879"
+msgid "Skin Service Helper Advanced Settings"
+msgstr "Paramètres avancée de Skin Service Helper"
+
+msgctxt "#31880"
+msgid "Restore Default Widgets in Hubs"
+msgstr "Restaurer les widgets par défaut dans les hubs"
+
+msgctxt "#31881"
+msgid "Disable Spotlight Content (Spotlight will just show widget info)"
+msgstr "Désactiver le contenu Spotlight (Affiche uniquement les infos du widget sélectionné)"
+
+msgctxt "#31882"
+msgid "Set Custom Content in Home Spotlight"
+msgstr "Choisir le contenu personnalisé pour l'Accueil Spotlight"
+
+msgctxt "#31883"
+msgid "Auto Play Trailers in Home & Hubs"
+msgstr "Lancer automatiquement les bandes-annonces sur l'Accueil et les Hubs"
+
+msgctxt "#31884"
+msgid "Select Delay Interval for Auto-Trailers"
+msgstr "Sélectionner le délai d'intervale pour le lancement auto. des bandes-annonces"
+
+msgctxt "#31885"
+msgid "Auto-Trailer Interval"
+msgstr "Intervale des bandes-annonces automatiques"
+
+msgctxt "#31886"
+msgid "Set Default 'Select' Action to Show Information (only applies to widgets)"
+msgstr "Action par défaut lors de la sélection sur Afficher les Infos (seulement sur les widgets)"
+
+msgctxt "#31887"
+msgid "Prefer Stars Rating Over Percentage Based Rating"
+msgstr "Préférer les notes étoilés à la place des pourcentages"
+
+msgctxt "#31888"
+msgid "Disable Additional Info (Genre/Cast/...)"
+msgstr "Désactiver les informations supplémentaires (Genre/Cast/...)"
+
+msgctxt "#31889"
+msgid "Show Plot for Unwatched and In-Progress Episodes"
+msgstr "Afficher l'intrigue pour les épisodes non-vu/En cours de lecture"
+
+msgctxt "#31890"
+msgid "Disable Thumbs Up/Down"
+msgstr "Désactiver le pouce en l'air/en bas"
+
+msgctxt "#31891"
+msgid "Thumbs Up rate value"
+msgstr "Valeur de notation du pouce en l'air"
+
+msgctxt "#31892"
+msgid "Thumbs Down rate value"
+msgstr "Valeur de notation du pouce en bas"
+
+msgctxt "#31893"
+msgid "Minimum (inclusive) User Rating to Show Thumbs Up"
+msgstr "Note minimum (inclusive) pour afficher le pouce en l'air"
+
+msgctxt "#31894"
+msgid "Maximum (inclusive) User Rating to Show Thumbs Down"
+msgstr "Note maximum (inclusive) pour afficher le pouce en bas"
+
+msgctxt "#31895"
+msgid "Media flags, ratings and studio logo must be first enabled under 'Media Library Views' tab."
+msgstr "Infos Médias, Notes et logos Studios doivent être activés dans le menu 'Vues des médiathèques'"
+
+msgctxt "#31896"
+msgid "Enable Monochrome Rating Flags in Bingie Views"
+msgstr "Activer les icônes de notation monochromes dans les vues Bingie"
+
+msgctxt "#31897"
+msgid "Hide Ratings, Studio Logo & Media Flags While Trailer is Playing"
+msgstr "Cacher les notes, studios et infos médias durant la lecture des bandes-annonces"
+
+msgctxt "#31898"
+msgid "Disable Studio Logo in Bingie Views"
+msgstr "Désactiver les logos Studios dans la vue Bingie"
+
+msgctxt "#31899"
+msgid "Disable Ratings Flags in Bingie Views"
+msgstr "Désactiver les notes dans la vue Bingie"
+
+msgctxt "#31900"
+msgid "Show 'Switch Profile' Button and Profile Avatar Instead of Logo"
+msgstr "Afficher un bouton 'Changer de profil' et l'Avatar à la place du Logo"
+
+msgctxt "#31901"
+msgid "Disable Menu Icons"
+msgstr "Désactiver les icônes du menu"
+
+msgctxt "#31902"
+msgid "Disable Welcome Pop-Up Message Notification"
+msgstr "Désactiver la notification Pop-Up de Bienvenue"
+
+msgctxt "#31903"
+msgid "This section will take effect only when content is sorted by title."
+msgstr "Cette section n'aura d'effet que si les contenus sont classés par titres."
+
+msgctxt "#31904"
+msgid "Enable Monochrome Rating Flags in Views"
+msgstr "Activer les icônes de notation monochrome dans les vues"
+
+msgctxt "#31905"
+msgid "Enable Studio Logo"
+msgstr "Activer les logos des Studios"
+
+msgctxt "#31906"
+msgid "Enable IMDB Rating"
+msgstr "Activer les notes IMDB"
+
+msgctxt "#31907"
+msgid "Enable TVDB and TMDB Rating"
+msgstr "Activer les notes TVDB et TMDB"
+
+msgctxt "#31908"
+msgid "Enable Details Icons (cast, director, genre, etc...)"
+msgstr "Activer les icônes des détails (cast, réalisateur, genre, etc...)"
+
+msgctxt "#31909"
+msgid "'Auto' will play trailer instantly when opening info dialog."
+msgstr "'Auto' lance la lecture de la BA dès l'ouverture de la fenêtre d'infos"
+
+msgctxt "#31910"
+msgid "Prefer Trailers from Youtube in Info Dialog (Ignoring Local/Scraped)"
+msgstr "Préférer les BA de Youtube dans la fenêtre d'information (ignorer local/scrappé)"
+
+msgctxt "#31911"
+msgid "Prioritize Regional Trailers (Will look for trailers in interface set language)"
+msgstr "Préférer les BA régionales (Recherche des BA dans la langue de l'interface)"
+
+msgctxt "#31912"
+msgid "Auto-Hide Bingie Info Dialog While Trailer Is Playing and System is Idle"
+msgstr "Masque auto. des fenêtre d'information Bingie pendant la lecture des BA"
+
+msgctxt "#31913"
+msgid "Show First Unwatched/Currently Watching Episode Info in TV Show's Info (Replacing TV Show's General Info)"
+msgstr "Afficher en premier les infos des Épisodes non-vus/en cours dans les séries TV (remplace les infos générales)"
+
+msgctxt "#31914"
+msgid "Bingie Views"
+msgstr "Vues Bingie"
+
+msgctxt "#31915"
+msgid "Header Colors"
+msgstr "Couleurs de l'entête"
+
+msgctxt "#31916"
+msgid "Footer Colors"
+msgstr "Couleur du pied-de-page"
+
+msgctxt "#31917"
+msgid "Use Bingie OSD Panel"
+msgstr "Utiliser l’OSD Bingie"
+
+msgctxt "#31918"
+msgid "OSD Info Panel"
+msgstr "Panneau d'information du menu incrusté à l'image (OSD)"
+
+msgctxt "#31919"
+msgid "Use Bingie Info Panel OSD"
+msgstr "Utiliser le menu d'information OSD de Bingie"
+
+msgctxt "#31920"
+msgid "Don't Show Clearlogo on Pause (text instead)"
+msgstr "Ne pas afficher les Clearlogo durant la pause (remplacé par du texte)"
+
+msgctxt "#31921"
+msgid "Up Next Addon Options"
+msgstr "Options de l'extension Up Next"
+
+msgctxt "#31922"
+msgid "Use Simplified Layout (No Info, Just 2 Buttons)"
+msgstr "Utiliser un agencement simplifié (pas d'infos, seulement deux boutons)"
+
+msgctxt "#31923"
+msgid "Enable Settings Dialog for Subtitles Instead of Buttons Layout"
+msgstr "Activer la fenêtre d'option des sous-titres par défaut de Kodi"
+
+msgctxt "#31924"
+msgid "Disable Clock in Now Playing Info Bar"
+msgstr "Désactiver l'horloge dans la barre d'information de la lecture en cours"
+
+msgctxt "#31925"
+msgid "Unlock Hubs to change spotlight content and set widgets inside the hubs."
+msgstr "Déverrouillez les hubs pour changer le contenu Spotlight et personnaliser les widgets."
+
+msgctxt "#31926"
+msgid "Lock Widgets in Hubs"
+msgstr "Verrouiller les widgets dans les hubs"
+
+msgctxt "#31927"
+msgid "Allow Auto-Trailers for TV Shows & Episodes"
+msgstr "Permettre les BA automatiques pour les Séries TV et les Épisodes"
+
+msgctxt "#31928"
+msgid "Allow Auto-Trailers for Content from Addons/Non-Library"
+msgstr "Permettre les BA automatiques pour le contenu venant des extension/hors médiathèque"
+
+msgctxt "#31929"
+msgid "General Artwork & Details Options"
+msgstr "Options des Illustrations et des Détails"
+
+msgctxt "#31930"
+msgid "Select Which Details to Show in Info Dialog"
+msgstr "Sélectionner quels détails afficher dans la fenêtre d'information"
+
+msgctxt "#31931"
+msgid "Windows 10"
+msgstr "Windows 10"
+
+msgctxt "#31932"
+msgid "Landscape Small"
+msgstr "Paysage réduit"
+
+msgctxt "#31933"
+msgid "Single Box"
+msgstr "Simple boite"
+
+msgctxt "#31934"
+msgid "Square"
+msgstr "Carré"
+
+msgctxt "#31935"
+msgid "Mini Square"
+msgstr "Mini carré"
+
+msgctxt "#31936"
+msgid "Small Posters"
+msgstr "Petites affiches"
+
+msgctxt "#31937"
+msgid "Landscape Large"
+msgstr "Grands paysages"
+
+msgctxt "#31938"
+msgid "Landscape Details"
+msgstr "Paysages détaillés"
+
+msgctxt "#31939"
+msgid "Poster Details"
+msgstr "Affiches détaillés"
+
+msgctxt "#31940"
+msgid "Landscape Widebox"
+msgstr "Paysages de larges boites"
+
+msgctxt "#31941"
+msgid "Classic"
+msgstr "Classique"
+
+msgctxt "#31942"
+msgid "Boxed Info"
+msgstr "Informations Encadrées"
+
+msgctxt "#31943"
+msgid "Textbased - Full Info"
+msgstr "Textuel - Informations complètes"
+
+msgctxt "#31944"
+msgid "Large Icons"
+msgstr "Grandes icônes"
+
+msgctxt "#31945"
+msgid "Large Icons Color"
+msgstr "Grandes icônes en couleur"
+
+msgctxt "#31946"
+msgid "Top"
+msgstr "Haut"
+
+msgctxt "#31947"
+msgid "Bottom"
+msgstr "Bas"
+
+msgctxt "#31948"
+msgid "Large"
+msgstr "Large"
+
+msgctxt "#31949"
+msgid "Single fanart image"
+msgstr "Un seul fanart"
+
+msgctxt "#31950"
+msgid "Extrafanart (slideshow)"
+msgstr "fanart supplémentaires"
+
+msgctxt "#31951"
+msgid "Always visible"
+msgstr "Toujours visible"
+
+msgctxt "#31952"
+msgid "Only when OSD active"
+msgstr "seulement lorsque l’OSD est actif"
+
+msgctxt "#31953"
+msgid "Pause"
+msgstr "Pause"
+
+msgctxt "#31954"
+msgid "Stop"
+msgstr "Stop"
+
+msgctxt "#31955"
+msgid "Rewind"
+msgstr "Retour"
+
+msgctxt "#31956"
+msgid "Fast Forward"
+msgstr "Avance rapide"
+
+msgctxt "#31957"
+msgid "Channel list"
+msgstr "Liste des chaines"
+
+msgctxt "#31958"
+msgid "Mini guide"
+msgstr "Mini guide"
+
+msgctxt "#31959"
+msgid "Visualizations"
+msgstr "Visualizations"
+
+msgctxt "#31960"
+msgid "Center"
+msgstr "Centre"
+
+msgctxt "#31961"
+msgid "Right"
+msgstr "Droite"
+
+msgctxt "#31962"
+msgid "Left"
+msgstr "Gauche"
+
+msgctxt "#31963"
+msgid "Blueray"
+msgstr "Blueray"
+
+msgctxt "#31964"
+msgid "HD1080"
+msgstr "HD1080"
+
+msgctxt "#31965"
+msgid "Modern"
+msgstr "Moderne"
+
+msgctxt "#31966"
+msgid "Modern (Alternative)"
+msgstr "Moderne (alternatif)"
+
+msgctxt "#31967"
+msgid "Basic"
+msgstr "Basique"
+
+msgctxt "#31969"
+msgid "Small"
+msgstr "Petit"
+
+msgctxt "#31970"
+msgid "Normal"
+msgstr "Normal"
+
+msgctxt "#31971"
+msgid "(delayed)"
+msgstr "(délai)"
+
+msgctxt "#31972"
+msgid "Small"
+msgstr "Petit"
+
+msgctxt "#31973"
+msgid "Genre Type"
+msgstr "Type de genre"
+
+msgctxt "#31974"
+msgid "Play automatically in window"
+msgstr "Lancer automatiquement en mode fenêtré"
+
+msgctxt "#31975"
+msgid "Play automatically in fullscreen"
+msgstr "Lancer automatiquement en plein écran"
+
+msgctxt "#31976"
+msgid "Awards"
+msgstr "Prix"
+
+msgctxt "#31977"
+msgid "Custom Value"
+msgstr "Valeur personnalisé"
+
+msgctxt "#31978"
+msgid "Mainmenu Title"
+msgstr "Titre du menu principal"
+
+msgctxt "#31979"
+msgid "Custom Header"
+msgstr "Entête personnalisé"
+
+msgctxt "#31980"
+msgid "Display 1 widget with multiple rows and widget selection button"
+msgstr "Afficher 1 widget avec de multiples lignes et un bouton de sélection des widgets"
+
+msgctxt "#31981"
+msgid "Display 1 widget with single row and widget selection button"
+msgstr "Afficher 1 widget avec une ligne et un bouton de sélection des widgets"
+
+msgctxt "#31982"
+msgid "Display multiple widgets with 1 row per widget"
+msgstr "Afficher de multiples widgets avec 1 ligne par widget"
+
+msgctxt "#31983"
+msgid "Display multiple widgets with multiple rows"
+msgstr "Afficher plusieurs widgets avec plusieurs lignes"
+
+msgctxt "#31984"
+msgid "Show Logo (left) and Time (right)"
+msgstr "Afficher le logo (à gauche) et l'heure (à droite)"
+
+msgctxt "#31985"
+msgid "Show Header Title (left) and Time (right)"
+msgstr "Afficher le titre de l'entête (à gauche) et l'heure (à droite)"
+
+msgctxt "#31986"
+msgid "Show Weather (left) and Time (right)"
+msgstr "Afficher la météo (à gauche) et l'heure (à droite)"
+
+msgctxt "#31987"
+msgid "Show Header Title (left) and Weather (right)"
+msgstr "Afficher le titre de l'entête (à gauche) et la météo (à droite)"
+
+msgctxt "#31988"
+msgid "Show Logo (left) and Time & Weather (right)"
+msgstr "Afficher le logo (à gauche) et l'heure et la météo (à droite)"
+
+msgctxt "#31989"
+msgid "Show Title (left) and Time & Weather (right)"
+msgstr "Afficher le titre (à gauche) et l'heure et la météo (à droite)"
+
+msgctxt "#31990"
+msgid "Show Time & Weather (right)"
+msgstr "Afficher l'heure et la météo (à droite)"
+
+msgctxt "#31991"
+msgid "Only Show Time"
+msgstr "Afficher seulement l'heure"
+
+msgctxt "#31992"
+msgid "Only Show Title"
+msgstr "Afficher seulement le titre"
+
+msgctxt "#31993"
+msgid "Only show Weather"
+msgstr "Afficher seulement la météo"
+
+msgctxt "#31994"
+msgid "Set a custom height for the menu tiles. Note that the width is set to 370px and the border/spacing is 8px"
+msgstr "Choisir une hauteur personnalisé pour les tuiles du menu. Notez que la largeur et réglée à 370px et la bordure/espacement est de 8px"
+
+msgctxt "#31995"
+msgid "Show Logo & Weather (left) and Time (right)"
+msgstr "Afficher Logo et la météo (à gauche) et l'heure (à droite)"
+
+msgctxt "#31996"
+msgid "Show Logo (left) and Profile (right)"
+msgstr "Afficher le logo (à gauche) et le profil (à droite)"
+
+msgctxt "#31997"
+msgid "Show Logo (left) and Weather (right)"
+msgstr "Afficher le logo (à gauche) et le profil (à droite)"
+
+msgctxt "#31998"
+msgid "Show Profile (left) and Time (right)"
+msgstr "Afficher le profil (à gauche) et l'heure (à droite)"
+
+msgctxt "#31999"
+msgid "Only Show Logo"
+msgstr "Afficher seulement le logo"
