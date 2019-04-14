@@ -245,7 +245,7 @@
                     <!-- ratings & studio -->
                     <control type="group">
                         <right>30</right>
-                        <height>50</height>
+                        <height>90</height>
                         <width>1000</width>
                         <include>View_523_RatingsAndStudio_Hor</include>
                     </control>
