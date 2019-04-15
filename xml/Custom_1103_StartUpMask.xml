@@ -7,7 +7,7 @@
 	<onload condition="!Skin.HasSetting(DisableAnimatedIntro) + Skin.HasSetting(UseAltDefaultIntro)">PlayMedia(special://skin/extras/media/bingie_intro2.mp4,1)</onload>
 
 	<onload condition="!Skin.HasSetting(DisableAnimatedIntro) + !Skin.HasSetting(UseAltDefaultIntro)">AlarmClock(startup,ClearProperty(StartupMask,home),00:08,silent)</onload>
-	<onload condition="Skin.HasSetting(DisableAnimatedIntro) | [!Skin.HasSetting(DisableAnimatedIntro) + Skin.HasSetting(UseAltDefaultIntro)]">AlarmClock(startup,ClearProperty(StartupMask,home),00:06,silent)</onload>
+	<onload condition="Skin.HasSetting(DisableAnimatedIntro) | [!Skin.HasSetting(DisableAnimatedIntro) + Skin.HasSetting(UseAltDefaultIntro)]">AlarmClock(startup,ClearProperty(StartupMask,home),00:05,silent)</onload>
 
 	<onunload condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(DisableWelcomeMsg) + !String.IsEqual(Window(Home).Property(WelcomeMsg),System.ProfileName)">Notification(,$VAR[WelcomeNotificationMsg],3000,$INFO[System.ProfileThumb])</onunload>
 	<onunload condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(DisableWelcomeMsg)">AlarmClock(welcomedone,SetProperty(WelcomeMsg, $INFO[System.ProfileName],Home),00:01,silent)</onunload>
@@ -43,7 +43,7 @@
 		<!-- busy spinner -->
 		<include content="Busy_Spinner">
 			<animation effect="slide" end="0,100" time="0" condition="Skin.HasSetting(DisableAnimatedIntro) + Skin.HasSetting(UseAltDefaultSplashImage)">Conditional</animation>
-			<param name="centerleft" value="49%" />
+			<param name="centerleft" value="50%" />
 			<param name="centertop" value="75%"/>
 			<param name="visibility" value="System.HasAlarm(startup) + [!Player.HasVideo | [Player.HasVideo + Integer.IsLess(Player.TimeRemaining(ss),4)]]"/>
 			<param name="size" value="90"/>
