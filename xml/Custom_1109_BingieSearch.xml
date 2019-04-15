@@ -105,8 +105,8 @@
             <onclick condition="!String.IsEmpty(Skin.String(CustomSearchTerm))">Skin.SetString(CustomSearchTerm,$INFO[ListItem.Label])</onclick>
             <onclick condition="String.IsEmpty(Skin.String(CustomSearchTerm))">SetFocus(77777)</onclick>
             <visible>!$EXP[IsActualKeyboardActive]</visible>
-            <content>$VAR[SearchAutoCompleteContentProvider]</content>
             <include>Search_Suggestions_Content</include>
+            <content>$VAR[SearchAutoCompleteContentProvider]</content>
         </include>
 
         <!--- ########## Right Layout ########## -->
