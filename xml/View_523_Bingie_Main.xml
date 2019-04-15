@@ -7,9 +7,8 @@
             <width>100%</width>
             <height>100%</height>
             <visible>Control.IsVisible(523)</visible>
-            <visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),523) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
             <include>animation_view_change</include>
-			
+
             <!-- background image + overlay -->
             <control type="image">
                 <visible>!$EXP[IsPlayingRecognizedContent]</visible>
@@ -60,7 +59,7 @@
                 <animation effect="fade" start="0" end="100" time="1400">Visible</animation>
                 <visible>!Skin.HasSetting(View523_DetailsShowFanart) + !Control.IsVisible(523001)</visible>
             </control>
-            
+
             <!-- overlay without big thumb -->
             <control type="image">
                 <visible>!$EXP[IsPlayingRecognizedContent]</visible>
@@ -251,7 +250,7 @@
                     </control>
                 </control>
             </control>
-            
+
             <!-- menu button -->
             <control type="radiobutton" id="5001">
                 <width>60</width>
@@ -307,7 +306,7 @@
                 <param name="xAxisAnim" value="366" />
                 <param name="yAxisAnim" value="210" />
             </include>
-            
+
             <!--vertical Scrollbar-->
 			<control type="group">
 				<control type="scrollbar" id="60">
@@ -377,6 +376,7 @@
             <ondown condition="!Skin.HasSetting(View_523_HorizontalNavigation)">523</ondown>
             <preloaditems>4</preloaditems>
             <pagecontrol>60</pagecontrol>
+        <visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),523) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
             <!-- normal -->
             <itemlayout height="210" width="366" condition="!Container.Content(seasons) + !Container.Content(episodes)">
                 <control type="group">
@@ -493,6 +493,7 @@
             <ondown condition="!Skin.HasSetting(View_523_HorizontalNavigation)">523</ondown>
             <preloaditems>4</preloaditems>
             <pagecontrol>60</pagecontrol>
+        <visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),523) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
             <!-- normal -->
             <itemlayout height="380" width="262" condition="!Container.Content(episodes)">
                 <control type="group">

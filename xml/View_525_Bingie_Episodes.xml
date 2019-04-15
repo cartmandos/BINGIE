@@ -324,7 +324,6 @@
     <include name="View_525_Episodes">
         <control type="group">
             <visible>Control.IsVisible(525)</visible>
-            <visible>String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView)) | String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),525)</visible>
             <!-- base bg -->
             <control type="image">
                 <include>FullscreenDimensions</include>
@@ -540,6 +539,7 @@
                     <focusposition>1</focusposition>
                     <viewtype label="31827">wide</viewtype>
                     <scrolltime tween="sine" easing="inout">350</scrolltime>
+                    <visible>String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView)) | String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),525)</visible>
                     <itemlayout width="1050" height="280">
                         <!-- panel/border -->
                         <control type="image">
