@@ -1632,7 +1632,7 @@
         <!--Bingie Slim-Menu Panel Color-->
         <include content="SkinSettings_ColorButton">
             <param name="id" value="31838" />
-            <param name="label" value="Bingie Slim-Menu Panel Color" />
+            <param name="label" value="$LOCALIZE[31052]" />
             <param name="skinsetting" value="BingieSlimMenuPanelColor" />
         </include>
         <!--Bingie Sub Label Text Color-->
