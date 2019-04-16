@@ -2378,7 +2378,6 @@
             <label>31519</label>
             <onclick>Skin.ToggleSetting(HideOSDDisc)</onclick>
             <selected>Skin.HasSetting(HideOSDDisc)</selected>
-            <visible>!Skin.HasSetting(UseBingieOSDPanel)</visible>
         </control>
         <control type="radiobutton" id="13065">
             <include>SkinSettings_Button</include>
