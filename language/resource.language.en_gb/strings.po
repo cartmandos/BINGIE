@@ -315,7 +315,7 @@ msgid "Arrange the homescreen tiles just the way you want it. [CR]Usage select a
 msgstr ""
 
 msgctxt "#31075"
-msgid "Direction to move"
+msgid "Enable Splash Animation in 4k"
 msgstr ""
 
 msgctxt "#31076"
