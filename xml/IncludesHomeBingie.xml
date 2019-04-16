@@ -456,14 +456,6 @@
             <!-- gradient overlays on widgets -->
             <control type="group">
                 <visible>!ControlGroup(505).HasFocus() + !Control.IsVisible(56399)</visible>
-                <!--bottom gradient-->
-                <control type="image">
-                    <bottom>0</bottom>
-                    <height>480</height>
-                    <width>100%</width>
-                    <aspectratio scalediffuse="true">scale</aspectratio>
-                    <texture border="15" background="true">overlays/gradient_bottom.png</texture>
-                </control>
                 <include condition="Skin.HasSetting(EnhancedHome_Circular)">Bingie_Right_Gradient</include>
                 <include condition="!Skin.HasSetting(EnhancedHome_Circular)">Bingie_Left_Gradient</include>
             </control>
