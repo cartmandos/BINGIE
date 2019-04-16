@@ -222,10 +222,6 @@ msgctxt "#31051"
 msgid "All TV Shows"
 msgstr "Toutes les séries TV"
 
-msgctxt "#31052"
-msgid "Artwork Downloader"
-msgstr "Téléchargement des illustrations"
-
 msgctxt "#31053"
 msgid "Poster"
 msgstr "Affiche"

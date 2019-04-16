@@ -144,10 +144,6 @@ msgctxt "#31051"
 msgid "All TV Shows"
 msgstr "Wszystkie"
 
-msgctxt "#31052"
-msgid "Artwork Downloader"
-msgstr "Dodatek Artwork Downloader"
-
 msgctxt "#31053"
 msgid "Poster"
 msgstr "Plakat"

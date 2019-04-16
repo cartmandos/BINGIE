@@ -223,7 +223,7 @@ msgid "All TV Shows"
 msgstr ""
 
 msgctxt "#31052"
-msgid "Artwork Downloader"
+msgid "Bingie Slim-Menu Panel Color"
 msgstr ""
 
 msgctxt "#31053"

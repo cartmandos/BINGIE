@@ -144,10 +144,6 @@ msgctxt "#31051"
 msgid "All TV Shows"
 msgstr "Bütün TV Programları"
 
-msgctxt "#31052"
-msgid "Artwork Downloader"
-msgstr "Çizim İndirici"
-
 msgctxt "#31053"
 msgid "Poster"
 msgstr "Poster"

@@ -503,7 +503,7 @@
     </variable>
 
     <variable name="BingieMenuPanelColor">
-        <value condition="!$EXP[IsMainMenuOpened] + !Skin.HasSetting(EnhancedHome_Circular)">cc000000</value>
+        <value condition="!$EXP[IsMainMenuOpened] + !Skin.HasSetting(EnhancedHome_Circular)">$INFO[Skin.String(BingieSlimMenuPanelColor)]</value>
         <value>$INFO[Skin.String(MainMenuPanelColor)]</value>
     </variable>
 

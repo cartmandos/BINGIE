@@ -40,10 +40,6 @@ msgctxt "#31051"
 msgid "All TV Shows"
 msgstr "All TV Shows"
 
-msgctxt "#31052"
-msgid "Artwork Downloader"
-msgstr "Artwork Downloader"
-
 msgctxt "#31053"
 msgid "Poster"
 msgstr "Poster"

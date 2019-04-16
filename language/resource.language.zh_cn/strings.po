@@ -132,10 +132,6 @@ msgctxt "#31051"
 msgid "All TV Shows"
 msgstr "所有剧集"
 
-msgctxt "#31052"
-msgid "Artwork Downloader"
-msgstr "艺术图片下载器"
-
 msgctxt "#31053"
 msgid "Poster"
 msgstr "海报"

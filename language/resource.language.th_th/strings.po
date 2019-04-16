@@ -20,10 +20,6 @@ msgctxt "#31048"
 msgid "Latest Movies"
 msgstr "ภาพยนตร์ ล่าสุด"
 
-msgctxt "#31052"
-msgid "Artwork Downloader"
-msgstr "ตัวดึงข้อมูล งานศิลป์"
-
 msgctxt "#31053"
 msgid "Poster"
 msgstr "โปสเตอร์"

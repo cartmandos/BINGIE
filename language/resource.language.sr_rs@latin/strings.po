@@ -144,10 +144,6 @@ msgctxt "#31051"
 msgid "All TV Shows"
 msgstr "Sve TV Serije"
 
-msgctxt "#31052"
-msgid "Artwork Downloader"
-msgstr "Preuzimač Ilustracija"
-
 msgctxt "#31053"
 msgid "Poster"
 msgstr "Poster"
