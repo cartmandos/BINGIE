@@ -346,7 +346,7 @@
             <control type="button" id="53">
                 <visible allowhiddenfocus="true">false</visible>
                 <include>HiddenObject</include>
-                <onunfocus condition="String.IsEmpty(Window(Home).Property(SpotlightFirstPlayDone))">SetProperty(SpotlightFirstPlayDone,1,Home)</onunfocus>
+                <onunfocus condition="String.IsEmpty(Window(Home).Property(SpotlightFirstPlayDone)) + !Window.IsActive(1103)">SetProperty(SpotlightFirstPlayDone,1,Home)</onunfocus>
                 <!-- trailer action -->
                 <include content="Spotlight_Trailer_Action" condition="Skin.HasSetting(SpotLightTrailers)">
                     <param name="interval" value="$VAR[FirstSpotlightLoadOrNotInterval]" />
