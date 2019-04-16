@@ -481,7 +481,7 @@
             <onback condition="!$EXP[IsPlayingRecognizedContent]">900</onback>
             <itemlayout height="210" width="366">
                 <control type="group">
-                    <width>374</width>
+                    <width>372</width>
                     <height>210</height>
                     <include>ThumbsViewLayout</include>
                     <control type="group">
@@ -494,7 +494,7 @@
             </itemlayout>
             <focusedlayout height="210" width="366">
                 <control type="group">
-                    <width>374</width>
+                    <width>372</width>
                     <height>210</height>
                     <include>ThumbsViewLayoutFocus</include>
                     <control type="group">

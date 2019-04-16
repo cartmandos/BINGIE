@@ -300,7 +300,7 @@
                 <param name="yAxisAnim" value="380" />
             </include>
             <include content="View523_Fixed_Frame" condition="!Skin.HasSetting(View523_SwapPoster)">
-                <param name="width" value="374" />
+                <param name="width" value="372" />
                 <param name="height" value="210" />
                 <param name="texture" value="$INFO[Skin.String(thumbsborder_focused),bingie/border/thumb_fo_,.png]" />
                 <param name="xAxisAnim" value="366" />
@@ -380,7 +380,7 @@
             <!-- normal -->
             <itemlayout height="210" width="366" condition="!Container.Content(seasons) + !Container.Content(episodes)">
                 <control type="group">
-                    <width>374</width>
+                    <width>372</width>
                     <height>210</height>
                     <control type="image">
                         <!--Panel Normal-->
@@ -420,7 +420,7 @@
             <!-- normal -->
             <focusedlayout height="210" width="366" condition="!Container.Content(seasons) + !Container.Content(episodes)">
                 <control type="group">
-                    <width>374</width>
+                    <width>372</width>
                     <height>210</height>
                     <control type="image">
                         <!--Panel Normal-->

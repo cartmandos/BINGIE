@@ -742,7 +742,7 @@
 
     <include name="Bingie_Screens_Fixed_Focus_Frame">
         <include content="Bingie_Screens_Fixed_Focus_Frame_Base" condition="String.IsEqual(Skin.String(widgetstyle),landscape) | $EXP[IsBingieListsActive]">
-            <param name="width" value="374"/>
+            <param name="width" value="372"/>
             <param name="height" value="210"/>
         </include>
         <include content="Bingie_Screens_Fixed_Focus_Frame_Base" condition="String.IsEqual(Skin.String(widgetstyle),landscapesmall)  + ![$EXP[IsBingieListsActive]]">

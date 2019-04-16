@@ -684,7 +684,7 @@
                 <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">
                     <param name="left" value="-276"/>
                 </include>
-                <width>374</width>
+                <width>372</width>
                 <height>210</height>
                 <include>ThumbsViewLayout</include>
                 <control type="group">
@@ -703,7 +703,7 @@
                 <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">
                     <param name="left" value="-276"/>
                 </include>
-                <width>374</width>
+                <width>372</width>
                 <height>210</height>
                 <include>ThumbsViewLayout</include>
                 <control type="group">
@@ -722,7 +722,7 @@
                 <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">
                     <param name="left" value="-276"/>
                 </include>
-                <width>374</width>
+                <width>372</width>
                 <height>210</height>
                 <animation effect="zoom" center="auto" start="100" end="105" time="160" tween="quadratic" condition="Skin.HasSetting(WidgetsZoomFocus)">Focus</animation>
                 <include>ThumbsViewLayoutFocus</include>
