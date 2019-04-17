@@ -8,7 +8,9 @@
             <visible>[Container($PARAM[widgetid]).IsUpdating | Integer.IsGreater(Container($PARAM[widgetid]).NumItems,0)] + Skin.HasSetting(LockHubWidgets)</visible>
             <width>100%</width>
             <height>40</height>
-            <include condition="String.IsEqual(Skin.String(HomeLayout),bingie)">BingieUnfocusedWidgetFade</include>
+            <include content="BingieUnfocusedWidgetFade" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">
+                <param name="widgetid" value="$PARAM[widgetid]" />
+            </include>
             <include condition="!Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Slide_Animation</include>
             <!-- fixed focus navigation -->
             <include content="Fixed_Focus_Navigation_Factory" condition="Skin.HasSetting(LockHubWidgets) + Skin.HasSetting(EnableFixedFocusWidgets)">
@@ -93,7 +95,9 @@
         <control type="$PARAM[containerType]" id="$PARAM[widgetid]">
             <visible>Container($PARAM[widgetid]).IsUpdating | Integer.IsGreater(Container($PARAM[widgetid]).NumItems,0)</visible>
             <width>100%</width>
-            <include condition="String.IsEqual(Skin.String(HomeLayout),bingie)">BingieUnfocusedWidgetFade</include>
+            <include content="BingieUnfocusedWidgetFade" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">
+                <param name="widgetid" value="$PARAM[widgetid]" />
+            </include>
             <include condition="!Skin.HasSetting(EnhancedHome_Circular)">Bingie_Focus_Position_No_Circular</include>
             <scrolltime tween="sine" easing="out">500</scrolltime>
             <preloaditems>5</preloaditems>

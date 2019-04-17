@@ -1509,7 +1509,9 @@
         <control type="group" id="20$PARAM[widgetid]">
             <visible>Container($PARAM[widgetid]).IsUpdating | Integer.IsGreater(Container($PARAM[widgetid]).NumItems,0)</visible>
             <animation effect="slide" time="0" delay="0" start="0" end="25" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">Conditional</animation>
-            <include condition="String.IsEqual(Skin.String(HomeLayout),bingie)">BingieUnfocusedWidgetFade</include>
+            <include content="BingieUnfocusedWidgetFade" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">
+                <param name="widgetid" value="$PARAM[widgetid]" />
+            </include>
             <width>100%</width>
             <height>40</height>
             <!-- fixed focus navigation -->
@@ -1957,7 +1959,9 @@
                 <effect delay="280" easing="in" end="100" start="0" time="180" tween="sine" type="fade"/>
             </animation>
             <animation time="100" effect="fade" start="0" end="100" reversible="false" easing="inout" condition="!Skin.HasSetting(Widgets_Animation)">Visible</animation>
-            <include condition="String.IsEqual(Skin.String(HomeLayout),bingie)">BingieUnfocusedWidgetFade</include>
+            <include content="BingieUnfocusedWidgetFade" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">
+                <param name="widgetid" value="$PARAM[widgetid]" />
+            </include>
             <include content="$PARAM[widgetStyle]">
                 <param name="widgetid" value="$PARAM[widgetid]" />
                 <param name="widgetTags" value="$PARAM[widgetTags]" />
