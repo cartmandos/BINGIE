@@ -279,7 +279,7 @@
                     
                     <!-- plot -->
                     <control type="textbox" id="5444322">
-                        <visible>!$EXP[IsEpisodeDBType] +
+                        <visible>![$EXP[IsEpisodeDBType] +
                             [!Integer.IsEqual(ListItem.PercentPlayed,0) | ![!Integer.IsEqual(ListItem.PlayCount,0) + !ListItem.IsResumable]] +
                             !Skin.HasSetting(ShowEpisodesPlotAll)]</visible>
                         <include condition="Skin.HasSetting(EnlargeBingiePlot)">Alt_Bingie_Plot_Height</include>
