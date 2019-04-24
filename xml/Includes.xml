@@ -85,11 +85,11 @@
 
     <expression name="IsBingieListsActive">Window.IsActive(1114) | Window.IsActive(1115)</expression>
 
-    <expression name="IsRecognizedVideoContent">VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(livetv) | VideoPlayer.Content(musicvideos)</expression>
+    <expression name="IsRecognizedVideoContent">VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(livetv) | VideoPlayer.Content(musicvideos) | Pvr.IsPlayingRecording</expression>
 
-    <expression name="IsPlayingUnrecognizedContent">Player.HasVideo + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv)]</expression>
+    <expression name="IsPlayingUnrecognizedContent">Player.HasVideo + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv) | Pvr.IsPlayingRecording]</expression>
 
-    <expression name="IsPlayingRecognizedContent">Player.HasVideo + [VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(livetv) | VideoPlayer.Content(musicvideos)]</expression>
+    <expression name="IsPlayingRecognizedContent">Player.HasVideo + [VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(livetv) | VideoPlayer.Content(musicvideos) | Pvr.IsPlayingRecording]</expression>
 
     <expression name="IsMainMenuOpened">ControlGroup(9001).HasFocus() | Control.HasFocus(900) | String.IsEqual(Window(Home).Property(ShowViewSubMenu),show)</expression>
 
