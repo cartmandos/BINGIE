@@ -1,3 +1,31 @@
+v1.0.2 (WIP)
+- Built-in playlists' limit adjusted to 200
+- Defaults changes (only take effect on fresh install/reset settings)
+	Some of the pre-configured widgets has changed for faster load-up
+	Default widget limit adjusted to 30 instead of 250
+	MainMenu panel color adjusted
+	StudioLogo is off in BingieViews by default
+- New Feature: Ability to configure Limit, Sort By and Sort Order for each widget seperatly
+- Bugfix: Fix issue with stopping live tv/recording when backing out of fullscreen
+- New Color: Bingie Slim-Menu Panel Color
+- Bugfix: Fix issue causing 'Window translator' errors in log
+- New Feature: Keep showing spotlight info while focusing mainmenu
+- Show temprature in tagoverlay for weather widget
+- 'New Episodes' indicator and spotlight buttons are auto-adjusting to label (for multi-language support)
+- Bingie Layout Adjustments (resizes & repositions)
+- Settings & Exit buttons replaced by PowerMenu content - can be configured and/or disabled
+- Hebrew translation @"scofield272"
+- Workaround to force order for season list in view525
+- Bugfix: fix issue with no border for 'similar' content from infodialog
+- Resize of busy spinner
+- Change splash animation default to 1080p and add toggle option (1080p/2160p)
+- Replace bottom gradient overlay img on widgets in bingie layout with fade effect
+- Fix auto-trailer on spotlight first play
+- Add setting to disable discart in OSD
+- Fix issue with view525/523 and forced views
+- Fix issue with vignette not showing when no osd buttons on screen for bingie osd
+- Clean-up and revisit/rewrite of widget templates and config
+
 v1.0.1 (03.04.2019)
     - New: BINGIE Start-up Animations in 4k (yeah buddy!), new Logos and Splash Screen Images.
       Splash Screen settings got its own section inside general settings tab, in which you could toggle between the two options for animations (full & shorter versions) or change to an image (also there's 2 options).
