@@ -238,7 +238,7 @@
                 <onclick condition="$PARAM[force_refresh]">SetProperty(CustomSearch,1,home)</onclick>
                 <onclick>$PARAM[onclick]</onclick>
                 <onclick condition="$PARAM[onclick2Cond]">$PARAM[onclick2]</onclick>
-                <include>ExtraSmallKey</include>
+                <include>SearchKeyDefs</include>
             </control>
         </definition>
     </include>
@@ -248,7 +248,7 @@
         <control type="button" id="$PARAM[id]">
             <onup>$PARAM[onup]</onup>
             <ondown>$PARAM[ondown]</ondown>
-            <include>ExtraSmallKey</include>
+            <include>SearchKeyDefs</include>
             <label>$PARAM[key]</label>
             <onclick>Skin.SetString(CustomSearchTerm,$INFO[Skin.String(CustomSearchTerm)]$PARAM[key])</onclick>
         </control>
@@ -568,7 +568,7 @@
     <!-- Search Suggestions Container -->
     <include name="Search_Suggestions_Container">
         <param name="visibility" default="true" />
-        <param name="left" default="100" />
+        <param name="left" default="75" />
         <param name="top" default="520" />
         <param name="onback" default="9000" />
         <param name="onup" default="101" />
@@ -579,6 +579,7 @@
             <control type="list" id="$PARAM[id]">
                 <nested/>
                 <visible>$PARAM[visibility]</visible>
+                <include condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Left</include>
                 <left>$PARAM[left]</left>
                 <top>$PARAM[top]</top>
                 <width>350</width>

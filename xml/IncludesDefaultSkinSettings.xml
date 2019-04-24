@@ -99,7 +99,8 @@
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(DisableNowPlayingInfoBar)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(UseBingieInfoDialog)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(DisableLogoMainMenu)</onload>
-        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetString(WidgetsGlobalLimit, 250)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(BingieViewsDisableStudio)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetString(WidgetsGlobalLimit, 30)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetString(SplashAnimationResolution,1080p)</onload>
 
         <!-- default splash resolution -->
@@ -154,8 +155,8 @@
         <onload condition="!Skin.String(MainMenuFocusButtonColor.name)">Skin.SetString(MainMenuFocusButtonColor.name, Dark Gray)</onload>
         <onload condition="!Skin.String(MainMenuSecondaryFocusButtonColor)">Skin.SetString(MainMenuSecondaryFocusButtonColor,ff5b5b5b)</onload>
         <onload condition="!Skin.String(MainMenuSecondaryFocusButtonColor.name)">Skin.SetString(MainMenuSecondaryFocusButtonColor.name, Very dark gray)</onload>
-        <onload condition="!Skin.String(BingieSlimMenuPanelColor)">Skin.SetString(BingieSlimMenuPanelColor,cc000000)</onload>
-        <onload condition="!Skin.String(BingieSlimMenuPanelColor.name)">Skin.SetString(BingieSlimMenuPanelColor.name, Black)</onload>
+        <onload condition="!Skin.String(BingieSlimMenuPanelColor)">Skin.SetString(BingieSlimMenuPanelColor,990e0e0e)</onload>
+        <onload condition="!Skin.String(BingieSlimMenuPanelColor.name)">Skin.SetString(BingieSlimMenuPanelColor.name, Very Dark Gray)</onload>
         <onload condition="!Skin.String(BingieDetailsFlagColor)">Skin.SetString(BingieDetailsFlagColor, 9a373737)</onload>
         <onload condition="!Skin.String(BingieDetailsFlagColor.name)">Skin.SetString(BingieDetailsFlagColor.name, Light Gray)</onload>
         <onload condition="!Skin.String(RatingsLogoColor)">Skin.SetString(RatingsLogoColor, e6d0d0d0)</onload>
@@ -269,8 +270,8 @@
         <onload condition="!Skin.String(LyricsFocusTextShadowColor)">Skin.SetString(LyricsFocusTextShadowColor,none)</onload>
         <onload condition="!Skin.String(LyricsFocusTextShadowColor.name)">Skin.SetString(LyricsFocusTextShadowColor.name,None)</onload>
 
-        <onload condition="!Skin.String(MainMenuPanelColor)">Skin.SetString(MainMenuPanelColor,ff242424)</onload>
-        <onload condition="!Skin.String(MainMenuPanelColor.name)">Skin.SetString(MainMenuPanelColor.name,Onyx)</onload>
+        <onload condition="!Skin.String(MainMenuPanelColor)">Skin.SetString(MainMenuPanelColor,f2434343)</onload>
+        <onload condition="!Skin.String(MainMenuPanelColor.name)">Skin.SetString(MainMenuPanelColor.name,Gray)</onload>
         <onload condition="!Skin.String(MainMenuTextColor)">Skin.SetString(MainMenuTextColor,ffd0d0d0)</onload>
         <onload condition="!Skin.String(MainMenuTextColor.name)">Skin.SetString(MainMenuTextColor.name,Very light gray)</onload>
 

@@ -20,7 +20,7 @@
     <!-- first run -->
     <onload condition="$EXP[IsFirstRun]">ReplaceWindow($VAR[StartUpWindow])</onload>
 
-    <onunload condition="!Skin.HasSetting(SectionBackgroundHomeOnly)">SetProperty(SectionBackground,$INFO[Control.GetLabel(99004)])</onunload>
+    <onunload condition="!Skin.HasSetting(SectionBackgroundHomeOnly)">SetProperty(SectionBackground,$ESCINFO[Control.GetLabel(99004)])</onunload>
     <onunload condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,silent)</onunload>
     <onunload>ClearProperty(submenu,Home)</onunload>
     <onunload>ClearProperty(ShowWidget,Home)</onunload>

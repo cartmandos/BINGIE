@@ -11,7 +11,7 @@
             <include content="BingieUnfocusedWidgetFade" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">
                 <param name="widgetid" value="$PARAM[widgetid]" />
             </include>
-            <include condition="!Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Slide_Animation</include>
+            <include condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">BingieNoCircularWidgetHeaderAnim</include>
             <!-- fixed focus navigation -->
             <include content="Fixed_Focus_Navigation_Factory" condition="Skin.HasSetting(LockHubWidgets) + Skin.HasSetting(EnableFixedFocusWidgets)">
                 <param name="widgetid" value="$PARAM[widgetid]"/>
@@ -95,7 +95,7 @@
         <control type="$PARAM[containerType]" id="$PARAM[widgetid]">
             <visible>Container($PARAM[widgetid]).IsUpdating | Integer.IsGreater(Container($PARAM[widgetid]).NumItems,0)</visible>
             <width>100%</width>
-            <include content="BingieUnfocusedWidgetFade" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">
+            <include content="BingieUnfocusedWidgetFade">
                 <param name="widgetid" value="$PARAM[widgetid]" />
             </include>
             <include condition="!Skin.HasSetting(EnhancedHome_Circular)">Bingie_Focus_Position_No_Circular</include>
@@ -105,7 +105,9 @@
             <onfocus condition="String.IsEmpty(Window(Home).Property(KeepPlayingTrailer))">ClearProperty(KeepPlayingTrailer,Home)</onfocus>
             <onunfocus condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,silent)</onunfocus>
             <onunfocus condition="Skin.HasSetting(BingieAutoTrailer) + $EXP[IsPlayingUnrecognizedContent] + String.IsEmpty(Window(Home).Property(KeepPlayingTrailer))">PlayerControl(Stop)</onunfocus>
-            <include condition="Skin.HasSetting(ShowInformationBypass)">ContainerShowInfoOnclick</include>
+            <include content="ContainerShowInfoOnclick" condition="Skin.HasSetting(ShowInformationBypass)">
+                <param name="widgetid" value="$PARAM[widgetid]" />
+            </include>
             <onback condition="$EXP[IsPlayingRecognizedContent]">SetFocus(509)</onback>
             <onback condition="$EXP[IsPlayingUnrecognizedContent]">SetProperty(KeepPlayingTrailer,1,Home)</onback>
             <onback condition="!$EXP[IsPlayingRecognizedContent]">900</onback>
@@ -479,7 +481,9 @@
             <onfocus condition="String.IsEmpty(Window(Home).Property(KeepPlayingTrailer))">ClearProperty(KeepPlayingTrailer,Home)</onfocus>
             <onunfocus condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,silent)</onunfocus>
             <onunfocus condition="Skin.HasSetting(BingieAutoTrailer) + $EXP[IsPlayingUnrecognizedContent] + String.IsEmpty(Window(Home).Property(KeepPlayingTrailer))">PlayerControl(Stop)</onunfocus>
-            <include condition="Skin.HasSetting(ShowInformationBypass)">ContainerShowInfoOnclick</include>
+            <include content="ContainerShowInfoOnclick" condition="Skin.HasSetting(ShowInformationBypass)">
+                <param name="widgetid" value="$PARAM[widgetid]" />
+            </include>
             <onleft condition="$EXP[IsPlayingUnrecognizedContent]">SetProperty(KeepPlayingTrailer,1,Home)</onleft>
             <onleft>900</onleft>
             <onback condition="$EXP[IsPlayingRecognizedContent]">SetFocus(509)</onback>
@@ -487,7 +491,7 @@
             <onback condition="!$EXP[IsPlayingRecognizedContent]">900</onback>
             <itemlayout height="210" width="366">
                 <control type="group">
-                    <width>372</width>
+                    <width>366</width>
                     <height>210</height>
                     <include>ThumbsViewLayout</include>
                     <control type="group">
@@ -500,7 +504,7 @@
             </itemlayout>
             <focusedlayout height="210" width="366">
                 <control type="group">
-                    <width>372</width>
+                    <width>366</width>
                     <height>210</height>
                     <include>ThumbsViewLayoutFocus</include>
                     <control type="group">
@@ -509,11 +513,14 @@
                         <include condition="String.IsEqual(Skin.String(Widgets_DisplayTags),auto)">LandscapeTagOverlayVisibility</include>
                         <include>New_Episodes_Tag_Overlay</include>
                     </control>
+                </control>
+                <control type="button">
+                    <visible>false</visible>
                     <include content="Bingie_AutoTrailer" condition="Skin.HasSetting(BingieAutoTrailer)">
                         <param name="widgetid" value="$PARAM[widgetid]" />
                     </include>
                     <include content="WidgetProperties">
-                        <param name="widgetid" value="0" />
+                        <param name="widgetid" value="$PARAM[widgetid]" />
                     </include>
                 </control>
             </focusedlayout>

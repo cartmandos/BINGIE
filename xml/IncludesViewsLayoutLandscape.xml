@@ -277,24 +277,24 @@
         <control type="group">
             <visible>!Skin.HasSetting(DisableNewEpisodesIndicator)</visible>
             <visible>$EXP[IsTvShowDBType] + $EXP[IsTVShowInLastEpisodes]</visible>
-            <width>46%</width>
-            <height>30</height>
-            <left>5</left>
+            <width>100%</width>
+            <height>22</height>
+            <left>9</left>
             <bottom>13</bottom>
             <animation effect="slide" end="1,4" time="0" condition="!Skin.HasTheme(skindefault)">Conditional</animation>
-            <control type="image">
-                <bordersize>4</bordersize>
-                <texture background="true">colors/color_white.png</texture>
-                <colordiffuse>$INFO[Skin.String(BingieNewEpisodesTagColor)]</colordiffuse>
-                <aspectratio>stretch</aspectratio>
-            </control>
-            <control type="textbox">
-                <!-- NEW EPISODES label -->
+            <control type="button">
+                <width min="170" max="359">auto</width>
+                <height>100%</height>
+                <onclick>noop</onclick>
                 <align>center</align>
                 <aligny>center</aligny>
                 <font>Bold18</font>
                 <label>[B]$LOCALIZE[31007][/B]</label>
                 <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
+                <textoffsetx>5</textoffsetx>
+                <texturefocus colordiffuse="$INFO[Skin.String(BingieNewEpisodesTagColor)]">colors/color_white.png</texturefocus>
+                <texturenofocus colordiffuse="$INFO[Skin.String(BingieNewEpisodesTagColor)]">colors/color_white.png</texturenofocus>
             </control>
         </control>
     </include>
@@ -307,6 +307,7 @@
         <value condition="!String.IsEmpty(ListItem.Art(season.landscape)) + !Skin.HasSetting(DisableLandscapeThumbs)">$INFO[ListItem.Art(season.landscape)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(landscape)) + !Skin.HasSetting(DisableLandscapeThumbs)">$INFO[ListItem.Art(landscape)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(tvshow.landscape)) + !Skin.HasSetting(DisableLandscapeThumbs)">$INFO[ListItem.Art(tvshow.landscape)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(tvshow.fanart)) + !String.IsEmpty(ListItem.DBType)">$INFO[ListItem.Art(tvshow.fanart)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(fanart)) + !String.IsEmpty(ListItem.DBType)">$INFO[ListItem.Art(fanart)]</value>
 		<value condition="!String.IsEmpty(ListItem.Property(landscape))">$INFO[ListItem.Property(landscape)]</value>
 		<value condition="!String.IsEmpty(ListItem.Property(fanart))">$INFO[ListItem.Property(fanart)]</value>

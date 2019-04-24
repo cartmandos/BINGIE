@@ -163,7 +163,7 @@ msgid "Random TV Shows"
 msgstr ""
 
 msgctxt "#31037"
-msgid "Set max number of items for all widgets"
+msgid "Set Default Limit for items in Widgets"
 msgstr ""
 
 msgctxt "#31038"
@@ -415,7 +415,7 @@ msgid "Enable Automatic Download of Artwork During Library Scan"
 msgstr ""
 
 msgctxt "#31100"
-msgid "BINGIE"
+msgid "Bingie"
 msgstr ""
 
 msgctxt "#31101"

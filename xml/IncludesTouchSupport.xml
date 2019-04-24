@@ -16,7 +16,7 @@
 		<texturenofocus colordiffuse="$INFO[Skin.String(ButtonFocusColor)]">home/basichome_left.png</texturenofocus>
 		<onclick>PageUp(60)</onclick>
 		<animation effect="slide" start="0,0" end="0,85" time="0" condition="String.IsEqual(Skin.String(HomeLayout),enhanced)">Conditional</animation>
-		<visible>Control.IsVisible(900) + Container(900).HasPrevious + ![Control.IsVisible(77551) | String.IsEqual(Window(Home).Property(ShowWidget),show)]</visible>
+		<visible>Control.IsVisible(900) + Container(900).HasPrevious + ![Control.IsVisible(77551) | !String.IsEmpty(Window(Home).Property(ShowWidget))]</visible>
 		<visible>Skin.HasTheme(classic)</visible>
 	</control>
 	
@@ -39,7 +39,7 @@
         <textoffsetx>0</textoffsetx>
 		<onclick>PageUp(60)</onclick>
 		<animation effect="slide" start="0,0" end="0,85" time="0" condition="String.IsEqual(Skin.String(HomeLayout),enhanced)">Conditional</animation>
-		<visible>Control.IsVisible(900) + Container(900).HasPrevious + ![Control.IsVisible(77551) | String.IsEqual(Window(Home).Property(ShowWidget),show)]</visible>
+		<visible>Control.IsVisible(900) + Container(900).HasPrevious + ![Control.IsVisible(77551) | !String.IsEmpty(Window(Home).Property(ShowWidget))]</visible>
 		<visible>!Skin.HasTheme(classic)</visible>
 	</control>
 	<control type="image">
@@ -50,7 +50,7 @@
 		<texture flipx="true">dialogs/videoinfo/info/arrowright.png</texture>
 		<aspectratio>keep</aspectratio>
 		<animation effect="slide" start="0,0" end="0,85" time="0" condition="String.IsEqual(Skin.String(HomeLayout),enhanced)">Conditional</animation>
-		<visible>Control.IsVisible(900) + Container(900).HasPrevious + ![Control.IsVisible(77551) | String.IsEqual(Window(Home).Property(ShowWidget),show)]</visible>
+		<visible>Control.IsVisible(900) + Container(900).HasPrevious + ![Control.IsVisible(77551) | !String.IsEmpty(Window(Home).Property(ShowWidget))]</visible>
 		<visible>!Skin.HasTheme(classic)</visible>
 	</control>
 
@@ -68,7 +68,7 @@
 		<texturenofocus colordiffuse="$INFO[Skin.String(ButtonFocusColor)]">home/basichome_right.png</texturenofocus>
 		<onclick>PageDown(60)</onclick>
 		<animation effect="slide" start="0,0" end="0,85" time="0" condition="String.IsEqual(Skin.String(HomeLayout),enhanced)">Conditional</animation>
-		<visible>Control.IsVisible(900) + Container(900).HasNext + ![Control.IsVisible(77551) | String.IsEqual(Window(Home).Property(ShowWidget),show)]</visible>
+		<visible>Control.IsVisible(900) + Container(900).HasNext + ![Control.IsVisible(77551) | !String.IsEmpty(Window(Home).Property(ShowWidget))]</visible>
 		<visible>Skin.HasTheme(classic)</visible>
 	</control>
 	
@@ -91,7 +91,7 @@
         <textoffsetx>0</textoffsetx>
 		<onclick>PageDown(60)</onclick>
 		<animation effect="slide" start="0,0" end="0,85" time="0" condition="String.IsEqual(Skin.String(HomeLayout),enhanced)">Conditional</animation>
-		<visible>Control.IsVisible(900) + Container(900).HasNext + ![Control.IsVisible(77551) | String.IsEqual(Window(Home).Property(ShowWidget),show)]</visible>
+		<visible>Control.IsVisible(900) + Container(900).HasNext + ![Control.IsVisible(77551) | !String.IsEmpty(Window(Home).Property(ShowWidget))]</visible>
 		<visible>!Skin.HasTheme(classic)</visible>
 	</control>
 	<control type="image">
@@ -102,7 +102,7 @@
 		<texture>dialogs/videoinfo/info/arrowright.png</texture>
 		<aspectratio>keep</aspectratio>
 		<animation effect="slide" start="0,0" end="0,85" time="0" condition="String.IsEqual(Skin.String(HomeLayout),enhanced)">Conditional</animation>
-		<visible>Control.IsVisible(900) + Container(900).HasNext + ![Control.IsVisible(77551) | String.IsEqual(Window(Home).Property(ShowWidget),show)]</visible>
+		<visible>Control.IsVisible(900) + Container(900).HasNext + ![Control.IsVisible(77551) | !String.IsEmpty(Window(Home).Property(ShowWidget))]</visible>
 		<visible>!Skin.HasTheme(classic)</visible>
 	</control>
 </include>
@@ -220,9 +220,9 @@
             <textureradiofocus colordiffuse="$INFO[Skin.String(ButtonFocusTextColor)]">touchcontrols/widget.png</textureradiofocus>
             <textureradionofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">touchcontrols/widget.png</textureradionofocus>
             <selected>Control.HasFocus(199105)</selected>
-			<onclick condition="String.IsEqual(Window(Home).Property(ShowWidget),show)">Control.SetFocus(900)</onclick>
-			<onclick condition="!String.IsEqual(Window(Home).Property(ShowWidget),show)">SetProperty(ShowWidget, show,Home)</onclick>
-			<onclick condition="String.IsEqual(Window(Home).Property(ShowWidget),show)">ClearProperty(ShowWidget,Home)</onclick>
+			<onclick condition="!String.IsEmpty(Window(Home).Property(ShowWidget))">Control.SetFocus(900)</onclick>
+			<onclick condition="String.IsEmpty(Window(Home).Property(ShowWidget))">SetProperty(ShowWidget,1,Home)</onclick>
+			<onclick condition="!String.IsEmpty(Window(Home).Property(ShowWidget))">ClearProperty(ShowWidget,Home)</onclick>
 			<visible>Window.IsActive(Home) + [String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),2) | String.IsEqual(Skin.String(HomeLayout),1small) | String.IsEqual(Skin.String(HomeLayout),2small) | String.Contains(Skin.String(HomeLayout),hor)]</visible>
 			<visible>!String.IsEmpty(Container(900).ListItem.Property(widget))</visible>
 		</control>

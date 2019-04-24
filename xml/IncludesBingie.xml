@@ -231,7 +231,6 @@
             <height>39</height>
             <include>Default_Visible_Fade</include>
             <control type="image">
-                <animation effect="fade" time="0" end="75" condition="true">Conditional</animation>
                 <height>100%</height>
                 <width>100%</width>
                 <texture colordiffuse="$INFO[Skin.String(BingieDetailsFlagColor)]">bingie/flags/square-rounded.png</texture>
@@ -429,7 +428,6 @@
             <include>skinshortcuts-mainmenu</include>
         </content>
     </include>
-
     <!-- variables -->
 
     <!-- New Item Tag -->
@@ -482,14 +480,14 @@
 	<!-- Choose Year / Premiered / PVR -->
 	<variable name="YearOrPremieredOrPVR">
 		<value condition="$EXP[IsEpisodeDBType]">$VAR[GetPremiered]</value>
-        <value condition="String.IsEmpty(ListItem.DBTYPE)">$VAR[GetPVRTimings]</value>
+        <value condition="String.IsEmpty(ListItem.DBTYPE) + [!String.IsEmpty(ListItem.Property(StartDateTime)) | !String.IsEmpty(ListItem.Property(DateTime)) | !String.IsEmpty(ListItem.StartTime)]">$VAR[GetPVRTimings]</value>
         <value>$VAR[GetYear]</value>
 	</variable>
 
 	<!-- Choose Duration Or Total Seasons/Episodes count -->
 	<variable name="DurationOrTotalSECount">
 		<value condition="$EXP[IsTvShowDBType]">$VAR[GetTotalSeasonEpisodeCount]</value>
-		<value>$VAR[GetDuration]</value>
+		<value condition="">$VAR[GetDuration]</value>
 	</variable>
 
 	<!-- Premiered Info -->
@@ -520,37 +518,42 @@
         <!-- Hours not disabled -->
         <!-- normal -->
         <value condition="!Skin.HasSetting(DisableHoursDuration) + Integer.IsGreater(ListItem.Duration(h),0)">$INFO[ListItem.Duration(h),,h ]$INFO[ListItem.Duration(m),,m]</value>
-        <value condition="!Skin.HasSetting(DisableHoursDuration) + Integer.IsEqual(ListItem.Duration(h),0)">$INFO[ListItem.Duration(mins),,m]</value>
+        <value condition="!Skin.HasSetting(DisableHoursDuration) + !String.IsEmpty(ListItem.Duration) + Integer.IsEqual(ListItem.Duration(h),0)">$INFO[ListItem.Duration(mins),,m]</value>
         <!-- spotlight -->
         <value condition="!Skin.HasSetting(DisableHoursDuration) + [Control.HasFocus(1508) | ControlGroup(505).HasFocus()] + Integer.IsGreater(Container(1508).ListItem.Duration(h),0)">$INFO[Container(1508).ListItem.Duration(h),,h ]$INFO[Container(1508).ListItem.Duration(m),,m]</value>
         <value condition="!Skin.HasSetting(DisableHoursDuration) + [Control.HasFocus(1508) | ControlGroup(505).HasFocus()] + Integer.IsEqual(Container(1508).ListItem.Duration(h),0)">$INFO[Container(1508).ListItem.Duration(mins),,m]</value>
         <!-- fallback -->
-        <value condition="!Skin.HasSetting(DisableHoursDuration) + String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Duration.Hours),0)">$INFO[Window(Home).Property(SkinHelper.ListItem.Duration.Minutes),,m]</value>
+        <value condition="!Skin.HasSetting(DisableHoursDuration) + Integer.IsGreater(Window(Home).Property(ListItem.Duration.Hours),0)">$INFO[Window(Home).Property(ListItem.Duration.Hours),,h ]$INFO[Window(Home).Property(ListItem.Duration.M),,m]</value>
+        <value condition="!Skin.HasSetting(DisableHoursDuration) + !String.IsEmpty(Window(Home).Property(ListItem.Duration.Hours)) + Integer.IsEqual(Window(Home).Property(ListItem.Duration.Hours),0)">$INFO[Window(Home).Property(ListItem.Duration.Mins),,m]</value>
+        <value condition="!Skin.HasSetting(DisableHoursDuration) + String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Duration.Hours),00)">$INFO[Window(Home).Property(SkinHelper.ListItem.Duration.Minutes),,m]</value>
         <value condition="!Skin.HasSetting(DisableHoursDuration) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Duration.Hours))">$INFO[Window(Home).Property(SkinHelper.ListItem.Duration.Hours),,h ]$INFO[Window(Home).Property(SkinHelper.ListItem.Duration.Minutes),,m]</value>
         <!-- Hours disabled -->
         <value condition="Skin.HasSetting(DisableHoursDuration) + !String.IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration(mins),,m]</value>
         <value condition="Skin.HasSetting(DisableHoursDuration) + [Control.HasFocus(1508) | ControlGroup(505).HasFocus()] + !String.IsEmpty(Container(1508).ListItem.Duration)">$INFO[Container(1508).ListItem.Duration(mins),,m]</value>
         <value condition="Skin.HasSetting(DisableHoursDuration) + !String.IsEmpty(Window(Home).Property(ListItem.Duration))">$INFO[Window(Home).Property(ListItem.Duration)(mins),,m]</value>
-        <!-- fallback -->
-        <value condition="!String.IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration,,m]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Duration))">$INFO[Window(Home).Property(ListItem.Duration),,m]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Duration))">$INFO[Window(Home).Property(SkinHelper.ListItem.Duration),,m]</value>
+        <!-- regular fortmat fallback -->
+        <value condition="!String.IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Duration))">$INFO[Window(Home).Property(ListItem.Duration)]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Duration))">$INFO[Window(Home).Property(SkinHelper.ListItem.Duration)]</value>
     </variable>
 
     <!-- Total Seasons/Episodes Info -->
     <variable name="GetTotalSeasonEpisodeCount">
         <!--normal-->
-        <value condition="!String.IsEmpty(ListItem.Property(TotalEpisodes)) + !Integer.IsEqual(ListItem.Property(TotalEpisodes),0) + !Integer.IsEqual(ListItem.Property(TotalEpisodes),1)">$INFO[ListItem.Property(TotalSeasons),, $LOCALIZE[33054]]</value>
+        <value condition="Integer.IsGreater(ListItem.Property(TotalEpisodes),1) + Integer.IsGreater(ListItem.Property(TotalSeasons),1)">$INFO[ListItem.Property(TotalSeasons),, $LOCALIZE[33054]]</value>
+        <value condition="Integer.IsGreater(ListItem.Property(TotalEpisodes),1) + Integer.IsEqual(ListItem.Property(TotalSeasons),1)">$INFO[ListItem.Property(TotalSeasons),, $LOCALIZE[20373]]</value>
         <value condition="Integer.IsEqual(ListItem.Property(TotalEpisodes),1)">$INFO[ListItem.Property(TotalEpisodes),, $LOCALIZE[20359]]</value>
-        <value condition="Integer.IsEqual(ListItem.Property(TotalEpisodes),0)">$INFO[ListItem.Property(TotalEpisodes),, $LOCALIZE[20360]]</value>
+        <value condition="!String.IsEmpty(ListItem.Property(TotalEpisodes)) + Integer.IsEqual(ListItem.Property(TotalEpisodes),0)">$INFO[ListItem.Property(TotalEpisodes),, $LOCALIZE[20360]]</value>
         <!--spotlight-->
-        <value condition="[Control.HasFocus(1508) | ControlGroup(505).HasFocus()] + !String.IsEmpty(Container(1508).ListItem.Property(TotalSeasons)) + !Integer.IsEqual(Container(1508).ListItem.Property(TotalSeasons),0) + !Integer.IsEqual(Container(1508).ListItem.Property(TotalSeasons),1)">$INFO[Container(1508).ListItem.Property(TotalSeasons),, $LOCALIZE[33054]]</value>
-        <value condition="[Control.HasFocus(1508) | ControlGroup(505).HasFocus()] + Integer.IsEqual(Container(1508).ListItem.Property(TotalEpisodes),1)">$INFO[Container(1508).ListItem.Property(TotalEpisodes),, $LOCALIZE[20359]]</value>
-        <value condition="[Control.HasFocus(1508) | ControlGroup(505).HasFocus()] + Integer.IsEqual(Container(1508).ListItem.Property(TotalEpisodes),0)">$INFO[Container(1508).ListItem.Property(TotalEpisodes),, $LOCALIZE[20360]]</value>
-        <!--home-->
-        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Property.TotalSeasons)) + !Integer.IsEqual(Window(Home).Property(ListItem.Property.TotalSeasons),0) + !Integer.IsEqual(Window(Home).Property(ListItem.Property.TotalSeasons),1)">$INFO[Window(Home).Property(ListItem.Property(TotalSeasons)),, $LOCALIZE[33054]]</value>
-        <value condition="Integer.IsEqual(Window(Home).Property(ListItem.Property.TotalEpisodes),1)">$INFO[Window(Home).Property(ListItem.Property(TotalEpisodes)),, $LOCALIZE[20359]]</value>
-        <value condition="Integer.IsEqual(Window(Home).Property(ListItem.Property.TotalEpisodes),0)">$INFO[Window(Home).Property(ListItem.Property(TotalEpisodes)),, $LOCALIZE[20360]]</value>
+        <value condition="ControlGroup(505).HasFocus() + !String.IsEmpty(Container(1508).ListItem.Property(TotalEpisodes)) + Integer.IsGreater(Container(1508).ListItem.Property(TotalEpisodes),1) + !String.IsEmpty(Container(1508).ListItem.Property(TotalSeasons)) + Integer.IsGreater(Container(1508).ListItem.Property(TotalSeasons),1)">$INFO[Container(1508).ListItem.Property(TotalSeasons),, $LOCALIZE[33054]]</value>
+        <value condition="ControlGroup(505).HasFocus() + !String.IsEmpty(Container(1508).ListItem.Property(TotalEpisodes)) + Integer.IsGreater(Container(1508).ListItem.Property(TotalEpisodes),1) + !String.IsEmpty(Container(1508).ListItem.Property(TotalSeasons)) + Integer.IsEqual(Container(1508).ListItem.Property(TotalSeasons),1)">$INFO[Container(1508).ListItem.Property(TotalSeasons),, $LOCALIZE[20373]]</value>
+        <value condition="ControlGroup(505).HasFocus() + Integer.IsEqual(Container(1508).ListItem.Property(TotalEpisodes),1)">$INFO[Container(1508).ListItem.Property(TotalEpisodes),, $LOCALIZE[20359]]</value>
+        <value condition="ControlGroup(505).HasFocus() + Integer.IsEqual(Container(1508).ListItem.Property(TotalEpisodes),0)">$INFO[Container(1508).ListItem.Property(TotalEpisodes),, $LOCALIZE[20360]]</value>
+        <!-- fallback -->
+        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.TotalEpisodes)) + Integer.IsGreater(Window(Home).Property(ListItem.TotalSeasons),1)">$INFO[Window(Home).Property(ListItem.TotalSeasons),, $LOCALIZE[33054]]</value>
+        <value condition="Integer.IsGreater(Window(Home).Property(ListItem.TotalEpisodes),1) + Integer.IsEqual(Window(Home).Property(ListItem.TotalSeasons),1)">$INFO[Window(Home).Property(ListItem.TotalSeasons),, $LOCALIZE[20373]]</value>
+        <value condition="Integer.IsEqual(Window(Home).Property(ListItem.TotalEpisodes),1)">$INFO[Window(Home).Property(ListItem.TotalEpisodes),, $LOCALIZE[20359]]</value>
+        <value condition="Integer.IsEqual(Window(Home).Property(ListItem.TotalEpisodes),0)">$INFO[Window(Home).Property(ListItem.TotalEpisodes),, $LOCALIZE[20360]]</value>
     </variable>
 
     <!-- MPAA Info -->
@@ -672,23 +675,24 @@
         <value condition="!String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
         <value condition="!String.IsEmpty(ListItem.Property(ChannelLogo))">$INFO[ListItem.Property(ChannelLogo)]</value>
         <!-- spotlight -->
+        <value condition="[Control(1508).HasFocus | ControlGroup(505).HasFocus()] + !String.IsEmpty(Container(1508).ListItem.Art(tvshow.clearlogo))">$INFO[Container(1508).ListItem.Art(tvshow.clearlogo)]</value>
         <value condition="[Control(1508).HasFocus | ControlGroup(505).HasFocus()] + !String.IsEmpty(Container(1508).ListItem.Art(clearlogo))">$INFO[Container(1508).ListItem.Art(clearlogo)]</value>
         <!-- home -->
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Art.tvshow.clearlogo))">$INFO[Window(Home).Property(ListItem.Art.tvshow.clearlogo)]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Art.ClearLogo))">$INFO[Window(Home).Property(ListItem.Art.ClearLogo)]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.ChannelLogo))">$INFO[Window(Home).Property(ListItem.ChannelLogo)]</value>
         <!-- skinhelper fallback -->
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Clearlogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Clearlogo)]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.ChannelLogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.ChannelLogo)]</value>
     </variable>
 
     <variable name="BingieInfoLabel">
-        <value condition="String.IsEqual(ListItem.Property(DBTYPE), systeminfo)">[B]$INFO[ListItem.label][/B] $INFO[ListItem.label2]</value>
-        <value condition="!String.IsEmpty(ListItem.Title) + String.StartsWith(ListItem.FolderPath, pvr://)">[B]$INFO[ListItem.Title][/B]</value>
-        <value condition="!String.IsEmpty(ListItem.Season) + !String.IsEmpty(ListItem.Episode) + !String.IsEqual(ListItem.TvShowTitle,ListItem.Title)">[B]$VAR[TVShowTitle][/B]</value>
-        <value condition="!String.IsEmpty(ListItem.Artist)">[B]$INFO[ListItem.Artist][/B]</value>
-        <value condition="!String.IsEmpty(ListItem.Title)">[B]$INFO[ListItem.Title][/B]</value>
-        <value condition="!String.IsEmpty(ListItem.Label)">[B]$INFO[ListItem.Label][/B]</value>
+        <value condition="ControlGroup(77777).HasFocus() + String.IsEqual(ListItem.Property(DBTYPE), systeminfo)">[B]$INFO[ListItem.label][/B] $INFO[ListItem.label2]</value>
+        <value condition="ControlGroup(77777).HasFocus() + !String.IsEmpty(ListItem.Title) + String.StartsWith(ListItem.FolderPath, pvr://)">[B]$INFO[ListItem.Title][/B]</value>
+        <value condition="ControlGroup(77777).HasFocus() + !String.IsEmpty(ListItem.Season) + !String.IsEmpty(ListItem.Episode) + !String.IsEqual(ListItem.TvShowTitle,ListItem.Title)">[B]$VAR[TVShowTitle][/B]</value>
+        <value condition="ControlGroup(77777).HasFocus() + !String.IsEmpty(ListItem.Artist)">[B]$INFO[ListItem.Artist][/B]</value>
+        <value condition="ControlGroup(77777).HasFocus() + !String.IsEmpty(ListItem.Title)">[B]$INFO[ListItem.Title][/B]</value>
+        <value condition="ControlGroup(77777).HasFocus() + !String.IsEmpty(ListItem.Label)">[B]$INFO[ListItem.Label][/B]</value>
         <!-- spotlight widget-->
         <value condition="[Control(1508).HasFocus | ControlGroup(505).HasFocus()] + String.IsEqual(Container(1508).ListItem.Property(DBTYPE), systeminfo)">[B]$INFO[Container(1508).ListItem.label][/B] $INFO[Container(1508).ListItem.label2]</value>
         <value condition="[Control(1508).HasFocus | ControlGroup(505).HasFocus()] + !String.IsEmpty(Container(1508).ListItem.Title) + String.StartsWith(Container(1508).ListItem.FolderPath, pvr://)">[B]$INFO[Container(1508).ListItem.Title][/B]</value>
@@ -715,9 +719,9 @@
         <value condition="!String.IsEmpty(ListItem.TagLine)">[B]$INFO[ListItem.TagLine][/B]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.TagLine))">[B]$INFO[Window(Home).Property(ListItem.TagLine)][/B]</value>
         <!-- Watch Tag Info -->
-        <value condition="[ControlGroup(505).HasFocus() + Integer.IsGreater(Container(1508).NumItems,0)] | [String.IsEqual(ListItem.DBTYPE,tvshow)  | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),tvshow)]">$VAR[WatchNowTagInfo]</value>
+        <value condition="[ControlGroup(505).HasFocus() + Integer.IsGreater(Container(1508).NumItems,0)] | String.IsEqual(ListItem.DBTYPE,tvshow)">$VAR[WatchNowTagInfo]</value>
         <!-- Album/Song Info -->
-        <value condition="[String.IsEqual(ListItem.DBTYPE,album)  | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),album)]">$INFO[ListItem.Album]</value>
+        <value condition="[String.IsEqual(ListItem.DBTYPE,album)  | String.IsEqual(Window(Home).Property(ListItem.DBTYPE),album)]">$INFO[ListItem.Album]</value>
         <value condition="!String.IsEmpty(ListItem.Artist)">$INFO[ListItem.TrackNumber,#, ]$INFO[ListItem.Title, ","]$INFO[ListItem.Album, (,)]</value>
         <!-- PVR Info -->
         <value condition="String.IsEmpty(ListItem.DBTYPE) + !String.IsEmpty(ListItem.Property(StartDateTime))">$INFO[ListItem.Channel]</value>
@@ -770,11 +774,9 @@
     </variable>
 
     <variable name="BingiePlot">
-        <!-- workaround - contains ''director: " is a workaround to ignore bad scraped outline plots, it should be solved at scraper level -->
         <!-- spotlight widget (inside container) -->
-        <value condition="Skin.HasSetting(WidgetsPreferPlotOutline) + !String.IsEmpty(ListItem.PlotOutline) + !String.Contains(ListItem.PlotOutline,$LOCALIZE[20339]: )">$INFO[ListItem.PlotOutline]</value>
-        <value condition="Skin.HasSetting(WidgetsPreferPlotOutline) + !String.IsEmpty(Window(Home).Property(ListItem.PlotOutline)) + !String.Contains(Window(Home).Property(ListItem.PlotOutline),$LOCALIZE[20339]: )">$INFO[Window(Home).Property(ListItem.PlotOutline)]</value>
-        <value condition="Skin.HasSetting(WidgetsPreferPlotOutline) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.PlotOutline)) + !String.Contains(Window(Home).Property(SkinHelper.ListItem.PlotOutline),$LOCALIZE[20339]: )">$INFO[Window(Home).Property(SkinHelper.ListItem.PlotOutline)]</value>
+        <value condition="Skin.HasSetting(WidgetsPreferPlotOutline) + !String.IsEmpty(ListItem.PlotOutline)">$INFO[ListItem.PlotOutline]</value>
+        <value condition="Skin.HasSetting(WidgetsPreferPlotOutline) + !String.IsEmpty(Window(Home).Property(ListItem.PlotOutline))">$INFO[Window(Home).Property(ListItem.PlotOutline)]</value>
 
         <value condition="!String.IsEmpty(ListItem.Plot)">$INFO[ListItem.Plot]</value>
         <value condition="!String.IsEmpty(ListItem.Property(Plot))">$INFO[ListItem.Property(Plot)]</value>
@@ -784,7 +786,7 @@
         <value condition="!String.IsEmpty(ListItem.PictureComment)">$INFO[ListItem.PictureComment]</value>
         <value condition="!String.IsEmpty(ListItem.PictureKeywords)">$INFO[ListItem.PictureKeywords]</value>
         <!-- spotlight widget -->
-        <value condition="[ControlGroup(505).HasFocus() | Control.HasFocus(1508)] + !String.IsEmpty(Container(1508).ListItem.PlotOutline) + Skin.HasSetting(WidgetsPreferPlotOutline) + !String.Contains(Container(1508).ListItem.PlotOutline,$LOCALIZE[20339]: )">$INFO[Container(1508).ListItem.PlotOutline]</value>
+        <value condition="[ControlGroup(505).HasFocus() | Control.HasFocus(1508)] + !String.IsEmpty(Container(1508).ListItem.PlotOutline)">$INFO[Container(1508).ListItem.PlotOutline]</value>
         <value condition="[ControlGroup(505).HasFocus() | Control.HasFocus(1508)] + !String.IsEmpty(Container(1508).ListItem.Plot)">$INFO[Container(1508).ListItem.Plot]</value>
         <value condition="[ControlGroup(505).HasFocus() | Control.HasFocus(1508)] + !String.IsEmpty(Container(1508).ListItem.Property(Plot))">$INFO[Container(1508).ListItem.Property(Plot)]</value>
         <value condition="[ControlGroup(505).HasFocus() | Control.HasFocus(1508)] + !String.IsEmpty(Container(1508).ListItem.Property(Album_Description))">$INFO[Container(1508).ListItem.Property(Album_Description)]</value>
@@ -793,7 +795,7 @@
         <value condition="[ControlGroup(505).HasFocus() | Control.HasFocus(1508)] + !String.IsEmpty(Container(1508).ListItem.PictureComment)">$INFO[Container(1508).ListItem.PictureComment]</value>
         <value condition="[ControlGroup(505).HasFocus() | Control.HasFocus(1508)] + !String.IsEmpty(Container(1508).ListItem.PictureKeywords)">$INFO[Container(1508).ListItem.PictureKeywords]</value>
         <!-- normal widgets info -->
-        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.PlotOutline)) + Skin.HasSetting(WidgetsPreferPlotOutline) + !String.Contains(Window(Home).Property(ListItem.PlotOutline),$LOCALIZE[20339]: )">$INFO[Window(Home).Property(ListItem.PlotOutline)]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.PlotOutline)) + Skin.HasSetting(WidgetsPreferPlotOutline)">$INFO[Window(Home).Property(ListItem.PlotOutline)]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Plot))">$INFO[Window(Home).Property(ListItem.Plot)]$INFO[Window(Home).Property(ListItem.label2)]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Album_Description))">$INFO[Window(Home).Property(ListItem.Album_Description)]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Artist_Description))">$INFO[Window(Home).Property(ListItem.Artist_Description)]</value>
@@ -801,7 +803,7 @@
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.PictureComment))">$INFO[Window(Home).Property(ListItem.PictureComment)]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.PictureKeywords))">$INFO[Window(Home).Property(ListItem.PictureKeywords)]</value>
         <!-- skinhelper fallback-->
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.PlotOutline)) + Skin.HasSetting(WidgetsPreferPlotOutline) + !String.Contains(Window(Home).Property(SkinHelper.ListItem.PlotOutline),$LOCALIZE[20339]: )">$INFO[Window(Home).Property(SkinHelper.ListItem.PlotOutline)]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.PlotOutline)) + Skin.HasSetting(WidgetsPreferPlotOutline)">$INFO[Window(Home).Property(SkinHelper.ListItem.PlotOutline)]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Plot))">$INFO[Window(Home).Property(SkinHelper.ListItem.Plot)]$INFO[Window(Home).Property(SkinHelper.ListItem.label2)]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Album_Description))">$INFO[Window(Home).Property(SkinHelper.ListItem.Album_Description)]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Artist_Description))">$INFO[Window(Home).Property(SkinHelper.ListItem.Artist_Description)]</value>
@@ -973,11 +975,10 @@
     <variable name="RatingDecimalToPercentage">
         <!-- user rating -->
         <value condition="!String.IsEmpty(ListItem.UserRating)">$VAR[RatingDecimalToPercentageListItemUserRating]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.UserRating))">$VAR[RatingDecimalToPercentageHomeListItemUserRating]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.UserRating))">$VAR[RatingDecimalToPercentageSkinHelperListItemUserRating]</value>
-        <!-- default rating -->
         <value condition="!String.IsEmpty(ListItem.Rating)">$VAR[RatingDecimalToPercentageListItemRating]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.UserRating))">$VAR[RatingDecimalToPercentageHomeListItemUserRating]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Rating))">$VAR[RatingDecimalToPercentageHomeListItemRating]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.UserRating))">$VAR[RatingDecimalToPercentageSkinHelperListItemUserRating]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating))">$VAR[RatingDecimalToPercentageSkinHelperListItemRating]</value>
         <!-- Window(Home).Property(SkinHelper.ListItem.Rating.percent.IMDB), Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Rating.Percent) -->
     </variable>

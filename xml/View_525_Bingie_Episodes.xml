@@ -9,14 +9,14 @@
 
     <!-- item sublabel - premiered for episodes / year mpaa totalepisodes (unwatched) for seasons -->
     <variable name="View525SubLabel">
-        <value condition="Container.Content(episodes)">$INFO[ListItem.Premiered]</value>
+        <value condition="Container(525).Content(episodes)">$INFO[ListItem.Premiered]</value>
         <value>$VAR[View525SeasonTotalEpisodesInfoLabel]</value>
     </variable>
 
     <!-- year mpaa totalepisodes (unwatched) format for seasons -->
     <variable name="View525SeasonTotalEpisodesInfoLabel">
-        <value condition="Container.Content(seasons) + !String.IsEmpty(ListItem.Property(TotalEpisodes)) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) + !String.IsEqual(ListItem.Property(UnWatchedEpisodes),ListItem.Property(TotalEpisodes))">$INFO[ListItem.Year,,   ]$INFO[ListItem.MPAA,,   ]$INFO[ListItem.Property(TotalEpisodes),, $LOCALIZE[20360] ]$INFO[ListItem.Property(UnWatchedEpisodes),(, $LOCALIZE[16101])]</value>
-        <value condition="Container.Content(seasons) + !String.IsEmpty(ListItem.Property(TotalEpisodes))">$INFO[ListItem.Year,,   ]$INFO[ListItem.MPAA,,   ]$INFO[ListItem.Property(TotalEpisodes),, $LOCALIZE[20360]]</value>
+        <value condition="Container(525).Content(seasons) + !String.IsEmpty(ListItem.Property(TotalEpisodes)) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) + !String.IsEqual(ListItem.Property(UnWatchedEpisodes),ListItem.Property(TotalEpisodes))">$INFO[ListItem.Year,,   ]$INFO[ListItem.MPAA,,   ]$INFO[ListItem.Property(TotalEpisodes),, $LOCALIZE[20360] ]$INFO[ListItem.Property(UnWatchedEpisodes),(, $LOCALIZE[16101])]</value>
+        <value condition="Container(525).Content(seasons) + !String.IsEmpty(ListItem.Property(TotalEpisodes))">$INFO[ListItem.Year,,   ]$INFO[ListItem.MPAA,,   ]$INFO[ListItem.Property(TotalEpisodes),, $LOCALIZE[20360]]</value>
     </variable>
 
     <!-- View 525 SxxExx format -->
@@ -93,7 +93,7 @@
             </control>
             <!-- watched indicator -->
             <control type="group">
-                <visible>!Container.Content(episodes)</visible>
+                <visible>!Container(525).Content(episodes)</visible>
                 <width>464</width>
                 <height>264</height>
                 <top>8</top>
@@ -102,7 +102,7 @@
             </control>
             <!-- Episode/Season Sxx:Exx format -->
             <control type="label">
-                <visible>Container.Content(episodes)</visible>
+                <visible>Container(525).Content(episodes)</visible>
                 <left>25</left>
                 <bottom>20</bottom>
                 <height>35</height>
@@ -114,7 +114,7 @@
             </control>
             <!-- progress bar -->
             <control type="progress">
-                <visible>Container.Content(episodes)</visible>
+                <visible>Container(525).Content(episodes)</visible>
                 <visible>Integer.IsGreater(ListItem.PercentPlayed,0)</visible>
                 <left>25</left>
                 <bottom>13</bottom>
@@ -129,7 +129,7 @@
             </control>
             <!-- fake progress bar for watched & not resumable -->
             <control type="progress">
-                <visible>Container.Content(episodes) + Integer.IsGreater(ListItem.PlayCount,0) + !ListItem.IsResumable</visible>
+                <visible>Container(525).Content(episodes) + Integer.IsGreater(ListItem.PlayCount,0) + !ListItem.IsResumable</visible>
                 <left>25</left>
                 <bottom>13</bottom>
                 <description>progress bar</description>
@@ -227,7 +227,7 @@
             </control>
             <!-- plot -->
             <control type="textbox">
-                <visible>Container.Content(episodes)</visible>
+                <visible>Container(525).Content(episodes)</visible>
                 <width>545</width>
                 <top>80</top>
                 <height>155</height>
@@ -240,7 +240,7 @@
             </control>
             <!-- duration -->
             <control type="label">
-                <visible>Container.Content(episodes)</visible>
+                <visible>Container(525).Content(episodes)</visible>
                 <width>100%</width>
                 <bottom>8</bottom>
                 <height>35</height>
@@ -328,7 +328,7 @@
             <control type="image">
                 <include>FullscreenDimensions</include>
                 <texture background="true" colordiffuse="$VAR[BingiePanelColor]">colors/color_white.png</texture>
-                <animation effect="fade" start="100" end="75" time="0" condition="true">Conditional</animation>
+                <animation effect="fade" start="100" end="90" time="0" condition="true">Conditional</animation>
             </control>
 
             <!--studio logo -->
@@ -440,7 +440,7 @@
 
                     <!-- Seasons list -->
                     <control type="list" id="5250">
-                        <visible allowhiddenfocus="true">Container.Content(episodes)</visible>
+                        <visible allowhiddenfocus="true">Container(525).Content(episodes)</visible>
                         <visible>Integer.IsGreater(Container(5250).NumItems,0) + !Container(5250).IsUpdating</visible>
                         <animation effect="fade" start="0" end="100" time="250">Visible</animation>
                         <animation effect="fade" start="100" end="55" time="150" condition="!Control.HasFocus(5250)">Conditional</animation>
@@ -512,7 +512,7 @@
                         <focusedlayout height="65" width="600" condition="!Control.HasFocus(5250)">
                             <include>View_525_Seasons_List_No_Focus</include>
                         </focusedlayout>
-                        <content target="video">$VAR[View525SeasonsContent]</content>
+                        <content sortby="label" sortorder="ascending" target="video">$VAR[View525SeasonsContent]</content>
                     </control>
                 </control>
 
@@ -591,7 +591,7 @@
 
                 <!-- vertical Scrollbar -->
                 <control type="scrollbar" id="60">
-                    <visible>Control.IsVisible(525) + Integer.IsGreater(Container.NumItems,0)</visible>
+                    <visible>Control.IsVisible(525) + Integer.IsGreater(Container(525).NumItems,0)</visible>
                     <top>15</top>
                     <right>2</right>
                     <width>15</width>

@@ -296,7 +296,7 @@
 		<value condition="Control.IsVisible(214) + !String.IsEmpty(Container(214).ListItem.Property(Art(clearlogo)))">$INFO[Container(214).ListItem.Property(Art(clearlogo))]</value>
 		<value condition="Control.IsVisible(215) + !String.IsEmpty(Container(215).ListItem.Property(Art(clearlogo)))">$INFO[Container(215).ListItem.Property(Art(clearlogo))]</value>
 		<value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.ClearLogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.ClearLogo)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Clearlogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Clearlogo)]</value>
 	</variable>
 	
 	<variable name="MusicPlayerClearLogo">
@@ -367,7 +367,7 @@
     
     <variable name="PVRInfoThumb">
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearArt))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.ClearArt)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Clearlogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Clearlogo)]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Landscape))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Landscape)]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Fanart))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Fanart)]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.ChannelLogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.ChannelLogo)]</value>
@@ -382,7 +382,6 @@
         <value condition="[Container.Content(LiveTV) + PVR.HasEpg] + !Skin.HasSetting(DisableHoursDuration) + Integer.IsGreater(PVR.EpgEventDuration(h),0)">$INFO[PVR.EpgEventDuration,, min]</value>
         <value condition="[Container.Content(LiveTV) + PVR.HasEpg] + !String.IsEmpty(PVR.EpgEventDuration)">$INFO[PVR.EpgEventDuration(mins),, min]</value>
     </variable>
-
 
     <variable name="ListItemDurationWithEndTime">
         <value condition="!String.IsEmpty(ListItem.Duration) + !String.IsEmpty(ListItem.EndTimeResume)">$VAR[ListItemDuration] $INFO[ListItem.EndTimeResume, - $LOCALIZE[31112]: ,]</value>
@@ -447,7 +446,7 @@
 		<value condition="String.IsEmpty(ListItem.Property(submenuVisibility)) + String.IsEqual(ListItem.Property(DBTYPE), systeminfo)">[B]$INFO[ListItem.label][/B] $INFO[ListItem.label2]</value>
         <value condition="String.IsEmpty(ListItem.Property(submenuVisibility)) + [String.IsEqual(ListItem.Property(DBTYPE), tvchannel) | String.IsEqual(ListItem.Property(DBTYPE), tvrecording)]">$INFO[ListItem.Title][CR]$INFO[ListItem.label]</value>
         <value condition="String.IsEmpty(ListItem.Property(submenuVisibility)) + String.Contains(ListItem.FolderPath, pvr)">$INFO[ListItem.Title][CR]$INFO[ListItem.label]</value>
-		<value condition="String.IsEmpty(ListItem.Property(submenuVisibility)) + String.Contains(Container(900).ListItem.Property(widgetPath), weather)">$INFO[ListItem.label]$INFO[ListItem.label2, ,]</value>
+		<value condition="String.IsEmpty(ListItem.Property(submenuVisibility)) + [String.IsEqual(ListItem.Property(DBTYPE),weather) | String.Contains(Container(900).ListItem.Property(widgetPath), weather)]">$INFO[ListItem.label]$INFO[ListItem.label2, ,]</value>
 		<!-- normal items-->
         <value condition="Container.Content(tvshows) | [!String.IsEmpty(ListItem.TvShowTitle) + String.IsEqual(ListItem.TvShowTitle,ListItem.Title)]">$INFO[ListItem.label]</value>
         <value condition="Container.Content(seasons)">$INFO[ListItem.label]</value>
@@ -459,7 +458,7 @@
         <value condition="Window.IsActive(tvchannels)">$INFO[ListItem.Title,[B],[/B]]$VAR[ListDatePVR,[CR]]</value>
         <value condition="[Window.IsActive(tvchannels) | Window.IsActive(tvguide) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch) | Window.IsActive(tvrecordings)]">$INFO[ListItem.ChannelName,, • ]$VAR[ListDatePVR]</value>
 		<value condition="String.IsEmpty(ListItem.Property(submenuVisibility)) + !String.IsEmpty(ListItem.Year)">$INFO[ListItem.label][CR]$INFO[ListItem.Year]</value>
-        <value condition="String.IsEmpty(ListItem.Property(submenuVisibility))">$INFO[ListItem.label]$INFO[ListItem.label2, ,]</value>
+        <value condition="String.IsEmpty(ListItem.Property(submenuVisibility))">$INFO[ListItem.label]</value>
 		<value>$INFO[ListItem.label]</value>
     </variable>
     
@@ -469,7 +468,7 @@
 		<value condition="String.IsEmpty(ListItem.Property(submenuVisibility)) + String.IsEqual(ListItem.Property(DBTYPE), systeminfo)">[B]$INFO[ListItem.label][/B] $INFO[ListItem.label2]</value>
         <value condition="String.IsEmpty(ListItem.Property(submenuVisibility)) + String.IsEqual(Container(900).ListItem.Property(widget), smart-pvr) + String.IsEqual(ListItem.Property(type),livechannel)">$INFO[ListItem.Property(title)] $INFO[ListItem.label]</value>
 		<value condition="String.IsEmpty(ListItem.Property(submenuVisibility)) + String.IsEqual(Container(900).ListItem.Property(widget), smart-pvr) + String.IsEqual(ListItem.Property(type),recorded)">$INFO[ListItem.label]</value>
-		<value condition="String.IsEmpty(ListItem.Property(submenuVisibility)) + String.Contains(Container(900).ListItem.Property(widgetPath), weather)">$INFO[ListItem.label]$INFO[ListItem.label2, ,]</value>
+		<value condition="String.IsEmpty(ListItem.Property(submenuVisibility)) + [String.IsEqual(ListItem.Property(DBTYPE),weather) | String.Contains(Container(900).ListItem.Property(widgetPath), weather)]">$INFO[ListItem.label]$INFO[ListItem.label2, ,]</value>
 		<!-- normal items-->
         <value condition="Container.Content(tvshows) | [!String.IsEmpty(ListItem.TvShowTitle) + String.IsEqual(ListItem.TvShowTitle,ListItem.Title)]">$INFO[ListItem.label]</value>
         <value condition="Container.Content(seasons)">$INFO[ListItem.label]</value>
@@ -482,7 +481,7 @@
         <value condition="[Window.IsActive(tvchannels) | Window.IsActive(tvguide) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch) | Window.IsActive(tvrecordings)]">$INFO[ListItem.ChannelName] $VAR[ListDatePVR]</value>
         <value condition="!String.IsEmpty(ListItem.Property(character))">$INFO[ListItem.label] $INFO[ListItem.Property(character),(,)]</value>
         <value condition="!String.IsEmpty(ListItem.Property(job))">$INFO[ListItem.label] $INFO[ListItem.Property(job),(,)]</value>
-        <value condition="String.IsEmpty(ListItem.Property(submenuVisibility))">$INFO[ListItem.label]$INFO[ListItem.label2, ,]</value>
+        <value condition="String.IsEmpty(ListItem.Property(submenuVisibility))">$INFO[ListItem.label]</value>
 		<value>$INFO[ListItem.Label]</value>
     </variable>
     
@@ -492,7 +491,7 @@
 		<value condition="String.IsEmpty(ListItem.Property(submenuVisibility)) + String.IsEqual(ListItem.Property(DBTYPE), systeminfo)">[B]$INFO[ListItem.label][/B] $INFO[ListItem.label2]</value>
         <value condition="String.IsEmpty(ListItem.Property(submenuVisibility)) + String.IsEqual(Container(900).ListItem.Property(widget), smart-pvr) + String.IsEqual(ListItem.Property(type),livechannel)">$INFO[ListItem.Property(title)] $INFO[ListItem.label]</value>
 		<value condition="String.IsEmpty(ListItem.Property(submenuVisibility)) + String.IsEqual(Container(900).ListItem.Property(widget), smart-pvr) + String.IsEqual(ListItem.Property(type),recorded)">$INFO[ListItem.label]</value>
-		<value condition="String.IsEmpty(ListItem.Property(submenuVisibility)) + String.Contains(Container(900).ListItem.Property(widgetPath), weather)">$INFO[ListItem.label]$INFO[ListItem.label2, ,]</value>
+		<value condition="String.IsEmpty(ListItem.Property(submenuVisibility)) + [String.IsEqual(ListItem.Property(DBTYPE),weather) | String.Contains(Container(900).ListItem.Property(widgetPath), weather)]">$INFO[ListItem.label]$INFO[ListItem.label2, ,]</value>
 		<!-- normal items-->
         <value condition="Container.Content(tvshows) | [!String.IsEmpty(ListItem.TvShowTitle) + String.IsEqual(ListItem.TvShowTitle,ListItem.Title)]">$INFO[ListItem.label]</value>
         <value condition="Container.Content(seasons)">$INFO[ListItem.label]</value>
@@ -506,7 +505,7 @@
         <value condition="!String.IsEmpty(ListItem.Property(character))">$INFO[ListItem.label] $INFO[ListItem.Property(character),(,)]</value>
         <value condition="!String.IsEmpty(ListItem.Property(job))">$INFO[ListItem.label] $INFO[ListItem.Property(job),(,)]</value>
         <value condition="!String.IsEmpty(ListItem.Year)">$INFO[ListItem.label] $INFO[ListItem.Year,(,)]</value>
-        <value condition="String.IsEmpty(ListItem.Property(submenuVisibility))">$INFO[ListItem.label]$INFO[ListItem.label2, ,]</value>
+        <value condition="String.IsEmpty(ListItem.Property(submenuVisibility))">$INFO[ListItem.label]</value>
 		<value>$INFO[ListItem.Label]</value>
     </variable>
     
@@ -859,101 +858,12 @@
         <value>$LOCALIZE[31753]</value>
      </variable>
      
-     <variable name="widgetstylelabel1">
-        <value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetstyle.name))">$INFO[Container(211).ListItem.Property(widgetstyle.name)]</value>
-		<value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetstyle))">$INFO[Container(211).ListItem.Property(widgetstyle)]</value>
-        <value condition="String.IsEqual(Skin.String(HomeLayout),win10)">Square</value>
-        <value>$LOCALIZE[31641]</value>
-     </variable>
-     <variable name="widgetstylelabel2">
-        <value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetstyle.1.name))">$INFO[Container(211).ListItem.Property(widgetstyle.1.name)]</value>
-		<value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetstyle.1))">$INFO[Container(211).ListItem.Property(widgetstyle.1)]</value>
-        <value condition="String.IsEqual(Skin.String(HomeLayout),win10)">Square</value>
-        <value>$LOCALIZE[31641]</value>
-     </variable>
-     <variable name="widgetstylelabel3">
-        <value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetstyle.2.name))">$INFO[Container(211).ListItem.Property(widgetstyle.2.name)]</value>
-		<value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetstyle.2))">$INFO[Container(211).ListItem.Property(widgetstyle.2)]</value>
-        <value condition="String.IsEqual(Skin.String(HomeLayout),win10)">Square</value>
-        <value>$LOCALIZE[31641]</value>
-     </variable>
-     <variable name="widgetstylelabel4">
-        <value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetstyle.3.name))">$INFO[Container(211).ListItem.Property(widgetstyle.3.name)]</value>
-		<value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetstyle.3))">$INFO[Container(211).ListItem.Property(widgetstyle.3)]</value>
-        <value condition="String.IsEqual(Skin.String(HomeLayout),win10)">Square</value>
-        <value>$LOCALIZE[31641]</value>
-     </variable>
-     <variable name="widgetstylelabel5">
-        <value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetstyle.4.name))">$INFO[Container(211).ListItem.Property(widgetstyle.4.name)]</value>
-		<value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetstyle.4))">$INFO[Container(211).ListItem.Property(widgetstyle.4)]</value>
-        <value condition="String.IsEqual(Skin.String(HomeLayout),win10)">Square</value>
-        <value>$LOCALIZE[31641]</value>
-     </variable>
-     <variable name="widgetstylelabel6">
-        <value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetstyle.5.name))">$INFO[Container(211).ListItem.Property(widgetstyle.5.name)]</value>
-		<value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetstyle.5))">$INFO[Container(211).ListItem.Property(widgetstyle.5)]</value>
-        <value condition="String.IsEqual(Skin.String(HomeLayout),win10)">Square</value>
-        <value>$LOCALIZE[31641]</value>
-     </variable>
-     <variable name="widgetstylelabel7">
-        <value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetstyle.6.name))">$INFO[Container(211).ListItem.Property(widgetstyle.6.name)]</value>
-		<value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetstyle.6))">$INFO[Container(211).ListItem.Property(widgetstyle.6)]</value>
-        <value condition="String.IsEqual(Skin.String(HomeLayout),win10)">Square</value>
-        <value>$LOCALIZE[31641]</value>
-     </variable>
-     <variable name="widgetstylelabel8">
-        <value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetstyle.7.name))">$INFO[Container(211).ListItem.Property(widgetstyle.7.name)]</value>
-		<value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetstyle.7))">$INFO[Container(211).ListItem.Property(widgetstyle.7)]</value>
-        <value condition="String.IsEqual(Skin.String(HomeLayout),win10)">Square</value>
-        <value>$LOCALIZE[31641]</value>
-     </variable>
-     
      <variable name="listitem_genre">
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Genre))">$INFO[Window(Home).Property(SkinHelper.ListItem.Genre)]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Genre))">$INFO[Window(Home).Property(SkinHelper.ListItem.Genre)]</value>
         <value>$INFO[ListItem.Genre]</value>
      </variable>
-     
-     <variable name="widgetinfopanellabel1">
-        <value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetInfoPanel.name))">$INFO[Container(211).ListItem.Property(widgetInfoPanel.name)]</value>
-		<value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetInfoPanel))">$INFO[Container(211).ListItem.Property(widgetInfoPanel)]</value>
-        <value>Top</value>
-     </variable>
-     <variable name="widgetinfopanellabel2">
-        <value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetInfoPanel.1.name))">$INFO[Container(211).ListItem.Property(widgetInfoPanel.1.name)]</value>
-		<value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetInfoPanel.1))">$INFO[Container(211).ListItem.Property(widgetInfoPanel.1)]</value>
-        <value>Top</value>
-     </variable>
-     <variable name="widgetinfopanellabel3">
-        <value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetInfoPanel.2.name))">$INFO[Container(211).ListItem.Property(widgetInfoPanel.2.name)]</value>
-		<value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetInfoPanel.2))">$INFO[Container(211).ListItem.Property(widgetInfoPanel.2)]</value>
-        <value>Top</value>
-     </variable>
-     <variable name="widgetinfopanellabel4">
-        <value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetInfoPanel.3.name))">$INFO[Container(211).ListItem.Property(widgetInfoPanel.3.name)]</value>
-		<value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetInfoPanel.3))">$INFO[Container(211).ListItem.Property(widgetInfoPanel.3)]</value>
-        <value>Top</value>
-     </variable>
-     <variable name="widgetinfopanellabel5">
-        <value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetInfoPanel.4.name))">$INFO[Container(211).ListItem.Property(widgetInfoPanel.4.name)]</value>
-		<value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetInfoPanel.4))">$INFO[Container(211).ListItem.Property(widgetInfoPanel.4)]</value>
-        <value>Top</value>
-     </variable>
-     <variable name="widgetinfopanellabel6">
-        <value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetInfoPanel.5.name))">$INFO[Container(211).ListItem.Property(widgetInfoPanel.5.name)]</value>
-		<value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetInfoPanel.5))">$INFO[Container(211).ListItem.Property(widgetInfoPanel.5)]</value>
-        <value>Top</value>
-     </variable>
-     <variable name="widgetinfopanellabel7">
-        <value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetInfoPanel.6.name))">$INFO[Container(211).ListItem.Property(widgetInfoPanel.6.name)]</value>
-		<value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetInfoPanel.6))">$INFO[Container(211).ListItem.Property(widgetInfoPanel.6)]</value>
-        <value>Top</value>
-     </variable>
-     <variable name="widgetinfopanellabel8">
-        <value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetInfoPanel.7.name))">$INFO[Container(211).ListItem.Property(widgetInfoPanel.7.name)]</value>
-		<value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetInfoPanel.7))">$INFO[Container(211).ListItem.Property(widgetInfoPanel.7)]</value>
-        <value>Top</value>
-     </variable>
+
      
      <variable name="osdpanelimage">
         <value condition="Skin.HasSetting(osdgradientstyle)">diffuse/gradient.png</value>
@@ -1443,7 +1353,7 @@
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Art.ClearLogo))">$INFO[Window(Home).Property(ListItem.Art.ClearLogo)]</value>
 
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.ChannelLogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.ChannelLogo)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Clearlogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Clearlogo)]</value>
     </variable>
     <variable name="SpotLightWidgetInfoThumb">
         <!-- details widget -->
@@ -1471,7 +1381,7 @@
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.ChannelLogo))">$INFO[Window(Home).Property(ListItem.ChannelLogo)]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Art.ChannelLogo))">$INFO[Window(Home).Property(ListItem.Art.ChannelLogo)]</value>
         <!-- skinhelper fallback -->
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.clearlogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.clearlogo)]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Clearlogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Clearlogo)]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.landscape))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.landscape)]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Poster))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Poster)]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.ChannelLogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.ChannelLogo)]</value>

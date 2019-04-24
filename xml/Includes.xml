@@ -78,6 +78,10 @@
     <!-- Constants -->
     <constant name="verthome_tiles_height">170</constant>
 
+    <constant name="landscape_width">366</constant>
+    <constant name="bingie_no_circular_posx">130</constant>
+    <constant name="bingie_no_circular_left_diff">65</constant>
+
     <!-- expressions -->
     <expression name="IsBingieViewsActive">Window.IsActive(Home) | Window.IsActive(1109) | Window.IsActive(1110) | Window.IsActive(1111) | Window.IsActive(1112) | Window.IsActive(1113) | Window.IsActive(1114) | Window.IsActive(1115)</expression>
 
@@ -95,15 +99,15 @@
 
     <expression name="IsTVShowInLastEpisodes">String.IsEqual(Window(Home).Property(LatestEpisode.10.ShowTitle),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestEpisode.9.ShowTitle),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestEpisode.8.ShowTitle),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestEpisode.7.ShowTitle),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestEpisode.6.ShowTitle),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestEpisode.5.ShowTitle),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestEpisode.4.ShowTitle),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestEpisode.3.ShowTitle),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestEpisode.2.ShowTitle),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestEpisode.1.ShowTitle),ListItem.Title)</expression>
 
-    <expression name="IsTvShowDBType">String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.Property(DBTYPE),tvshow) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,tvshow)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),tvshow)</expression>
+    <expression name="IsTvShowDBType">String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.Property(DBTYPE),tvshow) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE),tvshow)</expression>
 
     <expression name="IsTvShowDBTypeNoFallback">String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.Property(DBTYPE),tvshow)</expression>
 
-    <expression name="IsMovieDBType">String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.Property(DBTYPE),movie) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,movie)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),movie)</expression>
+    <expression name="IsMovieDBType">String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.Property(DBTYPE),movie) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE),movie)</expression>
 
     <expression name="IsMovieDBTypeNoFallback">String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.Property(DBTYPE),movie)</expression>
 
-    <expression name="IsEpisodeDBType">String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,episode)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),episode)</expression>
+    <expression name="IsEpisodeDBType">String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE),episode)</expression>
 
     <expression name="IsEpisodeDBTypeNoFallback">String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)</expression>
 
@@ -307,7 +311,7 @@
     <include name="Busy_Spinner">
         <param name="centertop" default="50%"/>
         <param name="centerleft" default="50%"/>
-        <param name="size" default="130"/>
+        <param name="size" default="100"/>
         <param name="visibility" default="true"/>
         <definition>
             <control type="multiimage">
@@ -382,6 +386,22 @@
         <alttexturefocus colordiffuse="$INFO[Skin.String(ButtonFocusColor)]" border="20">dialogs/keyboard/key-nf.png</alttexturefocus>
         <alttexturenofocus colordiffuse="$INFO[Skin.String(ButtonColor)]" border="20">dialogs/keyboard/key-nf.png</alttexturenofocus>
     </include>
+
+    <include name="SearchKeyDefs">
+        <width>70</width>
+        <height>70</height>
+        <align>center</align>
+        <font>Reg28</font>
+        <textoffsetx>0</textoffsetx>
+        <selectedcolor>$INFO[Skin.String(ButtonFocusTextColor)]</selectedcolor>
+        <textcolor>$INFO[Skin.String(ButtonTextColor)]</textcolor>
+        <focusedcolor>$INFO[Skin.String(ButtonFocusTextColor)]</focusedcolor>
+        <disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
+        <pulseonselect>false</pulseonselect>
+        <texturefocus colordiffuse="$INFO[Skin.String(ButtonFocusColor)]" border="20">dialogs/keyboard/key-nf.png</texturefocus>
+        <texturenofocus colordiffuse="$INFO[Skin.String(BingieDetailsFlagColor)]" border="20">dialogs/keyboard/key-nf.png</texturenofocus>
+    </include>
+
     <include name="SmallKey">
         <width>130</width>
         <font>Reg34</font>

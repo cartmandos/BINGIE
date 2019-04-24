@@ -279,12 +279,12 @@
                     
                     <!-- plot -->
                     <control type="textbox" id="5444322">
-                        <visible>![[String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)] +
+                        <visible>!$EXP[IsEpisodeDBType] +
                             [!Integer.IsEqual(ListItem.PercentPlayed,0) | ![!Integer.IsEqual(ListItem.PlayCount,0) + !ListItem.IsResumable]] +
                             !Skin.HasSetting(ShowEpisodesPlotAll)]</visible>
                         <include condition="Skin.HasSetting(EnlargeBingiePlot)">Alt_Bingie_Plot_Height</include>
                         <height min="50" max="138">auto</height>
-                        <width>650</width>
+                        <width>625</width>
                         <textcolor>$VAR[BingiePlotTextColor]</textcolor>
                         <align>justify</align>
                         <font>Reg28</font>
@@ -316,10 +316,10 @@
                 <!-- adjustments for scrollbar & zoom effect -->
                 <animation effect="slide" end="10" condition="Skin.HasSetting(WidgetsZoomFocus)">Conditional</animation>
                 <!-- spotlight slide-down -->
-                <animation effect="slide" end="0,210" time="400" condition="[ControlGroup(505).HasFocus() + [Integer.IsGreater(Container(1508).NumItems,0) | Container(1508).IsUpdating]] | [!Skin.HasSetting(BingieHomeShowLargeThumb) + Control.IsVisible(56399)]">Conditional</animation>
+                <animation effect="slide" end="0,220" time="400" condition="[ControlGroup(505).HasFocus() + [Integer.IsGreater(Container(1508).NumItems,0) | Container(1508).IsUpdating]] | [!Skin.HasSetting(BingieHomeShowLargeThumb) + Control.IsVisible(56399)]">Conditional</animation>
                 <posx>0</posx>
                 <include condition="Skin.HasSetting(BingieHomeDisableFirstRow)">Bingie_Alt_Height_No_Spotlight</include>
-                <top>613</top>
+                <top>605</top>
                 <include condition="Skin.HasSetting(EnableFixedFocusWidgets) + [Window.IsActive(Home) | [$EXP[IsBingieHubsActive] + Skin.HasSetting(LockHubWidgets)]]">Fixed_Focus_Bottom</include>
                 <bottom>0</bottom>
                 <include condition="Skin.HasSetting(EnableFixedFocusWidgets) + [Window.IsActive(Home) | [$EXP[IsBingieHubsActive] + Skin.HasSetting(LockHubWidgets)]]">Fixed_Focus_Itemgap</include>
@@ -386,7 +386,7 @@
                         | String.IsEqual(Container(1508).ListItem.DBType,episode) | String.IsEqual(Container(1508).ListItem.Property(DBTYPE),movie)
                         | String.IsEqual(Container(1508).ListItem.Property(DBTYPE),episode)</visible>
                     <description>Play</description>
-                    <width>220</width>
+                    <width>225</width>
                     <height>100%</height>
                     <label>[CAPITALIZE][B]$LOCALIZE[208][/B][/CAPITALIZE]</label>
                     <align>center</align>
@@ -407,7 +407,7 @@
                 <control type="button" id="5052">
                     <!-- more info -->
                     <description>Info</description>
-                    <width>250</width>
+                    <width min="250" max="350">auto</width>
                     <height>100%</height>
                     <align>center</align>
                     <label>[B]$LOCALIZE[31838][/B]</label>
@@ -513,6 +513,10 @@
         <height min="50" max="200">auto</height>
     </include>
 
+    <include name="NoCircularPosX">
+        <posx>bingie_no_circular_posx</posx>
+    </include>
+
     <!-- menu includes -->
     <include name="Bingie_Submenu_Label">
         <control type="label">
@@ -527,23 +531,23 @@
         </control>
     </include>
 
-    <include name="Bingie_Menu_Lower_Items_Defs">
-        <width>384</width>
-        <height>55</height>
-        <textoffsetx>50</textoffsetx>
-        <align>left</align>
-        <aligny>center</aligny>
-        <font>Light22</font>
-        <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
-        <focusedcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</focusedcolor>
-        <texturefocus colordiffuse="$INFO[Skin.String(MainMenuFocusButtonColor)]">colors/color_white.png</texturefocus>
-        <texturenofocus/>
+    <include name="BingiePowerMenuItemLabel">
+        <control type="label">
+            <width>384</width>
+            <height>55</height>
+            <textoffsetx>50</textoffsetx>
+            <align>left</align>
+            <aligny>center</aligny>
+            <font>Light22</font>
+            <label>$INFO[ListItem.Label]</label>
+            <textcolor>$PARAM[textcolor]</textcolor>
+        </control>
     </include>
 
     <include name="Bingie_Menu_Focus_Img">
         <control type="image">
             <visible>$PARAM[visibility]</visible>
-            <width>382</width>
+            <width>383</width>
             <texture>colors/color_white.png</texture>
             <colordiffuse>$PARAM[colordiffuse]</colordiffuse>
         </control>
@@ -554,7 +558,7 @@
             <include condition="$PARAM[includeAnimCond] + !Skin.HasSetting(EnhancedHome_Circular)">Bingie_Menu_Icon_Anim</include>
             <left>50</left>
             <height>100%</height>
-            <top>20</top>
+            <top>28</top>
             <control type="image">
                 <include>Bingie_Menu_Icon_Defs</include>
                 <colordiffuse>$PARAM[colordiffuse]</colordiffuse>
@@ -563,13 +567,12 @@
     </include>
 
     <include name="Bingie_Menu_Icon_Anim">
-        <animation effect="slide" start="0" end="285" time="0" condition="!$EXP[IsMainMenuOpened]">Conditional</animation>
-        <animation effect="zoom" end="80" time="0" condition="!$EXP[IsMainMenuOpened]">Conditional</animation>
+        <animation effect="slide" start="0" end="270" time="0" condition="!$EXP[IsMainMenuOpened]">Conditional</animation>
     </include>
 
     <include name="Bingie_Menu_Icon_Defs">
-        <width>35</width>
-        <height>35</height>
+        <width>26</width>
+        <height>26</height>
         <texture background="true">$VAR[ActualIcon]</texture>
         <animation end="70" effect="fade" time="0" delay="0" condition="true">Conditional</animation>
     </include>
@@ -594,23 +597,9 @@
         </control>
     </include>
 
-    <!-- hide on info-dialog transition / startup-mask -->
-    <include name="Hide_Window_Anim">
-        <animation time="0" effect="fade" start="100" end="0" condition="System.HasAlarm(loadinfo) | System.HasAlarm(startup)">Conditional</animation>
-    </include>
-
-    <!-- dim on menu animation -->
-    <include name="Dim_On_Menu_Animation">
-        <animation time="300" effect="fade" start="100" end="20" reversible="true" easing="inout" condition="$EXP[IsMainMenuOpened]">Conditional</animation>
-    </include>
-
-    <include name="No_Circular_Slide_Animation">
-        <animation effect="slide" time="0" delay="0" start="0" end="25" condition="true">Conditional</animation>
-    </include>
-
     <include name="No_Circular_Left">
         <include content="left">
-            <param name="left" value="90"/>
+            <param name="left" value="bingie_no_circular_posx"/>
         </include>
     </include>
 
@@ -622,9 +611,9 @@
     </include>
 
     <include name="No_Circular_Menu_Animations">
-        <animation effect="slide" start="0" end="315" time="325" delay="0" tween="cubic" easing="inout" condition="$EXP[IsMainMenuOpened] + [[$EXP[IsBingieListsActive] | Window.IsActive(1109)] | [[Window.IsActive(Home) | $EXP[IsBingieHubsActive]] + [!String.IsEmpty(Window(Home).Property(LastFocusWidgetPos)) + String.IsEqual(Window(Home).Property(LastFocusWidgetPos), 1)] | String.IsEmpty(Window(Home).Property(LastFocusWidgetPos))]]">Conditional</animation>
+        <animation effect="slide" start="0" end="285" time="325" delay="0" tween="cubic" easing="inout" condition="$EXP[IsMainMenuOpened] + [[$EXP[IsBingieListsActive] | Window.IsActive(1109)] | [[Window.IsActive(Home) | $EXP[IsBingieHubsActive]] + [!String.IsEmpty(Window(Home).Property(LastFocusWidgetPos)) + String.IsEqual(Window(Home).Property(LastFocusWidgetPos), 1)] | String.IsEmpty(Window(Home).Property(LastFocusWidgetPos))]]">Conditional</animation>
         <animation effect="slide" start="0" end="385" time="325" delay="0" tween="cubic" easing="inout" condition="$EXP[IsMainMenuOpened] + [Window.IsActive(Home) | $EXP[IsBingieHubsActive]] + !String.IsEmpty(Window(Home).Property(LastFocusWidgetPos)) + !String.IsEqual(Window(Home).Property(LastFocusWidgetPos), 1)">Conditional</animation>
-        <animation effect="slide" start="0" end="-70" time="200" delay="0" tween="sine" easing="inout" condition="[Window.IsActive(Home) | $EXP[IsBingieHubsActive]] + !String.IsEmpty(Window(Home).Property(LastFocusWidgetPos)) + !String.IsEqual(Window(Home).Property(LastFocusWidgetPos), 1)">Conditional</animation>
+        <animation effect="slide" start="0" end="-100" time="200" delay="0" tween="sine" easing="inout" condition="[Window.IsActive(Home) | $EXP[IsBingieHubsActive]] + !String.IsEmpty(Window(Home).Property(LastFocusWidgetPos)) + !String.IsEqual(Window(Home).Property(LastFocusWidgetPos), 1)">Conditional</animation>
     </include>
 
     <!-- fixed focus bottom override value -->
@@ -642,7 +631,7 @@
             <visible>Skin.HasSetting(EnhancedHome_Circular)</visible>
             <bottom>0</bottom>
             <right>0</right>
-            <height>464</height>
+            <height>434</height>
             <width>83</width>
             <aspectratio scalediffuse="true">scale</aspectratio>
             <texture border="15" background="true">overlays/gradient_right.png</texture>
@@ -653,7 +642,7 @@
         <control type="image">
             <bottom>0</bottom>
             <left>0</left>
-            <height>467</height>
+            <height>434</height>
             <width>90</width>
             <aspectratio scalediffuse="true">scale</aspectratio>
             <texture flipx="true" border="15" background="true">overlays/gradient_right.png</texture>
@@ -704,15 +693,15 @@
     <include name="Bingie_Screens_Fixed_Focus_Frame_Base">
         <control type="image">
             <include content="top" condition="$EXP[IsBingieListsActive]">
-                <param name="top" value="672" />
+                <param name="top" value="664" />
             </include>
-            <top>653</top>
+            <top>645</top>
             <include condition="!Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Left</include>
             <include content="left" condition="Skin.HasSetting(EnhancedHome_Circular) + $EXP[IsBingieListsActive]">
                 <param name="left" value="65" />
             </include>
             <left>0</left>
-            <animation effect="slide" end="0,210" time="400" condition="[ControlGroup(505).HasFocus() + [Integer.IsGreater(Container(1508).NumItems,0) | Container(1508).IsUpdating]] | [!Skin.HasSetting(BingieHomeShowLargeThumb) + Control.IsVisible(56399)]">Conditional</animation>
+            <animation effect="slide" end="0,220" time="400" condition="[ControlGroup(505).HasFocus() + [Integer.IsGreater(Container(1508).NumItems,0) | Container(1508).IsUpdating]] | [!Skin.HasSetting(BingieHomeShowLargeThumb) + Control.IsVisible(56399)]">Conditional</animation>
             <!-- temp hack to check currentid container not empty -->
             <visible>ControlGroup(77777).HasFocus() + ![Control.HasFocus(1508) | ControlGroup(505).HasFocus()] + !String.IsEmpty(Container(77777).CurrentItem) + !String.IsEmpty(ListItem.Label)</visible>
 
@@ -734,7 +723,7 @@
 
     <include name="Bingie_Screens_Fixed_Focus_Frame">
         <include content="Bingie_Screens_Fixed_Focus_Frame_Base" condition="String.IsEqual(Skin.String(widgetstyle),landscape) | $EXP[IsBingieListsActive]">
-            <param name="width" value="372"/>
+            <param name="width" value="landscape_width"/>
             <param name="height" value="210"/>
         </include>
         <include content="Bingie_Screens_Fixed_Focus_Frame_Base" condition="String.IsEqual(Skin.String(widgetstyle),landscapesmall)  + ![$EXP[IsBingieListsActive]]">
@@ -773,7 +762,7 @@
     <include name="Bingie_Footer">
         <control type="group">
             <include>Dim_On_Menu_Animation</include>
-            <animation effect="slide" start="0" end="0,210" time="400"  condition="Control.IsVisible(56399) | ControlGroup(505).HasFocus()">Conditional</animation>
+            <animation effect="slide" start="0" end="0,220" time="400"  condition="Control.IsVisible(56399) | ControlGroup(505).HasFocus()">Conditional</animation>
             <animation effect="fade" start="100" end="0" time="300"  condition="[Control.IsVisible(56399) | ControlGroup(505).HasFocus() | Control.IsVisible(563340)] + Skin.HasSetting(HideMediaFlagsTrailer)">Conditional</animation>
             <top>520</top>
             <width>100%</width>
@@ -862,7 +851,7 @@
                     <visible allowhiddenfocus="true">false</visible>
                     <onfocus condition="!Skin.HasSetting(AutoShowSubmenu)">ClearProperty(submenu,Home)</onfocus>
                     <onfocus>ClearProperty(ShowViewSubMenu,Home)</onfocus>
-                    <onfocus>SetProperty(ShowWidget,show,Home)</onfocus>
+                    <onfocus>SetProperty(ShowWidget,1,Home)</onfocus>
                     <onfocus>SetProperty(widgetstyle, spotlight)</onfocus>
                     <onfocus>SetProperty(SkinHelper.WidgetContainer,1508)</onfocus>
                     <onfocus>SetProperty(LastFocusWidgetPos,$INFO[Container(1508).CurrentItem],Home)</onfocus>
@@ -912,7 +901,7 @@
     <!-- Home Spotlight default content -->
     <variable name="SpotlightDefaultContent">
         <value condition="Library.HasContent(movies) + [Integer.IsGreater(Window(Home).Property(random),20) | !Library.HasContent(tvshows)]">special://skin/extras/widgetplaylists/recommendedmovies.xsp</value>
-        <value condition="Library.HasContent(tvshows) + [Integer.IsLessOrEqual(Window(Home).Property(random),20) | !Library.HasContent(movies)]">special://skin/extras/widgetplaylists/recommendedtvshows.xsp</value>
+        <value>special://skin/extras/widgetplaylists/recommendedtvshows.xsp</value>
     </variable>
 
     <include name="Spotlight_Trailer_Action">
@@ -932,7 +921,7 @@
             <visible>![Window.IsActive(virtualkeyboard) + !Window.IsActive(1109)]</visible>
             <include>Hide_Window_Anim</include>
             <include content="posx" condition="!Skin.HasSetting(EnhancedHome_Circular)">
-                <param name="posx" value="-315" />
+                <param name="posx" value="-285" />
             </include>
             <posx>-640</posx>
             <posy>0</posy>
@@ -942,18 +931,18 @@
             <control type="group">
                 <posy>0</posy>
                 <posx>0</posx>
-                <width>385</width>
+                <width>386</width>
                 <height>100%</height>
                 <control type="image">
                     <left>0</left>
-                    <width>382</width>
+                    <width>384</width>
                     <height>100%</height>
                     <colordiffuse>$VAR[BingieMenuPanelColor]</colordiffuse>
                     <aspectratio>stretch</aspectratio>
                     <texture background="true">colors/color_white.png</texture>
                 </control>
                 <control type="image">
-                    <left>383</left>
+                    <left>384</left>
                     <height>100%</height>
                     <width>0.5</width>
                     <colordiffuse>dimgray</colordiffuse>
@@ -983,6 +972,7 @@
                 </control>
                 <!-- profile and switch button -->
                 <control type="group">
+                    <top>10</top>
                     <visible>System.HasLoginScreen | Skin.HasSetting(DisableLogoMainMenu)</visible>
                     <height>60</height>
                     <control type="button" id="40000">
@@ -991,7 +981,7 @@
                         <align>left</align>
                         <width>384</width>
                         <height>60</height>
-                        <font>Reg20</font>
+                        <font>Reg18</font>
                         <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
                         <focusedcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</focusedcolor>
                         <texturefocus colordiffuse="$INFO[Skin.String(MainMenuSecondaryFocusButtonColor)]">colors/color_white.png</texturefocus>
@@ -1008,9 +998,9 @@
                     </control>
                     <control type="image">
                         <left>50</left>
-                        <top>5</top>
-                        <width>50</width>
-                        <height>50</height>
+                        <top>10</top>
+                        <width>40</width>
+                        <height>40</height>
                         <texture background="true">$INFO[System.ProfileThumb]</texture>
                     </control>
                 </control>
@@ -1039,7 +1029,7 @@
                     </include>
                     <include content="Bingie_Menu_Current_Indicator" condition="!Skin.HasSetting(EnhancedHome_Circular)">
                         <param name="visibility" value="$EXP[IsMenuEntryActive] + !$EXP[IsMainMenuOpened]" />
-                        <param name="left" value="315" />
+                        <param name="left" value="285" />
                     </include>
                     <include content="Bingie_Menu_Icon" condition="!Skin.HasSetting(DisableIconsMainMenu)">
                         <param name="includeAnimCond" value="true" />
@@ -1063,7 +1053,7 @@
                     </include>
                     <include content="Bingie_Menu_Current_Indicator">
                         <param name="visibility" value="true" />
-                        <param name="left" value="379" />
+                        <param name="left" value="380" />
                     </include>
                     <!-- home behavior onfocus -->
                     <include>HiddenHomeMenuButton</include>
@@ -1071,7 +1061,7 @@
                 <focusedlayout height="80" width="385" condition="![Control.HasFocus(900) | Control.HasFocus(4444)]">
                     <include content="Bingie_Menu_Current_Indicator" condition="!Skin.HasSetting(EnhancedHome_Circular)">
                         <param name="visibility" value="$EXP[IsMenuEntryActive] + !$EXP[IsMainMenuOpened]" />
-                        <param name="left" value="315" />
+                        <param name="left" value="285" />
                     </include>
                     <include content="Bingie_Menu_Icon" condition="!Skin.HasSetting(DisableIconsMainMenu)">
                         <param name="includeAnimCond" value="true" />
@@ -1086,8 +1076,8 @@
                 <include condition="$EXP[IsBingieViewsActive]">MainMenuContent</include>
             </control>
 
-            <!-- settings & exit buttons -->
-            <control type="grouplist" id="40003">
+            <!-- powermenu buttons -->
+            <control type="list" id="40003">
                 <orientation>vertical</orientation>
                 <top>920</top>
                 <width>384</width>
@@ -1098,20 +1088,21 @@
                 <onright>77777</onright>
                 <onback>ClearProperty(ShowViewSubMenu,Home)</onback>
                 <onback>77777</onback>
-                <!-- settings button -->
-                <control type="button" id="40004">
-                    <include>Bingie_Menu_Lower_Items_Defs</include>
-                    <label>5</label>
-                    <onclick>ClearProperty(ShowViewSubMenu,Home)</onclick>
-                    <onclick condition="$EXP[IsPlayingUnrecognizedContent]">PlayerControl(Stop)</onclick>
-                    <onclick>ActivateWindow(Settings)</onclick>
-                </control>
-                <!-- exit button -->
-                <control type="button" id="40005">
-                    <include>Bingie_Menu_Lower_Items_Defs</include>
-                    <label>13012</label>
-                    <onclick>Quit()</onclick>
-                </control>
+                <itemlayout width="384" height="55">
+                    <include content="BingiePowerMenuItemLabel">
+                        <param name="textcolor" value="$INFO[Skin.String(MainMenuTextColor)]"/>
+                    </include>
+                </itemlayout>
+                <focusedlayout width="384" height="55">
+                    <include content="Bingie_Menu_Focus_Img">
+                        <param name="visibility" value="Control.HasFocus(40003)" />
+                        <param name="colordiffuse" value="$INFO[Skin.String(MainMenuFocusButtonColor)]" />
+                    </include>
+                    <include content="BingiePowerMenuItemLabel">
+                        <param name="textcolor" value="$INFO[Skin.String(MainMenuFocusTextColor)]"/>
+                    </include>
+                </focusedlayout>
+                <content><include condition="!Skin.HasSetting(DisablePowerMenu)">skinshortcuts-group-powermenu</include></content>
             </control>
         </control>
         <include condition="!Skin.HasSetting(DisableAllSubmenus)">SideBladeSubMenu</include>

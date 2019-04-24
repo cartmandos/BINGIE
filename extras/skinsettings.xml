@@ -1,6 +1,6 @@
 <settings>
     <!-- bingie home -->
-    <setting id="HomeLayout" value="bingie" label="$LOCALIZE[31100]" condition="" icon="special://skin/extras/viewthumbs/homelayout_bingie.jpg" description="$LOCALIZE[31544][CR][I]By cartman.dos[/I][CR][B]$LOCALIZE[15109][/B]" default="true">
+    <setting id="HomeLayout" value="bingie" label="[UPPERCASE]$LOCALIZE[31100][/UPPERCASE]" condition="" icon="special://skin/extras/viewthumbs/homelayout_bingie.jpg" description="$LOCALIZE[31544][CR][I]By cartman.dos[/I][CR][B]$LOCALIZE[15109][/B]" default="true">
         <onselect condition="True">Skin.Reset(OpenSubMenuOnClick)</onselect>
         <onselect condition="True">Skin.SetString(widgetstyle,landscape)</onselect>
         <onselect condition="True">Skin.SetString(widgetstyle.label,Landscape)</onselect>
@@ -191,6 +191,36 @@
     <setting id="widgetstyle" value="landscapedetails" label="$LOCALIZE[31938]" condition="!String.IsEqual(Skin.String(HomeLayout),win10)" icon="special://skin/extras/viewthumbs/widget_landscapedetails.jpg" description=""/>
     <setting id="widgetstyle" value="posterdetails" label="$LOCALIZE[31939]" condition="!String.IsEqual(Skin.String(HomeLayout),win10)" icon="special://skin/extras/viewthumbs/widget_posterdetails.jpg" description=""/>
     <setting id="widgetstyle" value="landscapewidebox" label="$LOCALIZE[31940]" condition="!String.IsEqual(Skin.String(HomeLayout),win10)" icon="special://skin/extras/viewthumbs/widget_landscapewidebox.jpg" description=""/>
+
+    <!-- widgetsortby -->
+    <setting id="widgetsortby" value="" label="$LOCALIZE[16018]"/>
+    <setting id="widgetsortby" value="random" label="$LOCALIZE[590]"/>
+    <setting id="widgetsortby" value="year" label="$LOCALIZE[562]"/>
+    <setting id="widgetsortby" value="dateadded" label="$LOCALIZE[570]"/>
+    <setting id="widgetsortby" value="title" label="$LOCALIZE[556]"/>
+    <setting id="widgetsortby" value="playcount" label="$LOCALIZE[567]"/>
+    <setting id="widgetsortby" value="lastplayed" label="$LOCALIZE[568]"/>
+    <setting id="widgetsortby" value="rating" label="$LOCALIZE[563]"/>
+    <setting id="widgetsortby" value="userrating" label="$LOCALIZE[38018]"/>
+    <setting id="widgetsortby" value="votes" label="$LOCALIZE[205]"/>
+
+    <!-- widgetsortorder -->
+    <setting id="widgetsortorder" value="ascending" label="$LOCALIZE[21430]"/>
+    <setting id="widgetsortorder" value="descending" label="$LOCALIZE[21431]"/>
+
+    <!-- Widget Limit -->
+    <setting id="widgetlimit" value="$INFO[Skin.String(WidgetsGlobalLimit)]" label="$LOCALIZE[571]"/>
+    <setting id="widgetlimit" value="$NUMBER[5]" label="$NUMBER[5]"/>
+    <setting id="widgetlimit" value="$NUMBER[10]" label="$NUMBER[10]"/>
+    <setting id="widgetlimit" value="$NUMBER[15]" label="$NUMBER[15]"/>
+    <setting id="widgetlimit" value="$NUMBER[20]" label="$NUMBER[20]"/>
+    <setting id="widgetlimit" value="$NUMBER[25]" label="$NUMBER[25]"/>
+    <setting id="widgetlimit" value="$NUMBER[30]" label="$NUMBER[30]"/>
+    <setting id="widgetlimit" value="$NUMBER[50]" label="$NUMBER[50]"/>
+    <setting id="widgetlimit" value="$NUMBER[75]" label="$NUMBER[75]"/>
+    <setting id="widgetlimit" value="$NUMBER[100]" label="$NUMBER[100]"/>
+    <setting id="widgetlimit" value="$NUMBER[150]" label="$NUMBER[150]"/>
+    <setting id="widgetlimit" value="$NUMBER[200]" label="$NUMBER[200]"/>
 
     <!-- media flags -->
     <setting id="mediaflagsstyle" value="classic" label="$LOCALIZE[31941]" condition="" icon="special://skin/extras/viewthumbs/flags_classic.jpg" description="">

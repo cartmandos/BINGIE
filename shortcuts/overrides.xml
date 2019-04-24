@@ -3,7 +3,6 @@
 <overrides>
 
 	<groupings>
-	
 		<!-- smart shortcuts -->
 		<shortcut label="31531" type="32010">||BROWSE||script.skin.helper.service/?action=smartshortcuts</shortcut>
 
@@ -20,8 +19,8 @@
 			<shortcut label="31867" grouping="32029" icon="resource://resource.images.skinicons.wide/mylist.png" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">ActivateWindow(1114,return)</shortcut>
 			<shortcut label="31252" grouping="32029" icon="resource://resource.images.skinicons.wide/widget.png" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">ActivateWindow(1113,return)</shortcut>
 			<shortcut label="31383" grouping="32029" icon="resource://resource.images.skinicons.wide/widget.png" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">ActivateWindow(1115,return)</shortcut>
-			<shortcut label="2" grouping="32029" icon="resource://resource.images.skinicons.wide/music_6.png" thumb="$INFO[Window(Home).Property(SkinHelper.AllMusicBackground)]">ActivateWindow(Music,musicdb://albums/,return)</shortcut>
-			<shortcut label="20389" grouping="32029" icon="$INFO[Window(Home).Property(SkinHelper.AllMusicVideosBackground)]">ActivateWindow(Videos,videodb://musicvideos/titles/,return)</shortcut>
+			<shortcut label="2" grouping="32029" icon="resource://resource.images.skinicons.wide/music_6.png" thumb="$INFO[Window(Home).Property(SkinHelper.AllMusicBackground)]" condition="Library.HasContent(music)">ActivateWindow(Music,musicdb://albums/,return)</shortcut>
+			<shortcut label="20389" grouping="32029" icon="$INFO[Window(Home).Property(SkinHelper.AllMusicVideosBackground)]" condition="Library.HasContent(musicvideos)">ActivateWindow(Videos,videodb://musicvideos/titles/,return)</shortcut>
 			<shortcut label="12600" grouping="32029" icon="$INFO[Skin.String(WeatherFanArtPack.path)]$INFO[Window(Weather).Property(Current.FanartCode)]$VAR[WeatherFanArtExtension]">ActivateWindow(Weather)</shortcut>
 			<shortcut label="10002" grouping="32029" icon="$INFO[Window(Home).Property(SkinHelper.PicturesBackground)]">ActivateWindow(pictures,return)</shortcut>
 			<shortcut label="10025" grouping="32029" icon="resource://resource.images.skinicons.wide/videos.png">ActivateWindow(Videos,return)</shortcut>
@@ -39,7 +38,7 @@
 		</node>
 
 		<!-- video library-->
-		<node label="32030">
+		<node label="32030" condition="Library.HasContent(video)">
 			<shortcut label="19140" grouping="1211" type="1211">ActivateWindow(1108,return)</shortcut>
 			<shortcut label="20381" type="32010">||BROWSE||script.skin.helper.widgets</shortcut>
 			<content>video</content>
@@ -50,7 +49,6 @@
 				<shortcut label="1037" type="32014" icon="DefaultAddonVideo.png">ActivateWindow(Videos,addons://sources/video/,return)</shortcut>
 				<content>addon-video</content>
 			</node>
-			
 			<node label="32075">
 				<content>videosources</content>
 				<content>upnp-video</content>
@@ -164,8 +162,6 @@
             <shortcut label="24034" icon="common/check-updates.png">UpdateAddonRepos</shortcut>
             <shortcut label="14111" icon="common/toggle-debug.png">ActivateWindow(eventlog)</shortcut>
 		</node>
-		
-
 	</groupings>
     
     <widget-groupings>
@@ -262,51 +258,51 @@
 	<propertydefault defaultID="10000" property="widgetTarget">video</propertydefault>
 	<propertydefault defaultID="10000" property="widgetType">episodes</propertydefault>
 	<propertydefault defaultID="10000" property="widgetPath">plugin://script.skin.helper.widgets/?action=next&amp;mediatype=episodes&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload-episodes)]</propertydefault>
-	<propertydefault defaultID="10000" property="widgetName">$LOCALIZE[31535]</propertydefault>
+	<propertydefault defaultID="10000" property="widgetName">$LOCALIZE[31535] $VAR[ForCurrentProfileNameLabel]</propertydefault>
 
 	<propertydefault defaultID="10000" property="widget.1">recentshowsandmovies</propertydefault>
 	<propertydefault defaultID="10000" property="widgetTarget.1">video</propertydefault>
 	<propertydefault defaultID="10000" property="widgetType.1">video</propertydefault>
 	<propertydefault defaultID="10000" property="widgetPath.1">plugin://script.skin.helper.widgets/?action=recentshowsandmovies&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]</propertydefault>
-	<propertydefault defaultID="10000" property="widgetName.1">$ADDON[script.skin.helper.widgets 32078]</propertydefault>
+	<propertydefault defaultID="10000" property="widgetName.1">$LOCALIZE[31127]</propertydefault>
 
-	<propertydefault defaultID="10000" property="widget.2">toppicks</propertydefault>
+	<propertydefault defaultID="10000" property="widget.2">bingeworthyshows</propertydefault>
 	<propertydefault defaultID="10000" property="widgetTarget.2">video</propertydefault>
-	<propertydefault defaultID="10000" property="widgetType.2">video</propertydefault>
-	<propertydefault defaultID="10000" property="widgetPath.2">plugin://script.skin.helper.widgets/?action=toppicks&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]</propertydefault>
-	<propertydefault defaultID="10000" property="widgetName.2">$LOCALIZE[31860] $VAR[ForCurrentProfileNameLabel]</propertydefault>
+	<propertydefault defaultID="10000" property="widgetType.2">tvshows</propertydefault>
+	<propertydefault defaultID="10000" property="widgetPath.2">special://skin/playlists/bingeworthyshows.xsp</propertydefault>
+	<propertydefault defaultID="10000" property="widgetName.2">$LOCALIZE[31079]</propertydefault>
 
-	<propertydefault defaultID="10000" property="widget.3">newrelease</propertydefault>
+	<propertydefault defaultID="10000" property="widget.3">newreleasemovies</propertydefault>
 	<propertydefault defaultID="10000" property="widgetTarget.3">video</propertydefault>
-	<propertydefault defaultID="10000" property="widgetType.3">video</propertydefault>
-	<propertydefault defaultID="10000" property="widgetPath.3">plugin://script.skin.helper.widgets/?action=newrelease&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]</propertydefault>
-	<propertydefault defaultID="10000" property="widgetName.3">$ADDON[script.skin.helper.widgets 32087]</propertydefault>
+	<propertydefault defaultID="10000" property="widgetType.3">movies</propertydefault>
+	<propertydefault defaultID="10000" property="widgetPath.3">special://skin/playlists/newreleasemovies.xsp</propertydefault>
+	<propertydefault defaultID="10000" property="widgetName.3">$LOCALIZE[31080]</propertydefault>
 
-	<propertydefault defaultID="10000" property="widget.4">unwatchedshowsandmovies</propertydefault>
+	<propertydefault defaultID="10000" property="widget.4">criticallyacclaimedmovies</propertydefault>
 	<propertydefault defaultID="10000" property="widgetTarget.4">video</propertydefault>
-	<propertydefault defaultID="10000" property="widgetType.4">video</propertydefault>
-	<propertydefault defaultID="10000" property="widgetPath.4">plugin://script.skin.helper.widgets/?action=unwatchedshowsandmovies&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]</propertydefault>
-	<propertydefault defaultID="10000" property="widgetName.4">$ADDON[script.skin.helper.widgets 32088]</propertydefault>
+	<propertydefault defaultID="10000" property="widgetType.4">movies</propertydefault>
+	<propertydefault defaultID="10000" property="widgetPath.4">special://skin/playlists/blockbustermovies.xsp</propertydefault>
+	<propertydefault defaultID="10000" property="widgetName.4">$LOCALIZE[31532]</propertydefault>
 
 	<propertydefault defaultID="10000" property="widget.5">similar</propertydefault>
 	<propertydefault defaultID="10000" property="widgetTarget.5">video</propertydefault>
 	<propertydefault defaultID="10000" property="widgetType.5">video</propertydefault>
-	<propertydefault defaultID="10000" property="widgetPath.5">plugin://script.skin.helper.widgets/?action=similar&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]</propertydefault>
+	<propertydefault defaultID="10000" property="widgetPath.5">plugin://script.skin.helper.widgets/?action=similar&amp;mediatype=media&amp;limit=25</propertydefault>
 	<propertydefault defaultID="10000" property="widgetName.5">$ADDON[script.skin.helper.widgets 32022]</propertydefault>
 
-	<propertydefault defaultID="10000" property="widget.6">forgenre</propertydefault>
+	<propertydefault defaultID="10000" property="widget.6">mylist</propertydefault>
 	<propertydefault defaultID="10000" property="widgetTarget.6">video</propertydefault>
 	<propertydefault defaultID="10000" property="widgetType.6">video</propertydefault>
-	<propertydefault defaultID="10000" property="widgetPath.6">plugin://script.skin.helper.widgets/?action=forgenre&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]</propertydefault>
-	<propertydefault defaultID="10000" property="widgetName.6">$ADDON[script.skin.helper.widgets 32089]</propertydefault>
+	<propertydefault defaultID="10000" property="widgetPath.6">plugin://script.skin.helper.widgets/?action=mylist&amp;mediatype=media&amp;limit=30&amp;reload=$INFO[Window(Home).Property(widgetreload)]</propertydefault>
+	<propertydefault defaultID="10000" property="widgetName.6">$LOCALIZE[31534]</propertydefault>
 
 	<propertydefault defaultID="10000" property="widget.7">categories</propertydefault>
 	<propertydefault defaultID="10000" property="widgetTarget.7">video</propertydefault>
 	<propertydefault defaultID="10000" property="widgetType.7">video</propertydefault>
-	<propertydefault defaultID="10000" property="widgetPath.7">plugin://script.skin.helper.widgets/?action=categories&amp;mediatype=media&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</propertydefault>
+	<propertydefault defaultID="10000" property="widgetPath.7">plugin://script.skin.helper.widgets/?action=categories&amp;mediatype=media</propertydefault>
 	<propertydefault defaultID="10000" property="widgetName.7">$ADDON[script.skin.helper.widgets 32098]</propertydefault>
     
-    <!-- spotlight widgets -->
+    <!-- spotlight widget -->
     <propertydefault defaultID="movies" property="widget.99">spotlightmovies</propertydefault>
     <propertydefault defaultID="movies" property="widgetTarget.99">video</propertydefault>
     <propertydefault defaultID="movies" property="widgetType.99">movies</propertydefault>
@@ -318,53 +314,43 @@
     <propertydefault defaultID="tvshows" property="widgetType.99">tvshows</propertydefault>
     <propertydefault defaultID="tvshows" property="widgetName.99">$LOCALIZE[31185]</propertydefault>
     <propertydefault defaultID="tvshows" property="widgetPath.99">special://skin/extras/widgetplaylists/recommendedtvshows.xsp</propertydefault>
-    
-    <!-- widget style -->
-    <propertySettings property="widgetstyle" buttonID="1001" title="$LOCALIZE[31507]" showNone="False" imageBrowse="False" /> 
-    <property property="widgetstyle" label="$LOCALIZE[31641]">Global</property> 
-    <property property="widgetstyle" label="$LOCALIZE[31056]" condition="!String.IsEqual(Skin.String(HomeLayout),simplever)" icon="special://skin/extras/viewthumbs/widget_hor_landscape.jpg">landscape</property>
-    <property property="widgetstyle" label="$LOCALIZE[31053]" condition="!String.IsEqual(Skin.String(HomeLayout),simplever)" icon="special://skin/extras/viewthumbs/widget_hor_poster.jpg">poster</property>
-    <property property="widgetstyle" label="$LOCALIZE[31933]" condition="!String.IsEqual(Skin.String(HomeLayout),simplever)" icon="special://skin/extras/viewthumbs/widget_hor_singlebox.jpg">single box</property>
-    <property property="widgetstyle" label="$LOCALIZE[31367]" condition="!String.IsEqual(Skin.String(HomeLayout),simplever)" icon="special://skin/extras/viewthumbs/widget_hor_smallposter.jpg">small_poster</property>
-    <property property="widgetstyle" label="$LOCALIZE[31934]" condition="!String.IsEqual(Skin.String(HomeLayout),simplever)" icon="special://skin/extras/viewthumbs/widget_hor_square.jpg">square</property>
-    <property property="widgetstyle" label="$LOCALIZE[31413]" condition="!String.IsEqual(Skin.String(HomeLayout),simplever)" icon="special://skin/extras/viewthumbs/widget_hor_widebox.jpg">wide box</property>
-    <property property="widgetstyle" label="$LOCALIZE[31056]" condition="String.IsEqual(Skin.String(HomeLayout),simplever)" icon="special://skin/extras/viewthumbs/widget_ver_landscape.jpg">landscape</property>
-    <property property="widgetstyle" label="$LOCALIZE[31053]" condition="String.IsEqual(Skin.String(HomeLayout),simplever)" icon="special://skin/extras/viewthumbs/widget_ver_poster.jpg">poster</property>
-    <property property="widgetstyle" label="$LOCALIZE[31933]" condition="String.IsEqual(Skin.String(HomeLayout),simplever)" icon="special://skin/extras/viewthumbs/widget_ver_singlebox.jpg">single box</property>
-    <property property="widgetstyle" label="$LOCALIZE[31367]" condition="String.IsEqual(Skin.String(HomeLayout),simplever)" icon="special://skin/extras/viewthumbs/widget_ver_smallposter.jpg">small_poster</property>
-    <property property="widgetstyle" label="$LOCALIZE[31934]" condition="String.IsEqual(Skin.String(HomeLayout),simplever)" icon="special://skin/extras/viewthumbs/widget_ver_square.jpg">square</property>
-    <property property="widgetstyle" label="$LOCALIZE[31413]" condition="String.IsEqual(Skin.String(HomeLayout),simplever)" icon="special://skin/extras/viewthumbs/widget_ver_widebox.jpg">wide box</property>
-    
+
     <propertydefault defaultID="music" property="widgetstyle">square</propertydefault>
     <widgetRename>False</widgetRename> 
 
+
+	<!-- Action Overrides -->
+	<!-- SubMenu-->
 	<override action="submenu">
 		<condition>true</condition>
 		<action>SetFocus(4444,0)</action>
 	</override>
 
+	<!-- MainMenu -->
+	<!-- On Window Transition -> Do action and flush widget props -->
 	<override action="globaloverride" group="mainmenu">
 		<condition>[String.IsEmpty(Container(4445).NumItems) | Integer.IsEqual(Container(4445).NumItems,0)] | ![Skin.HasSetting(OpenSubMenuOnClick) | String.IsEqual(Skin.String(HomeLayout),win10)]</condition>
 		<action>::ACTION::</action>
+		<action>SetProperty(flushWidgetProps,1,Home)</action>
 	</override>
+	<!-- Override Menu OnClick to Open Submenu -->
 	<override action="globaloverride" group="mainmenu">
 		<condition>Integer.IsGreater(Container(4445).NumItems,0) + [Skin.HasSetting(OpenSubMenuOnClick) | String.IsEqual(Skin.String(HomeLayout),win10)]</condition>
 		<action>SetFocus(4444,0)</action>
 	</override>
-
-	<!-- If activating current active window, focus and clear menu property -->
+	<!-- If Clicked Currently Loaded Shortcut -> Close Menu and Refocus Widgets -->
 	<override action="globaloverride" group="mainmenu">
 		<condition>String.IsEqual(Skin.String(HomeLayout),bingie) + $EXP[IsKnownMenuEntryPath]</condition>
 		<action>ClearProperty(ShowViewSubMenu,Home)</action>
 		<action>SetFocus($VAR[MenuEntryOverrideFocus])</action>
 	</override>
-
-	<!-- stop trailers when changing root windows -->
+	<!-- Stop Trailer on Menu Window Navigation -->
     <groupoverride group="mainmenu" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + $EXP[IsPlayingUnrecognizedContent]">PlayerControl(Stop)</groupoverride>
 
+	<!-- Power Menu -->
 	<groupoverride group="powermenu" condition="Window.IsActive(DialogButtonMenu.xml)">Close</groupoverride>
 
-	<!-- TV Shows / Movies shortcut default action -->
+	<!-- TV Shows / Movies Default Action -->
 	<override action="ActivateWindow(1110,return)" group="mainmenu">
 		<condition>!String.IsEqual(Skin.String(HomeLayout),bingie)</condition>
 		<action>ReplaceWindow(Videos,videodb://tvshows/titles/)</action>
@@ -373,7 +359,8 @@
 		<condition>!String.IsEqual(Skin.String(HomeLayout),bingie)</condition>
 		<action>ReplaceWindow(Videos,videodb://movies/titles/)</action>
 	</override>
-	<!-- switch bingiesearch/globalsearch -->
+
+	<!-- Search Enging Toggle -->
 	<override action="ActivateWindow(1109,return)" group="mainmenu">
 		<condition>Skin.HasSetting(UseGlobalSearch) + System.HasAddon(script.globalsearch)</condition>
 		<action>ReplaceWindow(home)</action>

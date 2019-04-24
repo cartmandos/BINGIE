@@ -30,9 +30,9 @@
 			<control type="multiimage">
 				<description>Busy animation</description>
 				<posx>0</posx>
-				<posy>0</posy>
-				<width>200</width>
-				<height>200</height>
+				<posy>10</posy>
+				<width>180</width>
+				<height>180</height>
 				<colordiffuse>$INFO[Skin.String(SpinnerTexture.Color)]</colordiffuse>
 				<imagepath>dialogs/extendedprogress/watched_percentage/</imagepath>
 				<aspectratio>keep</aspectratio>

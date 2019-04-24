@@ -1489,11 +1489,10 @@
 				<!-- trailer video preview -->
 				<control type="group">
 					<include>FullscreenDimensions</include>
-					<visible>String.IsEqual(Window(Home).Property(TrailerPlaying),windowed)</visible>
+					<visible>Player.HasVideo + String.IsEqual(Window(Home).Property(TrailerPlaying),windowed)</visible>
 					<!-- bg -->
 					<control type="image">
-						<texture background="true">diffuse/bgpanel.png</texture>
-						<colordiffuse>black</colordiffuse>
+						<texture colordiffuse="ff000000" background="true">diffuse/bgpanel.png</texture>
 					</control>
 					<control type="videowindow"/>
 					<control type="image">
@@ -1509,7 +1508,7 @@
 
 				<!-- fanart background image -->
 				<control type="image">
-					<visible>!String.IsEqual(Window(Home).Property(TrailerPlaying), windowed)</visible>
+					<visible>![String.IsEqual(Window(Home).Property(TrailerPlaying), windowed)]</visible>
 					<visible>!$EXP[IsPlayingRecognizedContent]</visible>
 					<right>0</right>
 					<top>0</top>
@@ -1631,7 +1630,7 @@
 					<!-- plot -->
 					<control type="textbox">
 						<animation effect="fade" start="100" end="0" time="200" condition="!String.IsEmpty(Window.Property(AdditionalInfo))">Conditional</animation>
-						<width>800</width>
+						<width>625</width>
 						<height min="110" max="170">auto</height>
 						<textcolor>$VAR[BingieInfoDialogPlotTextColor]</textcolor>
 						<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>

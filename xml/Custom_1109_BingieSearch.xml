@@ -36,7 +36,8 @@
             <include>SearchSuggestionsAnim</include>
             <visible>!$EXP[IsActualKeyboardActive]</visible>
             <top>65</top>
-            <left>90</left>
+            <include condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Left</include>
+            <left>65</left>
             <height>500</height>
             <orientation>vertical</orientation>
             <itemgap>-10</itemgap>
@@ -100,7 +101,7 @@
         <include content="Search_Suggestions_Container">
             <include>SearchSuggestionsAnim</include>
             <param name="id" value="1007" />
-            <param name="onitemfocus" value="SetProperty(SuggestionPath,$INFO[ListItem.Property(path)])" />
+            <param name="onitemfocus" value="SetProperty(SuggestionPath,$ESCINFO[ListItem.Property(path)])" />
             <param name="onitemfocus2" value="SetProperty(CustomSearch,1,home)" />
             <onclick condition="!String.IsEmpty(Skin.String(CustomSearchTerm))">Skin.SetString(CustomSearchTerm,$INFO[ListItem.Label])</onclick>
             <onclick condition="String.IsEmpty(Skin.String(CustomSearchTerm))">SetFocus(77777)</onclick>
@@ -111,7 +112,7 @@
 
         <!--- ########## Right Layout ########## -->
         <control type="grouplist" id="9900">
-            <left>505</left>
+            <left>520</left>
             <top>33</top>
             <height>70</height>
             <width>1315</width>
@@ -149,7 +150,7 @@
         <!-- Initial Msg / No Results Label -->
         <control type="label">
             <top>280</top>
-            <left>500</left>
+            <left>515</left>
             <width>1320</width>
             <height>auto</height>
             <font>Reg42</font>
@@ -164,7 +165,7 @@
         <!-- Results -->
         <control type="grouplist" id="77777">
             <top>125</top>
-            <left>500</left>
+            <left>515</left>
             <orientation>vertical</orientation>
             <pagecontrol>666</pagecontrol>
             <onright>666</onright>
@@ -309,7 +310,7 @@
         <!-- Loading Suggestions -->
         <include content="Busy_Spinner">
             <param name="centerleft" value="60%"/>
-            <param name="centertop" value="47%"/>
+            <param name="centertop" value="48%"/>
             <param name="visibility" value="Control.IsVisible(500) + Container(500).IsUpdating + !Integer.IsGreater(Container(500).NumItems,0)"/>
             <param name="size" value="100"/>
         </include>

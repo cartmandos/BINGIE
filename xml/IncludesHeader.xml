@@ -11,7 +11,7 @@
         <!-- Header Normal -->
         <control type="group">
             <visible>!Window.IsActive(notification) + !Window.IsActive(extendedprogressdialog) + !Control.IsVisible(77551) + !Control.IsVisible(88888) + !Control.IsVisible(88883)</visible>
-            <visible>![[String.Contains(Skin.String(HomeLayout), 2) | String.Contains(Skin.String(HomeLayout), 1)] + !Skin.HasSetting(AutoShowWidgets) + String.IsEqual(Window(Home).Property(ShowWidget),show) + Skin.HasSetting(HideWidgetDetailsPanel)]</visible>
+            <visible>![[String.Contains(Skin.String(HomeLayout), 2) | String.Contains(Skin.String(HomeLayout), 1)] + !Skin.HasSetting(AutoShowWidgets) + !String.IsEmpty(Window(Home).Property(ShowWidget)) + Skin.HasSetting(HideWidgetDetailsPanel)]</visible>
             
             <!-- header panel -->
             <control type="image">
@@ -139,7 +139,7 @@
             
             <control type="grouplist" id="5555">
                 <include condition="!Skin.HasSetting(LowPerformanceMode)">animation_fade_visible</include>
-                <animation effect="slide" time="0" delay="0" start="0" end="25" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">Conditional</animation>
+                <include condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">BingieNoCircularWidgetHeaderAnim</include>
                 <orientation>horizontal</orientation>
                 <itemgap>25</itemgap>
                 <posx>50</posx>
@@ -246,9 +246,9 @@
             <textureradiooffnofocus colordiffuse="$INFO[Skin.String(HeaderTextColor)]">touchcontrols/widget.png</textureradiooffnofocus>
             <radiowidth>50</radiowidth>
             <radioheight>50</radioheight>
-            <onclick condition="String.IsEqual(Window(Home).Property(ShowWidget),show)">Control.SetFocus(900)</onclick>
-            <onclick condition="!String.IsEqual(Window(Home).Property(ShowWidget),show)">SetProperty(ShowWidget, show,Home)</onclick>
-            <onclick condition="String.IsEqual(Window(Home).Property(ShowWidget),show)">ClearProperty(ShowWidget,Home)</onclick>
+            <onclick condition="!String.IsEmpty(Window(Home).Property(ShowWidget))">Control.SetFocus(900)</onclick>
+            <onclick condition="String.IsEmpty(Window(Home).Property(ShowWidget))">SetProperty(ShowWidget,1,Home)</onclick>
+            <onclick condition="!String.IsEmpty(Window(Home).Property(ShowWidget))">ClearProperty(ShowWidget,Home)</onclick>
             <visible>Window.IsActive(Home) + [String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),2) | String.IsEqual(Skin.String(HomeLayout),1small) | String.IsEqual(Skin.String(HomeLayout),2small) | String.Contains(Skin.String(HomeLayout),hor)]</visible>
             <visible>!String.IsEmpty(Container(900).ListItem.Property(widget))</visible>
         </control>

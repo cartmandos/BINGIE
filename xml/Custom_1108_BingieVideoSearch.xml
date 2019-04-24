@@ -93,7 +93,7 @@
         <include content="Search_Suggestions_Container">
             <include>SearchSuggestionsAnim</include>
             <param name="id" value="1007" />
-            <param name="onitemfocus" value="SetProperty(SuggestionPath,$INFO[ListItem.Property(path)])" />
+            <param name="onitemfocus" value="SetProperty(SuggestionPath,$ESCINFO[ListItem.Property(path)])" />
             <param name="onitemfocus2" value="SetProperty(CustomSearch,1,home)" />
             <onclick condition="!String.IsEmpty(Skin.String(CustomSearchTerm))">Skin.SetString(CustomSearchTerm,$INFO[ListItem.Label])</onclick>
             <onclick condition="String.IsEmpty(Skin.String(CustomSearchTerm))">SetFocus(77777)</onclick>

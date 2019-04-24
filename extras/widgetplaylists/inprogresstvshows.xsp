@@ -4,6 +4,6 @@
     <name>In Progress TV Shows</name>
     <match>all</match>
     <rule field="inprogress" operator="true" />
-    <limit>30</limit>
+    <limit>200</limit>
     <order direction="descending">lastplayed</order>
 </smartplaylist>
