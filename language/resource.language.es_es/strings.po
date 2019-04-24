@@ -232,10 +232,6 @@ msgctxt "#31074"
 msgid "Arrange the homescreen tiles just the way you want it. [CR]Usage select a direction below and click on the tile's title (in the list on the right) to move it's position. [CR]Because settings are applied on the fly the screen may blink for one second."
 msgstr "Ordene los mosaicos de la pantalla inicial como prefiera. [CR]Uso: seleccione una dirección abajo y pulse sobre el título del mosaico (en la lista a la derecha) para moverlo de posición. [CR]Debido a que los ajustes son aplicados inmediatamente, la pantalla puede parpadear por un segundo."
 
-msgctxt "#31075"
-msgid "Direction to move"
-msgstr "Dirección a mover"
-
 msgctxt "#31076"
 msgid "UP"
 msgstr "ARRIBA"

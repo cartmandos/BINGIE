@@ -199,8 +199,8 @@ msgstr "סדרות אקראיות"
 
 
 msgctxt "#31037"
-msgid "Set max number of items for all widgets"
-msgstr "קבע מספר מקסימלים של פריטים לכל הווידג'טים"
+msgid "Set Default Limit for items in Widgets"
+msgstr "הגדר כמות מקסימלית של פריטים ביישומונים כברירת מחדל"
 
 
 msgctxt "#31038"

@@ -232,10 +232,6 @@ msgctxt "#31074"
 msgid "Arrange the homescreen tiles just the way you want it. [CR]Usage select a direction below and click on the tile's title (in the list on the right) to move it's position. [CR]Because settings are applied on the fly the screen may blink for one second."
 msgstr "Disponi le tiles della schermata home proprio come vuoi. [CR]Utilizzo: scegli una direzione sotto e clicca sul titolo della tile (nella lista a destra) per spostare la sua posizione. [CR]Poiché le impostazioni sono applicate al volo lo schermo potrebbe lampeggiare per un secondo."
 
-msgctxt "#31075"
-msgid "Direction to move"
-msgstr "Direzione in cui spostare"
-
 msgctxt "#31076"
 msgid "UP"
 msgstr "SU"

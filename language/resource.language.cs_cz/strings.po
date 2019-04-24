@@ -168,10 +168,6 @@ msgctxt "#31072"
 msgid "Sort Home tiles"
 msgstr "Seřadit dlaždice na domovské obrazovce"
 
-msgctxt "#31075"
-msgid "Direction to move"
-msgstr "Směr pohybu"
-
 msgctxt "#31081"
 msgid "Netflix Mode"
 msgstr "Netflix režim"

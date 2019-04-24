@@ -232,10 +232,6 @@ msgctxt "#31074"
 msgid "Arrange the homescreen tiles just the way you want it. [CR]Usage select a direction below and click on the tile's title (in the list on the right) to move it's position. [CR]Because settings are applied on the fly the screen may blink for one second."
 msgstr "Schik de tegels op het startscherm op de manier waarop u het wilt. [CR] Gebruik: selecteer een richting hieronder in en klik op de tegels titel (in de lijst rechts) om te verplaatsen naar haar positie. [CR] Omdat instellingen worden direct worden toegepast kan het scherm  één seconde knipperen."
 
-msgctxt "#31075"
-msgid "Direction to move"
-msgstr "Richting om te verplaatsen"
-
 msgctxt "#31076"
 msgid "UP"
 msgstr "OMHOOG"

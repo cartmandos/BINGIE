@@ -162,10 +162,6 @@ msgctxt "#31036"
 msgid "Random TV Shows"
 msgstr "Série TV au hasard"
 
-msgctxt "#31037"
-msgid "Trailers"
-msgstr "Bandes-annonces"
-
 msgctxt "#31038"
 msgid "Use custom image for skin background"
 msgstr "Utiliser une image personnalisée comme arrière-plan d'habillage"
@@ -309,10 +305,6 @@ msgstr "Classer les tuiles du menu d'accueil"
 msgctxt "#31074"
 msgid "Arrange the homescreen tiles just the way you want it. [CR]Usage select a direction below and click on the tile's title (in the list on the right) to move it's position. [CR]Because settings are applied on the fly the screen may blink for one second."
 msgstr "Organisez les tuiles de l'écran d'accueil comme vous le souhaitez. [CR]Sélectionnez une direction ci-dessous et cliquez sur le titre de la tuile (dans la liste, à droite) pour changer sa position. [CR]En raison de l'application instantanée des paramètres, un clignotement d'une seconde peut se produire."
-
-msgctxt "#31075"
-msgid "Direction to move"
-msgstr "Direction du déplacement"
 
 msgctxt "#31076"
 msgid "UP"
