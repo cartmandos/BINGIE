@@ -717,7 +717,7 @@
     <variable name="BingieSublabel">
         <!-- Tagline Info -->
         <value condition="!String.IsEmpty(ListItem.TagLine)">[B]$INFO[ListItem.TagLine][/B]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.TagLine))">[B]$INFO[Window(Home).Property(ListItem.TagLine)][/B]</value>
+        <value condition="!ControlGroup(77777).HasFocus() + !String.IsEmpty(Window(Home).Property(ListItem.TagLine))">[B]$INFO[Window(Home).Property(ListItem.TagLine)][/B]</value>
         <!-- Watch Tag Info -->
         <value condition="[ControlGroup(505).HasFocus() + Integer.IsGreater(Container(1508).NumItems,0)] | String.IsEqual(ListItem.DBTYPE,tvshow)">$VAR[WatchNowTagInfo]</value>
         <!-- Album/Song Info -->
