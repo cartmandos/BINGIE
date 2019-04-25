@@ -264,7 +264,7 @@
             </include>
             
             <!-- widget 1 -->
-            <include content="widget_header_multi" condition="$SKINSHORTCUTS[multiWidgets] + [String.IsEqual(Skin.String(HomeLayout),bingie) | $EXP[IsVerticalLayout]] + $PYTHON['true' if widgetPath1 else 'false']">
+            <include content="widget_header_multi" condition="$SKINSHORTCUTS[multiWidgets] + $PYTHON['true' if widgetPath1 else 'false'] + [String.IsEqual(Skin.String(HomeLayout),bingie) | $EXP[IsVerticalLayout]]">
                 <param name="widgetid" value="$SKINSHORTCUTS[id]510" />
                 <param name="submenuid" value="$SKINSHORTCUTS[submenuid]" />
                 <param name="widgetName" value="$SKINSHORTCUTS[widgetName1]" />
@@ -288,7 +288,7 @@
             </include>
 
             <!-- widget 2 -->
-            <include content="widget_header_multi" condition="$SKINSHORTCUTS[multiWidgets] + [String.IsEqual(Skin.String(HomeLayout),bingie) | $EXP[IsVerticalLayout]] + $PYTHON['true' if widgetPath2 else 'false']">
+            <include content="widget_header_multi" condition="$SKINSHORTCUTS[multiWidgets] + $PYTHON['true' if widgetPath2 else 'false'] + [String.IsEqual(Skin.String(HomeLayout),bingie) | $EXP[IsVerticalLayout]]">
                 <param name="widgetid" value="$SKINSHORTCUTS[id]520" />
                 <param name="submenuid" value="$SKINSHORTCUTS[submenuid]" />
                 <param name="widgetName" value="$SKINSHORTCUTS[widgetName2]" />
@@ -312,7 +312,7 @@
             </include>
             
             <!-- widget 3 -->
-            <include content="widget_header_multi" condition="$SKINSHORTCUTS[multiWidgets] + [String.IsEqual(Skin.String(HomeLayout),bingie) | $EXP[IsVerticalLayout]] + $PYTHON['true' if widgetPath3 else 'false']">
+            <include content="widget_header_multi" condition="$SKINSHORTCUTS[multiWidgets] + $PYTHON['true' if widgetPath3 else 'false'] + [String.IsEqual(Skin.String(HomeLayout),bingie) | $EXP[IsVerticalLayout]]">
                 <param name="widgetid" value="$SKINSHORTCUTS[id]530" />
                 <param name="submenuid" value="$SKINSHORTCUTS[submenuid]" />
                 <param name="widgetName" value="$SKINSHORTCUTS[widgetName3]" />
@@ -336,7 +336,7 @@
             </include>
             
             <!-- widget 4 -->
-            <include content="widget_header_multi" condition="$SKINSHORTCUTS[multiWidgets] + [String.IsEqual(Skin.String(HomeLayout),bingie) | $EXP[IsVerticalLayout]] + $PYTHON['true' if widgetPath4 else 'false']">
+            <include content="widget_header_multi" condition="$SKINSHORTCUTS[multiWidgets] + $PYTHON['true' if widgetPath4 else 'false'] + [String.IsEqual(Skin.String(HomeLayout),bingie) | $EXP[IsVerticalLayout]]">
                 <param name="widgetid" value="$SKINSHORTCUTS[id]540" />
                 <param name="submenuid" value="$SKINSHORTCUTS[submenuid]" />
                 <param name="widgetName" value="$SKINSHORTCUTS[widgetName4]" />
@@ -360,7 +360,7 @@
             </include>
             
             <!-- widget 5 -->
-            <include content="widget_header_multi" condition="$SKINSHORTCUTS[multiWidgets] + [String.IsEqual(Skin.String(HomeLayout),bingie) | $EXP[IsVerticalLayout]] + $PYTHON['true' if widgetPath5 else 'false']">
+            <include content="widget_header_multi" condition="$SKINSHORTCUTS[multiWidgets] + $PYTHON['true' if widgetPath5 else 'false'] + [String.IsEqual(Skin.String(HomeLayout),bingie) | $EXP[IsVerticalLayout]]">
                 <param name="widgetid" value="$SKINSHORTCUTS[id]550" />
                 <param name="submenuid" value="$SKINSHORTCUTS[submenuid]" />
                 <param name="widgetName" value="$SKINSHORTCUTS[widgetName5]" />
@@ -384,7 +384,7 @@
             </include>
             
             <!-- widget 6 -->
-            <include content="widget_header_multi" condition="$SKINSHORTCUTS[multiWidgets] + [String.IsEqual(Skin.String(HomeLayout),bingie) | $EXP[IsVerticalLayout]] + $PYTHON['true' if widgetPath5 else 'false']">
+            <include content="widget_header_multi" condition="$SKINSHORTCUTS[multiWidgets] + $PYTHON['true' if widgetPath6 else 'false'] + [String.IsEqual(Skin.String(HomeLayout),bingie) | $EXP[IsVerticalLayout]]">
                 <param name="widgetid" value="$SKINSHORTCUTS[id]560" />
                 <param name="submenuid" value="$SKINSHORTCUTS[submenuid]" />
                 <param name="widgetName" value="$SKINSHORTCUTS[widgetName6]" />
@@ -408,7 +408,7 @@
             </include>
 
             <!-- widget 7 -->
-            <include content="widget_header_multi" condition="$SKINSHORTCUTS[multiWidgets] + [String.IsEqual(Skin.String(HomeLayout),bingie) | $EXP[IsVerticalLayout]] + $PYTHON['true' if widgetPath5 else 'false']">
+            <include content="widget_header_multi" condition="$SKINSHORTCUTS[multiWidgets] + $PYTHON['true' if widgetPath7 else 'false'] + [String.IsEqual(Skin.String(HomeLayout),bingie) | $EXP[IsVerticalLayout]]">
                 <param name="widgetid" value="$SKINSHORTCUTS[id]570" />
                 <param name="submenuid" value="$SKINSHORTCUTS[submenuid]" />
                 <param name="widgetName" value="$SKINSHORTCUTS[widgetName7]" />
@@ -432,7 +432,7 @@
             </include>
             
             <!-- widget 8 -->
-            <include content="widget_header_multi" condition="$SKINSHORTCUTS[multiWidgets] + [String.IsEqual(Skin.String(HomeLayout),bingie) | $EXP[IsVerticalLayout]] + $PYTHON['true' if widgetPath5 else 'false']">
+            <include content="widget_header_multi" condition="$SKINSHORTCUTS[multiWidgets] + $PYTHON['true' if widgetPath8 else 'false'] + [String.IsEqual(Skin.String(HomeLayout),bingie) | $EXP[IsVerticalLayout]]">
                 <param name="widgetid" value="$SKINSHORTCUTS[id]580" />
                 <param name="submenuid" value="$SKINSHORTCUTS[submenuid]" />
                 <param name="widgetName" value="$SKINSHORTCUTS[widgetName8]" />
