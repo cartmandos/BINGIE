@@ -164,20 +164,20 @@
 
                     <!-- clearlogo [800x310] -->
                     <control type="image" id="29475">
-                        <visible>!Skin.HasSetting(NoClearLogoBingie) + !String.IsEmpty(Control.GetLabel(29475))</visible>
+                        <visible>!Skin.HasSetting(NoClearLogoBingie)</visible>
                         <height>186</height>
                         <width>480</width>
                         <align>left</align>
                         <fadetime>350</fadetime>
                         <aspectratio align="left" aligny="center">keep</aspectratio>
-                        <texture background="true">$VAR[BingieInfoClearlogo]</texture>
+                        <texture background="true" fallback="colors/color_transparent.png">$VAR[BingieInfoClearlogo]</texture>
                         <!-- adjust for spotlight -->
                         <animation effect="slide" start="0" end="0,137" time="0" condition="ControlGroup(505).HasFocus()">Conditional</animation>
                     </control>
                     <!-- text title -->
                     <control type="textbox" id="29476">
-                        <visible>String.IsEmpty(Control.GetLabel(29475)) | Skin.HasSetting(NoClearLogoBingie)</visible>
-                        <top>43</top>
+                        <visible>String.EndsWith(Control.GetLabel(29475),color_transparent.png) | Skin.HasSetting(NoClearLogoBingie)</visible>
+                        <top>-143</top>
                         <height max="175">auto</height>
                         <width max="815">auto</width>
                         <font>Reg48</font>
@@ -359,7 +359,7 @@
             <!-- spotlight buttons -->
             <control type="grouplist" id="505">
                 <include>Dim_On_Menu_Animation</include>
-                <visible allowhiddenfocus="true">ControlGroup(505).HasFocus() +  Integer.IsGreater(Container(1508).NumItems,0)</visible>
+                <visible allowhiddenfocus="true">[ControlGroup(505).HasFocus()] +  Integer.IsGreater(Container(1508).NumItems,0)</visible>
                 <animation effect="slide" end="-700" condition="!ControlGroup(505).HasFocus">Conditional</animation>
                 <animation effect="fade" start="20" end="100" time="1000" delay="100">Visible</animation>
                 <orientation>horizontal</orientation>

@@ -1512,12 +1512,10 @@
 					<visible>!$EXP[IsPlayingRecognizedContent]</visible>
 					<right>0</right>
 					<top>0</top>
-					<animation time="600" effect="fade" reversible="true" easing="inout">WindowOpen</animation>
-					<animation time="300" effect="fade" reversible="true" easing="inout">WindowClose</animation>
-					<width>90%</width>
-					<height>100%</height>
-					<texture background="true" diffuse="overlays/infodialog_right_corner.png">$VAR[fanartBackground]</texture>
-					<aspectratio scalediffuse="true" align="right" aligny="top">scale</aspectratio>
+					<width>1400</width>
+					<height>787</height>
+					<texture background="true" diffuse="special://home/addons/resource.images.backgroundoverlays.basic/resources/Right Corner.png">$VAR[fanartBackground]</texture>
+					<aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
 				</control>
 
 				<!-- additional info overlay -->
@@ -1558,45 +1556,42 @@
 				<!-- dialog info details -->
 				<control type="grouplist">
 					<visible>!Window.IsActive(script-ExtendedInfo Script-DialogVideoInfo.xml) + !Window.IsActive(script-ExtendedInfo Script-DialogInfo.xml)</visible>
-					<posx>90</posx>
-					<posy>10</posy>
+					<include condition="!Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Left</include>
+					<left>65</left>
+					<posy>22</posy>
 					<width>1200</width>
 					<usecontrolcoords>true</usecontrolcoords>
 					<orientation>vertical</orientation>
 					<!-- auto-hide details while trailer -->
 					<animation effect="fade" start="100" end="0" time="900" delay="9000" condition="Skin.HasSetting(AutoHideDetailsOnTrailer) + String.IsEqual(Window(Home).Property(TrailerPlaying),windowed) + System.IdleTime(1)">Conditional</animation>
-					<!-- window open animation -->
-					<animation type="WindowOpen" reversible="false" condition="!Skin.HasSetting(LowPerformanceMode)">
-						<effect type="slide" start="250" end="0" easing="out" tween="sine" time="250"/>
-						<effect type="fade" start="0" end="100" time="300"/>
-					</animation>
 					<animation time="150" effect="fade" reversible="true" easing="inout">Visible</animation>
 
 					<!-- Title -->
 					<!-- clearlogo [800x310] -->
 					<control type="image" id="887766">
-						<visible>!Skin.HasSetting(NoClearLogoBingie) + !String.IsEmpty(Control.GetLabel(887766))</visible>
+						<visible>!Skin.HasSetting(NoClearLogoBingie)</visible>
 						<height>186</height>
 						<width>480</width>
 						<align>left</align>
 						<aspectratio align="left" aligny="center">keep</aspectratio>
-						<texture background="true">$VAR[ListItemClearLogo]</texture>
+						<texture background="true" fallback="colors/color_transparent.png">$VAR[ListItemClearLogo]</texture>
 					</control>
 					<!-- text title -->
 					<control type="textbox">
-						<visible>Skin.HasSetting(NoClearLogoBingie) | String.IsEmpty(Control.GetLabel(887766))</visible>
-						<top>43</top>
+						<visible>Skin.HasSetting(NoClearLogoBingie) | String.EndsWith(Control.GetLabel(887766),color_transparent.png)</visible>
+						<top>-143</top>
 						<width max="1000">auto</width>
 						<height>auto</height>
 						<font>Reg48</font>
 						<align>left</align>
 						<aligny>center</aligny>
 						<textcolor>$INFO[Skin.String(HeaderTextColor)]</textcolor>
-						<label>[B]$VAR[value_header][/B]</label>
+						<label>[B]$VAR[TVShowTitle][/B]</label>
 						<shadowcolor>$INFO[Skin.String(HeaderTextShadowColor)]</shadowcolor>
 					</control>
 
 					<control type="grouplist">
+						<include>InfoDialogWindowOpenAnim</include>
                         <visible>String.IsEmpty(Window.Property(AdditionalInfo)) | String.IsEqual(Window.Property(AdditionalInfo),plot)</visible>
 						<width>1000</width>
 						<height>85</height>
@@ -1629,6 +1624,7 @@
 
 					<!-- plot -->
 					<control type="textbox">
+						<include>InfoDialogWindowOpenAnim</include>
 						<animation effect="fade" start="100" end="0" time="200" condition="!String.IsEmpty(Window.Property(AdditionalInfo))">Conditional</animation>
 						<width>625</width>
 						<height min="110" max="170">auto</height>
@@ -1641,6 +1637,7 @@
 
 					<!-- more details -->
 					<control type="grouplist">
+						<include>InfoDialogWindowOpenAnim</include>
 						<animation effect="fade" start="100" end="0" time="200" condition="!String.IsEmpty(Window.Property(AdditionalInfo))">Conditional</animation>
 						<orientation>vertical</orientation>
 						<height max="255">auto</height>

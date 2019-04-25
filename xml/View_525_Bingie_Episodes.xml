@@ -273,14 +273,13 @@
                 <height>35</height>
                 <width>auto</width>
                 <aligny>center</aligny>
-                <font>Reg24</font>
+                <font>Reg22</font>
                 <textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
                 <label>$VAR[GetYear]</label>
                 <include>Default_Visible_Fade</include>
             </control>
 
             <include>MPAA_Details_Row</include>
-
 
             <!-- Total Seasons -->
             <control type="label" id="611117">
@@ -291,7 +290,7 @@
                 <height>35</height>
                 <aligny>center</aligny>
                 <textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
-                <font>Reg24</font>
+                <font>Reg22</font>
                 <include>Default_Visible_Fade</include>
             </control>
 
@@ -312,7 +311,7 @@
                     <aligny>center</aligny>
                     <align>center</align>
                     <textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
-                    <font>Reg24</font>
+                    <font>Reg22</font>
                     <scroll>false</scroll>
                     <label>$INFO[Window(Home).Property(SkinHelper.ListItem.Status)]</label>
                 </control>
@@ -345,33 +344,27 @@
 
             <!-- left group -->
             <control type="grouplist">
-                <posy>65</posy>
-                <posx>65</posx>
+                <posy>22</posy>
+                <include condition="!Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Left</include>
+                <left>65</left>
                 <usecontrolcoords>true</usecontrolcoords>
                 <orientation>vertical</orientation>
 
-                <!-- window close animation -->
-                <animation type="WindowClose" reversible="false" condition="!Skin.HasSetting(LowPerformanceMode)">
-                    <effect type="slide" start="0" end="-150" easing="in" tween="sine" time="250"/>
-                    <effect type="fade" start="100" end="0" time="300"/>
-                </animation>
-
                 <!-- clearlogo title -->
                 <control type="image" id="887767">
-                    <visible>!Skin.HasSetting(NoClearLogoBingie) + !String.IsEmpty(Control.GetLabel(887767))</visible>
-                    <height>230</height>
-                    <width>593</width>
+                    <visible>!Skin.HasSetting(NoClearLogoBingie)</visible>
+                    <height>186</height>
+                    <width>480</width>
                     <align>left</align>
                     <top>0</top>
                     <fadetime>600</fadetime>
                     <aspectratio align="left" aligny="center">keep</aspectratio>
-                    <texture background="true">$VAR[ListItemClearLogo]</texture>
+                    <texture background="true" fallback="colors/color_transparent.png">$VAR[ListItemClearLogo]</texture>
                 </control>
-
                 <!-- text title -->
                 <control type="textbox">
-                    <visible>Skin.HasSetting(NoClearLogoBingie) | String.IsEmpty(Control.GetLabel(887767))</visible>
-                    <top>55</top>
+                    <visible>Skin.HasSetting(NoClearLogoBingie) | String.EndsWith(Control.GetLabel(887767),color_transparent.png)</visible>
+                    <top>-143</top>
                     <width max="700">auto</width>
                     <height>auto</height>
                     <font>Reg48</font>
@@ -379,7 +372,6 @@
                     <aligny>center</aligny>
                     <textcolor>$INFO[Skin.String(HeaderTextColor)]</textcolor>
                     <label>[B]$VAR[TVShowTitle][/B]</label>
-                    <label>$INFO[ListItem.FolderPath]</label>
                     <shadowcolor>$INFO[Skin.String(HeaderTextShadowColor)]</shadowcolor>
                 </control>
 

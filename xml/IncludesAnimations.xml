@@ -60,6 +60,13 @@
         <animation time="150" effect="fade" reversible="true" easing="inout">Visible</animation>
     </include>
 
+    <include name="InfoDialogWindowOpenAnim">
+        <animation type="WindowOpen" reversible="false" condition="!Skin.HasSetting(LowPerformanceMode)">
+            <effect type="slide" start="200" end="0" easing="out" tween="sine" time="250"/>
+            <effect type="fade" start="0" end="100" time="300"/>
+        </animation>
+    </include>
+
     <include name="widgets_animation">
         <animation condition="Skin.HasSetting(Widgets_Animation)" reversible="false" type="Visible">
             <effect center="960,540" delay="280" easing="in" end="100" start="98" time="180" tween="sine" type="zoom" />

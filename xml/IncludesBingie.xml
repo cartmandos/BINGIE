@@ -678,9 +678,9 @@
         <value condition="[Control(1508).HasFocus | ControlGroup(505).HasFocus()] + !String.IsEmpty(Container(1508).ListItem.Art(tvshow.clearlogo))">$INFO[Container(1508).ListItem.Art(tvshow.clearlogo)]</value>
         <value condition="[Control(1508).HasFocus | ControlGroup(505).HasFocus()] + !String.IsEmpty(Container(1508).ListItem.Art(clearlogo))">$INFO[Container(1508).ListItem.Art(clearlogo)]</value>
         <!-- home -->
-        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Art.tvshow.clearlogo))">$INFO[Window(Home).Property(ListItem.Art.tvshow.clearlogo)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Art.ClearLogo))">$INFO[Window(Home).Property(ListItem.Art.ClearLogo)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.ChannelLogo))">$INFO[Window(Home).Property(ListItem.ChannelLogo)]</value>
+        <value condition="ControlGroup(900).HasFocus() + !String.IsEmpty(Window(Home).Property(ListItem.Art.tvshow.clearlogo))">$INFO[Window(Home).Property(ListItem.Art.tvshow.clearlogo)]</value>
+        <value condition="ControlGroup(900).HasFocus() + !String.IsEmpty(Window(Home).Property(ListItem.Art.ClearLogo))">$INFO[Window(Home).Property(ListItem.Art.ClearLogo)]</value>
+        <value condition="ControlGroup(900).HasFocus() + !String.IsEmpty(Window(Home).Property(ListItem.ChannelLogo))">$INFO[Window(Home).Property(ListItem.ChannelLogo)]</value>
         <!-- skinhelper fallback -->
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Clearlogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Clearlogo)]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.ChannelLogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.ChannelLogo)]</value>
@@ -717,7 +717,7 @@
     <variable name="BingieSublabel">
         <!-- Tagline Info -->
         <value condition="!String.IsEmpty(ListItem.TagLine)">[B]$INFO[ListItem.TagLine][/B]</value>
-        <value condition="!ControlGroup(77777).HasFocus() + !String.IsEmpty(Window(Home).Property(ListItem.TagLine))">[B]$INFO[Window(Home).Property(ListItem.TagLine)][/B]</value>
+        <value condition="ControlGroup(900).HasFocus() + !String.IsEmpty(Window(Home).Property(ListItem.TagLine))">[B]$INFO[Window(Home).Property(ListItem.TagLine)][/B]</value>
         <!-- Watch Tag Info -->
         <value condition="[ControlGroup(505).HasFocus() + Integer.IsGreater(Container(1508).NumItems,0)] | String.IsEqual(ListItem.DBTYPE,tvshow)">$VAR[WatchNowTagInfo]</value>
         <!-- Album/Song Info -->
