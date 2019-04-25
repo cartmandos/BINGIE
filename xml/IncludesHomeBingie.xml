@@ -160,7 +160,7 @@
                     <usecontrolcoords>true</usecontrolcoords>
                     <itemgap>10</itemgap>
                     <!-- adjust for episode info -->
-                    <animation effect="slide" start="0" end="0,75" time="0" condition="Control.IsVisible(588688) + !Control.IsVisible(5444322)">Conditional</animation>
+                    <animation effect="slide" start="0" end="0,75" time="0" condition="Control.IsVisible(588688) + !Control.IsVisible(5444322) + !ControlGroup(505).HasFocus()">Conditional</animation>
 
                     <!-- clearlogo [800x310] -->
                     <control type="image" id="29475">
@@ -226,6 +226,8 @@
                         <height>125</height>
                         <width>1000</width>
                         <include>Default_Visible_Fade</include>
+                        <animation effect="slide" start="0" end="0,225" time="0" condition="ControlGroup(505).HasFocus() + Control.IsVisible(29475)">Conditional</animation>
+                        <animation effect="slide" start="0" end="0,340" time="0" condition="ControlGroup(505).HasFocus() + Control.IsVisible(29476)">Conditional</animation>
                         <!-- next episode label -->
                         <control type="label">
                             <visible>Integer.IsEqual(ListItem.PercentPlayed,0)</visible>
@@ -386,10 +388,11 @@
                         | String.IsEqual(Container(1508).ListItem.DBType,episode) | String.IsEqual(Container(1508).ListItem.Property(DBTYPE),movie)
                         | String.IsEqual(Container(1508).ListItem.Property(DBTYPE),episode)</visible>
                     <description>Play</description>
-                    <width>225</width>
+                    <width>230</width>
+                    <textwidth>145</textwidth>
                     <height>100%</height>
+                    <align>left</align>
                     <label>[CAPITALIZE][B]$LOCALIZE[208][/B][/CAPITALIZE]</label>
-                    <align>center</align>
                     <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
                     <focusedcolor>black</focusedcolor>
                     <texturefocus colordiffuse="d9ffffff" border="5">diffuse/panel.png</texturefocus>
@@ -398,9 +401,10 @@
                     <textureradioofffocus colordiffuse="black">dialogs/videoinfo/info/play.png</textureradioofffocus>
                     <textureradioonnofocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">dialogs/videoinfo/info/play.png</textureradioonnofocus>
                     <textureradiooffnofocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">dialogs/videoinfo/info/play.png</textureradiooffnofocus>
-                    <radioposx>45</radioposx>
+                    <radioposx>40</radioposx>
                     <radiowidth>25</radiowidth>
                     <radioheight>35</radioheight>
+                    <textoffsetx>80</textoffsetx>
                     <font>Reg28</font>
                     <onclick>PlayMedia($ESCINFO[Container(1508).ListItem.FileNameAndPath])</onclick>
                 </control>
