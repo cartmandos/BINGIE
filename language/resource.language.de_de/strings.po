@@ -232,10 +232,6 @@ msgctxt "#31074"
 msgid "Arrange the homescreen tiles just the way you want it. [CR]Usage select a direction below and click on the tile's title (in the list on the right) to move it's position. [CR]Because settings are applied on the fly the screen may blink for one second."
 msgstr "Ordne die Kacheln des Startbildschirms so an wie du sie haben willst. [CR]Bedienung: wähle unten eine Richtung aus und klick dann auf den Titel der Kachel (in der Liste rechts) um die Position zu verändern. [CR]Da die Einstellungen sofort angewendet werden kann das Bild kurz flackern."
 
-msgctxt "#31076"
-msgid "UP"
-msgstr "NACH OBEN"
-
 msgctxt "#31077"
 msgid "DOWN"
 msgstr "NACH UNTEN"

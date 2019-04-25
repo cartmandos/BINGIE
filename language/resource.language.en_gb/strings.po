@@ -319,7 +319,7 @@ msgid "Enable Splash Animation in 4k"
 msgstr ""
 
 msgctxt "#31076"
-msgid "UP"
+msgid "British Series"
 msgstr ""
 
 msgctxt "#31077"

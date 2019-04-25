@@ -10,4 +10,5 @@
         <value>Game Show</value>
     </rule>
     <order direction="ascending">random</order>
+    <limit>200</limit>
 </smartplaylist>

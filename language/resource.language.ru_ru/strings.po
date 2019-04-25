@@ -224,10 +224,6 @@ msgctxt "#31073"
 msgid "Sort the home menu tiles"
 msgstr "Сортировка плиток меню"
 
-msgctxt "#31076"
-msgid "UP"
-msgstr "Вверх"
-
 msgctxt "#31077"
 msgid "DOWN"
 msgstr "Вниз"

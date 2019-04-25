@@ -4,7 +4,7 @@
     <name>European Movies</name>
     <match>all</match>
     <rule field="country" operator="is">
-    <value>United Kingdom</value>
+        <value>United Kingdom</value>
         <value>UK</value>
         <value>France</value>
         <value>England</value>
@@ -26,5 +26,6 @@
         <value>US</value>
         <value>united states</value>
     </rule>
-    <order direction="ascending">sorttitle</order>
+    <order direction="ascending">random</order>
+    <limit>200</limit>
 </smartplaylist>

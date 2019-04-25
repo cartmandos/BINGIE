@@ -190,6 +190,11 @@
                 <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
             </item>
             <item>
+                <label>$LOCALIZE[31076]</label>
+                <property name="path">special://skin/playlists/britishseries.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
                 <label>$LOCALIZE[31193]</label>
                 <property name="path">special://skin/playlists/standup.xsp</property>
                 <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>

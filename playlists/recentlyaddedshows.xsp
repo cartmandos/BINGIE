@@ -6,5 +6,6 @@
     <rule field="playcount" operator="is">
         <value>0</value>
     </rule>
-    <order direction="descending">dateadded</order>
+    <order direction="ascending">random</order>
+    <limit>200</limit>
 </smartplaylist>

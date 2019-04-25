@@ -7,4 +7,5 @@
         <value>0</value>
     </rule>
     <order direction="ascending">top250</order>
+    <limit>200</limit>
 </smartplaylist>

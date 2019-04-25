@@ -196,10 +196,6 @@ msgctxt "#31072"
 msgid "Sort Home tiles"
 msgstr "Sortera hembrickor"
 
-msgctxt "#31076"
-msgid "UP"
-msgstr "UPP"
-
 msgctxt "#31077"
 msgid "DOWN"
 msgstr "NER"

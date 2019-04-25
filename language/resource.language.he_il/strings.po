@@ -387,12 +387,9 @@ msgctxt "#31075"
 msgid "Direction to move"
 msgstr "כיוון להזזה"
 
-
-
 msgctxt "#31076"
-msgid "UP"
-msgstr "למעלה"
-
+msgid "British Series"
+msgstr "סדרות בריטיות"
 
 msgctxt "#31077"
 msgid "DOWN"

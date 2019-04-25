@@ -232,10 +232,6 @@ msgctxt "#31074"
 msgid "Arrange the homescreen tiles just the way you want it. [CR]Usage select a direction below and click on the tile's title (in the list on the right) to move it's position. [CR]Because settings are applied on the fly the screen may blink for one second."
 msgstr "Presložite pločice početnog ekrana baš kako želite. [CR]Odaberite smijer niže i kliknite na naslov pločice (u popisu na desno) kako biste ga pomjerili. [CR]Postavke se primjenjuju uživo, tako da može doći do treptanja ekrana."
 
-msgctxt "#31076"
-msgid "UP"
-msgstr "GORE"
-
 msgctxt "#31077"
 msgid "DOWN"
 msgstr "DOLJE"

@@ -108,10 +108,6 @@ msgctxt "#31071"
 msgid "Setting level"
 msgstr "Innstillingsnivå"
 
-msgctxt "#31076"
-msgid "UP"
-msgstr "OPP"
-
 msgctxt "#31077"
 msgid "DOWN"
 msgstr "NED"

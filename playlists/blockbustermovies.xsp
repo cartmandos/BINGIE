@@ -13,4 +13,5 @@
         <value>60 days</value>
     </rule>
     <order direction="descending">votes</order>
+    <limit>200</limit>
 </smartplaylist>

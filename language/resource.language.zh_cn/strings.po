@@ -216,10 +216,6 @@ msgctxt "#31073"
 msgid "Sort the home menu tiles"
 msgstr "首页菜单排序"
 
-msgctxt "#31076"
-msgid "UP"
-msgstr "上"
-
 msgctxt "#31077"
 msgid "DOWN"
 msgstr "下"

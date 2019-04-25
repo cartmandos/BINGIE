@@ -124,10 +124,6 @@ msgctxt "#31070"
 msgid "Banner list"
 msgstr "Λίστα Πανό"
 
-msgctxt "#31076"
-msgid "UP"
-msgstr "ΠΑΝΩ"
-
 msgctxt "#31077"
 msgid "DOWN"
 msgstr "ΚΑΤΩ"

@@ -232,10 +232,6 @@ msgctxt "#31074"
 msgid "Arrange the homescreen tiles just the way you want it. [CR]Usage select a direction below and click on the tile's title (in the list on the right) to move it's position. [CR]Because settings are applied on the fly the screen may blink for one second."
 msgstr "Järjestä päävalikon tiilet haluamallasi tavalla. [CR]Valitse kohde alhaalta ja klikkaa tiilen nimeä (oikealla olevalta listalta) siirtääksesi sen haluamaasi paikkaan. [CR]Ruutu saattaa välkkyä, koska asetukset otetaan välittömästi käyttöön."
 
-msgctxt "#31076"
-msgid "UP"
-msgstr "YLÖS"
-
 msgctxt "#31077"
 msgid "DOWN"
 msgstr "ALAS"

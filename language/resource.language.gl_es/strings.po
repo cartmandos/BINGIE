@@ -76,10 +76,6 @@ msgctxt "#31070"
 msgid "Banner list"
 msgstr "Listaxe de pancartas"
 
-msgctxt "#31076"
-msgid "UP"
-msgstr "ARRIBA"
-
 msgctxt "#31077"
 msgid "DOWN"
 msgstr "ABAIXO"

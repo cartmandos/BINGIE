@@ -232,10 +232,6 @@ msgctxt "#31074"
 msgid "Arrange the homescreen tiles just the way you want it. [CR]Usage select a direction below and click on the tile's title (in the list on the right) to move it's position. [CR]Because settings are applied on the fly the screen may blink for one second."
 msgstr "Išdėstyti pradinio ekrano plyteles taip kaip norite.[CR]Pasirinkite kryptį žemiau ir paspauskite ant plytelės pavadinimo (sąraše dešinėje), norėdami pakeisti jos poziciją.[CR]Kadangi nustatymai pritaikomi nedelsiant, ekranas gali mirktelėti vienai sekundei."
 
-msgctxt "#31076"
-msgid "UP"
-msgstr "AUKŠTYN"
-
 msgctxt "#31077"
 msgid "DOWN"
 msgstr "ŽEMYN"
