@@ -588,6 +588,7 @@
         <aligny>center</aligny>
         <font>Light30</font>
         <label>$INFO[ListItem.Label]</label>
+        <animation effect="fade" start="100" end="0" time="300" condition="!$EXP[IsMainMenuOpened]">Conditional</animation>
     </include>
 
     <include name="Bingie_Menu_Label">
@@ -953,6 +954,7 @@
 
             <!-- logo / user profile button -->
             <control type="group">
+                <visible>$EXP[IsMainMenuOpened]</visible>
                 <top>30</top>
                 <width>385</width>
                 <height>80</height>
@@ -1078,6 +1080,7 @@
 
             <!-- powermenu buttons -->
             <control type="list" id="40003">
+                <visible>$EXP[IsMainMenuOpened] + !Skin.HasSetting(DisablePowerMenu)</visible>
                 <orientation>vertical</orientation>
                 <top>920</top>
                 <width>384</width>
@@ -1102,7 +1105,7 @@
                         <param name="textcolor" value="$INFO[Skin.String(MainMenuFocusTextColor)]"/>
                     </include>
                 </focusedlayout>
-                <content><include condition="!Skin.HasSetting(DisablePowerMenu)">skinshortcuts-group-powermenu</include></content>
+                <content><include>skinshortcuts-group-powermenu</include></content>
             </control>
         </control>
         <include condition="!Skin.HasSetting(DisableAllSubmenus)">SideBladeSubMenu</include>
