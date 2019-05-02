@@ -207,7 +207,7 @@
                     <control type="label" id="56338">
                         <visible>!$EXP[IsEpisodeDBType] + !String.IsEmpty(Control.GetLabel(56338))</visible>
                         <height>30</height>
-                        <width>800</width>
+                        <width max="625">auto</width>
                         <font>Reg28</font>
                         <align>left</align>
                         <aligny>center</aligny>
@@ -286,7 +286,7 @@
                             !Skin.HasSetting(ShowEpisodesPlotAll)]</visible>
                         <include condition="Skin.HasSetting(EnlargeBingiePlot)">Alt_Bingie_Plot_Height</include>
                         <height min="50" max="138">auto</height>
-                        <width>625</width>
+                        <width max="620">auto</width>
                         <textcolor>$VAR[BingiePlotTextColor]</textcolor>
                         <align>justify</align>
                         <font>Reg28</font>
