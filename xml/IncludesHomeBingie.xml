@@ -215,7 +215,7 @@
                         <label>$VAR[BingieSublabel]</label>
                         <!-- adjust for spotlight -->
                         <animation effect="slide" start="0" end="0,225" time="0" condition="ControlGroup(505).HasFocus() + Control.IsVisible(29475)">Conditional</animation>
-                        <animation effect="slide" start="0" end="0,340" time="0" condition="ControlGroup(505).HasFocus() + Control.IsVisible(29476)">Conditional</animation>
+                        <animation effect="slide" start="0" end="0,115" time="0" condition="ControlGroup(505).HasFocus() + Control.IsVisible(29476)">Conditional</animation>
                         <include>Default_Visible_Fade</include>
                     </control>
 
@@ -227,7 +227,7 @@
                         <width>1000</width>
                         <include>Default_Visible_Fade</include>
                         <animation effect="slide" start="0" end="0,225" time="0" condition="ControlGroup(505).HasFocus() + Control.IsVisible(29475)">Conditional</animation>
-                        <animation effect="slide" start="0" end="0,340" time="0" condition="ControlGroup(505).HasFocus() + Control.IsVisible(29476)">Conditional</animation>
+                        <animation effect="slide" start="0" end="0,115" time="0" condition="ControlGroup(505).HasFocus() + Control.IsVisible(29476)">Conditional</animation>
                         <!-- next episode label -->
                         <control type="label">
                             <visible>Integer.IsEqual(ListItem.PercentPlayed,0)</visible>
@@ -293,7 +293,7 @@
                         <label>$VAR[BingiePlot]</label>
                         <!-- spotlight adjustments -->
                         <animation effect="slide" start="0" end="0,230" time="0" condition="ControlGroup(505).HasFocus() + Control.IsVisible(29475)">Conditional</animation>
-                        <animation effect="slide" start="0" end="0,345" time="0" condition="ControlGroup(505).HasFocus() + Control.IsVisible(29476)">Conditional</animation>
+                        <animation effect="slide" start="0" end="0,115" time="0" condition="ControlGroup(505).HasFocus() + Control.IsVisible(29476)">Conditional</animation>
                         <animation effect="fade" start="100" end="0" time="400" condition="!Skin.HasSetting(ShowPlotInBingieSpotlight) + ControlGroup(505).HasFocus() + [$EXP[IsPlayingUnrecognizedContent] | String.IsEmpty(Window(Home).Property(SpotlightFirstPlayDone))]">Conditional</animation>
                         <include>Default_Visible_Fade</include>
                     </control>
