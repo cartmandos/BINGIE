@@ -190,7 +190,7 @@
                         <!-- adjust for spotlight -->
                         <animation effect="slide" start="0" end="0,155" time="0" condition="ControlGroup(505).HasFocus()">Conditional</animation>
                         <!-- adjust for genres - removed zoom due kodi bug -->
-                        <animation effect="slide" start="0,0" end="0,170" time="0" condition="[Container.Content(genres) | String.IsEqual(ListItem.DBTYPE,genre)] | [String.IsEmpty(ListItem.DBType) + [String.IsEqual(ListItem.Property(DBTYPE),genre) | String.IsEqual(ListItem.Property(DBTYPE),categorie)]]">Conditional</animation>
+                        <animation effect="slide" start="0,0" end="0,170" time="0" condition="[Container.Content(genres) | String.IsEqual(ListItem.DBTYPE,genre)] | [String.IsEmpty(ListItem.DBType) + [String.IsEqual(ListItem.Property(DBTYPE),genre) | String.IsEqual(ListItem.Property(DBTYPE),category) | String.IsEqual(ListItem.Property(DBTYPE),categorie)]]">Conditional</animation>
                     </control>
 
                     <!-- spotlight row details -->

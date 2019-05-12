@@ -168,8 +168,8 @@
         <!-- script.skin.helper.service default widgets -->
         <shortcut label="$LOCALIZE[31799]" type="32010" condition="System.HasAddon(script.skin.helper.service) + Window.IsActive(script-skinshortcuts.xml)">||BROWSE||script.skin.helper.service/?action=widgets&amp;path=scriptwidgets,smartshortcuts,extendedinfo,librarydataprovider,smartishwidgets,favourites,static</shortcut>
         <shortcut label="$LOCALIZE[31799]" type="32010" condition="System.HasAddon(script.skin.helper.service) + !Window.IsActive(script-skinshortcuts.xml)">||BROWSE||script.skin.helper.service/?action=widgets&amp;path=scriptwidgets,smartshortcuts,extendedinfo,librarydataprovider,smartishwidgets,favourites</shortcut>
-        
-        <content>widgets</content>
+
+		<content>widgets</content>
 		<node label="32030">
 			<content>video</content>
 			<node label="32040">
@@ -246,6 +246,8 @@
 	<!-- widgets -->
 	<widget label="31531" type="32010" condition="Window.IsActive(script-skinshortcuts.xml)">||BROWSE||script.skin.helper.service/?action=smartshortcuts</widget>
     <widget label="$INFO[System.AddonTitle(plugin.service.gto)]" name="$INFO[System.AddonTitle(plugin.service.gto)]" condition="System.HasAddon(plugin.service.gto)" type="pvr" target="pvr" path="plugin://plugin.service.gto?action=getcontent&amp;ts=$INFO[Window(Home).Property(GTO.timestamp)]">gto</widget>
+	<widget label="$ADDON[script.skin.helper.widgets 32098]" name="$ADDON[script.skin.helper.widgets 32098]" type="video" target="videos" path="$INCLUDE[CategoriesWidget]">categories</widget>
+	<widget label="$LOCALIZE[31534]" name="$LOCALIZE[31534]" type="video" target="videos" path="$INCLUDE[MyListWidget]">mylist</widget>
 
 	<!-- default widgets -->
 	<widgetdefaultnode defaultID="movies" group="mainmenu" label="$LOCALIZE[31102]" type="movies" path="special://skin/extras/widgetplaylists/randommovies.xsp" target="video">randommovies</widgetdefaultnode>
@@ -255,62 +257,62 @@
 
     <!-- home widgets -->
 	<propertydefault defaultID="10000" property="widget">continuewatching</propertydefault>
-	<propertydefault defaultID="10000" property="widgetTarget">video</propertydefault>
+	<propertydefault defaultID="10000" property="widgetTarget">videos</propertydefault>
 	<propertydefault defaultID="10000" property="widgetType">episodes</propertydefault>
 	<propertydefault defaultID="10000" property="widgetPath">plugin://script.skin.helper.widgets/?action=next&amp;mediatype=episodes&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload-episodes)]</propertydefault>
 	<propertydefault defaultID="10000" property="widgetName">$LOCALIZE[31535] $VAR[ForCurrentProfileNameLabel]</propertydefault>
 
 	<propertydefault defaultID="10000" property="widget.1">recentshowsandmovies</propertydefault>
-	<propertydefault defaultID="10000" property="widgetTarget.1">video</propertydefault>
+	<propertydefault defaultID="10000" property="widgetTarget.1">videos</propertydefault>
 	<propertydefault defaultID="10000" property="widgetType.1">video</propertydefault>
 	<propertydefault defaultID="10000" property="widgetPath.1">plugin://script.skin.helper.widgets/?action=recentshowsandmovies&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]</propertydefault>
 	<propertydefault defaultID="10000" property="widgetName.1">$LOCALIZE[31127]</propertydefault>
 
 	<propertydefault defaultID="10000" property="widget.2">bingeworthyshows</propertydefault>
-	<propertydefault defaultID="10000" property="widgetTarget.2">video</propertydefault>
+	<propertydefault defaultID="10000" property="widgetTarget.2">videos</propertydefault>
 	<propertydefault defaultID="10000" property="widgetType.2">tvshows</propertydefault>
 	<propertydefault defaultID="10000" property="widgetPath.2">special://skin/playlists/bingeworthyshows.xsp</propertydefault>
 	<propertydefault defaultID="10000" property="widgetName.2">$LOCALIZE[31079]</propertydefault>
 
 	<propertydefault defaultID="10000" property="widget.3">newreleasemovies</propertydefault>
-	<propertydefault defaultID="10000" property="widgetTarget.3">video</propertydefault>
+	<propertydefault defaultID="10000" property="widgetTarget.3">videos</propertydefault>
 	<propertydefault defaultID="10000" property="widgetType.3">movies</propertydefault>
 	<propertydefault defaultID="10000" property="widgetPath.3">special://skin/playlists/newreleasemovies.xsp</propertydefault>
 	<propertydefault defaultID="10000" property="widgetName.3">$LOCALIZE[31080]</propertydefault>
 
 	<propertydefault defaultID="10000" property="widget.4">criticallyacclaimedmovies</propertydefault>
-	<propertydefault defaultID="10000" property="widgetTarget.4">video</propertydefault>
+	<propertydefault defaultID="10000" property="widgetTarget.4">videos</propertydefault>
 	<propertydefault defaultID="10000" property="widgetType.4">movies</propertydefault>
 	<propertydefault defaultID="10000" property="widgetPath.4">special://skin/playlists/blockbustermovies.xsp</propertydefault>
 	<propertydefault defaultID="10000" property="widgetName.4">$LOCALIZE[31532]</propertydefault>
 
 	<propertydefault defaultID="10000" property="widget.5">similar</propertydefault>
-	<propertydefault defaultID="10000" property="widgetTarget.5">video</propertydefault>
+	<propertydefault defaultID="10000" property="widgetTarget.5">videos</propertydefault>
 	<propertydefault defaultID="10000" property="widgetType.5">video</propertydefault>
 	<propertydefault defaultID="10000" property="widgetPath.5">plugin://script.skin.helper.widgets/?action=similar&amp;mediatype=media&amp;limit=25</propertydefault>
 	<propertydefault defaultID="10000" property="widgetName.5">$ADDON[script.skin.helper.widgets 32022]</propertydefault>
 
 	<propertydefault defaultID="10000" property="widget.6">mylist</propertydefault>
-	<propertydefault defaultID="10000" property="widgetTarget.6">video</propertydefault>
+	<propertydefault defaultID="10000" property="widgetTarget.6">videos</propertydefault>
 	<propertydefault defaultID="10000" property="widgetType.6">video</propertydefault>
-	<propertydefault defaultID="10000" property="widgetPath.6">plugin://script.skin.helper.widgets/?action=mylist&amp;mediatype=media&amp;limit=30&amp;reload=$INFO[Window(Home).Property(widgetreload)]</propertydefault>
+	<propertydefault defaultID="10000" property="widgetPath.6">$INCLUDE[MyListWidget]</propertydefault>
 	<propertydefault defaultID="10000" property="widgetName.6">$LOCALIZE[31534]</propertydefault>
 
 	<propertydefault defaultID="10000" property="widget.7">categories</propertydefault>
-	<propertydefault defaultID="10000" property="widgetTarget.7">video</propertydefault>
+	<propertydefault defaultID="10000" property="widgetTarget.7">videos</propertydefault>
 	<propertydefault defaultID="10000" property="widgetType.7">video</propertydefault>
-	<propertydefault defaultID="10000" property="widgetPath.7">plugin://script.skin.helper.widgets/?action=categories&amp;mediatype=media</propertydefault>
+	<propertydefault defaultID="10000" property="widgetPath.7">$INCLUDE[CategoriesWidget]</propertydefault>
 	<propertydefault defaultID="10000" property="widgetName.7">$ADDON[script.skin.helper.widgets 32098]</propertydefault>
     
     <!-- spotlight widget -->
     <propertydefault defaultID="movies" property="widget.99">spotlightmovies</propertydefault>
-    <propertydefault defaultID="movies" property="widgetTarget.99">video</propertydefault>
+    <propertydefault defaultID="movies" property="widgetTarget.99">videos</propertydefault>
     <propertydefault defaultID="movies" property="widgetType.99">movies</propertydefault>
     <propertydefault defaultID="movies" property="widgetName.99">$LOCALIZE[31185]</propertydefault>
     <propertydefault defaultID="movies" property="widgetPath.99">special://skin/extras/widgetplaylists/recommendedmovies.xsp</propertydefault>
     
     <propertydefault defaultID="tvshows" property="widget.99">spotlighttvshows</propertydefault>
-    <propertydefault defaultID="tvshows" property="widgetTarget.99">video</propertydefault>
+    <propertydefault defaultID="tvshows" property="widgetTarget.99">videos</propertydefault>
     <propertydefault defaultID="tvshows" property="widgetType.99">tvshows</propertydefault>
     <propertydefault defaultID="tvshows" property="widgetName.99">$LOCALIZE[31185]</propertydefault>
     <propertydefault defaultID="tvshows" property="widgetPath.99">special://skin/extras/widgetplaylists/recommendedtvshows.xsp</propertydefault>

@@ -77,8 +77,7 @@
         <visible>
             ![Control.IsVisible(509) + Skin.String(View509.Tags,disable)] + 
             ![Control.IsVisible(510) + Skin.String(View510.Tags,disable)] + 
-            !String.IsEqual(ListItem.Label,..) + 
-            !Window.IsActive(script-skin_helper_service-CustomSearch.xml) + 
+            !String.IsEqual(ListItem.Label,..) +
             ![Skin.HasSetting(NoTitleOnHomeMenuTiles) + !String.IsEmpty(ListItem.Property(defaultID))] + 
             !String.IsEqual(ListItem.Property(disableLabel), disable)
         </visible>

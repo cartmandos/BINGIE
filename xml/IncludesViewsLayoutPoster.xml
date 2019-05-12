@@ -122,7 +122,6 @@
     <!-- TAG OVERLAYS -->
     <include name="PosterTagOverlayVisibility">
         <visible>!String.IsEqual(ListItem.Label,..)</visible>
-        <visible>!Window.IsActive(script-skin_helper_service-CustomSearch.xml)</visible>
         <visible>
             ![Control.IsVisible(52) + Skin.String(View52.Tags,disable)] + 
             ![Control.IsVisible(53) + Skin.String(View53.Tags,disable)] + 

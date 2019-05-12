@@ -48,6 +48,8 @@
         <property name="contentStyle1" tag="property" attribute="name|widgetPath" value="$INCLUDE[WeatherWidget]">weather</property>
         <property name="contentStyle1" tag="property" attribute="name|widgetPath" value="$INCLUDE[SystemInfoWidget]">systeminfo</property>
         <property name="contentStyle1" tag="property" attribute="name|widgetPath" value="$INCLUDE[RCBWidget]">rcb</property>
+        <property name="contentStyle1" tag="property" attribute="name|widgetPath" value="$INCLUDE[CategoriesWidget]">categories</property>
+        <property name="contentStyle1" tag="property" attribute="name|widgetPath" value="$INCLUDE[MyListWidget]">mylist</property>
         <property name="contentStyle1">normal</property>
         <property name="widgetPath1" tag="property" attribute="name|widgetPath" />
         <property name="widgetPath1"/>
@@ -73,6 +75,8 @@
         <property name="contentStyle2" tag="property" attribute="name|widgetPath.1" value="$INCLUDE[WeatherWidget]">weather</property>
         <property name="contentStyle2" tag="property" attribute="name|widgetPath.1" value="$INCLUDE[SystemInfoWidget]">systeminfo</property>
         <property name="contentStyle2" tag="property" attribute="name|widgetPath.1" value="$INCLUDE[RCBWidget]">rcb</property>
+        <property name="contentStyle2" tag="property" attribute="name|widgetPath.1" value="$INCLUDE[CategoriesWidget]">categories</property>
+        <property name="contentStyle2" tag="property" attribute="name|widgetPath.1" value="$INCLUDE[MyListWidget]">mylist</property>
         <property name="contentStyle2">normal</property>
         <property name="widgetPath2" tag="property" attribute="name|widgetPath.1" />
         <property name="widgetPath2"/>
@@ -98,6 +102,8 @@
         <property name="contentStyle3" tag="property" attribute="name|widgetPath.2" value="$INCLUDE[WeatherWidget]">weather</property>
         <property name="contentStyle3" tag="property" attribute="name|widgetPath.2" value="$INCLUDE[SystemInfoWidget]">systeminfo</property>
         <property name="contentStyle3" tag="property" attribute="name|widgetPath.2" value="$INCLUDE[RCBWidget]">rcb</property>
+        <property name="contentStyle3" tag="property" attribute="name|widgetPath.2" value="$INCLUDE[CategoriesWidget]">categories</property>
+        <property name="contentStyle3" tag="property" attribute="name|widgetPath.2" value="$INCLUDE[MyListWidget]">mylist</property>
         <property name="contentStyle3">normal</property>
         <property name="widgetPath3" tag="property" attribute="name|widgetPath.2" />
         <property name="widgetPath3"/>
@@ -123,6 +129,8 @@
         <property name="contentStyle4" tag="property" attribute="name|widgetPath.3" value="$INCLUDE[WeatherWidget]">weather</property>
         <property name="contentStyle4" tag="property" attribute="name|widgetPath.3" value="$INCLUDE[SystemInfoWidget]">systeminfo</property>
         <property name="contentStyle4" tag="property" attribute="name|widgetPath.3" value="$INCLUDE[RCBWidget]">rcb</property>
+        <property name="contentStyle4" tag="property" attribute="name|widgetPath.3" value="$INCLUDE[CategoriesWidget]">categories</property>
+        <property name="contentStyle4" tag="property" attribute="name|widgetPath.3" value="$INCLUDE[MyListWidget]">mylist</property>
         <property name="contentStyle4">normal</property>
         <property name="widgetPath4" tag="property" attribute="name|widgetPath.3" />
         <property name="widgetPath4"/>
@@ -148,6 +156,8 @@
         <property name="contentStyle5" tag="property" attribute="name|widgetPath.4" value="$INCLUDE[WeatherWidget]">weather</property>
         <property name="contentStyle5" tag="property" attribute="name|widgetPath.4" value="$INCLUDE[SystemInfoWidget]">systeminfo</property>
         <property name="contentStyle5" tag="property" attribute="name|widgetPath.4" value="$INCLUDE[RCBWidget]">rcb</property>
+        <property name="contentStyle5" tag="property" attribute="name|widgetPath.4" value="$INCLUDE[CategoriesWidget]">categories</property>
+        <property name="contentStyle5" tag="property" attribute="name|widgetPath.4" value="$INCLUDE[MyListWidget]">mylist</property>
         <property name="contentStyle5">normal</property>
         <property name="widgetPath5" tag="property" attribute="name|widgetPath.4" />
         <property name="widgetPath5"/>
@@ -173,6 +183,8 @@
         <property name="contentStyle6" tag="property" attribute="name|widgetPath.5" value="$INCLUDE[WeatherWidget]">weather</property>
         <property name="contentStyle6" tag="property" attribute="name|widgetPath.5" value="$INCLUDE[SystemInfoWidget]">systeminfo</property>
         <property name="contentStyle6" tag="property" attribute="name|widgetPath.5" value="$INCLUDE[RCBWidget]">rcb</property>
+        <property name="contentStyle6" tag="property" attribute="name|widgetPath.5" value="$INCLUDE[CategoriesWidget]">categories</property>
+        <property name="contentStyle6" tag="property" attribute="name|widgetPath.5" value="$INCLUDE[MyListWidget]">mylist</property>
         <property name="contentStyle6">normal</property>
         <property name="widgetPath6" tag="property" attribute="name|widgetPath.5" />
         <property name="widgetPath6"/>
@@ -198,6 +210,8 @@
         <property name="contentStyle7" tag="property" attribute="name|widgetPath.6" value="$INCLUDE[WeatherWidget]">weather</property>
         <property name="contentStyle7" tag="property" attribute="name|widgetPath.6" value="$INCLUDE[SystemInfoWidget]">systeminfo</property>
         <property name="contentStyle7" tag="property" attribute="name|widgetPath.6" value="$INCLUDE[RCBWidget]">rcb</property>
+        <property name="contentStyle7" tag="property" attribute="name|widgetPath.6" value="$INCLUDE[CategoriesWidget]">categories</property>
+        <property name="contentStyle7" tag="property" attribute="name|widgetPath.6" value="$INCLUDE[MyListWidget]">mylist</property>
         <property name="contentStyle7">normal</property>
         <property name="widgetPath7" tag="property" attribute="name|widgetPath.6" />
         <property name="widgetPath7"/>
@@ -223,6 +237,8 @@
         <property name="contentStyle8" tag="property" attribute="name|widgetPath.7" value="$INCLUDE[WeatherWidget]">weather</property>
         <property name="contentStyle8" tag="property" attribute="name|widgetPath.7" value="$INCLUDE[SystemInfoWidget]">systeminfo</property>
         <property name="contentStyle8" tag="property" attribute="name|widgetPath.7" value="$INCLUDE[RCBWidget]">rcb</property>
+        <property name="contentStyle8" tag="property" attribute="name|widgetPath.7" value="$INCLUDE[CategoriesWidget]">categories</property>
+        <property name="contentStyle8" tag="property" attribute="name|widgetPath.7" value="$INCLUDE[MyListWidget]">mylist</property>
         <property name="contentStyle8">normal</property>
         <property name="widgetPath8" tag="property" attribute="name|widgetPath.7" />
         <property name="widgetPath8"/>

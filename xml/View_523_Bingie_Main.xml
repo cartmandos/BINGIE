@@ -620,6 +620,10 @@
         <value condition="String.IsEqual(Container.FolderPath, videodb://tvshows/genres/)">[CAPITALIZE]$LOCALIZE[36903]$LOCALIZE[135, - ,][/CAPITALIZE]</value>
         <value condition="String.IsEqual(Container.FolderPath, videodb://movies/genres/)">[CAPITALIZE]$LOCALIZE[36901]$LOCALIZE[135, - ,][/CAPITALIZE]</value>
         <value condition="String.IsEqual(Container.FolderPath, videodb://movies/sets/)">[CAPITALIZE]$LOCALIZE[20434][/CAPITALIZE]</value>
+
+        <value condition="String.EndsWith(Container.FolderPath, topratedshows.xsp)">[CAPITALIZE]$LOCALIZE[31098][/CAPITALIZE]</value>
+        <value condition="String.EndsWith(Container.FolderPath, topratedmovies.xsp)">[CAPITALIZE]$LOCALIZE[31532][/CAPITALIZE]</value>
+
         <!-- skin helper widgets -->
         <value condition="String.StartsWith(Container.FolderPath, plugin://script.skin.helper.widgets/?action=inprogress&amp;mediatype=movies)">[CAPITALIZE]$ADDON[script.skin.helper.widgets 32028][/CAPITALIZE]</value>
         <value condition="String.StartsWith(Container.FolderPath, plugin://script.skin.helper.widgets/?action=unwatched&amp;mediatype=movies)">[CAPITALIZE]$ADDON[script.skin.helper.widgets 32066][/CAPITALIZE]</value>

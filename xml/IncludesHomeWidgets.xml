@@ -2050,7 +2050,67 @@
     <include name="widget_base_content_rcb">
         <content><include>StaticWidget_RCB</include></content>
     </include>
+    <include name="widget_base_content_categories">
+        <content><include>StaticWidget_Categories</include></content>
+        <content sortby="file" limit="$PARAM[widgetLimit]" target="videos">plugin://script.skin.helper.widgets/?action=browsegenres&amp;mediatype=media</content>
+    </include>
+    <include name="widget_base_content_mylist">
+        <content sortby="$PARAM[widgetSortBy]" sortorder="$PARAM[widgetSortOrder]" limit="$PARAM[widgetLimit]" target="$PARAM[widgetTarget]">special://skin/playlists/mylistshows.xsp</content>
+        <content sortby="$PARAM[widgetSortBy]" sortorder="$PARAM[widgetSortOrder]" limit="$PARAM[widgetLimit]" target="$PARAM[widgetTarget]">special://skin/playlists/mylistmovies.xsp</content>
+    </include>
 
+
+    <include name="StaticWidget_Categories">
+        <item>
+            <label>$LOCALIZE[20343]</label>
+            <thumb>bingie/categories/tvshows.jpg</thumb>
+            <property name="DBTYPE">category</property>
+            <property name="fanart">$INFO[Window(Home).Property(SkinHelper.AllTvShowsBackground)]</property>
+            <onclick>ActivateWindow(videos,videodb://tvshows/titles/,return)</onclick>
+        </item>
+        <item>
+            <label>$LOCALIZE[342]</label>
+            <thumb>bingie/categories/movies.jpg</thumb>
+            <property name="DBTYPE">category</property>
+            <property name="fanart">$INFO[Window(Home).Property(SkinHelper.AllMoviesBackground)]</property>
+            <onclick>ActivateWindow(videos,videodb://movies/titles/,return)</onclick>
+        </item>
+        <item>
+            <label>$LOCALIZE[31532]</label>
+            <thumb>bingie/categories/topratedmovies.jpg</thumb>
+            <property name="DBTYPE">category</property>
+            <property name="fanart"></property>
+            <onclick>ActivateWindow(videos,special://skin/playlists/topratedmovies.xsp,return)</onclick>
+        </item>
+        <item>
+            <label>$LOCALIZE[31098]</label>
+            <thumb>bingie/categories/topratedtvshows.jpg</thumb>
+            <property name="DBTYPE">category</property>
+            <property name="fanart"></property>
+            <onclick>ActivateWindow(videos,special://skin/playlists/topratedshows.xsp,return)</onclick>
+        </item>
+        <item>
+            <label>$LOCALIZE[31127]</label>
+            <thumb>bingie/categories/recentlyadded.jpg</thumb>
+            <property name="DBTYPE">category</property>
+            <property name="fanart">$INFO[Window(Home).Property(SkinHelper.RecentVideosBackground)]</property>
+            <onclick>ActivateWindow(videos,plugin://script.skin.helper.widgets/?action=recentshowsandmovies&amp;mediatype=media&amp;limit=100,return)</onclick>
+        </item>
+        <item>
+            <label>$LOCALIZE[31577]</label>
+            <thumb>bingie/categories/newrelease.jpg</thumb>
+            <property name="DBTYPE">category</property>
+            <property name="fanart"></property>
+            <onclick>ActivateWindow(videos,plugin://script.skin.helper.widgets/?action=newrelease&amp;mediatype=media&amp;limit=100,return)</onclick>
+        </item>
+        <item>
+            <label>$ADDON[script.skin.helper.widgets 32090]</label>
+            <thumb>bingie/categories/popular.jpg</thumb>
+            <property name="DBTYPE">category</property>
+            <property name="fanart"></property>
+            <onclick>ActivateWindow(videos,plugin://script.skin.helper.widgets/?action=popular&amp;mediatype=media&amp;limit=100,return)</onclick>
+        </item>
+    </include>
 
     <include name="StaticWidget_SystemInfo">
         <!--systeminfo widgets -->

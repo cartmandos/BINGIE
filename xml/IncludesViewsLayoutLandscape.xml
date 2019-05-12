@@ -176,7 +176,7 @@
     <!-- TAG OVERLAYS -->
 	<include name="LandscapeTagOverlayVisibility">
         <visible>
-            ![String.IsEmpty(ListItem.DBType) + String.IsEqual(ListItem.Property(DBTYPE),categorie)] +
+            ![String.IsEmpty(ListItem.DBType) + [String.IsEqual(ListItem.Property(DBTYPE),categorie) | String.IsEqual(ListItem.Property(DBTYPE),category)]] +
             ![String.IsEmpty(ListItem.DBType) + String.IsEqual(ListItem.Property(DBTYPE),genre) + System.HasAddon(resource.images.moviegenreicons.bingie)] +
             ![Control.IsVisible(501) + Skin.String(View501.Tags,disable)] +
             ![Control.IsVisible(502) + Skin.String(View502.Tags,disable)] + 
@@ -302,7 +302,7 @@
 
     <variable name="LandscapeImage">
 		<value condition="!String.IsEmpty(ListItem.Art(thumb)) + [String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)] + ![Window.IsActive(Home) + Skin.HasSetting(PreferTvShowThumbWidget)]">$INFO[ListItem.Art(thumb)]</value>
-        <value condition="!String.IsEmpty(ListItem.Art(thumb)) + [String.Contains(ListItem.Path,youtube) | String.Contains(ListItem.Path,botchamania)]">$INFO[ListItem.Art(thumb)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(thumb)) + [String.IsEqual(ListItem.Property(DBTYPE),category) | String.Contains(ListItem.Path,youtube) | String.Contains(ListItem.Path,botchamania)]">$INFO[ListItem.Art(thumb)]</value>
         <value condition="Skin.HasSetting(PreferClearArtOverLandscape) + !String.IsEmpty(ListItem.Art(clearart)) + !Skin.HasSetting(DisableLandscapeThumbs)">$INFO[ListItem.Art(clearart)]</value>
         <value condition="Skin.HasSetting(PreferClearArtOverLandscape) + !String.IsEmpty(ListItem.Art(tvshow.clearart)) + !Skin.HasSetting(DisableLandscapeThumbs)">$INFO[ListItem.Art(tvshow.clearart)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(season.landscape)) + !Skin.HasSetting(DisableLandscapeThumbs)">$INFO[ListItem.Art(season.landscape)]</value>
