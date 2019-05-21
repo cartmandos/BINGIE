@@ -385,7 +385,7 @@
                 <control type="radiobutton" id="5051">
                     <!-- play -->
                     <visible>String.IsEqual(Container(1508).ListItem.DBType,video) | String.IsEqual(Container(1508).ListItem.DBType,movie)
-                        | String.IsEqual(Container(1508).ListItem.DBType,episode) | String.IsEqual(Container(1508).ListItem.Property(DBTYPE),movie)
+                        | String.IsEqual(Container(1508).ListItem.DBType,episode) | [String.IsEqual(Container(1508).ListItem.DBType,tvshow) + !String.IsEmpty(Container(1508).ListItem.DBID)] | String.IsEqual(Container(1508).ListItem.Property(DBTYPE),movie)
                         | String.IsEqual(Container(1508).ListItem.Property(DBTYPE),episode)</visible>
                     <description>Play</description>
                     <width>230</width>
@@ -406,7 +406,10 @@
                     <radioheight>35</radioheight>
                     <textoffsetx>80</textoffsetx>
                     <font>Reg28</font>
-                    <onclick>PlayMedia($ESCINFO[Container(1508).ListItem.FileNameAndPath])</onclick>
+                    <onclick condition="!String.IsEqual(Container(1508).ListItem.DBType,tvshow)">PlayMedia($ESCINFO[Container(1508).ListItem.FileNameAndPath])</onclick>
+                    <onclick condition="String.IsEqual(Container(1508).ListItem.DBType,tvshow)">SetProperty(ListItem.TVShowID,$INFO[Container(1508).ListItem.DBID],Home)</onclick>
+                    <onclick condition="String.IsEqual(Container(1508).ListItem.DBType,tvshow)">SetProperty(KeepTVShowID,1,Home)</onclick>
+                    <onclick condition="String.IsEqual(Container(1508).ListItem.DBType,tvshow)">ActivateWindow(Videos,videodb://tvshows/titles/$INFO[Container(1508).ListItem.DBID]/-2/,return)</onclick>
                 </control>
                 <control type="button" id="5052">
                     <!-- more info -->
