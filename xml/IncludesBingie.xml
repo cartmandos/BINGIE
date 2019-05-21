@@ -131,6 +131,7 @@
         <onunload>ClearProperty(ShowViewSubMenu,Home)</onunload>
         <onunload condition="!String.IsEqual(Skin.String(HomeLayout),bingie)">ClearProperty(bingieviews,Home)</onunload>
         <onunload condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,silent)</onunload>
+        <onunload>ClearProperty(SkinHelper.WidgetContainer)</onunload>
     </include>
 
     <!-- DETAILS ROW INCLUDES -->
@@ -487,23 +488,21 @@
 	<!-- Choose Duration Or Total Seasons/Episodes count -->
 	<variable name="DurationOrTotalSECount">
 		<value condition="$EXP[IsTvShowDBType]">$VAR[GetTotalSeasonEpisodeCount]</value>
-		<value condition="">$VAR[GetDuration]</value>
+		<value>$VAR[GetDuration]</value>
 	</variable>
 
 	<!-- Premiered Info -->
 	<variable name="GetPremiered">
 		<value condition="!String.IsEmpty(ListItem.Premiered)">$INFO[ListItem.Premiered]</value>
 		<value condition="[Control.HasFocus(1508) | ControlGroup(505).HasFocus()] + !String.IsEmpty(Container(1508).ListItem.Premiered)">$INFO[Container(1508).ListItem.Premiered]</value>
-		<value condition="!String.IsEmpty(Window(Home).Property(ListItem.Premiered))">$INFO[Window(Home).Property(ListItem.Premiered)]</value>
-		<value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Premiered))">$INFO[Window(Home).Property(SkinHelper.ListItem.Premiered)]</value>
+		<value condition="$EXP[IsMainMenuOpened] + !String.IsEmpty(Window(Home).Property(ListItem.Premiered))">$INFO[Window(Home).Property(ListItem.Premiered)]</value>
 	</variable>
 
 	<!--Year Info -->
 	<variable name="GetYear">
 		<value condition="!String.IsEmpty(ListItem.Year)">$INFO[ListItem.Year]</value>
 		<value condition="[Control.HasFocus(1508) | ControlGroup(505).HasFocus()] + !String.IsEmpty(Container(1508).ListItem.Year)">$INFO[Container(1508).ListItem.Year]</value>
-		<value condition="!String.IsEmpty(Window(Home).Property(ListItem.Year))">$INFO[Window(Home).Property(ListItem.Year)]</value>
-		<value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Year))">$INFO[Window(Home).Property(SkinHelper.ListItem.Year)]</value>
+		<value condition="$EXP[IsMainMenuOpened] + !String.IsEmpty(Window(Home).Property(ListItem.Year))">$INFO[Window(Home).Property(ListItem.Year)]</value>
 	</variable>
 
     <!-- PVR Times Info (Start, Date, etc) -->
@@ -523,18 +522,15 @@
         <value condition="!Skin.HasSetting(DisableHoursDuration) + [Control.HasFocus(1508) | ControlGroup(505).HasFocus()] + Integer.IsGreater(Container(1508).ListItem.Duration(h),0)">$INFO[Container(1508).ListItem.Duration(h),,h ]$INFO[Container(1508).ListItem.Duration(m),,m]</value>
         <value condition="!Skin.HasSetting(DisableHoursDuration) + [Control.HasFocus(1508) | ControlGroup(505).HasFocus()] + Integer.IsEqual(Container(1508).ListItem.Duration(h),0)">$INFO[Container(1508).ListItem.Duration(mins),,m]</value>
         <!-- fallback -->
-        <value condition="!Skin.HasSetting(DisableHoursDuration) + Integer.IsGreater(Window(Home).Property(ListItem.Duration.Hours),0)">$INFO[Window(Home).Property(ListItem.Duration.Hours),,h ]$INFO[Window(Home).Property(ListItem.Duration.M),,m]</value>
-        <value condition="!Skin.HasSetting(DisableHoursDuration) + !String.IsEmpty(Window(Home).Property(ListItem.Duration.Hours)) + Integer.IsEqual(Window(Home).Property(ListItem.Duration.Hours),0)">$INFO[Window(Home).Property(ListItem.Duration.Mins),,m]</value>
-        <value condition="!Skin.HasSetting(DisableHoursDuration) + String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Duration.Hours),00)">$INFO[Window(Home).Property(SkinHelper.ListItem.Duration.Minutes),,m]</value>
-        <value condition="!Skin.HasSetting(DisableHoursDuration) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Duration.Hours))">$INFO[Window(Home).Property(SkinHelper.ListItem.Duration.Hours),,h ]$INFO[Window(Home).Property(SkinHelper.ListItem.Duration.Minutes),,m]</value>
+        <value condition="$EXP[IsMainMenuOpened] + !Skin.HasSetting(DisableHoursDuration) + Integer.IsGreater(Window(Home).Property(ListItem.Duration.Hours),0)">$INFO[Window(Home).Property(ListItem.Duration.Hours),,h ]$INFO[Window(Home).Property(ListItem.Duration.M),,m]</value>
+        <value condition="$EXP[IsMainMenuOpened] + !Skin.HasSetting(DisableHoursDuration) + !String.IsEmpty(Window(Home).Property(ListItem.Duration.Hours)) + Integer.IsEqual(Window(Home).Property(ListItem.Duration.Hours),0)">$INFO[Window(Home).Property(ListItem.Duration.Mins),,m]</value>
         <!-- Hours disabled -->
         <value condition="Skin.HasSetting(DisableHoursDuration) + !String.IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration(mins),,m]</value>
         <value condition="Skin.HasSetting(DisableHoursDuration) + [Control.HasFocus(1508) | ControlGroup(505).HasFocus()] + !String.IsEmpty(Container(1508).ListItem.Duration)">$INFO[Container(1508).ListItem.Duration(mins),,m]</value>
-        <value condition="Skin.HasSetting(DisableHoursDuration) + !String.IsEmpty(Window(Home).Property(ListItem.Duration))">$INFO[Window(Home).Property(ListItem.Duration)(mins),,m]</value>
-        <!-- regular fortmat fallback -->
+        <value condition="$EXP[IsMainMenuOpened] + Skin.HasSetting(DisableHoursDuration) + !String.IsEmpty(Window(Home).Property(ListItem.Duration))">$INFO[Window(Home).Property(ListItem.Duration)(mins),,m]</value>
+        <!-- regular format fallback -->
         <value condition="!String.IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Duration))">$INFO[Window(Home).Property(ListItem.Duration)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Duration))">$INFO[Window(Home).Property(SkinHelper.ListItem.Duration)]</value>
+        <value condition="$EXP[IsMainMenuOpened] + !String.IsEmpty(Window(Home).Property(ListItem.Duration))">$INFO[Window(Home).Property(ListItem.Duration)]</value>
     </variable>
 
     <!-- Total Seasons/Episodes Info -->
@@ -550,10 +546,10 @@
         <value condition="ControlGroup(505).HasFocus() + Integer.IsEqual(Container(1508).ListItem.Property(TotalEpisodes),1)">$INFO[Container(1508).ListItem.Property(TotalEpisodes),, $LOCALIZE[20359]]</value>
         <value condition="ControlGroup(505).HasFocus() + Integer.IsEqual(Container(1508).ListItem.Property(TotalEpisodes),0)">$INFO[Container(1508).ListItem.Property(TotalEpisodes),, $LOCALIZE[20360]]</value>
         <!-- fallback -->
-        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.TotalEpisodes)) + Integer.IsGreater(Window(Home).Property(ListItem.TotalSeasons),1)">$INFO[Window(Home).Property(ListItem.TotalSeasons),, $LOCALIZE[33054]]</value>
-        <value condition="Integer.IsGreater(Window(Home).Property(ListItem.TotalEpisodes),1) + Integer.IsEqual(Window(Home).Property(ListItem.TotalSeasons),1)">$INFO[Window(Home).Property(ListItem.TotalSeasons),, $LOCALIZE[20373]]</value>
-        <value condition="Integer.IsEqual(Window(Home).Property(ListItem.TotalEpisodes),1)">$INFO[Window(Home).Property(ListItem.TotalEpisodes),, $LOCALIZE[20359]]</value>
-        <value condition="Integer.IsEqual(Window(Home).Property(ListItem.TotalEpisodes),0)">$INFO[Window(Home).Property(ListItem.TotalEpisodes),, $LOCALIZE[20360]]</value>
+        <value condition="$EXP[IsMainMenuOpened] + !String.IsEmpty(Window(Home).Property(ListItem.TotalEpisodes)) + Integer.IsGreater(Window(Home).Property(ListItem.TotalSeasons),1)">$INFO[Window(Home).Property(ListItem.TotalSeasons),, $LOCALIZE[33054]]</value>
+        <value condition="$EXP[IsMainMenuOpened] + Integer.IsGreater(Window(Home).Property(ListItem.TotalEpisodes),1) + Integer.IsEqual(Window(Home).Property(ListItem.TotalSeasons),1)">$INFO[Window(Home).Property(ListItem.TotalSeasons),, $LOCALIZE[20373]]</value>
+        <value condition="$EXP[IsMainMenuOpened] + Integer.IsEqual(Window(Home).Property(ListItem.TotalEpisodes),1)">$INFO[Window(Home).Property(ListItem.TotalEpisodes),, $LOCALIZE[20359]]</value>
+        <value condition="$EXP[IsMainMenuOpened] + Integer.IsEqual(Window(Home).Property(ListItem.TotalEpisodes),0)">$INFO[Window(Home).Property(ListItem.TotalEpisodes),, $LOCALIZE[20360]]</value>
     </variable>
 
     <!-- MPAA Info -->
@@ -600,41 +596,39 @@
         <value condition="String.Contains(ListItem.mpaa,Brazil:18) | String.Contains(ListItem.mpaa,18 anos)">18</value>
         <value condition="!String.IsEmpty(ListItem.mpaa) + !String.Contains(ListItem.mpaa,not rated) + !String.Contains(ListItem.mpaa,n/a)">$INFO[ListItem.MPAA]</value>
         <!-- home widgets -->
-        <value condition="[String.Contains(Window(Home).Property(ListItem.mpaa),US:G) | String.Contains(Window(Home).Property(ListItem.mpaa),USA:G) | String.Contains(Window(Home).Property(ListItem.mpaa),Rated G)]">G</value>
-        <value condition="String.Contains(Window(Home).Property(ListItem.mpaa),PG-13)">PG-13</value>
-        <value condition="[String.Contains(Window(Home).Property(ListItem.mpaa),Rated PG) | String.IsEqual(Window(Home).Property(ListItem.Mpaa),PG)]">PG</value>
-        <value condition="[String.Contains(Window(Home).Property(ListItem.mpaa),US:R) | String.Contains(Window(Home).Property(ListItem.mpaa),USA:R) | String.Contains(Window(Home).Property(ListItem.mpaa),Rated R) | String.IsEqual(Window(Home).Property(ListItem.mpaa),R)]">R</value>
-        <value condition="[String.Contains(Window(Home).Property(ListItem.mpaa),US:NC-17)| String.Contains(Window(Home).Property(ListItem.mpaa),USA:NC-17)| String.Contains(Window(Home).Property(ListItem.mpaa),Rated NC-17)]">NC-17</value>
-        <value condition="String.Contains(Window(Home).Property(ListItem.mpaa),UK:U)">UK-ALL</value>
-        <value condition="String.Contains(Window(Home).Property(ListItem.mpaa),UK:PG)">UK-PG</value>
-        <value condition="String.Contains(Window(Home).Property(ListItem.mpaa),UK:12A)">UK-12A</value>
-        <value condition="String.Contains(Window(Home).Property(ListItem.mpaa),UK:12)">UK-12</value>
-        <value condition="String.Contains(Window(Home).Property(ListItem.mpaa),UK:15)">UK-15</value>
-        <value condition="String.Contains(Window(Home).Property(ListItem.mpaa),UK:18)">UK-18</value>
-        <value condition="[String.Contains(Window(Home).Property(ListItem.mpaa),Germany:16) | String.Contains(Window(Home).Property(ListItem.mpaa),ab 16) | String.Contains(Window(Home).Property(ListItem.mpaa),FSK 16)]">FSK-16</value>
-        <value condition="[String.Contains(Window(Home).Property(ListItem.mpaa),Germany:6)| String.Contains(Window(Home).Property(ListItem.mpaa),ab 6) | String.Contains(Window(Home).Property(ListItem.mpaa),FSK 6)]">FSK-6</value>
-        <value condition="[String.Contains(Window(Home).Property(ListItem.mpaa),Germany:12) | String.Contains(Window(Home).Property(ListItem.mpaa),ab 12) | String.Contains(Window(Home).Property(ListItem.mpaa),FSK 12)]">FSK-12</value>
-        <value condition="[String.Contains(Window(Home).Property(ListItem.mpaa),Germany:18) | String.Contains(Window(Home).Property(ListItem.mpaa),ab 18) | String.Contains(Window(Home).Property(ListItem.mpaa),FSK 18)]">FSK-18</value>
-        <value condition="[String.Contains(Window(Home).Property(ListItem.mpaa),Germany)|String.Contains(Window(Home).Property(ListItem.mpaa),FSK)| String.Contains(Window(Home).Property(ListItem.mpaa),o.A) | String.Contains(Window(Home).Property(ListItem.mpaa),FSK 0)]">FSK-0</value>
-        <value condition="String.Contains(Window(Home).Property(ListItem.mpaa),besorolás alatt)">BA</value>
-        <value condition="String.Contains(Window(Home).Property(ListItem.mpaa),korhatárra való tekintett nélkül megtekintetheto)">KN</value>
-        <value condition="String.Contains(Window(Home).Property(ListItem.mpaa),12 éven aluliak számára a megtekintése nagykorú felügyelete mellett ajánlott)">12</value>
-        <value condition="String.Contains(Window(Home).Property(ListItem.mpaa),16 éven aluliak számára nem ajánlott)">16</value>
-        <value condition="String.Contains(Window(Home).Property(ListItem.mpaa),18 éven aluliak számára nem ajánlott)">18</value>
-        <value condition="[String.Contains(Window(Home).Property(ListItem.mpaa),France:U) | String.Contains(Window(Home).Property(ListItem.mpaa),partir de 3 ans) | String.Contains(Window(Home).Property(ListItem.mpaa),partir de 6 ans)]">CSA-U</value>
-        <value condition="[String.Contains(Window(Home).Property(ListItem.mpaa),France:-10) | String.Contains(Window(Home).Property(ListItem.mpaa),Interdit aux moins de 10 ans) | String.Contains(Window(Home).Property(ListItem.mpaa),des propos ou des images peuvent heurter)]">CSA-10</value>
-        <value condition="[String.Contains(Window(Home).Property(ListItem.mpaa),France:-12) | String.Contains(Window(Home).Property(ListItem.mpaa),Interdit aux moins de 12 ans)]">CSA-12</value>
-        <value condition="[String.Contains(Window(Home).Property(ListItem.mpaa),France:-16) | String.Contains(Window(Home).Property(ListItem.mpaa),Interdit aux moins de 16 ans)]">CSA-16</value>
-        <value condition="[String.Contains(Window(Home).Property(ListItem.mpaa),France:-18) | String.Contains(Window(Home).Property(ListItem.mpaa),Interdit aux moins de 18 ans)]">CSA-18</value>
-        <value condition="[String.Contains(Window(Home).Property(ListItem.mpaa),Brazil:Livre) | String.Contains(Window(Home).Property(ListItem.mpaa),Livre)]">L</value>
-        <value condition="[String.Contains(Window(Home).Property(ListItem.mpaa),Brazil:10) | String.Contains(Window(Home).Property(ListItem.mpaa),10 anos)]">10</value>
-        <value condition="[String.Contains(Window(Home).Property(ListItem.mpaa),Brazil:12) | String.Contains(Window(Home).Property(ListItem.mpaa),12 anos)]">12</value>
-        <value condition="[String.Contains(Window(Home).Property(ListItem.mpaa),Brazil:14) | String.Contains(Window(Home).Property(ListItem.mpaa),14 anos)]">14</value>
-        <value condition="[String.Contains(Window(Home).Property(ListItem.mpaa),Brazil:16) | String.Contains(Window(Home).Property(ListItem.mpaa),16 anos)]">16</value>
-        <value condition="[String.Contains(Window(Home).Property(ListItem.mpaa),Brazil:18) | String.Contains(Window(Home).Property(ListItem.mpaa),18 anos)]">18</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.mpaa)) + !String.Contains(Window(Home).Property(ListItem.mpaa),not rated)">$INFO[Window(Home).Property(ListItem.MPAA)]</value>
-        <!-- fallback -->
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MPAA)) + !String.Contains(Window(Home).Property(SkinHelper.ListItem.MPAA),not rated)">$INFO[Window(Home).Property(SkinHelper.ListItem.MPAA)]</value>
+        <value condition="$EXP[IsMainMenuOpened] + [String.Contains(Window(Home).Property(ListItem.mpaa),US:G) | String.Contains(Window(Home).Property(ListItem.mpaa),USA:G) | String.Contains(Window(Home).Property(ListItem.mpaa),Rated G)]">G</value>
+        <value condition="$EXP[IsMainMenuOpened] + String.Contains(Window(Home).Property(ListItem.mpaa),PG-13)">PG-13</value>
+        <value condition="$EXP[IsMainMenuOpened] + [String.Contains(Window(Home).Property(ListItem.mpaa),Rated PG) | String.IsEqual(Window(Home).Property(ListItem.Mpaa),PG)]">PG</value>
+        <value condition="$EXP[IsMainMenuOpened] + [String.Contains(Window(Home).Property(ListItem.mpaa),US:R) | String.Contains(Window(Home).Property(ListItem.mpaa),USA:R) | String.Contains(Window(Home).Property(ListItem.mpaa),Rated R) | String.IsEqual(Window(Home).Property(ListItem.mpaa),R)]">R</value>
+        <value condition="$EXP[IsMainMenuOpened] + [String.Contains(Window(Home).Property(ListItem.mpaa),US:NC-17)| String.Contains(Window(Home).Property(ListItem.mpaa),USA:NC-17)| String.Contains(Window(Home).Property(ListItem.mpaa),Rated NC-17)]">NC-17</value>
+        <value condition="$EXP[IsMainMenuOpened] + String.Contains(Window(Home).Property(ListItem.mpaa),UK:U)">UK-ALL</value>
+        <value condition="$EXP[IsMainMenuOpened] + String.Contains(Window(Home).Property(ListItem.mpaa),UK:PG)">UK-PG</value>
+        <value condition="$EXP[IsMainMenuOpened] + String.Contains(Window(Home).Property(ListItem.mpaa),UK:12A)">UK-12A</value>
+        <value condition="$EXP[IsMainMenuOpened] + String.Contains(Window(Home).Property(ListItem.mpaa),UK:12)">UK-12</value>
+        <value condition="$EXP[IsMainMenuOpened] + String.Contains(Window(Home).Property(ListItem.mpaa),UK:15)">UK-15</value>
+        <value condition="$EXP[IsMainMenuOpened] + String.Contains(Window(Home).Property(ListItem.mpaa),UK:18)">UK-18</value>
+        <value condition="$EXP[IsMainMenuOpened] + [String.Contains(Window(Home).Property(ListItem.mpaa),Germany:16) | String.Contains(Window(Home).Property(ListItem.mpaa),ab 16) | String.Contains(Window(Home).Property(ListItem.mpaa),FSK 16)]">FSK-16</value>
+        <value condition="$EXP[IsMainMenuOpened] + [String.Contains(Window(Home).Property(ListItem.mpaa),Germany:6)| String.Contains(Window(Home).Property(ListItem.mpaa),ab 6) | String.Contains(Window(Home).Property(ListItem.mpaa),FSK 6)]">FSK-6</value>
+        <value condition="$EXP[IsMainMenuOpened] + [String.Contains(Window(Home).Property(ListItem.mpaa),Germany:12) | String.Contains(Window(Home).Property(ListItem.mpaa),ab 12) | String.Contains(Window(Home).Property(ListItem.mpaa),FSK 12)]">FSK-12</value>
+        <value condition="$EXP[IsMainMenuOpened] + [String.Contains(Window(Home).Property(ListItem.mpaa),Germany:18) | String.Contains(Window(Home).Property(ListItem.mpaa),ab 18) | String.Contains(Window(Home).Property(ListItem.mpaa),FSK 18)]">FSK-18</value>
+        <value condition="$EXP[IsMainMenuOpened] + [String.Contains(Window(Home).Property(ListItem.mpaa),Germany)|String.Contains(Window(Home).Property(ListItem.mpaa),FSK)| String.Contains(Window(Home).Property(ListItem.mpaa),o.A) | String.Contains(Window(Home).Property(ListItem.mpaa),FSK 0)]">FSK-0</value>
+        <value condition="$EXP[IsMainMenuOpened] + String.Contains(Window(Home).Property(ListItem.mpaa),besorolás alatt)">BA</value>
+        <value condition="$EXP[IsMainMenuOpened] + String.Contains(Window(Home).Property(ListItem.mpaa),korhatárra való tekintett nélkül megtekintetheto)">KN</value>
+        <value condition="$EXP[IsMainMenuOpened] + String.Contains(Window(Home).Property(ListItem.mpaa),12 éven aluliak számára a megtekintése nagykorú felügyelete mellett ajánlott)">12</value>
+        <value condition="$EXP[IsMainMenuOpened] + String.Contains(Window(Home).Property(ListItem.mpaa),16 éven aluliak számára nem ajánlott)">16</value>
+        <value condition="$EXP[IsMainMenuOpened] + String.Contains(Window(Home).Property(ListItem.mpaa),18 éven aluliak számára nem ajánlott)">18</value>
+        <value condition="$EXP[IsMainMenuOpened] + [String.Contains(Window(Home).Property(ListItem.mpaa),France:U) | String.Contains(Window(Home).Property(ListItem.mpaa),partir de 3 ans) | String.Contains(Window(Home).Property(ListItem.mpaa),partir de 6 ans)]">CSA-U</value>
+        <value condition="$EXP[IsMainMenuOpened] + [String.Contains(Window(Home).Property(ListItem.mpaa),France:-10) | String.Contains(Window(Home).Property(ListItem.mpaa),Interdit aux moins de 10 ans) | String.Contains(Window(Home).Property(ListItem.mpaa),des propos ou des images peuvent heurter)]">CSA-10</value>
+        <value condition="$EXP[IsMainMenuOpened] + [String.Contains(Window(Home).Property(ListItem.mpaa),France:-12) | String.Contains(Window(Home).Property(ListItem.mpaa),Interdit aux moins de 12 ans)]">CSA-12</value>
+        <value condition="$EXP[IsMainMenuOpened] + [String.Contains(Window(Home).Property(ListItem.mpaa),France:-16) | String.Contains(Window(Home).Property(ListItem.mpaa),Interdit aux moins de 16 ans)]">CSA-16</value>
+        <value condition="$EXP[IsMainMenuOpened] + [String.Contains(Window(Home).Property(ListItem.mpaa),France:-18) | String.Contains(Window(Home).Property(ListItem.mpaa),Interdit aux moins de 18 ans)]">CSA-18</value>
+        <value condition="$EXP[IsMainMenuOpened] + [String.Contains(Window(Home).Property(ListItem.mpaa),Brazil:Livre) | String.Contains(Window(Home).Property(ListItem.mpaa),Livre)]">L</value>
+        <value condition="$EXP[IsMainMenuOpened] + [String.Contains(Window(Home).Property(ListItem.mpaa),Brazil:10) | String.Contains(Window(Home).Property(ListItem.mpaa),10 anos)]">10</value>
+        <value condition="$EXP[IsMainMenuOpened] + [String.Contains(Window(Home).Property(ListItem.mpaa),Brazil:12) | String.Contains(Window(Home).Property(ListItem.mpaa),12 anos)]">12</value>
+        <value condition="$EXP[IsMainMenuOpened] + [String.Contains(Window(Home).Property(ListItem.mpaa),Brazil:14) | String.Contains(Window(Home).Property(ListItem.mpaa),14 anos)]">14</value>
+        <value condition="$EXP[IsMainMenuOpened] + [String.Contains(Window(Home).Property(ListItem.mpaa),Brazil:16) | String.Contains(Window(Home).Property(ListItem.mpaa),16 anos)]">16</value>
+        <value condition="$EXP[IsMainMenuOpened] + [String.Contains(Window(Home).Property(ListItem.mpaa),Brazil:18) | String.Contains(Window(Home).Property(ListItem.mpaa),18 anos)]">18</value>
+        <value condition="$EXP[IsMainMenuOpened] + !String.IsEmpty(Window(Home).Property(ListItem.mpaa)) + !String.Contains(Window(Home).Property(ListItem.mpaa),not rated)">$INFO[Window(Home).Property(ListItem.MPAA)]</value>
     </variable>
 
     <!-- Resolution Info -->
@@ -645,11 +639,11 @@
 		<value condition="Integer.IsGreater(ListItem.VideoResolution,700)">HD</value>
 		<value condition="!String.IsEmpty(ListItem.VideoResolution)">SD</value>
 		<!--home-->
-		<value condition="Window(Home).Property(ListItem.IsStereoscopic)">3D</value>
-		<value condition="Integer.IsGreater(Window(Home).Property(ListItem.VideoResolution),1080) | String.IsEqual(Window(Home).Property(ListItem.VideoResolution),4K)
+		<value condition="$EXP[IsMainMenuOpened] + Window(Home).Property(ListItem.IsStereoscopic)">3D</value>
+		<value condition="$EXP[IsMainMenuOpened] + Integer.IsGreater(Window(Home).Property(ListItem.VideoResolution),1080) | String.IsEqual(Window(Home).Property(ListItem.VideoResolution),4K)
 		 | String.IsEqual(Window(Home).Property(ListItem.VideoResolution),8K)">UHD</value>
-		<value condition="Integer.IsGreater(Window(Home).Property(ListItem.VideoResolution),700)">HD</value>
-		<value condition="!String.IsEmpty(Window(Home).Property(ListItem.VideoResolution))">SD</value>
+		<value condition="$EXP[IsMainMenuOpened] + Integer.IsGreater(Window(Home).Property(ListItem.VideoResolution),700)">HD</value>
+		<value condition="$EXP[IsMainMenuOpened] + !String.IsEmpty(Window(Home).Property(ListItem.VideoResolution))">SD</value>
 	</variable>
 
 	<!-- Audio Channels Info (from 5.1 and up) -->
@@ -661,11 +655,11 @@
 		<value condition="String.IsEqual(ListItem.AudioChannels,9)">8.1</value>
 		<value condition="String.IsEqual(ListItem.AudioChannels,10)">9.1</value>
 		<!--home-->
-		<value condition="String.IsEqual(Window(Home).Property(ListItem.AudioChannels),6)">5.1</value>
-		<value condition="String.IsEqual(Window(Home).Property(ListItem.AudioChannels),7)">6.1</value>
-		<value condition="String.IsEqual(Window(Home).Property(ListItem.AudioChannels),8)">7.1</value>
-		<value condition="String.IsEqual(Window(Home).Property(ListItem.AudioChannels),9)">8.1</value>
-		<value condition="String.IsEqual(Window(Home).Property(ListItem.AudioChannels),10)">9.1</value>
+		<value condition="$EXP[IsMainMenuOpened] + String.IsEqual(Window(Home).Property(ListItem.AudioChannels),6)">5.1</value>
+		<value condition="$EXP[IsMainMenuOpened] + String.IsEqual(Window(Home).Property(ListItem.AudioChannels),7)">6.1</value>
+		<value condition="$EXP[IsMainMenuOpened] + String.IsEqual(Window(Home).Property(ListItem.AudioChannels),8)">7.1</value>
+		<value condition="$EXP[IsMainMenuOpened] + String.IsEqual(Window(Home).Property(ListItem.AudioChannels),9)">8.1</value>
+		<value condition="$EXP[IsMainMenuOpened] + String.IsEqual(Window(Home).Property(ListItem.AudioChannels),10)">9.1</value>
 	</variable>
 
     <!-- bingie home clearlogo -->
@@ -678,12 +672,9 @@
         <value condition="[Control(1508).HasFocus | ControlGroup(505).HasFocus()] + !String.IsEmpty(Container(1508).ListItem.Art(tvshow.clearlogo))">$INFO[Container(1508).ListItem.Art(tvshow.clearlogo)]</value>
         <value condition="[Control(1508).HasFocus | ControlGroup(505).HasFocus()] + !String.IsEmpty(Container(1508).ListItem.Art(clearlogo))">$INFO[Container(1508).ListItem.Art(clearlogo)]</value>
         <!-- home -->
-        <value condition="ControlGroup(900).HasFocus() + !String.IsEmpty(Window(Home).Property(ListItem.Art.tvshow.clearlogo))">$INFO[Window(Home).Property(ListItem.Art.tvshow.clearlogo)]</value>
-        <value condition="ControlGroup(900).HasFocus() + !String.IsEmpty(Window(Home).Property(ListItem.Art.ClearLogo))">$INFO[Window(Home).Property(ListItem.Art.ClearLogo)]</value>
-        <value condition="ControlGroup(900).HasFocus() + !String.IsEmpty(Window(Home).Property(ListItem.ChannelLogo))">$INFO[Window(Home).Property(ListItem.ChannelLogo)]</value>
-        <!-- skinhelper fallback -->
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Clearlogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Clearlogo)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.ChannelLogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.ChannelLogo)]</value>
+        <value condition="$EXP[IsMainMenuOpened] + !String.IsEmpty(Window(Home).Property(ListItem.Art.tvshow.clearlogo))">$INFO[Window(Home).Property(ListItem.Art.tvshow.clearlogo)]</value>
+        <value condition="$EXP[IsMainMenuOpened] + !String.IsEmpty(Window(Home).Property(ListItem.Art.ClearLogo))">$INFO[Window(Home).Property(ListItem.Art.ClearLogo)]</value>
+        <value condition="$EXP[IsMainMenuOpened] + !String.IsEmpty(Window(Home).Property(ListItem.ChannelLogo))">$INFO[Window(Home).Property(ListItem.ChannelLogo)]</value>
     </variable>
 
     <variable name="BingieInfoLabel">
@@ -700,24 +691,18 @@
         <value condition="[Control(1508).HasFocus | ControlGroup(505).HasFocus()] + !String.IsEmpty(Container(1508).ListItem.Title)">[B]$INFO[Container(1508).ListItem.Title][/B]</value>
         <value condition="[Control(1508).HasFocus | ControlGroup(505).HasFocus()] + !String.IsEmpty(Container(1508).ListItem.Label)">[B]$INFO[Container(1508).ListItem.Label][/B]</value>
         <!--widgets -->
-        <value condition="String.IsEqual(Window(Home).Property(ListItem.DBTYPE), systeminfo)">[B]$INFO[Window(Home).Property(ListItem.label)][/B] $INFO[Window(Home).Property(ListItem.label2)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Title)) + String.StartsWith(Window(Home).Property(ListItem.FolderPath), pvr://)">[B]$INFO[Window(Home).Property(ListItem.Title)][/B]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Season)) + !String.IsEmpty(Window(Home).Property(ListItem.Episode)) + !String.IsEqual(Window(Home).Property(ListItem.TvShowTitle),Window(Home).Property(ListItem.Title))">[B]$INFO[Window(Home).Property(ListItem.TvShowTitle)][/B]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Title))">[B]$INFO[Window(Home).Property(ListItem.Title)][/B]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Label))">[B]$INFO[Window(Home).Property(ListItem.Label)][/B]</value>
-        <!--widgets fallback-->
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.DBTYPE), systeminfo)">[B]$INFO[Window(Home).Property(SkinHelper.ListItem.label)][/B] $INFO[Window(Home).Property(SkinHelper.ListItem.label2)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Title)) + String.StartsWith(Window(Home).Property(SkinHelper.ListItem.FolderPath), pvr://)">[B]$INFO[Window(Home).Property(SkinHelper.ListItem.Title)][/B]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Season)) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Episode)) + !String.IsEqual(Window(Home).Property(SkinHelper.ListItem.TvShowTitle),Window(Home).Property(SkinHelper.ListItem.Title))">[B]$INFO[Window(Home).Property(SkinHelper.ListItem.TvShowTitle)][/B]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Title))">[B]$INFO[Window(Home).Property(SkinHelper.ListItem.Title)][/B]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Label))">[B]$INFO[Window(Home).Property(SkinHelper.ListItem.Label)][/B]</value>
+        <value condition="$EXP[IsMainMenuOpened] + String.IsEqual(Window(Home).Property(ListItem.DBTYPE), systeminfo)">[B]$INFO[Window(Home).Property(ListItem.label)][/B] $INFO[Window(Home).Property(ListItem.label2)]</value>
+        <value condition="$EXP[IsMainMenuOpened] + !String.IsEmpty(Window(Home).Property(ListItem.Title)) + String.StartsWith(Window(Home).Property(ListItem.FolderPath), pvr://)">[B]$INFO[Window(Home).Property(ListItem.Title)][/B]</value>
+        <value condition="$EXP[IsMainMenuOpened] + !String.IsEmpty(Window(Home).Property(ListItem.Season)) + !String.IsEmpty(Window(Home).Property(ListItem.Episode)) + !String.IsEqual(Window(Home).Property(ListItem.TvShowTitle),Window(Home).Property(ListItem.Title))">[B]$INFO[Window(Home).Property(ListItem.TvShowTitle)][/B]</value>
+        <value condition="$EXP[IsMainMenuOpened] + !String.IsEmpty(Window(Home).Property(ListItem.Title))">[B]$INFO[Window(Home).Property(ListItem.Title)][/B]</value>
+        <value condition="$EXP[IsMainMenuOpened] + !String.IsEmpty(Window(Home).Property(ListItem.Label))">[B]$INFO[Window(Home).Property(ListItem.Label)][/B]</value>
     </variable>
 
     <!-- Bingie Sublabel - tagline/watch now/album or song/pvr -->
     <variable name="BingieSublabel">
         <!-- Tagline Info -->
         <value condition="!String.IsEmpty(ListItem.TagLine)">[B]$INFO[ListItem.TagLine][/B]</value>
-        <value condition="ControlGroup(900).HasFocus() + !String.IsEmpty(Window(Home).Property(ListItem.TagLine))">[B]$INFO[Window(Home).Property(ListItem.TagLine)][/B]</value>
+        <value condition="$EXP[IsMainMenuOpened] + !String.IsEmpty(Window(Home).Property(ListItem.TagLine))">[B]$INFO[Window(Home).Property(ListItem.TagLine)][/B]</value>
         <!-- Watch Tag Info -->
         <value condition="[ControlGroup(505).HasFocus() + Integer.IsGreater(Container(1508).NumItems,0)] | String.IsEqual(ListItem.DBTYPE,tvshow)">$VAR[WatchNowTagInfo]</value>
         <!-- Album/Song Info -->
@@ -739,7 +724,7 @@
     <variable name="BingieMoreDetails">
         <value condition="Integer.IsLessOrEqual(System.Time(ss),15) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Awards))">$INFO[Window(Home).Property(SkinHelper.ListItem.Awards)]</value>
         <value condition="Integer.IsLessOrEqual(System.Time(ss),30) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.CastListing))">$INFO[Window(Home).Property(SkinHelper.ListItem.CastListing)]</value>
-        <value condition="Integer.IsGreater(System.Time(ss),15) + Integer.IsLessOrEqual(System.Time(ss),30) + Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.IMDB.Top250),0)">$INFO[Window(Home).Property(SkinHelper.ListItem.IMDB.Top250),#, $LOCALIZE[31859]]</value>
+        <value condition="Integer.IsGreater(System.Time(ss),15) + Integer.IsLessOrEqual(System.Time(ss),30) + Integer.IsGreater(ListItem.Top250,0)">$INFO[ListItem.Top250,#, $LOCALIZE[31859]]</value>
         <value condition="Integer.IsGreater(System.Time(ss),15) + Integer.IsLessOrEqual(System.Time(ss),30) + !String.IsEmpty(ListItem.Director)">$INFO[ListItem.Director]</value>
         <value condition="!String.IsEmpty(ListItem.Genre)">$INFO[ListItem.Genre]</value>
     </variable>
@@ -747,7 +732,7 @@
     <variable name="BingieMoreDetailsImage">
         <value condition="Integer.IsLessOrEqual(System.Time(ss),15) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Awards))">awards</value>
         <value condition="Integer.IsLessOrEqual(System.Time(ss),30) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.CastListing))">star</value>
-        <value condition="Integer.IsGreater(System.Time(ss),15) + Integer.IsLessOrEqual(System.Time(ss),30) + Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.IMDB.Top250),0)">awards</value>
+        <value condition="Integer.IsGreater(System.Time(ss),15) + Integer.IsLessOrEqual(System.Time(ss),30) + Integer.IsGreater(ListItem.Top250,0)">awards</value>
         <value condition="Integer.IsGreater(System.Time(ss),15) + Integer.IsLessOrEqual(System.Time(ss),30) + !String.IsEmpty(ListItem.Director)">director</value>
         <value condition="!String.IsEmpty(ListItem.Genre)">genre</value>
     </variable>
@@ -756,7 +741,7 @@
     <variable name="BingieEpisodeInfoLabel">
         <value condition="!String.IsEmpty(ListItem.Season) + !String.IsEmpty(ListItem.Episode) +
         !String.IsEmpty(ListItem.Title)">[B][CAPITALIZE]$INFO[ListItem.Season,$LOCALIZE[36904] ,]$INFO[ListItem.Episode, $LOCALIZE[36906] ,][/CAPITALIZE][/B][CR]$INFO[ListItem.Title]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Season)) + !String.IsEmpty(Window(Home).Property(ListItem.Episode)) + !String.IsEmpty(Window(Home).Property(ListItem.Title))">[B][CAPITALIZE]$INFO[Window(Home).Property(ListItem.Season),$LOCALIZE[36904] ,]$INFO[Window(Home).Property(ListItem.Episode), $LOCALIZE[36906] ,][/CAPITALIZE][/B][CR]$INFO[Window(Home).Property(ListItem.Title)]</value>
+        <value condition="$EXP[IsMainMenuOpened] + !String.IsEmpty(Window(Home).Property(ListItem.Season)) + !String.IsEmpty(Window(Home).Property(ListItem.Episode)) + !String.IsEmpty(Window(Home).Property(ListItem.Title))">[B][CAPITALIZE]$INFO[Window(Home).Property(ListItem.Season),$LOCALIZE[36904] ,]$INFO[Window(Home).Property(ListItem.Episode), $LOCALIZE[36906] ,][/CAPITALIZE][/B][CR]$INFO[Window(Home).Property(ListItem.Title)]</value>
         <!-- fallback -->
         <value>[B][CAPITALIZE]$INFO[Window(Home).Property(ListItem.Label)][/CAPITALIZE][/B]</value>
     </variable>
@@ -776,7 +761,7 @@
     <variable name="BingiePlot">
         <!-- spotlight widget (inside container) -->
         <value condition="Skin.HasSetting(WidgetsPreferPlotOutline) + !String.IsEmpty(ListItem.PlotOutline)">$INFO[ListItem.PlotOutline]</value>
-        <value condition="Skin.HasSetting(WidgetsPreferPlotOutline) + !String.IsEmpty(Window(Home).Property(ListItem.PlotOutline))">$INFO[Window(Home).Property(ListItem.PlotOutline)]</value>
+        <value condition="$EXP[IsMainMenuOpened] + Skin.HasSetting(WidgetsPreferPlotOutline) + !String.IsEmpty(Window(Home).Property(ListItem.PlotOutline))">$INFO[Window(Home).Property(ListItem.PlotOutline)]</value>
 
         <value condition="!String.IsEmpty(ListItem.Plot)">$INFO[ListItem.Plot]</value>
         <value condition="!String.IsEmpty(ListItem.Property(Plot))">$INFO[ListItem.Property(Plot)]</value>
@@ -795,21 +780,13 @@
         <value condition="[ControlGroup(505).HasFocus() | Control.HasFocus(1508)] + !String.IsEmpty(Container(1508).ListItem.PictureComment)">$INFO[Container(1508).ListItem.PictureComment]</value>
         <value condition="[ControlGroup(505).HasFocus() | Control.HasFocus(1508)] + !String.IsEmpty(Container(1508).ListItem.PictureKeywords)">$INFO[Container(1508).ListItem.PictureKeywords]</value>
         <!-- normal widgets info -->
-        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.PlotOutline)) + Skin.HasSetting(WidgetsPreferPlotOutline)">$INFO[Window(Home).Property(ListItem.PlotOutline)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Plot))">$INFO[Window(Home).Property(ListItem.Plot)]$INFO[Window(Home).Property(ListItem.label2)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Album_Description))">$INFO[Window(Home).Property(ListItem.Album_Description)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Artist_Description))">$INFO[Window(Home).Property(ListItem.Artist_Description)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.PictureDesc))">$INFO[Window(Home).Property(ListItem.PictureDesc)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.PictureComment))">$INFO[Window(Home).Property(ListItem.PictureComment)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.PictureKeywords))">$INFO[Window(Home).Property(ListItem.PictureKeywords)]</value>
-        <!-- skinhelper fallback-->
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.PlotOutline)) + Skin.HasSetting(WidgetsPreferPlotOutline)">$INFO[Window(Home).Property(SkinHelper.ListItem.PlotOutline)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Plot))">$INFO[Window(Home).Property(SkinHelper.ListItem.Plot)]$INFO[Window(Home).Property(SkinHelper.ListItem.label2)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Album_Description))">$INFO[Window(Home).Property(SkinHelper.ListItem.Album_Description)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Artist_Description))">$INFO[Window(Home).Property(SkinHelper.ListItem.Artist_Description)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.PictureDesc))">$INFO[Window(Home).Property(SkinHelper.ListItem.PictureDesc)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.PictureComment))">$INFO[Window(Home).Property(SkinHelper.ListItem.PictureComment)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.PictureKeywords))">$INFO[Window(Home).Property(SkinHelper.ListItem.PictureKeywords)]</value>
+        <value condition="$EXP[IsMainMenuOpened] + !String.IsEmpty(Window(Home).Property(ListItem.PlotOutline)) + Skin.HasSetting(WidgetsPreferPlotOutline)">$INFO[Window(Home).Property(ListItem.PlotOutline)]</value>
+        <value condition="$EXP[IsMainMenuOpened] + !String.IsEmpty(Window(Home).Property(ListItem.Plot))">$INFO[Window(Home).Property(ListItem.Plot)]$INFO[Window(Home).Property(ListItem.label2)]</value>
+        <value condition="$EXP[IsMainMenuOpened] + !String.IsEmpty(Window(Home).Property(ListItem.Album_Description))">$INFO[Window(Home).Property(ListItem.Album_Description)]</value>
+        <value condition="$EXP[IsMainMenuOpened] + !String.IsEmpty(Window(Home).Property(ListItem.Artist_Description))">$INFO[Window(Home).Property(ListItem.Artist_Description)]</value>
+        <value condition="$EXP[IsMainMenuOpened] + !String.IsEmpty(Window(Home).Property(ListItem.PictureDesc))">$INFO[Window(Home).Property(ListItem.PictureDesc)]</value>
+        <value condition="$EXP[IsMainMenuOpened] + !String.IsEmpty(Window(Home).Property(ListItem.PictureComment))">$INFO[Window(Home).Property(ListItem.PictureComment)]</value>
+        <value condition="$EXP[IsMainMenuOpened] + !String.IsEmpty(Window(Home).Property(ListItem.PictureKeywords))">$INFO[Window(Home).Property(ListItem.PictureKeywords)]</value>
     </variable>
 
     <!-- seasons content for view525 -->
@@ -855,7 +832,7 @@
     <!-- TVShow title & fallback for skin widgets -->
     <variable name="TVShowTitle">
         <value condition="String.IsEqual(ListItem.DBType,episode) + !String.IsEmpty(ListItem.TVShowTitle)">$INFO[ListItem.TVShowTitle]</value>
-        <value condition="String.IsEqual(ListItem.DBType,episode) + !String.IsEmpty(Window(Home).Property(ListItem.TvShowTitle))">$INFO[Window(Home).Property(ListItem.TvShowTitle)]</value>
+        <value condition="$EXP[IsMainMenuOpened] + String.IsEqual(Window(Home).Property(ListItem.DBType),episode) + !String.IsEmpty(Window(Home).Property(ListItem.TvShowTitle))">$INFO[Window(Home).Property(ListItem.TvShowTitle)]</value>
         <value>$INFO[ListItem.Title]</value>
     </variable>
 
@@ -976,11 +953,8 @@
         <!-- user rating -->
         <value condition="!String.IsEmpty(ListItem.UserRating)">$VAR[RatingDecimalToPercentageListItemUserRating]</value>
         <value condition="!String.IsEmpty(ListItem.Rating)">$VAR[RatingDecimalToPercentageListItemRating]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.UserRating))">$VAR[RatingDecimalToPercentageHomeListItemUserRating]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Rating))">$VAR[RatingDecimalToPercentageHomeListItemRating]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.UserRating))">$VAR[RatingDecimalToPercentageSkinHelperListItemUserRating]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating))">$VAR[RatingDecimalToPercentageSkinHelperListItemRating]</value>
-        <!-- Window(Home).Property(SkinHelper.ListItem.Rating.percent.IMDB), Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Rating.Percent) -->
+        <value condition="$EXP[IsMainMenuOpened] + !String.IsEmpty(Window(Home).Property(ListItem.UserRating))">$VAR[RatingDecimalToPercentageHomeListItemUserRating]</value>
+        <value condition="$EXP[IsMainMenuOpened] + !String.IsEmpty(Window(Home).Property(ListItem.Rating))">$VAR[RatingDecimalToPercentageHomeListItemRating]</value>
     </variable>
 
     <!-- ListItem.UserRating -->
@@ -1215,123 +1189,6 @@
         <value condition="String.IsEqual(Window(Home).Property(ListItem.UserRating),10.0)"/>
     </variable>
 
-    <!-- Window(Home).Property(SkinHelper.ListItem.UserRating) -->
-    <variable name="RatingDecimalToPercentageSkinHelperListItemUserRating">
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),0)"/>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),0.0)"/>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),0.1)">1</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),0.2)">2</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),0.3)">3</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),0.4)">4</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),0.5)">5</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),0.6)">6</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),0.7)">7</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),0.8)">8</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),0.9)">9</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),1)">10</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),1.0)">10</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),1.1)">11</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),1.2)">12</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),1.3)">13</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),1.4)">14</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),1.5)">15</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),1.6)">16</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),1.7)">17</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),1.8)">18</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),1.9)">19</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),2)">20</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),2.0)">20</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),2.1)">21</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),2.2)">22</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),2.3)">23</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),2.4)">24</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),2.5)">25</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),2.6)">26</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),2.7)">27</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),2.8)">28</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),2.9)">29</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),3)">30</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),3.0)">30</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),3.1)">31</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),3.2)">32</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),3.3)">33</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),3.4)">34</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),3.5)">35</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),3.6)">36</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),3.7)">37</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),3.8)">38</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),3.9)">39</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),4)">40</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),4.0)">40</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),4.1)">41</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),4.2)">42</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),4.3)">43</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),4.4)">44</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),4.5)">45</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),4.6)">46</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),4.7)">47</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),4.8)">48</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),4.9)">49</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),5)">50</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),5.0)">50</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),5.1)">51</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),5.2)">52</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),5.3)">53</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),5.4)">54</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),5.5)">55</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),5.6)">56</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),5.7)">57</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),5.8)">58</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),5.9)">59</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),6)">60</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),6.0)">60</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),6.1)">61</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),6.2)">62</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),6.3)">63</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),6.4)">64</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),6.5)">65</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),6.6)">66</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),6.7)">67</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),6.8)">68</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),6.9)">69</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),7)">70</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),7.0)">70</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),7.1)">71</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),7.2)">72</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),7.3)">73</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),7.4)">74</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),7.5)">75</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),7.6)">76</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),7.7)">77</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),7.8)">78</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),7.9)">79</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),8)">80</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),8.0)">80</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),8.1)">81</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),8.2)">82</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),8.3)">83</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),8.4)">84</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),8.5)">85</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),8.6)">86</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),8.7)">87</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),8.8)">88</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),8.9)">89</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),9)">90</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),9.0)">90</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),9.1)">91</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),9.2)">92</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),9.3)">93</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),9.4)">94</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),9.5)">95</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),9.6)">96</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),9.7)">97</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),9.8)">98</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),9.9)">99</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),10)"/>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.UserRating),10.0)"/>
-    </variable>
-
-
     <!-- ListItem.Rating -->
     <variable name="RatingDecimalToPercentageListItemRating">
         <value condition="String.IsEqual(ListItem.Rating,0)"/>
@@ -1562,122 +1419,6 @@
         <value condition="String.IsEqual(Window(Home).Property(ListItem.Rating),9.9)">99</value>
         <value condition="String.IsEqual(Window(Home).Property(ListItem.Rating),10)"/>
         <value condition="String.IsEqual(Window(Home).Property(ListItem.Rating),10.0)"/>
-    </variable>
-
-    <!-- Window(Home).Property(SkinHelper.ListItem.Rating) -->
-    <variable name="RatingDecimalToPercentageSkinHelperListItemRating">
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),0)"/>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),0.0)"/>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),0.1)">1</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),0.2)">2</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),0.3)">3</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),0.4)">4</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),0.5)">5</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),0.6)">6</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),0.7)">7</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),0.8)">8</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),0.9)">9</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),1)">10</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),1.0)">10</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),1.1)">11</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),1.2)">12</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),1.3)">13</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),1.4)">14</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),1.5)">15</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),1.6)">16</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),1.7)">17</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),1.8)">18</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),1.9)">19</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),2)">20</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),2.0)">20</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),2.1)">21</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),2.2)">22</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),2.3)">23</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),2.4)">24</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),2.5)">25</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),2.6)">26</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),2.7)">27</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),2.8)">28</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),2.9)">29</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),3)">30</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),3.0)">30</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),3.1)">31</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),3.2)">32</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),3.3)">33</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),3.4)">34</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),3.5)">35</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),3.6)">36</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),3.7)">37</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),3.8)">38</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),3.9)">39</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),4)">40</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),4.0)">40</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),4.1)">41</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),4.2)">42</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),4.3)">43</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),4.4)">44</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),4.5)">45</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),4.6)">46</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),4.7)">47</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),4.8)">48</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),4.9)">49</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),5)">50</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),5.0)">50</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),5.1)">51</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),5.2)">52</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),5.3)">53</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),5.4)">54</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),5.5)">55</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),5.6)">56</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),5.7)">57</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),5.8)">58</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),5.9)">59</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),6)">60</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),6.0)">60</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),6.1)">61</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),6.2)">62</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),6.3)">63</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),6.4)">64</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),6.5)">65</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),6.6)">66</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),6.7)">67</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),6.8)">68</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),6.9)">69</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),7)">70</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),7.0)">70</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),7.1)">71</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),7.2)">72</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),7.3)">73</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),7.4)">74</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),7.5)">75</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),7.6)">76</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),7.7)">77</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),7.8)">78</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),7.9)">79</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),8)">80</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),8.0)">80</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),8.1)">81</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),8.2)">82</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),8.3)">83</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),8.4)">84</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),8.5)">85</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),8.6)">86</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),8.7)">87</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),8.8)">88</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),8.9)">89</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),9)">90</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),9.0)">90</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),9.1)">91</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),9.2)">92</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),9.3)">93</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),9.4)">94</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),9.5)">95</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),9.6)">96</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),9.7)">97</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),9.8)">98</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),9.9)">99</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),10)"/>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating),10.0)"/>
     </variable>
     <!-- END OF DecimalToPercentage -->
 </includes>

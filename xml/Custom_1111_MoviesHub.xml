@@ -4,7 +4,6 @@
     <defaultcontrol always="true">77777</defaultcontrol>
     <menucontrol>900</menucontrol>
     <include>CustomBingieWinProps</include>
-    <onunload>ClearProperty(SkinHelper.WidgetContainer)</onunload>
     <include>BingieViews_WindowOpen_Fade</include>
     <controls>
         <!-- fake go-to-fullscreen button-->

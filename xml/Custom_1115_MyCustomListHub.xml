@@ -5,7 +5,6 @@
     <menucontrol>900</menucontrol>
     <onload>AlarmClock(focusWidgets,SetFocus(77777),00:00,silent)</onload>
     <include>CustomBingieWinProps</include>
-    <onunload>ClearProperty(SkinHelper.WidgetContainer)</onunload>
     <include>BingieViews_WindowOpen_Fade</include>
     <controls>
         <!-- fake go-to-fullscreen button -->
