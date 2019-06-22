@@ -134,8 +134,7 @@
 					<preloaditems>2</preloaditems>
 					<scrolltime tween="quadratic">200</scrolltime>
 					<focusposition>3</focusposition>
-					<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),514) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
-					<itemlayout width="315" height="750">
+                    <itemlayout width="315" height="750">
 						<include>ShiftPosterThumbs</include>
 					</itemlayout>
 					<focusedlayout width="315" height="750">

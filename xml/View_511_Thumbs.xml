@@ -20,8 +20,7 @@
         <ondown>511</ondown>
         <preloaditems>4</preloaditems>
         <pagecontrol>60</pagecontrol>
-		<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),511) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
-        <itemlayout height="192" width="364" condition="![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
+          <itemlayout height="192" width="364" condition="![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
 			<control type="group">
                 <width>354</width>
                 <height>185</height>

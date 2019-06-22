@@ -11,11 +11,10 @@
     <include condition="Skin.HasSetting(KeepWidgetFocus)">WidgetPlaybackFocus</include>
     <!-- bingie -->
     <onload condition="!String.IsEmpty(Skin.String(CustomSearchTerm))">Skin.Reset(CustomSearchTerm)</onload>
-    <onload condition="String.IsEqual(Skin.String(HomeLayout),bingie) + String.IsEmpty(Window(Home).Property(random))">SetProperty(random,$INFO[System.Time(ss)],home)</onload>
     <onload condition="String.IsEqual(Skin.String(HomeLayout),bingie)">SetProperty(bingieviews,1,Home)</onload>
     <!-- build menu -->
     <onload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=900&amp;group=mainmenu|powermenu)</onload>
-    <onload condition="String.IsEmpty(Window(Home).Property(widgetstyle))">SetProperty(widgetstyle, $INFO[Skin.String(widgetstyle)])</onload>
+    <onload condition="String.IsEmpty(Window(Home).Property(widgetstyle))">SetProperty(widgetstyle,$INFO[Skin.String(widgetstyle)])</onload>
 
     <!-- first run -->
     <onload condition="$EXP[IsFirstRun]">ReplaceWindow($VAR[StartUpWindow])</onload>

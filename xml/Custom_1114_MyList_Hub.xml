@@ -23,7 +23,7 @@
         <include content="Busy_Spinner">
             <param name="centerleft" value="50%"/>
             <param name="centertop" value="50%"/>
-            <param name="visibility" value="Container(510).IsUpdating + !Integer.IsGreater(Container(510).NumItems,0)"/>
+            <param name="visibility" value="Container(1510).IsUpdating + !Integer.IsGreater(Container(1510).NumItems,0)"/>
             <param name="size" value="100"/>
         </include>
         <include condition="Skin.HasSetting(DebugGrid) | Skin.HasSetting(DebugInfo)">DebugInfo</include>

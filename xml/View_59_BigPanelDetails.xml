@@ -30,8 +30,7 @@
         <ondown>59</ondown>
         <preloaditems>4</preloaditems>
         <pagecontrol>60</pagecontrol>
-		<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),59) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
-        <itemlayout height="345" width="235">
+          <itemlayout height="345" width="235">
           <control type="group">
             <width>233</width>
             <height>342</height>

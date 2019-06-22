@@ -1496,13 +1496,13 @@
 					</control>
 					<control type="videowindow"/>
 					<control type="image">
-						<texture background="true" border="15">overlays/gradient_right.png</texture>
+						<texture flipx="true" background="true" border="15">overlays/gradient_right.png</texture>
 						<colordiffuse>$VAR[BingiePanelColor]</colordiffuse>
 						<animation effect="fade" start="100" end="80" time="5000" condition="Player.HasVideo + String.IsEqual(Window(Home).Property(TrailerPlaying),windowed)">Conditional</animation>
 						<!-- no bg fade -->
-						<animation effect="fade" end="45" time="0" condition="Player.HasVideo + !String.IsEmpty(Window(Home).Property(TrailerOnLoad)) + String.IsEqual(Window(Home).Property(TrailerPlaying),windowed)">Conditional</animation>
+						<animation effect="fade" start="100" end="60" time="0" condition="Player.HasVideo + !String.IsEmpty(Window(Home).Property(TrailerOnLoad)) + String.IsEqual(Window(Home).Property(TrailerPlaying),windowed)">Conditional</animation>
 						<!-- auto-fade gradient bg while trailer -->
-						<animation effect="fade" start="80" end="55" time="8000" delay="10000" condition="Player.HasVideo + Skin.HasSetting(AutoHideDetailsOnTrailer) + String.IsEqual(Window(Home).Property(TrailerPlaying),windowed) + System.IdleTime(1)">Conditional</animation>
+						<animation effect="fade" start="100" end="55" time="8000" delay="10000" condition="Player.HasVideo + Skin.HasSetting(AutoHideDetailsOnTrailer) + String.IsEqual(Window(Home).Property(TrailerPlaying),windowed) + System.IdleTime(1)">Conditional</animation>
 					</control>
 				</control>
 
@@ -1512,10 +1512,11 @@
 					<visible>!$EXP[IsPlayingRecognizedContent]</visible>
 					<right>0</right>
 					<top>0</top>
-					<width>1400</width>
-					<height>787</height>
-					<texture background="true" diffuse="special://home/addons/resource.images.backgroundoverlays.basic/resources/Right Corner.png">$VAR[fanartBackground]</texture>
+					<width>1688</width>
+					<height>950</height>
+					<texture background="true" diffuse="bingie/bingie_default_spotlight_diffuse.png">$VAR[fanartBackground]</texture>
 					<aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
+					<animation effect="fade" start="100" end="80" time="150" condition="true">Conditional</animation>
 				</control>
 
 				<!-- additional info overlay -->
@@ -1569,16 +1570,15 @@
 					<!-- Title -->
 					<!-- clearlogo [800x310] -->
 					<control type="image" id="887766">
-						<visible>!Skin.HasSetting(NoClearLogoBingie)</visible>
 						<height>186</height>
 						<width>480</width>
 						<align>left</align>
 						<aspectratio align="left" aligny="center">keep</aspectratio>
-						<texture background="true" fallback="colors/color_transparent.png">$VAR[ListItemClearLogo]</texture>
+						<texture background="true" fallback="colors/color_transparent.png">$VAR[BingieInfoClearlogo]</texture>
 					</control>
 					<!-- text title -->
 					<control type="textbox">
-						<visible>Skin.HasSetting(NoClearLogoBingie) | String.EndsWith(Control.GetLabel(887766),color_transparent.png)</visible>
+						<visible>String.EndsWith(Control.GetLabel(887766),color_transparent.png)</visible>
 						<top>-143</top>
 						<width max="1000">auto</width>
 						<height>auto</height>
@@ -1801,7 +1801,8 @@
 						<!-- scrollbar -->
 						<control type="scrollbar" id="300">
 							<visible>Skin.HasSetting(EnableTouchSupport) | Skin.HasSetting(alwaysShowScrollbars)</visible>
-							<left>0</left>
+							<left>-15</left>
+							<width>10</width>
 							<height>250</height>
 							<onleft>502</onleft>
 							<onup>900</onup>
@@ -1820,6 +1821,7 @@
                             <scrolltime tween="sine" easing="inout">200</scrolltime>
 							<onleft condition="String.IsEqual(Window.Property(AdditionalInfo), cast)">SetFocus(351)</onleft>
 							<onleft condition="String.IsEqual(Window.Property(AdditionalInfo), similar)">SetFocus(352)</onleft>
+							<onleft condition="Skin.HasSetting(EnableTouchSupport)">300</onleft>
 							<pagecontrol>300</pagecontrol>
 							<include condition="Skin.HasSetting(EnableTouchSupport)">back_button</include>
 							<include condition="Skin.HasSetting(EnableTouchSupport)">home_button</include>
@@ -1855,7 +1857,6 @@
                                 <radioheight>21</radioheight>
                                 <!-- Set InfoDialog as BaseWindow if NOT clicked via SendClick -->
                                 <onclick condition="!$EXP[IsTvShowDBTypeNoFallback]">SetProperty(BaseWindow,InfoDialog,Home)</onclick>
-                                <onclick>close</onclick>
                             </control>
 
 
@@ -1873,7 +1874,6 @@
                                 <radioheight>21</radioheight>
                                 <!-- Set InfoDialog as BaseWindow if NOT clicked via SendClick -->
                                 <onclick condition="!$EXP[IsTvShowDBTypeNoFallback]">SetProperty(BaseWindow,InfoDialog,Home)</onclick>
-                                <onclick>close</onclick>
                             </control>
 
 							<!-- Play from beginning -->

@@ -235,7 +235,7 @@
 		<value condition="ListItem.IsStereoscopic">bluray3d</value>
 		<value condition="[String.Contains(ListItem.Filename,bluray) | String.Contains(ListItem.Filename,blu-ray) | String.Contains(ListItem.Filename,bdrip) | String.Contains(ListItem.Filename,brrip)]">bluray</value>
 		<value condition="String.Contains(ListItem.Filename,dvb)">dvb</value>
-		<value condition="String.Contains(ListItem.Filename,web-dl) | String.Contains(ListItem.Filename,webdl) | String.Contains(ListItem.Filename,WEB-DL) | String.Contains(ListItem.Filename,WEBDL)">web-dl</value>
+		<value condition="String.Contains(ListItem.Filename,web-dl) | String.Contains(ListItem.Filename,webdl)">web-dl</value>
 		<value condition="String.Contains(ListItem.Filename,dvd) | String.IsEqual(ListItem.FileExtension,iso) | String.IsEqual(ListItem.FileExtension,ifo)">dvd</value>
 		<value condition="!String.IsEmpty(ListItem.VideoCodec)">$INFO[ListItem.VideoCodec]</value>
        
@@ -245,7 +245,7 @@
 		<value condition="VideoPlayer.IsStereoscopic">bluray3d</value>
 		<value condition="[String.Contains(Player.FileNameAndPath,bluray) | String.Contains(Player.FileNameAndPath,blu-ray) | String.Contains(Player.FileNameAndPath,bdrip) | String.Contains(Player.FileNameAndPath,brrip)]">bluray</value>
 		<value condition="String.Contains(Player.FileNameAndPath,dvb)">dvb</value>
-		<value condition="String.Contains(Player.FileNameAndPath,web-dl) | String.Contains(Player.Filename,webdl) | String.Contains(Player.Filename,WEB-DL) | String.Contains(Player.Filename,WEBDL)">web-dl</value>
+		<value condition="String.Contains(Player.FileNameAndPath,web-dl) | String.Contains(Player.Filename,webdl)">web-dl</value>
 		<value condition="String.EndsWith(Player.FileNameAndPath,dvd) | String.EmdsWith(Player.FileNameAndPath,.iso) | String.Contains(Player.FileNameAndPath,.ifo)">dvd</value>
 		<value>$INFO[VideoPlayer.VideoCodec]</value>
 	</variable>
@@ -1835,13 +1835,8 @@
 	
 	<variable name="AudioCodecVar">
         <value condition="!String.Contains(ListItem.Title,atmos) + String.Contains(ListItem.Filenameandpath,atmos)">ATMOS</value>
-        <value condition="!String.Contains(ListItem.Title,Atmos) + String.Contains(ListItem.Filenameandpath,Atmos)">ATMOS</value>
-        <value condition="!String.Contains(ListItem.Title,ATMOS) + String.Contains(ListItem.Filenameandpath,ATMOS)">ATMOS</value>
-        <value condition="!String.Contains(ListItem.Title,dts-x) + String.Contains(ListItem.Filenameandpath,dts-x)">DTS-X</value>
-        <value condition="!String.Contains(ListItem.Title,DTS-X) + String.Contains(ListItem.Filenameandpath,DTS-X)">DTS-X</value>
-        <value condition="!String.Contains(ListItem.Title,dtsx) + String.Contains(ListItem.Filenameandpath,dtsx)">DTS-X</value>
-        <value condition="!String.Contains(ListItem.Title,DTSX) + String.Contains(ListItem.Filenameandpath,DTSX)">DTS-X</value>
-    
+        <value condition="[!String.Contains(ListItem.Title,dts-x) + String.Contains(ListItem.Filenameandpath,dts-x)] | [!String.Contains(ListItem.Title,dtsx) + String.Contains(ListItem.Filenameandpath,dtsx]">DTS-X</value>
+
         <value condition="Skin.String(mediaflagsstyle,classic) + !String.IsEmpty(ListItem.AudioCodec)">$INFO[ListItem.AudioCodec]</value>
         <value condition="Skin.String(osdmediaflagsstyle,classic) + Window.IsActive(visualisation) + !String.IsEmpty(MusicPlayer.AudioCodec)">$INFO[MusicPlayer.AudioCodec]</value>
         <value condition="Skin.String(osdmediaflagsstyle,classic) + Window.IsActive(fullscreenvideo) + !String.IsEmpty(VideoPlayer.AudioCodec)">$INFO[VideoPlayer.AudioCodec]</value>

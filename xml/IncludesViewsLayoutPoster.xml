@@ -325,7 +325,6 @@
         <value condition="Container.Content(seasons) + !String.IsEmpty(Container.Art(tvshow.poster))">$INFO[Container.Art(tvshow.poster)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Poster))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Poster)]</value>
 		<value condition="!String.IsEmpty(ListItem.Property(poster))">$INFO[ListItem.Property(poster)]</value>
 		<value condition="!String.IsEmpty(ListItem.Property(tvshow.poster))">$INFO[ListItem.Property(tvshow.poster)]</value>
         <value condition="String.StartsWith(Container.FolderPath, pvr://) + String.IsEqual(Container.ListItem.Label,ListItem.Label)">$VAR[PVRThumb]</value>

@@ -1062,15 +1062,14 @@
     <!-- widget Bingie Widebox Landscape layout -->
     <include name="widget_layout_landscapewidebox">
         <include condition="String.IsEmpty(Window(Home).Property(bingieviews))">widget_layout_landscapewidebox_animation</include>
-        <height>420</height>
+        <height>760</height>
         <orientation>horizontal</orientation>
-        <itemlayout height="420" width="280">
+        <!--<animation effect="slide" start="0" end="0,-290" condition="true">Focus</animation>-->
+        <itemlayout height="760" width="360">
             <control type="group">
-                <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">
-                    <param name="left" value="-150"/>
-                </include>
-                <width>268</width>
-                <height>410</height>
+                <left>-230</left>
+                <width>360</width>
+                <height>760</height>
                 <include>PosterPanelLayout</include>
                 <control type="group">
                     <description>widget label overlay</description>
@@ -1082,35 +1081,46 @@
                 </control>
             </control>
         </itemlayout>
-        <focusedlayout height="420" width="280" condition="!Control.HasFocus($PARAM[widgetid])">
+        <focusedlayout width="360" height="760" condition="!Control.HasFocus($PARAM[widgetid]) | !String.IsEqual(Window(home).property(landscapewideboxfocus),Container($PARAM[widgetid]).CurrentItem)">
             <control type="group">
-                <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">
-                    <param name="left" value="-150"/>
-                </include>
-                <width>268</width>
-                <height>410</height>
-                <include>PosterPanelLayout</include>
+                <left>-230</left>
+                <width>360</width>
+                <height>760</height>
+                <include>PosterThumbFO</include>
+                <include>PosterThumbLayout</include>
+                <include condition="!Window.IsActive(Home)">PosterTagOverlay</include>
+                <control type="group">
+                    <include condition="Skin.HasSetting(CaseOverlays)">PosterCaseOverlay</include>
+                </control>
+                <control type="group">
+                    <!--Watched Overlay-->
+                    <right>8</right>
+                    <top>8</top>
+                    <include>WatchedIndicatorNormal</include>
+                    <animation type="Conditional" condition="Skin.HasTheme(classic)">
+                        <effect type="slide" end="3,-3" time="0"  />
+                    </animation>
+                </control>
                 <control type="group">
                     <description>widget label overlay</description>
                     <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable)">PosterTagOverlay</include>
-                    <include condition="String.IsEqual(Skin.String(Widgets_DisplayTags),auto)">PosterTagOverlayVisibility</include>
                     <include content="$PARAM[widgetTags]" condition="String.IsEqual(Skin.String(Widgets_DisplayTags),override)">
                         <param name="prefix" value="Poster" />
                     </include>
+                    <include condition="String.IsEqual(Skin.String(Widgets_DisplayTags),auto)">PosterTagOverlayVisibility</include>
                 </control>
-                <include content="HiddenWidgetButton">
-                    <param name="widgetstyle" value="landscapewidebox" />
-                    <param name="widgetid" value="$PARAM[widgetid]" />
-                </include>
             </control>
+            <include content="HiddenWidgetButton">
+                <onfocus>AlarmClock(FocusHightlightWidget,SetProperty(landscapewideboxfocus,$INFO[Container($PARAM[widgetid]).CurrentItem],Home),00:03,silent)</onfocus>
+                <param name="widgetstyle" value="landscapewidebox" />
+                <param name="widgetid" value="$PARAM[widgetid]" />
+            </include>
         </focusedlayout>
-        <focusedlayout width="780" height="420" condition="Control.HasFocus($PARAM[widgetid])">
+        <focusedlayout width="1250" height="760" condition="Control.HasFocus($PARAM[widgetid]) + String.IsEqual(Window(home).property(landscapewideboxfocus),Container($PARAM[widgetid]).CurrentItem)">
             <control type="group">
-                <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">
-                    <param name="left" value="-150"/>
-                </include>
-                <width>768</width>
-                <height>410</height>
+                <left>-230</left>
+                <width>1250</width>
+                <height>760</height>
                 <animation delay="0" time="300" effect="fade" condition="true">Conditional</animation>
                 <control type="image">
                     <animation delay="200" time="100" effect="fade" condition="true">Conditional</animation>
@@ -1122,15 +1132,43 @@
                 </control>
                 <!-- landscape image -->
                 <control type="group">
-                    <width>768</width>
-                    <height>410</height>
+                    <width>1250</width>
+                    <height>760</height>
                     <include>LandscapeLayout</include>
                 </control>
+                <control type="videowindow">
+                    <visible>Control.HasFocus($PARAM[widgetid])</visible>
+                    <left>0</left>
+                    <top>0</top>
+                    <height>96%</height>
+                    <width>96%</width>
+                </control>
+                <control type="group">
+                    <height>125</height>
+                    <bottom>15</bottom>
+                    <left>30</left>
+                    <control type="image">
+                        <visible>!Skin.HasSetting(NoClearLogoBingie)</visible>
+                        <height>88</height>
+                        <width>230</width>
+                        <align>left</align>
+                        <fadetime>250</fadetime>
+                        <aspectratio align="left" aligny="center">keep</aspectratio>
+                        <texture background="true" fallback="colors/color_transparent.png">$INFO[Container($PARAM[widgetid]).ListItem.Art(clearlogo)]</texture>
+                    </control>
+                    <control type="label" id="6114">
+                        <top>90</top>
+                        <visible>!String.IsEmpty(Control.GetLabel(6114))</visible>
+                        <posy>5</posy>
+                        <height>35</height>
+                        <width>auto</width>
+                        <aligny>center</aligny>
+                        <font>Reg22</font>
+                        <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                        <label>$VAR[YearOrPremieredOrPVR,,    ]$VAR[GetMPAA,,    ]$VAR[DurationOrTotalSECount]</label>
+                    </control>
+                </control>
             </control>
-            <include content="HiddenWidgetButton">
-                <param name="widgetstyle" value="landscapewidebox" />
-                <param name="widgetid" value="$PARAM[widgetid]" />
-            </include>
         </focusedlayout>
     </include>
     
@@ -1775,7 +1813,7 @@
             <param name="widgetSortBy" value="$PARAM[widgetSortBy]" />
             <param name="widgetSortOrder" value="$PARAM[widgetSortOrder]" />
             <param name="widgetLimit" value="$PARAM[widgetLimit]" />
-            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="widgetStyle" value="$PARAM[widgetStyle]" />
             <param name="visibility" value="$PARAM[visibility]" />
             <param name="multiRows" value="$PARAM[multiRows]" />
         </include>
@@ -1997,17 +2035,19 @@
 
     <include name="widget_base_normal">
         <control type="$PARAM[containerType]" id="$PARAM[widgetid]">
+            <visible>$PARAM[visibility]</visible>
+            <visible>String.IsEqual(Container(900).ListItem.Property(submenuVisibility),$PARAM[submenuid]) | Skin.HasSetting(ShowAllWidgets)</visible>
             <visible>Container($PARAM[widgetid]).IsUpdating | Integer.IsGreater(Container($PARAM[widgetid]).NumItems,0)</visible>
             <include condition="$PARAM[multiRows]">widget_base_vertical</include>
+            <orientation>horizontal</orientation>
+            <width>100%</width>
+            <scrolltime tween="sine" easing="out">500</scrolltime>
+            <preloaditems>5</preloaditems>
             <include content="WidgetBaseBingieIncludes" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">
                 <param name="widgetid" value="$PARAM[widgetid]" />
             </include>
-            <scrolltime tween="sine" easing="out">500</scrolltime>
-            <width>100%</width>
-            <preloaditems>5</preloaditems>
-            <orientation>horizontal</orientation>
-            <onfocus>SetProperty(ShowWidget,1,home)</onfocus>
             <include>WidgetsBaseAnimation</include>
+            <onfocus>SetProperty(ShowWidget,1,home)</onfocus>
             <include content="$PARAM[widgetStyle]">
                 <param name="widgetid" value="$PARAM[widgetid]" />
                 <param name="widgetTags" value="$PARAM[widgetTags]" />
@@ -2022,8 +2062,6 @@
                 <param name="widgetSortOrder" value="$PARAM[widgetSortOrder]" />
                 <param name="widgetLimit" value="$PARAM[widgetLimit]" />
             </include>
-            <visible>String.IsEqual(Container(900).ListItem.Property(submenuVisibility),$PARAM[submenuid]) | Skin.HasSetting(ShowAllWidgets)</visible>
-            <visible>$PARAM[visibility]</visible>
         </control>
     </include>
 
@@ -2051,65 +2089,76 @@
         <content><include>StaticWidget_RCB</include></content>
     </include>
     <include name="widget_base_content_categories">
-        <content><include>StaticWidget_Categories</include></content>
-        <content sortby="file" limit="$PARAM[widgetLimit]" target="videos">plugin://script.skin.helper.widgets/?action=browsegenres&amp;mediatype=media</content>
+        <include>StaticWidget_Categories</include>
+        <content sortby="$PARAM[widgetSortBy]" sortorder="$PARAM[widgetSortOrder]" limit="$PARAM[widgetLimit]" target="$PARAM[widgetTarget]">plugin://script.skin.helper.widgets/?action=browsegenres&amp;mediatype=media</content>
     </include>
     <include name="widget_base_content_mylist">
         <content sortby="$PARAM[widgetSortBy]" sortorder="$PARAM[widgetSortOrder]" limit="$PARAM[widgetLimit]" target="$PARAM[widgetTarget]">special://skin/playlists/mylistshows.xsp</content>
         <content sortby="$PARAM[widgetSortBy]" sortorder="$PARAM[widgetSortOrder]" limit="$PARAM[widgetLimit]" target="$PARAM[widgetTarget]">special://skin/playlists/mylistmovies.xsp</content>
     </include>
 
-
     <include name="StaticWidget_Categories">
-        <item>
-            <label>$LOCALIZE[20343]</label>
-            <thumb>bingie/categories/tvshows.jpg</thumb>
-            <property name="DBTYPE">category</property>
-            <property name="fanart">$INFO[Window(Home).Property(SkinHelper.AllTvShowsBackground)]</property>
-            <onclick>ActivateWindow(videos,videodb://tvshows/titles/,return)</onclick>
-        </item>
-        <item>
-            <label>$LOCALIZE[342]</label>
-            <thumb>bingie/categories/movies.jpg</thumb>
-            <property name="DBTYPE">category</property>
-            <property name="fanart">$INFO[Window(Home).Property(SkinHelper.AllMoviesBackground)]</property>
-            <onclick>ActivateWindow(videos,videodb://movies/titles/,return)</onclick>
-        </item>
-        <item>
-            <label>$LOCALIZE[31532]</label>
-            <thumb>bingie/categories/topratedmovies.jpg</thumb>
-            <property name="DBTYPE">category</property>
-            <property name="fanart"></property>
-            <onclick>ActivateWindow(videos,special://skin/playlists/topratedmovies.xsp,return)</onclick>
-        </item>
-        <item>
-            <label>$LOCALIZE[31098]</label>
-            <thumb>bingie/categories/topratedtvshows.jpg</thumb>
-            <property name="DBTYPE">category</property>
-            <property name="fanart"></property>
-            <onclick>ActivateWindow(videos,special://skin/playlists/topratedshows.xsp,return)</onclick>
-        </item>
-        <item>
-            <label>$LOCALIZE[31127]</label>
-            <thumb>bingie/categories/recentlyadded.jpg</thumb>
-            <property name="DBTYPE">category</property>
-            <property name="fanart">$INFO[Window(Home).Property(SkinHelper.RecentVideosBackground)]</property>
-            <onclick>ActivateWindow(videos,plugin://script.skin.helper.widgets/?action=recentshowsandmovies&amp;mediatype=media&amp;limit=100,return)</onclick>
-        </item>
-        <item>
-            <label>$LOCALIZE[31577]</label>
-            <thumb>bingie/categories/newrelease.jpg</thumb>
-            <property name="DBTYPE">category</property>
-            <property name="fanart"></property>
-            <onclick>ActivateWindow(videos,plugin://script.skin.helper.widgets/?action=newrelease&amp;mediatype=media&amp;limit=100,return)</onclick>
-        </item>
-        <item>
-            <label>$ADDON[script.skin.helper.widgets 32090]</label>
-            <thumb>bingie/categories/popular.jpg</thumb>
-            <property name="DBTYPE">category</property>
-            <property name="fanart"></property>
-            <onclick>ActivateWindow(videos,plugin://script.skin.helper.widgets/?action=popular&amp;mediatype=media&amp;limit=100,return)</onclick>
-        </item>
+        <content>
+            <item id="1">
+                <label>$LOCALIZE[342]</label>
+                <thumb>bingie/categories/movies.jpg</thumb>
+                <property name="DBTYPE">category</property>
+                <property name="Path">videodb://movies/titles/</property>
+                <onclick>ActivateWindow(videos,videodb://movies/titles/,return)</onclick>
+                <visible>true</visible>
+            </item>
+            <item id="2">
+                <label>$LOCALIZE[20343]</label>
+                <thumb>bingie/categories/tvshows.jpg</thumb>
+                <property name="DBTYPE">category</property>
+                <property name="Path">videodb://tvshows/titles/</property>
+                <onclick>ActivateWindow(videos,videodb://tvshows/titles/,return)</onclick>
+                <visible>true</visible>
+            </item>
+            <item id="3">
+                <label>$LOCALIZE[31098]</label>
+                <thumb>bingie/categories/topratedtvshows.jpg</thumb>
+                <property name="DBTYPE">category</property>
+                <property name="Path">special://skin/playlists/topratedshows.xsp</property>
+                <onclick>ActivateWindow(videos,special://skin/playlists/topratedshows.xsp,return)</onclick>
+                <visible>true</visible>
+            </item>
+            <item id="4">
+                <label>$LOCALIZE[31532]</label>
+                <thumb>bingie/categories/topratedmovies.jpg</thumb>
+                <property name="DBTYPE">category</property>
+                <property name="Path">special://skin/playlists/topratedmovies.xsp</property>
+                <onclick>ActivateWindow(videos,special://skin/playlists/topratedmovies.xsp,return)</onclick>
+                <visible>true</visible>
+            </item>
+            <item id="5">
+                <label>$LOCALIZE[31127]</label>
+                <thumb>bingie/categories/recentlyadded.jpg</thumb>
+                <property name="DBTYPE">category</property>
+                <property name="Path">special://skin/playlists/recentlyaddedmovies.xsp</property>
+                <property name="Path2">special://skin/playlists/recentlyaddedshows.xsp</property>
+                <onclick>ActivateWindow(videos,plugin://script.skin.helper.widgets/?action=recentshowsandmovies&amp;mediatype=media&amp;limit=100,return)</onclick>
+                <visible>true</visible>
+            </item>
+            <item id="6">
+                <label>$LOCALIZE[31577]</label>
+                <thumb>bingie/categories/newrelease.jpg</thumb>
+                <property name="DBTYPE">category</property>
+                <property name="Path">special://skin/playlists/newreleasemovies.xsp</property>
+                <property name="Path2">special://skin/playlists/newreleaseshows.xsp</property>
+                <onclick>ActivateWindow(videos,plugin://script.skin.helper.widgets/?action=newrelease&amp;mediatype=media&amp;limit=100,return)</onclick>
+                <visible>true</visible>
+            </item>
+            <item id="7">
+                <label>$ADDON[script.skin.helper.widgets 32090]</label>
+                <thumb>bingie/categories/popular.jpg</thumb>
+                <property name="DBTYPE">category</property>
+                <property name="Path">special://skin/playlists/blockbustermovies.xsp</property>
+                <property name="Path2">special://skin/playlists/bingeworthyshows.xsp.xsp</property>
+                <onclick>ActivateWindow(videos,plugin://script.skin.helper.widgets/?action=popular&amp;mediatype=media&amp;limit=100,return)</onclick>
+                <visible>true</visible>
+            </item>
+        </content>
     </include>
 
     <include name="StaticWidget_SystemInfo">

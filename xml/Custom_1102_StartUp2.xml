@@ -24,7 +24,7 @@
 				<include>Startup_Dialog_OpenClose</include>
 				<centerleft>50%</centerleft>
 				<centertop>50%</centertop>
-				<width>800</width>
+				<width>900</width>
 				<height max="940">auto</height>
 				<orientation>vertical</orientation>
 				<itemgap>25</itemgap>

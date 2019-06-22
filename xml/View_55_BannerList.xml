@@ -26,8 +26,7 @@
                 <focusposition>0</focusposition>
                 <orientation>vertical</orientation>
                 <preloaditems>4</preloaditems>
-				<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),55) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
-				<animation effect="slide" start="0" end="-20" time="0" condition="Skin.HasTheme(classic)">Conditional</animation>
+                <animation effect="slide" start="0" end="-20" time="0" condition="Skin.HasTheme(classic)">Conditional</animation>
                 <itemlayout height="123" width="595" condition="!Skin.HasSetting(View55_LargeBanners)">
                     <control type="group">
                         <width>585</width>

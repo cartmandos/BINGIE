@@ -18,7 +18,6 @@
             <preloaditems>2</preloaditems>
             <orientation>horizontal</orientation>
             <preloaditems>2</preloaditems>
-            <visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),52) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
             <itemlayout height="345" width="258">
             <control type="group">
                 <width>233</width>

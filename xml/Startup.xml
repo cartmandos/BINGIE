@@ -3,6 +3,7 @@
 <window>
     <defaultcontrol always="true">10</defaultcontrol>
     <include>DefaultSkinSettings</include>
+    <onload condition="String.IsEqual(Skin.String(HomeLayout),bingie)">SetProperty(Random,$INFO[System.Time(ss)],Home)</onload>
     <!-- start up mask - preload -->
     <onload condition="String.IsEmpty(Skin.String(SplashScreen)) + String.IsEmpty(Skin.String(AutoStartPlayList))">SetProperty(StartupMask,1,home)</onload>
     <onload condition="String.IsEmpty(Skin.String(SplashScreen)) + String.IsEmpty(Skin.String(AutoStartPlayList))">ReplaceWindow($VAR[StartUpWindow])</onload>

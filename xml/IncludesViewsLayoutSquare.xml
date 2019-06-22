@@ -87,7 +87,7 @@
             !String.IsEmpty(ListItem.Property(defaultID)) | 
             [Control.IsVisible(509) + !Skin.String(View509.Tags) + !String.Contains(ListItem.Art(thumb),icon.png)] |
             [Control.IsVisible(510) + !Skin.String(View510.Tags) + !String.Contains(ListItem.Art(thumb),icon.png)] |
-            Window.IsActive(settings)
+            Window.IsActive(settings) | Window.IsActive(1109)
         </visible>
     </include>
     <include name="SquarePosterTagOverlay">
@@ -104,7 +104,7 @@
                 <left>15</left>
                 <right>15</right>
                 <bottom>10</bottom>
-                <height>55</height>
+                <height>48</height>
                 <include condition="Skin.HasSetting(ThumbsLabelAlignmentCenter)">align_center</include>
                 <align>left</align>
                 <aligny>center</aligny>
@@ -118,7 +118,7 @@
                 <left>15</left>
                 <right>15</right>
                 <bottom>10</bottom>
-                <height>55</height>
+                <height>48</height>
                 <include condition="Skin.HasSetting(ThumbsLabelAlignmentCenter)">align_center</include>
                 <align>left</align>
                 <aligny>center</aligny>

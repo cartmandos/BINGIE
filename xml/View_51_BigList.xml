@@ -297,8 +297,7 @@
 				<pagecontrol>60</pagecontrol>
 				<scrolltime tween="cubic" easing="out">600</scrolltime>
 				<preloaditems>2</preloaditems>
-				<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),51) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
-                         <!-- not info & not slim -->
+				<!-- not info & not slim -->
 				<itemlayout width="1290" height="103" condition="!Skin.HasSetting(View51_UseSlimList) + !Skin.HasSetting(BigListViewShowInfo)">		
 					<include>BiglistLayout</include>
 				</itemlayout>

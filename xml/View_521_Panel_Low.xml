@@ -23,7 +23,6 @@
                 <focusposition>0</focusposition>
                 <orientation>vertical</orientation>
                 <preloaditems>2</preloaditems>
-				<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),521) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
                 <!-- itemlayout movies -->
                 <itemlayout height="248" width="168">
                     <control type="group">

@@ -2,12 +2,12 @@
 <!-- BINGIE -->
 <includes>
     <include name="HomeBingie">
-        <!-- base BG -->
+        <!-- base BG
         <control type="image">
             <visible>!$EXP[IsPlayingRecognizedContent]</visible>
             <include>FullscreenDimensions</include>
             <texture background="true" colordiffuse="$VAR[BingiePanelColor]">colors/color_white.png</texture>
-        </control>
+        </control>-->
 
         <control type="group" id="9000">
             <!-- animation for seamless transition to dialog info -->
@@ -16,7 +16,7 @@
             <!-- background image -->
             <control type="image">
                 <include>Dim_On_Menu_Animation</include>
-                <visible>!Player.HasVideo + [!Skin.HasSetting(BingieHomeShowLargeThumb) | ControlGroup(505).HasFocus()]  + !Control.IsVisible(56399)</visible>
+                <visible>!Player.HasVideo + $EXP[IsCurrentWidgetSpotlight] + !Control.IsVisible(56399)</visible>
                 <fadetime>350</fadetime>
                 <texture background="true">$INFO[Control.GetLabel(99004)]</texture>
                 <aspectratio aligny="top">scale</aspectratio>
@@ -27,9 +27,8 @@
 
             <!-- fullscreen trailer window -->
             <control type="group" id="56399">
-                <visible>$EXP[IsPlayingUnrecognizedContent] + [ControlGroup(505).HasFocus() | !Skin.HasSetting(BingieHomeShowLargeThumb)]</visible>
+                <visible>$EXP[IsPlayingUnrecognizedContent] + $EXP[IsCurrentWidgetSpotlight]</visible>
                 <include>FullscreenDimensions</include>
-                <animation effect="slide" start="0" end="0,-80" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,2.35) | Integer.IsEqual(VideoPlayer.VideoAspect,2.55) | Integer.IsEqual(VideoPlayer.VideoAspect,2.76)" reversible="true">Conditional</animation>
                 <control type="videowindow"/>
             </control>
             <!--fullscreen trailer fade in -->
@@ -44,7 +43,7 @@
 
             <!-- spotlight overlay -->
             <control type="image">
-                <visible>ControlGroup(505).HasFocus()</visible>
+                <visible>$EXP[IsCurrentWidgetSpotlight]</visible>
                 <include>FullscreenDimensions</include>
                 <colordiffuse>$VAR[BingiePanelColor]</colordiffuse>
                 <texture background="true" border="15">special://home/addons/resource.images.backgroundoverlays.basic/resources/Vignette.png</texture>
@@ -53,7 +52,7 @@
             <!-- MPAA flag while spotlight playing -->
             <control type="group">
                 <include>Dim_On_Menu_Animation</include>
-                <visible>!String.IsEmpty(Control.GetLabel(5633398)) + [ControlGroup(505).HasFocus() + [Integer.IsGreater(Container(1508).NumItems,0) | Container(1508).IsUpdating]] | [!Skin.HasSetting(BingieHomeShowLargeThumb) + Control.IsVisible(56399)]</visible>
+                <visible>!String.IsEmpty(Control.GetLabel(5633398)) + [$EXP[IsCurrentWidgetSpotlight] + [Integer.IsGreater(Container(1508).NumItems,0) | Container(1508).IsUpdating]]</visible>
                 <right>-160</right>
                 <top>675</top>
                 <height>55</height>
@@ -89,25 +88,22 @@
             </control>
 
             <!-- overlay with big thumb-->
-            <include condition="Skin.HasSetting(BingieHomeShowLargeThumb)">Bingie_Overlay_Large_Thumb</include>
-
-            <!-- overlays without big thumb -->
-            <include condition="!Skin.HasSetting(BingieHomeShowLargeThumb)">Bingie_Overlay_Without_Large_Thumb</include>
+            <include>Bingie_Overlay_Large_Thumb</include>
 
             <!-- spotlight section -->
             <control type="group">
+                <visible>!String.IsEqual(window(home).Property(widgetstyle),landscapewidebox)</visible>
                 <width>1920</width>
                 <height>525</height>
                 <visible>!Skin.HasSetting(BingieHomeDisableFirstRow)</visible>
 
                 <!-- trailer window -->
                 <control type="group" id="563340">
-                    <visible>$EXP[IsPlayingUnrecognizedContent] + Skin.HasSetting(BingieHomeShowLargeThumb) + ![ControlGroup(505).HasFocus()]</visible>
-                    <animation effect="slide" start="0" end="0,-80" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,2.35) | Integer.IsEqual(VideoPlayer.VideoAspect,2.55) | Integer.IsEqual(VideoPlayer.VideoAspect,2.76)" reversible="true">Conditional</animation>
+                    <visible>$EXP[IsPlayingUnrecognizedContent] + ![$EXP[IsCurrentWidgetSpotlight]]</visible>
                     <top>0</top>
                     <right>0</right>
-                    <width>1220</width>
-                    <height>680</height>
+                    <width>1292</width>
+                    <height>720</height>
                     <control type="videowindow">
                         <visible>!$EXP[IsRecognizedVideoContent]</visible>
                     </control>
@@ -136,17 +132,19 @@
                 <!-- spotlight image [16:9] -->
                 <control type="image">
                     <include>Dim_On_Menu_Animation</include>
-                    <visible>Skin.HasSetting(BingieHomeShowLargeThumb) + !ControlGroup(505).HasFocus() + !Player.HasVideo</visible>
+                    <visible>!$EXP[IsCurrentWidgetSpotlight] + !Player.HasVideo</visible>
                     <right>0</right>
                     <top>0</top>
-                    <texture background="true" diffuse="special://home/addons/resource.images.backgroundoverlays.basic/resources/Right Corner.png">$INFO[Control.GetLabel(99004)]</texture>
+                    <texture background="true" diffuse="bingie/bingie_default_spotlight_diffuse.png">$INFO[Control.GetLabel(99004)]</texture>
                     <fadetime>550</fadetime>
-                    <width>1400</width>
-                    <height>787</height>
+                    <width>1688</width>
+                    <height>950</height>
                     <aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
                     <animation effect="fade" end="0" time="500">Hidden</animation>
                     <animation effect="fade" start="0" end="100" time="1200">Visible</animation>
                 </control>
+
+                <include>Spotlight_Buttons</include>
 
                 <!-- bingie details -->
                 <control type="grouplist">
@@ -160,11 +158,10 @@
                     <usecontrolcoords>true</usecontrolcoords>
                     <itemgap>10</itemgap>
                     <!-- adjust for episode info -->
-                    <animation effect="slide" start="0" end="0,75" time="0" condition="Control.IsVisible(588688) + !Control.IsVisible(5444322) + !ControlGroup(505).HasFocus()">Conditional</animation>
+                    <animation effect="slide" start="0" end="0,75" time="0" condition="Control.IsVisible(588688) + !Control.IsVisible(5444322) + !$EXP[IsCurrentWidgetSpotlight]">Conditional</animation>
 
                     <!-- clearlogo [800x310] -->
                     <control type="image" id="29475">
-                        <visible>!Skin.HasSetting(NoClearLogoBingie)</visible>
                         <height>186</height>
                         <width>480</width>
                         <align>left</align>
@@ -172,11 +169,11 @@
                         <aspectratio align="left" aligny="center">keep</aspectratio>
                         <texture background="true" fallback="colors/color_transparent.png">$VAR[BingieInfoClearlogo]</texture>
                         <!-- adjust for spotlight -->
-                        <animation effect="slide" start="0" end="0,137" time="0" condition="ControlGroup(505).HasFocus()">Conditional</animation>
+                        <animation effect="slide" start="0" end="0,137" time="0" condition="$EXP[IsCurrentWidgetSpotlight]">Conditional</animation>
                     </control>
                     <!-- text title -->
                     <control type="textbox" id="29476">
-                        <visible>String.EndsWith(Control.GetLabel(29475),color_transparent.png) | Skin.HasSetting(NoClearLogoBingie)</visible>
+                        <visible>String.EndsWith(Control.GetLabel(29475),color_transparent.png)</visible>
                         <top>-143</top>
                         <height max="175">auto</height>
                         <width max="815">auto</width>
@@ -188,14 +185,17 @@
                         <label>$VAR[BingieInfoLabel]</label>
                         <animation effect="fade" time="200">Visible</animation>
                         <!-- adjust for spotlight -->
-                        <animation effect="slide" start="0" end="0,155" time="0" condition="ControlGroup(505).HasFocus()">Conditional</animation>
-                        <!-- adjust for genres - removed zoom due kodi bug -->
-                        <animation effect="slide" start="0,0" end="0,170" time="0" condition="[Container.Content(genres) | String.IsEqual(ListItem.DBTYPE,genre)] | [String.IsEmpty(ListItem.DBType) + [String.IsEqual(ListItem.Property(DBTYPE),genre) | String.IsEqual(ListItem.Property(DBTYPE),category) | String.IsEqual(ListItem.Property(DBTYPE),categorie)]]">Conditional</animation>
+                        <animation effect="slide" start="0" end="0,155" time="0" condition="$EXP[IsCurrentWidgetSpotlight]">Conditional</animation>
+                        <!-- adjust for genres -->
+                        <animation type="Conditional" condition="[Container.Content(genres) | String.IsEqual(ListItem.DBTYPE,genre)] | $EXP[IsCategoryDBType]">
+                            <effect type="slide" start="0,0" end="0,170" time="0"/>
+                            <effect type="zoom" end="130" time="0"/>
+                        </animation>
                     </control>
 
                     <!-- spotlight row details -->
                     <control type="group">
-                        <visible>!ControlGroup(505).HasFocus() + !Control.IsVisible(56399) + ![Control.IsVisible(588688) + Skin.HasSetting(HideRowDetailsEpisodes)]</visible>
+                        <visible>!$EXP[IsCurrentWidgetSpotlight] + !Control.IsVisible(56399) + ![Control.IsVisible(588688) + Skin.HasSetting(HideRowDetailsEpisodes)]</visible>
                         <posy>-7</posy>
                         <width>1000</width>
                         <height>40</height>
@@ -214,8 +214,8 @@
                         <textcolor>$INFO[Skin.String(BingieSubLabelTextColor)]</textcolor>
                         <label>$VAR[BingieSublabel]</label>
                         <!-- adjust for spotlight -->
-                        <animation effect="slide" start="0" end="0,225" time="0" condition="ControlGroup(505).HasFocus() + Control.IsVisible(29475)">Conditional</animation>
-                        <animation effect="slide" start="0" end="0,115" time="0" condition="ControlGroup(505).HasFocus() + Control.IsVisible(29476)">Conditional</animation>
+                        <animation effect="slide" start="0" end="0,225" time="0" condition="$EXP[IsCurrentWidgetSpotlight] + Control.IsVisible(29475)">Conditional</animation>
+                        <animation effect="slide" start="0" end="0,115" time="0" condition="$EXP[IsCurrentWidgetSpotlight] + Control.IsVisible(29476)">Conditional</animation>
                         <include>Default_Visible_Fade</include>
                     </control>
 
@@ -226,8 +226,8 @@
                         <height>125</height>
                         <width>1000</width>
                         <include>Default_Visible_Fade</include>
-                        <animation effect="slide" start="0" end="0,225" time="0" condition="ControlGroup(505).HasFocus() + Control.IsVisible(29475)">Conditional</animation>
-                        <animation effect="slide" start="0" end="0,115" time="0" condition="ControlGroup(505).HasFocus() + Control.IsVisible(29476)">Conditional</animation>
+                        <animation effect="slide" start="0" end="0,225" time="0" condition="$EXP[IsCurrentWidgetSpotlight] + Control.IsVisible(29475)">Conditional</animation>
+                        <animation effect="slide" start="0" end="0,115" time="0" condition="$EXP[IsCurrentWidgetSpotlight] + Control.IsVisible(29476)">Conditional</animation>
                         <!-- next episode label -->
                         <control type="label">
                             <visible>Integer.IsEqual(ListItem.PercentPlayed,0)</visible>
@@ -292,16 +292,16 @@
                         <font>Reg28</font>
                         <label>$VAR[BingiePlot]</label>
                         <!-- spotlight adjustments -->
-                        <animation effect="slide" start="0" end="0,230" time="0" condition="ControlGroup(505).HasFocus() + Control.IsVisible(29475)">Conditional</animation>
-                        <animation effect="slide" start="0" end="0,115" time="0" condition="ControlGroup(505).HasFocus() + Control.IsVisible(29476)">Conditional</animation>
-                        <animation effect="fade" start="100" end="0" time="400" condition="!Skin.HasSetting(ShowPlotInBingieSpotlight) + ControlGroup(505).HasFocus() + [$EXP[IsPlayingUnrecognizedContent] | String.IsEmpty(Window(Home).Property(SpotlightFirstPlayDone))]">Conditional</animation>
+                        <animation effect="slide" start="0" end="0,230" time="0" condition="$EXP[IsCurrentWidgetSpotlight] + Control.IsVisible(29475)">Conditional</animation>
+                        <animation effect="slide" start="0" end="0,115" time="0" condition="$EXP[IsCurrentWidgetSpotlight] + Control.IsVisible(29476)">Conditional</animation>
+                        <animation effect="fade" start="100" end="0" time="400" condition="!Skin.HasSetting(ShowPlotInBingieSpotlight) + $EXP[IsCurrentWidgetSpotlight] + [$EXP[IsPlayingUnrecognizedContent] | String.IsEmpty(Window(Home).Property(SpotlightFirstPlayDone))]">Conditional</animation>
                         <include>Default_Visible_Fade</include>
                     </control>
 
                     <!-- additional info -->
                     <control type="group">
                         <top>10</top>
-                        <visible>!Control.IsVisible(588688) + ![ControlGroup(505).HasFocus() | [!Skin.HasSetting(BingieHomeShowLargeThumb) + Control.IsVisible(56399)]]</visible>
+                        <visible>!Control.IsVisible(588688) + !$EXP[IsCurrentWidgetSpotlight] + !$EXP[IsCategoryDBType]</visible>
                         <include condition="!Skin.HasSetting(DisableBingieMoreDetails)">Bingie_Additional_Info</include>
                     </control>
                 </control>
@@ -317,8 +317,6 @@
                 <animation time="300" effect="fade" start="100" end="20" reversible="true" easing="inout" condition="$EXP[IsMainMenuOpened] + !$EXP[IsPlayingRecognizedContent]">Conditional</animation>
                 <!-- adjustments for scrollbar & zoom effect -->
                 <animation effect="slide" end="10" condition="Skin.HasSetting(WidgetsZoomFocus)">Conditional</animation>
-                <!-- spotlight slide-down -->
-                <animation effect="slide" end="0,220" time="400" condition="[ControlGroup(505).HasFocus() + [Integer.IsGreater(Container(1508).NumItems,0) | Container(1508).IsUpdating]] | [!Skin.HasSetting(BingieHomeShowLargeThumb) + Control.IsVisible(56399)]">Conditional</animation>
                 <posx>0</posx>
                 <include condition="Skin.HasSetting(BingieHomeDisableFirstRow)">Bingie_Alt_Height_No_Spotlight</include>
                 <top>605</top>
@@ -328,13 +326,22 @@
                 <itemgap>2</itemgap>
                 <pagecontrol>317</pagecontrol>
                 <width>100%</width>
+
+                <onfocus condition="!String.IsEqual(Window(Home).Property(CurrentWidgetID),$PARAM[widgetid])">SetProperty(PrevWidgetID,$INFO[Window(Home).Property(CurrentWidgetID)],Home)</onfocus>
+                <onfocus condition="!String.IsEqual(Window(Home).Property(CurrentWidgetID),$PARAM[widgetid])">SetProperty(PrevWidgetPos,$INFO[Window(Home).Property(CurrentWidgetPos)],Home)</onfocus>
+                <onfocus>SetProperty(CurrentWidgetID,$PARAM[widgetid],Home)</onfocus>
+                <onfocus condition="!String.IsEqual(Window(Home).Property(CurrentWidgetID),$PARAM[widgetid])">SetProperty(CurrentWidgetPos,$INFO[Container(77777).CurrentItem],Home)</onfocus>
+
+
                 <ondown>77777</ondown>
                 <onup>77777</onup>
                 <onback condition="$EXP[IsPlayingRecognizedContent]">SetFocus(509)</onback>
                 <onback condition="!$EXP[IsPlayingRecognizedContent] + $EXP[IsBingieViewsActive]">900</onback>
                 <onleft condition="!Skin.HasSetting(EnhancedHome_Circular) + $EXP[IsBingieViewsActive] + $EXP[IsPlayingUnrecognizedContent]">SetProperty(KeepPlayingTrailer,1,Home)</onleft>
                 <onleft condition="!Skin.HasSetting(EnhancedHome_Circular) | !$EXP[IsBingieViewsActive]">900</onleft>
-                <include condition="[Window.IsActive(Home) | $EXP[IsBingieHubsActive]] + !Skin.HasSetting(BingieHomeDisableFirstRow) + !Skin.HasSetting(DisableSpotlightContent)">BingieSpotlightWidget</include>
+                <include content="BingieSpotlightWidget" condition="[Window.IsActive(Home) | $EXP[IsBingieHubsActive]] + !Skin.HasSetting(BingieHomeDisableFirstRow) + !Skin.HasSetting(DisableSpotlightContent)">
+                    <param name="widgetid" value="1508"/>
+                </include>
                 <include condition="Window.IsActive(Home)">skinshortcuts-template-Widgets</include>
                 <include condition="Window.IsActive(1110)">bingie_items_tvshows</include>
                 <include condition="Window.IsActive(1111)">bingie_items_movies</include>
@@ -344,96 +351,12 @@
                 <include condition="Window.IsActive(1115)">bingie_items_mycustom</include>
             </control>
 
-            <!-- fake button in-the-middle of spotlight and 505 -->
-            <control type="button" id="53">
-                <visible allowhiddenfocus="true">false</visible>
-                <include>HiddenObject</include>
-                <onunfocus condition="String.IsEmpty(Window(Home).Property(SpotlightFirstPlayDone)) + !Window.IsActive(1103)">SetProperty(SpotlightFirstPlayDone,1,Home)</onunfocus>
-                <!-- trailer action -->
-                <include content="Spotlight_Trailer_Action" condition="Skin.HasSetting(SpotLightTrailers)">
-                    <param name="interval" value="$VAR[FirstSpotlightLoadOrNotInterval]" />
-                </include>
-                <onfocus>SetFocus(505)</onfocus>
-            </control>
-
-            <!-- spotlight buttons -->
-            <control type="grouplist" id="505">
-                <include>Dim_On_Menu_Animation</include>
-                <visible allowhiddenfocus="true">[ControlGroup(505).HasFocus()] +  Integer.IsGreater(Container(1508).NumItems,0)</visible>
-                <animation effect="slide" end="-700" condition="!ControlGroup(505).HasFocus">Conditional</animation>
-                <animation effect="fade" start="20" end="100" time="1000" delay="100">Visible</animation>
-                <orientation>horizontal</orientation>
-                <top>363</top>
-                <include condition="!Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Left</include>
-                <left>65</left>
-                <width>600</width>
-                <height>65</height>
-                <itemgap>15</itemgap>
-                <onback condition="$EXP[IsBingieViewsActive]">900</onback>
-                <onback condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,silent)</onback>
-                <onup condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,silent)</onup>
-                <onup condition="$EXP[IsPlayingUnrecognizedContent]">PlayerControl(Stop)</onup>
-                <onup>SetProperty(goToWidgetsEnd,1,Home)</onup>
-                <onup>1508</onup>
-                <ondown condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,silent)</ondown>
-                <ondown condition="$EXP[IsPlayingUnrecognizedContent]">PlayerControl(Stop)</ondown>
-                <ondown>SetProperty(goToWidgetsStart,1,Home)</ondown>
-                <ondown>1508</ondown>
-                <onleft condition="!Skin.HasSetting(EnhancedHome_Circular) + $EXP[IsBingieViewsActive]">900</onleft>
-                <onleft condition="Skin.HasSetting(EnhancedHome_Circular)">noop</onleft>
-                <onright>noop</onright>
-                <control type="radiobutton" id="5051">
-                    <!-- play -->
-                    <visible>String.IsEqual(Container(1508).ListItem.DBType,video) | String.IsEqual(Container(1508).ListItem.DBType,movie)
-                        | String.IsEqual(Container(1508).ListItem.DBType,episode) | [String.IsEqual(Container(1508).ListItem.DBType,tvshow) + !String.IsEmpty(Container(1508).ListItem.DBID)] | String.IsEqual(Container(1508).ListItem.Property(DBTYPE),movie)
-                        | String.IsEqual(Container(1508).ListItem.Property(DBTYPE),episode)</visible>
-                    <description>Play</description>
-                    <width>230</width>
-                    <textwidth>145</textwidth>
-                    <height>100%</height>
-                    <align>left</align>
-                    <label>[CAPITALIZE][B]$LOCALIZE[208][/B][/CAPITALIZE]</label>
-                    <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-                    <focusedcolor>black</focusedcolor>
-                    <texturefocus colordiffuse="d9ffffff" border="5">diffuse/panel.png</texturefocus>
-                    <texturenofocus colordiffuse="$INFO[Skin.String(BingieDetailsFlagColor)]" border="5">diffuse/panel.png</texturenofocus>
-                    <textureradioonfocus colordiffuse="black">dialogs/videoinfo/info/play.png</textureradioonfocus>
-                    <textureradioofffocus colordiffuse="black">dialogs/videoinfo/info/play.png</textureradioofffocus>
-                    <textureradioonnofocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">dialogs/videoinfo/info/play.png</textureradioonnofocus>
-                    <textureradiooffnofocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">dialogs/videoinfo/info/play.png</textureradiooffnofocus>
-                    <radioposx>40</radioposx>
-                    <radiowidth>25</radiowidth>
-                    <radioheight>35</radioheight>
-                    <textoffsetx>80</textoffsetx>
-                    <font>Reg28</font>
-                    <onclick condition="!String.IsEqual(Container(1508).ListItem.DBType,tvshow)">PlayMedia($ESCINFO[Container(1508).ListItem.FileNameAndPath])</onclick>
-                    <onclick condition="String.IsEqual(Container(1508).ListItem.DBType,tvshow)">SetProperty(ListItem.TVShowID,$INFO[Container(1508).ListItem.DBID],Home)</onclick>
-                    <onclick condition="String.IsEqual(Container(1508).ListItem.DBType,tvshow)">SetProperty(KeepTVShowID,1,Home)</onclick>
-                    <onclick condition="String.IsEqual(Container(1508).ListItem.DBType,tvshow)">ActivateWindow(Videos,videodb://tvshows/titles/$INFO[Container(1508).ListItem.DBID]/-2/,return)</onclick>
-                </control>
-                <control type="button" id="5052">
-                    <!-- more info -->
-                    <description>Info</description>
-                    <width min="250" max="350">auto</width>
-                    <height>100%</height>
-                    <align>center</align>
-                    <label>[B]$LOCALIZE[31838][/B]</label>
-                    <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-                    <focusedcolor>black</focusedcolor>
-                    <texturefocus colordiffuse="d9ffffff" border="5">diffuse/panel.png</texturefocus>
-                    <texturenofocus colordiffuse="$INFO[Skin.String(BingieDetailsFlagColor)]" border="5">diffuse/panel.png</texturenofocus>
-                    <font>Reg28</font>
-                    <onclick>SetProperty(ShowSpotlightInfo,1,Home)</onclick>
-                    <onclick>SetFocus(1508)</onclick>
-                </control>
-            </control>
-
             <!--Fixed Frame -->
             <include condition="Skin.HasSetting(EnableFixedFrameWidgets) + Skin.HasSetting(EnableFixedFocusWidgets) + $EXP[IsSupportedFixedFrameLayout] + [[Window.IsActive(Home) | $EXP[IsBingieListsActive]] | [[$EXP[IsBingieHubsActive]] + Skin.HasSetting(LockHubWidgets)]]">Bingie_Screens_Fixed_Focus_Frame</include>
 
             <!-- busy image while spotlight widget loading -->
             <control type="grouplist">
-                <visible>Control.HasFocus(1508) + Container(1508).IsUpdating</visible>
+                <visible>$EXP[IsCurrentWidgetSpotlight] + Container(1508).IsUpdating</visible>
                 <orientation>horizontal</orientation>
                 <include condition="!Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Left</include>
                 <left>65</left>
@@ -462,7 +385,7 @@
 
             <!-- gradient overlays on widgets -->
             <control type="group">
-                <visible>!ControlGroup(505).HasFocus() + !Control.IsVisible(56399)</visible>
+                <visible>!$EXP[IsCurrentWidgetSpotlight] + !Control.IsVisible(56399)</visible>
                 <include condition="Skin.HasSetting(EnhancedHome_Circular)">Bingie_Right_Gradient</include>
                 <include condition="!Skin.HasSetting(EnhancedHome_Circular)">Bingie_Left_Gradient</include>
             </control>
@@ -486,722 +409,5 @@
 
         <!-- Side Menu -->
         <include>BingieSideBladeMainMenu</include>
-    </include>
-
-    <!-- bingie vars -->
-    <!-- Bingie Panel Color -->
-    <variable name="BingiePanelColor">
-        <value condition="!String.IsEmpty(Skin.String(ViewDetailsPanelColor.base))">$INFO[Skin.String(ViewDetailsPanelColor.base)]</value>
-        <value>ff0a0a0a</value>
-    </variable>
-
-    <!-- Bingie Plot Textcolor -->
-    <variable name="BingiePlotTextColor">
-        <value condition="ControlGroup(505).HasFocus()">$INFO[Skin.String(ViewDetailsTextColor)]</value>
-        <value>$INFO[Skin.String(BingiePrimaryTextColor)]</value>
-    </variable>
-
-    <variable name="BingieMenuPanelColor">
-        <value condition="!$EXP[IsMainMenuOpened] + !Skin.HasSetting(EnhancedHome_Circular)">$INFO[Skin.String(BingieSlimMenuPanelColor)]</value>
-        <value>$INFO[Skin.String(MainMenuPanelColor)]</value>
-    </variable>
-
-    <variable name="FirstSpotlightLoadOrNotInterval">
-        <value condition="!String.IsEmpty(Window(Home).Property(SpotlightFirstPlayDone))">5</value>
-        <value>0</value>
-    </variable>
-
-    <variable name="Bingie_Logo">
-        <value condition="String.IsEmpty(Skin.String(CustomLogoImage))">bingie_logo.png</value>
-        <value condition="!String.IsEmpty(Skin.String(CustomLogoImage))">$INFO[Skin.String(CustomLogoImage)]</value>
-    </variable>
-
-    <include name="Alt_Bingie_Plot_Height">
-        <height min="50" max="200">auto</height>
-    </include>
-
-    <include name="NoCircularPosX">
-        <posx>bingie_no_circular_posx</posx>
-    </include>
-
-    <!-- menu includes -->
-    <include name="Bingie_Submenu_Label">
-        <control type="label">
-            <posx>10</posx>
-            <width>340</width>
-            <align>left</align>
-            <font>Reg26</font>
-            <height>50</height>
-            <textcolor>$PARAM[textcolor]</textcolor>
-            <label>$INFO[ListItem.Label]</label>
-            <scroll>true</scroll>
-        </control>
-    </include>
-
-    <include name="BingiePowerMenuItemLabel">
-        <control type="label">
-            <width>384</width>
-            <height>55</height>
-            <textoffsetx>50</textoffsetx>
-            <align>left</align>
-            <aligny>center</aligny>
-            <font>Light22</font>
-            <label>$INFO[ListItem.Label]</label>
-            <textcolor>$PARAM[textcolor]</textcolor>
-        </control>
-    </include>
-
-    <include name="Bingie_Menu_Focus_Img">
-        <control type="image">
-            <visible>$PARAM[visibility]</visible>
-            <width>383</width>
-            <texture>colors/color_white.png</texture>
-            <colordiffuse>$PARAM[colordiffuse]</colordiffuse>
-        </control>
-    </include>
-
-    <include name="Bingie_Menu_Icon">
-        <control type="group">
-            <include condition="$PARAM[includeAnimCond] + !Skin.HasSetting(EnhancedHome_Circular)">Bingie_Menu_Icon_Anim</include>
-            <left>50</left>
-            <height>100%</height>
-            <top>28</top>
-            <control type="image">
-                <include>Bingie_Menu_Icon_Defs</include>
-                <colordiffuse>$PARAM[colordiffuse]</colordiffuse>
-            </control>
-        </control>
-    </include>
-
-    <include name="Bingie_Menu_Icon_Anim">
-        <animation effect="slide" start="0" end="270" time="0" condition="!$EXP[IsMainMenuOpened]">Conditional</animation>
-    </include>
-
-    <include name="Bingie_Menu_Icon_Defs">
-        <width>26</width>
-        <height>26</height>
-        <texture background="true">$VAR[ActualIcon]</texture>
-        <animation end="70" effect="fade" time="0" delay="0" condition="true">Conditional</animation>
-    </include>
-
-    <include name="Bingie_Menu_Label_Defs">
-        <width>230</width>
-        <height>100%</height>
-        <align>left</align>
-        <include content="left" condition="Skin.HasSetting(DisableIconsMainMenu)">
-            <param name="left" value="85" />
-        </include>
-        <left>135</left>
-        <aligny>center</aligny>
-        <font>Light30</font>
-        <label>$INFO[ListItem.Label]</label>
-        <animation effect="fade" start="100" end="0" time="300" condition="!$EXP[IsMainMenuOpened]">Conditional</animation>
-    </include>
-
-    <include name="Bingie_Menu_Label">
-        <control type="label">
-            <include>Bingie_Menu_Label_Defs</include>
-            <textcolor>$PARAM[textcolor]</textcolor>
-        </control>
-    </include>
-
-    <include name="No_Circular_Left">
-        <include content="left">
-            <param name="left" value="bingie_no_circular_posx"/>
-        </include>
-    </include>
-
-    <include name="Circular_Menu_Animations">
-        <animation type="Conditional" condition="$EXP[IsMainMenuOpened]">
-            <effect type="slide" start="0" end="640" time="325" delay="0" tween="cubic" easing="inout" />
-            <effect type="fade" start="0" end="100" time="325" delay="0" tween="cubic" easing="inout" />
-        </animation>
-    </include>
-
-    <include name="No_Circular_Menu_Animations">
-        <animation effect="slide" start="0" end="285" time="325" delay="0" tween="cubic" easing="inout" condition="$EXP[IsMainMenuOpened] + [[$EXP[IsBingieListsActive] | Window.IsActive(1109)] | [[Window.IsActive(Home) | $EXP[IsBingieHubsActive]] + [!String.IsEmpty(Window(Home).Property(LastFocusWidgetPos)) + String.IsEqual(Window(Home).Property(LastFocusWidgetPos), 1)] | String.IsEmpty(Window(Home).Property(LastFocusWidgetPos))]]">Conditional</animation>
-        <animation effect="slide" start="0" end="385" time="325" delay="0" tween="cubic" easing="inout" condition="$EXP[IsMainMenuOpened] + [Window.IsActive(Home) | $EXP[IsBingieHubsActive]] + !String.IsEmpty(Window(Home).Property(LastFocusWidgetPos)) + !String.IsEqual(Window(Home).Property(LastFocusWidgetPos), 1)">Conditional</animation>
-        <animation effect="slide" start="0" end="-100" time="200" delay="0" tween="sine" easing="inout" condition="[Window.IsActive(Home) | $EXP[IsBingieHubsActive]] + !String.IsEmpty(Window(Home).Property(LastFocusWidgetPos)) + !String.IsEqual(Window(Home).Property(LastFocusWidgetPos), 1)">Conditional</animation>
-    </include>
-
-    <!-- fixed focus bottom override value -->
-    <include name="Fixed_Focus_Bottom">
-        <bottom>-10000</bottom>
-    </include>
-
-    <!-- fixed focus gap override value -->
-    <include name="Fixed_Focus_Itemgap">
-        <itemgap>0</itemgap>
-    </include>
-
-    <include name="Bingie_Right_Gradient">
-        <control type="image">
-            <visible>Skin.HasSetting(EnhancedHome_Circular)</visible>
-            <bottom>0</bottom>
-            <right>0</right>
-            <height>434</height>
-            <width>83</width>
-            <aspectratio scalediffuse="true">scale</aspectratio>
-            <texture border="15" background="true">overlays/gradient_right.png</texture>
-        </control>
-    </include>
-
-    <include name="Bingie_Left_Gradient">
-        <control type="image">
-            <bottom>0</bottom>
-            <left>0</left>
-            <height>434</height>
-            <width>90</width>
-            <aspectratio scalediffuse="true">scale</aspectratio>
-            <texture flipx="true" border="15" background="true">overlays/gradient_right.png</texture>
-        </control>
-    </include>
-
-    <include name="Bingie_Overlay_Large_Thumb">
-        <control type="image">
-            <visible>!ControlGroup(505).HasFocus() + !$EXP[IsPlayingRecognizedContent]</visible>
-            <include>FullscreenDimensions</include>
-            <texture background="true" colordiffuse="$VAR[BingiePanelColor]">colors/color_white.png</texture>
-            <animation effect="fade" start="100" end="90" delay="0" time="400">Visible</animation>
-            <animation effect="fade" start="90" end="0" delay="0" time="1200">Hidden</animation>
-        </control>
-    </include>
-
-    <include name="Bingie_Overlay_Without_Large_Thumb">
-        <control type="group">
-            <visible>!$EXP[IsPlayingRecognizedContent]</visible>
-            <include>FullscreenDimensions</include>
-            <control type="image">
-                <texture background="true" colordiffuse="$VAR[BingiePanelColor]">colors/color_white.png</texture>
-                <animation effect="fade" start="100" end="70" delay="0" time="0"  condition="true">Conditional</animation>
-                <animation effect="fade" start="70" end="40" delay="0" time="6000" condition="Control.IsVisible(56399)">Conditional</animation>
-            </control>
-            <control type="image">
-                <texture background="true" colordiffuse="$VAR[BingiePanelColor]">special://home/addons/resource.images.backgroundoverlays.basic/resources/Side by Side.png</texture>
-                <animation effect="fade" start="100" end="95" delay="0" time="0"  condition="true">Conditional</animation>
-                <animation effect="fade" start="95" end="30" delay="0" time="6000" condition="Control.IsVisible(56399)">Conditional</animation>
-            </control>
-        </control>
-    </include>
-
-    <include name="Bingie_Menu_Current_Indicator">
-        <control type="image">
-            <visible>$PARAM[visibility]</visible>
-            <left>$PARAM[left]</left>
-            <width>5</width>
-            <height>100%</height>
-            <texture>colors/color_white.png</texture>
-            <colordiffuse>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</colordiffuse>
-            <aspectratio>stretch</aspectratio>
-            <animation effect="fade" start="0" end="100" delay="200" time="150">Visible</animation>
-        </control>
-    </include>
-
-    <!-- fixed border moving with screen -->
-    <include name="Bingie_Screens_Fixed_Focus_Frame_Base">
-        <control type="image">
-            <include content="top" condition="$EXP[IsBingieListsActive]">
-                <param name="top" value="664" />
-            </include>
-            <top>645</top>
-            <include condition="!Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Left</include>
-            <include content="left" condition="Skin.HasSetting(EnhancedHome_Circular) + $EXP[IsBingieListsActive]">
-                <param name="left" value="65" />
-            </include>
-            <left>0</left>
-            <animation effect="slide" end="0,220" time="400" condition="[ControlGroup(505).HasFocus() + [Integer.IsGreater(Container(1508).NumItems,0) | Container(1508).IsUpdating]] | [!Skin.HasSetting(BingieHomeShowLargeThumb) + Control.IsVisible(56399)]">Conditional</animation>
-            <!-- temp hack to check currentid container not empty -->
-            <visible>ControlGroup(77777).HasFocus() + ![Control.HasFocus(1508) | ControlGroup(505).HasFocus()] + !String.IsEmpty(Container(77777).CurrentItem) + !String.IsEmpty(ListItem.Label)</visible>
-
-            <width>$PARAM[width]</width>
-            <height>$PARAM[height]</height>
-            <texture background="true" border="-4">$VAR[FixedFrameTexture]</texture>
-            <bordersize>8</bordersize>
-
-            <colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
-            <!-- container hubs support - ONLY THUMBS -->
-            <animation effect="slide" end="366,0" time="200" condition="$EXP[IsBingieListsActive] + Integer.IsGreater(Container(510).Column, 0)">Conditional</animation>
-            <animation effect="slide" end="366,0" time="200" condition="$EXP[IsBingieListsActive] + Integer.IsGreater(Container(510).Column, 1)">Conditional</animation>
-            <animation effect="slide" end="366,0" time="200" condition="$EXP[IsBingieListsActive] + Integer.IsGreater(Container(510).Column, 2)">Conditional</animation>
-            <animation effect="slide" end="366,0" time="200" condition="$EXP[IsBingieListsActive] + Integer.IsGreater(Container(510).Column, 3)">Conditional</animation>
-            <include>Frame_Scrolling_Fade</include>
-            <include>Default_Visible_Fade</include>
-        </control>
-    </include>
-
-    <include name="Bingie_Screens_Fixed_Focus_Frame">
-        <include content="Bingie_Screens_Fixed_Focus_Frame_Base" condition="String.IsEqual(Skin.String(widgetstyle),landscape) | $EXP[IsBingieListsActive]">
-            <param name="width" value="landscape_width"/>
-            <param name="height" value="210"/>
-        </include>
-        <include content="Bingie_Screens_Fixed_Focus_Frame_Base" condition="String.IsEqual(Skin.String(widgetstyle),landscapesmall)  + ![$EXP[IsBingieListsActive]]">
-            <param name="width" value="260" />
-            <param name="height" value="148" />
-        </include>
-        <include content="Bingie_Screens_Fixed_Focus_Frame_Base" condition="String.IsEqual(Skin.String(widgetstyle),landscapelarge)  + ![$EXP[IsBingieListsActive]]">
-            <param name="width" value="430" />
-            <param name="height" value="260" />
-        </include>
-        <include content="Bingie_Screens_Fixed_Focus_Frame_Base" condition="String.IsEqual(Skin.String(widgetstyle),poster)  + ![$EXP[IsBingieListsActive]]">
-            <param name="width" value="250" />
-            <param name="height" value="370" />
-        </include>
-        <include content="Bingie_Screens_Fixed_Focus_Frame_Base" condition="String.IsEqual(Skin.String(widgetstyle),smallposter)  + ![$EXP[IsBingieListsActive]]">
-            <param name="width" value="162" />
-            <param name="height" value="240" />
-        </include>
-    </include>
-
-    <variable name="FixedFrameTexture">
-        <value condition="String.Contains(Skin.String(widgetstyle), landscape) | $EXP[IsBingieListsActive]">$INFO[Skin.String(thumbsborder_focused),bingie/border/thumb_fo_,.png]</value>
-        <value condition="String.Contains(Skin.String(widgetstyle), poster)">$INFO[Skin.String(thumbsborder_focused),bingie/border/poster_fo_,.png]</value>
-    </variable>
-
-    <!-- Disabled Spotlight Widgets Height -->
-    <include name="Bingie_Alt_Height_No_Spotlight">
-        <top>0</top>
-        <height>100%</height>
-    </include>
-
-    <include name="Bingie_Focus_Position_No_Circular">
-        <focusposition>1</focusposition>
-    </include>
-
-    <include name="Bingie_Footer">
-        <control type="group">
-            <include>Dim_On_Menu_Animation</include>
-            <animation effect="slide" start="0" end="0,220" time="400"  condition="Control.IsVisible(56399) | ControlGroup(505).HasFocus()">Conditional</animation>
-            <animation effect="fade" start="100" end="0" time="300"  condition="[Control.IsVisible(56399) | ControlGroup(505).HasFocus() | Control.IsVisible(563340)] + Skin.HasSetting(HideMediaFlagsTrailer)">Conditional</animation>
-            <top>520</top>
-            <width>100%</width>
-            <!-- media flags -->
-            <control type="group">
-                <top>30</top>
-                <include condition="!Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Left</include>
-                <left>65</left>
-                <height>50</height>
-                <include condition="!Skin.HasSetting(DisableMediaCodecInfoInHome) + Skin.HasSetting(DisableBingieMoreDetails)">mediaflags</include>
-            </control>
-            <!-- ratings & studio -->
-            <control type="group">
-                <right>30</right>
-                <height>50</height>
-                <width>1000</width>
-                <include>Bingie_RatingsAndStudio_Hor</include>
-            </control>
-        </control>
-    </include>
-
-    <include name="Bingie_Touch_Support">
-        <control type="radiobutton" id="51">
-            <visible>$EXP[IsBingieViewsActive]</visible>
-            <visible>![Skin.HasSetting(CompactHeader) + !Skin.String(home_header,disable)]</visible>
-            <width>60</width>
-            <height>60</height>
-            <right>20</right>
-            <top>20</top>
-            <font/>
-            <selected>Control.HasFocus(51)</selected>
-            <texturefocus/>
-            <texturenofocus/>
-            <textureradioonfocus colordiffuse="$INFO[Skin.String(MainMenuFocusTextColor)]">common/menu.png</textureradioonfocus>
-            <textureradioonnofocus colordiffuse="$INFO[Skin.String(MainMenuTextColor)]">common/menu.png</textureradioonnofocus>
-            <textureradioofffocus colordiffuse="$INFO[Skin.String(MainMenuFocusTextColor)]">common/menu.png</textureradioofffocus>
-            <textureradiooffnofocus colordiffuse="$INFO[Skin.String(MainMenuTextColor)]">common/menu.png</textureradiooffnofocus>
-            <radiowidth>60</radiowidth>
-            <radioheight>60</radioheight>
-            <onclick condition="!String.IsEqual(Window(Home).Property(ShowViewSubMenu),show)">SetProperty(ShowViewSubMenu, show,Home)</onclick>
-            <onclick condition="String.IsEqual(Window(Home).Property(ShowViewSubMenu),show)">ClearProperty(ShowViewSubMenu,Home)</onclick>
-            <onclick condition="!String.IsEqual(Window(Home).Property(ShowViewSubMenu),show)">SetFocus(900)</onclick>
-            <ondown>510</ondown>
-        </control>
-        <control type="radiobutton" id="52">
-            <visible>!$EXP[IsBingieViewsActive]</visible>
-            <visible>![Skin.HasSetting(CompactHeader) + !Skin.String(home_header,disable)]</visible>
-            <width>60</width>
-            <height>60</height>
-            <right>20</right>
-            <top>20</top>
-            <font/>
-            <selected>Control.HasFocus(52)</selected>
-            <texturefocus/>
-            <texturenofocus/>
-            <textureradioonfocus colordiffuse="$INFO[Skin.String(MainMenuFocusTextColor)]">touchcontrols/back.png</textureradioonfocus>
-            <textureradioonnofocus colordiffuse="$INFO[Skin.String(MainMenuTextColor)]">touchcontrols/back.png</textureradioonnofocus>
-            <textureradioofffocus colordiffuse="$INFO[Skin.String(MainMenuFocusTextColor)]">touchcontrols/back.png</textureradioofffocus>
-            <textureradiooffnofocus colordiffuse="$INFO[Skin.String(MainMenuTextColor)]">touchcontrols/back.png</textureradiooffnofocus>
-            <radiowidth>60</radiowidth>
-            <radioheight>60</radioheight>
-            <onclick>Close</onclick>
-            <ondown>510</ondown>
-        </control>
-    </include>
-
-    <!-- bingie spotlight widget -->
-    <include name="BingieSpotlightWidget">
-        <control type="list" id="1508">
-            <orientation>horizontal</orientation>
-            <preloaditems>1</preloaditems>
-            <!-- Set current/previous properties -->
-            <onfocus>SetProperty(PrevWidgetID,$INFO[Window(Home).Property(CurrentWidgetID)],Home)</onfocus>
-            <onfocus>SetProperty(CurrentWidgetID,1508,Home)</onfocus>
-            <onfocus condition="String.IsEmpty(Window(Home).Property(goToWidgetsEnd))">SetProperty(PrevWidgetPos,$INFO[Window(Home).Property(CurrentWidgetPos)],Home)</onfocus>
-            <onfocus condition="String.IsEmpty(Window(Home).Property(goToWidgetsEnd))">SetProperty(CurrentWidgetPos,$INFO[Container(77777).Position],Home)</onfocus>
-            <!-- skip 1508 in-the-middle between widgets and 505 -->
-            <onfocus condition="!String.IsEmpty(Window(Home).Property(goToWidgetsEnd))">Action(Up)</onfocus>
-            <onfocus condition="!String.IsEmpty(Window(Home).Property(goToWidgetsEnd))">ClearProperty(goToWidgetsEnd,Home)</onfocus>
-            <onfocus condition="!String.IsEmpty(Window(Home).Property(goToWidgetsStart))">Action(Down)</onfocus>
-            <onfocus condition="!String.IsEmpty(Window(Home).Property(goToWidgetsStart))">ClearProperty(goToWidgetsStart,Home)</onfocus>
-            <itemlayout width="1920" height="210">
-            </itemlayout>
-            <focusedlayout width="1920" height="210">
-                <control type="button">
-                    <visible allowhiddenfocus="true">false</visible>
-                    <onfocus condition="!Skin.HasSetting(AutoShowSubmenu)">ClearProperty(submenu,Home)</onfocus>
-                    <onfocus>ClearProperty(ShowViewSubMenu,Home)</onfocus>
-                    <onfocus>SetProperty(ShowWidget,1,Home)</onfocus>
-                    <onfocus>SetProperty(widgetstyle, spotlight)</onfocus>
-                    <onfocus>SetProperty(SkinHelper.WidgetContainer,1508)</onfocus>
-                    <onfocus>SetProperty(LastFocusWidgetPos,$INFO[Container(1508).CurrentItem],Home)</onfocus>
-                    <!--show info -->
-                    <onfocus condition="!String.IsEmpty(Window(Home).Property(ShowSpotlightInfo))">Action(Info)</onfocus>
-                    <onfocus condition="!String.IsEmpty(Window(Home).Property(ShowSpotlightInfo)) + !String.IsEqual(ListItem.DBTYPE,movie) + String.IsEmpty(Container.ListItem.DBID)">ActivateWindow(Videos,$ESCINFO[Container.ListItem.FileNameAndPath],return)</onfocus>
-                    <onfocus condition="!String.IsEmpty(Window(Home).Property(ShowSpotlightInfo))">SetFocus(505)</onfocus>
-                    <onfocus condition="!String.IsEmpty(Window(Home).Property(ShowSpotlightInfo)) + String.IsEmpty(Container.ListItem.DBID)">ClearProperty(ShowSpotlightInfo,Home)</onfocus>
-                    <!--show buttons-->
-                    <onfocus condition="String.IsEmpty(Window(Home).Property(ShowSpotlightInfo)) + String.IsEmpty(Window(Home).Property(goToWidgetsStart)) + String.IsEmpty(Window(Home).Property(goToWidgetsEnd)) + String.IsEmpty(Window(Home).Property(startup))">SetFocus(53)</onfocus>
-                    <include content="WidgetProperties">
-                        <param name="widgetid" value="1508" />
-                    </include>
-                </control>
-            </focusedlayout>
-            <content target="videos" limit="1">$VAR[BingieHomeSpotlightWidgetContent]</content>
-        </control>
-    </include>
-
-    <!-- Bingie Spotlight Content -->
-    <variable name="BingieHomeSpotlightWidgetContent">
-        <!-- home -->
-        <!-- custom home spotlight -->
-        <value condition="Window.IsActive(Home) + !String.IsEmpty(Skin.String(spotlighthome.path))">$INFO[Skin.String(spotlighthome.path)]</value>
-        <value condition="Window.IsActive(Home) + Skin.HasSetting(SimilarContentSpotlight)">plugin://script.skin.helper.widgets/?action=similar&amp;mediatype=media&amp;limit=5&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</value>
-        <value condition="Window.IsActive(Home)">$VAR[SpotlightDefaultContent]</value>
-        <!-- movies hub -->
-        <value condition="Window.IsActive(1111) + !String.IsEmpty(Skin.String(spotlightmovies.path))">$INFO[Skin.String(spotlightmovies.path)]</value>
-        <value condition="Window.IsActive(1111) + Skin.String(spotlightmovies.label, default)">plugin://script.skin.helper.widgets/?action=newrelease&amp;mediatype=movies&amp;limit=3&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</value>
-
-        <value condition="Window.IsActive(1111)"/>
-        <!-- tvshows hub -->
-        <value condition="Window.IsActive(1110) + !String.IsEmpty(Skin.String(spotlighttvshows.path))">$INFO[Skin.String(spotlighttvshows.path)]</value>
-        <value condition="Window.IsActive(1110) + Skin.String(spotlighttvshows.label, default)">plugin://script.skin.helper.widgets/?action=newrelease&amp;mediatype=tvshows&amp;limit=3&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</value>
-        <value condition="Window.IsActive(1110)"/>
-        <!-- new hub -->
-        <value condition="Window.IsActive(1112) + !String.IsEmpty(Skin.String(spotlightnew.path))">$INFO[Skin.String(spotlightnew.path)]</value>
-        <value condition="Window.IsActive(1112) + Skin.String(spotlightnew.label, default)">plugin://script.skin.helper.widgets/?action=newrelease&amp;mediatype=media&amp;limit=3&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</value>
-        <value condition="Window.IsActive(1112)"/>
-        <!-- my hub -->
-        <value condition="Window.IsActive(1113) + !String.IsEmpty(Skin.String(spotlightmyhub.path))">$INFO[Skin.String(spotlightmyhub.path)]</value>
-        <value condition="Window.IsActive(1113)"/>
-        <!-- container screens -->
-        <value condition="$EXP[IsBingieListsActive]"/>
-    </variable>
-
-    <!-- Home Spotlight default content -->
-    <variable name="SpotlightDefaultContent">
-        <value condition="Library.HasContent(movies) + [Integer.IsGreater(Window(Home).Property(random),20) | !Library.HasContent(tvshows)]">special://skin/extras/widgetplaylists/recommendedmovies.xsp</value>
-        <value>special://skin/extras/widgetplaylists/recommendedtvshows.xsp</value>
-    </variable>
-
-    <include name="Spotlight_Trailer_Action">
-        <onfocus condition="!Window.IsActive(extendedprogressdialog) + !Player.HasVideo + !String.IsEmpty(Container(1508).ListItem.Trailer)
-         + [Skin.String(AutoYoutubeTrailer,true) | !String.StartsWith(ListItem.Trailer, plugin)]">AlarmClock(trailer_delay,PlayMedia($ESCINFO[Container(1508).ListItem.Trailer],1),00:$PARAM[interval],silent)</onfocus>
-        <onfocus condition="!Window.IsActive(extendedprogressdialog) + !Player.HasVideo + !String.IsEmpty(Container(1508).ListItem.DBID) + Skin.HasSetting(AllowTVShowsTrailer)
-         + [String.IsEqual(Container(1508).ListItem.DBType,tvshow) | String.IsEqual(Container(1508).ListItem.Property(DBTYPE),tvshow)]">
-            AlarmClock(trailer_delay,RunScript(script.bingie.helper,action=playtrailer,title=$INFO[Container(1508).ListItem.Title],tvshow=true,control=1508,youtube=$INFO[Skin.String(AutoYoutubeTrailer)]),00:$PARAM[interval],silent)</onfocus>
-        <onfocus condition="!Window.IsActive(extendedprogressdialog) + !Player.HasVideo + String.IsEmpty(Container(1508).ListItem.DBID) + Skin.HasSetting(AllowAddonTrailer) + Skin.String(AutoYoutubeTrailer,true)
-         + [String.IsEqual(Container(1508).ListItem.DBType,tvshow) | String.IsEqual(Container(1508).ListItem.Property(DBTYPE),tvshow) | String.IsEqual(Container(1508).ListItem.DBType,movie) | String.IsEqual(Container(1508).ListItem.Property(DBTYPE),movie)]">
-            AlarmClock(trailer_delay,RunScript(script.bingie.helper,action=playtrailer,title=$INFO[Container(1508).ListItem.Title]),00:$PARAM[interval],silent)</onfocus>
-    </include>
-
-    <!-- bingie sideblade -->
-    <include name="BingieSideBladeMainMenu">
-        <control type="group" id="9001">
-            <visible>![Window.IsActive(virtualkeyboard) + !Window.IsActive(1109)]</visible>
-            <include>Hide_Window_Anim</include>
-            <include content="posx" condition="!Skin.HasSetting(EnhancedHome_Circular)">
-                <param name="posx" value="-285" />
-            </include>
-            <posx>-640</posx>
-            <posy>0</posy>
-            <include condition="Skin.HasSetting(EnhancedHome_Circular)">Circular_Menu_Animations</include>
-            <include condition="!Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Menu_Animations</include>
-            <!-- panel -->
-            <control type="group">
-                <posy>0</posy>
-                <posx>0</posx>
-                <width>386</width>
-                <height>100%</height>
-                <control type="image">
-                    <left>0</left>
-                    <width>384</width>
-                    <height>100%</height>
-                    <colordiffuse>$VAR[BingieMenuPanelColor]</colordiffuse>
-                    <aspectratio>stretch</aspectratio>
-                    <texture background="true">colors/color_white.png</texture>
-                </control>
-                <control type="image">
-                    <left>384</left>
-                    <height>100%</height>
-                    <width>0.5</width>
-                    <colordiffuse>dimgray</colordiffuse>
-                    <aspectratio>stretch</aspectratio>
-                    <texture background="true">diffuse/gradient_seperator.png</texture>
-                </control>
-            </control>
-
-            <!-- logo / user profile button -->
-            <control type="group">
-                <visible>$EXP[IsMainMenuOpened]</visible>
-                <top>30</top>
-                <width>385</width>
-                <height>80</height>
-                <include>animation_fade_visible_hidden</include>
-                <!-- logo -->
-                <control type="group">
-                    <visible>!System.HasLoginScreen + !Skin.HasSetting(DisableLogoMainMenu)</visible>
-                    <width>272</width>
-                    <height>153</height>
-                    <left>50</left>
-                    <control type="image">
-                        <height>100%</height>
-                        <width>100%</width>
-                        <aspectratio align="left">keep</aspectratio>
-                        <texture background="true">$VAR[Bingie_Logo]</texture>
-                    </control>
-                </control>
-                <!-- profile and switch button -->
-                <control type="group">
-                    <top>10</top>
-                    <visible>System.HasLoginScreen | Skin.HasSetting(DisableLogoMainMenu)</visible>
-                    <height>60</height>
-                    <control type="button" id="40000">
-                        <label>[B]$INFO[System.ProfileName][/B][CR][COLOR ffc0c0c0]$LOCALIZE[31839][/COLOR]</label>
-                        <textoffsetx>115</textoffsetx>
-                        <align>left</align>
-                        <width>384</width>
-                        <height>60</height>
-                        <font>Reg18</font>
-                        <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
-                        <focusedcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</focusedcolor>
-                        <texturefocus colordiffuse="$INFO[Skin.String(MainMenuSecondaryFocusButtonColor)]">colors/color_white.png</texturefocus>
-                        <texturenofocus/>
-                        <onup>noop</onup>
-                        <ondown>900</ondown>
-                        <onback>ClearProperty(ShowViewSubMenu,Home)</onback>
-                        <onback>77777</onback>
-                        <onright>ClearProperty(ShowViewSubMenu,Home)</onright>
-                        <onright>77777</onright>
-                        <onclick>ClearProperty(ShowViewSubMenu,Home)</onclick>
-                        <onclick>Dialog.Close(all,true)</onclick>
-                        <onclick>System.LogOff</onclick>
-                    </control>
-                    <control type="image">
-                        <left>50</left>
-                        <top>10</top>
-                        <width>40</width>
-                        <height>40</height>
-                        <texture background="true">$INFO[System.ProfileThumb]</texture>
-                    </control>
-                </control>
-            </control>
-
-            <!--main menu 900-->
-            <control type="list" id="900">
-                <top>220</top>
-                <width>385</width>
-                <height>640</height>
-                <orientation>vertical</orientation>
-                <itemgap>0</itemgap>
-                <onfocus condition="System.HasAlarm(focus_delay)">CancelAlarm(focus_delay,true)</onfocus>
-                <onright condition="Integer.IsGreater(Container(4445).NumItems,0)">4444</onright>
-                <onright condition="Integer.IsEqual(Container(4445).NumItems,0)">ClearProperty(ShowViewSubMenu,Home)</onright>
-                <onright condition="Integer.IsEqual(Container(4445).NumItems,0) + !Window.IsActive(1109)">77777</onright>
-                <onright condition="Integer.IsEqual(Container(4445).NumItems,0) + Window.IsActive(1109)">9000</onright>
-                <onback>ClearProperty(ShowViewSubMenu,Home)</onback>
-                <onback>77777</onback>
-                <onup condition="Control.IsVisible(40000)">40000</onup>
-                <ondown>40003</ondown>
-                <itemlayout height="80" width="385">
-                    <include content="Bingie_Menu_Focus_Img">
-                        <param name="visibility" value="$EXP[IsMainMenuOpened] + $EXP[IsMenuEntryActive]" />
-                        <param name="colordiffuse" value="$INFO[Skin.String(MainMenuSecondaryFocusButtonColor)]" />
-                    </include>
-                    <include content="Bingie_Menu_Current_Indicator" condition="!Skin.HasSetting(EnhancedHome_Circular)">
-                        <param name="visibility" value="$EXP[IsMenuEntryActive] + !$EXP[IsMainMenuOpened]" />
-                        <param name="left" value="285" />
-                    </include>
-                    <include content="Bingie_Menu_Icon" condition="!Skin.HasSetting(DisableIconsMainMenu)">
-                        <param name="includeAnimCond" value="true" />
-                        <param name="colordiffuse" value="$INFO[Skin.String(MainMenuTextColor)]" />
-                    </include>
-                    <include content="Bingie_Menu_Label">
-                        <param name="textcolor" value="$INFO[Skin.String(MainMenuTextColor)]" />
-                    </include>
-                </itemlayout>
-                <focusedlayout height="80" width="385" condition="Control.HasFocus(900) | Control.HasFocus(4444)">
-                    <include content="Bingie_Menu_Focus_Img">
-                        <param name="visibility" value="true" />
-                        <param name="colordiffuse" value="$INFO[Skin.String(MainMenuFocusButtonColor)]" />
-                    </include>
-                    <include content="Bingie_Menu_Icon" condition="!Skin.HasSetting(DisableIconsMainMenu)">
-                        <param name="includeAnimCond" value="false" />
-                        <param name="colordiffuse" value="$INFO[Skin.String(MainMenuFocusTextColor)]" />
-                    </include>
-                    <include content="Bingie_Menu_Label">
-                        <param name="textcolor" value="$INFO[Skin.String(MainMenuFocusTextColor)]" />
-                    </include>
-                    <include content="Bingie_Menu_Current_Indicator">
-                        <param name="visibility" value="true" />
-                        <param name="left" value="380" />
-                    </include>
-                    <!-- home behavior onfocus -->
-                    <include>HiddenHomeMenuButton</include>
-                </focusedlayout>
-                <focusedlayout height="80" width="385" condition="![Control.HasFocus(900) | Control.HasFocus(4444)]">
-                    <include content="Bingie_Menu_Current_Indicator" condition="!Skin.HasSetting(EnhancedHome_Circular)">
-                        <param name="visibility" value="$EXP[IsMenuEntryActive] + !$EXP[IsMainMenuOpened]" />
-                        <param name="left" value="285" />
-                    </include>
-                    <include content="Bingie_Menu_Icon" condition="!Skin.HasSetting(DisableIconsMainMenu)">
-                        <param name="includeAnimCond" value="true" />
-                        <param name="colordiffuse" value="$INFO[Skin.String(MainMenuTextColor)]" />
-                    </include>
-                    <include content="Bingie_Menu_Label">
-                        <param name="textcolor" value="$INFO[Skin.String(MainMenuTextColor)]" />
-                    </include>
-                    <!-- home behavior onfocus -->
-                    <include>HiddenHomeMenuButton</include>
-                </focusedlayout>
-                <include condition="$EXP[IsBingieViewsActive]">MainMenuContent</include>
-            </control>
-
-            <!-- powermenu buttons -->
-            <control type="list" id="40003">
-                <visible>$EXP[IsMainMenuOpened] + !Skin.HasSetting(DisablePowerMenu)</visible>
-                <orientation>vertical</orientation>
-                <top>920</top>
-                <width>384</width>
-                <height>115</height>
-                <onup>900</onup>
-                <ondown>noop</ondown>
-                <onright>ClearProperty(ShowViewSubMenu,Home)</onright>
-                <onright>77777</onright>
-                <onback>ClearProperty(ShowViewSubMenu,Home)</onback>
-                <onback>77777</onback>
-                <itemlayout width="384" height="55">
-                    <include content="BingiePowerMenuItemLabel">
-                        <param name="textcolor" value="$INFO[Skin.String(MainMenuTextColor)]"/>
-                    </include>
-                </itemlayout>
-                <focusedlayout width="384" height="55">
-                    <include content="Bingie_Menu_Focus_Img">
-                        <param name="visibility" value="Control.HasFocus(40003)" />
-                        <param name="colordiffuse" value="$INFO[Skin.String(MainMenuFocusButtonColor)]" />
-                    </include>
-                    <include content="BingiePowerMenuItemLabel">
-                        <param name="textcolor" value="$INFO[Skin.String(MainMenuFocusTextColor)]"/>
-                    </include>
-                </focusedlayout>
-                <content><include>skinshortcuts-group-powermenu</include></content>
-            </control>
-        </control>
-        <include condition="!Skin.HasSetting(DisableAllSubmenus)">SideBladeSubMenu</include>
-    </include>
-
-    <include name="SideBladeSubMenu">
-        <!-- submenu -->
-        <control type="group">
-            <posx>406</posx>
-            <posy>170</posy>
-            <animation type="Conditional" condition="Control.IsVisible(4444)">
-                <effect type="fade" start="0" end="80" time="250" delay="0" />
-                <effect type="slide" start="-10" end="0" time="200" delay="0" tween="cubic" easing="inout"/>
-            </animation>
-            <animation type="Conditional" condition="String.IsEmpty(Window(Home).Property(ShowViewSubMenu))">
-                <effect type="slide" start="0" end="-800" time="0" delay="0" />
-            </animation>
-            <animation type="Conditional" condition="!Control.IsVisible(4444)">
-                <effect type="fade" start="100" end="0" time="150" delay="0" />
-            </animation>
-            <animation type="Conditional" condition="!Control.IsVisible(4444)">
-                <effect type="slide" start="0" end="-300" time="5" delay="145" />
-            </animation>
-            <animation type="Conditional" condition="Integer.IsGreater(Container(900).Position,0)">
-                <effect type="slide" end="0,80" time="0" delay="0" />
-            </animation>
-            <animation type="Conditional" condition="Integer.IsGreater(Container(900).Position,1)">
-                <effect type="slide" end="0,80" time="0" delay="0" />
-            </animation>
-            <animation type="Conditional" condition="Integer.IsGreater(Container(900).Position,2)">
-                <effect type="slide" end="0,80" time="0" delay="0" />
-            </animation>
-            <animation type="Conditional" condition="Integer.IsGreater(Container(900).Position,3)">
-                <effect type="slide" end="0,80" time="0" delay="0" />
-            </animation>
-            <animation type="Conditional" condition="Integer.IsGreater(Container(900).Position,4)">
-                <effect type="slide" end="0,80" time="0" delay="0" />
-            </animation>
-
-            <!--Panel-->
-            <control type="image">
-                <posx>-20</posx>
-                <width>360</width>
-                <height>250</height>
-                <texture background="true" border="5">diffuse/panel.png</texture>
-                <colordiffuse>$INFO[Skin.String(MainMenuPanelColor)]</colordiffuse>
-                <visible>Skin.String(MainMenuPanelColor) + !String.IsEqual(Skin.String(MainMenuPanelColor),None)</visible>
-                <aspectratio>stretch</aspectratio>
-            </control>
-            <control type="list" id="4444">
-                <posx>-20</posx>
-                <visible allowhiddenfocus="true">[String.IsEqual(Window(Home).Property(submenu),show) | Control.HasFocus(4444)] + Integer.IsGreater(Container(4445).NumItems,0)</visible>
-                <width>360</width>
-                <height>250</height>
-                <itemgap>3</itemgap>
-                <focusposition>0</focusposition>
-                <movement>3</movement>
-                <onleft>900</onleft>
-                <onleft>ClearProperty(submenu,Home)</onleft>
-                <onright>ClearProperty(submenu,Home)</onright>
-                <onright>9000</onright>
-                <onright>ClearProperty(ShowViewSubMenu,Home)</onright>
-                <onup>4444</onup>
-                <ondown>4444</ondown>
-                <onback>900</onback>
-                <onback>ClearProperty(submenu,Home)</onback>
-                <itemlayout width="360" height="50">
-                    <include content="Bingie_Submenu_Label">
-                        <param name="textcolor" value="$INFO[Skin.String(MainMenuTextColor)]" />
-                    </include>
-                </itemlayout>
-                <focusedlayout width="360" height="50">
-                    <control type="image">
-                        <texture>colors/color_white.png</texture>
-                        <colordiffuse>$INFO[Skin.String(MainMenuSecondaryFocusButtonColor)]</colordiffuse>
-                    </control>
-                    <include content="Bingie_Submenu_Label">
-                        <param name="textcolor" value="$INFO[Skin.String(MainMenuFocusTextColor)]" />
-                    </include>
-                    <control type="button">
-                        <label/>
-                        <visible>false</visible>
-                        <onfocus>SetProperty(submenu,show,Home)</onfocus>
-                    </control>
-                </focusedlayout>
-                <content>
-                    <include condition="!Skin.HasSetting(DisableAllSubmenus)">skinshortcuts-submenu</include>
-                </content>
-            </control>
-        </control>
     </include>
 </includes>

@@ -93,6 +93,9 @@
         <include content="Search_Suggestions_Container">
             <include>SearchSuggestionsAnim</include>
             <param name="id" value="1007" />
+            <param name="top" value="590" />
+            <param name="width" value="420" />
+            <param name="height" value="894" />
             <param name="onitemfocus" value="" />
             <param name="onitemfocus2" value="" />
             <onclick condition="!String.IsEmpty(Skin.String(CustomSearchTerm))">Skin.SetString(CustomSearchTerm,$INFO[ListItem.Label])</onclick>
@@ -102,10 +105,10 @@
 
         <!--- ########## Right Layout ########## -->
         <control type="grouplist" id="9900">
-            <left>505</left>
+            <left>620</left>
             <top>33</top>
             <height>70</height>
-            <width>1315</width>
+            <width>1215</width>
             <orientation>horizontal</orientation>
             <itemgap>25</itemgap>
             <usecontrolcoords>true</usecontrolcoords>
@@ -128,7 +131,7 @@
             <control type="label">
                 <visible>!$EXP[IsActualKeyboardActive]</visible>
                 <top>7</top>
-                <width>1230</width>
+                <width>1130</width>
                 <height>70</height>
                 <font>Reg42</font>
                 <align>left</align>
@@ -140,8 +143,8 @@
         <!-- Initial Msg / No Results Label -->
         <control type="label">
             <top>280</top>
-            <left>500</left>
-            <width>1320</width>
+            <left>615</left>
+            <width>1220</width>
             <height>auto</height>
             <font>Reg42</font>
             <align>center</align>
@@ -155,7 +158,7 @@
         <!-- Results -->
         <control type="grouplist" id="77777">
             <top>125</top>
-            <left>500</left>
+            <left>615</left>
             <orientation>vertical</orientation>
             <pagecontrol>666</pagecontrol>
             <onright>666</onright>

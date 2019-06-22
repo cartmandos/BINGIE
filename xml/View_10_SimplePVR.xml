@@ -233,7 +233,6 @@
                 <!--List ID=14-->
 				<viewtype label="31567">list</viewtype>
                 <visible>[Window.IsActive(tvchannels) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch) | Window.IsActive(tvrecordings)]</visible>
-                <visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),10) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
                 <posx>70</posx>
                 <posy>510</posy>
                 <width>1780</width>

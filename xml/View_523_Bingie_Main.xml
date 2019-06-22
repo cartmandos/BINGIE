@@ -21,9 +21,8 @@
                 <visible>Player.HasVideo + !String.IsEmpty(Window(Home).Property(TrailerPlaying)) + [Skin.HasSetting(DetailsAutoTrailer) | Skin.HasSetting(PlayTrailerOnUp)]</visible>
                 <top>0</top>
                 <right>0</right>
-                <width>1220</width>
-                <height>680</height>
-                <animation effect="slide" start="0" end="0,-80" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,2.35) | Integer.IsEqual(VideoPlayer.VideoAspect,2.55) | Integer.IsEqual(VideoPlayer.VideoAspect,2.76)" reversible="true">Conditional</animation>
+                <width>1292</width>
+                <height>720</height>
                 <control type="videowindow">
                     <visible>!$EXP[IsRecognizedVideoContent]</visible>
                 </control>
@@ -48,40 +47,6 @@
                 </animation>
             </control>
 
-            <control type="image">
-                <visible>!$EXP[IsPlayingRecognizedContent]</visible>
-                <fadetime>350</fadetime>
-                <texture background="true">$VAR[backgroundVar]</texture>
-                <aspectratio aligny="top">scale</aspectratio>
-                <animation effect="zoom" start="110" end="130" center="auto" time="12000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
-                <animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
-                <animation effect="fade" end="0" time="600">Hidden</animation>
-                <animation effect="fade" start="0" end="100" time="1400">Visible</animation>
-                <visible>!Skin.HasSetting(View523_DetailsShowFanart) + !Control.IsVisible(523001)</visible>
-            </control>
-
-            <!-- overlay without big thumb -->
-            <control type="image">
-                <visible>!$EXP[IsPlayingRecognizedContent]</visible>
-                <width>100%</width>
-                <height>100%</height>
-                <texture background="true" colordiffuse="$VAR[BingiePanelColor]">colors/color_white.png</texture>
-                <animation effect="fade" start="100" end="70" delay="0" time="0" condition="true">Conditional</animation>
-                <animation effect="fade" end="0" time="600">Hidden</animation>
-                <animation effect="fade" start="40" end="70" time="1400">Visible</animation>
-                <visible>!Skin.HasSetting(View523_DetailsShowFanart) + !Control.IsVisible(523001)</visible>
-            </control>
-            <control type="image">
-                <visible>!$EXP[IsPlayingRecognizedContent]</visible>
-                <width>100%</width>
-                <height>100%</height>
-                <texture background="true" colordiffuse="$VAR[BingiePanelColor]">special://home/addons/resource.images.backgroundoverlays.basic/resources/Side by Side.png</texture>
-                <animation effect="fade" start="100" end="95" delay="0" time="0"  condition="true">Conditional</animation>
-                <animation effect="fade" end="0" time="600">Hidden</animation>
-                <animation effect="fade" start="50" end="95" time="1400">Visible</animation>
-                <visible>!Skin.HasSetting(View523_DetailsShowFanart) + !Control.IsVisible(523001)</visible>
-            </control>
-
             <!-- spotlight section -->
             <control type="group" id="3505">
                 <width>1920</width>
@@ -90,13 +55,13 @@
                 <!-- spotlight image [16:9] -->
                 <control type="image">
                     <visible>!$EXP[IsPlayingRecognizedContent]</visible>
-                    <visible>!Control.IsVisible(523001) + Skin.HasSetting(View523_DetailsShowFanart)</visible>
+                    <visible>!Control.IsVisible(523001)</visible>
                     <right>0</right>
                     <top>0</top>
-                    <texture background="true" diffuse="special://home/addons/resource.images.backgroundoverlays.basic/resources/Right Corner.png">$VAR[bingieThumb]</texture>
+                    <texture background="true" diffuse="bingie/bingie_default_spotlight_diffuse.png">$VAR[bingieThumb]</texture>
                     <fadetime>550</fadetime>
-                    <width>1400</width>
-                    <height>787</height>
+                    <width>1688</width>
+                    <height>950</height>
                     <aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
                     <animation effect="fade" end="0" time="600">Hidden</animation>
                     <animation effect="fade" start="0" end="100" time="1400">Visible</animation>
@@ -105,8 +70,9 @@
                 <!-- bingie details -->
                 <control type="grouplist">
                     <width>1500</width>
-                    <posx>65</posx>
-                    <posy>10</posy>
+                    <include condition="!Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Left</include>
+                    <left>65</left>
+                    <posy>22</posy>
                     <orientation>vertical</orientation>
                     <usecontrolcoords>true</usecontrolcoords>
                     <itemgap>10</itemgap>
@@ -251,6 +217,29 @@
                 </control>
             </control>
 
+            <!-- View 523 -->
+            <control type="grouplist">
+                <include condition="!Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Left</include>
+                <top>660</top>
+                <left>65</left>
+                <width>1650</width>
+                <orientation>vertical</orientation>
+                <itemgap>0</itemgap>
+                <!-- Content Header -->
+                <control type="textbox">
+                    <animation effect="fade" start="100" end="0" condition="Container(523).IsUpdating">Conditional</animation>
+                    <width>100%</width>
+                    <height>40</height>
+                    <font>Reg28</font>
+                    <align>left</align>
+                    <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                    <label>$VAR[View523ContentHeader,[B],[/B]]</label>
+                </control>
+
+                <include condition="!Skin.HasSetting(View523_UseFixedLayout) | !Skin.HasSetting(View_523_HorizontalNavigation)">Panel_View523_Layout</include>
+                <include condition="Skin.HasSetting(View523_UseFixedLayout) + Skin.HasSetting(View_523_HorizontalNavigation)">Fixedlist_View523_Layout</include>
+            </control>
+
             <!-- menu button -->
             <control type="radiobutton" id="5001">
                 <width>60</width>
@@ -272,71 +261,51 @@
                 <ondown>510</ondown>
             </control>
 
-            <!-- Content Header -->
-            <control type="textbox" id="544323">
-                <top>620</top>
-                <width>96%</width>
-                <height>40</height>
-                <font>Reg28</font>
-                <include condition="Skin.HasSetting(WidgetAlignRight)">widget_header_rightalign</include>
-                <include condition="!Skin.HasSetting(WidgetAlignRight)">widget_header_leftalign</include>
-                <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-                <label>$VAR[View523ContentHeader,[B],[/B]]</label>
-                <visible>!String.IsEmpty(Control.GetLabel(544323))</visible>
-            </control>
-
-            <!-- View 523 -->
-			<control type="group">
-                <left>60</left>
-                <include condition="!Skin.HasSetting(View523_UseFixedLayout) | !Skin.HasSetting(View_523_HorizontalNavigation)">Panel_View523_Layout</include>
-                <include condition="Skin.HasSetting(View523_UseFixedLayout) + Skin.HasSetting(View_523_HorizontalNavigation)">Fixedlist_View523_Layout</include>
-            </control>
-
             <include content="View523_Fixed_Frame" condition="Skin.HasSetting(View523_SwapPoster)">
-                <param name="width" value="254" />
-                <param name="height" value="368" />
+                <param name="width" value="227" />
+                <param name="height" value="332" />
                 <param name="texture" value="$INFO[Skin.String(thumbsborder_focused),bingie/border/poster_fo_,.png]" />
-                <param name="xAxisAnim" value="262" />
-                <param name="yAxisAnim" value="380" />
+                <param name="xAxisAnim" value="235" />
+                <param name="yAxisAnim" value="340" />
             </include>
             <include content="View523_Fixed_Frame" condition="!Skin.HasSetting(View523_SwapPoster)">
-                <param name="width" value="372" />
-                <param name="height" value="210" />
+                <param name="width" value="330" />
+                <param name="height" value="186" />
                 <param name="texture" value="$INFO[Skin.String(thumbsborder_focused),bingie/border/thumb_fo_,.png]" />
-                <param name="xAxisAnim" value="366" />
-                <param name="yAxisAnim" value="210" />
+                <param name="xAxisAnim" value="330" />
+                <param name="yAxisAnim" value="186" />
             </include>
 
             <!--vertical Scrollbar-->
-			<control type="group">
-				<control type="scrollbar" id="60">
-					<visible>Control.IsVisible(523) + Integer.IsGreater(Container.NumItems,0) + !Skin.HasSetting(View_523_HorizontalNavigation)</visible>
-                    <top>670</top>
+            <control type="group">
+                <control type="scrollbar" id="60">
+                    <visible>Control.IsVisible(523) + Integer.IsGreater(Container.NumItems,0) + !Skin.HasSetting(View_523_HorizontalNavigation)</visible>
+                    <top>710</top>
                     <width>15</width>
                     <right>3</right>
-                    <bottom>10</bottom>
-					<onleft>523</onleft>
-					<orientation>vertical</orientation>
-					<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
-					<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
-				</control>
-			</control>
+                    <bottom>15</bottom>
+                    <onleft>523</onleft>
+                    <orientation>vertical</orientation>
+                    <animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
+                    <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
+                </control>
+            </control>
             <!--horizontal Scrollbar-->
-			<control type="group">
-				<control type="scrollbar" id="60">
-					<visible>Control.IsVisible(523) + Integer.IsGreater(Container.NumItems,0) + Skin.HasSetting(View_523_HorizontalNavigation)</visible>
+            <control type="group">
+                <control type="scrollbar" id="60">
+                    <visible>Control.IsVisible(523) + Integer.IsGreater(Container.NumItems,0) + Skin.HasSetting(View_523_HorizontalNavigation)</visible>
                     <left>60</left>
-                    <width>1800</width>
-					<height>15</height>
+                    <width>1650</width>
+                    <height>15</height>
                     <bottom>2</bottom>
-					<onup>523</onup>
-					<orientation>horizontal</orientation>
-					<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
-					<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
-				</control>
-			</control>
+                    <onup>523</onup>
+                    <orientation>horizontal</orientation>
+                    <animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
+                    <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
+                </control>
+            </control>
         </control>
- 	</include>
+    </include>
 
     <!-- fixedlist layout decoration -->
     <include name="Fixedlist_View523_Layout">
@@ -356,217 +325,213 @@
 
     <!-- thumbs layout -->
     <include name="View523_Layout_Thumb">
+        <viewtype label="31018">bigicons</viewtype>
         <focusedposition>0</focusedposition>
-            <viewtype label="31018">bigicons</viewtype>
-            <top>660</top>
-            <width>1838</width>
-            <itemgap>0</itemgap>
-            <include condition="Skin.HasSetting(View_523_HorizontalNavigation)">navigation_horizontal</include>
-            <orientation>vertical</orientation>
-            <include condition="Skin.HasSetting(View_523_HorizontalNavigation)">View523_Navigation_Horizontal_Height</include>
-            <height>419</height>
-            <scrolltime tween="sine" easing="out">500</scrolltime>
-            <onright condition="!Skin.HasSetting(View_523_HorizontalNavigation) + Skin.HasSetting(EnableQuickJump)">6000</onright>
-            <onright condition="!Skin.HasSetting(View_523_HorizontalNavigation) + !Skin.HasSetting(EnableQuickJump)">60</onright>
-            <onright condition="Skin.HasSetting(View_523_HorizontalNavigation)">523</onright>
-            <onleft condition="!Skin.HasSetting(KioskMode)">9000</onleft>
-            <onup condition="!Skin.HasSetting(View_523_HorizontalNavigation)">523</onup>
-            <ondown condition="Skin.HasSetting(View_523_HorizontalNavigation) + Skin.HasSetting(EnableQuickJump)">7000</ondown>
-            <ondown condition="Skin.HasSetting(View_523_HorizontalNavigation) + !Skin.HasSetting(EnableQuickJump)">60</ondown>
-            <ondown condition="!Skin.HasSetting(View_523_HorizontalNavigation)">523</ondown>
-            <preloaditems>4</preloaditems>
-            <pagecontrol>60</pagecontrol>
-        <visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),523) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
-            <!-- normal -->
-            <itemlayout height="210" width="366" condition="!Container.Content(seasons) + !Container.Content(episodes)">
-                <control type="group">
-                    <width>372</width>
-                    <height>210</height>
-                    <control type="image">
-                        <!--Panel Normal-->
-                        <texture background="true">home/home_matte2.png</texture>
-                        <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
-                        <include>thumbsborder_unfocused</include>
-                    </control>
-                    <include>ThumbsViewItemLayout</include>
-                    <control type="group">
-                        <description>widget label overlay</description>
-                        <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable)">ThumbsTagOverlay</include>
-                        <include condition="String.IsEqual(Skin.String(Widgets_DisplayTags),auto)">LandscapeTagOverlayVisibility</include>
-                    </control>
+        <width>1650</width>
+        <include condition="Skin.HasSetting(View_523_HorizontalNavigation)">View523_Navigation_Horizontal_Height</include>
+        <height>371</height>
+        <include condition="Skin.HasSetting(View_523_HorizontalNavigation)">navigation_horizontal</include>
+        <orientation>vertical</orientation>
+        <itemgap>0</itemgap>
+        <preloaditems>4</preloaditems>
+        <pagecontrol>60</pagecontrol>
+        <scrolltime tween="sine" easing="out">500</scrolltime>
+        <onright condition="!Skin.HasSetting(View_523_HorizontalNavigation) + Skin.HasSetting(EnableQuickJump)">6000</onright>
+        <onright condition="!Skin.HasSetting(View_523_HorizontalNavigation) + !Skin.HasSetting(EnableQuickJump)">60</onright>
+        <onright condition="Skin.HasSetting(View_523_HorizontalNavigation)">523</onright>
+        <onleft condition="!Skin.HasSetting(KioskMode)">9000</onleft>
+        <onup condition="!Skin.HasSetting(View_523_HorizontalNavigation)">523</onup>
+        <ondown condition="Skin.HasSetting(View_523_HorizontalNavigation) + Skin.HasSetting(EnableQuickJump)">7000</ondown>
+        <ondown condition="Skin.HasSetting(View_523_HorizontalNavigation) + !Skin.HasSetting(EnableQuickJump)">60</ondown>
+        <ondown condition="!Skin.HasSetting(View_523_HorizontalNavigation)">523</ondown>
+        <!-- normal -->
+        <itemlayout height="186" width="330" condition="!Container.Content(seasons) + !Container.Content(episodes)">
+            <control type="group">
+                <width>330</width>
+                <height>186</height>
+                <control type="image">
+                    <!--Panel Normal-->
+                    <texture background="true">home/home_matte2.png</texture>
+                    <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
+                    <include>thumbsborder_unfocused</include>
                 </control>
-            </itemlayout>
-            <!-- seasons -->
-            <itemlayout height="380" width="262" condition="Container.Content(seasons)">
+                <include>ThumbsViewItemLayout</include>
                 <control type="group">
-                    <width>97%</width>
-                    <height>97%</height>
-                    <include>PosterPanelLayout</include>
+                    <description>widget label overlay</description>
+                    <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable)">ThumbsTagOverlay</include>
+                    <include condition="String.IsEqual(Skin.String(Widgets_DisplayTags),auto)">LandscapeTagOverlayVisibility</include>
                 </control>
-            </itemlayout>
-            <!-- episodes -->
-            <itemlayout height="419" width="549" condition="Container.Content(episodes)">
+            </control>
+        </itemlayout>
+        <!-- seasons -->
+        <itemlayout height="340" width="235" condition="Container.Content(seasons)">
+            <control type="group">
+                <width>97%</width>
+                <height>97%</height>
+                <include>PosterPanelLayout</include>
+            </control>
+        </itemlayout>
+        <!-- episodes -->
+        <itemlayout height="186" width="330" condition="Container.Content(episodes)">
+            <control type="group">
+                <width>330</width>
+                <height>186</height>
+                <include>ThumbsViewLayout</include>
                 <control type="group">
-                    <width>549</width>
-                    <height>312</height>
-                    <include>ThumbsViewLayout</include>
-                    <control type="group">
-                        <description>widget label overlay</description>
-                        <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable)">ThumbsTagOverlay</include>
-                        <include condition="String.IsEqual(Skin.String(Widgets_DisplayTags),auto)">LandscapeTagOverlayVisibility</include>
-                    </control>
+                    <description>widget label overlay</description>
+                    <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable)">ThumbsTagOverlay</include>
+                    <include condition="String.IsEqual(Skin.String(Widgets_DisplayTags),auto)">LandscapeTagOverlayVisibility</include>
                 </control>
-            </itemlayout>
-            <!-- normal -->
-            <focusedlayout height="210" width="366" condition="!Container.Content(seasons) + !Container.Content(episodes)">
+            </control>
+        </itemlayout>
+        <!-- normal -->
+        <focusedlayout height="186" width="330" condition="!Container.Content(seasons) + !Container.Content(episodes)">
+            <control type="group">
+                <width>330</width>
+                <height>186</height>
+                <control type="image">
+                    <!--Panel Normal-->
+                    <visible>Skin.HasSetting(DisableFixedBingieFrame)</visible>
+                    <texture background="true">home/home_matte2.png</texture>
+                    <colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
+                    <include>thumbsborder_focused</include>
+                </control>
+                <include>ThumbsViewItemLayout</include>
                 <control type="group">
-                    <width>372</width>
-                    <height>210</height>
-                    <control type="image">
-                        <!--Panel Normal-->
-                        <visible>Skin.HasSetting(DisableFixedBingieFrame)</visible>
-                        <texture background="true">home/home_matte2.png</texture>
-                        <colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
-                        <include>thumbsborder_focused</include>
-                    </control>
-                    <include>ThumbsViewItemLayout</include>
-                    <control type="group">
-                        <description>widget label overlay</description>
-                        <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable)">ThumbsTagOverlay</include>
-                        <include condition="String.IsEqual(Skin.String(Widgets_DisplayTags),auto)">LandscapeTagOverlayVisibility</include>
-                    </control>
-                    <include>AutoTrailerButton</include>
-                    <animation effect="zoom" end="103,103" center="auto" time="100" condition="Skin.HasSetting(View523_EnableZoomEffect)">focus</animation>
+                    <description>widget label overlay</description>
+                    <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable)">ThumbsTagOverlay</include>
+                    <include condition="String.IsEqual(Skin.String(Widgets_DisplayTags),auto)">LandscapeTagOverlayVisibility</include>
                 </control>
-            </focusedlayout>
-            <!-- seasons -->
-            <focusedlayout height="380" width="262" condition="Container.Content(seasons)">
+                <include>AutoTrailerButton</include>
+                <animation effect="zoom" end="103,103" center="auto" time="100" condition="Skin.HasSetting(View523_EnableZoomEffect)">focus</animation>
+            </control>
+        </focusedlayout>
+        <!-- seasons -->
+        <focusedlayout height="340" width="235" condition="Container.Content(seasons)">
+            <control type="group">
+                <width>97%</width>
+                <height>97%</height>
+                <include>PosterPanelLayoutFocus</include>
+                <include>AutoTrailerButton</include>
+                <animation effect="zoom" end="110,110" center="auto" time="100" condition="Skin.HasSetting(View523_EnableZoomEffect)">focus</animation>
+            </control>
+        </focusedlayout>
+        <!-- episodes -->
+        <focusedlayout height="186" width="330" condition="Container.Content(episodes)">
+            <control type="group">
+                <width>330</width>
+                <height>186</height>
+                <include>ThumbsViewLayoutFocus</include>
                 <control type="group">
-                    <width>97%</width>
-                    <height>97%</height>
-                    <include>PosterPanelLayoutFocus</include>
-                    <include>AutoTrailerButton</include>
-                    <animation effect="zoom" end="110,110" center="auto" time="100" condition="Skin.HasSetting(View523_EnableZoomEffect)">focus</animation>
+                    <description>widget label overlay</description>
+                    <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable)">ThumbsTagOverlay</include>
+                    <include condition="String.IsEqual(Skin.String(Widgets_DisplayTags),auto)">LandscapeTagOverlayVisibility</include>
                 </control>
-            </focusedlayout>
-            <!-- episodes -->
-            <focusedlayout height="419" width="549" condition="Container.Content(episodes)">
-                <control type="group">
-                    <width>549</width>
-                    <height>312</height>
-                    <include>ThumbsViewLayoutFocus</include>
-                    <control type="group">
-                        <description>widget label overlay</description>
-                        <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable)">ThumbsTagOverlay</include>
-                        <include condition="String.IsEqual(Skin.String(Widgets_DisplayTags),auto)">LandscapeTagOverlayVisibility</include>
-                    </control>
-                    <include>AutoTrailerButton</include>
-                    <animation effect="zoom" end="103,103" center="auto" time="100" condition="Skin.HasSetting(View523_EnableZoomEffect)">focus</animation>
-                </control>
-            </focusedlayout>
+                <include>AutoTrailerButton</include>
+                <animation effect="zoom" end="103,103" center="auto" time="100" condition="Skin.HasSetting(View523_EnableZoomEffect)">focus</animation>
+            </control>
+        </focusedlayout>
     </include>
 
     <!-- poster layout -->
     <include name="View523_Layout_Poster">
         <focusedposition>0</focusedposition>
-            <viewtype label="31018">bigicons</viewtype>
-            <bottom>0</bottom>
-            <top>660</top>
-            <height>380</height>
-            <width>1842</width>
-            <itemgap>0</itemgap>
-            <include condition="Skin.HasSetting(View_523_HorizontalNavigation)">navigation_horizontal</include>
-            <orientation>vertical</orientation>
-            <scrolltime tween="sine" easing="out">500</scrolltime>
-            <onright condition="!Skin.HasSetting(View_523_HorizontalNavigation) + Skin.HasSetting(EnableQuickJump)">6000</onright>
-            <onright condition="!Skin.HasSetting(View_523_HorizontalNavigation) + !Skin.HasSetting(EnableQuickJump)">60</onright>
-            <onright condition="Skin.HasSetting(View_523_HorizontalNavigation)">523</onright>
-            <onleft condition="!Skin.HasSetting(KioskMode)">9000</onleft>
-            <onup condition="!Skin.HasSetting(View_523_HorizontalNavigation)">523</onup>
-            <!-- play trailer onup -->
-            <onup condition="!Player.HasVideo + Skin.HasSetting(View_523_HorizontalNavigation) + Skin.HasSetting(PlayTrailerOnUp) + [Container.Content(movies) | Container.Content(tvshows)]">SetProperty(BounceUp,1,Home)</onup>
-            <onup condition="!Player.HasVideo + Skin.HasSetting(View_523_HorizontalNavigation) + Skin.HasSetting(PlayTrailerOnUp) + [!String.IsEmpty(ListItem.Trailer) + Container.Content(movies)]">RunScript(script.skin.helper.service,ACTION=playtrailer,MODE=windowed,YOUTUBE=$INFO[Skin.String(AutoYoutubeTrailer)])</onup>
-            <onup condition="!Player.HasVideo + Skin.HasSetting(View_523_HorizontalNavigation) + Skin.HasSetting(PlayTrailerOnUp) + [Container.Content(tvshows)]">RunScript(script.bingie.helper,action=playtrailer,title=$VAR[TVShowTitle],tvshow=true,youtube=$INFO[Skin.String(AutoYoutubeTrailer)])</onup>
-            <onup condition="!Player.HasVideo + Skin.HasSetting(View_523_HorizontalNavigation) + Skin.HasSetting(PlayTrailerOnUp) + Skin.String(AutoYoutubeTrailer,true) + [String.IsEmpty(ListItem.Trailer) + Container.Content(movies)]">RunScript(script.bingie.helper,action=playtrailer,title=$INFO[ListItem.Title])</onup>
-            <ondown condition="Skin.HasSetting(View_523_HorizontalNavigation) + Skin.HasSetting(EnableQuickJump)">7000</ondown>
-            <ondown condition="Skin.HasSetting(View_523_HorizontalNavigation) + !Skin.HasSetting(EnableQuickJump)">60</ondown>
-            <ondown condition="!Skin.HasSetting(View_523_HorizontalNavigation)">523</ondown>
-            <preloaditems>4</preloaditems>
-            <pagecontrol>60</pagecontrol>
-        <visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),523) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
-            <!-- normal -->
-            <itemlayout height="380" width="262" condition="!Container.Content(episodes)">
+        <viewtype label="31018">bigicons</viewtype>
+        <height>380</height>
+        <width>1650</width>
+        <itemgap>0</itemgap>
+        <include condition="Skin.HasSetting(View_523_HorizontalNavigation)">navigation_horizontal</include>
+        <orientation>vertical</orientation>
+        <scrolltime tween="sine" easing="out">500</scrolltime>
+        <preloaditems>4</preloaditems>
+        <pagecontrol>60</pagecontrol>
+        <onright condition="!Skin.HasSetting(View_523_HorizontalNavigation) + Skin.HasSetting(EnableQuickJump)">6000</onright>
+        <onright condition="!Skin.HasSetting(View_523_HorizontalNavigation) + !Skin.HasSetting(EnableQuickJump)">60</onright>
+        <onright condition="Skin.HasSetting(View_523_HorizontalNavigation)">523</onright>
+        <onleft condition="!Skin.HasSetting(KioskMode)">9000</onleft>
+        <onup condition="!Skin.HasSetting(View_523_HorizontalNavigation)">523</onup>
+        <!-- play trailer onup -->
+        <onup condition="!Player.HasVideo + Skin.HasSetting(View_523_HorizontalNavigation) + Skin.HasSetting(PlayTrailerOnUp) + [Container.Content(movies) | Container.Content(tvshows)]">SetProperty(BounceUp,1,Home)</onup>
+        <onup condition="!Player.HasVideo + Skin.HasSetting(View_523_HorizontalNavigation) + Skin.HasSetting(PlayTrailerOnUp) + [!String.IsEmpty(ListItem.Trailer) + Container.Content(movies)]">RunScript(script.skin.helper.service,ACTION=playtrailer,MODE=windowed,YOUTUBE=$INFO[Skin.String(AutoYoutubeTrailer)])</onup>
+        <onup condition="!Player.HasVideo + Skin.HasSetting(View_523_HorizontalNavigation) + Skin.HasSetting(PlayTrailerOnUp) + [Container.Content(tvshows)]">RunScript(script.bingie.helper,action=playtrailer,title=$VAR[TVShowTitle],tvshow=true,youtube=$INFO[Skin.String(AutoYoutubeTrailer)])</onup>
+        <onup condition="!Player.HasVideo + Skin.HasSetting(View_523_HorizontalNavigation) + Skin.HasSetting(PlayTrailerOnUp) + Skin.String(AutoYoutubeTrailer,true) + [String.IsEmpty(ListItem.Trailer) + Container.Content(movies)]">RunScript(script.bingie.helper,action=playtrailer,title=$INFO[ListItem.Title])</onup>
+        <ondown condition="Skin.HasSetting(View_523_HorizontalNavigation) + Skin.HasSetting(EnableQuickJump)">7000</ondown>
+        <ondown condition="Skin.HasSetting(View_523_HorizontalNavigation) + !Skin.HasSetting(EnableQuickJump)">60</ondown>
+        <ondown condition="!Skin.HasSetting(View_523_HorizontalNavigation)">523</ondown>
+        <!-- normal -->
+        <itemlayout height="340" width="235" condition="!Container.Content(episodes)">
+            <control type="group">
+                <width>97%</width>
+                <height>97%</height>
+                <include>PosterPanelLayout</include>
+            </control>
+        </itemlayout>
+        <!-- episodes -->
+        <itemlayout height="186" width="330" condition="Container.Content(episodes)">
+            <control type="group">
+                <width>330</width>
+                <height>186</height>
+                <include>ThumbsViewLayout</include>
                 <control type="group">
-                    <width>97%</width>
-                    <height>97%</height>
-                    <include>PosterPanelLayout</include>
+                    <description>widget label overlay</description>
+                    <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable)">ThumbsTagOverlay</include>
+                    <include condition="String.IsEqual(Skin.String(Widgets_DisplayTags),auto)">LandscapeTagOverlayVisibility</include>
                 </control>
-            </itemlayout>
-            <!-- episodes -->
-            <itemlayout height="380" width="549" condition="Container.Content(episodes)">
+            </control>
+        </itemlayout>
+        <!-- normal -->
+        <focusedlayout height="340" width="235" condition="!Container.Content(episodes)">
+            <control type="group">
+                <width>97%</width>
+                <height>97%</height>
+                <control type="image">
+                    <visible>Skin.HasSetting(DisableFixedBingieFrame)</visible>
+                    <include>PosterThumbFO_Defs</include>
+                    <include>thumbsborder_focused</include>
+                </control>
+                <include>PosterThumbLayout</include>
+                <include condition="!Window.IsActive(Home)">PosterTagOverlay</include>
                 <control type="group">
-                    <width>549</width>
-                    <height>312</height>
-                    <include>ThumbsViewLayout</include>
-                    <control type="group">
-                        <description>widget label overlay</description>
-                        <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable)">ThumbsTagOverlay</include>
-                        <include condition="String.IsEqual(Skin.String(Widgets_DisplayTags),auto)">LandscapeTagOverlayVisibility</include>
-                    </control>
+                    <include condition="Skin.HasSetting(CaseOverlays)">PosterCaseOverlay</include>
                 </control>
-            </itemlayout>
-            <!-- normal -->
-            <focusedlayout height="380" width="262" condition="!Container.Content(episodes)">
                 <control type="group">
-                    <width>97%</width>
-                    <height>97%</height>
-                    <control type="image">
-                        <visible>Skin.HasSetting(DisableFixedBingieFrame)</visible>
-                        <include>PosterThumbFO_Defs</include>
-                        <include>thumbsborder_focused</include>
-                    </control>
-                    <include>PosterThumbLayout</include>
-                    <include condition="!Window.IsActive(Home)">PosterTagOverlay</include>
-                    <control type="group">
-                        <include condition="Skin.HasSetting(CaseOverlays)">PosterCaseOverlay</include>
-                    </control>
-                    <control type="group">
-                        <!--Watched Overlay-->
-                        <right>8</right>
-                        <top>8</top>
-                        <include>WatchedIndicatorNormal</include>
-                        <animation type="Conditional" condition="Skin.HasTheme(classic)">
-                            <effect type="slide" end="3,-3" time="0"  />
-                        </animation>
-                    </control>
-                    <include>AutoTrailerButton</include>
-                    <animation effect="zoom" end="110,110" center="auto" time="100" condition="Skin.HasSetting(View523_EnableZoomEffect)">focus</animation>
-                    <include>Bounce_Up</include>
+                    <!--Watched Overlay-->
+                    <right>8</right>
+                    <top>8</top>
+                    <include>WatchedIndicatorNormal</include>
+                    <animation type="Conditional" condition="Skin.HasTheme(classic)">
+                        <effect type="slide" end="3,-3" time="0"  />
+                    </animation>
                 </control>
-            </focusedlayout>
-            <!-- episodes -->
-            <focusedlayout height="380" width="549" condition="Container.Content(episodes)">
+                <include>AutoTrailerButton</include>
+                <animation effect="zoom" end="110,110" center="auto" time="100" condition="Skin.HasSetting(View523_EnableZoomEffect)">focus</animation>
+                <include>Bounce_Up</include>
+            </control>
+        </focusedlayout>
+        <!-- episodes -->
+        <focusedlayout height="186" width="330" condition="Container.Content(episodes)">
+            <control type="group">
+                <width>330</width>
+                <height>186</height>
+                <include>ThumbsViewLayoutFocus</include>
                 <control type="group">
-                    <width>549</width>
-                    <height>312</height>
-                    <include>ThumbsViewLayoutFocus</include>
-                    <control type="group">
-                        <description>widget label overlay</description>
-                        <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable)">ThumbsTagOverlay</include>
-                        <include condition="String.IsEqual(Skin.String(Widgets_DisplayTags),auto)">LandscapeTagOverlayVisibility</include>
-                    </control>
-                    <include>AutoTrailerButton</include>
-                    <animation effect="zoom" end="103,103" center="auto" time="100" condition="Skin.HasSetting(View523_EnableZoomEffect)">focus</animation>
+                    <description>widget label overlay</description>
+                    <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable)">ThumbsTagOverlay</include>
+                    <include condition="String.IsEqual(Skin.String(Widgets_DisplayTags),auto)">LandscapeTagOverlayVisibility</include>
                 </control>
-            </focusedlayout>
-	</include>
+                <include>AutoTrailerButton</include>
+                <animation effect="zoom" end="103,103" center="auto" time="100" condition="Skin.HasSetting(View523_EnableZoomEffect)">focus</animation>
+            </control>
+        </focusedlayout>
+    </include>
 
     <include name="View523_Fixed_Frame">
         <control type="image">
             <visible>!Skin.HasSetting(DisableFixedBingieFrame) + Integer.IsGreater(Container(523).NumItems, 0) + Control.HasFocus(523)</visible>
             <visible>[!Container.Content(seasons) + !Container.Content(episodes)]</visible>
-            <top>660</top>
-            <left>60</left>
+            <top>700</top>
+            <include condition="!Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Left</include>
+            <left>65</left>
             <width>$PARAM[width]</width>
             <height>$PARAM[height]</height>
             <texture background="true" border="-4">$PARAM[texture]</texture>
@@ -599,7 +564,7 @@
 
     <!-- height for two rows of thumbs layout -->
     <include name="View523_Navigation_Horizontal_Height">
-        <height>420</height>
+        <height>372</height>
     </include>
 
     <!-- title text fallback -->
@@ -620,10 +585,8 @@
         <value condition="String.IsEqual(Container.FolderPath, videodb://tvshows/genres/)">[CAPITALIZE]$LOCALIZE[36903]$LOCALIZE[135, - ,][/CAPITALIZE]</value>
         <value condition="String.IsEqual(Container.FolderPath, videodb://movies/genres/)">[CAPITALIZE]$LOCALIZE[36901]$LOCALIZE[135, - ,][/CAPITALIZE]</value>
         <value condition="String.IsEqual(Container.FolderPath, videodb://movies/sets/)">[CAPITALIZE]$LOCALIZE[20434][/CAPITALIZE]</value>
-
-        <value condition="String.EndsWith(Container.FolderPath, topratedshows.xsp)">[CAPITALIZE]$LOCALIZE[31098][/CAPITALIZE]</value>
-        <value condition="String.EndsWith(Container.FolderPath, topratedmovies.xsp)">[CAPITALIZE]$LOCALIZE[31532][/CAPITALIZE]</value>
-
+        <value condition="String.IsEqual(Container.FolderPath, special://skin/playlists/topratedshows.xsp)">[CAPITALIZE]$LOCALIZE[31098][/CAPITALIZE]</value>
+        <value condition="String.IsEqual(Container.FolderPath, special://skin/playlists/topratedmovies.xsp)">[CAPITALIZE]$LOCALIZE[31532][/CAPITALIZE]</value>
         <!-- skin helper widgets -->
         <value condition="String.StartsWith(Container.FolderPath, plugin://script.skin.helper.widgets/?action=inprogress&amp;mediatype=movies)">[CAPITALIZE]$ADDON[script.skin.helper.widgets 32028][/CAPITALIZE]</value>
         <value condition="String.StartsWith(Container.FolderPath, plugin://script.skin.helper.widgets/?action=unwatched&amp;mediatype=movies)">[CAPITALIZE]$ADDON[script.skin.helper.widgets 32066][/CAPITALIZE]</value>

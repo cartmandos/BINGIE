@@ -79,7 +79,7 @@
                 <width>480</width>
                 <height>280</height>
                 <bordersize>8</bordersize>
-                <texture background="true" diffuse="diffuse/wide.png">$VAR[LandscapeImage]</texture>
+                <texture background="true" diffuse="diffuse/wide.png" fallback="DefaultVideo.png">$VAR[LandscapeImage]</texture>
                 <aspectratio scalediffuse="false" align="left" aligny="center">stretch</aspectratio>
             </control>
             <!-- gradient overlay -->
@@ -158,7 +158,7 @@
     <include name="View_525_Seasons_List_No_Focus">
         <!-- bingie button border -->
         <control type="image">
-            <visible>!String.IsEmpty(Container(5250).ListItem.Season) + String.IsEqual(Container(5250).ListItem.Season,Container(525).ListItem.Season)</visible>
+            <visible>!String.IsEmpty(Container(525).ListItem.Season) + !String.IsEmpty(Container(5250).ListItem.Season) + String.IsEqual(Container(5250).ListItem.Season,Container(525).ListItem.Season)</visible>
             <width>600</width>
             <height>65</height>
             <aligny>top</aligny>
@@ -323,12 +323,32 @@
     <include name="View_525_Episodes">
         <control type="group">
             <visible>Control.IsVisible(525)</visible>
+
             <!-- base bg -->
             <control type="image">
                 <include>FullscreenDimensions</include>
                 <texture background="true" colordiffuse="$VAR[BingiePanelColor]">colors/color_white.png</texture>
-                <animation effect="fade" start="100" end="90" time="0" condition="true">Conditional</animation>
             </control>
+            <!-- fanart background image -->
+            <control type="image">
+                <visible>![String.IsEqual(Window(Home).Property(TrailerPlaying), windowed)]</visible>
+                <visible>!$EXP[IsPlayingRecognizedContent]</visible>
+                <right>0</right>
+                <top>0</top>
+                <width>1688</width>
+                <height>950</height>
+                <texture background="true" diffuse="bingie/bingie_default_spotlight_diffuse.png">$VAR[fanartBackground]</texture>
+                <aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
+                <animation effect="fade" start="80" end="20" time="150" condition="true">Conditional</animation>
+            </control>
+
+
+            <!-- base bg
+            <control type="image">
+                <include>FullscreenDimensions</include>
+                <texture background="true" colordiffuse="$VAR[BingiePanelColor]">colors/color_white.png</texture>
+                <animation effect="fade" start="100" end="90" time="0" condition="true">Conditional</animation>
+            </control>-->
 
             <!--studio logo -->
             <control type="image" id="6990">
@@ -352,18 +372,17 @@
 
                 <!-- clearlogo title -->
                 <control type="image" id="887767">
-                    <visible>!Skin.HasSetting(NoClearLogoBingie)</visible>
                     <height>186</height>
                     <width>480</width>
                     <align>left</align>
                     <top>0</top>
                     <fadetime>600</fadetime>
                     <aspectratio align="left" aligny="center">keep</aspectratio>
-                    <texture background="true" fallback="colors/color_transparent.png">$VAR[ListItemClearLogo]</texture>
+                    <texture background="true" fallback="colors/color_transparent.png">$VAR[BingieInfoClearlogo]</texture>
                 </control>
                 <!-- text title -->
                 <control type="textbox">
-                    <visible>Skin.HasSetting(NoClearLogoBingie) | String.EndsWith(Control.GetLabel(887767),color_transparent.png)</visible>
+                    <visible>String.EndsWith(Control.GetLabel(887767),color_transparent.png)</visible>
                     <top>-143</top>
                     <width max="700">auto</width>
                     <height>auto</height>
@@ -384,6 +403,7 @@
 
                 <!-- seasons list -->
                 <control type="group">
+                    <animation effect="fade" start="100" end="0" condition="Window.IsVisible(busydialog)">Conditional</animation>
                     <height>390</height>
                     <!-- fallback season list -->
                     <control type="group">
@@ -432,6 +452,7 @@
 
                     <!-- Seasons list -->
                     <control type="list" id="5250">
+                        <animation effect="fade" start="100" end="0" condition="Window.IsVisible(busydialog)">Conditional</animation>
                         <visible allowhiddenfocus="true">Container(525).Content(episodes)</visible>
                         <visible>Integer.IsGreater(Container(5250).NumItems,0) + !Container(5250).IsUpdating</visible>
                         <animation effect="fade" start="0" end="100" time="250">Visible</animation>
@@ -512,6 +533,7 @@
 
             <!-- right group -->
             <control type="group">
+                <animation effect="fade" start="100" end="0" condition="Window.IsVisible(busydialog)">Conditional</animation>
                 <!-- main container -->
                 <control type="fixedlist" id="525">
                     <top>-160</top>
@@ -531,8 +553,7 @@
                     <focusposition>1</focusposition>
                     <viewtype label="31827">wide</viewtype>
                     <scrolltime tween="sine" easing="inout">350</scrolltime>
-                    <visible>String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView)) | String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),525)</visible>
-                    <itemlayout width="1050" height="280">
+                                        <itemlayout width="1050" height="280">
                         <!-- panel/border -->
                         <control type="image">
                             <include condition="!Skin.HasSetting(View525_HidePanel)">View_525_Panel_No_Focus_Defs</include>

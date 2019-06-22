@@ -8,7 +8,6 @@
         <onselect condition="True">Skin.Reset(WidgetAlignRight)</onselect>
         <onselect condition="True">Skin.SetBool(ShowAllWidgets)</onselect>
         <onselect condition="True">Skin.SetBool(UseBingieInfoDialog)</onselect>
-
     </setting>
 
     <!-- home layout -->
@@ -190,7 +189,6 @@
     <setting id="widgetstyle" value="landscapelarge" label="$LOCALIZE[31937]" condition="!String.IsEqual(Skin.String(HomeLayout),win10)" icon="special://skin/extras/viewthumbs/widget_landscapelarge.jpg" description=""/>
     <setting id="widgetstyle" value="landscapedetails" label="$LOCALIZE[31938]" condition="!String.IsEqual(Skin.String(HomeLayout),win10)" icon="special://skin/extras/viewthumbs/widget_landscapedetails.jpg" description=""/>
     <setting id="widgetstyle" value="posterdetails" label="$LOCALIZE[31939]" condition="!String.IsEqual(Skin.String(HomeLayout),win10)" icon="special://skin/extras/viewthumbs/widget_posterdetails.jpg" description=""/>
-    <setting id="widgetstyle" value="landscapewidebox" label="$LOCALIZE[31940]" condition="!String.IsEqual(Skin.String(HomeLayout),win10)" icon="special://skin/extras/viewthumbs/widget_landscapewidebox.jpg" description=""/>
 
     <!-- widgetsortby -->
     <setting id="widgetsortby" value="" label="$LOCALIZE[16018]"/>
@@ -560,8 +558,6 @@
     <!-- osd button style -->
     <setting id="osd_buttonstyle" value="rounded" label="$LOCALIZE[31493]" condition="" icon="" description=""/>
     <setting id="osd_buttonstyle" value="slim" label="$LOCALIZE[31697]" condition="" icon="" description="" default="true"/>
-    <setting id="osd_buttonstyle" value="rounded_large" label="$LOCALIZE[31493] - $LOCALIZE[31699]" condition="" icon="" description=""/>
-    <setting id="osd_buttonstyle" value="slim_large" label="$LOCALIZE[31697] - $LOCALIZE[31699]" condition="" icon="" description=""/>
 
     <!-- general header options -->
     <setting id="general_header" value="disable" label="$LOCALIZE[1223]" condition="" icon="" description="$LOCALIZE[31345]" default="Skin.HasSetting(DisableHeader)">

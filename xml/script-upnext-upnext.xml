@@ -3,6 +3,8 @@
 <window>
     <defaultcontrol always="true">3012</defaultcontrol>
     <zorder>1</zorder>
+    <onload>Dialog.Close(videoosd,true)</onload>
+    <onload>Dialog.Close(seekbar,true)</onload>
     <controls>
         <!-- Hidden Buttons section -->
         <control type="grouplist">
@@ -24,44 +26,45 @@
             <visible>Skin.HasSetting(NextUpNotificationSlim)</visible>
             <include>animation_fade_visible_hidden</include>
             <control type="grouplist">
-                <bottom>60</bottom>
+                <align>right</align>
+                <bottom>40</bottom>
                 <right>40</right>
                 <orientation>horizontal</orientation>
                 <itemgap>25</itemgap>
-                <width>675</width>
                 <height>65</height>
+                <width>1000</width>
                 <control type="button" id="3096">
-                    <width>225</width>
+                    <width>auto</width>
                     <height>65</height>
                     <aligny>center</aligny>
                     <align>center</align>
                     <font>Reg30</font>
                     <textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
                     <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
-                    <label>222</label>
+                    <label>31021</label>
                     <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframefo.png</texturefocus>
                     <texturenofocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframenf.png</texturenofocus>
                     <onclick>SendClick(3013)</onclick>
                 </control>
                 <control type="radiobutton" id="3097">
-                    <width>415</width>
+                    <width>420</width>
                     <height>65</height>
                     <aligny>center</aligny>
                     <align>left</align>
-                    <textoffsetx>60</textoffsetx>
+                    <textoffsetx>70</textoffsetx>
                     <font>Reg30</font>
                     <textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
                     <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
                     <label>[CAPITALIZE]$LOCALIZE[31212][/CAPITALIZE]$INFO[Player.TimeRemaining(ss), $LOCALIZE[1405] ,s]</label>
                     <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframefo.png</texturefocus>
                     <texturenofocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframenf.png</texturenofocus>
-                    <textureradioonfocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">dialogs/videoinfo/info/play.png</textureradioonfocus>
-                    <textureradioofffocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">dialogs/videoinfo/info/play.png</textureradioofffocus>
-                    <textureradioonnofocus colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">dialogs/videoinfo/info/play.png</textureradioonnofocus>
-                    <textureradiooffnofocus colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">dialogs/videoinfo/info/play.png</textureradiooffnofocus>
+                    <textureradioonfocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">dialogs/upnext/play.png</textureradioonfocus>
+                    <textureradioofffocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">dialogs/upnext/play.png</textureradioofffocus>
+                    <textureradioonnofocus colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">dialogs/upnext/play.png</textureradioonnofocus>
+                    <textureradiooffnofocus colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">dialogs/upnext/play.png</textureradiooffnofocus>
                     <radioposx>25</radioposx>
-                    <radiowidth>23</radiowidth>
-                    <radioheight>23</radioheight>
+                    <radiowidth>40</radiowidth>
+                    <radioheight>40</radioheight>
                     <onclick>SendClick(3012)</onclick>
                 </control>
             </control>

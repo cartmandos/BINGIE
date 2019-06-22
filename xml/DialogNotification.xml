@@ -23,7 +23,7 @@
                 <top>0</top>
                 <width>700</width>
                 <height>250</height>
-                <texture>dialogs/dialog-bg-nobo.png</texture>
+                <texture colordiffuse="dimgray">colors/color_trans_40%white.png</texture>
                 <bordertexture border="21">overlays/shadow.png</bordertexture>
                 <bordersize>20</bordersize>
             </control>

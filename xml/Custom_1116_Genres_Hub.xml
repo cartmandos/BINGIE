@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BINGIE -->
+<window id="1116">
+    <defaultcontrol always="true">523</defaultcontrol>
+    <include>CustomBingieWinProps</include>
+    <include>BingieViews_WindowOpen_Fade</include>
+    <controls>
+        <!-- fake go-to-fullscreen button -->
+        <control type="button" id="509">
+            <visible allowhiddenfocus="true">false</visible>
+            <onfocus>FullScreen</onfocus>
+        </control>
+        <include>GlobalBackground</include>
+        <!--NowPlaying-->
+        <include>NowPlayingBackground</include>
+        <include>NowPlayingInfoBar</include>
+        <include>View_523_Bingie_Main</include>
+        <include condition="Skin.HasSetting(DebugGrid) | Skin.HasSetting(DebugInfo)">DebugInfo</include>
+    </controls>
+</window>

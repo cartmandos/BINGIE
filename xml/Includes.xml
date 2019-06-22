@@ -5,6 +5,7 @@
     <include file="IncludesVariables.xml" />
     <include file="IncludesBingie.xml" />
     <include file="IncludesHomeWidgets.xml" />
+    <include file="IncludesFunctions.xml" />
     <include file="IncludesAnimations.xml" />
     <include file="IncludesNowPlaying.xml" />
     <include file="IncludesDialogVideoInfo.xml" />
@@ -76,11 +77,13 @@
     <include file="IncludesDebugInfo.xml" condition="Skin.HasSetting(DebugGrid) | Skin.HasSetting(DebugInfo)" />
 
     <!-- Constants -->
-    <constant name="verthome_tiles_height">170</constant>
-
     <constant name="landscape_width">366</constant>
     <constant name="bingie_no_circular_posx">130</constant>
     <constant name="bingie_no_circular_left_diff">65</constant>
+    <constant name="search_widget_height">225</constant>
+    <constant name="search_widget_thumb_width">396</constant>
+    <constant name="search_key_size">80</constant>
+    <constant name="search_radiokey_width">220</constant>
 
     <!-- expressions -->
     <expression name="IsBingieViewsActive">Window.IsActive(Home) | Window.IsActive(1109) | Window.IsActive(1110) | Window.IsActive(1111) | Window.IsActive(1112) | Window.IsActive(1113) | Window.IsActive(1114) | Window.IsActive(1115)</expression>
@@ -89,11 +92,13 @@
 
     <expression name="IsBingieListsActive">Window.IsActive(1114) | Window.IsActive(1115)</expression>
 
+    <expression name="IsBingieViewsVisible">Window.IsVisible(Home) | Window.IsVisible(1109) | Window.IsVisible(1110) | Window.IsVisible(1111) | Window.IsVisible(1112) | Window.IsVisible(1113) | Window.IsVisible(1114) | Window.IsVisible(1115)</expression>
+
     <expression name="IsRecognizedVideoContent">VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(livetv) | VideoPlayer.Content(musicvideos) | Pvr.IsPlayingRecording</expression>
 
-    <expression name="IsPlayingUnrecognizedContent">Player.HasVideo + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv) | Pvr.IsPlayingRecording]</expression>
+    <expression name="IsPlayingUnrecognizedContent">Player.HasVideo + Player.Playing + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv) | Pvr.IsPlayingRecording]</expression>
 
-    <expression name="IsPlayingRecognizedContent">Player.HasVideo + [VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(livetv) | VideoPlayer.Content(musicvideos) | Pvr.IsPlayingRecording]</expression>
+    <expression name="IsPlayingRecognizedContent">Player.HasVideo + Player.Playing + [VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(livetv) | VideoPlayer.Content(musicvideos) | Pvr.IsPlayingRecording]</expression>
 
     <expression name="IsMainMenuOpened">ControlGroup(9001).HasFocus() | Control.HasFocus(900) | String.IsEqual(Window(Home).Property(ShowViewSubMenu),show)</expression>
 
@@ -111,6 +116,8 @@
 
     <expression name="IsEpisodeDBTypeNoFallback">String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)</expression>
 
+    <expression name="IsCategoryDBType">String.IsEmpty(ListItem.DBType) + [String.IsEqual(ListItem.Property(DBTYPE),genre) | String.IsEqual(ListItem.Property(DBTYPE),category) | String.IsEqual(ListItem.Property(DBTYPE),categorie)]</expression>
+
     <expression name="IsMenuEntryActive">[Window.IsActive(Home) + String.IsEqual(ListItem.Property(path), ActivateWindow(home,return))] | [Window.IsActive(1110) + String.IsEqual(ListItem.Property(path), ActivateWindow(1110,return))] | [Window.IsActive(1111) + String.IsEqual(ListItem.Property(path), ActivateWindow(1111,return))] | [Window.IsActive(1112) + String.IsEqual(ListItem.Property(path), ActivateWindow(1112,return))] | [Window.IsActive(1113) + String.IsEqual(ListItem.Property(path), ActivateWindow(1113,return))] | [Window.IsActive(1114) + String.IsEqual(ListItem.Property(path), ActivateWindow(1114,return))] | [Window.IsActive(1115) + String.IsEqual(ListItem.Property(path), ActivateWindow(1115,return))] | [Window.IsActive(1109) + String.IsEqual(ListItem.Property(path), ActivateWindow(1109,return))]</expression>
 
     <expression name="IsKnownMenuEntryPath">String.IsEqual(ListItem.Property(path), ActivateWindow(home,return)) | String.IsEqual(ListItem.Property(path), ActivateWindow(1110,return)) | String.IsEqual(ListItem.Property(path), ActivateWindow(1111,return)) | String.IsEqual(ListItem.Property(path), ActivateWindow(1112,return)) | String.IsEqual(ListItem.Property(path), ActivateWindow(1113,return)) | String.IsEqual(ListItem.Property(path), ActivateWindow(1114,return)) | String.IsEqual(ListItem.Property(path), ActivateWindow(1115,return)) | String.IsEqual(ListItem.Property(path), ActivateWindow(1109,return))</expression>
@@ -126,6 +133,8 @@
     <expression name="IsFirstRun">!Skin.HasSetting(BingieFirstStartupDone) | !Skin.HasSetting(BingieSecondStartupDone)</expression>
 
     <expression name="IsActualKeyboardActive">Window.IsActive(virtualkeyboard) + String.IsEmpty(Window(Home).Property(SpaceSearchTerm)) + String.IsEmpty(Window(Home).Property(BackspaceSearchTerm))</expression>
+
+    <expression name="IsCurrentWidgetSpotlight">Control.HasFocus(1508) | [Control.IsVisible(1508) + Container(77777).Position(0)]</expression>
 
     <!--Common-->
     <!--BINGIE Version-->
@@ -144,13 +153,12 @@
             </control>
             <control type="label">
                 <align>right</align>
-                <left>40</left>
                 <top>80</top>
                 <width>auto</width>
                 <height>20</height>
                 <font>Light22</font>
                 <textcolor>$INFO[Skin.String(FooterTextColor)]</textcolor>
-                <label>$INFO[Window(Home).Property(SkinHelper.skin_version)]</label>
+                <label>$INFO[Skin.String(SkinVersion),$LOCALIZE[19114,,:] ,]</label>
             </control>
         </control>
     </include>
@@ -260,7 +268,7 @@
         <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
         <focusedcolor>$INFO[Skin.String(ButtonFocusTextColor)]</focusedcolor>
         <disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
-		<texturenofocus>dialogs/default/separator.png</texturenofocus>
+		<texturenofocus></texturenofocus>
 		<texturefocus colordiffuse="$INFO[Skin.String(ButtonFocusColor)]" border="5">diffuse/panel.png</texturefocus>
     </include>
 
@@ -385,21 +393,6 @@
         <texturenofocus colordiffuse="$INFO[Skin.String(ButtonColor)]" border="20">dialogs/keyboard/key-nf.png</texturenofocus>
         <alttexturefocus colordiffuse="$INFO[Skin.String(ButtonFocusColor)]" border="20">dialogs/keyboard/key-nf.png</alttexturefocus>
         <alttexturenofocus colordiffuse="$INFO[Skin.String(ButtonColor)]" border="20">dialogs/keyboard/key-nf.png</alttexturenofocus>
-    </include>
-
-    <include name="SearchKeyDefs">
-        <width>70</width>
-        <height>70</height>
-        <align>center</align>
-        <font>Reg28</font>
-        <textoffsetx>0</textoffsetx>
-        <selectedcolor>$INFO[Skin.String(ButtonFocusTextColor)]</selectedcolor>
-        <textcolor>$INFO[Skin.String(ButtonTextColor)]</textcolor>
-        <focusedcolor>$INFO[Skin.String(ButtonFocusTextColor)]</focusedcolor>
-        <disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
-        <pulseonselect>false</pulseonselect>
-        <texturefocus colordiffuse="$INFO[Skin.String(ButtonFocusColor)]" border="20">dialogs/keyboard/key-nf.png</texturefocus>
-        <texturenofocus colordiffuse="$INFO[Skin.String(BingieDetailsFlagColor)]" border="20">dialogs/keyboard/key-nf.png</texturenofocus>
     </include>
 
     <include name="SmallKey">

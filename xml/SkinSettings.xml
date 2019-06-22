@@ -4,8 +4,8 @@
     <defaultcontrol always="true">100</defaultcontrol>
     <include>DefaultSkinSettings</include>
     <include>WidgetsAutoRotateUnload</include>
-    <onload condition="!Skin.HasSetting(resourceaddoncheckcompleted)">RunScript(script.skin.helper.service,action=CHECKRESOURCEADDONS,ADDONSLIST=WeatherIconPack;resource.images.weathericons;Weather Icons|WeatherFanArtPack;resource.images.weatherfanart;Weather FanArt|SkinHelper.StudioLogos;resource.images.studios;Studio Logos|LanguageFlags;resource.images.languageflags;Language Flags)</onload>
-    <onunload>Skin.SetBool(resourceaddoncheckcompleted)</onunload>
+    <!--<onload condition="!Skin.HasSetting(resourceaddoncheckcompleted)">RunScript(script.skin.helper.service,action=CHECKRESOURCEADDONS,ADDONSLIST=WeatherIconPack;resource.images.weathericons;Weather Icons|WeatherFanArtPack;resource.images.weatherfanart;Weather FanArt|SkinHelper.StudioLogos;resource.images.studios;Studio Logos|LanguageFlags;resource.images.languageflags;Language Flags)</onload>
+    <onunload>Skin.SetBool(resourceaddoncheckcompleted)</onunload>-->
     <controls>
         <!--Global Background-->
         <include>GlobalBackground</include>
@@ -59,7 +59,6 @@
 				<include>SkinSettings_OSD</include>
 				<include>SkinSettings_General</include>
                 <include>SkinSettings_Background</include>
-                <include>SkinSettings_ForcedViews</include>
                 <include>SkinSettings_ColorThemes</include>
                 <include>SkinSettings_CustomColors</include>
 				<include>SkinSettings_SmartShortcuts</include>

@@ -21,7 +21,7 @@
 				<include>Startup_Dialog_OpenClose</include>
 				<centerleft>50%</centerleft>
 				<centertop>50%</centertop>
-				<width>800</width>
+				<width>900</width>
 				<height max="940">auto</height>
 				<orientation>vertical</orientation>
 				<itemgap>25</itemgap>
@@ -93,6 +93,7 @@
 						<onclick condition="System.GetBool(input.enablemouse)">RunScript(script.skin.helper.service,action=togglekodisetting,setting=input.enablemouse)</onclick>
 						<onclick>RunScript(script.skin.helper.service,action=setkodisetting,setting=videolibrary.tvshowsselectfirstunwatcheditem,value=2)</onclick>
 						<onclick>RunScript(script.skin.helper.service,action=setkodisetting,setting=videolibrary.flattentvshows,value=2)</onclick>
+						<onclick>RunScript(script.skin.helper.service,action=setkodisetting,setting=myvideos.selectaction,value=2)</onclick>
 						<onclick>AlarmClock(clear_property,ClearProperty(finishBingieStartup1,Home),00:02,silent)</onclick>
 						<onclick>AlarmClock(delay_window,ReplaceWindow($VAR[StartUpWindow]),00:01,silent)</onclick>
 						<onup>PageUp(3000)</onup>
