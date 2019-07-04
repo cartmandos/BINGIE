@@ -82,10 +82,6 @@ msgctxt "#31016"
 msgid "--- Use own image for tile"
 msgstr "--- Utiliser l’image propre à la tuile"
 
-msgctxt "#31017"
-msgid "--- Open TV Guide instead of Live TV"
-msgstr "--- Ouvrir le Guide des programmes au lieu de la TV en Direct"
-
 msgctxt "#31018"
 msgid "Bingie Main"
 msgstr "Bingie Principal"
@@ -94,41 +90,9 @@ msgctxt "#31019"
 msgid "--- Open folderpath with music instead of library"
 msgstr "--- Ouvrir le chemin du dossier musique à la place de la médiathèque"
 
-msgctxt "#31020"
-msgid "Open folderpath with radio streams instead of PVR for Radio"
-msgstr "Ouvrir le chemin des flux radio à la place de l'Enregistreur Radio"
-
-msgctxt "#31021"
-msgid "--- Display temperature in tile"
-msgstr "--- Afficher la température en tuile"
-
 msgctxt "#31022"
 msgid "Background settings"
 msgstr "Réglages d'arrière-plan"
-
-msgctxt "#31023"
-msgid "Use default skin background"
-msgstr "Utiliser l'arrière-plan d'habillage prédéfini"
-
-msgctxt "#31024"
-msgid "Use original Mediaportal's Titan skin background"
-msgstr "Utiliser l'arrière-plan d'habillage Titan de Mediaportal"
-
-msgctxt "#31025"
-msgid "Use dynamic weather background"
-msgstr "Utiliser un arrière-plan météo dynamique"
-
-msgctxt "#31026"
-msgid "Use random fanart background"
-msgstr "Utiliser un fanart aléatoire en arrière-plan"
-
-msgctxt "#31027"
-msgid "Use default background for this section"
-msgstr "Utiliser l'arrière-plan prédéfini pour cette section"
-
-msgctxt "#31028"
-msgid "Other skin tweaks"
-msgstr "Autres ajustements d'habillage"
 
 msgctxt "#31029"
 msgid "Do not show footer bar in views"
@@ -242,69 +206,13 @@ msgctxt "#31058"
 msgid "Logo"
 msgstr "Logo"
 
-msgctxt "#31059"
-msgid "Caps"
-msgstr "Majuscules"
-
-msgctxt "#31060"
-msgid "Kodi SUBTITLES"
-msgstr "SOUS-TITRES Kodi"
-
-msgctxt "#31061"
-msgid "Press Back or OK to exit"
-msgstr "Appuyer sur Retour ou OK pour quitter"
-
 msgctxt "#31062"
 msgid "YouTube"
 msgstr "Youtube"
 
-msgctxt "#31063"
-msgid "Toggle icon layout"
-msgstr "Basculer la disposition des icônes"
-
-msgctxt "#31064"
-msgid "Wide Icons"
-msgstr "Icônes Larges"
-
-msgctxt "#31065"
-msgid "Wide Icons MediaInfo"
-msgstr "Icônes large MediaInfo"
-
-msgctxt "#31066"
-msgid "Poster"
-msgstr "Affiche"
-
-msgctxt "#31067"
-msgid "Poster MediaInfo"
-msgstr "Affiche MediaInfo"
-
-msgctxt "#31068"
-msgid "Showcase"
-msgstr "Vitrine"
-
-msgctxt "#31069"
-msgid "Showcase MediaInfo"
-msgstr "Vitrine MediaInfo"
-
-msgctxt "#31070"
-msgid "Banner list"
-msgstr "Liste bannière"
-
 msgctxt "#31071"
 msgid "Setting level"
 msgstr "Niveau de paramétrage"
-
-msgctxt "#31072"
-msgid "Sort Home tiles"
-msgstr "Classer les tuiles d'accueil"
-
-msgctxt "#31073"
-msgid "Sort the home menu tiles"
-msgstr "Classer les tuiles du menu d'accueil"
-
-msgctxt "#31074"
-msgid "Arrange the homescreen tiles just the way you want it. [CR]Usage select a direction below and click on the tile's title (in the list on the right) to move it's position. [CR]Because settings are applied on the fly the screen may blink for one second."
-msgstr "Organisez les tuiles de l'écran d'accueil comme vous le souhaitez. [CR]Sélectionnez une direction ci-dessous et cliquez sur le titre de la tuile (dans la liste, à droite) pour changer sa position. [CR]En raison de l'application instantanée des paramètres, un clignotement d'une seconde peut se produire."
 
 msgctxt "#31077"
 msgid "DOWN"

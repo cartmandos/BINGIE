@@ -37,7 +37,9 @@
                     <width>575</width>
                     <height>330</height>
                     <include>LandscapeLayoutFocus</include>
-                    <include>AutoTrailerButton</include>
+                    <include content="LibraryAutoTrailerButton" condition="Skin.HasSetting(DetailsAutoTrailer)">
+                        <param name="interval" value="$INFO[Skin.String(details_auto_trailer_interval)]" />
+                    </include>
                 </control>
 			</focusedlayout>
             <itemlayout width="595" height="395" condition="[Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">

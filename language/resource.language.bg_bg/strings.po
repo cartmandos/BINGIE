@@ -48,22 +48,6 @@ msgctxt "#31022"
 msgid "Background settings"
 msgstr "Фон"
 
-msgctxt "#31023"
-msgid "Use default skin background"
-msgstr "Ползвай стандартния фон от облика"
-
-msgctxt "#31024"
-msgid "Use original Mediaportal's Titan skin background"
-msgstr "Ползвай оригиналния фон от облика Titan за Mediaportal"
-
-msgctxt "#31026"
-msgid "Use random fanart background"
-msgstr "Ползвай произволен фен-арт за фон"
-
-msgctxt "#31028"
-msgid "Other skin tweaks"
-msgstr "Други настройки на облика"
-
 msgctxt "#31029"
 msgid "Do not show footer bar"
 msgstr "Не показвай долния колонтитул"

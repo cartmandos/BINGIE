@@ -16,6 +16,7 @@
         <onload>Skin.SetString(spotlightnew.label, $LOCALIZE[13278])</onload>
         <onload>Skin.Reset(spotlightnew.path)</onload>
 
+        <!-- MOVIES HUB -->
         <!-- movies hub - widget 1 -->
         <onload>Skin.SetString(bingiehub-movies-510.label, [CAPITALIZE]$LOCALIZE[31535][/CAPITALIZE])</onload>
         <onload>Skin.SetString(bingiehub-movies-510.target, videos)</onload>
@@ -47,6 +48,7 @@
         <onload>Skin.Reset(bingiehub-movies-580.target)</onload>
         <onload>Skin.Reset(bingiehub-movies-580.path)</onload>
 
+        <!-- TVSHOWS HUB -->
         <!-- tvshows hub - widget 1 -->
         <onload>Skin.SetString(bingiehub-tvshows-510.label, [CAPITALIZE]$LOCALIZE[31535][/CAPITALIZE])</onload>
         <onload>Skin.SetString(bingiehub-tvshows-510.target, videos)</onload>
@@ -78,6 +80,7 @@
         <onload>Skin.Reset(bingiehub-tvshows-580.target)</onload>
         <onload>Skin.Reset(bingiehub-tvshows-580.path)</onload>
 
+        <!-- NEW HUB -->
         <!-- new hub - widget 1 -->
         <onload>Skin.SetString(bingiehub-new-510.label, [CAPITALIZE]$LOCALIZE[31127][/CAPITALIZE])</onload>
         <onload>Skin.SetString(bingiehub-new-510.target, videos)</onload>
@@ -105,6 +108,39 @@
         <onload>Skin.Reset(bingiehub-new-580.label)</onload>
         <onload>Skin.Reset(bingiehub-new-580.target)</onload>
         <onload>Skin.Reset(bingiehub-new-580.path)</onload>
+
+        <!-- PVR HUB -->
+        <!-- tv hub - widget 1 -->
+        <!--<onload>Skin.SetString(bingiehub-pvr-510.label, [CAPITALIZE]$LOCALIZE[19019][/CAPITALIZE])</onload>
+        <onload>Skin.SetString(bingiehub-pvr-510.target,)</onload>
+        <onload>Skin.SetString(bingiehub-pvr-510.path, pvr://channels/tv/*)</onload> -->
+        <!-- pvr hub - widget 2 -->
+        <!-- <onload>Skin.SetString(bingiehub-pvr-520.label, [CAPITALIZE]$LOCALIZE[568][/CAPITALIZE])</onload>
+        <onload>Skin.SetString(bingiehub-pvr-520.target,)</onload> -->
+        <!--<onload>Skin.SetString(bingiehub-pvr-520.sortby, lastplayed)</onload>
+        <onload>Skin.SetString(bingiehub-pvr-520.sortorder, descending)</onload>-->
+        <!-- pvr hub - widget 3 -->
+        <!-- <onload>Skin.SetString(bingiehub-pvr-530.label, [CAPITALIZE]$LOCALIZE[19163][/CAPITALIZE])</onload>
+        <onload>Skin.SetString(bingiehub-pvr-530.target,)</onload>
+        <onload>Skin.SetString(bingiehub-pvr-530.path, pvr://recordings/tv/active?view=flat)</onload> -->
+        <!--<onload>Skin.SetString(bingiehub-pvr-530.sortby, date)</onload>
+        <onload>Skin.SetString(bingiehub-pvr-530.sortorder, descending)</onload>-->
+        <!-- reset -->
+        <!--<onload>Skin.Reset(bingiehub-pvr-540.label)</onload>
+        <onload>Skin.Reset(bingiehub-pvr-540.target)</onload>
+        <onload>Skin.Reset(bingiehub-pvr-540.path)</onload>
+        <onload>Skin.Reset(bingiehub-pvr-550.label)</onload>
+        <onload>Skin.Reset(bingiehub-pvr-550.target)</onload>
+        <onload>Skin.Reset(bingiehub-pvr-550.path)</onload>
+        <onload>Skin.Reset(bingiehub-pvr-560.label)</onload>
+        <onload>Skin.Reset(bingiehub-pvr-560.target)</onload>
+        <onload>Skin.Reset(bingiehub-pvr-560.path)</onload>
+        <onload>Skin.Reset(bingiehub-pvr-570.label)</onload>
+        <onload>Skin.Reset(bingiehub-pvr-570.target)</onload>
+        <onload>Skin.Reset(bingiehub-pvr-570.path)</onload>
+        <onload>Skin.Reset(bingiehub-pvr-580.label)</onload>
+        <onload>Skin.Reset(bingiehub-pvr-580.target)</onload>
+        <onload>Skin.Reset(bingiehub-pvr-580.path)</onload>-->
 
         <!-- finish default settings -->
         <onload condition="!Skin.HasSetting(HubWidgetsDefaults)">Skin.SetBool(HubWidgetsDefaults)</onload>

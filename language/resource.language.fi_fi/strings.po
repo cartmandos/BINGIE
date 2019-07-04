@@ -56,53 +56,13 @@ msgctxt "#31016"
 msgid "--- Use own image for tile"
 msgstr "--- Valitse tiilen kuva"
 
-msgctxt "#31017"
-msgid "--- Open TV Guide instead of Live TV"
-msgstr "--- Avaa ohjelmaopas tv-lähetyksen sijaan"
-
-msgctxt "#31018"
-msgid "Netflix"
-msgstr "Netflix"
-
 msgctxt "#31019"
 msgid "--- Open folderpath with music instead of library"
 msgstr "--- Avaa tiedostonäkymä musiikkikirjaston sijaan"
 
-msgctxt "#31020"
-msgid "Open folderpath with radio streams instead of PVR for Radio"
-msgstr "Avaa radion tiedostonäkymä PVR-näkymän sijaan"
-
-msgctxt "#31021"
-msgid "--- Display temperature in tile"
-msgstr "--- Näytä lämpötila tiilessä"
-
 msgctxt "#31022"
 msgid "Background settings"
 msgstr "Taustan asetukset"
-
-msgctxt "#31023"
-msgid "Use default skin background"
-msgstr "Käytä ulkoasun oletustaustaa"
-
-msgctxt "#31024"
-msgid "Use original Mediaportal's Titan skin background"
-msgstr "Käytä MediaPortalin Titan-ulkoasun alkuperäistä taustaa"
-
-msgctxt "#31025"
-msgid "Use dynamic weather background"
-msgstr "Käytä säätilan mukaan vaihtuvaa taustakuvaa"
-
-msgctxt "#31026"
-msgid "Use random fanart background"
-msgstr "Käytä satunnaista fanitaidetta taustana"
-
-msgctxt "#31027"
-msgid "Use default background for this section"
-msgstr "Käytä valikon oletustaustakuvaa"
-
-msgctxt "#31028"
-msgid "Other skin tweaks"
-msgstr "Muut ulkoasun asetukset"
 
 msgctxt "#31029"
 msgid "Do not show footer bar"
@@ -168,69 +128,13 @@ msgctxt "#31058"
 msgid "Logo"
 msgstr "Logo"
 
-msgctxt "#31059"
-msgid "Caps"
-msgstr "Isot kirjaimet"
-
-msgctxt "#31060"
-msgid "Kodi SUBTITLES"
-msgstr "Kodi TEKSTITYKSET"
-
-msgctxt "#31061"
-msgid "Press Back or OK to exit"
-msgstr "Paina Takaisin tai OK poistuaksesi"
-
 msgctxt "#31062"
 msgid "YouTube"
 msgstr "YouTube"
 
-msgctxt "#31063"
-msgid "Toggle icon layout"
-msgstr "Kuvakeasettelu"
-
-msgctxt "#31064"
-msgid "Wide Icons"
-msgstr "Leveät kuvakkeet"
-
-msgctxt "#31065"
-msgid "Wide Icons MediaInfo"
-msgstr "Leveät kuvakkeet ja mediatiedot"
-
-msgctxt "#31066"
-msgid "Poster"
-msgstr "Juliste"
-
-msgctxt "#31067"
-msgid "Poster MediaInfo"
-msgstr "Juliste ja mediatiedot"
-
-msgctxt "#31068"
-msgid "Showcase"
-msgstr "Näyteikkuna"
-
-msgctxt "#31069"
-msgid "Showcase MediaInfo"
-msgstr "Näyteikkuna ja mediatiedot"
-
-msgctxt "#31070"
-msgid "Banner list"
-msgstr "Bannerilista"
-
 msgctxt "#31071"
 msgid "Setting level"
 msgstr "Asetustaso"
-
-msgctxt "#31072"
-msgid "Sort Home tiles"
-msgstr "Lajittele päävalikon tiilet"
-
-msgctxt "#31073"
-msgid "Sort the home menu tiles"
-msgstr "Lajittele päävalikon tiilet"
-
-msgctxt "#31074"
-msgid "Arrange the homescreen tiles just the way you want it. [CR]Usage select a direction below and click on the tile's title (in the list on the right) to move it's position. [CR]Because settings are applied on the fly the screen may blink for one second."
-msgstr "Järjestä päävalikon tiilet haluamallasi tavalla. [CR]Valitse kohde alhaalta ja klikkaa tiilen nimeä (oikealla olevalta listalta) siirtääksesi sen haluamaasi paikkaan. [CR]Ruutu saattaa välkkyä, koska asetukset otetaan välittömästi käyttöön."
 
 msgctxt "#31077"
 msgid "DOWN"

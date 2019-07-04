@@ -898,7 +898,7 @@
 				<control type="label">
 					<width>auto</width>
 					<align>left</align>
-					<font>Reg34</font>
+					<font>Reg32</font>
 					<textcolor>white</textcolor>
 					<label>$VAR[OSDLabel5]</label>
 					<scroll>false</scroll>
@@ -3247,7 +3247,7 @@
                 <orientation>horizontal</orientation>
 
 				<control type="button" id="204">
-					<description>Stop</description>
+					<description>Exit</description>
 					<width>$PARAM[topsize]</width>
 					<height>$PARAM[topsize]</height>
 					<font/>
@@ -3268,6 +3268,7 @@
 					<onclick>ActivateWindow(osdsubtitlesettings)</onclick>
 					<visible>!VideoPlayer.Content(livetv)</visible>
 					<include>Top_OSD_Button_Zoom_Anim</include>
+					<visible>Skin.HasSetting(bingie_videoosd_buttons_subtitles)</visible>
 				</control>
                 <control type="button" id="101">
                     <description>Audio Settings</description>
@@ -3279,6 +3280,7 @@
                     <texturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">$PARAM[iconspath]audio.png</texturenofocus>
                     <onclick>ActivateWindow(124)</onclick>
                     <include>Top_OSD_Button_Zoom_Anim</include>
+					<visible>Skin.HasSetting(bingie_videoosd_buttons_audio)</visible>
                 </control>
                 <control type="button" id="102">
                     <description>Video Settings</description>
@@ -3291,6 +3293,7 @@
                     <texturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">$PARAM[iconspath]video.png</texturenofocus>
                     <onclick>ActivateWindow(123)</onclick>
                     <include>Top_OSD_Button_Zoom_Anim</include>
+					<visible>Skin.HasSetting(bingie_videoosd_buttons_video)</visible>
                 </control>
 				<control type="button" id="215">
 					<description>discmenu</description>
@@ -3303,6 +3306,7 @@
 					<onclick>PlayerControl(ShowVideoMenu)</onclick>
 					<visible>VideoPlayer.HasMenu</visible>
 					<include>Top_OSD_Button_Zoom_Anim</include>
+					<visible>Skin.HasSetting(bingie_videoosd_buttons_discmenu)</visible>
 				</control>
 				<control type="button" id="807">
 					<description>pvrguide</description>
@@ -3315,6 +3319,7 @@
 					<visible>VideoPlayer.Content(livetv) + VideoPlayer.HasEpg</visible>
 					<onclick>ActivateWindow(pvrchannelguide)</onclick>
 					<include>Top_OSD_Button_Zoom_Anim</include>
+					<visible>Skin.HasSetting(bingie_videoosd_buttons_pvrguide)</visible>
 				</control>
 				<control type="button" id="214">
 					<description>bookmarks</description>
@@ -3327,6 +3332,7 @@
 					<onclick>ActivateWindow(VideoBookmarks)</onclick>
 					<visible>!VideoPlayer.Content(livetv)</visible>
 					<include>Top_OSD_Button_Zoom_Anim</include>
+					<visible>Skin.HasSetting(bingie_videoosd_buttons_bookmarks)</visible>
 				</control>
 				<control type="togglebutton" id="10">
 					<description>record</description>
@@ -3367,6 +3373,7 @@
                     <visible>Player.HasVideo + !String.Contains(VideoPlayer.Title, -trailer.)</visible>
                     <onclick>Skin.ToggleSetting(EnableOSDInfo)</onclick>
                     <include>Top_OSD_Button_Zoom_Anim</include>
+					<visible>Skin.HasSetting(bingie_videoosd_buttons_info)</visible>
                 </control>
             </control>
             <control type="label">
@@ -3410,7 +3417,7 @@
 			<onright condition="Player.SeekEnabled">back</onright>
 			<onup>300</onup>
 			<orientation>horizontal</orientation>
-			<include>Fade90</include>
+			<animation effect="fade" start="100" end="50" time="0" condition="!ControlGroup(200).HasFocus()">Conditional</animation>
 
 			<control type="button" id="201">
 				<include>Bottom_OSD_Button_Zoom_Anim</include>
@@ -3455,13 +3462,6 @@
 		</control>
 	</include>
 
-	<include name="Bottom_OSD_Button_Zoom_Anim">
-		<animation effect="zoom" start="100" end="135" center="auto">Focus</animation>
-	</include>
-	<include name="Top_OSD_Button_Zoom_Anim">
-		<animation effect="zoom" start="100" end="125" center="auto">Focus</animation>
-	</include>
-
 	<include name="JumpIndicator">
 		<control type="group">
 			<visible>Player.Seeking + !String.IsEmpty(Player.SeekStepSize)</visible>
@@ -3486,6 +3486,42 @@
 			</control>
 		</control>
 	</include>
+
+	<include name="JumpIndicatorMidscreen">
+		<control type="group">
+			<top>450</top>
+			<height>80</height>
+			<align>center</align>
+			<include content="JumpIndicator">
+				<param name="visibility" value="!String.Contains(Player.SeekStepSize,-)" />
+				<param name="centerleft" value="75%" />
+				<param name="image" value="osd/forward_jump.png" />
+			</include>
+			<include content="JumpIndicator">
+				<param name="visibility" value="String.Contains(Player.SeekStepSize,-)" />
+				<param name="centerleft" value="25%" />
+				<param name="image" value="osd/rewind_jump.png" />
+			</include>
+		</control>
+	</include>
+
+	<include name="JumpIndicatorMinimal">
+		<control type="group">
+			<bottom>250</bottom>
+			<height>80</height>
+			<align>center</align>
+			<include content="JumpIndicator">
+				<param name="visibility" value="true" />
+				<param name="centerleft" value="50%" />
+				<param name="image" value="$VAR[jump_indicator_image]" />
+			</include>
+		</control>
+	</include>
+
+	<variable name="jump_indicator_image">
+		<value condition="!String.IsEmpty(Player.SeekStepSize) + String.Contains(Player.SeekStepSize,-)">osd/rewind_jump.png</value>
+		<value condition="!String.IsEmpty(Player.SeekStepSize) + !String.Contains(Player.SeekStepSize,-)">osd/forward_jump.png</value>
+	</variable>
 
     <variable name="osd_button_description">
 		<value condition="Control.HasFocus(10)">[UPPERCASE]$LOCALIZE[264][/UPPERCASE]</value>

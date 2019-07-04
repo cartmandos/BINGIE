@@ -150,12 +150,12 @@
     </include>
 	
     <variable name="AdvancedRatings_PanelColor">
-        <value condition="[Window.IsMedia + Control.IsVisible(523)] | [Window.IsMedia + Control.IsVisible(525)] | [Window.IsActive(Home) + String.IsEqual(Skin.String(HomeLayout),bingie)]">None</value>
+        <value condition="[Window.IsMedia + [Control.IsVisible(523) | Control.IsVisible(526) | Control.IsVisible(525)]] | [Window.IsActive(Home) + String.IsEqual(Skin.String(HomeLayout),bingie)]">None</value>
         <value condition="Skin.String(FooterPanelColor) + !Skin.String(FooterPanelColor, None)">$INFO[Skin.String(FooterPanelColor)]</value>
         <value>ff000000</value>
     </variable>
     <variable name="AdvancedRatings_TextColor">
-        <value condition="[Window.IsMedia + Control.IsVisible(523)] | [Window.IsMedia + Control.IsVisible(525)] | [Window.IsActive(Home) + String.IsEqual(Skin.String(HomeLayout),bingie)]">$INFO[Skin.String(ViewDetailsTextColor)]</value>
+        <value condition="[Window.IsMedia + [Control.IsVisible(523) | Control.IsVisible(526) | Control.IsVisible(525)]] | [Window.IsActive(Home) + String.IsEqual(Skin.String(HomeLayout),bingie)]">$INFO[Skin.String(ViewDetailsTextColor)]</value>
         <value condition="Skin.String(FooterTextColor) + !Skin.String(FooterPanelColor, None)">$INFO[Skin.String(FooterTextColor)]</value>
         <value>ffffffff</value>
     </variable>

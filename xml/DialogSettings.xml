@@ -56,7 +56,7 @@
                 <!-- templates -->
                 <control type="grouplist" id="5">
                     <description>Control Area</description>
-                    <width>100%</width>
+                    <width>800</width>
                     <height>660</height>
                     <orientation>vertical</orientation>
                     <itemgap>0</itemgap>
@@ -83,7 +83,7 @@
                     <align>left</align>
                     <textoffsetx>20</textoffsetx>
                     <include>DialogButton</include>
-                    <radioposx>1080</radioposx>
+                    <radioposx>700</radioposx>
                 </control>
                 <control type="spincontrolex" id="9">
                     <description>spincontrol template</description>

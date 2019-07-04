@@ -47,7 +47,7 @@
                     <onclick>SendClick(3013)</onclick>
                 </control>
                 <control type="radiobutton" id="3097">
-                    <width>420</width>
+                    <width>440</width>
                     <height>65</height>
                     <aligny>center</aligny>
                     <align>left</align>

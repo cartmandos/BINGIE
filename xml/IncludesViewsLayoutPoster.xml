@@ -133,8 +133,8 @@
             ![Control.IsVisible(514) + Skin.String(View514.Tags,disable)] + 
             ![Control.IsVisible(519) + Skin.String(View519.Tags,disable)] + 
             ![Control.IsVisible(520) + Skin.String(View520.Tags,disable)] + 
-            ![Control.IsVisible(521) + Skin.String(View521.Tags,disable)] + 
-            ![Control.IsVisible(523) + Skin.String(View523.Tags,disable)]
+            ![Control.IsVisible(521) + Skin.String(View521.Tags,disable)] +
+            ![Control.IsVisible(526) + Skin.String(View526.Tags,disable)]
         </visible>
         <visible>
             [Control.IsVisible(52) + Skin.String(View52.Tags,enable)] | 
@@ -147,8 +147,8 @@
             [Control.IsVisible(514) + Skin.String(View514.Tags,enable)] | 
             [Control.IsVisible(519) + Skin.String(View519.Tags,enable)] | 
             [Control.IsVisible(520) + Skin.String(View520.Tags,enable)] | 
-            [Control.IsVisible(521) + Skin.String(View521.Tags,enable)] | 
-            [Control.IsVisible(523) + Skin.String(View523.Tags,enable)] | 
+            [Control.IsVisible(521) + Skin.String(View521.Tags,enable)] |
+            [Control.IsVisible(526) + Skin.String(View526.Tags,enable)] |
             [[String.Contains(Window.Property(xmlfile),Nav) | Window.IsActive(Home)] + String.IsEmpty(ListItem.Art(poster)) + String.IsEmpty(ListItem.Art(tvshow.poster))] |
             [Window.IsActive(script-ExtendedInfo Script-DialogVideoInfo.xml) + String.IsEmpty(ListItem.Art(fanart))] | 
             [!String.IsEmpty(ListItem.Episode) + !String.IsEmpty(ListItem.Season) + !Container.Content(seasons) + !String.IsEqual(ListItem.Label, ListItem.TvshowTitle) + Skin.HasSetting(ShowLabelsPosterEpisodes)]

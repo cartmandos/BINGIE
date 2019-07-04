@@ -3,7 +3,7 @@
 <includes>
 
     <include name="allViewIds">
-        <views>10,50,51,52,501,502,503,504,505,53,54,55,506,56,57,58,59,507,508,509,510,511,512,513,514,515,516,517,518,519,520,521,522,523,524,525</views>
+        <views>10,50,51,52,501,502,503,504,505,53,54,55,506,56,57,58,59,507,508,509,510,511,512,513,514,515,516,517,518,519,520,521,522,523,524,525,526</views>
         <menucontrol>9000</menucontrol>
         <onunload condition="Skin.HasSetting(DetailsAutoTrailer) + !String.IsEmpty(Window(Home).Property(TrailerPlaying)) + !String.IsEqual(Window(Home).Property(TrailerPlaying),fullscreen)">PlayerControl(Stop)</onunload>
     </include>
@@ -29,7 +29,7 @@
         
         <!-- footer bar (in back) -->
         <control type="group">
-            <visible>![Control.IsVisible(507) | Control.IsVisible(513) | Control.IsVisible(514) | Control.IsVisible(519) | Control.IsVisible(520) | Control.IsVisible(525) |  Control.IsVisible(523)]</visible>
+            <visible>![Control.IsVisible(507) | Control.IsVisible(513) | Control.IsVisible(514) | Control.IsVisible(519) | Control.IsVisible(520) | Control.IsVisible(525) |  Control.IsVisible(523) |  Control.IsVisible(526)]</visible>
             <include condition="!Skin.HasSetting(nofooterbar)">Footer</include>
         </control>
         
@@ -37,8 +37,8 @@
         <control type="group" id="5000">
             <visible>!Window.IsActive(virtualkeyboard)</visible>
             <include>animation_window_open_close</include>
-            <animation effect="slide" end="0,100" time="0" condition="Skin.HasSetting(nofooterbar) + ![Control.IsVisible(519) | Control.IsVisible(520) | Control.IsVisible(507) | Control.IsVisible(523) | Control.IsVisible(525)]">Conditional</animation>
-            <animation effect="slide" end="0,-80" time="0" condition="Skin.String(general_header,disable) + String.IsEqual(Skin.AspectRatio,16:10) + ![Control.IsVisible(519) | Control.IsVisible(520) | Control.IsVisible(507) | Control.IsVisible(515) | Control.IsVisible(521) | Control.IsVisible(508) | Control.IsVisible(58) | Control.IsVisible(523) | Control.IsVisible(525)]">Conditional</animation>
+            <animation effect="slide" end="0,100" time="0" condition="Skin.HasSetting(nofooterbar) + ![Control.IsVisible(519) | Control.IsVisible(520) | Control.IsVisible(507) | Control.IsVisible(523) |  Control.IsVisible(526) | Control.IsVisible(525)]">Conditional</animation>
+            <animation effect="slide" end="0,-80" time="0" condition="Skin.String(general_header,disable) + String.IsEqual(Skin.AspectRatio,16:10) + ![Control.IsVisible(519) | Control.IsVisible(520) | Control.IsVisible(507) | Control.IsVisible(515) | Control.IsVisible(521) | Control.IsVisible(508) | Control.IsVisible(58) | Control.IsVisible(523) |  Control.IsVisible(526) | Control.IsVisible(525)]">Conditional</animation>
             
             <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.50)">View_50_List</include>
             <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.10) + [Window.IsActive(MyPVRChannels.xml) | Window.IsActive(MyPVRRecordings.xml) | Window.IsActive(MyPVRSearch.xml) | Window.IsActive(MyPVRTimers.xml)]">View_10_SimplePVR</include>
@@ -82,7 +82,8 @@
             <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.56) + Window.IsActive(MyVideoNav.xml)">View_56_BannerPlex</include>
             <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.55) + Window.IsActive(MyVideoNav.xml)">View_55_BannerList</include>
             <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.503) + Window.IsActive(MyVideoNav.xml)">View_503_Logos</include>
-            <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.523) + Window.IsActive(MyVideoNav.xml)">View_523_Bingie_Main</include>
+            <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.523) + Window.IsActive(MyVideoNav.xml)">View_523_Bingie_Main_Landscape</include>
+            <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.526) + Window.IsActive(MyVideoNav.xml)">View_526_Bingie_Main_Poster</include>
             <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.525) + Window.IsActive(MyVideoNav.xml)">View_525_Episodes</include>
         </control>
         
@@ -94,7 +95,7 @@
             
         <!-- clearlogo -->
         <control type="group">
-            <visible>![Control.IsVisible(519) | Control.IsVisible(520) | Control.IsVisible(523) | Control.IsVisible(525)]</visible>
+            <visible>![Control.IsVisible(519) | Control.IsVisible(520) | Control.IsVisible(523) | Control.IsVisible(526) | Control.IsVisible(525)]</visible>
             <include condition="Skin.String(ClearLogoLocation) + ![Skin.HasSetting(nofooterbar) + Skin.String(ClearLogoLocation,footer)]">ClearLogo</include>
         </control>
             
@@ -144,7 +145,7 @@
         
         <!-- scrollbar vertical -->
         <control type="group" id="6000">
-            <visible>![Control.IsVisible(52) | Control.IsVisible(58) | Control.IsVisible(502) | Control.IsVisible(503) | Control.IsVisible(506) | Control.IsVisible(507) | Control.IsVisible(508) | Control.IsVisible(513) | Control.IsVisible(514) | [Control.IsVisible(523) + Skin.HasSetting(View_523_HorizontalNavigation)] | Control.IsVisible(524)]</visible>
+            <visible>![Control.IsVisible(52) | Control.IsVisible(58) | Control.IsVisible(502) | Control.IsVisible(503) | Control.IsVisible(506) | Control.IsVisible(507) | Control.IsVisible(508) | Control.IsVisible(513) | Control.IsVisible(514) | [Control.IsVisible(523) + Skin.HasSetting(View_523_HorizontalNavigation)]| [Control.IsVisible(526) + Skin.HasSetting(View_526_HorizontalNavigation)] | Control.IsVisible(524)]</visible>
             <control type="button" id="6001">
                 <width>1</width>
                 <right>-1</right>
@@ -225,13 +226,12 @@
                 <animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(6002) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
                 <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(6002) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
             </control>
-        
         </control>
     
         <!-- scrollbar horizontal -->
         <control type="group" id="7000">
-            <animation effect="slide" start="0" end="0,110" time="0" condition="Skin.HasTheme(classic) | Control.IsVisible(523)">Conditional</animation>
-            <visible>[Control.IsVisible(52) | Control.IsVisible(58) | Control.IsVisible(502) | Control.IsVisible(503) | Control.IsVisible(506) | Control.IsVisible(507) | Control.IsVisible(508) | Control.IsVisible(513) | Control.IsVisible(514) | [Control.IsVisible(523) + Skin.HasSetting(View_523_HorizontalNavigation)] | Control.IsVisible(524)]</visible>
+            <animation effect="slide" start="0" end="0,110" time="0" condition="Skin.HasTheme(classic) | Control.IsVisible(523) | Control.IsVisible(526)">Conditional</animation>
+            <visible>[Control.IsVisible(52) | Control.IsVisible(58) | Control.IsVisible(502) | Control.IsVisible(503) | Control.IsVisible(506) | Control.IsVisible(507) | Control.IsVisible(508) | Control.IsVisible(513) | Control.IsVisible(514) | [Control.IsVisible(523) + Skin.HasSetting(View_523_HorizontalNavigation)] | [Control.IsVisible(526) + Skin.HasSetting(View_526_HorizontalNavigation)] | Control.IsVisible(524)]</visible>
             <control type="button" id="7001">
                 <width>1</width>
                 <right>-1</right>

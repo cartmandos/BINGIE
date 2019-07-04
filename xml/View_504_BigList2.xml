@@ -48,7 +48,9 @@
                         <left>0</left>
                         <width>790</width>
                         <include>BigListFocusLayout</include>
-                        <include>AutoTrailerButton</include>
+						<include content="LibraryAutoTrailerButton" condition="Skin.HasSetting(DetailsAutoTrailer)">
+							<param name="interval" value="$INFO[Skin.String(details_auto_trailer_interval)]" />
+						</include>
                     </control>
 				</focusedlayout>
 
@@ -64,7 +66,9 @@
                         <left>0</left>
                         <width>790</width>
                         <include>BigList2SlimLayoutFocus</include>
-                        <include>AutoTrailerButton</include>
+						<include content="LibraryAutoTrailerButton" condition="Skin.HasSetting(DetailsAutoTrailer)">
+							<param name="interval" value="$INFO[Skin.String(details_auto_trailer_interval)]" />
+						</include>
                     </control>
 				</focusedlayout>
 			</control>

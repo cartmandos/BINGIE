@@ -48,53 +48,13 @@ msgctxt "#31016"
 msgid "--- Use own image for tile"
 msgstr "--- Usar imagem própria para o bloco"
 
-msgctxt "#31017"
-msgid "--- Open TV Guide instead of Live TV"
-msgstr "--- Abrir Guia de TV em vez de TV ao Vivo"
-
-msgctxt "#31018"
-msgid "Netflix"
-msgstr "Netflix"
-
 msgctxt "#31019"
 msgid "--- Open folderpath with music instead of library"
 msgstr "--- Abrir diretório de música em vez da biblioteca"
 
-msgctxt "#31020"
-msgid "Open folderpath with radio streams instead of PVR for Radio"
-msgstr "Abrir diretório de streams de rádio em vez de PVD de Radio"
-
-msgctxt "#31021"
-msgid "--- Display temperature in tile"
-msgstr "--- Mostrar temperatura no bloco"
-
 msgctxt "#31022"
 msgid "Background settings"
 msgstr "Ajustes do fundo"
-
-msgctxt "#31023"
-msgid "Use default skin background"
-msgstr "Usar o fundo padrão da skin"
-
-msgctxt "#31024"
-msgid "Use original Mediaportal's Titan skin background"
-msgstr "Usar o fundo padrão da skin Titan do Mediaportal"
-
-msgctxt "#31025"
-msgid "Use dynamic weather background"
-msgstr "Usar fundo dinâmico do clima"
-
-msgctxt "#31026"
-msgid "Use random fanart background"
-msgstr "Usar fanart aleatória como fundo"
-
-msgctxt "#31027"
-msgid "Use default background for this section"
-msgstr "Usar fundo padrão para esta seção"
-
-msgctxt "#31028"
-msgid "Other skin tweaks"
-msgstr "Outras configurações"
 
 msgctxt "#31029"
 msgid "Do not show footer bar"
@@ -156,65 +116,13 @@ msgctxt "#31058"
 msgid "Logo"
 msgstr "Logo"
 
-msgctxt "#31059"
-msgid "Caps"
-msgstr "Caps"
-
-msgctxt "#31060"
-msgid "Kodi SUBTITLES"
-msgstr "Legendas Kodi"
-
-msgctxt "#31061"
-msgid "Press Back or OK to exit"
-msgstr "Aperte Voltar ou OK para sair"
-
 msgctxt "#31062"
 msgid "YouTube"
 msgstr "YouTube"
 
-msgctxt "#31063"
-msgid "Toggle icon layout"
-msgstr "Trocar layout do ícone"
-
-msgctxt "#31064"
-msgid "Wide Icons"
-msgstr "Ícones Largos"
-
-msgctxt "#31065"
-msgid "Wide Icons MediaInfo"
-msgstr "Ícones Largos MediaInfo"
-
-msgctxt "#31066"
-msgid "Poster"
-msgstr "Pôster"
-
-msgctxt "#31067"
-msgid "Poster MediaInfo"
-msgstr "Pôster MediaInfo"
-
-msgctxt "#31068"
-msgid "Showcase"
-msgstr "Carrossel"
-
-msgctxt "#31069"
-msgid "Showcase MediaInfo"
-msgstr "Mostruário MediaInfo"
-
-msgctxt "#31070"
-msgid "Banner list"
-msgstr "Lista de banners"
-
 msgctxt "#31071"
 msgid "Setting level"
 msgstr "Nível de ajustes"
-
-msgctxt "#31072"
-msgid "Sort Home tiles"
-msgstr "Ordenar blocos da página inicial"
-
-msgctxt "#31073"
-msgid "Sort the home menu tiles"
-msgstr "Ordenar menus de blocos da pág. inicial"
 
 msgctxt "#31077"
 msgid "DOWN"

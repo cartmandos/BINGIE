@@ -1510,7 +1510,7 @@
 				<control type="image">
 					<visible>![String.IsEqual(Window(Home).Property(TrailerPlaying), windowed)]</visible>
 					<visible>!$EXP[IsPlayingRecognizedContent]</visible>
-					<right>0</right>
+					<right>-2</right>
 					<top>0</top>
 					<width>1688</width>
 					<height>950</height>
@@ -1760,7 +1760,7 @@
 								<left>30</left>
 								<width>270</width>
 								<height>60</height>
-								<font>Reg30</font>
+								<font>Reg28</font>
 								<textcolor>$VAR[BingieInfoDialogButtonsTextColor]</textcolor>
 								<focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
 								<texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">bingie/border/slimframefo.png</texturefocus>
@@ -1857,6 +1857,7 @@
                                 <radioheight>21</radioheight>
                                 <!-- Set InfoDialog as BaseWindow if NOT clicked via SendClick -->
                                 <onclick condition="!$EXP[IsTvShowDBTypeNoFallback]">SetProperty(BaseWindow,InfoDialog,Home)</onclick>
+								<onclick>Close</onclick>
                             </control>
 
 
@@ -1874,6 +1875,7 @@
                                 <radioheight>21</radioheight>
                                 <!-- Set InfoDialog as BaseWindow if NOT clicked via SendClick -->
                                 <onclick condition="!$EXP[IsTvShowDBTypeNoFallback]">SetProperty(BaseWindow,InfoDialog,Home)</onclick>
+								<onclick>Close</onclick>
                             </control>
 
 							<!-- Play from beginning -->
@@ -1930,7 +1932,8 @@
 							<!-- Trailer-->
                             <control type="radiobutton" id="54">
                                 <visible>Skin.HasSetting(videoinfo_button_trailer)</visible>
-                                <visible>String.IsEmpty(Window(Home).Property(TrailerPlaying)) + [!String.IsEmpty(ListItem.Trailer) | [Skin.String(AutoYoutubeTrailer,true) + [$EXP[IsTvShowDBTypeNoFallback] | String.IsEqual(ListItem.DBType,movie)]]]</visible>
+								<visible>String.IsEmpty(Window(Home).Property(TrailerPlaying))</visible>
+								<visible>!String.IsEmpty(ListItem.Trailer) | [Skin.String(AutoYoutubeTrailer,true) + [$EXP[IsTvShowDBTypeNoFallback] | $EXP[IsMovieDBTypeNoFallback] | $EXP[IsEpisodeDBTypeNoFallback]]]</visible>
                                 <include>Bingie_InfoDialog_Button_Default_Defs</include>
                                 <include content="Bingie_InfoDialog_Button_Texture">
                                     <param name="radiotexture" value="dialogs/videoinfo/tvstudio-icon.png"/>
@@ -1945,7 +1948,9 @@
                                 <onclick condition="$EXP[IsMovieDBTypeNoFallback] + !Skin.HasSetting(PreferYoutubeTrailers)">RunScript(script.skin.helper.service,ACTION=playtrailer,MODE=$INFO[Skin.String(videoinfo_traileraction)],YOUTUBE=$INFO[Skin.String(AutoYoutubeTrailer)])</onclick>
                                 <!-- tvshow local lookup doesn't work inside infodialog -->
                                 <onclick condition="$EXP[IsTvShowDBTypeNoFallback]">RunScript(script.bingie.helper,action=playtrailer,MODE=$INFO[Skin.String(videoinfo_traileraction)],title=$INFO[ListItem.Title,, $LOCALIZE[36902]],local=$INFO[Skin.String(RegionalTrailers)])</onclick>
-                                <!-- prefer youtube -->
+								<!-- episode -->
+								<onclick condition="$EXP[IsEpisodeDBTypeNoFallback]">RunScript(script.bingie.helper,action=playtrailer,MODE=$INFO[Skin.String(videoinfo_traileraction)],title=$INFO[ListItem.TVShowTitle,, $LOCALIZE[36902]],local=$INFO[Skin.String(RegionalTrailers)])</onclick>
+								<!-- prefer youtube -->
                                 <onclick condition="$EXP[IsMovieDBTypeNoFallback] + Skin.HasSetting(PreferYoutubeTrailers)">RunScript(script.bingie.helper,action=playtrailer,MODE=$INFO[Skin.String(videoinfo_traileraction)],title=$INFO[ListItem.Title],local=$INFO[Skin.String(RegionalTrailers)])</onclick>
                             </control>
 
@@ -1969,7 +1974,7 @@
 							<!-- add to my list -->
                             <control type="radiobutton" id="56">
                                 <visible>Skin.HasSetting(videoinfo_button_mylist)</visible>
-                                <visible>!String.IsEmpty(ListItem.DBID) + [$EXP[IsTvShowDBTypeNoFallback] | $EXP[IsMovieDBTypeNoFallback]]</visible>
+                                <visible>!String.IsEmpty(ListItem.DBID) + [$EXP[IsTvShowDBTypeNoFallback] | $EXP[IsMovieDBTypeNoFallback] | $EXP[IsEpisodeDBTypeNoFallback]]</visible>
 								<visible>[!String.Contains(ListItem.Tag, mylist) + String.IsEmpty(Window(Home).Property(IsInMyList))] | !String.IsEqual(Window(Home).Property(IsInMyList), ListItem.DBID)</visible>
 								<include>Bingie_InfoDialog_Button_Default_Defs</include>
                                 <include content="Bingie_InfoDialog_Button_Texture">
@@ -1985,7 +1990,7 @@
 							<!-- remove from my list -->
                             <control type="radiobutton" id="57">
                                 <visible>Skin.HasSetting(videoinfo_button_mylist)</visible>
-                                <visible>!String.IsEmpty(ListItem.DBID) + [$EXP[IsTvShowDBTypeNoFallback] | $EXP[IsMovieDBTypeNoFallback]]</visible>
+                                <visible>!String.IsEmpty(ListItem.DBID) + [$EXP[IsTvShowDBTypeNoFallback] | $EXP[IsMovieDBTypeNoFallback] | $EXP[IsEpisodeDBTypeNoFallback]]</visible>
 								<visible>[String.Contains(ListItem.Tag, mylist) + String.IsEmpty(Window(Home).Property(IsInMyList))] | String.IsEqual(Window(Home).Property(IsInMyList), ListItem.DBID)</visible>
 								<include>Bingie_InfoDialog_Button_Default_Defs</include>
                                 <include content="Bingie_InfoDialog_Button_Texture">
@@ -2606,7 +2611,7 @@
             <posx>50</posx>
             <posy>0</posy>
             <width>700</width>
-            <font>Reg24</font>
+            <font>Reg22</font>
             <align>left</align>
             <label>$PARAM[label]</label>
             <textcolor>$VAR[BingieInfoDialogDetailsTextColor]</textcolor>
@@ -2629,7 +2634,7 @@
         <height>65</height>
         <aligny>center</aligny>
         <align>left</align>
-        <font>Reg30</font>
+        <font>Reg28</font>
         <textoffsetx>50</textoffsetx>
         <textoffsety>8</textoffsety>
         <textcolor>$VAR[BingieInfoDialogButtonsTextColor]</textcolor>

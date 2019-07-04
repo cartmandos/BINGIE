@@ -9,14 +9,14 @@
 
     <!-- item sublabel - premiered for episodes / year mpaa totalepisodes (unwatched) for seasons -->
     <variable name="View525SubLabel">
-        <value condition="Container(525).Content(episodes)">$INFO[ListItem.Premiered]</value>
-        <value>$VAR[View525SeasonTotalEpisodesInfoLabel]</value>
+        <value condition="[Container(525).Content(episodes) | String.IsEqual(ListItem.DBTYPE,episode)] + !String.IsEmpty(ListItem.Premiered)">$INFO[ListItem.Premiered]</value>
+        <value condition="[Container(525).Content(episodes) | String.IsEqual(Container(525).ListItem.DBTYPE,season)]">$VAR[View525SeasonTotalEpisodesInfoLabel]</value>
     </variable>
 
     <!-- year mpaa totalepisodes (unwatched) format for seasons -->
     <variable name="View525SeasonTotalEpisodesInfoLabel">
-        <value condition="Container(525).Content(seasons) + !String.IsEmpty(ListItem.Property(TotalEpisodes)) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) + !String.IsEqual(ListItem.Property(UnWatchedEpisodes),ListItem.Property(TotalEpisodes))">$INFO[ListItem.Year,,   ]$INFO[ListItem.MPAA,,   ]$INFO[ListItem.Property(TotalEpisodes),, $LOCALIZE[20360] ]$INFO[ListItem.Property(UnWatchedEpisodes),(, $LOCALIZE[16101])]</value>
-        <value condition="Container(525).Content(seasons) + !String.IsEmpty(ListItem.Property(TotalEpisodes))">$INFO[ListItem.Year,,   ]$INFO[ListItem.MPAA,,   ]$INFO[ListItem.Property(TotalEpisodes),, $LOCALIZE[20360]]</value>
+        <value condition="!String.IsEmpty(ListItem.Property(TotalEpisodes)) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) + !String.IsEqual(ListItem.Property(UnWatchedEpisodes),ListItem.Property(TotalEpisodes))">$INFO[ListItem.Year,,   ]$INFO[ListItem.MPAA,,   ]$INFO[ListItem.Property(TotalEpisodes),, $LOCALIZE[20360] ]$INFO[ListItem.Property(UnWatchedEpisodes),(, $LOCALIZE[16101])]</value>
+        <value condition="!String.IsEmpty(ListItem.Property(TotalEpisodes))">$INFO[ListItem.Year,,   ]$INFO[ListItem.MPAA,,   ]$INFO[ListItem.Property(TotalEpisodes),, $LOCALIZE[20360]]</value>
     </variable>
 
     <!-- View 525 SxxExx format -->
@@ -46,11 +46,12 @@
         <value>$INFO[ListItem.Season,$LOCALIZE[20373] ,]</value>
     </variable>
 
-    <!-- hidden button to extract tvshowid -->
-    <include name="Hidden_TVShowID_Extractor_Button">
+    <!-- hidden button to stop trailer & extract tvshowid -->
+    <include name="View525_Hidden_Button">
         <control type="button">
             <visible allowhiddenfocus="true">false</visible>
-            <onfocus condition="Container(525).Content(episodes) + !String.IsEmpty(Container(525).ListItem.DBID)">RunScript(script.bingie.helper,action=gettvshowid,dbid=$INFO[ListItem.DBID])</onfocus>
+            <onfocus condition="$EXP[IsPlayingUnrecognizedContent]">PlayerControl(Stop)</onfocus>
+            <onfocus condition="[Container(525).Content(episodes) | String.IsEqual(Container(525).ListItem.DBTYPE,episode)] + !String.IsEmpty(Container(525).ListItem.DBID) + !String.IsEqual(Container(525).ListItem.TVShowTitle,Container(5250).ListItem.TVShowTitle)">RunScript(script.bingie.helper,action=gettvshowid,dbid=$INFO[ListItem.DBID])</onfocus>
         </control>
     </include>
 
@@ -79,7 +80,7 @@
                 <width>480</width>
                 <height>280</height>
                 <bordersize>8</bordersize>
-                <texture background="true" diffuse="diffuse/wide.png" fallback="DefaultVideo.png">$VAR[LandscapeImage]</texture>
+                <texture diffuse="diffuse/wide.png" fallback="DefaultVideo.png">$VAR[LandscapeImage]</texture>
                 <aspectratio scalediffuse="false" align="left" aligny="center">stretch</aspectratio>
             </control>
             <!-- gradient overlay -->
@@ -333,7 +334,7 @@
             <control type="image">
                 <visible>![String.IsEqual(Window(Home).Property(TrailerPlaying), windowed)]</visible>
                 <visible>!$EXP[IsPlayingRecognizedContent]</visible>
-                <right>0</right>
+                <right>-2</right>
                 <top>0</top>
                 <width>1688</width>
                 <height>950</height>
@@ -341,7 +342,6 @@
                 <aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
                 <animation effect="fade" start="80" end="20" time="150" condition="true">Conditional</animation>
             </control>
-
 
             <!-- base bg
             <control type="image">
@@ -384,7 +384,7 @@
                 <control type="textbox">
                     <visible>String.EndsWith(Control.GetLabel(887767),color_transparent.png)</visible>
                     <top>-143</top>
-                    <width max="700">auto</width>
+                    <width max="650">auto</width>
                     <height>auto</height>
                     <font>Reg48</font>
                     <align>left</align>
@@ -453,7 +453,7 @@
                     <!-- Seasons list -->
                     <control type="list" id="5250">
                         <animation effect="fade" start="100" end="0" condition="Window.IsVisible(busydialog)">Conditional</animation>
-                        <visible allowhiddenfocus="true">Container(525).Content(episodes)</visible>
+                        <visible allowhiddenfocus="true">Container(525).Content(episodes) + !String.IsEmpty(Container(525).ListItem.DBID)</visible>
                         <visible>Integer.IsGreater(Container(5250).NumItems,0) + !Container(5250).IsUpdating</visible>
                         <animation effect="fade" start="0" end="100" time="250">Visible</animation>
                         <animation effect="fade" start="100" end="55" time="150" condition="!Control.HasFocus(5250)">Conditional</animation>
@@ -463,7 +463,7 @@
                         <height>454</height>
                         <preloaditems>1</preloaditems>
                         <orientation>vertical</orientation>
-                        <onleft condition="!Skin.HasSetting(KioskMode)">9000</onleft>
+                        <onleft condition="!Skin.HasSetting(KioskMode.Enabled)">9000</onleft>
                         <onright>525</onright>
                         <onup>5250</onup>
                         <ondown>5250</ondown>
@@ -544,7 +544,7 @@
                     <onup>525</onup>
                     <ondown>525</ondown>
                     <onleft condition="Control.IsVisible(5250)">5250</onleft>
-                    <onleft condition="!Control.IsVisible(5250) + !Skin.HasSetting(KioskMode)">9000</onleft>
+                    <onleft condition="!Control.IsVisible(5250) + !Skin.HasSetting(KioskMode.Enabled)">9000</onleft>
                     <onright condition="Skin.HasSetting(EnableQuickJump)">6000</onright>
                     <onright condition="!Skin.HasSetting(EnableQuickJump)">60</onright>
                     <onback condition="!String.IsEmpty(Window(Home).Property(ListItem.TVShowID))">ClearProperty(ListItem.TVShowID,Home)</onback>
@@ -553,13 +553,13 @@
                     <focusposition>1</focusposition>
                     <viewtype label="31827">wide</viewtype>
                     <scrolltime tween="sine" easing="inout">350</scrolltime>
-                                        <itemlayout width="1050" height="280">
+                    <itemlayout width="1050" height="280">
                         <!-- panel/border -->
                         <control type="image">
                             <include condition="!Skin.HasSetting(View525_HidePanel)">View_525_Panel_No_Focus_Defs</include>
                             <height>280</height>
                             <width>480</width>
-                            <texture background="true" border="5">diffuse/wide.png</texture>
+                            <texture border="5">diffuse/wide.png</texture>
                             <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
                             <include>thumbsborder_unfocused</include>
                         </control>
@@ -571,12 +571,12 @@
                     <focusedlayout width="1050" height="280">
                         <!-- panel/border -->
                         <control type="image">
-                            <visible>Skin.HasSetting(DisableFixedBingieFrame)</visible>
+                            <visible>Skin.HasSetting(View525_DisableFixedBingieFrame)</visible>
                             <visible>Control.HasFocus(525)</visible>
                             <include condition="!Skin.HasSetting(View525_HidePanel)">View_525_Panel_Focus_Defs</include>
                             <height>280</height>
                             <width>480</width>
-                            <texture background="true" border="5">diffuse/wide.png</texture>
+                            <texture border="5">diffuse/wide.png</texture>
                             <colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
                             <include>thumbsborder_unfocused</include>
                         </control>
@@ -585,13 +585,13 @@
                         <!-- details content -->
                         <include>View_525_Details_Defs</include>
                         <!-- hidden button -->
-                        <include>Hidden_TVShowID_Extractor_Button</include>
+                        <include>View525_Hidden_Button</include>
                     </focusedlayout>
                 </control>
 
                 <!-- fixed border moving with screen -->
                 <control type="image">
-                    <visible>!Skin.HasSetting(DisableFixedBingieFrame) + Integer.IsGreater(Container(525).NumItems,0) + Control.HasFocus(525)</visible>
+                    <visible>!Skin.HasSetting(View525_DisableFixedBingieFrame) + Integer.IsGreater(Container(525).NumItems,0) + Control.HasFocus(525)</visible>
                     <top>120</top>
                     <posx>800</posx>
                     <width>480</width>
@@ -617,6 +617,6 @@
                 </control>
 
             </control>
-         </control>
+        </control>
     </include>
 </includes>

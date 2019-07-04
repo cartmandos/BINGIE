@@ -52,22 +52,8 @@
             </control>
 
             <!-- Jump Indicator -->
-            <control type="group">
-                <visible>Skin.HasSetting(UseBingieOSD)</visible>
-                <top>450</top>
-                <height>80</height>
-                <align>center</align>
-                <include content="JumpIndicator">
-                    <param name="visibility" value="!String.Contains(Player.SeekStepSize,-)" />
-                    <param name="centerleft" value="75%" />
-                    <param name="image" value="osd/forward_jump.png" />
-                </include>
-                <include content="JumpIndicator">
-                    <param name="visibility" value="String.Contains(Player.SeekStepSize,-)" />
-                    <param name="centerleft" value="25%" />
-                    <param name="image" value="osd/rewind_jump.png" />
-                </include>
-            </control>
+            <include condition="!Skin.HasSetting(UseMidscreenJumpIndicator) + Skin.HasSetting(UseBingieOSD) + !Skin.HasSetting(DisableJumpIndicator)">JumpIndicatorMinimal</include>
+            <include condition="Skin.HasSetting(UseMidscreenJumpIndicator) + Skin.HasSetting(UseBingieOSD) + !Skin.HasSetting(DisableJumpIndicator)">JumpIndicatorMidscreen</include>
 
             <!-- large forward and rewind labels -->
             <control type="label">

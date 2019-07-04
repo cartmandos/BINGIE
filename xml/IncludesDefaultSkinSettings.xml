@@ -84,7 +84,6 @@
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(EnableFixedFrameWidgets)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(ShowInformationBypass)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(PreferTvShowThumbWidget)</onload>
-        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(HideRowDetailsEpisodes)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(EnableMonochromeRatingInBingieViews)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(BingieViewsDisableRating)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(DisableMediaCodecInfoInHome)</onload>

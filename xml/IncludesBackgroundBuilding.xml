@@ -44,6 +44,18 @@
         </control>
     </include>
 
+    <include name="Dim_Overlay">
+        <control type="group">
+            <control type="image">
+                <include>FullscreenDimensions</include>
+                <visible>$PARAM[visibility]</visible>
+                <texture>diffuse/background.png</texture>
+                <colordiffuse>73000000</colordiffuse>
+                <animation time="300" effect="fade" start="0" end="100" reversible="true" easing="inout">Visible</animation>
+            </control>
+        </control>
+    </include>
+
     <include name="fanartSpeed5">
         <timeperimage>5000</timeperimage>
     </include>
@@ -97,7 +109,7 @@
         </control>
         <!-- global background -->
         <control type="multiimage" id="99004">
-            <include condition="!String.IsEqual(Skin.String(HomeLayout),bingie)">HiddenObject</include>
+            <include condition="String.IsEqual(Skin.String(HomeLayout),bingie)">HiddenObject</include>
             <include>FullscreenDimensions</include>
             <imagepath background="true" fallback="colors/color_black.png">$VAR[backgroundVar]</imagepath>
             <aspectratio>scale</aspectratio>
@@ -106,8 +118,7 @@
             <include condition="Skin.HasSetting(RandomizeBackground)">randomizeImages</include>
             <include>fanartSpeed</include>
             <loop>yes</loop>
-            <animation effect="zoom" start="110" end="130" center="auto" time="12000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
-            <animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
+            <include condition="Skin.HasSetting(BackgroundAnimation)">BackgroundAnimation</include>
         </control>
         <!-- fanart image background (hidden with visibility conditions)-->
         <control type="image" id="99006">
@@ -116,7 +127,7 @@
             <width>1</width>
             <height>1</height>
             <texture background="true">$VAR[fanartBackground]</texture>
-            <visible>Skin.HasSetting(ShowFanartBackground) | !String.IsEmpty(Window(Home).Property(bingieviews)) | Control.IsVisible(523)</visible>
+            <visible>Skin.HasSetting(ShowFanartBackground) | !String.IsEmpty(Window(Home).Property(bingieviews)) | Control.IsVisible(523) | Control.IsVisible(526)</visible>
             <include condition="Window.IsMedia">disabledFanart</include>
         </control>
         <!-- hidden container for categories fanart -->
@@ -207,8 +218,7 @@
             ![Control.IsVisible(519) + Skin.HasSetting(View519_DisableFanArt)] + 
             ![Window.IsMedia + Control.IsVisible(520) + Skin.HasSetting(View520_DisableFanArt)] + 
             ![Control.IsVisible(521) + Skin.HasSetting(View521_DisableFanArt)] + 
-            ![Control.IsVisible(522) + Skin.HasSetting(View522_DisableFanArt)] + 
-            ![Control.IsVisible(523) + Skin.HasSetting(View523_DisableFanArt)] +
+            ![Control.IsVisible(522) + Skin.HasSetting(View522_DisableFanArt)] +
             ![Control.IsVisible(524) + Skin.HasSetting(View524_DisableFanArt)] +
             ![Control.IsVisible(525) + Skin.HasSetting(View525_DisableFanArt)]
         </visible>
@@ -252,7 +262,8 @@
             ![Control.IsVisible(522) + Skin.HasSetting(View522_DisableExtraFanArt)] + 
             ![Control.IsVisible(523) + Skin.HasSetting(View523_DisableExtraFanArt)] + 
             ![Control.IsVisible(524) + Skin.HasSetting(View524_DisableExtraFanArt)] +
-            ![Control.IsVisible(525) + Skin.HasSetting(View525_DisableExtraFanArt)]
+            ![Control.IsVisible(525) + Skin.HasSetting(View525_DisableExtraFanArt)] +
+            ![Control.IsVisible(526) + Skin.HasSetting(View526_DisableExtraFanArt)]
         </visible>
     </include>
 
@@ -266,8 +277,8 @@
     </variable>
 
     <variable name="ItemArtContentRandomizer">
-        <value condition="!String.IsEmpty(ListItem.Property(Path2)) + Integer.IsGreater(Window(Home).Property(Random),30)">$INFO[ListItem.Property(Path2)]</value>
-        <value>$INFO[ListItem.Property(Path)]</value>
+        <value condition="!String.IsEmpty(ListItem.Property(path2)) + Integer.IsGreater(Window(Home).Property(Random),30)">$INFO[ListItem.Property(path2)]</value>
+        <value>$INFO[ListItem.Property(path)]</value>
     </variable>
 
     <variable name="fanartBackground">
@@ -279,8 +290,8 @@
         <value condition="Container.Content(Genres) + String.Contains(Skin.String(moviegenrefanart.path),script.skin.helper) + !String.IsEmpty(ListItem.label) + !String.IsEqual(ListItem.label,..)">http://localhost:52307/getmoviegenreimagesrandom&amp;title=$INFO[Listitem.Label]&amp;type=fanart.0</value>
         <value condition="Container.Content(Genres) + Skin.String(moviegenrefanart.path) + !String.IsEmpty(ListItem.label) + !String.IsEqual(ListItem.label,..)">$INFO[Skin.String(moviegenrefanartpath)]/$INFO[ListItem.Label].jpg</value>
         <!-- categories fanart -->
-        <value condition="String.IsEqual(ListItem.Property(DBTYPE),category)">$VAR[CategoriesRandomArt]</value>
         <value condition="String.IsEmpty(ListItem.DBType) + String.IsEqual(ListItem.Property(DBTYPE),categorie)">$VAR[CategoriesFanart]</value>
+        <value condition="$EXP[IsCategoryDBType]">$VAR[CategoriesRandomArt]</value>
         <!-- season fanart -->
         <value condition="!String.IsEmpty(ListItem.Art(season.fanart)) + [Container.Content(episodes) | String.IsEqual(ListItem.DBTYPE,episode)]">$INFO[ListItem.Art(season.fanart)]</value>
         <!-- normal fanart backgrounds -->

@@ -235,7 +235,9 @@
                         <right>0</right>
                         <width>1160</width>
                         <include>SlimListLayoutFocus</include>
-                        <include>AutoTrailerButton</include>
+						<include content="LibraryAutoTrailerButton" condition="Skin.HasSetting(DetailsAutoTrailer)">
+							<param name="interval" value="$INFO[Skin.String(details_auto_trailer_interval)]" />
+						</include>
                     </control>
 				</focusedlayout>
                          <itemlayout width="1280" height="60" condition="!Skin.HasSetting(SlimListViewShowInfo)">		

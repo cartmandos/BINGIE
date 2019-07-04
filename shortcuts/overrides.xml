@@ -17,6 +17,7 @@
 			<shortcut label="31865" grouping="32029" icon="resource://resource.images.skinicons.wide/clapperboard.png" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">ActivateWindow(1111,return)</shortcut>
 			<shortcut label="31866" grouping="32029" icon="resource://resource.images.skinicons.wide/new.png" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">ActivateWindow(1112,return)</shortcut>
 			<shortcut label="31867" grouping="32029" icon="resource://resource.images.skinicons.wide/mylist.png" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">ActivateWindow(1114,return)</shortcut>
+			<!--<shortcut label="19020" grouping="32029" icon="resource://resource.images.skinicons.wide/antenna.png" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">ActivateWindow(1116,return)</shortcut>-->
 			<shortcut label="31252" grouping="32029" icon="resource://resource.images.skinicons.wide/widget.png" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">ActivateWindow(1113,return)</shortcut>
 			<shortcut label="31383" grouping="32029" icon="resource://resource.images.skinicons.wide/widget.png" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">ActivateWindow(1115,return)</shortcut>
 			<shortcut label="2" grouping="32029" icon="resource://resource.images.skinicons.wide/music_6.png" thumb="$INFO[Window(Home).Property(SkinHelper.AllMusicBackground)]" condition="Library.HasContent(music)">ActivateWindow(Music,musicdb://albums/,return)</shortcut>
@@ -246,13 +247,11 @@
 	<!-- widgets -->
 	<widget label="31531" type="32010" condition="Window.IsActive(script-skinshortcuts.xml)">||BROWSE||script.skin.helper.service/?action=smartshortcuts</widget>
     <widget label="$INFO[System.AddonTitle(plugin.service.gto)]" name="$INFO[System.AddonTitle(plugin.service.gto)]" condition="System.HasAddon(plugin.service.gto)" type="pvr" target="pvr" path="plugin://plugin.service.gto?action=getcontent&amp;ts=$INFO[Window(Home).Property(GTO.timestamp)]">gto</widget>
-	<widget label="$LOCALIZE[31025]" name="$LOCALIZE[31025]" type="video" target="videos" path="$INCLUDE[CategoriesWidget]">categories</widget>
+	<widget label="$LOCALIZE[31025]" name="$LOCALIZE[31025]" type="static" target="static" path="$INCLUDE[CategoriesWidget]">categories</widget>
 	<widget label="$LOCALIZE[31534]" name="$LOCALIZE[31534]" type="video" target="videos" path="$INCLUDE[MyListWidget]">mylist</widget>
 
 	<!-- default widgets -->
-	<widgetdefaultnode defaultID="movies" group="mainmenu" label="$LOCALIZE[31102]" type="movies" path="special://skin/extras/widgetplaylists/randommovies.xsp" target="videos">randommovies</widgetdefaultnode>
-	<widgetdefaultnode defaultID="tvshows" group="mainmenu" label="$LOCALIZE[31036]" type="tvshows" path="special://skin/extras/widgetplaylists/randomtvshows.xsp" target="videos">randomshows</widgetdefaultnode>
-	<widgetdefaultnode defaultID="musicvideos" group="mainmenu" label="$LOCALIZE[20390]" type="musicvideos" path="plugin://script.skin.helper.widgets/?action=recent&amp;mediatype=musicvideos&amp;reload=$INFO[Window(Home).Property(widgetreload-musicvideos)]" target="videos">recentmusicvideos</widgetdefaultnode>
+	<widgetdefaultnode defaultID="musicvideos" group="mainmenu" label="$LOCALIZE[20390]" type="musicvideos" path="videodb://recentlyaddedmusicvideos/" target="videos">recentmusicvideos</widgetdefaultnode>
 	<widgetdefaultnode defaultID="weather" group="mainmenu" label="$LOCALIZE[8]" type="static" path="$INCLUDE[WeatherWidget]" target="static">weather</widgetdefaultnode>
 
     <!-- home widgets -->
@@ -299,8 +298,8 @@
 	<propertydefault defaultID="10000" property="widgetName.6">$LOCALIZE[31534]</propertydefault>
 
 	<propertydefault defaultID="10000" property="widget.7">categories</propertydefault>
-	<propertydefault defaultID="10000" property="widgetTarget.7">videos</propertydefault>
-	<propertydefault defaultID="10000" property="widgetType.7">video</propertydefault>
+	<propertydefault defaultID="10000" property="widgetTarget.7">static</propertydefault>
+	<propertydefault defaultID="10000" property="widgetType.7">static</propertydefault>
 	<propertydefault defaultID="10000" property="widgetPath.7">$INCLUDE[CategoriesWidget]</propertydefault>
 	<propertydefault defaultID="10000" property="widgetName.7">$LOCALIZE[31025]</propertydefault>
     
@@ -361,6 +360,10 @@
 		<condition>!String.IsEqual(Skin.String(HomeLayout),bingie)</condition>
 		<action>ReplaceWindow(Videos,videodb://movies/titles/)</action>
 	</override>
+	<!--<override action="ActivateWindow(1116,return)" group="mainmenu">
+		<condition>!String.IsEqual(Skin.String(HomeLayout),bingie)</condition>
+		<action>ReplaceWindow(TVChannels)</action>
+	</override>-->
 
 	<!-- Search Enging Toggle -->
 	<override action="ActivateWindow(1109,return)" group="mainmenu">

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- BINGIE -->
-<window type="dialog" id="1162">
-    <visible>!String.IsEmpty(Window(Home).Property(ResetPositions))</visible>
-    <onload>ClearProperty(ResetPositions,home)</onload>
-    <onunload condition="$EXP[IsBingieViewsVisible]">RunScript(script.embuary.helper,action=resetposition,container=1510||1520||1530||1540||1550||1560||1570||1580||2510||2520||2530||2540||2550||2560||2570||2580||3510||3520||3530||3540||3550||3560||3570||3580)</onunload>
-    <controls/>
-</window>

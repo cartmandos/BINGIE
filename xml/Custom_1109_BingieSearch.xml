@@ -343,6 +343,10 @@
             </include>
         </control>
 
+        <include content="Dim_Overlay">
+            <param name="visibility" value="$EXP[IsMainMenuOpened]" />
+        </include>
+
         <!-- Loading Suggestions -->
         <include content="Busy_Spinner">
             <param name="centerleft" value="65%"/>

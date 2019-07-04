@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- BINGIE -->
 <window id="1116">
-    <defaultcontrol always="true">523</defaultcontrol>
+    <defaultcontrol always="true">77777</defaultcontrol>
+    <menucontrol>900</menucontrol>
     <include>CustomBingieWinProps</include>
     <include>BingieViews_WindowOpen_Fade</include>
     <controls>
@@ -10,11 +11,14 @@
             <visible allowhiddenfocus="true">false</visible>
             <onfocus>FullScreen</onfocus>
         </control>
+
         <include>GlobalBackground</include>
         <!--NowPlaying-->
         <include>NowPlayingBackground</include>
         <include>NowPlayingInfoBar</include>
-        <include>View_523_Bingie_Main</include>
+        <!-- hidden submenu for count calculations -->
+        <include condition="!Skin.HasSetting(DisableAllSubmenus)">hiddenSubmenu</include>
+        <include>HomeBingie</include>
         <include condition="Skin.HasSetting(DebugGrid) | Skin.HasSetting(DebugInfo)">DebugInfo</include>
     </controls>
 </window>

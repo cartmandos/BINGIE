@@ -56,10 +56,6 @@ msgctxt "#31022"
 msgid "Background settings"
 msgstr "إعدادات الخلقية"
 
-msgctxt "#31023"
-msgid "Use default skin background"
-msgstr "إستخدم  الخلفية الإفتراضية للمظهر"
-
 msgctxt "#31048"
 msgid "Latest Movies"
 msgstr "أحدث الأفلام"

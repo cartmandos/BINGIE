@@ -40,11 +40,11 @@
 
     <include name="animation_window_open_close">
         <!--Fade Open/Close normal-->
-        <animation type="WindowOpen" reversible="false" condition="!Skin.HasSetting(LowPerformanceMode) + ![Control.IsVisible(525) | Control.IsVisible(523)]">
+        <animation type="WindowOpen" reversible="false" condition="!Skin.HasSetting(LowPerformanceMode) + ![Control.IsVisible(525) | Control.IsVisible(523) | Control.IsVisible(526)]">
             <effect type="zoom" start="80" end="100" center="960,540" easing="out" tween="back" time="200"/>
             <effect type="fade" start="0" end="100" time="200"/>
         </animation>
-        <animation type="WindowClose" reversible="false" condition="!Skin.HasSetting(LowPerformanceMode) + ![Control.IsVisible(525) | Control.IsVisible(523)]">
+        <animation type="WindowClose" reversible="false" condition="!Skin.HasSetting(LowPerformanceMode) + ![Control.IsVisible(525) | Control.IsVisible(523) | Control.IsVisible(526)]">
             <effect type="zoom" start="100" end="80" center="960,540" easing="in" tween="back" time="200"/>
             <effect type="fade" start="100" end="0" time="200"/>
         </animation>
@@ -64,6 +64,55 @@
         <animation type="WindowOpen" reversible="false" condition="!Skin.HasSetting(LowPerformanceMode)">
             <effect type="slide" start="200" end="0" easing="out" tween="sine" time="250"/>
             <effect type="fade" start="0" end="100" time="300"/>
+        </animation>
+    </include>
+
+    <!-- Background Animation -->
+    <include name="BackgroundAnimation">
+        <animation effect="zoom" start="110" end="130" center="auto" time="12000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
+        <animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
+    </include>
+
+    <!-- Menu Animations -->
+    <include name="Circular_Menu_Animations">
+        <animation type="Conditional" condition="$EXP[IsMainMenuOpened]">
+            <effect type="slide" start="0" end="640" time="325" delay="0" tween="cubic" easing="inout" />
+            <effect type="fade" start="0" end="100" time="325" delay="0" tween="cubic" easing="inout" />
+        </animation>
+    </include>
+    <include name="No_Circular_Menu_Animations">
+        <animation effect="slide" start="0" end="285" time="325" delay="0" tween="cubic" easing="inout" condition="$EXP[IsMainMenuOpened] + [[$EXP[IsBingieListsActive] | Window.IsActive(1109)] | [[Window.IsActive(Home) | $EXP[IsBingieHubsActive]] + [!String.IsEmpty(Window(Home).Property(LastFocusWidgetPos)) + String.IsEqual(Window(Home).Property(LastFocusWidgetPos), 1)] | String.IsEmpty(Window(Home).Property(LastFocusWidgetPos))]]">Conditional</animation>
+        <animation effect="slide" start="0" end="385" time="325" delay="0" tween="cubic" easing="inout" condition="$EXP[IsMainMenuOpened] + [Window.IsActive(Home) | $EXP[IsBingieHubsActive]] + !String.IsEmpty(Window(Home).Property(LastFocusWidgetPos)) + !String.IsEqual(Window(Home).Property(LastFocusWidgetPos), 1)">Conditional</animation>
+        <animation effect="slide" start="0" end="-100" time="200" delay="0" tween="sine" easing="inout" condition="[Window.IsActive(Home) | $EXP[IsBingieHubsActive]] + !String.IsEmpty(Window(Home).Property(LastFocusWidgetPos)) + !String.IsEqual(Window(Home).Property(LastFocusWidgetPos), 1)">Conditional</animation>
+    </include>
+    <include name="KeepMenuIndicatorVisible">
+        <animation effect="slide" start="0" end="100" delay="300" reversible="false" condition="[Window.IsActive(Home) | $EXP[IsBingieHubsActive]] + !String.IsEmpty(Window(Home).Property(LastFocusWidgetPos)) + !String.IsEqual(Window(Home).Property(LastFocusWidgetPos), 1)">Conditional</animation>
+    </include>
+
+    <!-- Trailer Window Animation -->
+    <include name="Bingie_Trailer_Window_Overlay_Anim">
+        <animation type="Visible">
+            <effect type="fade" start="100" end="100" time="600"/>
+            <effect type="fade" start="100" end="0" time="1200" delay="800"/>
+        </animation>
+    </include>
+    <include name="Bingie_Trailer_Fullscreen_Overlay_Anim">
+        <animation effect="fade" start="100" end="0" delay="0" time="3000">Visible</animation>
+        <animation effect="fade" start="50" end="0" delay="0" time="1500">Hidden</animation>
+    </include>
+
+    <!-- Title Animations -->
+    <include name="Bingie_Home_Clearlogo_Anim">
+        <animation effect="slide" start="0" end="0,137" time="0" condition="$EXP[IsCurrentWidgetSpotlight]">Conditional</animation>
+    </include>
+    <include name="Bingie_Home_TextTitle_Anim">
+        <animation effect="fade" time="200">Visible</animation>
+        <animation effect="slide" start="0" end="0,155" time="0" condition="$EXP[IsCurrentWidgetSpotlight]">Conditional</animation>
+    </include>
+    <include name="Bingie_TextTitle_Adjust_Genre_Anim">
+        <animation type="Conditional" condition="[Container.Content(genres) | String.IsEqual(ListItem.DBTYPE,genre)] | $EXP[IsCategoryDBType]">
+            <effect type="slide" start="0,0" end="0,170" time="0"/>
+            <effect type="zoom" end="130" time="0"/>
         </animation>
     </include>
 
@@ -129,6 +178,13 @@
         </animation>
     </include>
 
+    <include name="Bottom_OSD_Button_Zoom_Anim">
+        <animation effect="zoom" start="100" end="150" center="auto">Focus</animation>
+    </include>
+    <include name="Top_OSD_Button_Zoom_Anim">
+        <animation effect="zoom" start="100" end="125" center="auto">Focus</animation>
+    </include>
+
     <!-- unfocused widget fade on bingie layout -->
     <include name="BingieUnfocusedWidgetFade">
         <animation effect="fade" start="100" end="55" time="100" condition="!Control.HasFocus($PARAM[widgetid]) + !Control.HasFocus(1508)">Conditional</animation>
@@ -141,11 +197,6 @@
     <!-- hide on info-dialog transition / startup-mask -->
     <include name="Hide_Window_Anim">
         <animation time="0" effect="fade" start="100" end="0" condition="System.HasAlarm(loadinfo) | System.HasAlarm(startup)">Conditional</animation>
-    </include>
-
-    <!-- dim on menu animation -->
-    <include name="Dim_On_Menu_Animation">
-        <animation time="300" effect="fade" start="100" end="20" reversible="true" easing="inout" condition="$EXP[IsMainMenuOpened]">Conditional</animation>
     </include>
 
     <include name="No_Circular_Slide_Animation">
@@ -275,15 +326,6 @@
         <animation effect="slide" delay="0" start="0" end="0,-370" time="0" condition="[[[String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + !Skin.HasSetting(LowerWidgets)] | [String.IsEqual(Skin.String(HomeLayout),2) | String.IsEqual(Skin.String(HomeLayout),2small)]] + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,-260" time="0" condition="!String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
         <animation effect="slide" delay="0" start="0" end="0,-140" time="0" condition="String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-    </include>
-
-    <include name="widget_layout_landscapewidebox_animation">
-        <animation effect="slide" delay="0" start="0" end="0,-70" time="200" condition="!String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,50" time="200" condition="String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-170" time="200" condition="String.Contains(Skin.String(HomeLayout),simplehor) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-370" time="200" condition="[[[String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + !Skin.HasSetting(LowerWidgets)] | [String.IsEqual(Skin.String(HomeLayout),2) | String.IsEqual(Skin.String(HomeLayout),2small)]] + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-300" time="200" condition="!String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-180" time="200" condition="String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
     </include>
 
     <include name="widget_layout_widebox_animation">

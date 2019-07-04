@@ -51,7 +51,9 @@
                             <include>thumbsborder_focused</include>
                         </control>
                         <include>BannerLayout</include>
-                        <include>AutoTrailerButton</include>
+                        <include content="LibraryAutoTrailerButton" condition="Skin.HasSetting(DetailsAutoTrailer)">
+                            <param name="interval" value="$INFO[Skin.String(details_auto_trailer_interval)]" />
+                        </include>
 					</control>
                 </focusedlayout>
                 <itemlayout height="246" width="1190" condition="Skin.HasSetting(View55_LargeBanners)">
@@ -78,7 +80,9 @@
                             <include>thumbsborder_focused</include>
                         </control>
                         <include>BannerLayout</include>
-                        <include>AutoTrailerButton</include>
+                        <include content="LibraryAutoTrailerButton" condition="Skin.HasSetting(DetailsAutoTrailer)">
+                            <param name="interval" value="$INFO[Skin.String(details_auto_trailer_interval)]" />
+                        </include>
 					</control>
                 </focusedlayout>
      			</control>

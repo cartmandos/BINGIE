@@ -56,53 +56,13 @@ msgctxt "#31016"
 msgid "--- Use own image for tile"
 msgstr "--- Gebruik eigen afbeelding voor tegel"
 
-msgctxt "#31017"
-msgid "--- Open TV Guide instead of Live TV"
-msgstr "--- Open TVgids in plaats van Live TV"
-
-msgctxt "#31018"
-msgid "Netflix"
-msgstr "Netflix"
-
 msgctxt "#31019"
 msgid "--- Open folderpath with music instead of library"
 msgstr "--- Gebruik bestandsmap met muziek in plaats van bibliotheek"
 
-msgctxt "#31020"
-msgid "Open folderpath with radio streams instead of PVR for Radio"
-msgstr "Gebruik bestandsmap met radiostreams in plaats van PVR voor Radio"
-
-msgctxt "#31021"
-msgid "--- Display temperature in tile"
-msgstr "--- Temperatuur weergeven in de tegel"
-
 msgctxt "#31022"
 msgid "Background settings"
 msgstr "Achtergrond instellen"
-
-msgctxt "#31023"
-msgid "Use default skin background"
-msgstr "Gebruik de standaardachtergrond van de skin"
-
-msgctxt "#31024"
-msgid "Use original Mediaportal's Titan skin background"
-msgstr "Gebruik originele Mediaportal achtergrond"
-
-msgctxt "#31025"
-msgid "Use dynamic weather background"
-msgstr "Gebruik een dynamische weerachtergrond"
-
-msgctxt "#31026"
-msgid "Use random fanart background"
-msgstr "Gebruik willekeurige fanartafbeeldingen voor achtergrond"
-
-msgctxt "#31027"
-msgid "Use default background for this section"
-msgstr "Gebruik standaardachtergrond voor deze sectie"
-
-msgctxt "#31028"
-msgid "Other skin tweaks"
-msgstr "Overige skin aanpassingen"
 
 msgctxt "#31029"
 msgid "Do not show footer bar"
@@ -168,69 +128,13 @@ msgctxt "#31058"
 msgid "Logo"
 msgstr "Logo"
 
-msgctxt "#31059"
-msgid "Caps"
-msgstr "Caps"
-
-msgctxt "#31060"
-msgid "Kodi SUBTITLES"
-msgstr "Kodi ONDERTITELS"
-
-msgctxt "#31061"
-msgid "Press Back or OK to exit"
-msgstr "Druk OK of Terug om te sluiten"
-
 msgctxt "#31062"
 msgid "YouTube"
 msgstr "YouTube"
 
-msgctxt "#31063"
-msgid "Toggle icon layout"
-msgstr "Wissel icoon indeling"
-
-msgctxt "#31064"
-msgid "Wide Icons"
-msgstr "Grote iconen"
-
-msgctxt "#31065"
-msgid "Wide Icons MediaInfo"
-msgstr "Grote iconen met info"
-
-msgctxt "#31066"
-msgid "Poster"
-msgstr "Posters"
-
-msgctxt "#31067"
-msgid "Poster MediaInfo"
-msgstr "Posters met info"
-
-msgctxt "#31068"
-msgid "Showcase"
-msgstr "Hoesjes"
-
-msgctxt "#31069"
-msgid "Showcase MediaInfo"
-msgstr "Hoesjes met info"
-
-msgctxt "#31070"
-msgid "Banner list"
-msgstr "Bannerlijst"
-
 msgctxt "#31071"
 msgid "Setting level"
 msgstr "Instellingenniveau"
-
-msgctxt "#31072"
-msgid "Sort Home tiles"
-msgstr "Sorteer Home-tegels"
-
-msgctxt "#31073"
-msgid "Sort the home menu tiles"
-msgstr "De hoofdmenu-iconen sorteren"
-
-msgctxt "#31074"
-msgid "Arrange the homescreen tiles just the way you want it. [CR]Usage select a direction below and click on the tile's title (in the list on the right) to move it's position. [CR]Because settings are applied on the fly the screen may blink for one second."
-msgstr "Schik de tegels op het startscherm op de manier waarop u het wilt. [CR] Gebruik: selecteer een richting hieronder in en klik op de tegels titel (in de lijst rechts) om te verplaatsen naar haar positie. [CR] Omdat instellingen worden direct worden toegepast kan het scherm  één seconde knipperen."
 
 msgctxt "#31077"
 msgid "DOWN"

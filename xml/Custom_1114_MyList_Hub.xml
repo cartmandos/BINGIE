@@ -19,7 +19,7 @@
         <!-- hidden submenu for count calculations -->
         <include condition="!Skin.HasSetting(DisableAllSubmenus)">hiddenSubmenu</include>
         <include>HomeBingie</include>
-        <!-- Loading Suggestions -->
+        <!-- Loading Spinner -->
         <include content="Busy_Spinner">
             <param name="centerleft" value="50%"/>
             <param name="centertop" value="50%"/>

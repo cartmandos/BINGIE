@@ -56,53 +56,13 @@ msgctxt "#31016"
 msgid "--- Use own image for tile"
 msgstr "--- Döşeme için kendi imgenizi kullanın."
 
-msgctxt "#31017"
-msgid "--- Open TV Guide instead of Live TV"
-msgstr "--- Televizyon yayını yerine Open TV rehberi"
-
-msgctxt "#31018"
-msgid "Netflix"
-msgstr "Netflix"
-
 msgctxt "#31019"
 msgid "--- Open folderpath with music instead of library"
 msgstr "--- Müzik için kitaplık yerine dosya yolu aç"
 
-msgctxt "#31020"
-msgid "Open folderpath with radio streams instead of PVR for Radio"
-msgstr "Radio için PVR yerine radyo akışı ile dosya yolu aç."
-
-msgctxt "#31021"
-msgid "--- Display temperature in tile"
-msgstr "--- Döşemede sıcaklığı göster."
-
 msgctxt "#31022"
 msgid "Background settings"
 msgstr "Arka plan ayarları"
-
-msgctxt "#31023"
-msgid "Use default skin background"
-msgstr "Varsayılan dış görünüm arka planı kullan"
-
-msgctxt "#31024"
-msgid "Use original Mediaportal's Titan skin background"
-msgstr "Mediaportal'ın orijinal dış görünüm arka planını kullanın."
-
-msgctxt "#31025"
-msgid "Use dynamic weather background"
-msgstr "Dinamik hava durumu arka planı kullanın."
-
-msgctxt "#31026"
-msgid "Use random fanart background"
-msgstr "Rastgele fanart arka planı kullanın."
-
-msgctxt "#31027"
-msgid "Use default background for this section"
-msgstr "Bu bölüm için varsayılan arka plan kullanın"
-
-msgctxt "#31028"
-msgid "Other skin tweaks"
-msgstr "Diğer dış görünüm ayarları"
 
 msgctxt "#31029"
 msgid "Do not show footer bar"
@@ -168,65 +128,13 @@ msgctxt "#31058"
 msgid "Logo"
 msgstr "Logo"
 
-msgctxt "#31059"
-msgid "Caps"
-msgstr "Büyük harfler"
-
-msgctxt "#31060"
-msgid "Kodi SUBTITLES"
-msgstr "Kodi ALTYAZILARI"
-
-msgctxt "#31061"
-msgid "Press Back or OK to exit"
-msgstr "Çıkış için geri veya Tamam'a basın"
-
 msgctxt "#31062"
 msgid "YouTube"
 msgstr "YouTube"
 
-msgctxt "#31063"
-msgid "Toggle icon layout"
-msgstr "Simge ekran düzenini değiştirin"
-
-msgctxt "#31064"
-msgid "Wide Icons"
-msgstr "Geniş simgeler"
-
-msgctxt "#31065"
-msgid "Wide Icons MediaInfo"
-msgstr "Geniş simgeler medya bilgisi"
-
-msgctxt "#31066"
-msgid "Poster"
-msgstr "Poster"
-
-msgctxt "#31067"
-msgid "Poster MediaInfo"
-msgstr "Poster medya bilgisi"
-
-msgctxt "#31068"
-msgid "Showcase"
-msgstr "Vitrin"
-
-msgctxt "#31069"
-msgid "Showcase MediaInfo"
-msgstr "Sunum medya bilgisi"
-
-msgctxt "#31070"
-msgid "Banner list"
-msgstr "Afiş listesi"
-
 msgctxt "#31071"
 msgid "Setting level"
 msgstr "Ayar düzeyi"
-
-msgctxt "#31072"
-msgid "Sort Home tiles"
-msgstr "Ana Ekran döşemelerini sırala"
-
-msgctxt "#31073"
-msgid "Sort the home menu tiles"
-msgstr "Ana menü döşemelerini sırala"
 
 msgctxt "#31077"
 msgid "DOWN"

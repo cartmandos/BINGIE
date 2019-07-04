@@ -56,14 +56,6 @@ msgctxt "#31016"
 msgid "--- Use own image for tile"
 msgstr "--- Saját csempekép használata"
 
-msgctxt "#31017"
-msgid "--- Open TV Guide instead of Live TV"
-msgstr "--- TV műsorújság megnyitása élő TV helyett"
-
-msgctxt "#31018"
-msgid "Netflix"
-msgstr "Netflix"
-
 msgctxt "#31021"
 msgid "--- Display temperature in tile"
 msgstr "--- Hőmérséklet megjelenítése csempében"
@@ -71,30 +63,6 @@ msgstr "--- Hőmérséklet megjelenítése csempében"
 msgctxt "#31022"
 msgid "Background settings"
 msgstr "Háttér beállítások"
-
-msgctxt "#31023"
-msgid "Use default skin background"
-msgstr "Alapértelmezett felületháttér használata"
-
-msgctxt "#31024"
-msgid "Use original Mediaportal's Titan skin background"
-msgstr "Eredeti MediaPortal Titan felszín háttér használata"
-
-msgctxt "#31025"
-msgid "Use dynamic weather background"
-msgstr "Dinamikus időjárás háttér használata"
-
-msgctxt "#31026"
-msgid "Use random fanart background"
-msgstr "Véletlenszerű fanart háttér használata"
-
-msgctxt "#31027"
-msgid "Use default background for this section"
-msgstr "Alapértelmezett háttér használata ehhez a szakaszhoz"
-
-msgctxt "#31028"
-msgid "Other skin tweaks"
-msgstr "Egyéb felszín trükkök"
 
 msgctxt "#31029"
 msgid "Do not show footer bar"
@@ -171,14 +139,6 @@ msgstr "Vissza vagy OK a kilépéshez"
 msgctxt "#31062"
 msgid "YouTube"
 msgstr "Youtube"
-
-msgctxt "#31063"
-msgid "Toggle icon layout"
-msgstr "Ikonelrendezés átkapcsolása"
-
-msgctxt "#31064"
-msgid "Wide Icons"
-msgstr "Széles ikonok"
 
 msgctxt "#31066"
 msgid "Poster"

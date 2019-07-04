@@ -577,14 +577,14 @@
             <onclick condition="Skin.HasSetting(EnableFixedFrameWidgets)">Skin.Reset(EnableFixedFrameWidgets)</onclick>
             <visible>!Skin.HasSetting(DisableAllWidgets) + !String.IsEqual(Skin.String(HomeLayout),3) + !String.IsEqual(Skin.String(HomeLayout),3small) + !String.IsEqual(Skin.String(HomeLayout),enhanced) + !String.IsEqual(Skin.String(HomeLayout),win10)</visible>
         </control>
-        <!-- Enable highlight widget
-        <control type="radiobutton" id="28640">
+        <!-- Enable highlight widget -->
+        <!-- <control type="radiobutton" id="28640">
             <include>SkinSettings_Button</include>
             <label>Set 4th widget to have highlight layout</label>
             <onclick>Skin.ToggleSetting(EnableHighlightWidget)</onclick>
             <selected>Skin.HasSetting(EnableHighlightWidget)</selected>
             <visible>Skin.HasSetting(EnableFixedFocusWidgets) + String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
-        </control>-->
+        </control> -->
         <!-- Enable fixed focus for widgets -->
         <control type="radiobutton" id="28638">
             <include>SkinSettings_Button</include>
@@ -740,7 +740,7 @@
             <label>31763</label>
             <onclick>Skin.ToggleSetting(WidgetsZoomFocus)</onclick>
             <selected>Skin.HasSetting(WidgetsZoomFocus)</selected>
-            <visible>!Skin.HasSetting(EnableFixedFrameWidgets) + !Skin.HasSetting(DisableAllWidgets) + !String.IsEqual(Skin.String(HomeLayout),3) + !String.IsEqual(Skin.String(HomeLayout),enhanced) + !String.IsEqual(Skin.String(HomeLayout),win10)</visible>
+            <visible>!Skin.HasSetting(EnableFixedFrameWidgets) + !String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(DisableAllWidgets) + !String.IsEqual(Skin.String(HomeLayout),3) + !String.IsEqual(Skin.String(HomeLayout),enhanced) + !String.IsEqual(Skin.String(HomeLayout),win10)</visible>
         </control>
         <!--hide widget panel-->
         <control type="radiobutton" id="13004">
@@ -790,32 +790,6 @@
             <onclick>Skin.ToggleSetting(WidgetsPreferPlotOutline)</onclick>
             <selected>Skin.HasSetting(WidgetsPreferPlotOutline)</selected>
             <visible>!Skin.HasSetting(DisableAllWidgets)</visible>
-        </control>
-        <!-- hide row details for episodes -->
-        <control type="radiobutton" id="39277">
-            <include>SkinSettings_Button</include>
-            <label>31711</label>
-            <onclick>Skin.ToggleSetting(HideRowDetailsEpisodes)</onclick>
-            <selected>Skin.HasSetting(HideRowDetailsEpisodes)</selected>
-            <visible>String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
-        </control>
-        <!-- show plot for unwatched/inprogress episodes -->
-        <control type="radiobutton" id="39274">
-            <include>SkinSettings_Button</include>
-            <label>31889</label>
-            <onclick>Skin.ToggleSetting(ShowEpisodesPlotAll)</onclick>
-            <selected>Skin.HasSetting(ShowEpisodesPlotAll)</selected>
-            <visible>String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
-        </control>
-        <!-- enlarge plot -->
-        <control type="radiobutton" id="39278">
-            <include>SkinSettings_Button</include>
-            <label>31043</label>
-            <onclick condition="!Skin.HasSetting(EnlargeBingiePlot)">Skin.SetBool(DisableBingieMoreDetails)</onclick>
-            <onclick condition="Skin.HasSetting(EnlargeBingiePlot)">Skin.Reset(DisableBingieMoreDetails)</onclick>
-            <onclick>Skin.ToggleSetting(EnlargeBingiePlot)</onclick>
-            <selected>Skin.HasSetting(EnlargeBingiePlot)</selected>
-            <visible>String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
         </control>
     </include>
 
@@ -2319,13 +2293,26 @@
             <selected>Skin.HasSetting(SeekPanelOnPause)</selected>
             <visible>!Skin.HasSetting(OSDShowInfoOnPause)</visible>
         </control>
-        <!--clearart on osd -->
         <control type="radiobutton" id="31733">
             <include>SkinSettings_Button</include>
             <label>31733</label>
             <onclick>Skin.ToggleSetting(OSDShowClearArt)</onclick>
             <selected>Skin.HasSetting(OSDShowClearArt)</selected>
             <visible>!Skin.HasSetting(UseBingieOSD)</visible>
+        </control>
+        <control type="radiobutton" id="31739">
+            <include>SkinSettings_Button</include>
+            <label>31063</label>
+            <onclick>Skin.ToggleSetting(UseMidscreenJumpIndicator)</onclick>
+            <selected>Skin.HasSetting(UseMidscreenJumpIndicator)</selected>
+            <visible>Skin.HasSetting(UseBingieOSD)</visible>
+        </control>
+        <control type="radiobutton" id="31737">
+            <include>SkinSettings_Button</include>
+            <label>31028</label>
+            <onclick>Skin.ToggleSetting(DisableJumpIndicator)</onclick>
+            <selected>Skin.HasSetting(DisableJumpIndicator)</selected>
+            <visible>Skin.HasSetting(UseBingieOSD)</visible>
         </control>
     </include>
 
@@ -2351,6 +2338,12 @@
             <label2>$INFO[Skin.String(defaultosdbutton_livetv.label)]</label2>
             <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=defaultosdbutton_livetv,header=$LOCALIZE[31663])</onclick>
         </control>
+        <include content="SkinSettings_ActionButton">
+            <param name="id" value="46658" />
+            <param name="label" value="$LOCALIZE[31060]" />
+            <param name="action" value="RunScript(script.skin.helper.service,action=setskinsetting,setting=bingie_videoosd_buttons,header=$LOCALIZE[31060])" />
+            <param name="visible" value="Skin.HasSetting(UseBingieOSD)" />
+        </include>
         <control type="radiobutton" id="31822">
             <include>SkinSettings_Button</include>
             <label>31024</label>
@@ -2896,6 +2889,13 @@
             <label>31005</label>
             <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
         </control>
+        <control type="radiobutton" id="5159">
+            <description>Kiosk mode</description>
+            <include>SkinSettings_Button</include>
+            <label>31318</label>
+            <onclick>Skin.ToggleSetting(KioskMode.Enabled)</onclick>
+            <selected>Skin.HasSetting(KioskMode.Enabled)</selected>
+        </control>
         <control type="radiobutton" id="5147">
             <include>SkinSettings_Button</include>
             <label>31209</label>
@@ -2916,13 +2916,6 @@
             <onclick>Skin.ToggleSetting(HideBatteryStatus)</onclick>
             <selected>Skin.HasSetting(HideBatteryStatus)</selected>
             <visible>Skin.HasSetting(EnableTouchSupport) + ![String.IsEqual(Skin.String(HomeLayout),simplever) | String.IsEqual(Skin.String(HomeLayout),simplever_tiles) | Skin.HasSetting(CompactHeader)]</visible>
-        </control>
-        <control type="radiobutton" id="5159">
-            <description>Kiosk mode</description>
-            <include>SkinSettings_Button</include>
-            <label>31318</label>
-            <onclick>Skin.ToggleSetting(KioskMode.Enabled)</onclick>
-            <selected>Skin.HasSetting(KioskMode.Enabled)</selected>
         </control>
         <control type="radiobutton" id="5162">
             <description>show scrollbars</description>

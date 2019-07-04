@@ -37,7 +37,9 @@
                 <width>240</width>
                 <height>240</height>
                 <include>SquarePosterPanelLayoutFocus</include>
-                <include>AutoTrailerButton</include>
+              <include content="LibraryAutoTrailerButton" condition="Skin.HasSetting(DetailsAutoTrailer)">
+                  <param name="interval" value="$INFO[Skin.String(details_auto_trailer_interval)]" />
+              </include>
             </control>
         </focusedlayout>
       </control>

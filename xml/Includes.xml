@@ -43,7 +43,8 @@
     <include file="View_520_Panel_Wall.xml" />
     <include file="View_521_Panel_Low.xml" />
     <include file="View_522_RightList.xml" />
-    <include file="View_523_Bingie_Main.xml" />
+    <include file="View_523_BingieMainLandscape.xml" />
+    <include file="View_526_BingieMainPoster.xml" />
     <include file="View_525_Bingie_Episodes.xml" />
     <include file="IncludesViews.xml" />
     <include file="IncludesMediaFlags.xml" />
@@ -86,13 +87,15 @@
     <constant name="search_radiokey_width">220</constant>
 
     <!-- expressions -->
-    <expression name="IsBingieViewsActive">Window.IsActive(Home) | Window.IsActive(1109) | Window.IsActive(1110) | Window.IsActive(1111) | Window.IsActive(1112) | Window.IsActive(1113) | Window.IsActive(1114) | Window.IsActive(1115)</expression>
+    <expression name="IsBingieViewsActive">Window.IsActive(Home) | Window.IsActive(1109) | Window.IsActive(1110) | Window.IsActive(1111) | Window.IsActive(1112) | Window.IsActive(1113) | Window.IsActive(1114) | Window.IsActive(1115) | Window.IsActive(1116)</expression>
 
-    <expression name="IsBingieHubsActive">Window.IsActive(1110) | Window.IsActive(1111) | Window.IsActive(1112) | Window.IsActive(1113)</expression>
+    <expression name="IsBingieHubsActive">Window.IsActive(1110) | Window.IsActive(1111) | Window.IsActive(1112) | Window.IsActive(1113) | Window.IsActive(1116)</expression>
 
     <expression name="IsBingieListsActive">Window.IsActive(1114) | Window.IsActive(1115)</expression>
 
-    <expression name="IsBingieViewsVisible">Window.IsVisible(Home) | Window.IsVisible(1109) | Window.IsVisible(1110) | Window.IsVisible(1111) | Window.IsVisible(1112) | Window.IsVisible(1113) | Window.IsVisible(1114) | Window.IsVisible(1115)</expression>
+    <expression name="IsBingieCategoriesActive">Window.IsActive(1117)</expression>
+
+    <expression name="IsBingieViewsVisible">Window.IsVisible(Home) | Window.IsVisible(1109) | Window.IsVisible(1110) | Window.IsVisible(1111) | Window.IsVisible(1112) | Window.IsVisible(1113) | Window.IsVisible(1114) | Window.IsVisible(1115) | Window.IsVisible(1116)</expression>
 
     <expression name="IsRecognizedVideoContent">VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(livetv) | VideoPlayer.Content(musicvideos) | Pvr.IsPlayingRecording</expression>
 
@@ -116,9 +119,9 @@
 
     <expression name="IsEpisodeDBTypeNoFallback">String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)</expression>
 
-    <expression name="IsCategoryDBType">String.IsEmpty(ListItem.DBType) + [String.IsEqual(ListItem.Property(DBTYPE),genre) | String.IsEqual(ListItem.Property(DBTYPE),category) | String.IsEqual(ListItem.Property(DBTYPE),categorie)]</expression>
+    <expression name="IsCategoryDBType">String.IsEmpty(ListItem.DBType) + [String.IsEqual(ListItem.Property(DBTYPE),genre) | String.IsEqual(ListItem.Property(DBTYPE),category) | String.IsEqual(ListItem.Property(DBTYPE),categorie) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE),category)]</expression>
 
-    <expression name="IsMenuEntryActive">[Window.IsActive(Home) + String.IsEqual(ListItem.Property(path), ActivateWindow(home,return))] | [Window.IsActive(1110) + String.IsEqual(ListItem.Property(path), ActivateWindow(1110,return))] | [Window.IsActive(1111) + String.IsEqual(ListItem.Property(path), ActivateWindow(1111,return))] | [Window.IsActive(1112) + String.IsEqual(ListItem.Property(path), ActivateWindow(1112,return))] | [Window.IsActive(1113) + String.IsEqual(ListItem.Property(path), ActivateWindow(1113,return))] | [Window.IsActive(1114) + String.IsEqual(ListItem.Property(path), ActivateWindow(1114,return))] | [Window.IsActive(1115) + String.IsEqual(ListItem.Property(path), ActivateWindow(1115,return))] | [Window.IsActive(1109) + String.IsEqual(ListItem.Property(path), ActivateWindow(1109,return))]</expression>
+    <expression name="IsMenuEntryActive">[Window.IsActive(Home) + String.IsEqual(ListItem.Property(path), ActivateWindow(home,return))] | [Window.IsActive(1110) + String.IsEqual(ListItem.Property(path), ActivateWindow(1110,return))] | [Window.IsActive(1111) + String.IsEqual(ListItem.Property(path), ActivateWindow(1111,return))] | [Window.IsActive(1112) + String.IsEqual(ListItem.Property(path), ActivateWindow(1112,return))] | [Window.IsActive(1113) + String.IsEqual(ListItem.Property(path), ActivateWindow(1113,return))] | [Window.IsActive(1114) + String.IsEqual(ListItem.Property(path), ActivateWindow(1114,return))] | [Window.IsActive(1115) + String.IsEqual(ListItem.Property(path), ActivateWindow(1115,return))] | [Window.IsActive(1109) + String.IsEqual(ListItem.Property(path), ActivateWindow(1109,return))] | [Window.IsActive(1116) + String.IsEqual(ListItem.Property(path), ActivateWindow(1116,return))]</expression>
 
     <expression name="IsKnownMenuEntryPath">String.IsEqual(ListItem.Property(path), ActivateWindow(home,return)) | String.IsEqual(ListItem.Property(path), ActivateWindow(1110,return)) | String.IsEqual(ListItem.Property(path), ActivateWindow(1111,return)) | String.IsEqual(ListItem.Property(path), ActivateWindow(1112,return)) | String.IsEqual(ListItem.Property(path), ActivateWindow(1113,return)) | String.IsEqual(ListItem.Property(path), ActivateWindow(1114,return)) | String.IsEqual(ListItem.Property(path), ActivateWindow(1115,return)) | String.IsEqual(ListItem.Property(path), ActivateWindow(1109,return))</expression>
 
@@ -152,11 +155,11 @@
                 <texture background="true">bingie_logo.png</texture>
             </control>
             <control type="label">
-                <align>right</align>
+                <align>center</align>
                 <top>80</top>
-                <width>auto</width>
+                <width>176</width>
                 <height>20</height>
-                <font>Light22</font>
+                <font>Light20</font>
                 <textcolor>$INFO[Skin.String(FooterTextColor)]</textcolor>
                 <label>$INFO[Skin.String(SkinVersion),$LOCALIZE[19114,,:] ,]</label>
             </control>
@@ -199,6 +202,10 @@
 
     <include name="left">
         <left>$PARAM[left]</left>
+    </include>
+
+    <include name="right">
+        <right>$PARAM[right]</right>
     </include>
 
     <include name="height">

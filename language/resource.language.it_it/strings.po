@@ -56,53 +56,13 @@ msgctxt "#31016"
 msgid "--- Use own image for tile"
 msgstr "--- Usa immagine tile personalizzata"
 
-msgctxt "#31017"
-msgid "--- Open TV Guide instead of Live TV"
-msgstr "--- Apri Guida TV anziché Live TV"
-
-msgctxt "#31018"
-msgid "Netflix"
-msgstr "Netflix"
-
 msgctxt "#31019"
 msgid "--- Open folderpath with music instead of library"
 msgstr "--- Apri cartella con Musica invece della Libreria"
 
-msgctxt "#31020"
-msgid "Open folderpath with radio streams instead of PVR for Radio"
-msgstr "Apri cartella con Stazioni Radio invece del PVR per la Radio"
-
-msgctxt "#31021"
-msgid "--- Display temperature in tile"
-msgstr "--- Mostra temperatura sulla Tile"
-
 msgctxt "#31022"
 msgid "Background settings"
 msgstr "Impostazioni sfondo"
-
-msgctxt "#31023"
-msgid "Use default skin background"
-msgstr "Usa sfondo skin predefinito"
-
-msgctxt "#31024"
-msgid "Use original Mediaportal's Titan skin background"
-msgstr "Usa sfondo originale della skin Titan per MediaPortal"
-
-msgctxt "#31025"
-msgid "Use dynamic weather background"
-msgstr "Usa sfondo con meteo dinamico"
-
-msgctxt "#31026"
-msgid "Use random fanart background"
-msgstr "Usa Fanart casuale come sfondo"
-
-msgctxt "#31027"
-msgid "Use default background for this section"
-msgstr "Usa sfondo predefinito per questa sezione"
-
-msgctxt "#31028"
-msgid "Other skin tweaks"
-msgstr "Altre migliorie skin"
 
 msgctxt "#31029"
 msgid "Do not show footer bar"
@@ -168,69 +128,13 @@ msgctxt "#31058"
 msgid "Logo"
 msgstr "Logo"
 
-msgctxt "#31059"
-msgid "Caps"
-msgstr "Caps"
-
-msgctxt "#31060"
-msgid "Kodi SUBTITLES"
-msgstr "SOTTOTITOLI Kodi"
-
-msgctxt "#31061"
-msgid "Press Back or OK to exit"
-msgstr "Premi Indietro oppure OK per uscire"
-
 msgctxt "#31062"
 msgid "YouTube"
 msgstr "YouTube"
 
-msgctxt "#31063"
-msgid "Toggle icon layout"
-msgstr "Cambia stile icone"
-
-msgctxt "#31064"
-msgid "Wide Icons"
-msgstr "Icone Larghe"
-
-msgctxt "#31065"
-msgid "Wide Icons MediaInfo"
-msgstr "InfoMedia Icone Larghe"
-
-msgctxt "#31066"
-msgid "Poster"
-msgstr "Poster"
-
-msgctxt "#31067"
-msgid "Poster MediaInfo"
-msgstr "InfoMedia Poster"
-
-msgctxt "#31068"
-msgid "Showcase"
-msgstr "Bacheca"
-
-msgctxt "#31069"
-msgid "Showcase MediaInfo"
-msgstr "InfoMedia Bacheca"
-
-msgctxt "#31070"
-msgid "Banner list"
-msgstr "Lista Banner"
-
 msgctxt "#31071"
 msgid "Setting level"
 msgstr "Livello impostazioni"
-
-msgctxt "#31072"
-msgid "Sort Home tiles"
-msgstr "Ordina tiles Home"
-
-msgctxt "#31073"
-msgid "Sort the home menu tiles"
-msgstr "Ordina le tiles del menù Home"
-
-msgctxt "#31074"
-msgid "Arrange the homescreen tiles just the way you want it. [CR]Usage select a direction below and click on the tile's title (in the list on the right) to move it's position. [CR]Because settings are applied on the fly the screen may blink for one second."
-msgstr "Disponi le tiles della schermata home proprio come vuoi. [CR]Utilizzo: scegli una direzione sotto e clicca sul titolo della tile (nella lista a destra) per spostare la sua posizione. [CR]Poiché le impostazioni sono applicate al volo lo schermo potrebbe lampeggiare per un secondo."
 
 msgctxt "#31077"
 msgid "DOWN"

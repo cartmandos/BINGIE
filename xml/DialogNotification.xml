@@ -7,7 +7,7 @@
         <control type="group">
             <depth>0.54</depth>
             <top>40</top>
-            <right>0</right>
+            <right>-10</right>
             <width>700</width>
             <animation type="WindowOpen" reversible="false">
                 <effect type="slide" start="160" end="0" tween="cubic" easing="out" time="500" />

@@ -56,53 +56,13 @@ msgctxt "#31016"
 msgid "--- Use own image for tile"
 msgstr "--- Guna imej sendiri pada jubin"
 
-msgctxt "#31017"
-msgid "--- Open TV Guide instead of Live TV"
-msgstr "--- Buka Panduan TV selain dari TV Langsung"
-
-msgctxt "#31018"
-msgid "Netflix"
-msgstr "Netflix"
-
 msgctxt "#31019"
 msgid "--- Open folderpath with music instead of library"
 msgstr "--- Buka laluan folder dengan muzik selain dari pustaka"
 
-msgctxt "#31020"
-msgid "Open folderpath with radio streams instead of PVR for Radio"
-msgstr "Buka laluan folder dengan strim radio selain dari PVR untuk Radio"
-
-msgctxt "#31021"
-msgid "--- Display temperature in tile"
-msgstr "--- Papar suhu dalam jubin"
-
 msgctxt "#31022"
 msgid "Background settings"
 msgstr "Tetapan latar belakang"
-
-msgctxt "#31023"
-msgid "Use default skin background"
-msgstr "Guna latar belakang kulit lalai"
-
-msgctxt "#31024"
-msgid "Use original Mediaportal's Titan skin background"
-msgstr "Guna latar belakang kulit Titan Mediaprotal yang asal"
-
-msgctxt "#31025"
-msgid "Use dynamic weather background"
-msgstr "Guna latar belakang cuaca dinamik"
-
-msgctxt "#31026"
-msgid "Use random fanart background"
-msgstr "Guna latar belakang seni peminat rawak"
-
-msgctxt "#31027"
-msgid "Use default background for this section"
-msgstr "Guna latar belakang lalai untuk seksyen ini"
-
-msgctxt "#31028"
-msgid "Other skin tweaks"
-msgstr "Lain-lain tweak kulit"
 
 msgctxt "#31029"
 msgid "Do not show footer bar"
@@ -168,69 +128,13 @@ msgctxt "#31058"
 msgid "Logo"
 msgstr "Logo"
 
-msgctxt "#31059"
-msgid "Caps"
-msgstr "Caps"
-
-msgctxt "#31060"
-msgid "Kodi SUBTITLES"
-msgstr "SARIKATA Kodi"
-
-msgctxt "#31061"
-msgid "Press Back or OK to exit"
-msgstr "Tekan Undur atau OK untuk keluar"
-
 msgctxt "#31062"
 msgid "YouTube"
 msgstr "YouTube"
 
-msgctxt "#31063"
-msgid "Toggle icon layout"
-msgstr "Togol bentangan ikon"
-
-msgctxt "#31064"
-msgid "Wide Icons"
-msgstr "Ikon Lebar"
-
-msgctxt "#31065"
-msgid "Wide Icons MediaInfo"
-msgstr "Maklumat Media Ikon Lebar"
-
-msgctxt "#31066"
-msgid "Poster"
-msgstr "Poster"
-
-msgctxt "#31067"
-msgid "Poster MediaInfo"
-msgstr "Maklumat Media Poster"
-
-msgctxt "#31068"
-msgid "Showcase"
-msgstr "Wadah"
-
-msgctxt "#31069"
-msgid "Showcase MediaInfo"
-msgstr "Maklumat Media Wadah"
-
-msgctxt "#31070"
-msgid "Banner list"
-msgstr "Senarai banner"
-
 msgctxt "#31071"
 msgid "Setting level"
 msgstr "Aras tetapan"
-
-msgctxt "#31072"
-msgid "Sort Home tiles"
-msgstr "Isih jubin Rumah"
-
-msgctxt "#31073"
-msgid "Sort the home menu tiles"
-msgstr "Isihkan jubin menu rumah"
-
-msgctxt "#31074"
-msgid "Arrange the homescreen tiles just the way you want it. [CR]Usage select a direction below and click on the tile's title (in the list on the right) to move it's position. [CR]Because settings are applied on the fly the screen may blink for one second."
-msgstr "Susun jubin skrin rumah mengikut kesukaan anda. [CR]Penggunaan pilih satu arah di bawah dan klik pada tajuk jubin (pada senarai disebelah kanan) untuk alih kedudukannya. [CR]Oleh kerana tetapan dilaksana terus pada skrin mungkin menyebabkan kerlipan selama satu saat."
 
 msgctxt "#31077"
 msgid "DOWN"

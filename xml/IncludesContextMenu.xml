@@ -154,16 +154,28 @@
             <onback>ClearProperty(ShowViewSubMenu,Home)</onback>
 			<visible>Skin.HasSetting(EnableTouchSupport) + String.IsEqual(Window(Home).Property(ShowViewSubMenu),show)</visible>
 		</control>
- 		<!--Panel-->
-        <control type="image">
-			<posy>-250</posy>
-			<posx>-20</posx>
-			<width>520</width>
-			<height>1750</height>
-			<texture border="5">diffuse/panel.png</texture>
-			<colordiffuse>$INFO[Skin.String(SideBladePanelColor)]</colordiffuse>
-			<aspectratio>stretch</aspectratio>
-		</control>
+        <control type="group">
+            <posy>0</posy>
+            <posx>0</posx>
+            <width>520</width>
+            <height>100%</height>
+            <control type="image">
+                <left>0</left>
+                <width>518</width>
+                <height>100%</height>
+                <colordiffuse>$INFO[Skin.String(MainMenuPanelColor)]</colordiffuse>
+                <aspectratio>stretch</aspectratio>
+                <texture background="true">colors/color_white.png</texture>
+            </control>
+            <control type="image">
+                <left>519</left>
+                <height>100%</height>
+                <width>0.5</width>
+                <colordiffuse>dimgray</colordiffuse>
+                <aspectratio>stretch</aspectratio>
+                <texture background="true">diffuse/gradient_seperator.png</texture>
+            </control>
+        </control>
 
 		<!-- header -->
         <control type="label">
@@ -282,9 +294,41 @@
         <control type="button" id="4403">
             <!--Set View new method-->
             <include>SideBladeMenuButton</include>
-            <label>$LOCALIZE[31305]: $INFO[Container.Viewmode]</label>
+            <label>$LOCALIZE[31305]$INFO[Container.Viewmode,: ,]</label>
             <onclick>RunScript(script.skin.helper.service,action=SETVIEW)</onclick>
             <visible>!Window.IsActive(tvguide)</visible>
+        </control>
+
+        <control type="button" id="3020">
+            <!--Show tags-->
+            <include>SideBladeMenuButton</include>
+            <label>$LOCALIZE[20459]$VAR[TagsVisibilityLabel,: ,]</label>
+            <onclick condition="Control.IsVisible(52)">RunScript(script.skin.helper.service,action=setskinsetting,setting=View52.Tags,header=$LOCALIZE[20459],id=Views_DisplayTags)</onclick>
+            <onclick condition="Control.IsVisible(53)">RunScript(script.skin.helper.service,action=setskinsetting,setting=View53.Tags,header=$LOCALIZE[20459],id=Views_DisplayTags)</onclick>
+            <onclick condition="Control.IsVisible(54)">RunScript(script.skin.helper.service,action=setskinsetting,setting=View54.Tags,header=$LOCALIZE[20459],id=Views_DisplayTags)</onclick>
+            <onclick condition="Control.IsVisible(55)">RunScript(script.skin.helper.service,action=setskinsetting,setting=View55.Tags,header=$LOCALIZE[20459],id=Views_DisplayTags)</onclick>
+            <onclick condition="Control.IsVisible(57)">RunScript(script.skin.helper.service,action=setskinsetting,setting=View57.Tags,header=$LOCALIZE[20459],id=Views_DisplayTags)</onclick>
+            <onclick condition="Control.IsVisible(58)">RunScript(script.skin.helper.service,action=setskinsetting,setting=View58.Tags,header=$LOCALIZE[20459],id=Views_DisplayTags)</onclick>
+            <onclick condition="Control.IsVisible(59)">RunScript(script.skin.helper.service,action=setskinsetting,setting=View59.Tags,header=$LOCALIZE[20459],id=Views_DisplayTags)</onclick>
+            <onclick condition="Control.IsVisible(501)">RunScript(script.skin.helper.service,action=setskinsetting,setting=View501.Tags,header=$LOCALIZE[20459],id=Views_DisplayTags)</onclick>
+            <onclick condition="Control.IsVisible(502)">RunScript(script.skin.helper.service,action=setskinsetting,setting=View502.Tags,header=$LOCALIZE[20459],id=Views_DisplayTags)</onclick>
+            <onclick condition="Control.IsVisible(505)">RunScript(script.skin.helper.service,action=setskinsetting,setting=View505.Tags,header=$LOCALIZE[20459],id=Views_DisplayTags)</onclick>
+            <onclick condition="Control.IsVisible(508)">RunScript(script.skin.helper.service,action=setskinsetting,setting=View508.Tags,header=$LOCALIZE[20459],id=Views_DisplayTags)</onclick>
+            <onclick condition="Control.IsVisible(509)">RunScript(script.skin.helper.service,action=setskinsetting,setting=View509.Tags,header=$LOCALIZE[20459],id=Views_DisplayTags)</onclick>
+            <onclick condition="Control.IsVisible(510)">RunScript(script.skin.helper.service,action=setskinsetting,setting=View510.Tags,header=$LOCALIZE[20459],id=Views_DisplayTags)</onclick>
+            <onclick condition="Control.IsVisible(511)">RunScript(script.skin.helper.service,action=setskinsetting,setting=View511.Tags,header=$LOCALIZE[20459],id=Views_DisplayTags)</onclick>
+            <onclick condition="Control.IsVisible(512)">RunScript(script.skin.helper.service,action=setskinsetting,setting=View512.Tags,header=$LOCALIZE[20459],id=Views_DisplayTags)</onclick>
+            <onclick condition="Control.IsVisible(514)">RunScript(script.skin.helper.service,action=setskinsetting,setting=View514.Tags,header=$LOCALIZE[20459],id=Views_DisplayTags)</onclick>
+            <onclick condition="Control.IsVisible(519)">RunScript(script.skin.helper.service,action=setskinsetting,setting=View519.Tags,header=$LOCALIZE[20459],id=Views_DisplayTags)</onclick>
+            <onclick condition="Control.IsVisible(520)">RunScript(script.skin.helper.service,action=setskinsetting,setting=View520.Tags,header=$LOCALIZE[20459],id=Views_DisplayTags)</onclick>
+            <onclick condition="Control.IsVisible(523)">RunScript(script.skin.helper.service,action=setskinsetting,setting=View523.Tags,header=$LOCALIZE[20459],id=Views_DisplayTags)</onclick>
+            <onclick condition="Control.IsVisible(526)">RunScript(script.skin.helper.service,action=setskinsetting,setting=View526.Tags,header=$LOCALIZE[20459],id=Views_DisplayTags)</onclick>
+            <visible>
+                Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(57) |
+                Control.IsVisible(58) | Control.IsVisible(59) | Control.IsVisible(501) | Control.IsVisible(502) |
+                Control.IsVisible(505) | Control.IsVisible(508) | Control.IsVisible(509) | Control.IsVisible(510) | Control.IsVisible(511) |
+                Control.IsVisible(512) | Control.IsVisible(514) | Control.IsVisible(519) | Control.IsVisible(520) | Control.IsVisible(523) | Control.IsVisible(526)
+            </visible>
         </control>
         
         <control type="radiobutton" id="3331">
@@ -387,29 +431,58 @@
             Control.IsVisible(53)
             </visible>
 		</control>
+        
+        <control type="radiobutton" id="3006">
+			<!--horizontal navigation ion landscape view-->
+			<visible>Control.IsVisible(501) | Control.IsVisible(523) | Control.IsVisible(526)</visible>
+			<include>SideBladeMenuButton</include>
+			<label>31635</label>
+			<onclick condition="Control.IsVisible(501)">Skin.ToggleSetting(View_501_HorizontalNavigation)</onclick>
+            <onclick condition="Control.IsVisible(523)">Skin.ToggleSetting(View_523_HorizontalNavigation)</onclick>
+            <onclick condition="Control.IsVisible(526)">Skin.ToggleSetting(View_526_HorizontalNavigation)</onclick>
+            <onclick>ReloadSkin()</onclick>
+			<selected>[Control.IsVisible(501) + Skin.HasSetting(View_501_HorizontalNavigation)] |
+                [Control.IsVisible(523) + Skin.HasSetting(View_523_HorizontalNavigation)] |
+                [Control.IsVisible(526) + Skin.HasSetting(View_526_HorizontalNavigation)]
+            </selected>
+		    <onclick condition="Control.IsVisible(501)">Container.SetViewMode(501)</onclick>
+            <onclick condition="Control.IsVisible(523)">Container.SetViewMode(523)</onclick>
+            <onclick condition="Control.IsVisible(526)">Container.SetViewMode(526)</onclick>
+        </control>
 
-        <control type="radiobutton" id="31796">
-            <!--hide additional details(523)-->
-            <visible>Control.IsVisible(523)</visible>
+        <control type="radiobutton" id="3051">
+            <!--fixed position-->
+            <visible>Control.IsVisible(52) | [Control.IsVisible(523) + Skin.HasSetting(View_523_HorizontalNavigation)] | [Control.IsVisible(526) + Skin.HasSetting(View_526_HorizontalNavigation)]</visible>
             <include>SideBladeMenuButton</include>
-            <label>31888</label>
-            <onclick>Skin.ToggleSetting(DisableBingieMoreDetailsInViews)</onclick>
-            <selected>Skin.HasSetting(DisableBingieMoreDetailsInViews)</selected>
+            <label>31511</label>
+            <onclick condition="Control.IsVisible(52)">Skin.ToggleSetting(View52_UseFixedLayout)</onclick>
+            <onclick condition="Control.IsVisible(523)">Skin.ToggleSetting(View523_UseFixedLayout)</onclick>
+            <onclick condition="Control.IsVisible(526)">Skin.ToggleSetting(View526_UseFixedLayout)</onclick>
+            <selected>
+                [Control.IsVisible(52) + Skin.HasSetting(View52_UseFixedLayout)] |
+                [Control.IsVisible(523) + Skin.HasSetting(View523_UseFixedLayout)] |
+                [Control.IsVisible(526) + Skin.HasSetting(View526_UseFixedLayout)]
+            </selected>
+            <onclick>ReloadSkin()</onclick>
+            <onclick condition="Control.IsVisible(52)">Container.SetViewMode(52)</onclick>
+            <onclick condition="Control.IsVisible(523)">Container.SetViewMode(523)</onclick>
+            <onclick condition="Control.IsVisible(526)">Container.SetViewMode(526)</onclick>
         </control>
 
         <control type="radiobutton" id="31793">
-			<!--auto play trailer-->
-			<visible>
-            Control.IsVisible(512) | Control.IsVisible(516) | Control.IsVisible(510) | Control.IsVisible(505) |
-            Control.IsVisible(51) | Control.IsVisible(59) | Control.IsVisible(55) | Control.IsVisible(504) | 
-            Control.IsVisible(53) | Control.IsVisible(523) 
+            <!--auto play trailer-->
+            <visible>Container.Content(movies) | Container.Content(tvshows)</visible>
+            <visible>
+                Control.IsVisible(512) | Control.IsVisible(516) | Control.IsVisible(510) | Control.IsVisible(505) |
+                Control.IsVisible(51) | Control.IsVisible(59) | Control.IsVisible(55) | Control.IsVisible(504) |
+                Control.IsVisible(53) | Control.IsVisible(523) | Control.IsVisible(526)
             </visible>
-			<include>SideBladeMenuButton</include>
-			<label>31793</label>
-			<onclick>Skin.ToggleSetting(DetailsAutoTrailer)</onclick>
-			<selected>Skin.HasSetting(DetailsAutoTrailer)</selected>
+            <include>SideBladeMenuButton</include>
+            <label>31793</label>
+            <onclick>Skin.ToggleSetting(DetailsAutoTrailer)</onclick>
+            <selected>Skin.HasSetting(DetailsAutoTrailer)</selected>
             <visible>!Skin.HasTheme(classic)</visible>
-		</control>
+        </control>
 
         <!--Auto Trailer Interval-->
         <control type="radiobutton" id="31795">
@@ -428,59 +501,15 @@
         </control>
 
         <control type="radiobutton" id="31794">
-            <!--play trailer onup-->
-            <visible>[Control.IsVisible(523) + Skin.HasSetting(View_523_HorizontalNavigation) + Skin.HasSetting(View523_SwapPoster) + [Container.Content(movies) | Container.Content(tvshows)]]</visible>
+            <!--play trailer onup -->
+            <visible>Container.Content(movies) | Container.Content(tvshows)</visible>
+            <visible>Control.IsVisible(526) + Skin.HasSetting(View_526_HorizontalNavigation)</visible>
             <include>SideBladeMenuButton</include>
             <label>31365</label>
             <onclick>Skin.ToggleSetting(PlayTrailerOnUp)</onclick>
             <selected>Skin.HasSetting(PlayTrailerOnUp)</selected>
             <visible>!Skin.HasTheme(classic)</visible>
         </control>
-        
-        <control type="radiobutton" id="3006">
-			<!--horizontal navigation ion landscape view-->
-			<visible>Control.IsVisible(501) | Control.IsVisible(523)</visible>
-			<include>SideBladeMenuButton</include>
-			<label>31635</label>
-			<onclick condition="Control.IsVisible(501)">Skin.ToggleSetting(View_501_HorizontalNavigation)</onclick>
-            <onclick condition="Control.IsVisible(523)">Skin.ToggleSetting(View_523_HorizontalNavigation)</onclick>
-            <onclick>ReloadSkin()</onclick>
-			<selected>[Control.IsVisible(501) + Skin.HasSetting(View_501_HorizontalNavigation)] | [Control.IsVisible(523) + Skin.HasSetting(View_523_HorizontalNavigation)]</selected>
-		    <onclick condition="Control.IsVisible(501)">Container.SetViewMode(501)</onclick>
-            <onclick condition="Control.IsVisible(523)">Container.SetViewMode(523)</onclick>
-        </control>
-
-        <control type="button" id="3020">
-			<!--Show tags-->
-			<include>SideBladeMenuButton</include>
-			<label>20459</label>
-            <label2>$VAR[TagsVisibilityLabel]</label2>
-            <onclick condition="Control.IsVisible(52)">RunScript(script.skin.helper.service,action=setskinsetting,setting=View52.Tags,header=$LOCALIZE[20459],id=Views_DisplayTags)</onclick>
-            <onclick condition="Control.IsVisible(53)">RunScript(script.skin.helper.service,action=setskinsetting,setting=View53.Tags,header=$LOCALIZE[20459],id=Views_DisplayTags)</onclick>
-            <onclick condition="Control.IsVisible(54)">RunScript(script.skin.helper.service,action=setskinsetting,setting=View54.Tags,header=$LOCALIZE[20459],id=Views_DisplayTags)</onclick>
-            <onclick condition="Control.IsVisible(55)">RunScript(script.skin.helper.service,action=setskinsetting,setting=View55.Tags,header=$LOCALIZE[20459],id=Views_DisplayTags)</onclick>
-            <onclick condition="Control.IsVisible(57)">RunScript(script.skin.helper.service,action=setskinsetting,setting=View57.Tags,header=$LOCALIZE[20459],id=Views_DisplayTags)</onclick>
-            <onclick condition="Control.IsVisible(58)">RunScript(script.skin.helper.service,action=setskinsetting,setting=View58.Tags,header=$LOCALIZE[20459],id=Views_DisplayTags)</onclick>
-            <onclick condition="Control.IsVisible(59)">RunScript(script.skin.helper.service,action=setskinsetting,setting=View59.Tags,header=$LOCALIZE[20459],id=Views_DisplayTags)</onclick>
-            <onclick condition="Control.IsVisible(501)">RunScript(script.skin.helper.service,action=setskinsetting,setting=View501.Tags,header=$LOCALIZE[20459],id=Views_DisplayTags)</onclick>
-            <onclick condition="Control.IsVisible(502)">RunScript(script.skin.helper.service,action=setskinsetting,setting=View502.Tags,header=$LOCALIZE[20459],id=Views_DisplayTags)</onclick>
-            <onclick condition="Control.IsVisible(505)">RunScript(script.skin.helper.service,action=setskinsetting,setting=View505.Tags,header=$LOCALIZE[20459],id=Views_DisplayTags)</onclick>
-            <onclick condition="Control.IsVisible(508)">RunScript(script.skin.helper.service,action=setskinsetting,setting=View508.Tags,header=$LOCALIZE[20459],id=Views_DisplayTags)</onclick>
-            <onclick condition="Control.IsVisible(509)">RunScript(script.skin.helper.service,action=setskinsetting,setting=View509.Tags,header=$LOCALIZE[20459],id=Views_DisplayTags)</onclick>
-            <onclick condition="Control.IsVisible(510)">RunScript(script.skin.helper.service,action=setskinsetting,setting=View510.Tags,header=$LOCALIZE[20459],id=Views_DisplayTags)</onclick>
-            <onclick condition="Control.IsVisible(511)">RunScript(script.skin.helper.service,action=setskinsetting,setting=View511.Tags,header=$LOCALIZE[20459],id=Views_DisplayTags)</onclick>
-            <onclick condition="Control.IsVisible(512)">RunScript(script.skin.helper.service,action=setskinsetting,setting=View512.Tags,header=$LOCALIZE[20459],id=Views_DisplayTags)</onclick>
-            <onclick condition="Control.IsVisible(514)">RunScript(script.skin.helper.service,action=setskinsetting,setting=View514.Tags,header=$LOCALIZE[20459],id=Views_DisplayTags)</onclick>
-            <onclick condition="Control.IsVisible(519)">RunScript(script.skin.helper.service,action=setskinsetting,setting=View519.Tags,header=$LOCALIZE[20459],id=Views_DisplayTags)</onclick>
-            <onclick condition="Control.IsVisible(520)">RunScript(script.skin.helper.service,action=setskinsetting,setting=View520.Tags,header=$LOCALIZE[20459],id=Views_DisplayTags)</onclick>
-            <onclick condition="Control.IsVisible(523)">RunScript(script.skin.helper.service,action=setskinsetting,setting=View523.Tags,header=$LOCALIZE[20459],id=Views_DisplayTags)</onclick>
-			<visible>
-            Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(57) |
-            Control.IsVisible(58) | Control.IsVisible(59) | Control.IsVisible(501) | Control.IsVisible(502) | 
-            Control.IsVisible(505) | Control.IsVisible(508) | Control.IsVisible(509) | Control.IsVisible(510) | Control.IsVisible(511) | 
-            Control.IsVisible(512) | Control.IsVisible(514) | Control.IsVisible(519) | Control.IsVisible(520) | Control.IsVisible(523)
-            </visible>
-		</control>
 	
          <control type="radiobutton" id="3045">
 			<!--Show info right-->
@@ -524,14 +553,11 @@
 		</control>
         <control type="radiobutton" id="31713">
 			<!--swap poster in view-->
-            <visible>[Control.IsVisible(504) + Skin.HasSetting(View504_ShowInfoRight)] | [Control.IsVisible(523) + ![Container.Content(seasons) | Container.Content(episodes)]]</visible>
+            <visible>Control.IsVisible(504) + Skin.HasSetting(View504_ShowInfoRight)</visible>
 			<include>SideBladeMenuButton</include>
 			<label>31713</label>
 			<onclick condition="Control.IsVisible(504)">Skin.ToggleSetting(View504_SwapPoster)</onclick>
-            <onclick condition="Control.IsVisible(523)">Skin.ToggleSetting(View523_SwapPoster)</onclick>
-			<selected>[Control.IsVisible(504) + Skin.HasSetting(View504_SwapPoster)] | [Control.IsVisible(523) + Skin.HasSetting(View523_SwapPoster)]</selected>
-            <onclick condition="Control.IsVisible(523)">ReloadSkin()</onclick>
-            <onclick condition="Control.IsVisible(523)">Container.SetViewMode(523)</onclick>
+			<selected>Control.IsVisible(504) + Skin.HasSetting(View504_SwapPoster)</selected>
         </control>
  		<control type="radiobutton" id="3050">
 			<!--Prefer ClearArt-->
@@ -541,28 +567,38 @@
 			<selected>Skin.HasSetting(LogoViewPreferClearArt)</selected>
 			<visible>Control.IsVisible(503)</visible>
 		</control>
-		<control type="radiobutton" id="3051">
-			<!--fixed position-->
-            <visible>Control.IsVisible(52) | [Control.IsVisible(523) + Skin.HasSetting(View_523_HorizontalNavigation)]</visible>
-			<include>SideBladeMenuButton</include>
-			<label>31511</label>
-			<onclick condition="Control.IsVisible(52)">Skin.ToggleSetting(View52_UseFixedLayout)</onclick>
-            <onclick condition="Control.IsVisible(523)">Skin.ToggleSetting(View523_UseFixedLayout)</onclick>
-			<selected>
-            [Control.IsVisible(52) + Skin.HasSetting(View52_UseFixedLayout)] | [Control.IsVisible(523) + Skin.HasSetting(View523_UseFixedLayout)]
-            </selected>
-			<onclick>ReloadSkin()</onclick>
-            <onclick condition="Control.IsVisible(52)">Container.SetViewMode(52)</onclick>
-            <onclick condition="Control.IsVisible(523)">Container.SetViewMode(523)</onclick>
-		</control>
 
         <control type="radiobutton" id="3057">
             <!--Disable Fixed Frame-->
             <include>SideBladeMenuButton</include>
             <label>31004</label>
-            <onclick>Skin.ToggleSetting(DisableFixedBingieFrame)</onclick>
-            <selected>Skin.HasSetting(DisableFixedBingieFrame)</selected>
-            <visible>Control.IsVisible(525) | [Control.IsVisible(523) + [!Container.Content(seasons) + !Container.Content(episodes)]]</visible>
+            <onclick condition="Control.IsVisible(523)">Skin.ToggleSetting(View523_DisableFixedBingieFrame)</onclick>
+            <onclick condition="Control.IsVisible(525)">Skin.ToggleSetting(View525_DisableFixedBingieFrame)</onclick>
+            <onclick condition="Control.IsVisible(526)">Skin.ToggleSetting(View526_DisableFixedBingieFrame)</onclick>
+            <selected>
+                [Control.IsVisible(523) + Skin.HasSetting(View523_DisableFixedBingieFrame)] |
+                [Control.IsVisible(525) + Skin.HasSetting(View525_DisableFixedBingieFrame)] |
+                [Control.IsVisible(526) + Skin.HasSetting(View526_DisableFixedBingieFrame)]
+            </selected>
+            <visible>Control.IsVisible(525) | Control.IsVisible(523) | Control.IsVisible(526)</visible>
+        </control>
+
+        <control type="radiobutton" id="3056">
+            <!-- enable zoom effect -->
+            <include>SideBladeMenuButton</include>
+            <label>$LOCALIZE[31805]</label>
+            <onclick condition="Control.IsVisible(523)">Skin.ToggleSetting(View523_EnableZoomEffect)</onclick>
+            <onclick condition="Control.IsVisible(526)">Skin.ToggleSetting(View526_EnableZoomEffect)</onclick>
+            <selected>
+                [Control.IsVisible(523) + Skin.HasSetting(View523_EnableZoomEffect)] |
+                [Control.IsVisible(526) + Skin.HasSetting(View526_EnableZoomEffect)]
+            </selected>
+            <visible>
+                [Control.IsVisible(523) + Skin.HasSetting(View523_DisableFixedBingieFrame)] |
+                [Control.IsVisible(526) + Skin.HasSetting(View526_DisableFixedBingieFrame)]
+            </visible>
+            <onclick condition="Control.IsVisible(523)">Container.SetViewMode(523)</onclick>
+            <onclick condition="Control.IsVisible(526)">Container.SetViewMode(526)</onclick>
         </control>
 
 		<control type="radiobutton" id="3052">
@@ -599,17 +635,15 @@
             <visible>!Window.IsActive(tvguide)</visible>
 		</control>
 
-        <control type="radiobutton" id="3056">
-			<!-- enable zoom effect -->
-			<include>SideBladeMenuButton</include>
-			<label>31805</label>
-			<onclick condition="Control.IsVisible(523)">Skin.ToggleSetting(View523_EnableZoomEffect)</onclick>
-			<selected>
-            [Control.IsVisible(523) + Skin.HasSetting(View523_EnableZoomEffect)]
-            </selected>
-			<visible>Control.IsVisible(523)</visible>
-            <onclick condition="Control.IsVisible(523)">Container.SetViewMode(523)</onclick>
-		</control>
+        <control type="radiobutton" id="31796">
+            <!--hide additional details-->
+            <visible>Container.Content(movies) | Container.Content(tvshows)</visible>
+            <visible>Control.IsVisible(523) | Control.IsVisible(526)</visible>
+            <include>SideBladeMenuButton</include>
+            <label>31888</label>
+            <onclick>Skin.ToggleSetting(DisableBingieMoreDetailsInViews)</onclick>
+            <selected>Skin.HasSetting(DisableBingieMoreDetailsInViews)</selected>
+        </control>
         
         <control type="radiobutton" id="31719">
             <!--Enable info overlay-->
@@ -850,6 +884,7 @@
             <onclick condition="Control.IsVisible(514)">Skin.ToggleSetting(View514_DisableExtraFanArt)</onclick>
             <onclick condition="Control.IsVisible(515)">Skin.ToggleSetting(View515_DisableExtraFanArt)</onclick>
             <onclick condition="Control.IsVisible(523)">Skin.ToggleSetting(View523_DisableExtraFanArt)</onclick>
+            <onclick condition="Control.IsVisible(526)">Skin.ToggleSetting(View526_DisableExtraFanArt)</onclick>
 			<selected>
             [Skin.HasSetting(View10_DisableExtraFanArt) + Control.IsVisible(10)] |
             [Skin.HasSetting(View50_DisableExtraFanArt) + Control.IsVisible(50)] |
@@ -876,7 +911,8 @@
             [Skin.HasSetting(View513_DisableExtraFanArt) + Control.IsVisible(513)] |
             [Skin.HasSetting(View514_DisableExtraFanArt) + Control.IsVisible(514)] |
             [Skin.HasSetting(View515_DisableExtraFanArt) + Control.IsVisible(515)] |
-            [Skin.HasSetting(View523_DisableExtraFanArt) + Control.IsVisible(523)]
+            [Skin.HasSetting(View523_DisableExtraFanArt) + Control.IsVisible(523)] |
+                [Skin.HasSetting(View526_DisableExtraFanArt) + Control.IsVisible(526)]
             </selected>
 			<visible>Skin.HasSetting(ShowFanartBackground) + Skin.HasSetting(SkinHelper.EnableExtraFanart) + !String.IsEmpty(ListItem.Art(FanArt))</visible>
 			<visible>
@@ -888,7 +924,7 @@
             Control.IsVisible(506) | Control.IsVisible(507) | Control.IsVisible(508) | 
             Control.IsVisible(509) | Control.IsVisible(510) | Control.IsVisible(511) | 
             Control.IsVisible(512) | Control.IsVisible(513) | Control.IsVisible(514) | 
-            Control.IsVisible(515) | Control.IsVisible(523)
+            Control.IsVisible(515) | Control.IsVisible(523) | Control.IsVisible(526)
             </visible>
 		</control>
         <control type="button" id="84403">
@@ -1107,9 +1143,8 @@
 				<animation type="Conditional" condition="!ControlGroup(9000).HasFocus()">
 					<effect type="fade" start="0" end="100" time="400" delay="400" />
 				</animation>
-            <animation effect="slide" start="0" end="70,230" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular) + Control.IsVisible(523)">Conditional</animation>
             <visible>
-                Control.IsVisible(523) | Control.IsVisible(525) | [String.Contains(Window.Property(xmlfile), pvr) + [Control.IsVisible(10) | Control.IsVisible(11) | Control.IsVisible(12) | Control.IsVisible(13) | Control.IsVisible(14) | Control.IsVisible(15) | Control.IsVisible(17)]] |
+                [String.Contains(Window.Property(xmlfile), pvr) + [Control.IsVisible(10) | Control.IsVisible(11) | Control.IsVisible(12) | Control.IsVisible(13) | Control.IsVisible(14) | Control.IsVisible(15) | Control.IsVisible(17)]] |
                 Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(53) | Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56) |
                 Control.IsVisible(57) | Control.IsVisible(59) | Control.IsVisible(504) | Control.IsVisible(505) | Control.IsVisible(509) | Control.IsVisible(510) |
                 Control.IsVisible(511) | Control.IsVisible(512) | Control.IsVisible(515) | Control.IsVisible(516) | Control.IsVisible(517) | Control.IsVisible(518) |
@@ -1117,7 +1152,7 @@
                 Window.IsActive(script-ExtendedInfo Script-VideoList.xml) | [Control.IsVisible(501) + !Skin.HasSetting(View_501_HorizontalNavigation)]
             </visible>
             <include content="SideBladeMenu_Tab_Left_Indicator_Button" condition="!Skin.HasSetting(DisableSideBladeArrowIndicator)">
-                <param name="width" value="40" />
+                <param name="width" value="50" />
                 <param name="height" value="85" />
                 <param name="label" value="" />
                 <param name="texture_focus" value="$INFO[Skin.String(BingiePrimaryTextColor)]" />

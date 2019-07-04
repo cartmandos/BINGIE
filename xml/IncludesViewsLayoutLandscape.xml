@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- BINGIE -->
 <includes>
-
     <!-- THUMBS LAYOUT (SMALL LANDSCAPE) -->
     <include name="ThumbsViewLayout">
         <control type="image">
@@ -302,7 +301,7 @@
 
     <variable name="LandscapeImage">
 		<value condition="!String.IsEmpty(ListItem.Art(thumb)) + [String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)] + ![Window.IsActive(Home) + Skin.HasSetting(PreferTvShowThumbWidget)]">$INFO[ListItem.Art(thumb)]</value>
-        <value condition="!String.IsEmpty(ListItem.Art(thumb)) + [String.IsEqual(ListItem.Property(DBTYPE),category) | String.Contains(ListItem.Path,youtube) | String.Contains(ListItem.Path,botchamania)]">$INFO[ListItem.Art(thumb)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(thumb)) + [String.IsEqual(ListItem.Property(DBTYPE),category) | String.Contains(ListItem.Path,youtube)]">$INFO[ListItem.Art(thumb)]</value>
         <value condition="Skin.HasSetting(PreferClearArtOverLandscape) + !String.IsEmpty(ListItem.Art(clearart)) + !Skin.HasSetting(DisableLandscapeThumbs)">$INFO[ListItem.Art(clearart)]</value>
         <value condition="Skin.HasSetting(PreferClearArtOverLandscape) + !String.IsEmpty(ListItem.Art(tvshow.clearart)) + !Skin.HasSetting(DisableLandscapeThumbs)">$INFO[ListItem.Art(tvshow.clearart)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(season.landscape)) + !Skin.HasSetting(DisableLandscapeThumbs)">$INFO[ListItem.Art(season.landscape)]</value>
@@ -327,5 +326,6 @@
 		<value condition="Container.Content(tags)">resource://resource.images.skinicons.wide/Tags.png</value>
         <value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
 		<value condition="!String.IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>
+        <value condition="!String.IsEmpty(ListItem.EpgEventIcon)">$INFO[ListItem.EpgEventIcon]</value>
     </variable>
 </includes>

@@ -133,7 +133,7 @@
 						<align>center</align>
 						<textoffsetx>0</textoffsetx>
 						<label>$ADDON[script.extendedinfo 32133]</label>
-						<visible>!Skin.HasSetting(kioskmode)</visible>
+						<visible>!Skin.HasSetting(KioskMode.Enabled)</visible>
 					</control>
 					
 					<control type="button" id="244">

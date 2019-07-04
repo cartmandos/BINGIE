@@ -56,53 +56,13 @@ msgctxt "#31016"
 msgid "--- Use own image for tile"
 msgstr "--- Koristi vlastitu sliku za pločicu"
 
-msgctxt "#31017"
-msgid "--- Open TV Guide instead of Live TV"
-msgstr "--- Otvori TV vodič umjesto TV uživo"
-
-msgctxt "#31018"
-msgid "Netflix"
-msgstr "Netflix"
-
 msgctxt "#31019"
 msgid "--- Open folderpath with music instead of library"
 msgstr "--- Otvori putanju mape s glazbom umjesto zbirke"
 
-msgctxt "#31020"
-msgid "Open folderpath with radio streams instead of PVR for Radio"
-msgstr "Otvori putanju mape s radio streamovima umjesto PVR za radio"
-
-msgctxt "#31021"
-msgid "--- Display temperature in tile"
-msgstr "--- Prikaži temperaturu u pločici"
-
 msgctxt "#31022"
 msgid "Background settings"
 msgstr "Postavke pozadine"
-
-msgctxt "#31023"
-msgid "Use default skin background"
-msgstr "Koristi zadanu pozadinu presvlake"
-
-msgctxt "#31024"
-msgid "Use original Mediaportal's Titan skin background"
-msgstr "Koristi originalnu Mediaportal Titan pozadinu presvlake"
-
-msgctxt "#31025"
-msgid "Use dynamic weather background"
-msgstr "Koristi dinamičnu pozadinu vremenske prognoze"
-
-msgctxt "#31026"
-msgid "Use random fanart background"
-msgstr "Koristi nasumičnu fanart pozadinu"
-
-msgctxt "#31027"
-msgid "Use default background for this section"
-msgstr "Koristi zadanu pozadinu za ovu sekciju"
-
-msgctxt "#31028"
-msgid "Other skin tweaks"
-msgstr "Druga ugađanja presvlake"
 
 msgctxt "#31029"
 msgid "Do not show footer bar"
@@ -168,69 +128,13 @@ msgctxt "#31058"
 msgid "Logo"
 msgstr "Logotip"
 
-msgctxt "#31059"
-msgid "Caps"
-msgstr "Velika slova"
-
-msgctxt "#31060"
-msgid "Kodi SUBTITLES"
-msgstr "Kodi PODNASLOVI"
-
-msgctxt "#31061"
-msgid "Press Back or OK to exit"
-msgstr "Pritisnite Nazad ili U redu za izlaz"
-
 msgctxt "#31062"
 msgid "YouTube"
 msgstr "YouTube"
 
-msgctxt "#31063"
-msgid "Toggle icon layout"
-msgstr "Mijenjaj raspored ikona"
-
-msgctxt "#31064"
-msgid "Wide Icons"
-msgstr "Široke ikone"
-
-msgctxt "#31065"
-msgid "Wide Icons MediaInfo"
-msgstr "MediaInfo široke ikone"
-
-msgctxt "#31066"
-msgid "Poster"
-msgstr "Plakat"
-
-msgctxt "#31067"
-msgid "Poster MediaInfo"
-msgstr "MediaInfo poster"
-
-msgctxt "#31068"
-msgid "Showcase"
-msgstr "Prikaz omota"
-
-msgctxt "#31069"
-msgid "Showcase MediaInfo"
-msgstr "MediaInfo izlog"
-
-msgctxt "#31070"
-msgid "Banner list"
-msgstr "Popis transparenata"
-
 msgctxt "#31071"
 msgid "Setting level"
 msgstr "Razina postavki"
-
-msgctxt "#31072"
-msgid "Sort Home tiles"
-msgstr "Razvrstaj pločice početnog ekrana"
-
-msgctxt "#31073"
-msgid "Sort the home menu tiles"
-msgstr "Razvrstaj pločice početnog izbornika"
-
-msgctxt "#31074"
-msgid "Arrange the homescreen tiles just the way you want it. [CR]Usage select a direction below and click on the tile's title (in the list on the right) to move it's position. [CR]Because settings are applied on the fly the screen may blink for one second."
-msgstr "Presložite pločice početnog ekrana baš kako želite. [CR]Odaberite smijer niže i kliknite na naslov pločice (u popisu na desno) kako biste ga pomjerili. [CR]Postavke se primjenjuju uživo, tako da može doći do treptanja ekrana."
 
 msgctxt "#31077"
 msgid "DOWN"

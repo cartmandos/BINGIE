@@ -1,7 +1,7 @@
 # Kodi Media Center language file
-# Addon Name: Titan
-# Addon id: skin.titan
-# Addon Provider: marcelveldt,mgonzales
+# Addon Name: Titan Bingie
+# Addon id: skin.titan.bingie
+# Addon Provider: cartmandos, marcelveldt
 msgid ""
 msgstr ""
 "Project-Id-Version: KODI Skins\n"
@@ -87,7 +87,7 @@ msgid "Enable Bingie Video OSD Layout"
 msgstr ""
 
 msgctxt "#31018"
-msgid "Bingie Main"
+msgid "Bingie Main Landscape"
 msgstr ""
 
 msgctxt "#31019"
@@ -122,7 +122,13 @@ msgctxt "#31026"
 msgid "Search for Addons"
 msgstr ""
 
-# empty 31027-31028
+msgctxt "#31027"
+msgid "Bingie Main Poster"
+msgstr ""
+
+msgctxt "#31028"
+msgid "Disable Seek/Jump Indicator"
+msgstr ""
 
 msgctxt "#31029"
 msgid "Do not show footer bar in views"
@@ -220,13 +226,55 @@ msgctxt "#31052"
 msgid "Bingie Slim-Menu Panel Color"
 msgstr ""
 
-# empty 31053-31061
+msgctxt "#31053"
+msgid "Poster"
+msgstr ""
+
+msgctxt "#31054"
+msgid "Fanart"
+msgstr ""
+
+msgctxt "#31055"
+msgid "Banner"
+msgstr ""
+
+msgctxt "#31056"
+msgid "Landscape"
+msgstr ""
+
+msgctxt "#31057"
+msgid "ClearArt"
+msgstr ""
+
+msgctxt "#31058"
+msgid "Logo"
+msgstr ""
+
+msgctxt "#31059"
+msgid "remaining"
+msgstr ""
+
+msgctxt "#31060"
+msgid "Show/Hide OSD Buttons"
+msgstr ""
+
+msgctxt "#31061"
+msgid "Highlight Layout"
+msgstr ""
 
 msgctxt "#31062"
 msgid "YouTube"
 msgstr ""
 
-# empty 31063-31070
+msgctxt "#31063"
+msgid "Use alternate midscreen jump indicators"
+msgstr ""
+
+msgctxt "#31064"
+msgid "No items in this category."
+msgstr ""
+
+# empty 31065-31070
 
 msgctxt "#31071"
 msgid "Setting level"
@@ -1998,7 +2046,7 @@ msgid "Use custom path for studio logo images"
 msgstr ""
 
 msgctxt "#31511"
-msgid "Use fixed focus"
+msgid "Use Fixed Focus"
 msgstr ""
 
 msgctxt "#31512"
@@ -3126,7 +3174,7 @@ msgid "Enable small PVR Channels OSD"
 msgstr ""
 
 msgctxt "#31793"
-msgid "Auto show trailer"
+msgid "Auto-Play Trailer"
 msgstr ""
 
 msgctxt "#31794"
@@ -3174,7 +3222,7 @@ msgid "Use fanart from widget as background"
 msgstr ""
 
 msgctxt "#31805"
-msgid "Enable zoom effect"
+msgid "Enable Zoom Effect"
 msgstr ""
 
 msgctxt "#31806"
@@ -3509,7 +3557,7 @@ msgid "Prefer Stars Rating Over Percentage Based Rating"
 msgstr ""
 
 msgctxt "#31888"
-msgid "Disable Additional Info (Genre/Cast/...)"
+msgid "Disable Additional Info"
 msgstr ""
 
 msgctxt "#31889"

@@ -99,10 +99,10 @@
                 <param name="widgetid" value="$PARAM[widgetid]" />
             </include>
             <include condition="!Skin.HasSetting(EnhancedHome_Circular)">Bingie_Focus_Position_No_Circular</include>
-            <scrolltime tween="sine" easing="out">500</scrolltime>
+            <scrolltime tween="sine" easing="out">600</scrolltime>
             <preloaditems>5</preloaditems>
             <orientation>horizontal</orientation>
-            <onfocus condition="String.IsEmpty(Window(Home).Property(KeepPlayingTrailer))">ClearProperty(KeepPlayingTrailer,Home)</onfocus>
+            <onfocus condition="!String.IsEmpty(Window(Home).Property(KeepPlayingTrailer))">ClearProperty(KeepPlayingTrailer,Home)</onfocus>
             <onunfocus condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,silent)</onunfocus>
             <onunfocus condition="Skin.HasSetting(BingieAutoTrailer) + $EXP[IsPlayingUnrecognizedContent] + String.IsEmpty(Window(Home).Property(KeepPlayingTrailer))">PlayerControl(Stop)</onunfocus>
             <include content="ContainerShowInfoOnclick" condition="Skin.HasSetting(ShowInformationBypass)">
@@ -120,9 +120,67 @@
                 <param name="widgetTags" value="WidgetTagOverlayAuto" />
                 <param name="multiRows" value="false" />
             </include>
-            <content limit="$INFO[Skin.String(WidgetsGlobalLimit)]" target="$INFO[Skin.String($PARAM[skinsetting].target)]">$INFO[Skin.String($PARAM[skinsetting].path)]</content>
+            <content sortby="$INFO[Skin.String($PARAM[skinsetting].sortby)]" sortorder="$INFO[Skin.String($PARAM[skinsetting].sortorder)]" limit="$INFO[Skin.String(WidgetsGlobalLimit)]" target="$INFO[Skin.String($PARAM[skinsetting].target)]">$INFO[Skin.String($PARAM[skinsetting].path)]</content>
             <visible>Skin.String($PARAM[skinsetting].path)</visible>
         </control>
+    </include>
+
+    <!-- hub items -->
+    <include name="bingie_customhub_item_1">
+        <include content="bingie_customhub_item">
+            <param name="widgetid" value="1510" />
+            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="skinsetting" value="bingiehub-$PARAM[hubname]-510" />
+        </include>
+    </include>
+    <include name="bingie_customhub_item_2">
+        <include content="bingie_customhub_item">
+            <param name="widgetid" value="1520" />
+            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="skinsetting" value="bingiehub-$PARAM[hubname]-520" />
+        </include>
+    </include>
+    <include name="bingie_customhub_item_3">
+        <include content="bingie_customhub_item">
+            <param name="widgetid" value="1530" />
+            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="skinsetting" value="bingiehub-$PARAM[hubname]-530" />
+        </include>
+    </include>
+    <include name="bingie_customhub_item_4">
+        <include content="bingie_customhub_item">
+            <param name="widgetid" value="1540" />
+            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="skinsetting" value="bingiehub-$PARAM[hubname]-540" />
+        </include>
+    </include>
+    <include name="bingie_customhub_item_5">
+        <include content="bingie_customhub_item">
+            <param name="widgetid" value="1550" />
+            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="skinsetting" value="bingiehub-$PARAM[hubname]-550" />
+        </include>
+    </include>
+    <include name="bingie_customhub_item_6">
+        <include content="bingie_customhub_item">
+            <param name="widgetid" value="1560" />
+            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="skinsetting" value="bingiehub-$PARAM[hubname]-560" />
+        </include>
+    </include>
+    <include name="bingie_customhub_item_7">
+        <include content="bingie_customhub_item">
+            <param name="widgetid" value="1570" />
+            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="skinsetting" value="bingiehub-$PARAM[hubname]-570" />
+        </include>
+    </include>
+    <include name="bingie_customhub_item_8">
+        <include content="bingie_customhub_item">
+            <param name="widgetid" value="1580" />
+            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="skinsetting" value="bingiehub-$PARAM[hubname]-580" />
+        </include>
     </include>
 
     <!-- Bingie Items Movies -->
@@ -132,45 +190,29 @@
         <include content="Set_Custom_Spotlight_Hub_Button" condition="!Skin.HasSetting(LockHubWidgets) + !Skin.HasSetting(BingieHomeDisableFirstRow) + !Skin.HasSetting(DisableSpotlightContent)">
             <param name="hubname" value="movies"/>
         </include>
-        <include content="bingie_customhub_item">
-            <param name="widgetid" value="1510" />
-            <param name="widgetStyle" value="widget_layout_default" />
-            <param name="skinsetting" value="bingiehub-movies-510" />
+        <include content="bingie_customhub_item_1">
+            <param name="hubname" value="movies" />
         </include>
-        <include content="bingie_customhub_item">
-            <param name="widgetid" value="1520" />
-            <param name="widgetStyle" value="widget_layout_default" />
-            <param name="skinsetting" value="bingiehub-movies-520" />
+        <include content="bingie_customhub_item_2">
+            <param name="hubname" value="movies" />
         </include>
-        <include content="bingie_customhub_item">
-            <param name="widgetid" value="1530" />
-            <param name="widgetStyle" value="widget_layout_default" />
-            <param name="skinsetting" value="bingiehub-movies-530" />
+        <include content="bingie_customhub_item_3">
+            <param name="hubname" value="movies" />
         </include>
-        <include content="bingie_customhub_item">
-            <param name="widgetid" value="1540" />
-            <param name="widgetStyle" value="widget_layout_default" />
-            <param name="skinsetting" value="bingiehub-movies-540" />
+        <include content="bingie_customhub_item_4">
+            <param name="hubname" value="movies" />
         </include>
-        <include content="bingie_customhub_item">
-            <param name="widgetid" value="1550" />
-            <param name="widgetStyle" value="widget_layout_default" />
-            <param name="skinsetting" value="bingiehub-movies-550" />
+        <include content="bingie_customhub_item_5">
+            <param name="hubname" value="movies" />
         </include>
-        <include content="bingie_customhub_item">
-            <param name="widgetid" value="1560" />
-            <param name="widgetStyle" value="widget_layout_default" />
-            <param name="skinsetting" value="bingiehub-movies-560" />
+        <include content="bingie_customhub_item_6">
+            <param name="hubname" value="movies" />
         </include>
-        <include content="bingie_customhub_item">
-            <param name="widgetid" value="1570" />
-            <param name="widgetStyle" value="widget_layout_default" />
-            <param name="skinsetting" value="bingiehub-movies-570" />
+        <include content="bingie_customhub_item_7">
+            <param name="hubname" value="movies" />
         </include>
-        <include content="bingie_customhub_item">
-            <param name="widgetid" value="1580" />
-            <param name="widgetStyle" value="widget_layout_default" />
-            <param name="skinsetting" value="bingiehub-movies-580" />
+        <include content="bingie_customhub_item_8">
+            <param name="hubname" value="movies" />
         </include>
     </include>
 
@@ -181,45 +223,29 @@
         <include content="Set_Custom_Spotlight_Hub_Button" condition="!Skin.HasSetting(LockHubWidgets) + !Skin.HasSetting(BingieHomeDisableFirstRow) + !Skin.HasSetting(DisableSpotlightContent)">
             <param name="hubname" value="tvshows"/>
         </include>
-        <include content="bingie_customhub_item">
-            <param name="widgetid" value="1510" />
-            <param name="widgetStyle" value="widget_layout_default" />
-            <param name="skinsetting" value="bingiehub-tvshows-510" />
+        <include content="bingie_customhub_item_1">
+            <param name="hubname" value="tvshows" />
         </include>
-        <include content="bingie_customhub_item">
-            <param name="widgetid" value="1520" />
-            <param name="widgetStyle" value="widget_layout_default" />
-            <param name="skinsetting" value="bingiehub-tvshows-520" />
+        <include content="bingie_customhub_item_2">
+            <param name="hubname" value="tvshows" />
         </include>
-        <include content="bingie_customhub_item">
-            <param name="widgetid" value="1530" />
-            <param name="widgetStyle" value="widget_layout_default" />
-            <param name="skinsetting" value="bingiehub-tvshows-530" />
+        <include content="bingie_customhub_item_3">
+            <param name="hubname" value="tvshows" />
         </include>
-        <include content="bingie_customhub_item">
-            <param name="widgetid" value="1540" />
-            <param name="widgetStyle" value="widget_layout_default" />
-            <param name="skinsetting" value="bingiehub-tvshows-540" />
+        <include content="bingie_customhub_item_4">
+            <param name="hubname" value="tvshows" />
         </include>
-        <include content="bingie_customhub_item">
-            <param name="widgetid" value="1550" />
-            <param name="widgetStyle" value="widget_layout_default" />
-            <param name="skinsetting" value="bingiehub-tvshows-550" />
+        <include content="bingie_customhub_item_5">
+            <param name="hubname" value="tvshows" />
         </include>
-        <include content="bingie_customhub_item">
-            <param name="widgetid" value="1560" />
-            <param name="widgetStyle" value="widget_layout_default" />
-            <param name="skinsetting" value="bingiehub-tvshows-560" />
+        <include content="bingie_customhub_item_6">
+            <param name="hubname" value="tvshows" />
         </include>
-        <include content="bingie_customhub_item">
-            <param name="widgetid" value="1570" />
-            <param name="widgetStyle" value="widget_layout_default" />
-            <param name="skinsetting" value="bingiehub-tvshows-570" />
+        <include content="bingie_customhub_item_7">
+            <param name="hubname" value="tvshows" />
         </include>
-        <include content="bingie_customhub_item">
-            <param name="widgetid" value="1580" />
-            <param name="widgetStyle" value="widget_layout_default" />
-            <param name="skinsetting" value="bingiehub-tvshows-580" />
+        <include content="bingie_customhub_item_8">
+            <param name="hubname" value="tvshows" />
         </include>
     </include>
 
@@ -230,45 +256,29 @@
         <include content="Set_Custom_Spotlight_Hub_Button" condition="!Skin.HasSetting(LockHubWidgets) + !Skin.HasSetting(BingieHomeDisableFirstRow) + !Skin.HasSetting(DisableSpotlightContent)">
             <param name="hubname" value="new"/>
         </include>
-        <include content="bingie_customhub_item">
-            <param name="widgetid" value="1510" />
-            <param name="widgetStyle" value="widget_layout_default" />
-            <param name="skinsetting" value="bingiehub-new-510" />
+        <include content="bingie_customhub_item_1">
+            <param name="hubname" value="new" />
         </include>
-        <include content="bingie_customhub_item">
-            <param name="widgetid" value="1520" />
-            <param name="widgetStyle" value="widget_layout_default" />
-            <param name="skinsetting" value="bingiehub-new-520" />
+        <include content="bingie_customhub_item_2">
+            <param name="hubname" value="new" />
         </include>
-        <include content="bingie_customhub_item">
-            <param name="widgetid" value="1530" />
-            <param name="widgetStyle" value="widget_layout_default" />
-            <param name="skinsetting" value="bingiehub-new-530" />
+        <include content="bingie_customhub_item_3">
+            <param name="hubname" value="new" />
         </include>
-        <include content="bingie_customhub_item">
-            <param name="widgetid" value="1540" />
-            <param name="widgetStyle" value="widget_layout_default" />
-            <param name="skinsetting" value="bingiehub-new-540" />
+        <include content="bingie_customhub_item_4">
+            <param name="hubname" value="new" />
         </include>
-        <include content="bingie_customhub_item">
-            <param name="widgetid" value="1550" />
-            <param name="widgetStyle" value="widget_layout_default" />
-            <param name="skinsetting" value="bingiehub-new-550" />
+        <include content="bingie_customhub_item_5">
+            <param name="hubname" value="new" />
         </include>
-        <include content="bingie_customhub_item">
-            <param name="widgetid" value="1560" />
-            <param name="widgetStyle" value="widget_layout_default" />
-            <param name="skinsetting" value="bingiehub-new-560" />
+        <include content="bingie_customhub_item_6">
+            <param name="hubname" value="new" />
         </include>
-        <include content="bingie_customhub_item">
-            <param name="widgetid" value="1570" />
-            <param name="widgetStyle" value="widget_layout_default" />
-            <param name="skinsetting" value="bingiehub-new-570" />
+        <include content="bingie_customhub_item_7">
+            <param name="hubname" value="new" />
         </include>
-        <include content="bingie_customhub_item">
-            <param name="widgetid" value="1580" />
-            <param name="widgetStyle" value="widget_layout_default" />
-            <param name="skinsetting" value="bingiehub-new-580" />
+        <include content="bingie_customhub_item_8">
+            <param name="hubname" value="new" />
         </include>
     </include>
 
@@ -279,45 +289,62 @@
         <include content="Set_Custom_Spotlight_Hub_Button" condition="!Skin.HasSetting(LockHubWidgets) + !Skin.HasSetting(BingieHomeDisableFirstRow) + !Skin.HasSetting(DisableSpotlightContent)">
             <param name="hubname" value="myhub"/>
         </include>
-        <include content="bingie_customhub_item">
-            <param name="widgetid" value="1510" />
-            <param name="widgetStyle" value="widget_layout_default" />
-            <param name="skinsetting" value="bingiehub-myhub-510" />
+        <include content="bingie_customhub_item_1">
+            <param name="hubname" value="myhub" />
         </include>
-        <include content="bingie_customhub_item">
-            <param name="widgetid" value="1520" />
-            <param name="widgetStyle" value="widget_layout_default" />
-            <param name="skinsetting" value="bingiehub-myhub-520" />
+        <include content="bingie_customhub_item_2">
+            <param name="hubname" value="myhub" />
         </include>
-        <include content="bingie_customhub_item">
-            <param name="widgetid" value="1530" />
-            <param name="widgetStyle" value="widget_layout_default" />
-            <param name="skinsetting" value="bingiehub-myhub-530" />
+        <include content="bingie_customhub_item_3">
+            <param name="hubname" value="myhub" />
         </include>
-        <include content="bingie_customhub_item">
-            <param name="widgetid" value="1540" />
-            <param name="widgetStyle" value="widget_layout_default" />
-            <param name="skinsetting" value="bingiehub-myhub-540" />
+        <include content="bingie_customhub_item_4">
+            <param name="hubname" value="myhub" />
         </include>
-        <include content="bingie_customhub_item">
-            <param name="widgetid" value="1550" />
-            <param name="widgetStyle" value="widget_layout_default" />
-            <param name="skinsetting" value="bingiehub-myhub-550" />
+        <include content="bingie_customhub_item_5">
+            <param name="hubname" value="myhub" />
         </include>
-        <include content="bingie_customhub_item">
-            <param name="widgetid" value="1560" />
-            <param name="widgetStyle" value="widget_layout_default" />
-            <param name="skinsetting" value="bingiehub-myhub-560" />
+        <include content="bingie_customhub_item_6">
+            <param name="hubname" value="myhub" />
         </include>
-        <include content="bingie_customhub_item">
-            <param name="widgetid" value="1570" />
-            <param name="widgetStyle" value="widget_layout_default" />
-            <param name="skinsetting" value="bingiehub-myhub-570" />
+        <include content="bingie_customhub_item_7">
+            <param name="hubname" value="myhub" />
         </include>
-        <include content="bingie_customhub_item">
-            <param name="widgetid" value="1580" />
-            <param name="widgetStyle" value="widget_layout_default" />
-            <param name="skinsetting" value="bingiehub-myhub-580" />
+        <include content="bingie_customhub_item_8">
+            <param name="hubname" value="myhub" />
+        </include>
+    </include>
+
+    <!-- Bingie Items PVR Hub -->
+    <include name="bingie_items_pvr">
+        <include>Empty_Hub_Alt_Buttons</include>
+        <!-- set custom spotlight content -->
+        <include content="Set_Custom_Spotlight_Hub_Button" condition="!Skin.HasSetting(LockHubWidgets) + !Skin.HasSetting(BingieHomeDisableFirstRow) + !Skin.HasSetting(DisableSpotlightContent)">
+            <param name="hubname" value="pvr"/>
+        </include>
+        <include content="bingie_customhub_item_1">
+            <param name="hubname" value="pvr" />
+        </include>
+        <include content="bingie_customhub_item_2">
+            <param name="hubname" value="pvr" />
+        </include>
+        <include content="bingie_customhub_item_3">
+            <param name="hubname" value="pvr" />
+        </include>
+        <include content="bingie_customhub_item_4">
+            <param name="hubname" value="pvr" />
+        </include>
+        <include content="bingie_customhub_item_5">
+            <param name="hubname" value="pvr" />
+        </include>
+        <include content="bingie_customhub_item_6">
+            <param name="hubname" value="pvr" />
+        </include>
+        <include content="bingie_customhub_item_7">
+            <param name="hubname" value="pvr" />
+        </include>
+        <include content="bingie_customhub_item_8">
+            <param name="hubname" value="pvr" />
         </include>
     </include>
 
@@ -405,7 +432,7 @@
     <include name="Custom_Container_Label">
         <control type="textbox">
             <visible>Skin.HasSetting(LockHubWidgets)</visible>
-            <height>57</height>
+            <height>40</height>
             <width>96%</width>
             <font>Reg28</font>
             <aligny>center</aligny>
@@ -423,7 +450,7 @@
         <left>65</left>
         <control type="textbox">
             <visible>Integer.IsGreater(Container(1510).NumItems,0)</visible>
-            <height>57</height>
+            <height>40</height>
             <width>96%</width>
             <font>Reg28</font>
             <aligny>center</aligny>
@@ -472,13 +499,13 @@
 
     <include name="ListHubContainerTemplate">
         <control type="panel" id="$PARAM[widgetid]">
-            <width>1838</width>
-            <height>419</height>
+            <width>1660</width>
+            <height>389</height>
             <itemgap>0</itemgap>
             <orientation>vertical</orientation>
-            <scrolltime tween="sine" easing="out">500</scrolltime>
+            <scrolltime tween="sine" easing="out">600</scrolltime>
             <preloaditems>5</preloaditems>
-            <onfocus condition="String.IsEmpty(Window(Home).Property(KeepPlayingTrailer))">ClearProperty(KeepPlayingTrailer,Home)</onfocus>
+            <onfocus condition="!String.IsEmpty(Window(Home).Property(KeepPlayingTrailer))">ClearProperty(KeepPlayingTrailer,Home)</onfocus>
             <onunfocus condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,silent)</onunfocus>
             <onunfocus condition="Skin.HasSetting(BingieAutoTrailer) + $EXP[IsPlayingUnrecognizedContent] + String.IsEmpty(Window(Home).Property(KeepPlayingTrailer))">PlayerControl(Stop)</onunfocus>
             <include content="ContainerShowInfoOnclick" condition="Skin.HasSetting(ShowInformationBypass)">
@@ -489,10 +516,11 @@
             <onback condition="$EXP[IsPlayingRecognizedContent]">SetFocus(509)</onback>
             <onback condition="$EXP[IsPlayingUnrecognizedContent]">SetProperty(KeepPlayingTrailer,1,Home)</onback>
             <onback condition="!$EXP[IsPlayingRecognizedContent]">900</onback>
-            <itemlayout height="210" width="366">
+            <onright>noop</onright>
+            <itemlayout height="195" width="332">
                 <control type="group">
-                    <width>366</width>
-                    <height>210</height>
+                    <width>332</width>
+                    <height>195</height>
                     <include>ThumbsViewLayout</include>
                     <control type="group">
                         <description>widget label overlay</description>
@@ -502,10 +530,10 @@
                     </control>
                 </control>
             </itemlayout>
-            <focusedlayout height="210" width="366">
+            <focusedlayout height="195" width="332">
                 <control type="group">
-                    <width>366</width>
-                    <height>210</height>
+                    <width>332</width>
+                    <height>195</height>
                     <include>ThumbsViewLayoutFocus</include>
                     <control type="group">
                         <description>widget label overlay</description>
@@ -516,8 +544,9 @@
                 </control>
                 <control type="button">
                     <visible>false</visible>
-                    <include content="Bingie_AutoTrailer" condition="Skin.HasSetting(BingieAutoTrailer)">
+                    <include content="Bingie_Default_AutoTrailer" condition="Skin.HasSetting(BingieAutoTrailer)">
                         <param name="widgetid" value="$PARAM[widgetid]" />
+                        <param name="groupid" value="77777" />
                     </include>
                     <include content="WidgetProperties">
                         <param name="widgetid" value="$PARAM[widgetid]" />

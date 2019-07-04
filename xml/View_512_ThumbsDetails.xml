@@ -37,7 +37,9 @@
                 <width>290</width>
                 <height>178</height>
 				<include>ThumbsViewLayoutFocus</include>
-                <include>AutoTrailerButton</include>
+                <include content="LibraryAutoTrailerButton" condition="Skin.HasSetting(DetailsAutoTrailer)">
+                    <param name="interval" value="$INFO[Skin.String(details_auto_trailer_interval)]" />
+                </include>
 			</control>
         </focusedlayout>
          <itemlayout height="248" width="397" condition="[Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">

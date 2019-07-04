@@ -31,9 +31,6 @@
                 <animation type="Conditional" condition="String.IsEqual(Window(Home).Property(widgetstyle), posterdetails)">
                     <effect type="slide" start="0,0" end="0,380" time="0" delay="0"/>
                 </animation>
-                <animation type="Conditional" condition="String.IsEqual(Window(Home).Property(widgetstyle), landscapewidebox)">
-                    <effect type="slide" start="0,0" end="0,420" time="0" delay="0"/>
-                </animation>
                 <animation type="Conditional" condition="String.IsEqual(Window(Home).Property(widgetstyle), smallposter)">
                     <effect type="slide" start="0,0" end="0,253" time="0" delay="0"/>
                 </animation>
@@ -158,16 +155,16 @@
             <animation effect="slide" delay="0" start="0" end="0,175" time="0" condition="String.IsEqual(Skin.AspectRatio,16:10) + String.IsEqual(Window(Home).Property(widgetstyle),widebox) + String.Contains(Skin.String(HomeLayout),horizontal) + !String.IsEmpty(Window(Home).Property(ShowWidget))">Conditional</animation>
             <animation effect="slide" delay="0" start="0" end="0,90" time="0" condition="String.IsEqual(Skin.AspectRatio,16:10) + String.IsEqual(Window(Home).Property(widgetstyle),singlebox) + String.Contains(Skin.String(HomeLayout),horizontal) + !String.IsEmpty(Window(Home).Property(ShowWidget))">Conditional</animation>
             <animation effect="slide" delay="0" start="0" end="0,220" time="0" condition="String.IsEqual(Skin.AspectRatio,16:10) + String.IsEqual(Window(Home).Property(widgetstyle),landscapedetails) + String.Contains(Skin.String(HomeLayout),horizontal) + !String.IsEmpty(Window(Home).Property(ShowWidget))">Conditional</animation>
-            <animation effect="slide" delay="0" start="0" end="0,50" time="0" condition="String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Window(Home).Property(widgetstyle),posterdetails) | String.IsEqual(Window(Home).Property(widgetstyle),landscapewidebox)] + String.Contains(Skin.String(HomeLayout),horizontal) + !String.IsEmpty(Window(Home).Property(ShowWidget))">Conditional</animation>
+            <animation effect="slide" delay="0" start="0" end="0,50" time="0" condition="String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Window(Home).Property(widgetstyle),posterdetails)] + String.Contains(Skin.String(HomeLayout),horizontal) + !String.IsEmpty(Window(Home).Property(ShowWidget))">Conditional</animation>
             
             <animation effect="slide" delay="0" start="0" end="0,-45" time="0" condition="String.IsEqual(Window(Home).Property(widgetstyle),widebox) + String.Contains(Skin.String(HomeLayout),simplehor) + !String.IsEmpty(Window(Home).Property(ShowWidget))">Conditional</animation>
             <animation effect="slide" delay="0" start="0" end="0,-130" time="0" condition="String.IsEqual(Window(Home).Property(widgetstyle),singlebox) + String.Contains(Skin.String(HomeLayout),simplehor) + !String.IsEmpty(Window(Home).Property(ShowWidget))">Conditional</animation>
             <animation effect="slide" delay="0" start="0" end="0,0" time="0" condition="String.IsEqual(Window(Home).Property(widgetstyle),landscapedetails) + String.Contains(Skin.String(HomeLayout),simplehor) + !String.IsEmpty(Window(Home).Property(ShowWidget))">Conditional</animation>
-            <animation effect="slide" delay="0" start="0" end="0,-170" time="0" condition="[String.IsEqual(Window(Home).Property(widgetstyle),posterdetails) | String.IsEqual(Window(Home).Property(widgetstyle),landscapewidebox)] + String.Contains(Skin.String(HomeLayout),simplehor) + !String.IsEmpty(Window(Home).Property(ShowWidget))">Conditional</animation>
-            <animation effect="slide" delay="0" start="0" end="0,-370" time="0" condition="[String.IsEqual(Window(Home).Property(widgetstyle),posterdetails) | String.IsEqual(Window(Home).Property(widgetstyle),landscapewidebox)] + [[[String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + !Skin.HasSetting(LowerWidgets)] | [String.IsEqual(Skin.String(HomeLayout),2) | String.IsEqual(Skin.String(HomeLayout),2small)]] + !String.IsEmpty(Window(Home).Property(ShowWidget))">Conditional</animation>
+            <animation effect="slide" delay="0" start="0" end="0,-170" time="0" condition="[String.IsEqual(Window(Home).Property(widgetstyle),posterdetails)] + String.Contains(Skin.String(HomeLayout),simplehor) + !String.IsEmpty(Window(Home).Property(ShowWidget))">Conditional</animation>
+            <animation effect="slide" delay="0" start="0" end="0,-370" time="0" condition="[String.IsEqual(Window(Home).Property(widgetstyle),posterdetails)] + [[[String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + !Skin.HasSetting(LowerWidgets)] | [String.IsEqual(Skin.String(HomeLayout),2) | String.IsEqual(Skin.String(HomeLayout),2small)]] + !String.IsEmpty(Window(Home).Property(ShowWidget))">Conditional</animation>
             
-            <animation effect="slide" delay="0" start="0" end="0,-300" time="0" condition="!String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Window(Home).Property(widgetstyle),posterdetails) | String.IsEqual(Window(Home).Property(widgetstyle),landscapewidebox)] + [String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + Skin.HasSetting(LowerWidgets) + !String.IsEmpty(Window(Home).Property(ShowWidget))">Conditional</animation>
-            <animation effect="slide" delay="0" start="0" end="0,-180" time="0" condition="String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Window(Home).Property(widgetstyle),posterdetails) | String.IsEqual(Window(Home).Property(widgetstyle),landscapewidebox)] + [String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + Skin.HasSetting(LowerWidgets) + !String.IsEmpty(Window(Home).Property(ShowWidget))">Conditional</animation>
+            <animation effect="slide" delay="0" start="0" end="0,-300" time="0" condition="!String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Window(Home).Property(widgetstyle),posterdetails)] + [String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + Skin.HasSetting(LowerWidgets) + !String.IsEmpty(Window(Home).Property(ShowWidget))">Conditional</animation>
+            <animation effect="slide" delay="0" start="0" end="0,-180" time="0" condition="String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Window(Home).Property(widgetstyle),posterdetails)] + [String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + Skin.HasSetting(LowerWidgets) + !String.IsEmpty(Window(Home).Property(ShowWidget))">Conditional</animation>
             
             <animation effect="slide" delay="0" start="0" end="0,-370" time="0" condition="String.IsEqual(Window(Home).Property(widgetstyle),landscapedetails) + [[[String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + !Skin.HasSetting(LowerWidgets)] | [String.IsEqual(Skin.String(HomeLayout),2) | String.IsEqual(Skin.String(HomeLayout),2small)]] + !String.IsEmpty(Window(Home).Property(ShowWidget))">Conditional</animation>
             <animation effect="slide" delay="0" start="0" end="0,-130" time="0" condition="!String.IsEqual(Skin.AspectRatio,16:10) + String.IsEqual(Window(Home).Property(widgetstyle),landscapedetails) + [String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + Skin.HasSetting(LowerWidgets) + !String.IsEmpty(Window(Home).Property(ShowWidget))">Conditional</animation>
@@ -245,11 +242,11 @@
             <param name="widgetTags" value="$PARAM[widgetTags]"/>
             <param name="multiRows" value="$PARAM[multiRows]" />
         </include>
-        <include content="widget_layout_landscapewidebox" condition="String.IsEqual(Skin.String(widgetstyle),landscapewidebox)">
+        <!--<include content="widget_layout_highlight" condition="String.IsEqual(Skin.String(widgetstyle),highlight)">
             <param name="widgetid" value="$PARAM[widgetid]"/>
             <param name="widgetTags" value="$PARAM[widgetTags]"/>
             <param name="multiRows" value="$PARAM[multiRows]" />
-        </include>
+        </include>-->
     </include>
     <include name="widget_layout_None">
         <include content="widget_layout_default">
@@ -669,6 +666,19 @@
         <height>786</height>
     </include>
 
+    <!-- widget landscape layout -->
+    <include name="widget_layout_landscape">
+        <include content="widget_layout_landscape_not_vertical_layout" condition="!$EXP[IsVerticalLayout]">
+            <param name="widgetid" value="$PARAM[widgetid]" />
+            <param name="widgetTags" value="$PARAM[widgetTags]" />
+            <param name="multiRows" value="$PARAM[multiRows]" />
+        </include>
+        <include content="widget_layout_landscape_vertical_layout" condition="$EXP[IsVerticalLayout]">
+            <param name="widgetid" value="$PARAM[widgetid]" />
+            <param name="widgetTags" value="$PARAM[widgetTags]" />
+            <param name="multiRows" value="$PARAM[multiRows]" />
+        </include>
+    </include>
 
     <include name="widget_layout_landscape_vertical_layout">
         <include condition="$PARAM[multiRows]">widget_layout_landscape_multi</include>
@@ -778,19 +788,119 @@
         </focusedlayout>
     </include>
 
-    <!-- widget landscape layout -->
-    <include name="widget_layout_landscape">
-        <include content="widget_layout_landscape_not_vertical_layout" condition="!$EXP[IsVerticalLayout]">
-            <param name="widgetid" value="$PARAM[widgetid]" />
-            <param name="widgetTags" value="$PARAM[widgetTags]" />
-            <param name="multiRows" value="$PARAM[multiRows]" />
-        </include>
-        <include content="widget_layout_landscape_vertical_layout" condition="$EXP[IsVerticalLayout]">
-            <param name="widgetid" value="$PARAM[widgetid]" />
-            <param name="widgetTags" value="$PARAM[widgetTags]" />
-            <param name="multiRows" value="$PARAM[multiRows]" />
-        </include>
-    </include>
+    <!-- Highlight Layout -->
+    <!--<include name="widget_layout_highlight">
+        <height>714</height>
+        <orientation>horizontal</orientation>
+        <onfocus>ClearProperty(highlightfocus,home)</onfocus>
+        <itemlayout height="714" width="360">
+            <control type="group">
+                <include content="left" condition="!Skin.HasSetting(EnhancedHome_Circular)">
+                    <param name="left" value="-230"/>
+                </include>
+                <width>360</width>
+                <height>714</height>
+                <include>PosterPanelLayout</include>
+            </control>
+        </itemlayout>
+        <focusedlayout width="360" height="714" condition="[ControlGroup(77777).HasFocus() + !Control.HasFocus($PARAM[widgetid])] | !String.IsEqual(Window(home).property(highlightfocus),Container($PARAM[widgetid]).CurrentItem)">
+            <control type="group">
+                <include content="left" condition="!Skin.HasSetting(EnhancedHome_Circular)">
+                    <param name="left" value="-230"/>
+                </include>
+                <width>360</width>
+                <height>714</height>
+                <include>PosterThumbLayout</include>
+            </control>
+            <control type="button">
+                <visible>false</visible>
+                <onfocus condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,silent)</onfocus>
+                <onfocus condition="$EXP[IsPlayingUnrecognizedContent] + String.IsEmpty(Window(Home).Property(KeepPlayingTrailer))">PlayerControl(Stop)</onfocus>
+                <onfocus>ClearProperty(highlightfocus,home)</onfocus>
+                <onfocus>AlarmClock(FocusHighlightWidget,SetProperty(highlightfocus,$INFO[Container($PARAM[widgetid]).CurrentItem],Home),00:03,silent)</onfocus>
+                <include content="SetWidgetProps">
+                    <param name="widgetid" value="$PARAM[widgetid]" />
+                    <param name="widgetstyle" value="highlight" />
+                </include>
+                <onfocus condition="!String.IsEmpty(Window(Home).Property(KeepPlayingTrailer))">ClearProperty(KeepPlayingTrailer,Home)</onfocus>
+                <onunfocus condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,silent)</onunfocus>
+                <onunfocus condition="$EXP[IsPlayingUnrecognizedContent] + String.IsEmpty(Window(Home).Property(KeepPlayingTrailer))">PlayerControl(Stop)</onunfocus>
+            </control>
+        </focusedlayout>
+        <focusedlayout width="1256" height="714" condition="[!ControlGroup(77777).HasFocus() | Control.HasFocus($PARAM[widgetid])] + String.IsEqual(Window(home).property(highlightfocus),Container($PARAM[widgetid]).CurrentItem)">
+            <control type="group">
+                <include content="left" condition="!Skin.HasSetting(EnhancedHome_Circular)">
+                    <param name="left" value="-230"/>
+                </include>
+                <width>1256</width>
+                <height>714</height>
+                <animation delay="0" time="300" effect="fade" condition="true">Conditional</animation>
+                <control type="image">
+                    <animation delay="200" time="100" effect="fade" condition="true">Conditional</animation>
+                    <bordertexture colordiffuse="d9ffffff">colors/color_white.png</bordertexture>
+                    <bordersize>4</bordersize>
+                    <texture background="true">home/home_matte2.png</texture>
+                    <colordiffuse>ff353535</colordiffuse>
+                    <include>thumbsborder_focused</include>
+                </control>
+                <control type="group">
+                    <visible>!$EXP[IsPlayingUnrecognizedContent]</visible>
+                    <width>1256</width>
+                    <height>714</height>
+                    <control type="image">
+                        <bordertexture colordiffuse="d9ffffff">colors/color_white.png</bordertexture>
+                        <bordersize>4</bordersize>
+                        <include>thumbsborder_focused</include>
+                        <texture background="true" diffuse="home/home_matte2.png" fallback="colors/color_keyboard.png">$VAR[LandscapeImage]</texture>
+                        <aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
+                        <visible>![!String.IsEmpty(ListItem.Art(thumb)) + String.IsEqual(ListItem.Art(thumb),ListItem.Property(channellogo))]</visible>
+                        <visible>String.IsEmpty(ListItem.Property(defaultID))</visible>
+                    </control>
+                </control>
+                <control type="group">
+                    <visible>Control.HasFocus($PARAM[widgetid]) + $EXP[IsPlayingUnrecognizedContent]</visible>
+                    <left>8</left>
+                    <top>8</top>
+                    <width>1240</width>
+                    <height>698</height>
+                    <control type="videowindow">
+                        <height>100%</height>
+                        <width>100%</width>
+                    </control>
+                </control>
+                <control type="group">
+                    <height>125</height>
+                    <bottom>15</bottom>
+                    <left>30</left>
+                    <control type="image">
+                        <visible>!Skin.HasSetting(NoClearLogoBingie)</visible>
+                        <height>88</height>
+                        <width>230</width>
+                        <align>left</align>
+                        <fadetime>250</fadetime>
+                        <aspectratio align="left" aligny="center">keep</aspectratio>
+                        <texture background="true" fallback="colors/color_transparent.png">$INFO[Container($PARAM[widgetid]).ListItem.Art(clearlogo)]</texture>
+                    </control>
+                    <control type="label" id="6114">
+                        <top>90</top>
+                        <visible>!String.IsEmpty(Control.GetLabel(6114))</visible>
+                        <posy>5</posy>
+                        <height>35</height>
+                        <width>auto</width>
+                        <aligny>center</aligny>
+                        <font>Reg22</font>
+                        <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                        <label>$VAR[YearOrPremieredOrPVR,,    ]$VAR[GetMPAA,,    ]$VAR[DurationOrTotalSECount]</label>
+                    </control>
+                </control>
+            </control>
+            <include content="HiddenWidgetButton">
+                <onunfocus>ClearProperty(highlightfocus,home)</onunfocus>
+                <param name="widgetstyle" value="highlight" />
+                <param name="widgetid" value="$PARAM[widgetid]" />
+            </include>
+        </focusedlayout>
+    </include>-->
 
     <include name="widget_layout_landscape_multi">
         <include condition="String.IsEqual(Skin.AspectRatio,16:10) + Skin.HasSetting(VerticalHomeLargeWidget)" content="height">
@@ -1055,119 +1165,6 @@
                     <param name="widgetstyle" value="banner"/>
                     <param name="widgetid" value="$PARAM[widgetid]"/>
                 </include>
-            </control>
-        </focusedlayout>
-    </include>
-
-    <!-- widget Bingie Widebox Landscape layout -->
-    <include name="widget_layout_landscapewidebox">
-        <include condition="String.IsEmpty(Window(Home).Property(bingieviews))">widget_layout_landscapewidebox_animation</include>
-        <height>760</height>
-        <orientation>horizontal</orientation>
-        <!--<animation effect="slide" start="0" end="0,-290" condition="true">Focus</animation>-->
-        <itemlayout height="760" width="360">
-            <control type="group">
-                <left>-230</left>
-                <width>360</width>
-                <height>760</height>
-                <include>PosterPanelLayout</include>
-                <control type="group">
-                    <description>widget label overlay</description>
-                    <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable)">PosterTagOverlay</include>
-                    <include content="$PARAM[widgetTags]" condition="String.IsEqual(Skin.String(Widgets_DisplayTags),override)">
-                        <param name="prefix" value="Poster" />
-                    </include>
-                    <include condition="String.IsEqual(Skin.String(Widgets_DisplayTags),auto)">PosterTagOverlayVisibility</include>
-                </control>
-            </control>
-        </itemlayout>
-        <focusedlayout width="360" height="760" condition="!Control.HasFocus($PARAM[widgetid]) | !String.IsEqual(Window(home).property(landscapewideboxfocus),Container($PARAM[widgetid]).CurrentItem)">
-            <control type="group">
-                <left>-230</left>
-                <width>360</width>
-                <height>760</height>
-                <include>PosterThumbFO</include>
-                <include>PosterThumbLayout</include>
-                <include condition="!Window.IsActive(Home)">PosterTagOverlay</include>
-                <control type="group">
-                    <include condition="Skin.HasSetting(CaseOverlays)">PosterCaseOverlay</include>
-                </control>
-                <control type="group">
-                    <!--Watched Overlay-->
-                    <right>8</right>
-                    <top>8</top>
-                    <include>WatchedIndicatorNormal</include>
-                    <animation type="Conditional" condition="Skin.HasTheme(classic)">
-                        <effect type="slide" end="3,-3" time="0"  />
-                    </animation>
-                </control>
-                <control type="group">
-                    <description>widget label overlay</description>
-                    <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable)">PosterTagOverlay</include>
-                    <include content="$PARAM[widgetTags]" condition="String.IsEqual(Skin.String(Widgets_DisplayTags),override)">
-                        <param name="prefix" value="Poster" />
-                    </include>
-                    <include condition="String.IsEqual(Skin.String(Widgets_DisplayTags),auto)">PosterTagOverlayVisibility</include>
-                </control>
-            </control>
-            <include content="HiddenWidgetButton">
-                <onfocus>AlarmClock(FocusHightlightWidget,SetProperty(landscapewideboxfocus,$INFO[Container($PARAM[widgetid]).CurrentItem],Home),00:03,silent)</onfocus>
-                <param name="widgetstyle" value="landscapewidebox" />
-                <param name="widgetid" value="$PARAM[widgetid]" />
-            </include>
-        </focusedlayout>
-        <focusedlayout width="1250" height="760" condition="Control.HasFocus($PARAM[widgetid]) + String.IsEqual(Window(home).property(landscapewideboxfocus),Container($PARAM[widgetid]).CurrentItem)">
-            <control type="group">
-                <left>-230</left>
-                <width>1250</width>
-                <height>760</height>
-                <animation delay="0" time="300" effect="fade" condition="true">Conditional</animation>
-                <control type="image">
-                    <animation delay="200" time="100" effect="fade" condition="true">Conditional</animation>
-                    <!--Panel Normal-->
-                    <texture background="true">home/home_matte2.png</texture>
-                    <colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
-                    <include>thumbsborder_focused</include>
-                    <visible>![Window.IsActive(Home) + Skin.HasSetting(Home_TransParentTiles)]</visible>
-                </control>
-                <!-- landscape image -->
-                <control type="group">
-                    <width>1250</width>
-                    <height>760</height>
-                    <include>LandscapeLayout</include>
-                </control>
-                <control type="videowindow">
-                    <visible>Control.HasFocus($PARAM[widgetid])</visible>
-                    <left>0</left>
-                    <top>0</top>
-                    <height>96%</height>
-                    <width>96%</width>
-                </control>
-                <control type="group">
-                    <height>125</height>
-                    <bottom>15</bottom>
-                    <left>30</left>
-                    <control type="image">
-                        <visible>!Skin.HasSetting(NoClearLogoBingie)</visible>
-                        <height>88</height>
-                        <width>230</width>
-                        <align>left</align>
-                        <fadetime>250</fadetime>
-                        <aspectratio align="left" aligny="center">keep</aspectratio>
-                        <texture background="true" fallback="colors/color_transparent.png">$INFO[Container($PARAM[widgetid]).ListItem.Art(clearlogo)]</texture>
-                    </control>
-                    <control type="label" id="6114">
-                        <top>90</top>
-                        <visible>!String.IsEmpty(Control.GetLabel(6114))</visible>
-                        <posy>5</posy>
-                        <height>35</height>
-                        <width>auto</width>
-                        <aligny>center</aligny>
-                        <font>Reg22</font>
-                        <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-                        <label>$VAR[YearOrPremieredOrPVR,,    ]$VAR[GetMPAA,,    ]$VAR[DurationOrTotalSECount]</label>
-                    </control>
-                </control>
             </control>
         </focusedlayout>
     </include>
@@ -2019,12 +2016,11 @@
     <include name="WidgetBaseBingieIncludes">
         <onunfocus condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,silent)</onunfocus>
         <onunfocus condition="Skin.HasSetting(BingieAutoTrailer) + $EXP[IsPlayingUnrecognizedContent] + String.IsEmpty(Window(Home).Property(KeepPlayingTrailer))">PlayerControl(Stop)</onunfocus>
-        <onfocus condition="String.IsEmpty(Window(Home).Property(KeepPlayingTrailer))">ClearProperty(KeepPlayingTrailer,show)</onfocus>
+        <onfocus condition="!String.IsEmpty(Window(Home).Property(KeepPlayingTrailer))">ClearProperty(KeepPlayingTrailer,home)</onfocus>
         <include condition="!Skin.HasSetting(EnhancedHome_Circular)">Bingie_Focus_Position_No_Circular</include>
         <include content="ContainerShowInfoOnclick" condition="Skin.HasSetting(ShowInformationBypass)">
             <param name="widgetid" value="$PARAM[widgetid]" />
         </include>
-        <!-- fixed focus navigation -->
         <include content="Fixed_Focus_Navigation_Factory" condition="Skin.HasSetting(EnableFixedFocusWidgets)">
             <param name="widgetid" value="$PARAM[widgetid]"/>
         </include>
@@ -2041,7 +2037,7 @@
             <include condition="$PARAM[multiRows]">widget_base_vertical</include>
             <orientation>horizontal</orientation>
             <width>100%</width>
-            <scrolltime tween="sine" easing="out">500</scrolltime>
+            <scrolltime tween="sine" easing="out">600</scrolltime>
             <preloaditems>5</preloaditems>
             <include content="WidgetBaseBingieIncludes" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">
                 <param name="widgetid" value="$PARAM[widgetid]" />
@@ -2090,7 +2086,6 @@
     </include>
     <include name="widget_base_content_categories">
         <include>StaticWidget_Categories</include>
-        <content sortby="$PARAM[widgetSortBy]" sortorder="$PARAM[widgetSortOrder]" limit="$PARAM[widgetLimit]" target="$PARAM[widgetTarget]">plugin://script.skin.helper.widgets/?action=browsegenres&amp;mediatype=media</content>
     </include>
     <include name="widget_base_content_mylist">
         <content sortby="$PARAM[widgetSortBy]" sortorder="$PARAM[widgetSortOrder]" limit="$PARAM[widgetLimit]" target="$PARAM[widgetTarget]">special://skin/playlists/mylistshows.xsp</content>
@@ -2103,60 +2098,203 @@
                 <label>$LOCALIZE[342]</label>
                 <thumb>bingie/categories/movies.jpg</thumb>
                 <property name="DBTYPE">category</property>
-                <property name="Path">videodb://movies/titles/</property>
-                <onclick>ActivateWindow(videos,videodb://movies/titles/,return)</onclick>
-                <visible>true</visible>
+                <property name="path">videodb://movies/titles/</property>
+                <onclick>SetProperty(category,movies,home)</onclick>
+                <onclick>ActivateWindow(1117,return)</onclick>
             </item>
             <item id="2">
                 <label>$LOCALIZE[20343]</label>
                 <thumb>bingie/categories/tvshows.jpg</thumb>
                 <property name="DBTYPE">category</property>
-                <property name="Path">videodb://tvshows/titles/</property>
-                <onclick>ActivateWindow(videos,videodb://tvshows/titles/,return)</onclick>
-                <visible>true</visible>
+                <property name="path">videodb://tvshows/titles/</property>
+                <onclick>SetProperty(category,tv shows,home)</onclick>
+                <onclick>ActivateWindow(1117,return)</onclick>
             </item>
             <item id="3">
                 <label>$LOCALIZE[31098]</label>
                 <thumb>bingie/categories/topratedtvshows.jpg</thumb>
                 <property name="DBTYPE">category</property>
-                <property name="Path">special://skin/playlists/topratedshows.xsp</property>
-                <onclick>ActivateWindow(videos,special://skin/playlists/topratedshows.xsp,return)</onclick>
-                <visible>true</visible>
+                <property name="path">special://skin/playlists/topratedshows.xsp</property>
+                <onclick>SetProperty(category,critically-acclaimed tv shows,home)</onclick>
+                <onclick>ActivateWindow(1117,return)</onclick>
             </item>
             <item id="4">
                 <label>$LOCALIZE[31532]</label>
                 <thumb>bingie/categories/topratedmovies.jpg</thumb>
                 <property name="DBTYPE">category</property>
-                <property name="Path">special://skin/playlists/topratedmovies.xsp</property>
-                <onclick>ActivateWindow(videos,special://skin/playlists/topratedmovies.xsp,return)</onclick>
-                <visible>true</visible>
+                <property name="path">special://skin/playlists/topratedmovies.xsp</property>
+                <onclick>SetProperty(category,critically-acclaimed movies,home)</onclick>
+                <onclick>ActivateWindow(1117,return)</onclick>
             </item>
             <item id="5">
                 <label>$LOCALIZE[31127]</label>
                 <thumb>bingie/categories/recentlyadded.jpg</thumb>
                 <property name="DBTYPE">category</property>
-                <property name="Path">special://skin/playlists/recentlyaddedmovies.xsp</property>
-                <property name="Path2">special://skin/playlists/recentlyaddedshows.xsp</property>
-                <onclick>ActivateWindow(videos,plugin://script.skin.helper.widgets/?action=recentshowsandmovies&amp;mediatype=media&amp;limit=100,return)</onclick>
-                <visible>true</visible>
+                <property name="path">special://skin/playlists/recentlyaddedmovies.xsp</property>
+                <property name="path2">special://skin/playlists/recentlyaddedshows.xsp</property>
+                <onclick>SetProperty(category,recently added,home)</onclick>
+                <onclick>ActivateWindow(1117,return)</onclick>
             </item>
             <item id="6">
                 <label>$LOCALIZE[31577]</label>
                 <thumb>bingie/categories/newrelease.jpg</thumb>
                 <property name="DBTYPE">category</property>
-                <property name="Path">special://skin/playlists/newreleasemovies.xsp</property>
-                <property name="Path2">special://skin/playlists/newreleaseshows.xsp</property>
-                <onclick>ActivateWindow(videos,plugin://script.skin.helper.widgets/?action=newrelease&amp;mediatype=media&amp;limit=100,return)</onclick>
-                <visible>true</visible>
+                <property name="path">special://skin/playlists/newreleasemovies.xsp</property>
+                <property name="path2">special://skin/playlists/newreleaseshows.xsp</property>
+                <onclick>SetProperty(category,new release,home)</onclick>
+                <onclick>ActivateWindow(1117,return)</onclick>
             </item>
             <item id="7">
-                <label>$ADDON[script.skin.helper.widgets 32090]</label>
+                <label>$LOCALIZE[31563]</label>
                 <thumb>bingie/categories/popular.jpg</thumb>
                 <property name="DBTYPE">category</property>
-                <property name="Path">special://skin/playlists/blockbustermovies.xsp</property>
-                <property name="Path2">special://skin/playlists/bingeworthyshows.xsp.xsp</property>
-                <onclick>ActivateWindow(videos,plugin://script.skin.helper.widgets/?action=popular&amp;mediatype=media&amp;limit=100,return)</onclick>
-                <visible>true</visible>
+                <property name="path">special://skin/playlists/blockbustermovies.xsp</property>
+                <property name="path2">special://skin/playlists/bingeworthyshows.xsp</property>
+                <onclick>SetProperty(category,popular,home)</onclick>
+                <onclick>ActivateWindow(1117,return)</onclick>
+            </item>
+            <item id="8">
+                <label>$LOCALIZE[31193]</label>
+                <thumb>bingie/categories/standup.jpg</thumb>
+                <property name="DBTYPE">category</property>
+                <property name="path">special://skin/playlists/standup.xsp</property>
+                <onclick>SetProperty(category,stand-up comedy,home)</onclick>
+                <onclick>ActivateWindow(1117,return)</onclick>
+            </item>
+            <item id="9">
+                <label>Drama</label>
+                <thumb>resource://resource.images.moviegenreicons.bingie/drama.jpg</thumb>
+                <property name="DBTYPE">category</property>
+                <property name="path">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22drama%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</property>
+                <property name="path2">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22drama%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</property>
+                <onclick>SetProperty(category,drama,home)</onclick>
+                <onclick>ActivateWindow(1117,return)</onclick>
+            </item>
+            <item id="10">
+                <label>Science Fiction</label>
+                <thumb>resource://resource.images.moviegenreicons.bingie/science fiction.jpg</thumb>
+                <property name="DBTYPE">category</property>
+                <property name="path">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22fiction%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</property>
+                <property name="path2">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22fiction%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</property>
+                <onclick>SetProperty(category,science fiction,home)</onclick>
+                <onclick>ActivateWindow(1117,return)</onclick>
+            </item>
+            <item id="11">
+                <label>Action</label>
+                <thumb>resource://resource.images.moviegenreicons.bingie/action.jpg</thumb>
+                <property name="DBTYPE">category</property>
+                <property name="path">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22action%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</property>
+                <property name="path2">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22action%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</property>
+                <onclick>SetProperty(category,action,home)</onclick>
+                <onclick>ActivateWindow(1117,return)</onclick>
+            </item>
+            <item id="12">
+                <label>Thriller</label>
+                <thumb>resource://resource.images.moviegenreicons.bingie/thriller.jpg</thumb>
+                <property name="DBTYPE">category</property>
+                <property name="path">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22thriller%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</property>
+                <property name="path2">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22thriller%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</property>
+                <onclick>SetProperty(category,thriller,home)</onclick>
+                <onclick>ActivateWindow(1117,return)</onclick>
+            </item>
+            <item id="13">
+                <label>Crime</label>
+                <thumb>resource://resource.images.moviegenreicons.bingie/crime.jpg</thumb>
+                <property name="DBTYPE">category</property>
+                <property name="path">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22crime%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</property>
+                <property name="path2">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22crime%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</property>
+                <onclick>SetProperty(category,crime,home)</onclick>
+                <onclick>ActivateWindow(1117,return)</onclick>
+            </item>
+            <item id="14">
+                <label>Comedy</label>
+                <thumb>resource://resource.images.moviegenreicons.bingie/comedy.jpg</thumb>
+                <property name="DBTYPE">category</property>
+                <property name="path">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22comedy%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</property>
+                <property name="path2">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22comedy%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</property>
+                <onclick>SetProperty(category,comedy,home)</onclick>
+                <onclick>ActivateWindow(1117,return)</onclick>
+            </item>
+            <item id="15">
+                <label>Adventure</label>
+                <thumb>resource://resource.images.moviegenreicons.bingie/adventure.jpg</thumb>
+                <property name="DBTYPE">category</property>
+                <property name="path">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22adventure%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</property>
+                <property name="path2">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22adventure%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</property>
+                <onclick>SetProperty(category,adventure,home)</onclick>
+                <onclick>ActivateWindow(1117,return)</onclick>
+            </item>
+            <item id="16">
+                <label>Western</label>
+                <thumb>resource://resource.images.moviegenreicons.bingie/western.jpg</thumb>
+                <property name="DBTYPE">category</property>
+                <property name="path">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22western%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</property>
+                <property name="path2">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22western%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</property>
+                <onclick>SetProperty(category,western,home)</onclick>
+                <onclick>ActivateWindow(1117,return)</onclick>
+            </item>
+            <item id="17">
+                <label>Horror</label>
+                <thumb>resource://resource.images.moviegenreicons.bingie/horror.jpg</thumb>
+                <property name="DBTYPE">category</property>
+                <property name="path">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22horror%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</property>
+                <property name="path2">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22horror%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</property>
+                <onclick>SetProperty(category,horror,home)</onclick>
+                <onclick>ActivateWindow(1117,return)</onclick>
+            </item>
+            <item id="18">
+                <label>Family</label>
+                <thumb>resource://resource.images.moviegenreicons.bingie/family.jpg</thumb>
+                <property name="DBTYPE">category</property>
+                <property name="path">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22family%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</property>
+                <property name="path2">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22family%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</property>
+                <onclick>SetProperty(category,family,home)</onclick>
+                <onclick>ActivateWindow(1117,return)</onclick>
+            </item>
+            <item id="19">
+                <label>Animation</label>
+                <thumb>resource://resource.images.moviegenreicons.bingie/animation.jpg</thumb>
+                <property name="DBTYPE">category</property>
+                <property name="path">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22animation%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</property>
+                <property name="path2">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22animation%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</property>
+                <onclick>SetProperty(category,animation,home)</onclick>
+                <onclick>ActivateWindow(1117,return)</onclick>
+            </item>
+            <item id="20">
+                <label>Mystery</label>
+                <thumb>resource://resource.images.moviegenreicons.bingie/mystery.jpg</thumb>
+                <property name="DBTYPE">category</property>
+                <property name="path">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22mystery%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</property>
+                <property name="path2">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22mystery%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</property>
+                <onclick>SetProperty(category,mystery,home)</onclick>
+                <onclick>ActivateWindow(1117,return)</onclick>
+            </item>
+            <item id="21">
+                <label>Romance</label>
+                <thumb>resource://resource.images.moviegenreicons.bingie/romance.jpg</thumb>
+                <property name="DBTYPE">category</property>
+                <property name="path">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22romance%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</property>
+                <property name="path2">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22romance%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</property>
+                <onclick>SetProperty(category,romance,home)</onclick>
+                <onclick>ActivateWindow(1117,return)</onclick>
+            </item>
+            <item id="22">
+                <label>Documentary</label>
+                <thumb>resource://resource.images.moviegenreicons.bingie/documentary.jpg</thumb>
+                <property name="DBTYPE">category</property>
+                <property name="path">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22docu%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</property>
+                <property name="path2">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22docu%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</property>
+                <onclick>SetProperty(category,documentary,home)</onclick>
+                <onclick>ActivateWindow(1117,return)</onclick>
+            </item>
+            <item id="23">
+                <label>Fantasy</label>
+                <thumb>resource://resource.images.moviegenreicons.bingie/fantasy.jpg</thumb>
+                <property name="DBTYPE">category</property>
+                <property name="path">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22fantasy%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</property>
+                <property name="path2">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22fantasy%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</property>
+                <onclick>SetProperty(category,fantasy,home)</onclick>
+                <onclick>ActivateWindow(1117,return)</onclick>
             </item>
         </content>
     </include>

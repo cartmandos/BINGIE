@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- BINGIE -->
 <window>
-    <defaultcontrol always="true">1000</defaultcontrol>
+    <defaultcontrol always="true">1001</defaultcontrol>
     <menucontrol>900</menucontrol>
 
     <!-- defaults -->
@@ -33,6 +33,10 @@
         <!-- Global Background -->
         <include>GlobalBackground</include>
 
+        <control type="button" id="1001">
+            <include>HiddenObject</include>
+            <onfocus condition="String.IsEmpty(Window(Home).Property(StartupMask))">SetFocus(1000)</onfocus>
+        </control>
         <control type="button" id="1000">
             <include>HiddenObject</include>
             <onfocus condition="String.IsEmpty(Window(Home).Property(HomeFirstLoadDone)) + String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(BingieHomeDisableFirstRow) + !Skin.HasSetting(DisableSpotlightContent) + !Skin.HasSetting(AutoFocusHome) + Skin.HasSetting(EnableFixedFocusWidgets)">AlarmClock(focus_delay,SetFocus(1508),00:01,silent)</onfocus>
@@ -40,13 +44,12 @@
             <onfocus condition="!String.IsEmpty(Window(Home).Property(HomeFirstLoadDone)) + [String.IsEqual(Skin.String(HomeLayout),bingie) | String.IsEqual(Skin.String(HomeLayout),win10)] + !Skin.HasSetting(AutoFocusHome) + String.IsEmpty(Window(Home).Property(LastFocusWidget))">SetFocus(77777)</onfocus>
             <onfocus condition="[[!String.IsEqual(Skin.String(HomeLayout),bingie) + !String.IsEqual(Skin.String(HomeLayout),win10)] | Skin.HasSetting(AutoFocusHome)] + String.IsEmpty(Window(Home).Property(LastFocusWidget))">SetFocus($VAR[DefaultMenuFocus])</onfocus>
             <onfocus condition="String.IsEmpty(Window(Home).Property(HomeFirstLoadDone))">SetProperty(HomeFirstLoadDone,1)</onfocus>
-
             <include content="WidgetsAutoRotate" condition="!String.IsEmpty(Skin.String(widgets_rotate_delay)) + !String.IsEqual(Skin.String(widgets_rotate),disabled) + [String.IsEqual(Skin.String(HomeLayout),bingie) | String.IsEqual(Skin.String(HomeLayout),win10)]">
                 <param name="interval" value="$INFO[Skin.String(widgets_rotate_delay)]" />
             </include>
-            <include content="ButtonMovementAction">
-                <param name="action" value="900" />
-            </include>
+            <onleft>900</onleft>
+            <onright>900</onright>
+            <onback>900</onback>
         </control>
 
         <!-- Preload Weather Conditions -->
