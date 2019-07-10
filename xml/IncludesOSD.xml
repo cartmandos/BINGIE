@@ -233,7 +233,7 @@
 				<posx>510</posx>
 				<posy>210</posy>
 				<width>810</width>
-				<visible>!VideoPlayer.Content(livetv)</visible>
+				<visible>!VideoPlayer.HasEpg</visible>
 				<info>Player.Progress</info>
 			</control>
 			<control type="progress" id="23">
@@ -241,7 +241,7 @@
 				<posx>510</posx>
 				<posy>210</posy>
 				<width>810</width>
-				<visible>VideoPlayer.Content(livetv)</visible>
+				<visible>VideoPlayer.HasEpg</visible>
 				<info>PVR.EpgEventProgress</info>
 			</control>
 		</control>
@@ -434,8 +434,7 @@
 					<height>20</height>
 					<width>700</width>
 					<info>Player.Progress</info>
-					<visible>Player.HasDuration + ![VideoPlayer.Content(livetv) + PVR.HasEpg]</visible>
-					
+					<visible>!VideoPlayer.HasEpg</visible>
 					<texturebg border="5" colordiffuse="$VAR[OSDProgressBarBackgroundColor]">diffuse/panel_trans.png</texturebg>
 					<lefttexture/>
 					<midtexture border="5" colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]">diffuse/panel.png</midtexture>
@@ -449,8 +448,7 @@
 					<height>20</height>
 					<width>700</width>
 					<info>PVR.EpgEventProgress</info>
-					<visible>VideoPlayer.Content(livetv) + PVR.HasEpg</visible>
-					
+					<visible>VideoPlayer.HasEpg</visible>
 					<texturebg border="5" colordiffuse="$VAR[OSDProgressBarBackgroundColor]">diffuse/panel_trans.png</texturebg>
 					<lefttexture/>
 					<midtexture border="5" colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]">diffuse/panel.png</midtexture>
@@ -746,8 +744,7 @@
 					<midtexture border="5" colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]">diffuse/panel.png</midtexture>
 					<righttexture/>
 					<overlaytexture/>
-					<visible>!VideoPlayer.Content(livetv)</visible>
-					
+					<visible>!VideoPlayer.HasEpg</visible>
 				</control>
 				<control type="progress" id="23">
 					<description>Progress Bar</description>
@@ -756,7 +753,7 @@
 					<width>1630</width>
 					<posy>150</posy>
 					<height>33</height>
-					<visible>VideoPlayer.Content(livetv)</visible>
+					<visible>VideoPlayer.HasEpg</visible>
 					<info>PVR.EpgEventProgress</info>
 					<texturebg border="5" colordiffuse="$VAR[OSDProgressBarBackgroundColor]">diffuse/panel_trans.png</texturebg>
 					<lefttexture/>
@@ -1641,7 +1638,7 @@
 				<posx>700</posx>
 				<posy>205</posy>
 				<width>800</width>
-				<visible>!VideoPlayer.Content(livetv)</visible>
+				<visible>!VideoPlayer.HasEpg</visible>
 				<info>Player.Progress</info>
 			</control>
 			<control type="progress" id="23">
@@ -1650,7 +1647,7 @@
 				<posy>205</posy>
 				<width>800</width>
 				<info>PVR.EpgEventProgress</info>
-				<visible>VideoPlayer.Content(livetv)</visible>
+				<visible>VideoPlayer.HasEpg</visible>
 			</control>
 		</control>
 	</include>
@@ -2558,7 +2555,7 @@
 				<width>230</width>
 				<height>15</height>
 				<info>Player.Progress</info>
-				<visible>!VideoPlayer.Content(livetv)</visible>
+				<visible>!VideoPlayer.HasEpg</visible>
 			</control>
 			<control type="progress" id="23">
 				<description>Progress Bar</description>
@@ -2567,7 +2564,7 @@
 				<width>230</width>
 				<height>15</height>
 				<info>PVR.EpgEventProgress</info>
-				<visible>VideoPlayer.Content(livetv)</visible>
+				<visible>VideoPlayer.HasEpg</visible>
 			</control>
                  <control type="slider" id="401">
 				<description>Seek Slider</description>
