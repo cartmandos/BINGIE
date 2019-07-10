@@ -99,6 +99,7 @@
 
         <!-- Auto-Complete & Static Suggestions List -->
         <include content="Search_Suggestions_Container">
+            <include condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Left</include>
             <include>SearchSuggestionsAnim</include>
             <param name="id" value="1007" />
             <param name="top" value="590" />
@@ -106,6 +107,8 @@
             <param name="height" value="894" />
             <param name="onitemfocus" value="SetProperty(SuggestionPath,$ESCINFO[ListItem.Property(path)])" />
             <param name="onitemfocus2" value="SetProperty(CustomSearch,1,home)" />
+            <onleft>SetProperty(KeepSuggestions,1)</onleft>
+            <onfocus>ClearProperty(KeepSuggestions)</onfocus>
             <onclick condition="!String.IsEmpty(Skin.String(CustomSearchTerm))">Skin.SetString(CustomSearchTerm,$INFO[ListItem.Label])</onclick>
             <onclick condition="String.IsEmpty(Skin.String(CustomSearchTerm))">SetFocus(77777)</onclick>
             <visible>!$EXP[IsActualKeyboardActive]</visible>
@@ -187,7 +190,7 @@
                 <param name="allow_showinfo_onclick" value="true" />
                 <param name="visibility" value="String.IsEmpty(Skin.String(CustomSearchTerm)) + !String.IsEmpty(Window.Property(SuggestionPath))" />
                 <onleft>1007</onleft>
-                <visible>ControlGroup(77777).HasFocus() | Control.HasFocus(1007)</visible>
+                <visible>ControlGroup(77777).HasFocus() | Control.HasFocus(1007) | [Control.HasFocus(900) + !String.IsEmpty(Window.Property(KeepSuggestions))]</visible>
                 <content limit="100" target="videos">$INFO[Window.Property(SuggestionPath)]</content>
             </include>
             <!-- By Title (Movies & TV Shows) -->

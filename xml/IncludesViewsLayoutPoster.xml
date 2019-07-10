@@ -55,6 +55,7 @@
             <bordersize>8</bordersize>
             <visible>String.IsEmpty(ListItem.Art(poster)) + String.IsEmpty(ListItem.Art(tvshow.poster))</visible>
         </control>
+        <include condition="!$EXP[IsBingieViewsActive]">Poster_New_Episodes_Tag_Overlay</include>
     </include>
 
     <include name="PosterThumbFO">
@@ -236,7 +237,36 @@
             </control>
         </control>
     </include>
-    
+
+    <!-- New Episodes Tag Overlay -->
+    <include name="Poster_New_Episodes_Tag_Overlay">
+        <control type="group">
+            <visible>!Skin.HasSetting(DisableNewEpisodesIndicator)</visible>
+            <visible>$EXP[IsTvShowDBType] + $EXP[IsTVShowInLastEpisodes]</visible>
+            <width>100%</width>
+            <height>19</height>
+            <left>9</left>
+            <bottom>16</bottom>
+            <animation effect="slide" end="1,4" time="0" condition="!Skin.HasTheme(skindefault)">Conditional</animation>
+            <control type="button">
+                <width min="150" max="225">auto</width>
+                <height>100%</height>
+                <onclick>noop</onclick>
+                <align>center</align>
+                <aligny>top</aligny>
+                <font>Bold16</font>
+                <textoffsety>-2</textoffsety>
+                <label>[B]$LOCALIZE[31007][/B]</label>
+                <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
+                <textoffsetx>5</textoffsetx>
+                <texturefocus colordiffuse="$INFO[Skin.String(BingieNewEpisodesTagColor)]">colors/color_white.png</texturefocus>
+                <texturenofocus colordiffuse="$INFO[Skin.String(BingieNewEpisodesTagColor)]">colors/color_white.png</texturenofocus>
+            </control>
+        </control>
+    </include>
+
+
     <!-- CASE OVERLAYS -->
     <include name="PosterCaseOverlay">
         <control type="group">

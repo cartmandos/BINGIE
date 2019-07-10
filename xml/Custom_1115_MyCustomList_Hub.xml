@@ -19,6 +19,16 @@
         <!-- hidden submenu for count calculations -->
         <include condition="!Skin.HasSetting(DisableAllSubmenus)">hiddenSubmenu</include>
         <include>HomeBingie</include>
+        <!-- Fixed Frame -->
+        <include content="Bingie_Main_View_Fixed_Frame" condition="Skin.HasSetting(EnableFixedFrameWidgets)">
+            <include>BingieLeftDefs</include>
+            <param name="containerid" value="1510" />
+            <param name="top" value="690" />
+            <param name="width" value="332" />
+            <param name="height" value="195" />
+            <param name="texture" value="$INFO[Skin.String(thumbsborder_focused),bingie/border/thumb_fo_,.png]" />
+            <param name="xAxisAnim" value="332" />
+        </include>
         <!-- Loading Suggestions -->
         <include content="Busy_Spinner">
             <param name="centerleft" value="50%"/>

@@ -1461,7 +1461,6 @@
 
 			<!-- Dialog Info -->
 			<control type="group">
-				<!-- window close animation fade -->
 				<animation type="WindowClose" reversible="false">
 					<effect type="fade" start="100" end="50" time="100"/>
 				</animation>
@@ -1471,15 +1470,17 @@
 					<include>HiddenObject</include>
 				</control>
 
+				<!-- hidden play button
+				<control type="button" id="8">
+					<include>HiddenObject</include>
+				</control>-->
+
 				<!-- hiddenlist to get first/next episode -->
-                <!--<visible>!String.IsEmpty(ListItem.DBID) + $EXP[IsEpisodeDBTypeNoFallback] + Skin.HasSetting(EnableEpisodeInfoBypass)</visible>-->
 				<control type="list" id="5050">
                     <visible allowhiddenfocus="true">!String.IsEmpty(ListItem.DBID) + String.IsEqual(ListItem.DBTYPE,tvshow)</visible>
                     <visible>Integer.IsGreater(Container(5050).NumItems,0) + !Container(5050).IsUpdating</visible>
 					<left>-100</left>
 					<top>-100</top>
-					<width>1</width>
-					<height>1</height>
 					<preloaditems>1</preloaditems>
 					<itemlayout/>
 					<focusedlayout/>
@@ -1557,9 +1558,8 @@
 				<!-- dialog info details -->
 				<control type="grouplist">
 					<visible>!Window.IsActive(script-ExtendedInfo Script-DialogVideoInfo.xml) + !Window.IsActive(script-ExtendedInfo Script-DialogInfo.xml)</visible>
-					<include condition="!Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Left</include>
-					<left>65</left>
-					<posy>22</posy>
+					<include>BingieLeftDefs</include>
+					<top>22</top>
 					<width>1200</width>
 					<usecontrolcoords>true</usecontrolcoords>
 					<orientation>vertical</orientation>
@@ -1567,81 +1567,50 @@
 					<animation effect="fade" start="100" end="0" time="900" delay="9000" condition="Skin.HasSetting(AutoHideDetailsOnTrailer) + String.IsEqual(Window(Home).Property(TrailerPlaying),windowed) + System.IdleTime(1)">Conditional</animation>
 					<animation time="150" effect="fade" reversible="true" easing="inout">Visible</animation>
 
-					<!-- Title -->
-					<!-- clearlogo [800x310] -->
-					<control type="image" id="887766">
-						<height>186</height>
-						<width>480</width>
-						<align>left</align>
-						<aspectratio align="left" aligny="center">keep</aspectratio>
-						<texture background="true" fallback="colors/color_transparent.png">$VAR[BingieInfoClearlogo]</texture>
-					</control>
-					<!-- text title -->
-					<control type="textbox">
-						<visible>String.EndsWith(Control.GetLabel(887766),color_transparent.png)</visible>
-						<top>-143</top>
-						<width max="1000">auto</width>
-						<height>auto</height>
-						<font>Reg48</font>
-						<align>left</align>
-						<aligny>center</aligny>
-						<textcolor>$INFO[Skin.String(HeaderTextColor)]</textcolor>
-						<label>[B]$VAR[TVShowTitle][/B]</label>
-						<shadowcolor>$INFO[Skin.String(HeaderTextShadowColor)]</shadowcolor>
+					<include content="Bingie_Headline_Item">
+						<param name="id" value="8000" />
+						<param name="genre_adjust" value="false" />
+						<param name="image" value="$VAR[BingieInfoClearlogo]" />
+						<param name="text" value="[B]$VAR[TVShowTitle][/B]" />
+					</include>
+					<control type="group">
+						<top>-2</top>
+						<width>1000</width>
+						<height>40</height>
+						<include>SpotlightRowDetails</include>
 					</control>
 
-					<control type="grouplist">
-						<include>InfoDialogWindowOpenAnim</include>
-                        <visible>String.IsEmpty(Window.Property(AdditionalInfo)) | String.IsEqual(Window.Property(AdditionalInfo),plot)</visible>
-						<width>1000</width>
-						<height>85</height>
-                        <orientation>vertical</orientation>
-                        <!-- row details -->
-						<include>SpotlightRowDetails</include>
-                        <!-- tagline -->
-                        <control type="label" id="823">
-                            <height>35</height>
-                            <width>800</width>
-                            <font>Reg28</font>
-                            <align>left</align>
-                            <aligny>center</aligny>
-                            <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-                            <label>[B]$INFO[ListItem.TagLine][/B]</label>
-                            <visible>!String.IsEmpty(ListItem.TagLine)</visible>
-                        </control>
-                        <!-- 'SxxExx "episode_title"' format sublabel -->
-                        <control type="label">
-                            <height>35</height>
-                            <width>800</width>
-                            <font>Reg30</font>
-                            <align>left</align>
-                            <aligny>center</aligny>
-                            <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-                            <label>$VAR[BingieDialogEpisodeInfoLabel]</label>
-                            <visible>[String.IsEqual(ListItem.dbtype,episode) | String.IsEqual(Window(Home).Property(ListItem.dbtype),episode)] | [Skin.HasSetting(ShowEpisodePlotInfoDialog) + Control.IsVisible(5050)]</visible>
-                        </control>
+					<!-- Sublabel -->
+					<control type="label" id="823">
+						<visible>!String.IsEmpty(Control.GetLabel(823))</visible>
+						<top>20</top>
+						<height>35</height>
+						<width>100%</width>
+						<font>Reg28</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+						<label>[B]$VAR[BingieDialogInfoSublabel][/B]</label>
 					</control>
 
 					<!-- plot -->
 					<control type="textbox">
-						<include>InfoDialogWindowOpenAnim</include>
 						<animation effect="fade" start="100" end="0" time="200" condition="!String.IsEmpty(Window.Property(AdditionalInfo))">Conditional</animation>
 						<width>625</width>
 						<height min="110" max="170">auto</height>
 						<textcolor>$VAR[BingieInfoDialogPlotTextColor]</textcolor>
 						<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
-						<align>justify</align>
+						<align>left</align>
 						<font>Reg28</font>
 						<label>$VAR[BingieInfoDialogPlot]</label>
 					</control>
 
 					<!-- more details -->
 					<control type="grouplist">
-						<include>InfoDialogWindowOpenAnim</include>
 						<animation effect="fade" start="100" end="0" time="200" condition="!String.IsEmpty(Window.Property(AdditionalInfo))">Conditional</animation>
 						<orientation>vertical</orientation>
 						<height max="255">auto</height>
-						<width>760</width>
+						<width>800</width>
 						<itemgap>0</itemgap>
 						<include condition="Skin.HasSetting(videoinfo_details_cast)">More_Details_Cast</include>
                         <include condition="Skin.HasSetting(videoinfo_details_director)">More_Details_Director</include>
@@ -1655,7 +1624,7 @@
 					<!-- buttons -->
 					<control type="group">
 						<top>30</top>
-						<width>600</width>
+						<width>550</width>
 						<animation effect="fade" start="100" end="0" time="200" condition="String.IsEqual(Window.Property(AdditionalInfo), plot)">Conditional</animation>
 
 						<!-- progress bar for resume buttons -->
@@ -1665,7 +1634,7 @@
 							<control type="progress">
 								<posy>28</posy>
 								<left>365</left>
-								<width>205</width>
+								<width>155</width>
 								<height>8</height>
 								<texturebg colordiffuse="cc515151" border="0">colors/color_white.png</texturebg>
 								<lefttexture/>
@@ -1678,15 +1647,16 @@
 						<!-- fixed frame -->
 						<control type="image">
 							<visible>!Skin.HasSetting(DisableFixedFrameVideoInfo)</visible>
+							<visible>Window.IsActive(movieinformation)</visible>
 							<visible>ControlGroup(8000).HasFocus() + !ControlGroup(700).HasFocus()</visible>
 							<animation effect="fade" start="0" end="100" time="0" delay="250">Visible</animation>
-							<width>600</width>
+							<width>550</width>
 							<height>65</height>
 							<texture background="true" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/default_button_fo.png</texture>
-							<animation effect="slide" end="0,65" time="150" condition="Integer.IsGreater(Container(8000).Position, 0)">Conditional</animation>
-							<animation effect="slide" end="0,65" time="150" condition="Integer.IsGreater(Container(8000).Position, 1)">Conditional</animation>
-							<animation effect="slide" end="0,65" time="150" condition="Integer.IsGreater(Container(8000).Position, 2)">Conditional</animation>
-							<animation effect="slide" end="0,65" time="150" condition="Integer.IsGreater(Container(8000).Position, 3)">Conditional</animation>
+							<animation effect="slide" end="0,65" time="150" tween="sine" easing="out" condition="Integer.IsGreater(Container(8000).Position, 0)">Conditional</animation>
+							<animation effect="slide" end="0,65" time="150" tween="sine" easing="out" condition="Integer.IsGreater(Container(8000).Position, 1)">Conditional</animation>
+							<animation effect="slide" end="0,65" time="150" tween="sine" easing="out" condition="Integer.IsGreater(Container(8000).Position, 2)">Conditional</animation>
+							<animation effect="slide" end="0,65" time="150" tween="sine" easing="out" condition="Integer.IsGreater(Container(8000).Position, 3)">Conditional</animation>
 						</control>
 
 						<!-- like / dislike / reset - user rating -->
@@ -1812,7 +1782,7 @@
 						</control>
 
 						<control type="grouplist" id="8000">
-							<width>600</width>
+							<width>550</width>
 							<height>325</height>
                             <orientation>vertical</orientation>
 							<itemgap>0</itemgap>
@@ -1838,7 +1808,7 @@
                                 <radioposx>15</radioposx>
                                 <radiowidth>23</radiowidth>
                                 <radioheight>21</radioheight>
-                                <onclick>SetProperty(BaseWindow,InfoDialog,Home)</onclick>
+                                <onclick>SetProperty(BaseWindow,1,Home)</onclick>
                                 <onclick>close</onclick>
                                 <onclick>PlayMedia($ESCINFO[Container(5050).ListItem.FileNameAndPath],resume)</onclick>
                             </control>
@@ -1856,10 +1826,9 @@
                                 <radiowidth>23</radiowidth>
                                 <radioheight>21</radioheight>
                                 <!-- Set InfoDialog as BaseWindow if NOT clicked via SendClick -->
-                                <onclick condition="!$EXP[IsTvShowDBTypeNoFallback]">SetProperty(BaseWindow,InfoDialog,Home)</onclick>
+                                <onclick condition="!$EXP[IsTvShowDBTypeNoFallback]">SetProperty(BaseWindow,1,Home)</onclick>
 								<onclick>Close</onclick>
                             </control>
-
 
                             <!-- Resume -->
                             <control type="radiobutton" id="9">
@@ -1874,7 +1843,7 @@
                                 <radiowidth>23</radiowidth>
                                 <radioheight>21</radioheight>
                                 <!-- Set InfoDialog as BaseWindow if NOT clicked via SendClick -->
-                                <onclick condition="!$EXP[IsTvShowDBTypeNoFallback]">SetProperty(BaseWindow,InfoDialog,Home)</onclick>
+                                <onclick condition="!$EXP[IsTvShowDBTypeNoFallback]">SetProperty(BaseWindow,1,Home)</onclick>
 								<onclick>Close</onclick>
                             </control>
 
@@ -1890,7 +1859,7 @@
                                 <radioposx>15</radioposx>
                                 <radiowidth>25</radiowidth>
                                 <radioheight>22</radioheight>
-                                <onclick>SetProperty(BaseWindow,InfoDialog,Home)</onclick>
+                                <onclick>SetProperty(BaseWindow,1,Home)</onclick>
                                 <onclick>close</onclick>
                                 <!-- play episode -->
                                 <onclick condition="!Control.IsVisible(5050) + String.IsEqual(ListItem.DBTYPE,episode)">PlayMedia(videodb://tvshows/$INFO[ListItem.DBID])</onclick>
@@ -1915,7 +1884,7 @@
                                 <radioposx>15</radioposx>
                                 <radiowidth>25</radiowidth>
                                 <radioheight>25</radioheight>
-                                <onclick>SetProperty(BaseWindow,InfoDialog,Home)</onclick>
+                                <onclick>SetProperty(BaseWindow,1,Home)</onclick>
                                 <onclick>close</onclick>
                                 <!-- activate ALL EPISODES view -->
                                 <!-- from episode infodialog -->
@@ -1929,7 +1898,7 @@
                                 <onclick condition="String.IsEmpty(ListItem.DBID)">ActivateWindow(Videos,$ESCINFO[ListItem.FileNameAndPath],return)</onclick>
                             </control>
 
-							<!-- Trailer-->
+							<!-- Trailer -->
                             <control type="radiobutton" id="54">
                                 <visible>Skin.HasSetting(videoinfo_button_trailer)</visible>
 								<visible>String.IsEmpty(Window(Home).Property(TrailerPlaying))</visible>
@@ -1943,7 +1912,7 @@
                                 <radiowidth>47</radiowidth>
                                 <radioheight>36</radioheight>
                                 <!-- Set InfoDialog as BaseWindow in case of activating videofullscreen -->
-                                <onclick condition="String.IsEqual(Skin.String(videoinfo_traileraction),fullscreen)">SetProperty(BaseWindow,InfoDialog,Home)</onclick>
+                                <onclick condition="String.IsEqual(Skin.String(videoinfo_traileraction),fullscreen)">SetProperty(BaseWindow,1,Home)</onclick>
                                 <!-- default -->
                                 <onclick condition="$EXP[IsMovieDBTypeNoFallback] + !Skin.HasSetting(PreferYoutubeTrailers)">RunScript(script.skin.helper.service,ACTION=playtrailer,MODE=$INFO[Skin.String(videoinfo_traileraction)],YOUTUBE=$INFO[Skin.String(AutoYoutubeTrailer)])</onclick>
                                 <!-- tvshow local lookup doesn't work inside infodialog -->
@@ -1966,7 +1935,7 @@
                                 <radioposx>2</radioposx>
                                 <radiowidth>47</radiowidth>
                                 <radioheight>36</radioheight>
-                                <onclick>SetProperty(BaseWindow,InfoDialog,Home)</onclick>
+                                <onclick>SetProperty(BaseWindow,1,Home)</onclick>
                                 <onclick>SetProperty(TrailerPlaying,fullscreen,Home)</onclick>
                                 <onclick>FullScreen</onclick>
                             </control>
@@ -2191,9 +2160,9 @@
 
 				<!-- plots & critics additional info -->
 				<control type="grouplist">
-					<posx>65</posx>
+					<include>BingieLeftDefs</include>
 					<posy>350</posy>
-					<width>1790</width>
+					<width>1660</width>
 					<height>60%</height>
 					<orientation>vertical</orientation>
 					<visible>String.IsEqual(Window.Property(AdditionalInfo),plot)</visible>
@@ -2208,7 +2177,7 @@
 
 					<!--large plot -->
 					<control type="textbox">
-						<width>1790</width>
+						<width>100%</width>
 						<height min="170" max="357">auto</height>
 						<label>$INFO[ListItem.Plot]</label>
 						<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
@@ -2630,12 +2599,12 @@
     </include>
 
     <include name="Bingie_InfoDialog_Button_Default_Defs">
-        <width>600</width>
+        <width>550</width>
         <height>65</height>
         <aligny>center</aligny>
         <align>left</align>
         <font>Reg28</font>
-        <textoffsetx>50</textoffsetx>
+        <textoffsetx>55</textoffsetx>
         <textoffsety>8</textoffsety>
         <textcolor>$VAR[BingieInfoDialogButtonsTextColor]</textcolor>
         <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
@@ -2786,8 +2755,8 @@
     </include>
 
 	<include name="NoExtendedInfo_OnLoad_Action">
-		<onload condition="String.StartsWith(Skin.String(videoinfo_traileraction),auto) + String.IsEmpty(Window(Home).Property(TrailerPlaying)) + [String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.Property(DBTYPE),tvshow) | String.IsEqual(ListItem.Property(DBTYPE),movie)]">AlarmClock(trailer_delay,RunScript(script.skin.helper.service,ACTION=playtrailer,MODE=$INFO[Skin.String(videoinfo_traileraction)],YOUTUBE=$INFO[Skin.String(AutoYoutubeTrailer)]),00:02,silent)</onload>
-		<onload condition="String.IsEqual(Skin.String(videoinfo_traileraction),auto_fullscreen) + String.IsEmpty(Window(Home).Property(TrailerPlaying)) + [String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.Property(DBTYPE),tvshow) | String.IsEqual(ListItem.Property(DBTYPE),movie)]">SetProperty(BaseWindow,InfoDialog,Home)</onload>
+		<onload condition="String.StartsWith(Skin.String(videoinfo_traileraction),auto) + String.IsEmpty(Window(Home).Property(TrailerPlaying)) + [String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.Property(DBTYPE),tvshow) | String.IsEqual(ListItem.Property(DBTYPE),movie)]">AlarmClock(preview_delay,RunScript(script.skin.helper.service,ACTION=playtrailer,MODE=$INFO[Skin.String(videoinfo_traileraction)],YOUTUBE=$INFO[Skin.String(AutoYoutubeTrailer)]),00:02,silent)</onload>
+		<onload condition="String.IsEqual(Skin.String(videoinfo_traileraction),auto_fullscreen) + String.IsEmpty(Window(Home).Property(TrailerPlaying)) + [String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.Property(DBTYPE),tvshow) | String.IsEqual(ListItem.Property(DBTYPE),movie)]">SetProperty(BaseWindow,1,Home)</onload>
 	</include>
 	<include name="ExtendedInfo_OnLoad_Action">
 		<onload condition="String.IsEqual(Window(Home).Property(contenttype),movies)">RunScript(script.extendedinfo,info=extendedinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.Title])</onload>

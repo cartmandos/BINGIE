@@ -320,6 +320,17 @@ msgctxt "#31064"
 msgid "No items in this category."
 msgstr "לא נמצאו פריטים עבור קטגוריה זו."
 
+msgctxt "#31065"
+msgid "Up Next"
+msgstr "מיד אחרי"
+
+msgctxt "#31066"
+msgid "Watch Season"
+msgstr "צפה בעונה"
+
+msgctxt "#31067"
+msgid "Now"
+msgstr "כעת"
 
 msgctxt "#31071"
 msgid "Setting level"

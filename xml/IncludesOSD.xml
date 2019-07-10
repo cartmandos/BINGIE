@@ -854,9 +854,9 @@
 			<height>100%</height>
 			<width>100%</width>
 			<visible>Player.Paused + System.IdleTime(6)</visible>
-			<visible>![Control.IsVisible(552233) | Window.IsActive(OSDVideoSettings) | Window.IsActive(OSDAudioSettings) | Window.IsActive(subtitlesearch) | Window.IsActive(sliderdialog)]</visible>
+			<visible>![Control.IsVisible(552233) | Window.IsActive(OSDVideoSettings) | Window.IsActive(OSDAudioSettings) | Window.IsActive(OSDSubtitleSettings) | Window.IsActive(subtitlesearch) | Window.IsActive(sliderdialog)]</visible>
 			<animation delay="1000" time="300" effect="fade">Visible</animation>
-			<animation delay="0" time="200" effect="fade">Hidden</animation>
+			<animation delay="0" time="300" effect="fade">Hidden</animation>
 			<!-- Vignette Mask -->
 			<control type="image">
 				<width>100%</width>
@@ -2453,7 +2453,6 @@
             <!-- small panel if OSD disabled on seek -->
 			<left>705r</left>
 			<top>20</top>
-
 			<control type="image">
 				<left>0</left>
 				<top>0</top>
@@ -2461,7 +2460,6 @@
 				<height>150</height>
 				<texture border="5">diffuse/panel.png</texture>
 				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
-				
 			</control>
 			<control type="image">
 				<left>10</left>
@@ -2471,7 +2469,6 @@
 				<texture border="5">diffuse/panel.png</texture>
 				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
 			</control>
-			
 			<control type="label">
 				<posx>20</posx>
 				<posy>0</posy>
@@ -2481,9 +2478,7 @@
 				<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
 				<shadowcolor>$INFO[Skin.String(ViewDetailsHighlightTextShadowColor)]</shadowcolor>
 				<label>$VAR[PlayerActionLabelSmall]</label>
-				
 			</control>
-			
 			<!-- total runtime -->
 			<control type="label">
 				<posx>20</posx>
@@ -2494,7 +2489,6 @@
 				<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
 				<label>$VAR[TotalDuration,[B]$LOCALIZE[180]: [/B]]</label>
 			</control>
-
 			<control type="image">
 				<visible>Player.Paused</visible>
 				<left>390</left>
@@ -2519,7 +2513,6 @@
 				<height>60</height>
 				<texture flipx="true">osd/osd_ff.png</texture>
 			</control>
-			
 			<control type="image">
 				<visible>!Player.Rewinding + !Player.Forwarding + !Player.Paused</visible>
 				<left>380</left>
@@ -2528,7 +2521,6 @@
 				<height>80</height>
 				<texture>defaultaddoninfolibrary.png</texture>
 			</control>
-			
 			<control type="label">
 				<!--elapsed Time-->
 				<left>20</left>
@@ -2551,7 +2543,6 @@
 				<label>$INFO[Player.TimeRemaining,- ]</label>
 				<visible>Player.HasDuration</visible>
 			</control>
-
 			<control type="progress">
 				<description>ProgressbarCache</description>
 				<left>120</left>
@@ -2719,9 +2710,9 @@
             <visible>!Window.IsActive(notification) + !Window.IsActive(extendedprogressdialog) + !Window.IsActive(DialogPlayerProcessInfo.xml)</visible>
 			<animation effect="fade" time="350">VisibleChange</animation>
             <include>HideOsdConditions</include>
-			<include condition="!Skin.HasSetting(EnableOSDInfoLarge) + !Skin.HasSetting(EnableOSDInfoBingie)">OSDInfoPanelSmall</include>
-			<include condition="Skin.HasSetting(EnableOSDInfoLarge)">OSDInfoPanelLarge</include>
-			<include condition="Skin.HasSetting(EnableOSDInfoBingie)">OSDInfoPanelBingie</include>
+			<include condition="!Skin.HasSetting(EnableOSDInfoLarge) + !Skin.HasSetting(EnableOSDInfoBingie) + !Skin.HasSetting(UseBingieOSD)">OSDInfoPanelSmall</include>
+			<include condition="Skin.HasSetting(EnableOSDInfoLarge) + !Skin.HasSetting(UseBingieOSD)">OSDInfoPanelLarge</include>
+			<include condition="Skin.HasSetting(EnableOSDInfoBingie) | Skin.HasSetting(UseBingieOSD)">OSDInfoPanelBingie</include>
         </control>
     </include>
     
@@ -3218,13 +3209,13 @@
 	<include name="OSDButtons_Bingie_Layout">
 		<control type="grouplist" id="300">
 			<animation type="WindowOpen">
-				<effect type="slide" start="0,-400" end="0,0" tween="cubic" easing="out" delay="0" time="350" reversible="false"/>
-				<effect type="fade" start="0" end="100" delay="0" time="300" reversible="false"/>
+				<effect type="slide" start="0,-400" end="0,0" tween="cubic" easing="out" delay="0" time="450" reversible="false"/>
+				<effect type="fade" start="0" end="100" delay="0" time="350" reversible="false"/>
 			</animation>
 			<animation type="WindowClose">
-				<effect type="slide" start="0,0" end="0,-400" tween="cubic" easing="out" delay="0" time="350" reversible="false" condition="Window.IsVisible(1159)"/>
-				<effect type="fade" start="100" end="0" delay="0" time="300" reversible="false" condition="Window.IsVisible(1159)"/>
-				<effect type="fade" start="100" end="0" delay="0" time="150" reversible="false" condition="!Window.IsVisible(1159)"/>
+				<effect type="slide" start="0,0" end="0,-400" tween="cubic" easing="out" delay="0" time="450" reversible="false" condition="Window.IsVisible(1158)"/>
+				<effect type="fade" start="100" end="0" delay="0" time="350" reversible="false" condition="Window.IsVisible(1158)"/>
+				<effect type="fade" start="100" end="0" delay="0" time="150" reversible="false" condition="!Window.IsVisible(1158)"/>
 			</animation>
 
 			<posx>$PARAM[toposdposleft]</posx>
@@ -3392,13 +3383,13 @@
 
 		<control type="grouplist" id="200">
 			<animation type="WindowOpen">
-				<effect type="slide" start="0,400" end="0,0" tween="cubic" easing="out" delay="0" time="350" reversible="false"/>
-				<effect type="fade" start="0" end="100" delay="0" time="300" reversible="false"/>
+				<effect type="slide" start="0,400" end="0,0" tween="cubic" easing="out" delay="0" time="450" reversible="false"/>
+				<effect type="fade" start="0" end="100" delay="0" time="350" reversible="false"/>
 			</animation>
 			<animation type="WindowClose">
-				<effect type="slide" start="0,0" end="0,400" tween="cubic" easing="out" delay="0" time="350" reversible="false" condition="Window.IsVisible(1159)"/>
-				<effect type="fade" start="100" end="0" delay="0" time="300" reversible="false" condition="Window.IsVisible(1159)"/>
-				<effect type="fade" start="100" end="0" delay="0" time="150" reversible="false" condition="!Window.IsVisible(1159)"/>
+				<effect type="slide" start="0,0" end="0,400" tween="cubic" easing="out" delay="0" time="450" reversible="false" condition="Window.IsVisible(1158)"/>
+				<effect type="fade" start="100" end="0" delay="0" time="350" reversible="false" condition="Window.IsVisible(1158)"/>
+				<effect type="fade" start="100" end="0" delay="0" time="150" reversible="false" condition="!Window.IsVisible(1158)"/>
 			</animation>
 			<animation end="$PARAM[bottomsize],0" time="0" effect="slide" condition="VideoPlayer.Content(livetv) + !Player.PauseEnabled">Conditional</animation>
 			<animation end="-45,0" time="0" effect="slide" condition="[Player.Seeking + [!String.IsEqual(Player.SeekTime(hh),00) | [VideoPlayer.HasEpg + !String.IsEqual(PVR.EpgEventSeekTime(hh),00)]]] | [VideoPlayer.HasEPG + !String.IsEqual(PVR.EpgEventElapsedTime(hh),00)] | !String.IsEqual(Player.Time(hh),00)">Conditional</animation>
@@ -3481,7 +3472,7 @@
 				<align>center</align>
 				<aligny>center</aligny>
 				<label>$INFO[Player.SeekStepSize]</label>
-				<font>Light18</font>
+				<font>$PARAM[font]</font>
 				<textcolor>ccfffeff</textcolor>
 			</control>
 		</control>
@@ -3496,11 +3487,13 @@
 				<param name="visibility" value="!String.Contains(Player.SeekStepSize,-)" />
 				<param name="centerleft" value="75%" />
 				<param name="image" value="osd/forward_jump.png" />
+				<param name="font" value="Light18" />
 			</include>
 			<include content="JumpIndicator">
 				<param name="visibility" value="String.Contains(Player.SeekStepSize,-)" />
 				<param name="centerleft" value="25%" />
 				<param name="image" value="osd/rewind_jump.png" />
+				<param name="font" value="Light18" />
 			</include>
 		</control>
 	</include>
@@ -3508,12 +3501,13 @@
 	<include name="JumpIndicatorMinimal">
 		<control type="group">
 			<bottom>250</bottom>
-			<height>80</height>
+			<height>70</height>
 			<align>center</align>
 			<include content="JumpIndicator">
 				<param name="visibility" value="true" />
 				<param name="centerleft" value="50%" />
 				<param name="image" value="$VAR[jump_indicator_image]" />
+				<param name="font" value="Light16" />
 			</include>
 		</control>
 	</include>

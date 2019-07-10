@@ -324,7 +324,6 @@
     <include name="View_525_Episodes">
         <control type="group">
             <visible>Control.IsVisible(525)</visible>
-
             <!-- base bg -->
             <control type="image">
                 <include>FullscreenDimensions</include>
@@ -364,9 +363,8 @@
 
             <!-- left group -->
             <control type="grouplist">
-                <posy>22</posy>
-                <include condition="!Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Left</include>
-                <left>65</left>
+                <top>22</top>
+                <include>BingieLeftDefs</include>
                 <usecontrolcoords>true</usecontrolcoords>
                 <orientation>vertical</orientation>
 
@@ -465,12 +463,12 @@
                         <orientation>vertical</orientation>
                         <onleft condition="!Skin.HasSetting(KioskMode.Enabled)">9000</onleft>
                         <onright>525</onright>
-                        <onup>5250</onup>
-                        <ondown>5250</ondown>
+                        <onup>noop</onup>
+                        <ondown>noop</ondown>
                         <onback condition="!String.IsEmpty(Window(Home).Property(ListItem.TVShowID))">ClearProperty(ListItem.TVShowID,Home)</onback>
-                        <onclick condition="String.IsEqual(Window(Home).Property(BaseWindow),InfoDialog)">ActivateWindow(Videos,$ESCINFO[Container(5250).ListItem.FolderPath],return)</onclick>
-                        <onclick condition="!String.IsEqual(Window(Home).Property(BaseWindow),InfoDialog)">ActivateWindow(Videos,$ESCINFO[Container(5250).ListItem.FolderPath])</onclick>
-                        <scrolltime tween="sine" easing="inout">400</scrolltime>
+                        <onclick condition="!String.IsEmpty(Window(Home).Property(BaseWindow))">ActivateWindow(Videos,$ESCINFO[Container(5250).ListItem.FolderPath],return)</onclick>
+                        <onclick condition="String.IsEmpty(Window(Home).Property(BaseWindow))">ActivateWindow(Videos,$ESCINFO[Container(5250).ListItem.FolderPath])</onclick>
+                        <include>ScrollTime</include>
                         <itemlayout height="65" width="600" condition="Control.HasFocus(5250)">
                             <!-- Season x label -->
                             <control type="label">
@@ -521,6 +519,43 @@
                                 <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
                                 <label>[LOWERCASE]$VAR[View525TotalEpisodes][/LOWERCASE]</label>
                             </control>
+
+
+
+                            <!-- bingie button border -->
+                            <control type="image">
+                                <visible>!String.IsEmpty(Container(525).ListItem.Season) + !String.IsEmpty(Container(5250).ListItem.Season) + String.IsEqual(Container(5250).ListItem.Season,Container(525).ListItem.Season)</visible>
+                                <width>600</width>
+                                <height>65</height>
+                                <aligny>top</aligny>
+                                <align>left</align>
+                                <aspectratio align="left" aligny="top">stretch</aspectratio>
+                                <colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
+                                <texture background="true">bingie/border/default_button_fo.png</texture>
+                            </control>
+                            <!-- Season x label -->
+                            <control type="label">
+                                <left>15</left>
+                                <width>250</width>
+                                <height>65</height>
+                                <aligny>center</aligny>
+                                <align>left</align>
+                                <font>Reg32</font>
+                                <textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
+                                <label>$INFO[ListItem.Label]</label>
+                            </control>
+                            <!-- x Episodes label -->
+                            <control type="label">
+                                <visible>String.IsEqual(Container(5250).ListItem.Season,Container(525).ListItem.Season)</visible>
+                                <right>15</right>
+                                <width>250</width>
+                                <height>65</height>
+                                <aligny>center</aligny>
+                                <align>right</align>
+                                <font>Reg28</font>
+                                <textcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</textcolor>
+                                <label>[LOWERCASE]$VAR[View525TotalEpisodes][/LOWERCASE]</label>
+                            </control>
                         </focusedlayout>
                         <focusedlayout height="65" width="600" condition="!Control.HasFocus(5250)">
                             <include>View_525_Seasons_List_No_Focus</include>
@@ -552,7 +587,7 @@
                     <preloaditems>2</preloaditems>
                     <focusposition>1</focusposition>
                     <viewtype label="31827">wide</viewtype>
-                    <scrolltime tween="sine" easing="inout">350</scrolltime>
+                    <include>ScrollTime</include>
                     <itemlayout width="1050" height="280">
                         <!-- panel/border -->
                         <control type="image">

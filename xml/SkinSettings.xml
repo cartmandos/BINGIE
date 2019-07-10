@@ -62,8 +62,8 @@
                 <include>SkinSettings_ColorThemes</include>
                 <include>SkinSettings_CustomColors</include>
 				<include>SkinSettings_SmartShortcuts</include>
+				<include>SkinSettings_Addons</include>
 				<include>SkinSettings_Backup</include>
-                <include>SkinSettings_Addons</include>
 			</control>
         </control>
     

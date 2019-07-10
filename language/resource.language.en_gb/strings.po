@@ -274,7 +274,29 @@ msgctxt "#31064"
 msgid "No items in this category."
 msgstr ""
 
-# empty 31065-31070
+msgctxt "#31065"
+msgid "Up Next"
+msgstr ""
+
+msgctxt "#31066"
+msgid "Watch"
+msgstr ""
+
+msgctxt "#31067"
+msgid "Now"
+msgstr ""
+
+msgctxt "#31068"
+msgid "Enable Auto-Preview in PVR Hub"
+msgstr ""
+
+msgctxt "#31069"
+msgid "PVR Hub"
+msgstr ""
+
+msgctxt "#31070"
+msgid "Watch Season"
+msgstr ""
 
 msgctxt "#31071"
 msgid "Setting level"
@@ -1019,7 +1041,7 @@ msgid "Hide watched items from recently added movies/episodes (doesn't apply to 
 msgstr ""
 
 msgctxt "#31259"
-msgid "Show OSD infopanel on pause and seek"
+msgid "Show OSD Infopanel on Pause"
 msgstr ""
 
 msgctxt "#31260"
@@ -3182,7 +3204,7 @@ msgid "Prefer short plot outline in widget details"
 msgstr ""
 
 msgctxt "#31795"
-msgid "Show small seekpanel when video is paused"
+msgid "Show small seek panel when video is seeking/paused"
 msgstr ""
 
 msgctxt "#31796"

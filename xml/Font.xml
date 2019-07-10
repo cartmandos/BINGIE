@@ -3984,6 +3984,11 @@
             <filename>Arial.ttf</filename>
             <size>1</size>
         </font>
+        <font>
+            <name>Light16</name>
+            <filename>Arial.ttf</filename>
+            <size>12</size>
+        </font>
 		<font>
             <name>Light18</name>
             <filename>Arial.ttf</filename>

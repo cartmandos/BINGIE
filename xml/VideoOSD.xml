@@ -7,6 +7,7 @@
     <onload condition="VideoPlayer.Content(livetv) + ![Skin.String(defaultosdbutton_livetv,203) + !Player.PauseEnabled] + ![[Skin.String(defaultosdbutton_livetv,202) | Skin.String(defaultosdbutton_livetv,203)] + !Player.SeekEnabled]">SetFocus($INFO[Skin.String(defaultosdbutton_livetv)])</onload>
     <onload condition="Skin.HasSetting(UseBingieOSD) + !VideoPlayer.Content(livetv) + !Player.PauseEnabled">SetFocus(300)</onload>
     <onload condition="!Player.Paused + !VideoPlayer.Content(livetv)">Pause</onload>
+    <onload condition="Skin.HasSetting(OSDShowInfoOnPause) + !Skin.HasSetting(EnableOSDInfo)">Skin.ToggleSetting(EnableOSDInfo)</onload>
     <controls>
 		
         <!--OSD Panel-->

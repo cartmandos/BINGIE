@@ -4,7 +4,7 @@
     <defaultcontrol always="true">9000</defaultcontrol>
     <include>DefaultSkinSettings</include>
     <!--set trailer alarm off-->
-    <onload condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,silent)</onload>
+    <onload condition="System.HasAlarm(preview_delay)">CancelAlarm(preview_delay,silent)</onload>
     <controls>
         <!--Global Background-->
         <include>GlobalBackground</include>

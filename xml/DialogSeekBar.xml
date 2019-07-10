@@ -2,14 +2,14 @@
 <!-- BINGIE -->
 <window>
     <visible>Window.IsActive(fullscreenvideo)</visible>
-    <visible>Window.IsActive(videoosd) | Player.ShowInfo | Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding</visible>
+    <visible>Window.IsActive(videoosd) | Player.ShowInfo | Player.Seeking | Player.DisplayAfterSeek | !String.IsEmpty(Player.SeekNumeric) | [Player.Paused + !Player.Caching] | Player.Forwarding | Player.Rewinding</visible>
     <controls>
 
         <control type="group">
             <!--BG-->
             <control type="image">
                 <visible>Skin.HasSetting(UseBingieOSD)</visible>
-                <visible>!Window.IsActive(sliderdialog) + !Window.IsActive(pvrosdchannels)</visible>
+                <visible>!Window.IsActive(sliderdialog) + !Window.IsActive(pvrosdchannels) + !Window.IsActive(script-upnext-upnext.xml)</visible>
                 <width>100%</width>
                 <height>100%</height>
                 <texture background="true" border="15">special://home/addons/resource.images.backgroundoverlays.basic/resources/vignette.png</texture>
@@ -35,12 +35,13 @@
 
             <!--OSD Panel-->
             <control type="group">
-                <visible>Skin.HasSetting(OSDShowInfoOnPause) | VideoPlayer.Content(livetv) | Window.IsActive(videoosd) | Player.ShowInfo</visible>
-                <visible>!Window.IsActive(sliderdialog) + !Window.IsActive(pvrosdchannels)</visible>
-                <animation effect="slide" start="0,400" end="0,0" tween="cubic" easing="out" delay="0" time="350" reversible="false">WindowOpen</animation>
-                <animation effect="slide" start="0,0" end="0,400" tween="cubic" easing="out" delay="0" time="350" reversible="false">WindowClose</animation>
-                <animation effect="fade" start="0" end="100" delay="0" time="300" reversible="false">WindowOpen</animation>
-                <animation effect="fade" start="100" end="0" delay="0" time="300" reversible="false">WindowClose</animation>
+                <visible>[Player.Seeking | Player.DisplayAfterSeek | !String.IsEmpty(Player.SeekNumeric)] | [Player.Paused + !Player.Caching] | Player.Forwarding | Player.Rewinding | Player.ShowInfo | Window.IsActive(fullscreeninfo) | Window.IsActive(videoosd) | Window.IsActive(musicosd)</visible>
+                <visible>!Player.FrameAdvance + !Window.IsActive(sliderdialog) + !Window.IsActive(script-upnext-upnext.xml) + !Window.IsVisible(playerprocessinfo) + !Window.IsActive(pvrosdchannels)</visible>
+                <visible>[Window.IsActive(visualisation) | Window.IsActive(fullscreenvideo)] + !Player.HasGame</visible>
+                <animation effect="slide" start="0,400" end="0,0" tween="cubic" easing="out" delay="0" time="450" reversible="false">WindowOpen</animation>
+                <animation effect="slide" start="0,0" end="0,400" tween="cubic" easing="out" delay="0" time="450" reversible="false">WindowClose</animation>
+                <animation effect="fade" start="0" end="100" delay="0" time="350" reversible="false">WindowOpen</animation>
+                <animation effect="fade" start="100" end="0" delay="0" time="350" reversible="false">WindowClose</animation>
                 <include condition="!Skin.HasTheme(classic) + !Skin.HasSetting(UseSlimOSDPanel) + !Skin.HasSetting(UseBingieOSD)">OSDPanelModern</include>
                 <include condition="!Skin.HasTheme(classic) + Skin.HasSetting(UseSlimOSDPanel)">OSDPanelModernSlim</include>
                 <include condition="!Skin.HasTheme(classic) + Skin.HasSetting(UseBingieOSD)">OSDPanelBingie</include>
@@ -76,9 +77,10 @@
 
             <!-- small panel if OSD disabled on seek -->
             <control type="group" id="662244">
+                <visible>Skin.HasSetting(SeekPanelOnPauseAndSeek) + ![Skin.HasSetting(UseBingieOSD) + !Skin.HasSetting(DisableJumpIndicator)]</visible>
                 <visible>!VideoPlayer.Content(livetv) + !Control.IsVisible(552233)</visible>
-                <visible>!Skin.HasSetting(OSDShowInfoOnPause) + !Window.IsActive(videoosd) + [Player.Seeking | Player.DisplayAfterSeek | Player.Forwarding | Player.Rewinding | [Player.Paused + Skin.HasSetting(SeekPanelOnPause)]]</visible>
-                <include condition="!Skin.HasSetting(OSDShowInfoOnPause)">Small_OSD_Seek_Panel</include>
+                <visible>!Window.IsActive(videoosd) + [Player.Seeking | Player.DisplayAfterSeek | Player.Forwarding | Player.Rewinding | [Player.Paused + Skin.HasSetting(SeekPanelOnPauseAndSeek)]]</visible>
+                <include condition="Skin.HasSetting(SeekPanelOnPauseAndSeek)">Small_OSD_Seek_Panel</include>
                 <include>HideOsdConditions</include>
             </control>
         </control>

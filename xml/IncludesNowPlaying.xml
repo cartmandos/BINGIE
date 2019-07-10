@@ -493,6 +493,7 @@
             <visible>Player.HasMedia + !Control.IsVisible(507)</visible>
             <visible>![!String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia)) + Player.HasAudio]</visible>
             <visible>!String.IsEqual(Window(Home).Property(TrailerPlaying),windowed)</visible>
+            <visible>String.IsEmpty(Window(Home).Property(PlayingPVRPreview))</visible>
             <include condition="!Skin.HasSetting(DisableNowPlayingBackground) | !String.IsEmpty(Window(Home).Property(pvrGuideOnFullscreenVideo))">NowPlayingVideoBackground</include>
             <include condition="![Skin.HasSetting(DisableNowPlayingMusicBackground) + !Window.IsActive(visualisation)]">NowPlayingMusicBackground</include>
             

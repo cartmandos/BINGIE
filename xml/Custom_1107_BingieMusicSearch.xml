@@ -94,6 +94,7 @@
             <include>SearchSuggestionsAnim</include>
             <param name="id" value="1007" />
             <param name="top" value="590" />
+            <param name="left" value="90" />
             <param name="width" value="420" />
             <param name="height" value="894" />
             <param name="onitemfocus" value="" />

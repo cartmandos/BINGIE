@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- BINGIE -->
-<window type="dialog" id="1160">
+<window type="dialog" id="1159">
     <animation effect="fade" delay="600" start="0" end="100" time="400">WindowOpen</animation>
     <animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
     <visible>!String.IsEmpty(Window(Home).Property(DialogMPAATopBar))</visible>

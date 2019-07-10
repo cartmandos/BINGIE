@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- BINGIE -->
-<window type="dialog" id="1159">
+<window type="dialog" id="1158">
     <visible>Window.IsActive(videoosd) + System.IdleTime(4) + !Player.Paused</visible>
     <onload>Dialog.Close(videoosd)</onload>
 

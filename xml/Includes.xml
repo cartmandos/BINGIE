@@ -85,6 +85,7 @@
     <constant name="search_widget_thumb_width">396</constant>
     <constant name="search_key_size">80</constant>
     <constant name="search_radiokey_width">220</constant>
+    <constant name="bingie_menu_width">360</constant>
 
     <!-- expressions -->
     <expression name="IsBingieViewsActive">Window.IsActive(Home) | Window.IsActive(1109) | Window.IsActive(1110) | Window.IsActive(1111) | Window.IsActive(1112) | Window.IsActive(1113) | Window.IsActive(1114) | Window.IsActive(1115) | Window.IsActive(1116)</expression>
@@ -94,6 +95,8 @@
     <expression name="IsBingieListsActive">Window.IsActive(1114) | Window.IsActive(1115)</expression>
 
     <expression name="IsBingieCategoriesActive">Window.IsActive(1117)</expression>
+
+    <expression name="IsPreviousWindowHub">Window.Previous(1110) | Window.Previous(1111) | Window.Previous(1112) | Window.Previous(1113)</expression>
 
     <expression name="IsBingieViewsVisible">Window.IsVisible(Home) | Window.IsVisible(1109) | Window.IsVisible(1110) | Window.IsVisible(1111) | Window.IsVisible(1112) | Window.IsVisible(1113) | Window.IsVisible(1114) | Window.IsVisible(1115) | Window.IsVisible(1116)</expression>
 
@@ -106,6 +109,8 @@
     <expression name="IsMainMenuOpened">ControlGroup(9001).HasFocus() | Control.HasFocus(900) | String.IsEqual(Window(Home).Property(ShowViewSubMenu),show)</expression>
 
     <expression name="IsTVShowInLastEpisodes">String.IsEqual(Window(Home).Property(LatestEpisode.10.ShowTitle),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestEpisode.9.ShowTitle),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestEpisode.8.ShowTitle),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestEpisode.7.ShowTitle),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestEpisode.6.ShowTitle),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestEpisode.5.ShowTitle),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestEpisode.4.ShowTitle),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestEpisode.3.ShowTitle),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestEpisode.2.ShowTitle),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestEpisode.1.ShowTitle),ListItem.Title)</expression>
+
+    <expression name="IsTVShowInLastEpisodesBasedOnProps">String.IsEqual(Window(Home).Property(LatestEpisode.10.ShowTitle),Window(Home).Property(ListItem.Title)) | String.IsEqual(Window(Home).Property(LatestEpisode.9.ShowTitle),Window(Home).Property(ListItem.Title)) | String.IsEqual(Window(Home).Property(LatestEpisode.8.ShowTitle),Window(Home).Property(ListItem.Title)) | String.IsEqual(Window(Home).Property(LatestEpisode.7.ShowTitle),Window(Home).Property(ListItem.Title)) | String.IsEqual(Window(Home).Property(LatestEpisode.6.ShowTitle),Window(Home).Property(ListItem.Title)) | String.IsEqual(Window(Home).Property(LatestEpisode.5.ShowTitle),Window(Home).Property(ListItem.Title)) | String.IsEqual(Window(Home).Property(LatestEpisode.4.ShowTitle),Window(Home).Property(ListItem.Title)) | String.IsEqual(Window(Home).Property(LatestEpisode.3.ShowTitle),Window(Home).Property(ListItem.Title)) | String.IsEqual(Window(Home).Property(LatestEpisode.2.ShowTitle),Window(Home).Property(ListItem.Title)) | String.IsEqual(Window(Home).Property(LatestEpisode.1.ShowTitle),Window(Home).Property(ListItem.Title))</expression>
 
     <expression name="IsTvShowDBType">String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.Property(DBTYPE),tvshow) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE),tvshow)</expression>
 
@@ -137,7 +142,7 @@
 
     <expression name="IsActualKeyboardActive">Window.IsActive(virtualkeyboard) + String.IsEmpty(Window(Home).Property(SpaceSearchTerm)) + String.IsEmpty(Window(Home).Property(BackspaceSearchTerm))</expression>
 
-    <expression name="IsCurrentWidgetSpotlight">Control.HasFocus(1508) | [Control.IsVisible(1508) + Container(77777).Position(0)]</expression>
+    <expression name="IsCurrentWidgetSpotlight">Control.HasFocus(1508) | [Skin.HasSetting(EnableFixedFocusWidgets) + Control.IsVisible(1508) + Container(77777).Position(0)] | [!Skin.HasSetting(EnableFixedFocusWidgets) + Control.IsVisible(1508) + String.IsEqual(Container(77777).CurrentItem,1)]</expression>
 
     <!--Common-->
     <!--BINGIE Version-->
@@ -241,6 +246,15 @@
     </include>
     <include name="ImageAlignLeft">
         <aspectratio align="left">keep</aspectratio>
+    </include>
+
+    <include name="ScrollTime">
+        <scrolltime tween="cubic" easing="out">600</scrolltime>
+    </include>
+
+    <include name="BingieLeftDefs">
+        <include condition="!Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Left</include>
+        <left>65</left>
     </include>
 
     <!-- bounce up animation -->

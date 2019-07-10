@@ -14,12 +14,6 @@
         <animation time="200" effect="fade">Hidden</animation>
     </include>
 
-    <include name="BingieViews_WindowOpen_Fade">
-        <animation type="WindowOpen" reversible="false">
-            <effect type="fade" start="0" end="100" time="600"/>
-        </animation>
-    </include>
-
     <include name="Startup_Dialog_OpenClose">
         <animation type="WindowOpen" reversible="false">
             <effect type="zoom" start="80" end="100" center="960,540" delay="160" tween="circle" easing="out" time="240" />
@@ -60,10 +54,9 @@
         <animation time="150" effect="fade" reversible="true" easing="inout">Visible</animation>
     </include>
 
-    <include name="InfoDialogWindowOpenAnim">
-        <animation type="WindowOpen" reversible="false" condition="!Skin.HasSetting(LowPerformanceMode)">
-            <effect type="slide" start="200" end="0" easing="out" tween="sine" time="250"/>
-            <effect type="fade" start="0" end="100" time="300"/>
+    <include name="BingieViews_WindowOpen_Fade">
+        <animation type="WindowOpen" reversible="false">
+            <effect type="fade" start="0" end="100" time="600"/>
         </animation>
     </include>
 
@@ -76,13 +69,13 @@
     <!-- Menu Animations -->
     <include name="Circular_Menu_Animations">
         <animation type="Conditional" condition="$EXP[IsMainMenuOpened]">
-            <effect type="slide" start="0" end="640" time="325" delay="0" tween="cubic" easing="inout" />
+            <effect type="slide" start="0" end="600" time="325" delay="0" tween="cubic" easing="inout" />
             <effect type="fade" start="0" end="100" time="325" delay="0" tween="cubic" easing="inout" />
         </animation>
     </include>
     <include name="No_Circular_Menu_Animations">
-        <animation effect="slide" start="0" end="285" time="325" delay="0" tween="cubic" easing="inout" condition="$EXP[IsMainMenuOpened] + [[$EXP[IsBingieListsActive] | Window.IsActive(1109)] | [[Window.IsActive(Home) | $EXP[IsBingieHubsActive]] + [!String.IsEmpty(Window(Home).Property(LastFocusWidgetPos)) + String.IsEqual(Window(Home).Property(LastFocusWidgetPos), 1)] | String.IsEmpty(Window(Home).Property(LastFocusWidgetPos))]]">Conditional</animation>
-        <animation effect="slide" start="0" end="385" time="325" delay="0" tween="cubic" easing="inout" condition="$EXP[IsMainMenuOpened] + [Window.IsActive(Home) | $EXP[IsBingieHubsActive]] + !String.IsEmpty(Window(Home).Property(LastFocusWidgetPos)) + !String.IsEqual(Window(Home).Property(LastFocusWidgetPos), 1)">Conditional</animation>
+        <animation effect="slide" start="0" end="260" time="325" delay="0" tween="cubic" easing="inout" condition="$EXP[IsMainMenuOpened] + [[$EXP[IsBingieListsActive] | Window.IsActive(1109)] | [[Window.IsActive(Home) | $EXP[IsBingieHubsActive]] + [!String.IsEmpty(Window(Home).Property(LastFocusWidgetPos)) + String.IsEqual(Window(Home).Property(LastFocusWidgetPos), 1)] | String.IsEmpty(Window(Home).Property(LastFocusWidgetPos))]]">Conditional</animation>
+        <animation effect="slide" start="0" end="360" time="325" delay="0" tween="cubic" easing="inout" condition="$EXP[IsMainMenuOpened] + [Window.IsActive(Home) | $EXP[IsBingieHubsActive]] + !String.IsEmpty(Window(Home).Property(LastFocusWidgetPos)) + !String.IsEqual(Window(Home).Property(LastFocusWidgetPos), 1)">Conditional</animation>
         <animation effect="slide" start="0" end="-100" time="200" delay="0" tween="sine" easing="inout" condition="[Window.IsActive(Home) | $EXP[IsBingieHubsActive]] + !String.IsEmpty(Window(Home).Property(LastFocusWidgetPos)) + !String.IsEqual(Window(Home).Property(LastFocusWidgetPos), 1)">Conditional</animation>
     </include>
     <include name="KeepMenuIndicatorVisible">
@@ -90,7 +83,7 @@
     </include>
 
     <!-- Trailer Window Animation -->
-    <include name="Bingie_Trailer_Window_Overlay_Anim">
+    <include name="Bingie_Preview_Window_Overlay_Anim">
         <animation type="Visible">
             <effect type="fade" start="100" end="100" time="600"/>
             <effect type="fade" start="100" end="0" time="1200" delay="800"/>
@@ -102,18 +95,21 @@
     </include>
 
     <!-- Title Animations -->
-    <include name="Bingie_Home_Clearlogo_Anim">
-        <animation effect="slide" start="0" end="0,137" time="0" condition="$EXP[IsCurrentWidgetSpotlight]">Conditional</animation>
-    </include>
-    <include name="Bingie_Home_TextTitle_Anim">
-        <animation effect="fade" time="200">Visible</animation>
-        <animation effect="slide" start="0" end="0,155" time="0" condition="$EXP[IsCurrentWidgetSpotlight]">Conditional</animation>
-    </include>
     <include name="Bingie_TextTitle_Adjust_Genre_Anim">
-        <animation type="Conditional" condition="[Container.Content(genres) | String.IsEqual(ListItem.DBTYPE,genre)] | $EXP[IsCategoryDBType]">
+        <animation type="Conditional" condition="$EXP[IsCategoryDBType] | [Container.Content(genres) | String.IsEqual(ListItem.DBTYPE,genre)]">
             <effect type="slide" start="0,0" end="0,170" time="0"/>
-            <effect type="zoom" end="130" time="0"/>
+            <effect type="zoom" end="150" time="0"/>
         </animation>
+    </include>
+
+    <include name="WidgetsDisplaySpotlightTransition">
+        <animation effect="slide" start="0,250" end="0,0" time="300" reversible="false" condition="Control.IsVisible(1508) + String.IsEqual(Window(Home).Property(PrevWidgetPos),1) + String.IsEqual(Window(Home).Property(CurrentWidgetPos),2)">Conditional</animation>
+        <animation effect="slide" start="0,-250" end="0,0" time="300" reversible="false" condition="Control.IsVisible(1508) + String.IsEqual(Window(Home).Property(PrevWidgetPos),1) + String.IsEqual(Window(Home).Property(CurrentWidgetPos),Container(77777).NumItems)">Conditional</animation>
+    </include>
+
+    <include name="SpotlightDisplayWidgetsTransition">
+        <animation effect="slide" end="0,-250" time="300" condition="String.IsEqual(Container(77777).CurrentItem,2)">Conditional</animation>
+        <animation effect="slide" end="0,250" time="300" condition="Integer.IsGreater(Container(77777).NumItems,1) + String.IsEqual(Container(77777).CurrentItem,Container(77777).NumItems)">Conditional</animation>
     </include>
 
     <include name="widgets_animation">
@@ -195,7 +191,7 @@
     </include>
 
     <!-- hide on info-dialog transition / startup-mask -->
-    <include name="Hide_Window_Anim">
+    <include name="HideWindowOnStartupAndDialogInfoLoad">
         <animation time="0" effect="fade" start="100" end="0" condition="System.HasAlarm(loadinfo) | System.HasAlarm(startup)">Conditional</animation>
     </include>
 
@@ -230,7 +226,7 @@
     </include>
 
     <include name="SearchSuggestionsAnim">
-        <animation effect="slide" start="0" end="0,-430" time="450" tween="sine" easing="inout" condition="Control.HasFocus(1007) | Control.IsVisible(500)">Conditional</animation>
+        <animation effect="slide" start="0" end="0,-490" time="450" tween="sine" easing="inout" condition="Control.HasFocus(1007) | Control.IsVisible(500)">Conditional</animation>
     </include>
 
     <include name="WidgetsBaseAnimation">

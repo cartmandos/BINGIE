@@ -94,15 +94,6 @@
             <include condition="Window.IsActive(Custom_1105_SkinSettings.xml)">SkinSettings_MenuButtonSmall</include>
             <usealttexture>String.IsEqual(Window(Home).Property(SkinSettingSection),19)</usealttexture>
         </control>
-        <!-- back and restore -->
-        <control type="togglebutton" id="14">
-            <label>31271</label>
-            <altlabel>31271</altlabel>
-            <onfocus>SetProperty(SkinSettingSection,14,Home)</onfocus>
-            <include condition="!Window.IsActive(Custom_1105_SkinSettings.xml)">SkinSettings_MenuButtonLarge</include>
-            <include condition="Window.IsActive(Custom_1105_SkinSettings.xml)">SkinSettings_MenuButtonSmall</include>
-            <usealttexture>String.IsEqual(Window(Home).Property(SkinSettingSection),14)</usealttexture>
-        </control>
         <!-- supported addons -->
         <control type="togglebutton" id="31">
             <label>31696</label>
@@ -111,6 +102,15 @@
             <include condition="!Window.IsActive(Custom_1105_SkinSettings.xml)">SkinSettings_MenuButtonLarge</include>
             <include condition="Window.IsActive(Custom_1105_SkinSettings.xml)">SkinSettings_MenuButtonSmall</include>
             <usealttexture>String.IsEqual(Window(Home).Property(SkinSettingSection),31)</usealttexture>
+        </control>
+        <!-- back and restore -->
+        <control type="togglebutton" id="14">
+            <label>31271</label>
+            <altlabel>31271</altlabel>
+            <onfocus>SetProperty(SkinSettingSection,14,Home)</onfocus>
+            <include condition="!Window.IsActive(Custom_1105_SkinSettings.xml)">SkinSettings_MenuButtonLarge</include>
+            <include condition="Window.IsActive(Custom_1105_SkinSettings.xml)">SkinSettings_MenuButtonSmall</include>
+            <usealttexture>String.IsEqual(Window(Home).Property(SkinSettingSection),14)</usealttexture>
         </control>
     </include>
 
@@ -269,21 +269,21 @@
         </include>
     </include>
 
-    <!-- Backup Tab-->
-    <include name="SkinSettings_Backup">
-        <include content="SkinSettings_Tab">
-            <param name="id" value="14"/>
-            <!-- content -->
-            <include>Backup_Settings</include>
-        </include>
-    </include>
-
     <!-- Supported Addons Tab-->
     <include name="SkinSettings_Addons">
         <include content="SkinSettings_Tab">
             <param name="id" value="31"/>
             <!-- content -->
             <include>Supported_Addons_Settings</include>
+        </include>
+    </include>
+
+    <!-- Backup Tab-->
+    <include name="SkinSettings_Backup">
+        <include content="SkinSettings_Tab">
+            <param name="id" value="14"/>
+            <!-- content -->
+            <include>Backup_Settings</include>
         </include>
     </include>
 
@@ -589,7 +589,6 @@
         <control type="radiobutton" id="28638">
             <include>SkinSettings_Button</include>
             <label>31012</label>
-            <onclick condition="!Skin.HasSetting(EnableFixedFocusWidgets)">RunScript(script.skin.helper.service,action=dialogok,header=$LOCALIZE[31376],message=$LOCALIZE[31377])</onclick>
             <onclick>Skin.ToggleSetting(EnableFixedFocusWidgets)</onclick>
             <selected>Skin.HasSetting(EnableFixedFocusWidgets)</selected>
             <visible>!Skin.HasSetting(LowPerformanceMode) + !Skin.HasSetting(BingieHomeDisableFirstRow) + String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
@@ -1548,15 +1547,6 @@
             <selected>Skin.HasSetting(ShowEpisodePlotInfoDialog)</selected>
             <visible>!Skin.HasSetting(UseExtendedInfoDialog) + Skin.HasSetting(UseBingieInfoDialog)</visible>
         </control>
-        <!-- EPISODE INFO PATH HACK TO NEXT EPISODE - NOT IN USE -->
-        <!-- Replace selected episode with current/next episode
-        <control type="radiobutton" id="39276">
-            <include>SkinSettings_Button</include>
-            <label>Enable Current/Next Episode in Episode's Infodialog</label>
-            <onclick>Skin.ToggleSetting(EnableEpisodeInfoBypass)</onclick>
-            <selected>Skin.HasSetting(EnableEpisodeInfoBypass)</selected>
-            <visible>!Skin.HasSetting(UseExtendedInfoDialog)</visible>
-        </control> -->
         <!--CHANGE VISIBILITY IF MULTI-DIALOGS-->
         <control type="radiobutton" id="31674">
             <!-- hide filename in videoinfo -->
@@ -2236,13 +2226,6 @@
             <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=volumestyle,header=$LOCALIZE[31809])</onclick>
             <visible>!Skin.HasSetting(LowPerformanceMode)</visible>
         </control>
-        <!-- hide discart on supported osd -->
-        <control type="radiobutton" id="13062">
-            <include>SkinSettings_Button</include>
-            <label>31519</label>
-            <onclick>Skin.ToggleSetting(HideOSDDisc)</onclick>
-            <selected>Skin.HasSetting(HideOSDDisc)</selected>
-        </control>
     </include>
 
     <!-- OSD Info Panel Settings -->
@@ -2255,43 +2238,27 @@
         </control>
         <control type="radiobutton" id="45920">
             <description>enable bingieinfo on osd</description>
-            <textoffsetx>100</textoffsetx>
             <include>SkinSettings_Button</include>
             <label>31919</label>
             <onclick>Skin.ToggleSetting(EnableOSDInfoBingie)</onclick>
             <selected>Skin.HasSetting(EnableOSDInfoBingie)</selected>
-            <visible>!Skin.HasSetting(EnableOSDInfoLarge)</visible>
+            <visible>!Skin.HasSetting(EnableOSDInfoLarge) + !Skin.HasSetting(UseBingieOSD)</visible>
         </control>
         <control type="radiobutton" id="31701">
             <description>enable large info on osd</description>
-            <textoffsetx>100</textoffsetx>
             <include>SkinSettings_Button</include>
             <label>31701</label>
             <onclick>Skin.ToggleSetting(EnableOSDInfoLarge)</onclick>
             <selected>Skin.HasSetting(EnableOSDInfoLarge)</selected>
-            <visible>!Skin.HasSetting(EnableOSDInfoBingie)</visible>
-        </control>
-        <control type="radiobutton" id="13058">
-            <include>SkinSettings_Button</include>
-            <label>31259</label>
-            <onclick>Skin.ToggleSetting(OSDShowInfoOnPause)</onclick>
-            <selected>Skin.HasSetting(OSDShowInfoOnPause)</selected>
+            <visible>!Skin.HasSetting(EnableOSDInfoBingie) + !Skin.HasSetting(UseBingieOSD)</visible>
         </control>
         <control type="radiobutton" id="31748">
             <description>enable mediaglags on plot panel</description>
-            <textoffsetx>100</textoffsetx>
             <include>SkinSettings_Button</include>
             <label>31748</label>
             <onclick>Skin.ToggleSetting(EnableOSDInfoMediaFlags)</onclick>
             <selected>Skin.HasSetting(EnableOSDInfoMediaFlags)</selected>
-            <visible>!Skin.HasSetting(EnableOSDInfoLarge) + !Skin.HasSetting(EnableOSDInfoBingie)</visible>
-        </control>
-        <control type="radiobutton" id="31795">
-            <include>SkinSettings_Button</include>
-            <label>31795</label>
-            <onclick>Skin.ToggleSetting(SeekPanelOnPause)</onclick>
-            <selected>Skin.HasSetting(SeekPanelOnPause)</selected>
-            <visible>!Skin.HasSetting(OSDShowInfoOnPause)</visible>
+            <visible>!Skin.HasSetting(EnableOSDInfoLarge) + !Skin.HasSetting(EnableOSDInfoBingie) + !Skin.HasSetting(UseBingieOSD)</visible>
         </control>
         <control type="radiobutton" id="31733">
             <include>SkinSettings_Button</include>
@@ -2300,12 +2267,12 @@
             <selected>Skin.HasSetting(OSDShowClearArt)</selected>
             <visible>!Skin.HasSetting(UseBingieOSD)</visible>
         </control>
-        <control type="radiobutton" id="31739">
+        <!-- hide discart on supported osd -->
+        <control type="radiobutton" id="13062">
             <include>SkinSettings_Button</include>
-            <label>31063</label>
-            <onclick>Skin.ToggleSetting(UseMidscreenJumpIndicator)</onclick>
-            <selected>Skin.HasSetting(UseMidscreenJumpIndicator)</selected>
-            <visible>Skin.HasSetting(UseBingieOSD)</visible>
+            <label>31519</label>
+            <onclick>Skin.ToggleSetting(HideOSDDisc)</onclick>
+            <selected>Skin.HasSetting(HideOSDDisc)</selected>
         </control>
         <control type="radiobutton" id="31737">
             <include>SkinSettings_Button</include>
@@ -2313,6 +2280,26 @@
             <onclick>Skin.ToggleSetting(DisableJumpIndicator)</onclick>
             <selected>Skin.HasSetting(DisableJumpIndicator)</selected>
             <visible>Skin.HasSetting(UseBingieOSD)</visible>
+        </control>
+        <control type="radiobutton" id="31739">
+            <include>SkinSettings_Button</include>
+            <label>31063</label>
+            <onclick>Skin.ToggleSetting(UseMidscreenJumpIndicator)</onclick>
+            <selected>Skin.HasSetting(UseMidscreenJumpIndicator)</selected>
+            <visible>Skin.HasSetting(UseBingieOSD) + !Skin.HasSetting(DisableJumpIndicator)</visible>
+        </control>
+        <control type="radiobutton" id="31795">
+            <include>SkinSettings_Button</include>
+            <label>31795</label>
+            <onclick>Skin.ToggleSetting(SeekPanelOnPauseAndSeek)</onclick>
+            <selected>Skin.HasSetting(SeekPanelOnPauseAndSeek)</selected>
+            <visible>![Skin.HasSetting(UseBingieOSD) + !Skin.HasSetting(DisableJumpIndicator)]</visible>
+        </control>
+        <control type="radiobutton" id="13058">
+            <include>SkinSettings_Button</include>
+            <label>31259</label>
+            <onclick>Skin.ToggleSetting(OSDShowInfoOnPause)</onclick>
+            <selected>Skin.HasSetting(OSDShowInfoOnPause)</selected>
         </control>
     </include>
 
@@ -3028,6 +3015,14 @@
             <include>SkinSettings_Header</include>
             <label>31849</label>
             <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
+        </control>
+        <control type="radiobutton" id="31751">
+            <include>SkinSettings_Button</include>
+            <label>31068</label>
+            <onclick condition="!Skin.HasSetting(AllowPVRPreview)">RunScript(script.skin.helper.service,action=setkodisetting,setting=pvrplayback.switchtofullscreen,value=false)</onclick>
+            <onclick>Skin.ToggleSetting(PVRPreview)</onclick>
+            <selected>Skin.HasSetting(PVRPreview)</selected>
+            <visible>PVR.HasTVChannels</visible>
         </control>
         <!-- allow youtube lookup -->
         <control type="radiobutton" id="31796">

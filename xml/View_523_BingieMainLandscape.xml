@@ -13,9 +13,8 @@
 
             <!-- View 523 -->
             <control type="group">
-                <include condition="!Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Left</include>
+                <include>BingieLeftDefs</include>
                 <top>650</top>
-                <left>65</left>
                 <width>1660</width>
                 <!-- Content Header -->
                 <control type="textbox">
@@ -44,12 +43,14 @@
                     <visible>Integer.IsGreater(Container(523).NumItems,0)</visible>
                 </control>
                 <include content="Bingie_Main_View_Fixed_Frame">
+                    <param name="visibility" value="!Skin.HasSetting(View523_DisableFixedBingieFrame)" />
                     <param name="containerid" value="523" />
                     <param name="top" value="40" />
                     <param name="width" value="332" />
                     <param name="height" value="195" />
                     <param name="texture" value="$INFO[Skin.String(thumbsborder_focused),bingie/border/thumb_fo_,.png]" />
                     <param name="xAxisAnim" value="332" />
+                    <param name="isHorizontal" value="Skin.HasSetting(View_523_HorizontalNavigation)" />
                     <param name="yAxisAnim" value="195" />
                 </include>
             </control>
@@ -99,7 +100,7 @@
             <itemgap>0</itemgap>
             <preloaditems>4</preloaditems>
             <pagecontrol>60</pagecontrol>
-            <scrolltime tween="sine" easing="out">600</scrolltime>
+            <include>ScrollTime</include>
             <onright condition="!Skin.HasSetting(View_523_HorizontalNavigation) + Skin.HasSetting(EnableQuickJump) + Control.IsVisible(6002)">6000</onright>
             <onright condition="!Skin.HasSetting(View_523_HorizontalNavigation) + Skin.HasSetting(EnableQuickJump) + !Control.IsVisible(6002)">noop</onright>
             <onright condition="!Skin.HasSetting(View_523_HorizontalNavigation) + !Skin.HasSetting(EnableQuickJump)">60</onright>

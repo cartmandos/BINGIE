@@ -27,7 +27,7 @@
             <onfocus condition="!Skin.HasSetting(DisableAllSubmenus) + Skin.HasSetting(AutoShowSubmenu) + Integer.IsGreater(Container(4445).NumItems,0) + !Control.IsVisible(4446)">SetProperty(submenu,show,Home)</onfocus>
             <onfocus condition="!Skin.HasSetting(DisableAllSubmenus) + Skin.HasSetting(AutoShowSubmenu) + Integer.IsGreater(Container(4445).NumItems,0) + !Control.IsVisible(4446) + Skin.String(SubmenuLayout, vertical)">SetFocus(4444,0)</onfocus>
             <onfocus condition="!Skin.HasSetting(AutoShowSubmenu) | Control.IsVisible(4446) | !Integer.IsGreater(Container(4445).NumItems,0)">ClearProperty(submenu,Home)</onfocus>
-            <onfocus condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !String.IsEmpty(Window(Home).Property(KeepPlayingTrailer))">ClearProperty(KeepPlayingTrailer,Home)</onfocus>
+            <onfocus condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !String.IsEmpty(Window(Home).Property(KeepPlayingPreview))">ClearProperty(KeepPlayingPreview,Home)</onfocus>
             <!--<onfocus>SetProperty(widgetstyle, $INFO[Skin.String(widgetstyle)])</onfocus>-->
             <onfocus condition="!String.IsEqual(Skin.String(HomeLayout),bingie) | Skin.HasSetting(UseSectionBackground)">SetProperty(flushWidgetProps,1,Home)</onfocus>
             <include content="WidgetsAutoRotate" condition="!String.IsEmpty(Skin.String(widgets_rotate_delay)) + !String.IsEqual(Skin.String(widgets_rotate),disabled)">
@@ -46,7 +46,7 @@
                     <param name="widgetid" value="$PARAM[widgetid]" />
                     <param name="widgetstyle" value="$PARAM[widgetstyle]" />
                 </include>
-                <include content="Bingie_$PARAM[widget]_AutoTrailer" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + [Skin.HasSetting(BingieAutoTrailer) | Skin.HasSetting(SpotLightTrailers)]">
+                <include content="Bingie_$PARAM[widget]_AutoPreview" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + [Skin.HasSetting(BingieAutoTrailer) | Skin.HasSetting(SpotLightTrailers) | Skin.HasSetting(PVRPreview)]">
                     <param name="widgetid" value="$PARAM[widgetid]" />
                     <param name="groupid" value="$PARAM[groupid]" />
                 </include>
@@ -74,40 +74,50 @@
     </include>
 
     <!-- Auto Trailer Function -->
-    <include name="Bingie_Default_AutoTrailer">
+    <include name="Bingie_Default_AutoPreview">
         <include content="Bingie_Trailer_Action" condition="Skin.HasSetting(BingieAutoTrailer)">
             <param name="interval" value="$INFO[Skin.String(main_auto_trailer_interval)]" />
             <param name="widgetid" value="$PARAM[widgetid]" />
             <param name="groupid" value="$PARAM[groupid]" />
         </include>
-        <onfocus condition="!String.IsEmpty(Window(Home).Property(KeepPlayingTrailer))">ClearProperty(KeepPlayingTrailer,Home)</onfocus>
-        <onunfocus condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,silent)</onunfocus>
-        <onunfocus condition="$EXP[IsPlayingUnrecognizedContent] + String.IsEmpty(Window(Home).Property(KeepPlayingTrailer))">PlayerControl(Stop)</onunfocus>
+        <onfocus condition="!String.IsEmpty(Window(Home).Property(KeepPlayingPreview))">ClearProperty(KeepPlayingPreview,Home)</onfocus>
+        <onunfocus condition="System.HasAlarm(preview_delay)">CancelAlarm(preview_delay,silent)</onunfocus>
+        <onunfocus condition="$EXP[IsPlayingUnrecognizedContent] + String.IsEmpty(Window(Home).Property(KeepPlayingPreview))">PlayerControl(Stop)</onunfocus>
     </include>
 
-    <include name="Bingie_Spotlight_AutoTrailer">
-        <onfocus condition="String.IsEmpty(Window(Home).Property(SpotlightTrailerInterval))">SetProperty(SpotlightTrailerInterval,0,Home)</onfocus>
+    <include name="Bingie_Spotlight_AutoPreview">
+        <onfocus condition="String.IsEmpty(Window(Home).Property(SpotlightTrailerInterval)) + [Window.IsVisible(1103) | !String.IsEmpty(Window(Home).Property(StartupMask))]">SetProperty(SpotlightTrailerInterval,10,Home)</onfocus>
+        <onfocus condition="String.IsEmpty(Window(Home).Property(SpotlightTrailerInterval)) + !Window.IsVisible(1103) + String.IsEmpty(Window(Home).Property(StartupMask))">SetProperty(SpotlightTrailerInterval,1,Home)</onfocus>
         <include content="Bingie_Trailer_Action" condition="Skin.HasSetting(SpotLightTrailers)">
             <param name="interval" value="$INFO[Window(Home).Property(SpotlightTrailerInterval)]" />
             <param name="widgetid" value="$PARAM[widgetid]" />
             <param name="groupid" value="$PARAM[groupid]" />
         </include>
-        <onfocus condition="!String.IsEmpty(Window(Home).Property(KeepPlayingTrailer))">ClearProperty(KeepPlayingTrailer,Home)</onfocus>
-        <onunfocus condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,silent)</onunfocus>
-        <onunfocus condition="$EXP[IsPlayingUnrecognizedContent] + String.IsEmpty(Window(Home).Property(KeepPlayingTrailer))">PlayerControl(Stop)</onunfocus>
-        <onunfocus condition="String.IsEmpty(Window(Home).Property(StartupMask)) + !Window.IsVisible(1103)">SetProperty(SpotlightTrailerInterval,$INFO[Skin.String(main_auto_trailer_interval)],Home)</onunfocus>
+        <onfocus condition="!String.IsEmpty(Window(Home).Property(KeepPlayingPreview))">ClearProperty(KeepPlayingPreview,Home)</onfocus>
+        <onunfocus condition="System.HasAlarm(preview_delay)">CancelAlarm(preview_delay,silent)</onunfocus>
+        <onunfocus condition="$EXP[IsPlayingUnrecognizedContent] + String.IsEmpty(Window(Home).Property(KeepPlayingPreview))">PlayerControl(Stop)</onunfocus>
+        <onunfocus>SetProperty(SpotlightTrailerInterval,$INFO[Skin.String(main_auto_trailer_interval)],Home)</onunfocus>
+    </include>
+
+    <include name="Bingie_PVR_AutoPreview">
+        <onfocus condition="!String.IsEmpty(Window(Home).Property(AllowPVRPreview)) + ControlGroup(77777).HasFocus() + !Player.HasVideo">AlarmClock(preview_delay,PlayMedia($ESCINFO[ListItem.FileNameAndPath],1),00:03,silent)</onfocus>
+        <onfocus condition="!String.IsEmpty(Window(Home).Property(AllowPVRPreview))">SetProperty(PlayingPVRPreview,1,Home)</onfocus>
+        <onfocus condition="!String.IsEmpty(Window(Home).Property(KeepPlayingPreview))">ClearProperty(KeepPlayingPreview,Home)</onfocus>
+        <onunfocus condition="!String.IsEmpty(Window(Home).Property(PlayingPVRPreview))">ClearProperty(PlayingPVRPreview,Home)</onunfocus>
+        <onunfocus condition="System.HasAlarm(preview_delay)">CancelAlarm(preview_delay,silent)</onunfocus>
+        <onunfocus condition="Player.HasVideo + !String.IsEmpty(Window(Home).Property(AllowPVRPreview)) + String.IsEmpty(Window(Home).Property(KeepPlayingPreview))">PlayerControl(Stop)</onunfocus>
     </include>
 
     <!-- 1,2) movie trailer local/plugin with fallback 3) tvshow trailer local/youtube 4) non-library movie/tvshow trailer -->
     <include name="Bingie_Trailer_Action">
         <onfocus condition="[ControlGroup($PARAM[groupid]).HasFocus() | Control.HasFocus($PARAM[groupid])] + !Player.HasVideo + !String.IsEmpty(ListItem.Trailer) + [String.IsEqual(Skin.String(AutoYoutubeTrailer),true) | !String.Contains(ListItem.Trailer, plugin)] + !String.IsEmpty(Container($PARAM[widgetid]).ListItem.DBID) + !String.IsEqual(Window(Home).Property(LastPlayedTrailer),Container($PARAM[widgetid]).ListItem.DBID)">
-            AlarmClock(trailer_delay,PlayMedia($ESCINFO[ListItem.Trailer],1),00:$PARAM[interval],silent)</onfocus>
+            AlarmClock(preview_delay,PlayMedia($ESCINFO[ListItem.Trailer],1),00:$PARAM[interval],silent)</onfocus>
         <onfocus condition="[ControlGroup($PARAM[groupid]).HasFocus() | Control.HasFocus($PARAM[groupid])] + !Player.HasVideo + String.IsEmpty(ListItem.Trailer) + String.IsEqual(ListItem.DBType,movie) + String.IsEqual(Skin.String(AutoYoutubeTrailer),true) + !String.IsEmpty(Container($PARAM[widgetid]).ListItem.DBID) + !String.IsEmpty(Container($PARAM[widgetid]).ListItem.DBID) + !String.IsEqual(Window(Home).Property(LastPlayedTrailer),Container($PARAM[widgetid]).ListItem.DBID)">
-            AlarmClock(trailer_delay,RunScript(script.bingie.helper,action=playtrailer,title=$INFO[ListItem.Title]),00:$PARAM[interval],silent)</onfocus>
-        <onfocus condition="[ControlGroup($PARAM[groupid]).HasFocus() | Control.HasFocus($PARAM[groupid])] + !Player.HasVideo + Skin.HasSetting(AllowTVShowsTrailer) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode)] + !String.IsEmpty(Container($PARAM[widgetid]).ListItem.DBID) + !String.IsEqual(Window(Home).Property(LastPlayedTrailer),Container($PARAM[widgetid]).ListItem.DBID)">
-            AlarmClock(trailer_delay,RunScript(script.bingie.helper,action=playtrailer,title=$VAR[TVShowTitle],tvshow=true,youtube=$INFO[Skin.String(AutoYoutubeTrailer)]),00:$PARAM[interval],silent)</onfocus>
-        <onfocus condition="[ControlGroup($PARAM[groupid]).HasFocus() | Control.HasFocus($PARAM[groupid])] + !Player.HasVideo + Skin.HasSetting(AllowAddonTrailer) + String.IsEqual(Skin.String(AutoYoutubeTrailer),true) + [String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode)] + String.IsEmpty(Container($PARAM[widgetid]).ListItem.DBID) + !String.IsEqual(Window(Home).Property(LastPlayedTrailer),Container($PARAM[widgetid]).ListItem.Label)">
-            AlarmClock(trailer_delay,RunScript(script.bingie.helper,action=playtrailer,title=$INFO[ListItem.Title]),00:$PARAM[interval],silent)</onfocus>
+            AlarmClock(preview_delay,RunScript(script.bingie.helper,action=playtrailer,title=$INFO[ListItem.Title]),00:$PARAM[interval],silent)</onfocus>
+        <onfocus condition="[ControlGroup($PARAM[groupid]).HasFocus() | Control.HasFocus($PARAM[groupid])] + !Player.HasVideo + Skin.HasSetting(AllowTVShowsTrailer) + !String.IsEmpty(Container($PARAM[widgetid]).ListItem.DBID) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode)] + !String.IsEqual(Window(Home).Property(LastPlayedTrailer),Container($PARAM[widgetid]).ListItem.DBID)">
+            AlarmClock(preview_delay,RunScript(script.bingie.helper,action=playtrailer,title=$VAR[TVShowTitle],tvshow=true,youtube=$INFO[Skin.String(AutoYoutubeTrailer)]),00:$PARAM[interval],silent)</onfocus>
+        <onfocus condition="[ControlGroup($PARAM[groupid]).HasFocus() | Control.HasFocus($PARAM[groupid])] + !Player.HasVideo + Skin.HasSetting(AllowAddonTrailer) + String.IsEqual(Skin.String(AutoYoutubeTrailer),true) + String.IsEmpty(Container($PARAM[widgetid]).ListItem.DBID) + [String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode)] + !String.IsEqual(Window(Home).Property(LastPlayedTrailer),Container($PARAM[widgetid]).ListItem.Label)">
+            AlarmClock(preview_delay,RunScript(script.bingie.helper,action=playtrailer,title=$INFO[ListItem.Title]),00:$PARAM[interval],silent)</onfocus>
         <onfocus condition="!String.IsEmpty(Container($PARAM[widgetid]).ListItem.DBID)">SetProperty(LastPlayedTrailer, $INFO[Container($PARAM[widgetid]).ListItem.DBID],Home)</onfocus>
         <onfocus condition="String.IsEmpty(Container($PARAM[widgetid]).ListItem.DBID)">SetProperty(LastPlayedTrailer, $ESCINFO[Container($PARAM[widgetid]).ListItem.Label],Home)</onfocus>
     </include>
@@ -115,12 +125,12 @@
     <include name="LibraryAutoTrailerButton">
         <control type="button">
             <visible>false</visible>
-            <onfocus condition="!Player.HasVideo + !String.IsEmpty(ListItem.DBID) + [String.IsEqual(ListItem.DBType,movie) | Container.Content(movies)] + !String.IsEqual(Window(Home).Property(LastPlayedTrailer),ListItem.DBID)">AlarmClock(trailer_delay,RunScript(script.skin.helper.service,ACTION=playtrailer,MODE=windowed,YOUTUBE=$INFO[Skin.String(AutoYoutubeTrailer)]),00:$PARAM[interval],silent)</onfocus>
-            <onfocus condition="!Player.HasVideo + !String.IsEmpty(ListItem.DBID) + Skin.HasSetting(AllowTVShowsTrailer) + [String.IsEqual(ListItem.DBType,tvshow) | Container.Content(tvshows)] + !String.IsEqual(Window(Home).Property(LastPlayedTrailer),ListItem.DBID)">AlarmClock(trailer_delay,RunScript(script.bingie.helper,action=playtrailer,title=$VAR[TVShowTitle],tvshow=true,youtube=$INFO[Skin.String(AutoYoutubeTrailer)]),00:$PARAM[interval],silent)</onfocus>
-            <onfocus condition="!Player.HasVideo + String.IsEmpty(ListItem.DBID) + Skin.HasSetting(AllowAddonTrailer) + String.IsEqual(Skin.String(AutoYoutubeTrailer),true) + [String.IsEqual(ListItem.DBType,movie) | Container.Content(movies) | String.IsEqual(ListItem.DBType,tvshow) | Container.Content(tvshows)] + !String.IsEqual(Window(Home).Property(LastPlayedTrailer),ListItem.Label)">AlarmClock(trailer_delay,RunScript(script.bingie.helper,action=playtrailer,title=$INFO[ListItem.Title]),00:$PARAM[interval],silent)</onfocus>
+            <onfocus condition="!Player.HasVideo + !String.IsEmpty(ListItem.DBID) + [String.IsEqual(ListItem.DBType,movie) | Container.Content(movies)] + !String.IsEqual(Window(Home).Property(LastPlayedTrailer),ListItem.DBID)">AlarmClock(preview_delay,RunScript(script.skin.helper.service,ACTION=playtrailer,MODE=windowed,YOUTUBE=$INFO[Skin.String(AutoYoutubeTrailer)]),00:$PARAM[interval],silent)</onfocus>
+            <onfocus condition="!Player.HasVideo + !String.IsEmpty(ListItem.DBID) + Skin.HasSetting(AllowTVShowsTrailer) + [String.IsEqual(ListItem.DBType,tvshow) | Container.Content(tvshows)] + !String.IsEqual(Window(Home).Property(LastPlayedTrailer),ListItem.DBID)">AlarmClock(preview_delay,RunScript(script.bingie.helper,action=playtrailer,title=$VAR[TVShowTitle],tvshow=true,youtube=$INFO[Skin.String(AutoYoutubeTrailer)]),00:$PARAM[interval],silent)</onfocus>
+            <onfocus condition="!Player.HasVideo + String.IsEmpty(ListItem.DBID) + Skin.HasSetting(AllowAddonTrailer) + String.IsEqual(Skin.String(AutoYoutubeTrailer),true) + [String.IsEqual(ListItem.DBType,movie) | Container.Content(movies) | String.IsEqual(ListItem.DBType,tvshow) | Container.Content(tvshows)] + !String.IsEqual(Window(Home).Property(LastPlayedTrailer),ListItem.Label)">AlarmClock(preview_delay,RunScript(script.bingie.helper,action=playtrailer,title=$INFO[ListItem.Title]),00:$PARAM[interval],silent)</onfocus>
             <onfocus condition="!String.IsEmpty(ListItem.DBID)">SetProperty(LastPlayedTrailer, $INFO[ListItem.DBID],Home)</onfocus>
             <onfocus condition="String.IsEmpty(ListItem.DBID)">SetProperty(LastPlayedTrailer, $ESCINFO[ListItem.Label],Home)</onfocus>
-            <onunfocus condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,silent)</onunfocus>
+            <onunfocus condition="System.HasAlarm(preview_delay)">CancelAlarm(preview_delay,silent)</onunfocus>
             <onunfocus condition="$EXP[IsPlayingUnrecognizedContent]">PlayerControl(Stop)</onunfocus>
         </control>
     </include>
@@ -164,8 +174,9 @@
         <onfocus>SetProperty(ListItem.Episode, $ESCINFO[Container($PARAM[widgetid]).ListItem.Episode],Home)</onfocus>
         <onfocus>SetProperty(ListItem.Artist, $ESCINFO[Container($PARAM[widgetid]).ListItem.Artist],Home)</onfocus>
         <onfocus>SetProperty(ListItem.Album, $ESCINFO[Container($PARAM[widgetid]).ListItem.Album],Home)</onfocus>
-        <onfocus>SetProperty(ListItem.StartDateTime, $ESCINFO[Container($PARAM[widgetid]).ListItem.Property(StartDateTime)],Home)</onfocus>
         <onfocus>SetProperty(ListItem.StartTime, $ESCINFO[Container($PARAM[widgetid]).ListItem.StartTime],Home)</onfocus>
+        <onfocus>SetProperty(ListItem.ChannelName, $ESCINFO[Container($PARAM[widgetid]).ListItem.ChannelName],Home)</onfocus>
+        <onfocus>SetProperty(ListItem.ChannelNumberLabel, $ESCINFO[Container($PARAM[widgetid]).ListItem.ChannelNumberLabel],Home)</onfocus>
         <onfocus>SetProperty(ListItem.StartDate, $ESCINFO[Container($PARAM[widgetid]).ListItem.StartDate],Home)</onfocus>
         <onfocus>SetProperty(ListItem.Art.Poster, $ESCINFO[Container($PARAM[widgetid]).ListItem.Art(poster)],Home)</onfocus>
         <onfocus>SetProperty(ListItem.Art.landscape, $ESCINFO[Container($PARAM[widgetid]).ListItem.Art(landscape)],Home)</onfocus>

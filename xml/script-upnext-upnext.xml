@@ -39,29 +39,30 @@
                     <aligny>center</aligny>
                     <align>center</align>
                     <font>Reg30</font>
-                    <textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
+                    <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
                     <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
                     <label>31021</label>
-                    <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframefo.png</texturefocus>
-                    <texturenofocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframenf.png</texturenofocus>
+                    <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframenf.png</texturefocus>
+                    <texturenofocus/>
                     <onclick>SendClick(3013)</onclick>
                 </control>
                 <control type="radiobutton" id="3097">
-                    <width>440</width>
+                    <width>430</width>
                     <height>65</height>
                     <aligny>center</aligny>
                     <align>left</align>
-                    <textoffsetx>70</textoffsetx>
+                    <textoffsetx>80</textoffsetx>
+                    <textwidth>335</textwidth>
                     <font>Reg30</font>
-                    <textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
+                    <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
                     <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
-                    <label>[CAPITALIZE]$LOCALIZE[31212][/CAPITALIZE]$INFO[Player.TimeRemaining(ss), $LOCALIZE[1405] ,s]</label>
-                    <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframefo.png</texturefocus>
-                    <texturenofocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframenf.png</texturenofocus>
+                    <label>[CAPITALIZE]$LOCALIZE[31212][/CAPITALIZE]$INFO[Player.TimeRemaining(ss), $LOCALIZE[1405] ,]</label>
+                    <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframenf.png</texturefocus>
+                    <texturenofocus/>
                     <textureradioonfocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">dialogs/upnext/play.png</textureradioonfocus>
                     <textureradioofffocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">dialogs/upnext/play.png</textureradioofffocus>
-                    <textureradioonnofocus colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">dialogs/upnext/play.png</textureradioonnofocus>
-                    <textureradiooffnofocus colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">dialogs/upnext/play.png</textureradiooffnofocus>
+                    <textureradioonnofocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">dialogs/upnext/play.png</textureradioonnofocus>
+                    <textureradiooffnofocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">dialogs/upnext/play.png</textureradiooffnofocus>
                     <radioposx>25</radioposx>
                     <radiowidth>40</radiowidth>
                     <radioheight>40</radioheight>

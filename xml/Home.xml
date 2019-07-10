@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- BINGIE -->
 <window>
-    <defaultcontrol always="true">1001</defaultcontrol>
+    <defaultcontrol always="true">1000</defaultcontrol>
     <menucontrol>900</menucontrol>
 
     <!-- defaults -->
@@ -20,7 +20,7 @@
     <onload condition="$EXP[IsFirstRun]">ReplaceWindow($VAR[StartUpWindow])</onload>
 
     <onunload condition="!Skin.HasSetting(SectionBackgroundHomeOnly)">SetProperty(SectionBackground,$ESCINFO[Control.GetLabel(99004)])</onunload>
-    <onunload condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,silent)</onunload>
+    <onunload condition="System.HasAlarm(preview_delay)">CancelAlarm(preview_delay,silent)</onunload>
     <onunload>ClearProperty(submenu,Home)</onunload>
     <onunload>ClearProperty(ShowWidget,Home)</onunload>
     <onunload>ClearProperty(ShowViewSubMenu,Home)</onunload>
@@ -29,19 +29,14 @@
     <include condition="Skin.String(widgets_rotate) + !String.IsEqual(Skin.String(widgets_rotate),disabled)">WidgetsAutoRotateUnload</include>
 
     <include condition="String.IsEqual(Skin.String(HomeLayout),bingie)">BingieViews_WindowOpen_Fade</include>
+
 	<controls>
         <!-- Global Background -->
         <include>GlobalBackground</include>
 
-        <control type="button" id="1001">
-            <include>HiddenObject</include>
-            <onfocus condition="String.IsEmpty(Window(Home).Property(StartupMask))">SetFocus(1000)</onfocus>
-        </control>
         <control type="button" id="1000">
             <include>HiddenObject</include>
-            <onfocus condition="String.IsEmpty(Window(Home).Property(HomeFirstLoadDone)) + String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(BingieHomeDisableFirstRow) + !Skin.HasSetting(DisableSpotlightContent) + !Skin.HasSetting(AutoFocusHome) + Skin.HasSetting(EnableFixedFocusWidgets)">AlarmClock(focus_delay,SetFocus(1508),00:01,silent)</onfocus>
-            <onfocus condition="String.IsEmpty(Window(Home).Property(HomeFirstLoadDone)) + [[String.IsEqual(Skin.String(HomeLayout),bingie) + [Skin.HasSetting(BingieHomeDisableFirstRow) | Skin.HasSetting(DisableSpotlightContent)]] | String.IsEqual(Skin.String(HomeLayout),win10)] + !Skin.HasSetting(AutoFocusHome)">AlarmClock(focus_delay,SetFocus(77777,0),00:00,silent)</onfocus>
-            <onfocus condition="!String.IsEmpty(Window(Home).Property(HomeFirstLoadDone)) + [String.IsEqual(Skin.String(HomeLayout),bingie) | String.IsEqual(Skin.String(HomeLayout),win10)] + !Skin.HasSetting(AutoFocusHome) + String.IsEmpty(Window(Home).Property(LastFocusWidget))">SetFocus(77777)</onfocus>
+            <onfocus condition="[String.IsEqual(Skin.String(HomeLayout),bingie) | String.IsEqual(Skin.String(HomeLayout),win10)] + !Skin.HasSetting(AutoFocusHome) + String.IsEmpty(Window(Home).Property(LastFocusWidget))">SetFocus(77777)</onfocus>
             <onfocus condition="[[!String.IsEqual(Skin.String(HomeLayout),bingie) + !String.IsEqual(Skin.String(HomeLayout),win10)] | Skin.HasSetting(AutoFocusHome)] + String.IsEmpty(Window(Home).Property(LastFocusWidget))">SetFocus($VAR[DefaultMenuFocus])</onfocus>
             <onfocus condition="String.IsEmpty(Window(Home).Property(HomeFirstLoadDone))">SetProperty(HomeFirstLoadDone,1)</onfocus>
             <include content="WidgetsAutoRotate" condition="!String.IsEmpty(Skin.String(widgets_rotate_delay)) + !String.IsEqual(Skin.String(widgets_rotate),disabled) + [String.IsEqual(Skin.String(HomeLayout),bingie) | String.IsEqual(Skin.String(HomeLayout),win10)]">

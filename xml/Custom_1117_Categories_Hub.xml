@@ -5,6 +5,7 @@
     <include>CustomBingieWinProps</include>
     <include>BingieViews_WindowOpen_Fade</include>
     <onunload condition="$EXP[IsPlayingUnrecognizedContent]">PlayerControl(Stop)</onunload>
+    <onunload>ClearProperty(category,Home)</onunload>
     <controls>
         <include>GlobalBackground</include>
         <include>NowPlayingBackground</include>
@@ -14,7 +15,7 @@
         <include content="Bingie_Base_BG">
             <param name="visibility" value="!$EXP[IsPlayingRecognizedContent]" />
         </include>
-        <include content="Trailer_Window">
+        <include content="Preview_Window">
             <param name="id" value="11701" />
             <param name="visibility" value="$EXP[IsPlayingUnrecognizedContent]" />
         </include>
@@ -29,9 +30,8 @@
             <!-- Details -->
             <control type="grouplist">
                 <width>1500</width>
-                <include condition="!Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Left</include>
-                <left>65</left>
-                <posy>22</posy>
+                <include>BingieLeftDefs</include>
+                <top>22</top>
                 <orientation>vertical</orientation>
                 <usecontrolcoords>true</usecontrolcoords>
                 <itemgap>10</itemgap>
@@ -80,9 +80,8 @@
         </control>
 
         <control type="group">
-            <include condition="!Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Left</include>
+            <include>BingieLeftDefs</include>
             <top>650</top>
-            <left>65</left>
             <width>1660</width>
             <!-- Content Header -->
             <control type="textbox">
@@ -193,17 +192,16 @@
                 <height>85</height>
                 <texture background="true">bingie/back_arrow.png</texture>
                 <colordiffuse>$INFO[Skin.String(BingiePrimaryTextColor)]</colordiffuse>
-                <visible>Integer.IsGreater(Container(117).NumItems,0)</visible>
+                <visible>Integer.IsGreater(Container(117).NumItems,0) | !Container(117).IsUpdating</visible>
             </control>
             <!-- Fixed Frame -->
-            <include content="Bingie_Main_View_Fixed_Frame">
+            <include content="Bingie_Main_View_Fixed_Frame" condition="Skin.HasSetting(EnableFixedFrameWidgets)">
                 <param name="containerid" value="117" />
                 <param name="top" value="40" />
                 <param name="width" value="332" />
                 <param name="height" value="195" />
                 <param name="texture" value="$INFO[Skin.String(thumbsborder_focused),bingie/border/thumb_fo_,.png]" />
                 <param name="xAxisAnim" value="332" />
-                <param name="yAxisAnim" value="195" />
             </include>
         </control>
 

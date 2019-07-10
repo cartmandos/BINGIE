@@ -13,6 +13,9 @@
             </include>
             <include condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">BingieNoCircularWidgetHeaderAnim</include>
             <!-- fixed focus navigation -->
+            <include content="SetFixedVerticalNavigationProps" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">
+                <param name="widgetid" value="$PARAM[widgetid]"/>
+            </include>
             <include content="Fixed_Focus_Navigation_Factory" condition="Skin.HasSetting(LockHubWidgets) + Skin.HasSetting(EnableFixedFocusWidgets)">
                 <param name="widgetid" value="$PARAM[widgetid]"/>
             </include>
@@ -98,20 +101,22 @@
             <include content="BingieUnfocusedWidgetFade">
                 <param name="widgetid" value="$PARAM[widgetid]" />
             </include>
-            <include condition="!Skin.HasSetting(EnhancedHome_Circular)">Bingie_Focus_Position_No_Circular</include>
             <scrolltime tween="sine" easing="out">600</scrolltime>
             <preloaditems>5</preloaditems>
             <orientation>horizontal</orientation>
-            <onfocus condition="!String.IsEmpty(Window(Home).Property(KeepPlayingTrailer))">ClearProperty(KeepPlayingTrailer,Home)</onfocus>
-            <onunfocus condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,silent)</onunfocus>
-            <onunfocus condition="Skin.HasSetting(BingieAutoTrailer) + $EXP[IsPlayingUnrecognizedContent] + String.IsEmpty(Window(Home).Property(KeepPlayingTrailer))">PlayerControl(Stop)</onunfocus>
+            <onfocus condition="!String.IsEmpty(Window(Home).Property(KeepPlayingPreview))">ClearProperty(KeepPlayingPreview,Home)</onfocus>
+            <onunfocus condition="System.HasAlarm(preview_delay)">CancelAlarm(preview_delay,silent)</onunfocus>
+            <onunfocus condition="Skin.HasSetting(BingieAutoTrailer) + $EXP[IsPlayingUnrecognizedContent] + String.IsEmpty(Window(Home).Property(KeepPlayingPreview))">PlayerControl(Stop)</onunfocus>
             <include content="ContainerShowInfoOnclick" condition="Skin.HasSetting(ShowInformationBypass)">
                 <param name="widgetid" value="$PARAM[widgetid]" />
             </include>
             <onback condition="$EXP[IsPlayingRecognizedContent]">SetFocus(509)</onback>
-            <onback condition="$EXP[IsPlayingUnrecognizedContent]">SetProperty(KeepPlayingTrailer,1,Home)</onback>
+            <onback condition="$EXP[IsPlayingUnrecognizedContent]">SetProperty(KeepPlayingPreview,1,Home)</onback>
             <onback condition="!$EXP[IsPlayingRecognizedContent]">900</onback>
             <!-- fixed focus navigation -->
+            <include content="SetFixedVerticalNavigationProps" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">
+                <param name="widgetid" value="$PARAM[widgetid]"/>
+            </include>
             <include content="Fixed_Focus_Navigation_Factory" condition="Skin.HasSetting(LockHubWidgets) + Skin.HasSetting(EnableFixedFocusWidgets)">
                 <param name="widgetid" value="$PARAM[widgetid]"/>
             </include>
@@ -430,66 +435,90 @@
     </include>
 
     <include name="Custom_Container_Label">
-        <control type="textbox">
-            <visible>Skin.HasSetting(LockHubWidgets)</visible>
-            <height>40</height>
-            <width>96%</width>
-            <font>Reg28</font>
-            <aligny>center</aligny>
-            <include condition="Skin.HasSetting(WidgetAlignRight)">widget_header_rightalign</include>
-            <include condition="!Skin.HasSetting(WidgetAlignRight)">widget_header_leftalign</include>
-            <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-            <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
-            <label>[B]$INFO[Skin.String(mycustom.label)][/B]</label>
-        </control>
+        <definition>
+            <control type="textbox">
+                <visible>Integer.IsGreater(Container(1510).NumItems,0)</visible>
+                <height>40</height>
+                <width>96%</width>
+                <font>Reg28</font>
+                <aligny>center</aligny>
+                <align>left</align>
+                <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+                <label>[B]$PARAM[label][/B]</label>
+            </control>
+        </definition>
+    </include>
+
+    <include name="Custom_Container_Empty_Label">
+        <param name="id" default="1501" />
+        <param name="containerid" default="1510" />
+        <definition>
+            <control type="button" id="$PARAM[id]">
+                <visible>Integer.IsEqual(Container($PARAM[containerid]).NumItems,0) + !Container($PARAM[containerid]).IsUpdating</visible>
+                <align>left</align>
+                <include content="textoffsetx" condition="!Skin.HasSetting(EnhancedHome_Circular)">
+                    <param name="textoffsetx" value="25" />
+                </include>
+                <textoffsetx>0</textoffsetx>
+                <texturenofocus/>
+                <texturefocus/>
+                <height>80</height>
+                <width>99%</width>
+                <font>Reg28</font>
+                <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
+                <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+                <label>$PARAM[label]</label>
+            </control>
+        </definition>
     </include>
 
     <!-- MyList -->
     <include name="bingie_items_mylist">
-        <include condition="!Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Left</include>
-        <left>65</left>
-        <control type="textbox">
-            <visible>Integer.IsGreater(Container(1510).NumItems,0)</visible>
-            <height>40</height>
-            <width>96%</width>
-            <font>Reg28</font>
-            <aligny>center</aligny>
-            <include condition="Skin.HasSetting(WidgetAlignRight)">widget_header_rightalign</include>
-            <include condition="!Skin.HasSetting(WidgetAlignRight)">widget_header_leftalign</include>
-            <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-            <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
-            <label>[B]$LOCALIZE[31867][/B]</label>
-        </control>
-        <control type="button" id="1501">
-            <visible>Integer.IsEqual(Container(1510).NumItems,0) + !Container(1510).IsUpdating</visible>
-            <align>left</align>
-            <include content="textoffsetx" condition="!Skin.HasSetting(EnhancedHome_Circular)">
-                <param name="textoffsetx" value="25" />
-            </include>
-            <textoffsetx>0</textoffsetx>
-            <texturenofocus/>
-            <texturefocus/>
-            <height>80</height>
-            <width>99%</width>
-            <font>Reg28</font>
-            <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-            <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
-            <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
-            <label>$LOCALIZE[31371]</label>
-        </control>
+        <include>BingieLeftDefs</include>
+        <width>100%</width>
+        <include content="Custom_Container_Label">
+            <param name="label" value="$LOCALIZE[31867]" />
+        </include>
+        <include content="Custom_Container_Empty_Label">
+            <param name="label" value="$LOCALIZE[31371]" />
+        </include>
         <include content="ListHubContainerTemplate">
             <param name="widgetid" value="1510"/>
-            <param name="contentPath" value="plugin://script.skin.helper.widgets/?action=mylist&amp;mediatype=media&amp;limit=1000&amp;reload=$INFO[Window(Home).Property(widgetreload2)]"/>
+            <param name="contentPath" value="plugin://script.skin.helper.widgets/?action=mylist&amp;mediatype=media&amp;limit=1000&amp;reload=$INFO[Window(Home).Property(widgetreload)]"/>
             <param name="contentTarget" value="videos" />
         </include>
     </include>
 
     <!-- MyCustom -->
     <include name="bingie_items_mycustom">
-        <include condition="!Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Left</include>
-        <left>65</left>
+        <include>BingieLeftDefs</include>
+        <width>100%</width>
         <include condition="!Skin.HasSetting(LockHubWidgets)">Set_Custom_Container_Content</include>
-        <include condition="Skin.HasSetting(LockHubWidgets)">Custom_Container_Label</include>
+        <include content="Custom_Container_Label" condition="Skin.HasSetting(LockHubWidgets)">
+            <param name="label" value="$INFO[Skin.String(mycustom.label)]" />
+        </include>
+        <include content="Custom_Container_Empty_Label">
+            <param name="label" value="$LOCALIZE[31372]" />
+        </include>
+        <!-- set label -->
+        <control type="button" id="1502">
+            <width>100%</width>
+            <height>40</height>
+            <align>left</align>
+            <font>Reg24</font>
+            <include content="textoffsetx" condition="!Skin.HasSetting(EnhancedHome_Circular)">
+                <param name="textoffsetx" value="bingie_no_circular_posx" />
+            </include>
+            <textoffsetx>65</textoffsetx>
+            <label>[$ADDON[script.skinshortcuts 32025]]</label>
+            <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+            <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+            <onclick>Skin.SetString(mycustom.label)</onclick>
+            <texturenofocus/>
+            <visible>!Skin.HasSetting(LockHubWidgets) + Skin.String(mycustom.label) + [String.IsEmpty(Container(1510).ListItem.Property(similartitle)) + String.IsEmpty(Container(1510).ListItem.Property(genretitle))]</visible>
+        </control>
         <include content="ListHubContainerTemplate">
             <param name="widgetid" value="1510"/>
             <param name="contentPath" value="$INFO[Skin.String(mycustom.path)]" />
@@ -505,16 +534,16 @@
             <orientation>vertical</orientation>
             <scrolltime tween="sine" easing="out">600</scrolltime>
             <preloaditems>5</preloaditems>
-            <onfocus condition="!String.IsEmpty(Window(Home).Property(KeepPlayingTrailer))">ClearProperty(KeepPlayingTrailer,Home)</onfocus>
-            <onunfocus condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,silent)</onunfocus>
-            <onunfocus condition="Skin.HasSetting(BingieAutoTrailer) + $EXP[IsPlayingUnrecognizedContent] + String.IsEmpty(Window(Home).Property(KeepPlayingTrailer))">PlayerControl(Stop)</onunfocus>
+            <onfocus condition="!String.IsEmpty(Window(Home).Property(KeepPlayingPreview))">ClearProperty(KeepPlayingPreview,Home)</onfocus>
+            <onunfocus condition="System.HasAlarm(preview_delay)">CancelAlarm(preview_delay,silent)</onunfocus>
+            <onunfocus condition="Skin.HasSetting(BingieAutoTrailer) + $EXP[IsPlayingUnrecognizedContent] + String.IsEmpty(Window(Home).Property(KeepPlayingPreview))">PlayerControl(Stop)</onunfocus>
             <include content="ContainerShowInfoOnclick" condition="Skin.HasSetting(ShowInformationBypass)">
                 <param name="widgetid" value="$PARAM[widgetid]" />
             </include>
-            <onleft condition="$EXP[IsPlayingUnrecognizedContent]">SetProperty(KeepPlayingTrailer,1,Home)</onleft>
+            <onleft condition="$EXP[IsPlayingUnrecognizedContent]">SetProperty(KeepPlayingPreview,1,Home)</onleft>
             <onleft>900</onleft>
             <onback condition="$EXP[IsPlayingRecognizedContent]">SetFocus(509)</onback>
-            <onback condition="$EXP[IsPlayingUnrecognizedContent]">SetProperty(KeepPlayingTrailer,1,Home)</onback>
+            <onback condition="$EXP[IsPlayingUnrecognizedContent]">SetProperty(KeepPlayingPreview,1,Home)</onback>
             <onback condition="!$EXP[IsPlayingRecognizedContent]">900</onback>
             <onright>noop</onright>
             <itemlayout height="195" width="332">
@@ -544,7 +573,7 @@
                 </control>
                 <control type="button">
                     <visible>false</visible>
-                    <include content="Bingie_Default_AutoTrailer" condition="Skin.HasSetting(BingieAutoTrailer)">
+                    <include content="Bingie_Default_AutoPreview" condition="Skin.HasSetting(BingieAutoTrailer)">
                         <param name="widgetid" value="$PARAM[widgetid]" />
                         <param name="groupid" value="77777" />
                     </include>

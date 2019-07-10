@@ -4,7 +4,7 @@
     <!-- VARS -->
     <variable name="SearchString">
         <value condition="!String.IsEmpty(Skin.String(CustomSearchTerm))">$INFO[Skin.String(CustomSearchTerm)]</value>
-        <value condition="!String.IsEmpty(Window.Property(SuggestionPath)) + [ControlGroup(77777).HasFocus() | Control.HasFocus(1007)]">$INFO[Container(1007).ListItem.Label]</value>
+        <value condition="!String.IsEmpty(Window.Property(SuggestionPath)) + [ControlGroup(77777).HasFocus() | Control.HasFocus(1007) | [Control.HasFocus(900) + !String.IsEmpty(Window.Property(KeepSuggestions))]]">$INFO[Container(1007).ListItem.Label]</value>
     </variable>
 
     <variable name="EmptySearchResultsString">
@@ -615,7 +615,6 @@
             <control type="list" id="$PARAM[id]">
                 <nested/>
                 <visible>$PARAM[visibility]</visible>
-                <include condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Left</include>
                 <left>$PARAM[left]</left>
                 <top>$PARAM[top]</top>
                 <width>$PARAM[width]</width>

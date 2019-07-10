@@ -7,29 +7,37 @@
         </include>
 
         <control type="group" id="9000">
-            <!-- animation for seamless transition to dialog info -->
-            <include>Hide_Window_Anim</include>
+            <include>HideWindowOnStartupAndDialogInfoLoad</include>
 
             <!-- Spotlight BG -->
             <control type="group">
                 <include>FullscreenDimensions</include>
                 <visible>$EXP[IsCurrentWidgetSpotlight]</visible>
+                <control type="list" id="15081">
+                    <visible>$EXP[IsTvShowDBType]</visible>
+                    <left>-100</left>
+                    <top>-100</top>
+                    <preloaditems>1</preloaditems>
+                    <itemlayout/>
+                    <focusedlayout/>
+                    <content sortby="dateadded" sortorder="descending" limit="1">$VAR[SpotlightTVShowEpisodesPath]</content>
+                </control>
                 <control type="image">
-                    <visible>!$EXP[IsPlayingUnrecognizedContent]</visible>
+                    <visible>!Player.HasVideo</visible>
                     <fadetime>350</fadetime>
-                    <texture background="true">$INFO[Control.GetLabel(99004)]</texture>
+                    <texture background="true">$VAR[BingieSpotlightBackground]</texture>
                     <aspectratio aligny="top">scale</aspectratio>
                     <include condition="Skin.HasSetting(BackgroundAnimation)">BackgroundAnimation</include>
                     <animation effect="fade" start="0" end="100" delay="0" time="1200">Visible</animation>
                 </control>
-                <include content="Trailer_Window">
+                <include content="Preview_Window">
                     <param name="id" value="90001" />
                     <param name="visibility" value="$EXP[IsPlayingUnrecognizedContent]" />
                     <param name="width" value="100%" />
                     <param name="height" value="100%" />
                     <param name="overlaywidth" value="100%"/>
                     <param name="overlayheight" value="100%"/>
-                    <param name="videowindow-visibility" value="true" />
+                    <param name="videowindowVisibility" value="true" />
                     <param name="isFullscreen" value="true" />
                     <param name="overlay_animation" value="Bingie_Trailer_Fullscreen_Overlay_Anim" />
                 </include>
@@ -62,7 +70,7 @@
                 <width>1920</width>
                 <height>525</height>
                 <visible>!Skin.HasSetting(BingieHomeDisableFirstRow)</visible>
-                <include content="Trailer_Window">
+                <include content="Preview_Window">
                     <param name="id" value="90002" />
                     <param name="visibility" value="!$EXP[IsCurrentWidgetSpotlight] + $EXP[IsPlayingUnrecognizedContent]" />
                 </include>
@@ -79,11 +87,10 @@
                     <visible>!Skin.HasSetting(DisableSpotlightContent)</visible>
                     <visible>$EXP[IsCurrentWidgetSpotlight] + Integer.IsGreater(Container(1508).NumItems,0)</visible>
                     <animation effect="fade" start="0" end="100" time="250" reversible="false">VisibleChange</animation>
-                    <animation effect="slide" end="0,-250" time="300" condition="String.IsEqual(Container(77777).CurrentItem,2)">Conditional</animation>
-                    <animation effect="slide" end="0,250" time="300" condition="String.IsEqual(Container(77777).CurrentItem,Container(77777).NumItems)">Conditional</animation>
+                    <include condition="Skin.HasSetting(EnableFixedFocusWidgets)">SpotlightDisplayWidgetsTransition</include>
+
                     <height>600</height>
-                    <include condition="!Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Left</include>
-                    <left>65</left>
+                    <include>BingieLeftDefs</include>
                     <top>177</top>
                     <orientation>vertical</orientation>
                     <usecontrolcoords>true</usecontrolcoords>
@@ -117,10 +124,10 @@
                     <control type="label">
                         <top>30</top>
                         <height>50</height>
-                        <width max="625">auto</width>
+                        <width max="800">auto</width>
                         <align>left</align>
                         <aligny>center</aligny>
-                        <font>Reg32</font>
+                        <font>Reg34</font>
                         <textcolor>$INFO[Skin.String(BingieSubLabelTextColor)]</textcolor>
                         <label>$VAR[BingieSpotlightSublabel]</label>
                     </control>
@@ -142,24 +149,21 @@
                 <!-- Widgets Display -->
                 <control type="grouplist">
                     <visible>!$EXP[IsCurrentWidgetSpotlight]</visible>
-                    <animation effect="fade" start="0" end="100" time="250" reversible="false">VisibleChange</animation>
-                    <animation effect="slide" end="0,250" time="300" condition="Control.IsVisible(1508) + String.IsEqual(Window(Home).Property(PrevWidgetPos),2) + String.IsEqual(Container(77777).CurrentItem,1)">Conditional</animation>
-                    <animation effect="slide" end="0,-250" time="300" condition="Control.IsVisible(1508) + String.IsEqual(Window(Home).Property(PrevWidgetPos),Container(77777).NumItems) + String.IsEqual(Container(77777).CurrentItem,1)">Conditional</animation>
+                    <animation effect="fade" start="0" end="100" time="250" reversible="false">Visible</animation>
+                    <include condition="Skin.HasSetting(EnableFixedFocusWidgets)">WidgetsDisplaySpotlightTransition</include>
 
                     <width>1500</width>
-                    <include condition="!Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Left</include>
-                    <left>65</left>
+                    <include>BingieLeftDefs</include>
                     <top>22</top>
                     <height>600</height>
                     <orientation>vertical</orientation>
                     <usecontrolcoords>true</usecontrolcoords>
                     <itemgap>10</itemgap>
                     <!-- Episode Info Slide-down -->
-                    <animation effect="slide" start="0" end="0,75" time="0" condition="$EXP[IsEpisodeDBType]">Conditional</animation>
+                    <animation effect="slide" start="0" end="0,130" time="0" condition="$EXP[IsEpisodeDBType]">Conditional</animation>
 
                     <include content="Bingie_Headline_Item">
                         <param name="id" value="9000" />
-                        <param name="isSpotlight" value="true" />
                         <param name="image" value="$VAR[BingieInfoClearlogo]" />
                         <param name="text" value="$VAR[BingieInfoLabel]" />
                     </include>
@@ -168,7 +172,7 @@
                     <control type="group">
                         <visible>!$EXP[IsEpisodeDBType]</visible>
                         <include>Default_Visible_Fade</include>
-                        <posy>-7</posy>
+                        <top>-7</top>
                         <width>1000</width>
                         <height>40</height>
                         <include>SpotlightRowDetails</include>
@@ -180,7 +184,7 @@
                         <visible>!$EXP[IsEpisodeDBType]</visible>
                         <include>Default_Visible_Fade</include>
                         <height>30</height>
-                        <width max="625">auto</width>
+                        <width max="650">auto</width>
                         <align>left</align>
                         <aligny>center</aligny>
                         <font>Reg28</font>
@@ -269,7 +273,8 @@
 
             <!-- Widgets -->
             <control type="grouplist" id="77777">
-                <animation time="300" effect="fade" start="100" end="60" reversible="true" easing="inout" condition="$EXP[IsMainMenuOpened] + !$EXP[IsPlayingRecognizedContent]">Conditional</animation>
+                <animation time="300" effect="fade" start="100" end="70" reversible="true" easing="inout" condition="$EXP[IsMainMenuOpened] + !$EXP[IsPlayingRecognizedContent]">Conditional</animation>
+                <usecontrolcoords>true</usecontrolcoords>
                 <posx>0</posx>
                 <include condition="Skin.HasSetting(BingieHomeDisableFirstRow)">Bingie_Alt_Height_No_Spotlight</include>
                 <include condition="$EXP[IsBingieListsActive]" content="top">
@@ -282,10 +287,10 @@
                 <itemgap>2</itemgap>
                 <pagecontrol>317</pagecontrol>
                 <width>100%</width>
-                <onfocus>SetProperty(PrevWidgetID,$INFO[Window(Home).Property(CurrentWidgetID)],Home)</onfocus>
+                <!--<onfocus>SetProperty(PrevWidgetID,$INFO[Window(Home).Property(CurrentWidgetID)],Home)</onfocus>-->
                 <onback condition="$EXP[IsPlayingRecognizedContent]">SetFocus(509)</onback>
                 <onback condition="!$EXP[IsPlayingRecognizedContent] + $EXP[IsBingieViewsActive]">900</onback>
-                <onleft condition="!Skin.HasSetting(EnhancedHome_Circular) + $EXP[IsBingieViewsActive] + $EXP[IsPlayingUnrecognizedContent]">SetProperty(KeepPlayingTrailer,1,Home)</onleft>
+                <onleft condition="!Skin.HasSetting(EnhancedHome_Circular) + $EXP[IsBingieViewsActive] + $EXP[IsPlayingUnrecognizedContent]">SetProperty(KeepPlayingPreview,1,Home)</onleft>
                 <onleft condition="!Skin.HasSetting(EnhancedHome_Circular) | !$EXP[IsBingieViewsActive]">900</onleft>
                 <include content="BingieSpotlightWidget" condition="[Window.IsActive(Home) | $EXP[IsBingieHubsActive]] + !Skin.HasSetting(BingieHomeDisableFirstRow) + !Skin.HasSetting(DisableSpotlightContent)">
                     <param name="widgetid" value="1508"/>
@@ -300,10 +305,10 @@
                 <include condition="Window.IsActive(1116)">bingie_items_pvr</include>
             </control>
 
-            <include condition="String.IsEqual(Skin.String(widgetstyle),landscape)">SpotlightDummyWidget</include>
+            <include condition="Skin.HasSetting(EnableFixedFocusWidgets) + String.IsEqual(Skin.String(widgetstyle),landscape)">SpotlightDummyWidget</include>
 
             <!-- Fixed Frame -->
-            <include condition="Skin.HasSetting(EnableFixedFrameWidgets) + Skin.HasSetting(EnableFixedFocusWidgets) + $EXP[IsSupportedFixedFrameLayout] + [[Window.IsActive(Home) | $EXP[IsBingieListsActive]] | [[$EXP[IsBingieHubsActive]] + Skin.HasSetting(LockHubWidgets)]]">Bingie_Screens_Fixed_Focus_Frame</include>
+            <include condition="Skin.HasSetting(EnableFixedFrameWidgets) + Skin.HasSetting(EnableFixedFocusWidgets) + $EXP[IsSupportedFixedFrameLayout] + [Window.IsActive(Home) | [$EXP[IsBingieHubsActive] + Skin.HasSetting(LockHubWidgets)]]">Bingie_Screens_Fixed_Focus_Frame</include>
             <!--<include content="Highlight_Fixed_Frame_Test">
                 <param name="width" value="360" />
                 <param name="height" value="714" />
@@ -326,7 +331,7 @@
                 <right>0</right>
                 <bottom>7</bottom>
                 <onleft>77777</onleft>
-                <onright>900</onright>
+                <onright>noop</onright>
                 <showonepage>false</showonepage>
             </control>
         </control>

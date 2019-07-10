@@ -4,9 +4,9 @@
     <defaultcontrol always="true">8000</defaultcontrol>
     <onload condition="!String.IsEmpty(Window(Home).Property(ListItem.TVShowID))">ClearProperty(ListItem.TVShowID,Home)</onload>
     <onload condition="Skin.HasSetting(UseBingieInfoDialog) + !String.IsEmpty(ListItem.DBID) + [String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)]">RunScript(script.bingie.helper,action=gettvshowid,dbid=$INFO[ListItem.DBID])</onload>
-    <onload condition="String.IsEqual(Window(Home).Property(BaseWindow), InfoDialog)">ClearProperty(BaseWindow,Home)</onload>
+    <onload condition="!String.IsEmpty(Window(Home).Property(BaseWindow))">ClearProperty(BaseWindow,Home)</onload>
     <onload condition="!String.IsEmpty(Window.Property(AdditionalInfo))">ClearProperty(AdditionalInfo,Home)</onload>
-	<onload condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,silent)</onload>
+	<onload condition="System.HasAlarm(preview_delay)">CancelAlarm(preview_delay,silent)</onload>
 	<!-- set trailerplaying property if started directly from PlayMedia command in previous window -->
     <onload condition="$EXP[IsPlayingUnrecognizedContent]">SetProperty(TrailerOnLoad,windowed,Home)</onload>
 	<onload condition="$EXP[IsPlayingUnrecognizedContent]">SetProperty(TrailerPlaying,windowed,Home)</onload>
