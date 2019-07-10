@@ -218,8 +218,8 @@
             <include>OSD_General_Settings</include>
             <include>OSD_Info_Panel_Settings</include>
             <include>OSD_Video_Playback_Settings</include>
-            <include>OSD_Music_Playback_Settings</include>
             <include>OSD_Up_Next_Settings</include>
+            <include>OSD_Music_Playback_Settings</include>
             <include>OSD_Now_Playing_Settings</include>
         </include>
     </include>
@@ -2377,6 +2377,25 @@
         </control>
     </include>
 
+    <!-- OSD Up Next Settings -->
+    <include name="OSD_Up_Next_Settings">
+        <!-- Up Next Addon Header -->
+        <control type="label" id="31680">
+            <include>SkinSettings_Header</include>
+            <label>31921</label>
+            <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
+            <visible>System.HasAddon(service.upnext)</visible>
+        </control>
+        <!-- switch upnext notification to just buttons -->
+        <control type="radiobutton" id="41820">
+            <include>SkinSettings_Button</include>
+            <label>31922</label>
+            <onclick>Skin.ToggleSetting(NextUpNotificationSlim)</onclick>
+            <selected>Skin.HasSetting(NextUpNotificationSlim)</selected>
+            <visible>System.HasAddon(service.upnext)</visible>
+        </control>
+    </include>
+
     <!-- OSD Music Playback Settings -->
     <include name="OSD_Music_Playback_Settings">
         <!-- music playback -->
@@ -2475,25 +2494,6 @@
             <label>31629</label>
             <label2>$INFO[Skin.String(SkinHelper.AutoCloseMusicOSD)] $LOCALIZE[31231]</label2>
             <onclick>Skin.SetNumeric(SkinHelper.AutoCloseMusicOSD)</onclick>
-        </control>
-    </include>
-
-    <!-- OSD Up Next Settings -->
-    <include name="OSD_Up_Next_Settings">
-        <!-- Up Next Addon Header -->
-        <control type="label" id="31680">
-            <include>SkinSettings_Header</include>
-            <label>31921</label>
-            <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
-            <visible>System.HasAddon(service.upnext)</visible>
-        </control>
-        <!-- switch upnext notification to just buttons -->
-        <control type="radiobutton" id="41820">
-            <include>SkinSettings_Button</include>
-            <label>31922</label>
-            <onclick>Skin.ToggleSetting(NextUpNotificationSlim)</onclick>
-            <selected>Skin.HasSetting(NextUpNotificationSlim)</selected>
-            <visible>System.HasAddon(service.upnext)</visible>
         </control>
     </include>
 

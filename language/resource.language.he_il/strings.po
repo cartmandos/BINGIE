@@ -325,12 +325,24 @@ msgid "Up Next"
 msgstr "מיד אחרי"
 
 msgctxt "#31066"
-msgid "Watch Season"
-msgstr "צפה בעונה"
+msgid "Watch"
+msgstr "צפה בפרק"
 
 msgctxt "#31067"
 msgid "Now"
 msgstr "כעת"
+
+msgctxt "#31068"
+msgid "Enable Auto-Preview in PVR Hub"
+msgstr "אפשר הפעלה אוטומטית של צפייה מקדימה בחלון ערוצי הלייב"
+
+msgctxt "#31069"
+msgid "PVR Hub"
+msgstr "לייב"
+
+msgctxt "#31070"
+msgid "Watch Season"
+msgstr "צפה בעונה"
 
 msgctxt "#31071"
 msgid "Setting level"
