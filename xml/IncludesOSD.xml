@@ -462,7 +462,6 @@
 					<height>20</height>
 					<width>700</width>
 					<visible>Player.HasDuration</visible>
-					
 					<texture border="5" colordiffuse="$INFO[Skin.String(OSDProgressBarBorderColor)]">diffuse/thinborder.png</texture>
 				</control>
                 <control type="slider" id="401">
@@ -499,7 +498,7 @@
 					<font>Light28</font>
 					<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
 					<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
-					<label>$INFO[Player.TimeRemaining,- ]</label>
+					<label>$VAR[RemainingTime,- ]</label>
 					<visible>Player.HasDuration</visible>
 					
 				</control>
@@ -867,7 +866,7 @@
 				<height>500</height>
 				<width>70%</width>
 				<orientation>vertical</orientation>
-				<itemgap>3</itemgap>
+				<itemgap>2</itemgap>
 				<usecontrolcoords>true</usecontrolcoords>
 				<!--clearlogo-->
 				<control type="image" id="1">
@@ -889,11 +888,13 @@
 					<shadowcolor>dimgray</shadowcolor>
 					<label>[B]$VAR[OSDLabel4][/B]</label>
 					<scroll>false</scroll>
+					<wrapmultiline>true</wrapmultiline>
 					<visible>!Control.IsVisible(1)</visible>
 				</control>
 				<!-- OSDLabel5 -->
 				<control type="label">
 					<width>auto</width>
+					<aligny>top</aligny>
 					<align>left</align>
 					<font>Reg32</font>
 					<textcolor>white</textcolor>
@@ -935,6 +936,7 @@
 					<righttexture/>
 					<overlaytexture/>
 					<info>Player.Progress</info>
+					<reveal>true</reveal>
 				</control>
 				<control type="progress" id="23">
 					<visible>VideoPlayer.HasEpg</visible>
@@ -1938,8 +1940,8 @@
 
 	<include name="OSDButtons_Bingie_Layout_Factory">
 		<include content="OSDButtons_Bingie_Layout" condition="String.IsEqual(Skin.String(osd_buttonstyle),slim)">
-			<param name="topsize" value="85" />
-			<param name="bottomsize" value="55" />
+			<param name="topsize" value="80" />
+			<param name="bottomsize" value="60" />
 			<param name="gap" value="6" />
 			<param name="iconspath" value="osd/slim/" />
 			<param name="toposdposleft" value="65" />
@@ -2537,7 +2539,7 @@
 				<align>right</align>
 				<font>Reg20</font>
 				<textcolor>white</textcolor>
-				<label>$INFO[Player.TimeRemaining,- ]</label>
+				<label>$VAR[RemainingTime,- ]</label>
 				<visible>Player.HasDuration</visible>
 			</control>
 			<control type="progress">
@@ -3055,9 +3057,9 @@
 	</variable>
 
 	<variable name="OSDLabel5">
-		<value condition="Player.HasVideo + VideoPlayer.Content(Episodes)">[B][UPPERCASE]$INFO[VideoPlayer.Season,S,]$INFO[VideoPlayer.Episode,E,][/UPPERCASE]$INFO[VideoPlayer.Title, ","][/B]</value>
-		<value condition="Player.HasVideo + VideoPlayer.Content(livetv)">[B]$INFO[VideoPlayer.Title]$INFO[VideoPlayer.EpisodeName, - ,][/B]</value>
-		<value condition="Player.HasAudio">[B]$INFO[MusicPlayer.Title][/B]</value>
+		<value condition="Player.HasVideo + VideoPlayer.Content(Episodes)">[UPPERCASE]$INFO[VideoPlayer.Season,S,]$INFO[VideoPlayer.Episode,E,][/UPPERCASE]$INFO[VideoPlayer.Title, ","]</value>
+		<value condition="Player.HasVideo + VideoPlayer.Content(livetv)">$INFO[VideoPlayer.Title]$INFO[VideoPlayer.EpisodeName, - ,]</value>
+		<value condition="Player.HasAudio">$INFO[MusicPlayer.Title]</value>
 	</variable>
 
 	<variable name="PlayTimeFormat">

@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- BINGIE -->
 <includes>
+    <!-- seasons content for view525 -->
+    <variable name="View525SeasonsContent">
+        <value condition="[String.IsEqual(ListItem.DBType,episode) | Container.Content(episodes)] + !String.IsEmpty(ListItem.DBID) + !String.IsEmpty(Window(Home).Property(ListItem.TVShowID))">$INFO[Window(Home).Property(ListItem.TVShowID),videodb://tvshows/titles/,/]</value>
+        <value/>
+    </variable>
+
     <!-- item main label -->
     <variable name="View525MainLabel">
         <value condition="!String.IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
@@ -330,17 +336,11 @@
                 <texture background="true" colordiffuse="$VAR[BingiePanelColor]">colors/color_white.png</texture>
             </control>
             <!-- fanart background image -->
-            <control type="image">
-                <visible>![String.IsEqual(Window(Home).Property(TrailerPlaying), windowed)]</visible>
-                <visible>!$EXP[IsPlayingRecognizedContent]</visible>
-                <right>-2</right>
-                <top>0</top>
-                <width>1688</width>
-                <height>950</height>
-                <texture background="true" diffuse="bingie/bingie_default_spotlight_diffuse.png">$VAR[fanartBackground]</texture>
-                <aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
+            <include content="BingieSpotlightCornerImage">
                 <animation effect="fade" start="80" end="20" time="150" condition="true">Conditional</animation>
-            </control>
+                <param name="visibility" value="!String.IsEqual(Window(Home).Property(TrailerPlaying), windowed) + !$EXP[IsPlayingRecognizedContent]" />
+                <param name="image" value="$VAR[fanartBackground]" />
+            </include>
 
             <!-- base bg
             <control type="image">
@@ -519,9 +519,6 @@
                                 <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
                                 <label>[LOWERCASE]$VAR[View525TotalEpisodes][/LOWERCASE]</label>
                             </control>
-
-
-
                             <!-- bingie button border -->
                             <control type="image">
                                 <visible>!String.IsEmpty(Container(525).ListItem.Season) + !String.IsEmpty(Container(5250).ListItem.Season) + String.IsEqual(Container(5250).ListItem.Season,Container(525).ListItem.Season)</visible>
@@ -571,6 +568,10 @@
                 <animation effect="fade" start="100" end="0" condition="Window.IsVisible(busydialog)">Conditional</animation>
                 <!-- main container -->
                 <control type="fixedlist" id="525">
+                    <viewtype label="31827">wide</viewtype>
+                    <include content="View_Forced">
+                        <param name="viewtype" value="$LOCALIZE[31827]" />
+                    </include>
                     <top>-160</top>
                     <posx>800</posx>
                     <height>1280</height>
@@ -586,7 +587,6 @@
                     <pagecontrol>60</pagecontrol>
                     <preloaditems>2</preloaditems>
                     <focusposition>1</focusposition>
-                    <viewtype label="31827">wide</viewtype>
                     <include>ScrollTime</include>
                     <itemlayout width="1050" height="280">
                         <!-- panel/border -->

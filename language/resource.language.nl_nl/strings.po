@@ -1617,7 +1617,7 @@ msgid "Enable smart shortcuts for the Netflix addon"
 msgstr "Activeer slimme snelkoppelingen voor de Netflix add-on"
 
 msgctxt "#31534"
-msgid "My list"
+msgid "My List"
 msgstr "Mijn lijst"
 
 msgctxt "#31535"

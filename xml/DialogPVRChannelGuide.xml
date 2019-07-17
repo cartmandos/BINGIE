@@ -104,6 +104,7 @@
 			
 			<!--List ID=11-->
 			<control type="list" id="11">
+				<viewtype label="535">list</viewtype>
 				<posx>0</posx>
 				<posy>150</posy>
 				<width>670</width>
@@ -111,7 +112,6 @@
 				<onright>dialog.close(all,true)</onright>
 				<onup>11</onup>
 				<ondown>11</ondown>
-				<viewtype label="535">list</viewtype>
 				<pagecontrol>60</pagecontrol>
 				<scrolltime>200</scrolltime>
 				<itemlayout height="62" width="667">

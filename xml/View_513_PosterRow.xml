@@ -1400,6 +1400,9 @@
                 <ondown condition="!Skin.HasSetting(EnableQuickJump)">60</ondown>
 					<orientation>horizontal</orientation>
 					<viewtype label="31440">bigwrap</viewtype>
+					<include content="View_Forced">
+						<param name="viewtype" value="$LOCALIZE[31440]" />
+					</include>
 					<pagecontrol>60</pagecontrol>
 					<focusposition>1</focusposition>
 					<preloaditems>2</preloaditems>

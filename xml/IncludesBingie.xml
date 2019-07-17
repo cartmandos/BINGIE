@@ -538,7 +538,7 @@
         <value condition="$EXP[IsMainMenuOpened] + !Skin.HasSetting(DisableHoursDuration) + !String.IsEmpty(Window(Home).Property(ListItem.Duration.Hours)) + Integer.IsEqual(Window(Home).Property(ListItem.Duration.Hours),0)">$INFO[Window(Home).Property(ListItem.Duration.Mins),,m]</value>
         <!-- Hours disabled -->
         <value condition="Skin.HasSetting(DisableHoursDuration) + !String.IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration(mins),,m]</value>
-        <value condition="$EXP[IsMainMenuOpened] + Skin.HasSetting(DisableHoursDuration) + !String.IsEmpty(Window(Home).Property(ListItem.Duration))">$INFO[Window(Home).Property(ListItem.Duration)(mins),,m]</value>
+        <value condition="$EXP[IsMainMenuOpened] + Skin.HasSetting(DisableHoursDuration) + !String.IsEmpty(Window(Home).Property(ListItem.Duration))">$INFO[Window(Home).Property(ListItem.Duration.Mins),,m]</value>
         <!-- regular format fallback -->
         <value condition="!String.IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration]</value>
         <value condition="$EXP[IsMainMenuOpened] + !String.IsEmpty(Window(Home).Property(ListItem.Duration))">$INFO[Window(Home).Property(ListItem.Duration)]</value>
@@ -864,12 +864,6 @@
         <value condition="Skin.HasSetting(WidgetsPreferPlotOutline) + !String.IsEmpty(Container(1508).ListItem.PlotOutline)">$INFO[Container(1508).ListItem.PlotOutline]</value>
         <value condition="$EXP[IsMainMenuOpened] + Skin.HasSetting(WidgetsPreferPlotOutline) + !String.IsEmpty(Window(Home).Property(ListItem.PlotOutline))">$INFO[Window(Home).Property(ListItem.PlotOutline)]</value>
         <value condition="!String.IsEmpty(Container(1508).ListItem.Plot)">$INFO[Container(1508).ListItem.Plot]</value>
-    </variable>
-
-    <!-- seasons content for view525 -->
-    <variable name="View525SeasonsContent">
-        <value condition="[String.IsEqual(ListItem.DBType,episode) | Container.Content(episodes)] + !String.IsEmpty(ListItem.DBID) + !String.IsEmpty(Window(Home).Property(ListItem.TVShowID))">$INFO[Window(Home).Property(ListItem.TVShowID),videodb://tvshows/titles/,/]</value>
-        <value/>
     </variable>
 
     <!-- plot outline prioritized and per-episode plot -->
@@ -1423,6 +1417,7 @@
     <!-- Bingie Elements -->
     <include name="Bingie_Footer">
         <control type="group">
+            <animation effect="slide" end="0,250" time="300" condition="$EXP[IsCurrentWidgetSpotlight]">Conditional</animation>
             <animation effect="fade" start="100" end="0" time="300"  condition="Skin.HasSetting(HideMediaFlagsTrailer) + [$EXP[IsPlayingUnrecognizedContent] | $EXP[IsCurrentWidgetSpotlight]]">Conditional</animation>
             <top>520</top>
             <width>100%</width>
@@ -1712,8 +1707,8 @@
     <include name="BingieSpotlightCornerImage">
         <param name="top" default="0"/>
         <param name="right" default="-2"/>
-        <param name="width" default="1688"/>
-        <param name="height" default="950"/>
+        <param name="width" default="1600"/>
+        <param name="height" default="800"/>
         <definition>
             <control type="image">
                 <nested />
@@ -1724,7 +1719,7 @@
                 <height>$PARAM[height]</height>
                 <texture background="true" diffuse="bingie/bingie_default_spotlight_diffuse.png">$PARAM[image]</texture>
                 <fadetime>550</fadetime>
-                <aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
+                <aspectratio scalediffuse="true" aligny="top" align="right">scale</aspectratio>
                 <animation effect="fade" end="0" time="500">Hidden</animation>
                 <animation effect="fade" start="0" end="100" time="1200">Visible</animation>
             </control>
@@ -2875,10 +2870,10 @@
 
     <include name="Category_Widget">
         <param name="id" default="117" />
-        <param name="limit" default="" />
+        <param name="limit" default="250" />
         <param name="target" default="videos" />
-        <param name="sortBy" default="" />
-        <param name="sortOrder" default="" />
+        <param name="sortBy" default="dateadded" />
+        <param name="sortOrder" default="descending" />
         <definition>
             <control type="panel" id="$PARAM[id]">
                 <visible>Container($PARAM[id]).IsUpdating | Integer.IsGreater(Container($PARAM[id]).NumItems,0)</visible>

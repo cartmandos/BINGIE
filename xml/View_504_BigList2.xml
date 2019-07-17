@@ -21,6 +21,10 @@
 			</control>
 		
 			<control type="panel" id="504">
+				<viewtype label="31643">list</viewtype>
+				<include content="View_Forced">
+					<param name="viewtype" value="$LOCALIZE[31643]" />
+				</include>
 				<animation effect="slide" end="505" time="0" condition="!Skin.HasSetting(View504_ShowInfoRight)">Conditional</animation>
 				<bottom>13%</bottom>
                 <height>724</height>	
@@ -31,7 +35,6 @@
 				<onleft>9000</onleft>
 				<onright condition="Skin.HasSetting(EnableQuickJump)">6000</onright>
                 <onright condition="!Skin.HasSetting(EnableQuickJump)">60</onright>
-				<viewtype label="31643">list</viewtype>
 				<orientation>vertical</orientation>
 				<pagecontrol>60</pagecontrol>
 				<scrolltime tween="cubic" easing="out">600</scrolltime>

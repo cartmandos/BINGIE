@@ -130,7 +130,35 @@
         </control>
     </include>
 
-    <!-- hub items -->
+    <!-- Hub Items -->
+    <include name="bingie_custom_hub_items">
+        <include content="bingie_customhub_item_1">
+            <param name="hubname" value="$PARAM[hubname]" />
+        </include>
+        <include content="bingie_customhub_item_2">
+            <param name="hubname" value="$PARAM[hubname]" />
+        </include>
+        <include content="bingie_customhub_item_3">
+            <param name="hubname" value="$PARAM[hubname]" />
+        </include>
+        <include content="bingie_customhub_item_4">
+            <param name="hubname" value="$PARAM[hubname]" />
+        </include>
+        <include content="bingie_customhub_item_5">
+            <param name="hubname" value="$PARAM[hubname]" />
+        </include>
+        <include content="bingie_customhub_item_6">
+            <param name="hubname" value="$PARAM[hubname]" />
+        </include>
+        <include content="bingie_customhub_item_7">
+            <param name="hubname" value="$PARAM[hubname]" />
+        </include>
+        <include content="bingie_customhub_item_8">
+            <param name="hubname" value="$PARAM[hubname]" />
+        </include>
+    </include>
+
+    <!-- hub item -->
     <include name="bingie_customhub_item_1">
         <include content="bingie_customhub_item">
             <param name="widgetid" value="1510" />
@@ -195,29 +223,8 @@
         <include content="Set_Custom_Spotlight_Hub_Button" condition="!Skin.HasSetting(LockHubWidgets) + !Skin.HasSetting(BingieHomeDisableFirstRow) + !Skin.HasSetting(DisableSpotlightContent)">
             <param name="hubname" value="movies"/>
         </include>
-        <include content="bingie_customhub_item_1">
-            <param name="hubname" value="movies" />
-        </include>
-        <include content="bingie_customhub_item_2">
-            <param name="hubname" value="movies" />
-        </include>
-        <include content="bingie_customhub_item_3">
-            <param name="hubname" value="movies" />
-        </include>
-        <include content="bingie_customhub_item_4">
-            <param name="hubname" value="movies" />
-        </include>
-        <include content="bingie_customhub_item_5">
-            <param name="hubname" value="movies" />
-        </include>
-        <include content="bingie_customhub_item_6">
-            <param name="hubname" value="movies" />
-        </include>
-        <include content="bingie_customhub_item_7">
-            <param name="hubname" value="movies" />
-        </include>
-        <include content="bingie_customhub_item_8">
-            <param name="hubname" value="movies" />
+        <include content="bingie_custom_hub_items">
+            <param name="hubname" value="movies"/>
         </include>
     </include>
 
@@ -228,29 +235,8 @@
         <include content="Set_Custom_Spotlight_Hub_Button" condition="!Skin.HasSetting(LockHubWidgets) + !Skin.HasSetting(BingieHomeDisableFirstRow) + !Skin.HasSetting(DisableSpotlightContent)">
             <param name="hubname" value="tvshows"/>
         </include>
-        <include content="bingie_customhub_item_1">
-            <param name="hubname" value="tvshows" />
-        </include>
-        <include content="bingie_customhub_item_2">
-            <param name="hubname" value="tvshows" />
-        </include>
-        <include content="bingie_customhub_item_3">
-            <param name="hubname" value="tvshows" />
-        </include>
-        <include content="bingie_customhub_item_4">
-            <param name="hubname" value="tvshows" />
-        </include>
-        <include content="bingie_customhub_item_5">
-            <param name="hubname" value="tvshows" />
-        </include>
-        <include content="bingie_customhub_item_6">
-            <param name="hubname" value="tvshows" />
-        </include>
-        <include content="bingie_customhub_item_7">
-            <param name="hubname" value="tvshows" />
-        </include>
-        <include content="bingie_customhub_item_8">
-            <param name="hubname" value="tvshows" />
+        <include content="bingie_custom_hub_items">
+            <param name="hubname" value="tvshows"/>
         </include>
     </include>
 
@@ -261,29 +247,8 @@
         <include content="Set_Custom_Spotlight_Hub_Button" condition="!Skin.HasSetting(LockHubWidgets) + !Skin.HasSetting(BingieHomeDisableFirstRow) + !Skin.HasSetting(DisableSpotlightContent)">
             <param name="hubname" value="new"/>
         </include>
-        <include content="bingie_customhub_item_1">
-            <param name="hubname" value="new" />
-        </include>
-        <include content="bingie_customhub_item_2">
-            <param name="hubname" value="new" />
-        </include>
-        <include content="bingie_customhub_item_3">
-            <param name="hubname" value="new" />
-        </include>
-        <include content="bingie_customhub_item_4">
-            <param name="hubname" value="new" />
-        </include>
-        <include content="bingie_customhub_item_5">
-            <param name="hubname" value="new" />
-        </include>
-        <include content="bingie_customhub_item_6">
-            <param name="hubname" value="new" />
-        </include>
-        <include content="bingie_customhub_item_7">
-            <param name="hubname" value="new" />
-        </include>
-        <include content="bingie_customhub_item_8">
-            <param name="hubname" value="new" />
+        <include content="bingie_custom_hub_items">
+            <param name="hubname" value="new"/>
         </include>
     </include>
 
@@ -294,62 +259,8 @@
         <include content="Set_Custom_Spotlight_Hub_Button" condition="!Skin.HasSetting(LockHubWidgets) + !Skin.HasSetting(BingieHomeDisableFirstRow) + !Skin.HasSetting(DisableSpotlightContent)">
             <param name="hubname" value="myhub"/>
         </include>
-        <include content="bingie_customhub_item_1">
-            <param name="hubname" value="myhub" />
-        </include>
-        <include content="bingie_customhub_item_2">
-            <param name="hubname" value="myhub" />
-        </include>
-        <include content="bingie_customhub_item_3">
-            <param name="hubname" value="myhub" />
-        </include>
-        <include content="bingie_customhub_item_4">
-            <param name="hubname" value="myhub" />
-        </include>
-        <include content="bingie_customhub_item_5">
-            <param name="hubname" value="myhub" />
-        </include>
-        <include content="bingie_customhub_item_6">
-            <param name="hubname" value="myhub" />
-        </include>
-        <include content="bingie_customhub_item_7">
-            <param name="hubname" value="myhub" />
-        </include>
-        <include content="bingie_customhub_item_8">
-            <param name="hubname" value="myhub" />
-        </include>
-    </include>
-
-    <!-- Bingie Items PVR Hub -->
-    <include name="bingie_items_pvr">
-        <include>Empty_Hub_Alt_Buttons</include>
-        <!-- set custom spotlight content -->
-        <include content="Set_Custom_Spotlight_Hub_Button" condition="!Skin.HasSetting(LockHubWidgets) + !Skin.HasSetting(BingieHomeDisableFirstRow) + !Skin.HasSetting(DisableSpotlightContent)">
-            <param name="hubname" value="pvr"/>
-        </include>
-        <include content="bingie_customhub_item_1">
-            <param name="hubname" value="pvr" />
-        </include>
-        <include content="bingie_customhub_item_2">
-            <param name="hubname" value="pvr" />
-        </include>
-        <include content="bingie_customhub_item_3">
-            <param name="hubname" value="pvr" />
-        </include>
-        <include content="bingie_customhub_item_4">
-            <param name="hubname" value="pvr" />
-        </include>
-        <include content="bingie_customhub_item_5">
-            <param name="hubname" value="pvr" />
-        </include>
-        <include content="bingie_customhub_item_6">
-            <param name="hubname" value="pvr" />
-        </include>
-        <include content="bingie_customhub_item_7">
-            <param name="hubname" value="pvr" />
-        </include>
-        <include content="bingie_customhub_item_8">
-            <param name="hubname" value="pvr" />
+        <include content="bingie_custom_hub_items">
+            <param name="hubname" value="myhub"/>
         </include>
     </include>
 

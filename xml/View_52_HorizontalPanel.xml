@@ -13,6 +13,9 @@
             <onright>52</onright>
             <pagecontrol>60</pagecontrol>
             <viewtype label="31445">bigwrap</viewtype>
+        <include content="View_Forced">
+            <param name="viewtype" value="$LOCALIZE[31445]" />
+        </include>
             <scrolltime tween="quadratic">200</scrolltime>
             <focusposition>3</focusposition>
             <preloaditems>2</preloaditems>

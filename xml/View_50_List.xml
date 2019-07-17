@@ -325,6 +325,9 @@
                 <ondown>50</ondown>
                 <pagecontrol>60</pagecontrol>
                 <viewtype label="31443">list</viewtype>
+                <include content="View_Forced">
+                    <param name="viewtype" value="$LOCALIZE[31443]" />
+                </include>
                 <scrolltime>300</scrolltime>
                 <!-- All Other x=570 w=1180 -->
                 <itemlayout condition="![Container.content(MusicVideos) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | [Window.IsActive(tvchannels) | Window.IsActive(tvguide) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch) | Window.IsActive(tvrecordings)]]" width="1900" height="62">

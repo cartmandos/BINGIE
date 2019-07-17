@@ -1508,17 +1508,11 @@
 				</control>
 
 				<!-- fanart background image -->
-				<control type="image">
-					<visible>![String.IsEqual(Window(Home).Property(TrailerPlaying), windowed)]</visible>
-					<visible>!$EXP[IsPlayingRecognizedContent]</visible>
-					<right>-2</right>
-					<top>0</top>
-					<width>1688</width>
-					<height>950</height>
-					<texture background="true" diffuse="bingie/bingie_default_spotlight_diffuse.png">$VAR[fanartBackground]</texture>
-					<aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
+				<include content="BingieSpotlightCornerImage">
 					<animation effect="fade" start="100" end="80" time="150" condition="true">Conditional</animation>
-				</control>
+					<param name="visibility" value="!String.IsEqual(Window(Home).Property(TrailerPlaying), windowed) + !$EXP[IsPlayingRecognizedContent]" />
+					<param name="image" value="$VAR[fanartBackground]" />
+				</include>
 
 				<!-- additional info overlay -->
 				<control type="image">
@@ -1568,7 +1562,7 @@
 					<animation time="150" effect="fade" reversible="true" easing="inout">Visible</animation>
 
 					<include content="Bingie_Headline_Item">
-						<param name="id" value="8000" />
+						<param name="id" value="9000" />
 						<param name="genre_adjust" value="false" />
 						<param name="image" value="$VAR[BingieInfoClearlogo]" />
 						<param name="text" value="[B]$VAR[TVShowTitle][/B]" />

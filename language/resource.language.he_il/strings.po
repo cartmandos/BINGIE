@@ -2580,7 +2580,7 @@ msgstr "Marvel סרטי"
 
 
 msgctxt "#31534"
-msgid "My list"
+msgid "My List"
 msgstr "הרשימה שלי"
 
 

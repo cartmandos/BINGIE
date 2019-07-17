@@ -93,6 +93,9 @@
         <control type="$PARAM[containerType]" id="526">
             <focusedposition>0</focusedposition>
             <viewtype label="31027">poster</viewtype>
+            <include content="View_Forced">
+                <param name="viewtype" value="$LOCALIZE[31027]" />
+            </include>
             <top>40</top>
             <height>390</height>
             <width>1660</width>

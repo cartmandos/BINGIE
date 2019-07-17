@@ -1614,7 +1614,7 @@ msgid "Enable smart shortcuts for the Netflix addon"
 msgstr "Omogući pametne prečice za Netflix dodatni program"
 
 msgctxt "#31534"
-msgid "My list"
+msgid "My List"
 msgstr "Moja lista"
 
 msgctxt "#31535"

@@ -232,6 +232,9 @@
             <control type="list" id="10">
                 <!--List ID=14-->
 				<viewtype label="31567">list</viewtype>
+                <include content="View_Forced">
+                    <param name="viewtype" value="$LOCALIZE[31567]" />
+                </include>
                 <visible>[Window.IsActive(tvchannels) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch) | Window.IsActive(tvrecordings)]</visible>
                 <posx>70</posx>
                 <posy>410</posy>

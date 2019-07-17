@@ -2080,7 +2080,7 @@ msgid "Marvel Movies"
 msgstr "Films du Marvel Cinematic Universe"
 
 msgctxt "#31534"
-msgid "My list"
+msgid "My List"
 msgstr "Ma liste"
 
 msgctxt "#31535"

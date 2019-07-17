@@ -20,6 +20,9 @@
                     <pagecontrol>60</pagecontrol>
                     <preloaditems>2</preloaditems>
                     <viewtype label="31658">list</viewtype>
+                    <include content="View_Forced">
+                        <param name="viewtype" value="$LOCALIZE[31658]" />
+                    </include>
                     <scrolltime tween="quadratic">400</scrolltime>
                     <itemlayout width="910" height="350" condition="Container.Content(episodes)">
                         <control type="group">

@@ -441,7 +441,7 @@ msgid "Smart shortcuts"
 msgstr "Smarte snarveier"
 
 msgctxt "#31534"
-msgid "My list"
+msgid "My List"
 msgstr "Min liste"
 
 msgctxt "#31535"

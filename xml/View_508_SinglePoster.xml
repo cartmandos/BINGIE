@@ -84,6 +84,10 @@
 			
 			<!-- ID="508" -->
             <control type="panel" id="508">
+				<viewtype label="31435">posterwrap</viewtype>
+				<include content="View_Forced">
+					<param name="viewtype" value="$LOCALIZE[31435]" />
+				</include>
                 <right>60</right>
                 <bottom>0</bottom>
                 <width>270</width>
@@ -93,7 +97,6 @@
                 <ondown condition="!Skin.HasSetting(EnableQuickJump)">60</ondown>
                 <onleft>508</onleft>
                 <onright>508</onright>
-                <viewtype label="31435">posterwrap</viewtype>
                 <scrolltime tween="Cubic" easing="inout">500</scrolltime>
                 <focusposition>0</focusposition>
                 <orientation>horizontal</orientation>

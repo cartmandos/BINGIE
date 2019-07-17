@@ -11,7 +11,7 @@
     <onload condition="$EXP[IsPlayingUnrecognizedContent]">SetProperty(TrailerOnLoad,windowed,Home)</onload>
 	<onload condition="$EXP[IsPlayingUnrecognizedContent]">SetProperty(TrailerPlaying,windowed,Home)</onload>
     <!-- checks if TVShow is tagged 'mylist' (workaround for ListItem.Tag working inconsistently with tvshows) -->
-    <onload condition="Skin.HasSetting(UseBingieInfoDialog) + !String.IsEmpty(ListItem.DBID) + [String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,episode)]">RunScript(script.bingie.helper,action=ismylist)</onload>
+    <onload condition="Skin.HasSetting(UseBingieInfoDialog) + !String.IsEmpty(ListItem.DBID) + [String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,episode)]">RunScript(script.bingie.helper,action=ismylist)</onload>
     <include condition="Skin.HasSetting(UseExtendedInfoDialog)">ExtendedInfo_OnLoad_Action</include>
     <include condition="!Skin.HasSetting(UseExtendedInfoDialog)">NoExtendedInfo_OnLoad_Action</include>
 

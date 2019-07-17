@@ -36,6 +36,9 @@
                 <ondown>522</ondown>
                 <pagecontrol>60</pagecontrol>
                 <viewtype label="31722">list</viewtype>
+                <include content="View_Forced">
+                    <param name="viewtype" value="$LOCALIZE[31722]" />
+                </include>
                 <scrolltime>300</scrolltime>
                 <itemlayout width="800" height="62">
                     <control type="label">

@@ -302,7 +302,17 @@ msgctxt "#31071"
 msgid "Setting level"
 msgstr ""
 
-# empty 31072-31074
+msgctxt "#31072"
+msgid "Enable Auto-Close Video OSD"
+msgstr ""
+
+msgctxt "#31073"
+msgid "Lock view"
+msgstr ""
+
+msgctxt "#31074"
+msgid "Unlock view"
+msgstr ""
 
 msgctxt "#31075"
 msgid "Enable Splash Animation in 4k"
@@ -2160,7 +2170,7 @@ msgid "Marvel Movies"
 msgstr ""
 
 msgctxt "#31534"
-msgid "My list"
+msgid "My List"
 msgstr ""
 
 msgctxt "#31535"

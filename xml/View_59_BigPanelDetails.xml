@@ -17,6 +17,9 @@
       <control type="panel" id="59">
         <animation effect="slide" end="-627" time="250" condition="Skin.HasSetting(View59_ShowInfoRight)">Conditional</animation>
         <viewtype label="31428">mediainfo</viewtype>
+          <include content="View_Forced">
+              <param name="viewtype" value="$LOCALIZE[31430]" />
+          </include>
         <right>50</right>
         <bottom>12%</bottom>
         <height>800</height>

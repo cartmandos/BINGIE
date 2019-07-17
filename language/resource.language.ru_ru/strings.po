@@ -1541,7 +1541,7 @@ msgid "Enable smart shortcuts for the Netflix addon"
 msgstr "Включить смарт-кнопки для Netflix"
 
 msgctxt "#31534"
-msgid "My list"
+msgid "My List"
 msgstr "Мой список"
 
 msgctxt "#31535"

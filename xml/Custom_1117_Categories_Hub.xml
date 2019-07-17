@@ -5,7 +5,7 @@
     <include>CustomBingieWinProps</include>
     <include>BingieViews_WindowOpen_Fade</include>
     <onunload condition="$EXP[IsPlayingUnrecognizedContent]">PlayerControl(Stop)</onunload>
-    <onunload>ClearProperty(category,Home)</onunload>
+    <!--<onunload>ClearProperty(category,Home)</onunload>-->
     <controls>
         <include>GlobalBackground</include>
         <include>NowPlayingBackground</include>
@@ -106,24 +106,22 @@
             </include>
             <include content="Category_Widget" condition="String.IsEqual(Window(Home).Property(category),tv shows)">
                 <param name="content" value="videodb://tvshows/titles/" />
-                <param name="limit" value="250" />
-                <param name="sortBy" value="dateadded" />
-                <param name="sortOrder" value="descending" />
             </include>
             <include content="Category_Widget" condition="String.IsEqual(Window(Home).Property(category),movies)">
                 <param name="content" value="videodb://movies/titles/" />
-                <param name="limit" value="250" />
-                <param name="sortBy" value="dateadded" />
-                <param name="sortOrder" value="descending" />
             </include>
             <include content="Category_Widget" condition="String.IsEqual(Window(Home).Property(category),recently added)">
                 <param name="content" value="plugin://script.skin.helper.widgets/?action=recentshowsandmovies&amp;mediatype=media&amp;limit=100&amp;reload=$INFO[Window(Home).Property(widgetreload)]" />
             </include>
             <include content="Category_Widget" condition="String.IsEqual(Window(Home).Property(category),new release)">
                 <param name="content" value="plugin://script.skin.helper.widgets/?action=newrelease&amp;mediatype=media&amp;limit=100&amp;reload=$INFO[Window(Home).Property(widgetreload)]" />
+                <param name="sortBy" value="" />
+                <param name="sortOrder" value="" />
             </include>
             <include content="Category_Widget" condition="String.IsEqual(Window(Home).Property(category),popular)">
                 <param name="content" value="plugin://script.skin.helper.widgets/?action=popular&amp;mediatype=media&amp;limit=100&amp;reload=$INFO[Window(Home).Property(widgetreload)]" />
+                <param name="sortBy" value="" />
+                <param name="sortOrder" value="" />
             </include>
             <include content="Category_Widget" condition="String.IsEqual(Window(Home).Property(category),drama)">
                 <param name="content" value="plugin://script.skin.helper.widgets/?action=forgenre&amp;mediatype=media&amp;genre=drama&amp;limit=100&amp;reload=$INFO[Window(Home).Property(widgetreload)]" />

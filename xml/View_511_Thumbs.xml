@@ -8,6 +8,9 @@
       <include>animation_view_change</include>
       <control type="panel" id="511">
         <viewtype label="31438">icons</viewtype>
+          <include content="View_Forced">
+              <param name="viewtype" value="$LOCALIZE[31438]" />
+          </include>
         <posx>60</posx>
         <bottom>13%</bottom>
         <width>1820</width>

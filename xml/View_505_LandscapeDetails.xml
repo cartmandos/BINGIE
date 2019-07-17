@@ -23,6 +23,9 @@
 			<preloaditems>4</preloaditems>
 			<pagecontrol>60</pagecontrol>
 			<viewtype label="31432">mediainfo</viewtype>
+            <include content="View_Forced">
+                <param name="viewtype" value="$LOCALIZE[31432]" />
+            </include>
             <visible>!Container.Content(files)</visible>
 			<scrolltime tween="cubic" easing="inout">500</scrolltime>
 			<itemlayout width="595" height="395" condition="![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">

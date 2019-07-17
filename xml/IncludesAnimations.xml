@@ -178,7 +178,7 @@
         <animation effect="zoom" start="100" end="150" center="auto">Focus</animation>
     </include>
     <include name="Top_OSD_Button_Zoom_Anim">
-        <animation effect="zoom" start="100" end="125" center="auto">Focus</animation>
+        <animation effect="zoom" start="100" end="130" center="auto">Focus</animation>
     </include>
 
     <!-- unfocused widget fade on bingie layout -->

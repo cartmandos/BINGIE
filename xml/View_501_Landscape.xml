@@ -23,6 +23,9 @@
                 <onright condition="!Skin.HasSetting(View_501_HorizontalNavigation)">6000</onright>
 				<pagecontrol>60</pagecontrol>
 				<viewtype label="31430">thumbnail</viewtype>
+				<include content="View_Forced">
+					<param name="viewtype" value="$LOCALIZE[31430]" />
+				</include>
                 <include condition="Skin.HasSetting(View_501_HorizontalNavigation)">navigation_horizontal</include>
 				<orientation>vertical</orientation>
 				<preloaditems>4</preloaditems>

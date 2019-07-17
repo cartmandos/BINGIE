@@ -689,7 +689,7 @@ msgid "Enable smart shortcuts for the Plex addon"
 msgstr "Zapnout chytré zkratky pro doplněk Plex"
 
 msgctxt "#31534"
-msgid "My list"
+msgid "My List"
 msgstr "Můj seznam"
 
 msgctxt "#31535"

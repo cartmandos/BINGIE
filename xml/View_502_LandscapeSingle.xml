@@ -42,6 +42,9 @@
 				<onright>502</onright>
 				<pagecontrol>60</pagecontrol>
 				<viewtype label="31431">thumbnail</viewtype>
+				<include content="View_Forced">
+					<param name="viewtype" value="$LOCALIZE[31431]" />
+				</include>
 				<orientation>horizontal</orientation>
 				<focusposition>1</focusposition>
 				<preloaditems>4</preloaditems>

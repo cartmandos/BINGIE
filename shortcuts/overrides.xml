@@ -17,8 +17,8 @@
 			<shortcut label="31865" grouping="32029" icon="resource://resource.images.skinicons.wide/clapperboard.png" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">ActivateWindow(1111,return)</shortcut>
 			<shortcut label="31866" grouping="32029" icon="resource://resource.images.skinicons.wide/new.png" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">ActivateWindow(1112,return)</shortcut>
 			<shortcut label="31867" grouping="32029" icon="resource://resource.images.skinicons.wide/mylist.png" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">ActivateWindow(1114,return)</shortcut>
-			<shortcut label="19020" grouping="32029" icon="resource://resource.images.skinicons.wide/antenna.png" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">ActivateWindow(1116,return)</shortcut>
-			<shortcut label="31069" grouping="32029" icon="resource://resource.images.skinicons.wide/widget.png" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">ActivateWindow(1113,return)</shortcut>
+			<shortcut label="31069" grouping="32029" icon="resource://resource.images.skinicons.wide/antenna.png" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">ActivateWindow(1116,return)</shortcut>
+			<shortcut label="31252" grouping="32029" icon="resource://resource.images.skinicons.wide/widget.png" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">ActivateWindow(1113,return)</shortcut>
 			<shortcut label="31383" grouping="32029" icon="resource://resource.images.skinicons.wide/widget.png" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">ActivateWindow(1115,return)</shortcut>
 			<shortcut label="2" grouping="32029" icon="resource://resource.images.skinicons.wide/music_6.png" thumb="$INFO[Window(Home).Property(SkinHelper.AllMusicBackground)]" condition="Library.HasContent(music)">ActivateWindow(Music,musicdb://albums/,return)</shortcut>
 			<shortcut label="20389" grouping="32029" icon="$INFO[Window(Home).Property(SkinHelper.AllMusicVideosBackground)]" condition="Library.HasContent(musicvideos)">ActivateWindow(Videos,videodb://musicvideos/titles/,return)</shortcut>

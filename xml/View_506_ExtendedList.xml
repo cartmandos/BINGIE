@@ -28,6 +28,9 @@
 				<onleft>506</onleft>
 				<onright>506</onright>
 				<viewtype label="31433">biglist</viewtype>
+				<include content="View_Forced">
+					<param name="viewtype" value="$LOCALIZE[31433]" />
+				</include>
 				<orientation>horizontal</orientation>
 				<pagecontrol>60</pagecontrol>
 				<scrolltime tween="cubic" easing="out">600</scrolltime>

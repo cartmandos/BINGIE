@@ -1617,7 +1617,7 @@ msgid "Enable smart shortcuts for the Netflix addon"
 msgstr "Benarkan pintasan pintar untuk tambahan Netflix"
 
 msgctxt "#31534"
-msgid "My list"
+msgid "My List"
 msgstr "Senarai saya"
 
 msgctxt "#31535"

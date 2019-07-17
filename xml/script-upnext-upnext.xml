@@ -23,8 +23,15 @@
         <!-- OSD -->
         <!-- Buttons Notification -->
         <control type="group" id="500397">
+            <animation type="WindowOpen">
+                <effect type="slide" start="0,400" end="0,0" tween="cubic" easing="out" delay="0" time="450" reversible="false"/>
+                <effect type="fade" start="0" end="100" delay="0" time="350" reversible="false"/>
+            </animation>
+            <animation type="WindowClose">
+                <effect type="slide" start="0,0" end="0,400" tween="cubic" easing="out" delay="0" time="450" reversible="false"/>
+                <effect type="fade" start="100" end="0" delay="0" time="350" reversible="false"/>
+            </animation>
             <visible>Skin.HasSetting(NextUpNotificationSlim)</visible>
-            <include>animation_fade_visible_hidden</include>
             <control type="grouplist">
                 <align>right</align>
                 <bottom>40</bottom>

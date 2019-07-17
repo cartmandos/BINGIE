@@ -295,8 +295,38 @@
             <!--Set View new method-->
             <include>SideBladeMenuButton</include>
             <label>$LOCALIZE[31305]$INFO[Container.Viewmode,: ,]</label>
+            <include>Items_LockUnlock</include>
             <onclick>RunScript(script.skin.helper.service,action=SETVIEW)</onclick>
             <visible>!Window.IsActive(tvguide)</visible>
+        </control>
+
+        <control type="radiobutton" id="4404">
+            <!--Lock/Unlock View-->
+            <include>SideBladeMenuButton</include>
+            <label>$LOCALIZE[31074]</label>
+            <textureradioonfocus colordiffuse="$INFO[Skin.String(ButtonFocusTextColor)]">common/locked.png</textureradioonfocus>
+            <textureradioofffocus colordiffuse="$INFO[Skin.String(ButtonFocusTextColor)]">common/locked.png</textureradioofffocus>
+            <textureradioonnofocus colordiffuse="$INFO[Skin.String(SideBladeTextColor)]">common/locked.png</textureradioonnofocus>
+            <textureradiooffnofocus colordiffuse="$INFO[Skin.String(SideBladeTextColor)]">common/locked.png</textureradiooffnofocus>
+            <include>Items_LockUnlock</include>
+            <include>Items_LockView</include>
+            <visible>Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyGames.xml)</visible>
+            <visible>[Container.Content() + !String.IsEmpty(Skin.String(Skin.ForcedView.))] | [Container.Content(tags) + !String.IsEmpty(Skin.String(Skin.ForcedView.tags))] | [Container.Content(years) + !String.IsEmpty(Skin.String(Skin.ForcedView.years))] | [Container.Content(genres) + !String.IsEmpty(Skin.String(Skin.ForcedView.genres))] | [Container.Content(countries) + !String.IsEmpty(Skin.String(Skin.ForcedView.countries))] | [Container.Content(studios) + !String.IsEmpty(Skin.String(Skin.ForcedView.studios))] | [Container.Content(playlists) + !String.IsEmpty(Skin.String(Skin.ForcedView.playlists))] | [Container.Content(movies) + !String.IsEmpty(Skin.String(Skin.ForcedView.movies))] | [Container.Content(sets) + !String.IsEmpty(Skin.String(Skin.ForcedView.sets))] | [Container.Content(tvshows) + !String.IsEmpty(Skin.String(Skin.ForcedView.tvshows))] | [Container.Content(seasons) + !String.IsEmpty(Skin.String(Skin.ForcedView.seasons))] | [Container.Content(episodes) + !String.IsEmpty(Skin.String(Skin.ForcedView.episodes))] | [Container.Content(artists) + !String.IsEmpty(Skin.String(Skin.ForcedView.artists))] | [Container.Content(albums) + !String.IsEmpty(Skin.String(Skin.ForcedView.albums))] | [Container.Content(songs) + !String.IsEmpty(Skin.String(Skin.ForcedView.songs))] | [Container.Content(musicvideos) + !String.IsEmpty(Skin.String(Skin.ForcedView.musicvideos))] | [Container.Content(addons) + !String.IsEmpty(Skin.String(Skin.ForcedView.addons))] | [Container.Content(actors) + !String.IsEmpty(Skin.String(Skin.ForcedView.actors))] | [Container.Content(directors) + !String.IsEmpty(Skin.String(Skin.ForcedView.directors))] | [Container.Content(files) + !String.IsEmpty(Skin.String(Skin.ForcedView.files))] | [Container.Content(mixed) + !String.IsEmpty(Skin.String(Skin.ForcedView.mixed))] | [Container.Content(images) + !String.IsEmpty(Skin.String(Skin.ForcedView.images))] | [Container.Content(games) + !String.IsEmpty(Skin.String(Skin.ForcedView.games))] | [Container.Content(unknown) + !String.IsEmpty(Skin.String(Skin.ForcedView.unknown))] | [Container.Content(videos) + !String.IsEmpty(Skin.String(Skin.ForcedView.videos))]</visible>
+            <visible>!Skin.HasSetting(global.kioskmode)</visible>
+        </control>
+        <control type="radiobutton" id="4405">
+            <!--Lock/Unlock View-->
+            <include>SideBladeMenuButton</include>
+            <label>$LOCALIZE[31073]</label>
+            <textureradioonfocus colordiffuse="$INFO[Skin.String(ButtonFocusTextColor)]">common/unlocked.png</textureradioonfocus>
+            <textureradioofffocus colordiffuse="$INFO[Skin.String(ButtonFocusTextColor)]">common/unlocked.png</textureradioofffocus>
+            <textureradioonnofocus colordiffuse="$INFO[Skin.String(SideBladeTextColor)]">common/unlocked.png</textureradioonnofocus>
+            <textureradiooffnofocus colordiffuse="$INFO[Skin.String(SideBladeTextColor)]">common/unlocked.png</textureradiooffnofocus>
+            <include>Items_LockUnlock</include>
+            <include>Items_LockView</include>
+            <visible>Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyGames.xml)</visible>
+            <visible>!Control.IsVisible(4404)</visible>
+            <visible>!Skin.HasSetting(global.kioskmode)</visible>
         </control>
 
         <control type="button" id="3020">

@@ -1473,7 +1473,7 @@ msgid "Enable smart shortcuts for the Netflix addon"
 msgstr "Omogućite pametne kratice za Netflix dodatak"
 
 msgctxt "#31534"
-msgid "My list"
+msgid "My List"
 msgstr "Moja lista"
 
 msgctxt "#31535"

@@ -1617,7 +1617,7 @@ msgid "Enable smart shortcuts for the Netflix addon"
 msgstr "Käytä älykkäitä pikakuvakkeita Netflix-lisäosan kanssa"
 
 msgctxt "#31534"
-msgid "My list"
+msgid "My List"
 msgstr "Oma lista"
 
 msgctxt "#31535"

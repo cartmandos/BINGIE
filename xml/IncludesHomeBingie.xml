@@ -302,7 +302,6 @@
                 <include condition="Window.IsActive(1113)">bingie_items_myhub</include>
                 <include condition="Window.IsActive(1114)">bingie_items_mylist</include>
                 <include condition="Window.IsActive(1115)">bingie_items_mycustom</include>
-                <include condition="Window.IsActive(1116)">bingie_items_pvr</include>
             </control>
 
             <include condition="Skin.HasSetting(EnableFixedFocusWidgets) + String.IsEqual(Skin.String(widgetstyle),landscape)">SpotlightDummyWidget</include>

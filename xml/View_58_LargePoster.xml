@@ -82,6 +82,9 @@
 				<onleft>58</onleft>
 				<onright>58</onright>
 				<viewtype label="31427">mediainfo</viewtype>
+				<include content="View_Forced">
+					<param name="viewtype" value="$LOCALIZE[31427]" />
+				</include>
 				<scrolltime tween="Cubic" easing="inout">500</scrolltime>
 				<focusposition>0</focusposition>
 				<orientation>horizontal</orientation>

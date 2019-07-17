@@ -2185,6 +2185,7 @@
         <control type="radiobutton" id="13061">
             <include>SkinSettings_Button</include>
             <label>31017</label>
+            <onclick condition="!Skin.HasSetting(UseBingieOSD)">Skin.SetBool(AutoCloseVideoOSD)</onclick>
             <onclick>Skin.ToggleSetting(UseBingieOSD)</onclick>
             <onclick condition="Skin.HasSetting(UseSlimOSDPanel)">Skin.ToggleSetting(UseSlimOSDPanel)</onclick>
             <selected>Skin.HasSetting(UseBingieOSD)</selected>
@@ -2331,6 +2332,12 @@
             <param name="action" value="RunScript(script.skin.helper.service,action=setskinsetting,setting=bingie_videoosd_buttons,header=$LOCALIZE[31060])" />
             <param name="visible" value="Skin.HasSetting(UseBingieOSD)" />
         </include>
+        <control type="radiobutton" id="31823">
+            <include>SkinSettings_Button</include>
+            <label>31072</label>
+            <onclick>Skin.ToggleSetting(AutoCloseVideoOSD)</onclick>
+            <selected>Skin.HasSetting(AutoCloseVideoOSD)</selected>
+        </control>
         <control type="radiobutton" id="31822">
             <include>SkinSettings_Button</include>
             <label>31024</label>
@@ -3574,6 +3581,7 @@
             <onclick>Skin.Reset(SkinHelper.EnableExtraFanart)</onclick>
             <onclick>Skin.SetString(SkinHelper.ShowInfoAtPlaybackStart,0)</onclick>
             <selected>Skin.HasSetting(LowPerformanceMode)</selected>
+            <visible>!String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
         </control>
         <control type="radiobutton" id="31724">
             <description>Do Not Display Hour Representation of the Duration</description>

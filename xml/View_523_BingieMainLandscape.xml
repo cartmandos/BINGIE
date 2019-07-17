@@ -90,6 +90,9 @@
     <include name="Bingie_Main_Landscape_View">
         <control type="$PARAM[containerType]" id="523">
             <viewtype label="31018">panel</viewtype>
+            <include content="View_Forced">
+                <param name="viewtype" value="$LOCALIZE[31018]" />
+            </include>
             <focusedposition>0</focusedposition>
             <top>40</top>
             <width>1660</width>

@@ -1617,7 +1617,7 @@ msgid "Enable smart shortcuts for the Netflix addon"
 msgstr "Įjungti išmaniąsias nuorodas Netflix priedui"
 
 msgctxt "#31534"
-msgid "My list"
+msgid "My List"
 msgstr "Mano sąrašas"
 
 msgctxt "#31535"

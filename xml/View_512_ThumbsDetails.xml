@@ -13,6 +13,9 @@
 	  <control type="panel" id="512">
         <animation effect="slide" end="-635" time="250" condition="Skin.HasSetting(View512_ShowInfoRight)">Conditional</animation>
         <viewtype label="31439">icons</viewtype>
+          <include content="View_Forced">
+              <param name="viewtype" value="$LOCALIZE[31439]" />
+          </include>
         <right>40</right>
         <bottom>12%</bottom>
         <height>744</height>

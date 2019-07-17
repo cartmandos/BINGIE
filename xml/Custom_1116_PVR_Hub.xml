@@ -149,7 +149,6 @@
             <onback condition="![$EXP[IsPlayingRecognizedContent] + String.IsEmpty(Window(Home).Property(AllowPVRPreview))]">900</onback>
             <onleft condition="!Skin.HasSetting(EnhancedHome_Circular) + $EXP[IsPlayingRecognizedContent] + !String.IsEmpty(Window(Home).Property(AllowPVRPreview))">SetProperty(KeepPlayingPreview,1,Home)</onleft>
             <onleft condition="!Skin.HasSetting(EnhancedHome_Circular)">900</onleft>
-
             <include>bingie_items_pvr</include>
         </control>
 

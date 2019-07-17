@@ -9,14 +9,18 @@
         <!-- correct some stuff on theme switch -->
         <onload condition="Skin.HasTheme(classic) + !Skin.String(mediaflagsstyle,classic)">Skin.SetString(mediaflagsstyle,classic)</onload>
         <onload condition="Skin.HasTheme(classic) + !Skin.String(osdmediaflagsstyle,classic)">Skin.SetString(osdmediaflagsstyle,classic)</onload>
-        <include condition="!String.IsEqual(Skin.String(SkinVersion),1.03-RC1)">SkinVersionCorrections</include>
+        <include condition="!String.IsEqual(Skin.String(SkinVersion),1.03-RC2)">SkinVersionCorrections</include>
     </include>
 
     <include name="SkinVersionCorrections">
         <onload condition="!String.IsEmpty(Skin.String(SkinHelper.ShowInfoAtPlaybackStart))">Skin.Reset(SkinHelper.ShowInfoAtPlaybackStart)</onload>
         <onload condition="!String.IsEmpty(SkinHelper.AutoCloseVideoOSD))">Skin.Reset(SkinHelper.AutoCloseVideoOSD)</onload>
+        <onload condition="String.IsEqual(Skin.String(HomeLayout),bingie)">Skin.Reset(LowPerformanceMode)</onload>
+        <onload>Skin.SetBool(ForceVideoPlaybackStop)</onload>
+        <onload>Skin.SetBool(AutoCloseVideoOSD)</onload>
+        <onload>Skin.Reset(OSDShowInfoOnPause)</onload>
         <!-- Finish & Update Skin Version -->
-        <onload>Skin.SetString(SkinVersion,1.03-RC1)</onload>
+        <onload>Skin.SetString(SkinVersion,1.03-RC2)</onload>
     </include>
 
     <include name="startupskinsettingsvalues">
@@ -95,6 +99,9 @@
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(UseBingieInfoDialog)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(DisableLogoMainMenu)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(BingieViewsDisableStudio)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(NextUpNotificationSlim)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(ForceVideoPlaybackStop)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(AutoCloseVideoOSD)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetString(WidgetsGlobalLimit, 30)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetString(SplashAnimationResolution,1080p)</onload>
 

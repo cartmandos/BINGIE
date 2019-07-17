@@ -40,6 +40,9 @@
 					<pagecontrol>60</pagecontrol>
 					<preloaditems>2</preloaditems>
 					<viewtype label="31461">list</viewtype>
+					<include content="View_Forced">
+						<param name="viewtype" value="$LOCALIZE[31461]" />
+					</include>
 					<scrolltime tween="quadratic" easing="out">300</scrolltime>
 					<orientation>horizontal</orientation>
 					<itemlayout width="570" height="450">
