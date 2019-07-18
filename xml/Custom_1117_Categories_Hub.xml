@@ -98,76 +98,130 @@
             <include content="Category_Widget" condition="String.IsEqual(Window(Home).Property(category),critically-acclaimed tv shows)">
                 <param name="content" value="special://skin/playlists/topratedshows.xsp" />
             </include>
+
             <include content="Category_Widget" condition="String.IsEqual(Window(Home).Property(category),critically-acclaimed movies)">
                 <param name="content" value="special://skin/playlists/topratedmovies.xsp" />
             </include>
+
             <include content="Category_Widget" condition="String.IsEqual(Window(Home).Property(category),stand-up comedy)">
                 <param name="content" value="special://skin/playlists/standup.xsp" />
             </include>
-            <include content="Category_Widget" condition="String.IsEqual(Window(Home).Property(category),tv shows)">
+
+            <include content="Category_Widget" condition="String.IsEqual(Window(Home).Property(category),TV shows)">
                 <param name="content" value="videodb://tvshows/titles/" />
+                <param name="sortBy" value="dateadded" />
+                <param name="sortOrder" value="descending" />
             </include>
+
             <include content="Category_Widget" condition="String.IsEqual(Window(Home).Property(category),movies)">
                 <param name="content" value="videodb://movies/titles/" />
+                <param name="sortBy" value="dateadded" />
+                <param name="sortOrder" value="descending" />
             </include>
+
             <include content="Category_Widget" condition="String.IsEqual(Window(Home).Property(category),recently added)">
-                <param name="content" value="plugin://script.skin.helper.widgets/?action=recentshowsandmovies&amp;mediatype=media&amp;limit=100&amp;reload=$INFO[Window(Home).Property(widgetreload)]" />
+                <param name="content" value="plugin://script.skin.helper.widgets/?action=recentshowsandmovies&amp;mediatype=media&amp;limit=150&amp;reload=$INFO[Window(Home).Property(widgetreload)]" />
             </include>
+
             <include content="Category_Widget" condition="String.IsEqual(Window(Home).Property(category),new release)">
-                <param name="content" value="plugin://script.skin.helper.widgets/?action=newrelease&amp;mediatype=media&amp;limit=100&amp;reload=$INFO[Window(Home).Property(widgetreload)]" />
-                <param name="sortBy" value="" />
-                <param name="sortOrder" value="" />
+                <param name="content" value="plugin://script.skin.helper.widgets/?action=newrelease&amp;mediatype=media&amp;limit=150&amp;reload=$INFO[Window(Home).Property(widgetreload)]" />
             </include>
+
             <include content="Category_Widget" condition="String.IsEqual(Window(Home).Property(category),popular)">
                 <param name="content" value="plugin://script.skin.helper.widgets/?action=popular&amp;mediatype=media&amp;limit=100&amp;reload=$INFO[Window(Home).Property(widgetreload)]" />
-                <param name="sortBy" value="" />
-                <param name="sortOrder" value="" />
             </include>
+
+            <!-- GENRES -->
             <include content="Category_Widget" condition="String.IsEqual(Window(Home).Property(category),drama)">
                 <param name="content" value="plugin://script.skin.helper.widgets/?action=forgenre&amp;mediatype=media&amp;genre=drama&amp;limit=100&amp;reload=$INFO[Window(Home).Property(widgetreload)]" />
+                <param name="sortBy" value="dateadded" />
+                <param name="sortOrder" value="descending" />
             </include>
+
             <include content="Category_Widget" condition="String.IsEqual(Window(Home).Property(category),crime)">
                 <param name="content" value="plugin://script.skin.helper.widgets/?action=forgenre&amp;mediatype=media&amp;genre=crime&amp;limit=100&amp;reload=$INFO[Window(Home).Property(widgetreload)]" />
+                <param name="sortBy" value="dateadded" />
+                <param name="sortOrder" value="descending" />
             </include>
+
             <include content="Category_Widget" condition="String.IsEqual(Window(Home).Property(category),thriller)">
                 <param name="content" value="plugin://script.skin.helper.widgets/?action=forgenre&amp;mediatype=media&amp;genre=thriller&amp;limit=100&amp;reload=$INFO[Window(Home).Property(widgetreload)]" />
+                <param name="sortBy" value="dateadded" />
+                <param name="sortOrder" value="descending" />
             </include>
+
             <include content="Category_Widget" condition="String.IsEqual(Window(Home).Property(category),action)">
                 <param name="content" value="plugin://script.skin.helper.widgets/?action=forgenre&amp;mediatype=media&amp;genre=action&amp;limit=100&amp;reload=$INFO[Window(Home).Property(widgetreload)]" />
+                <param name="sortBy" value="dateadded" />
+                <param name="sortOrder" value="descending" />
             </include>
+
             <include content="Category_Widget" condition="String.IsEqual(Window(Home).Property(category),comedy)">
                 <param name="content" value="plugin://script.skin.helper.widgets/?action=forgenre&amp;mediatype=media&amp;genre=comedy&amp;limit=100&amp;reload=$INFO[Window(Home).Property(widgetreload)]" />
+                <param name="sortBy" value="dateadded" />
+                <param name="sortOrder" value="descending" />
             </include>
+
             <include content="Category_Widget" condition="String.IsEqual(Window(Home).Property(category),adventure)">
                 <param name="content" value="plugin://script.skin.helper.widgets/?action=forgenre&amp;mediatype=media&amp;genre=adventure&amp;limit=100&amp;reload=$INFO[Window(Home).Property(widgetreload)]" />
+                <param name="sortBy" value="dateadded" />
+                <param name="sortOrder" value="descending" />
             </include>
+
             <include content="Category_Widget" condition="String.IsEqual(Window(Home).Property(category),western)">
                 <param name="content" value="plugin://script.skin.helper.widgets/?action=forgenre&amp;mediatype=media&amp;genre=western&amp;limit=100&amp;reload=$INFO[Window(Home).Property(widgetreload)]" />
+                <param name="sortBy" value="dateadded" />
+                <param name="sortOrder" value="descending" />
             </include>
+
             <include content="Category_Widget" condition="String.IsEqual(Window(Home).Property(category),horror)">
                 <param name="content" value="plugin://script.skin.helper.widgets/?action=forgenre&amp;mediatype=media&amp;genre=horror&amp;limit=100&amp;reload=$INFO[Window(Home).Property(widgetreload)]" />
+                <param name="sortBy" value="dateadded" />
+                <param name="sortOrder" value="descending" />
             </include>
+
             <include content="Category_Widget" condition="String.IsEqual(Window(Home).Property(category),science fiction)">
                 <param name="content" value="plugin://script.skin.helper.widgets/?action=forgenre&amp;mediatype=media&amp;genre=science fiction&amp;limit=100&amp;reload=$INFO[Window(Home).Property(widgetreload)]" />
+                <param name="sortBy" value="dateadded" />
+                <param name="sortOrder" value="descending" />
             </include>
+
             <include content="Category_Widget" condition="String.IsEqual(Window(Home).Property(category),family)">
                 <param name="content" value="plugin://script.skin.helper.widgets/?action=forgenre&amp;mediatype=media&amp;genre=family&amp;limit=100&amp;reload=$INFO[Window(Home).Property(widgetreload)]" />
+                <param name="sortBy" value="dateadded" />
+                <param name="sortOrder" value="descending" />
             </include>
+
             <include content="Category_Widget" condition="String.IsEqual(Window(Home).Property(category),animation)">
                 <param name="content" value="plugin://script.skin.helper.widgets/?action=forgenre&amp;mediatype=media&amp;genre=animation&amp;limit=100&amp;reload=$INFO[Window(Home).Property(widgetreload)]" />
+                <param name="sortBy" value="dateadded" />
+                <param name="sortOrder" value="descending" />
             </include>
+
             <include content="Category_Widget" condition="String.IsEqual(Window(Home).Property(category),mystery)">
                 <param name="content" value="plugin://script.skin.helper.widgets/?action=forgenre&amp;mediatype=media&amp;genre=mystery&amp;limit=100&amp;reload=$INFO[Window(Home).Property(widgetreload)]" />
+                <param name="sortBy" value="dateadded" />
+                <param name="sortOrder" value="descending" />
             </include>
+
             <include content="Category_Widget" condition="String.IsEqual(Window(Home).Property(category),romance)">
                 <param name="content" value="plugin://script.skin.helper.widgets/?action=forgenre&amp;mediatype=media&amp;genre=romance&amp;limit=100&amp;reload=$INFO[Window(Home).Property(widgetreload)]" />
+                <param name="sortBy" value="dateadded" />
+                <param name="sortOrder" value="descending" />
             </include>
+
             <include content="Category_Widget" condition="String.IsEqual(Window(Home).Property(category),documentary)">
                 <param name="content" value="plugin://script.skin.helper.widgets/?action=forgenre&amp;mediatype=media&amp;genre=documentary&amp;limit=100&amp;reload=$INFO[Window(Home).Property(widgetreload)]" />
+                <param name="sortBy" value="dateadded" />
+                <param name="sortOrder" value="descending" />
             </include>
+
             <include content="Category_Widget" condition="String.IsEqual(Window(Home).Property(category),fantasy)">
                 <param name="content" value="plugin://script.skin.helper.widgets/?action=forgenre&amp;mediatype=media&amp;genre=fantasy&amp;limit=100&amp;reload=$INFO[Window(Home).Property(widgetreload)]" />
+                <param name="sortBy" value="dateadded" />
+                <param name="sortOrder" value="descending" />
             </include>
+
 
             <!-- Empty Category -->
             <control type="label">

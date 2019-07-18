@@ -47,7 +47,7 @@
                 <timeperimage>85</timeperimage>
                 <colordiffuse>$INFO[Skin.String(WidgetSpinnerTexture.Color)]</colordiffuse>
                 <fadetime>0</fadetime>
-                <visible>Container($PARAM[widgetid]).IsUpdating</visible>
+                <visible>Container($PARAM[widgetid]).IsUpdating + Integer.IsEqual(Container($PARAM[widgetid]).NumItems,0)</visible>
             </control>
         </control>
         <include content="Hub_Set_Widget_Button" condition="!Skin.HasSetting(LockHubWidgets)">
@@ -275,8 +275,8 @@
             <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
             <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
             <label>$PARAM[label]</label>
-            <animation effect="slide" end="50" time="0" condition="Container($PARAM[widgetid]).IsUpdating + !Skin.HasSetting(WidgetAlignRight)">Conditional</animation>
-            <animation effect="slide" end="-50" time="0" condition="Container($PARAM[widgetid]).IsUpdating + Skin.HasSetting(WidgetAlignRight)">Conditional</animation>
+            <animation effect="slide" end="50" time="0" condition="Container($PARAM[widgetid]).IsUpdating + Integer.IsEqual(Container($PARAM[widgetid]).NumItems,0) + !Skin.HasSetting(WidgetAlignRight)">Conditional</animation>
+            <animation effect="slide" end="-50" time="0" condition="Container($PARAM[widgetid]).IsUpdating + Integer.IsEqual(Container($PARAM[widgetid]).NumItems,0) + Skin.HasSetting(WidgetAlignRight)">Conditional</animation>
         </control>
     </include>
 

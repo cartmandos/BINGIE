@@ -86,6 +86,8 @@
     <constant name="search_key_size">80</constant>
     <constant name="search_radiokey_width">220</constant>
     <constant name="bingie_menu_width">360</constant>
+    <constant name="episodes_thumb_height">266</constant>
+    <constant name="episodes_thumb_width">456</constant>
 
     <!-- expressions -->
     <expression name="IsBingieViewsActive">Window.IsActive(Home) | Window.IsActive(1109) | Window.IsActive(1110) | Window.IsActive(1111) | Window.IsActive(1112) | Window.IsActive(1113) | Window.IsActive(1114) | Window.IsActive(1115) | Window.IsActive(1116)</expression>

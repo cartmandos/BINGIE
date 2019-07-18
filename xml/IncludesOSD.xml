@@ -1941,7 +1941,7 @@
 	<include name="OSDButtons_Bingie_Layout_Factory">
 		<include content="OSDButtons_Bingie_Layout" condition="String.IsEqual(Skin.String(osd_buttonstyle),slim)">
 			<param name="topsize" value="80" />
-			<param name="bottomsize" value="60" />
+			<param name="bottomsize" value="65" />
 			<param name="gap" value="6" />
 			<param name="iconspath" value="osd/slim/" />
 			<param name="toposdposleft" value="65" />
@@ -3435,6 +3435,7 @@
 			</control>
 			<control type="togglebutton" id="203">
 				<include>Bottom_OSD_Button_Zoom_Anim</include>
+				<animation effect="fade" start="100" end="60">unfocus</animation>
 				<altlabel>208</altlabel>
 				<description>Play Pause</description>
 				<width>$PARAM[bottomsize]</width>
@@ -3442,10 +3443,10 @@
 				<font/>
 				<label>208</label>
 				<texturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">$PARAM[iconspath]pause_new_fo.png</texturefocus>
-				<texturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">$PARAM[iconspath]pause_new.png</texturenofocus>
+				<texturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">$PARAM[iconspath]pause_new.png</texturenofocus>
 				<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
 				<alttexturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">$PARAM[iconspath]play_new_fo.png</alttexturefocus>
-				<alttexturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">$PARAM[iconspath]play_new.png</alttexturenofocus>
+				<alttexturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">$PARAM[iconspath]play_new_nf.png</alttexturenofocus>
 				<onclick>PlayerControl(Play)</onclick>
 				<visible>Player.PauseEnabled</visible>
 			</control>
