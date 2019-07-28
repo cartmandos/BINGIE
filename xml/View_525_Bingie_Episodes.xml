@@ -116,7 +116,7 @@
                 <width>150</width>
                 <font>Reg26</font>
                 <align>left</align>
-                <textcolor>ffcecece</textcolor>
+                <textcolor>ffc6c6c6</textcolor>
                 <label>[B]$VAR[View525SeasonEpisodeFormat][/B]</label>
             </control>
             <!-- progress bar -->
