@@ -214,10 +214,10 @@
                 <aligny>center</aligny>
                 <height>35</height>
                 <align>left</align>
-                <font>Bold30</font>
+                <font>Reg30</font>
                 <textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
                 <selectedcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</selectedcolor>
-                <label>$VAR[View525MainLabel]</label>
+                <label>[B]$VAR[View525MainLabel][/B]</label>
                 <scroll>false</scroll>
             </control>
             <!-- item sublabel -->

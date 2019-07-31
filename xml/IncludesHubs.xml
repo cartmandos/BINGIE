@@ -353,7 +353,7 @@
             <visible>$PARAM[visibility]</visible>
             <height>96%</height>
             <width>99%</width>
-            <font>Reg27</font>
+            <font>Reg29</font>
             <include condition="Skin.HasSetting(WidgetAlignRight)">widget_header_rightalign</include>
             <include condition="!Skin.HasSetting(WidgetAlignRight)">widget_header_leftalign</include>
             <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
@@ -435,7 +435,7 @@
                 <visible>Integer.IsGreater(Container(1510).NumItems,0)</visible>
                 <height>40</height>
                 <width>96%</width>
-                <font>Reg28</font>
+                <font>Reg29</font>
                 <aligny>center</aligny>
                 <align>left</align>
                 <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
@@ -460,7 +460,7 @@
                 <texturefocus/>
                 <height>80</height>
                 <width>99%</width>
-                <font>Reg28</font>
+                <font>Reg29</font>
                 <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
                 <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
                 <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
@@ -593,7 +593,7 @@
             <include condition="!Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Slide_Animation</include>
             <height>45</height>
             <width>99%</width>
-            <font>Reg28</font>
+            <font>Reg29</font>
             <include condition="Skin.HasSetting(WidgetAlignRight)">widget_header_rightalign</include>
             <include condition="!Skin.HasSetting(WidgetAlignRight)">widget_header_leftalign</include>
             <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>

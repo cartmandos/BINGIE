@@ -1397,7 +1397,7 @@
             <control type="textbox">
                 <height>96%</height>
                 <width>99%</width>
-                <font>Reg27</font>
+                <font>Reg29</font>
                 <include condition="Skin.HasSetting(WidgetAlignRight)">widget_header_rightalign</include>
                 <include condition="!Skin.HasSetting(WidgetAlignRight)">widget_header_leftalign</include>
                 <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
@@ -1410,7 +1410,7 @@
             <control type="textbox">
                 <height>96%</height>
                 <width>99%</width>
-                <font>Reg27</font>
+                <font>Reg29</font>
                 <include condition="Skin.HasSetting(WidgetAlignRight)">widget_header_rightalign</include>
                 <include condition="!Skin.HasSetting(WidgetAlignRight)">widget_header_leftalign</include>
                 <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
@@ -2690,7 +2690,7 @@
                 <left>2</left>
                 <height>40</height>
                 <width>99%</width>
-                <font>Reg27</font>
+                <font>Reg29</font>
                 <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
                 <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
                 <label>[B]$LOCALIZE[31185][/B]</label>

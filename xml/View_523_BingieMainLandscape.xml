@@ -20,7 +20,7 @@
                 <control type="textbox">
                     <width>100%</width>
                     <height>40</height>
-                    <font>Reg28</font>
+                    <font>Reg29</font>
                     <align>left</align>
                     <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
                     <label>$VAR[BingieMainContentHeader,[B],[/B]]</label>

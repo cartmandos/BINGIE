@@ -2,7 +2,7 @@
 <!-- BINGIE -->
 <window>
     <visible>Window.IsActive(fullscreenvideo)</visible>
-    <visible>Window.IsActive(videoosd) | Player.ShowInfo | Player.Seeking | Player.DisplayAfterSeek | !String.IsEmpty(Player.SeekNumeric) | [Player.Paused + !Player.Caching] | Player.Forwarding | Player.Rewinding</visible>
+    <visible>Window.IsActive(videoosd) | Player.Seeking | Player.DisplayAfterSeek | !String.IsEmpty(Player.SeekNumeric) | [Player.Paused + !Player.Caching] | Player.Forwarding | Player.Rewinding</visible>
     <controls>
 
         <control type="group">
