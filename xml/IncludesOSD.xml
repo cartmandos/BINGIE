@@ -2704,8 +2704,7 @@
     
     <include name="OSDInfoPanel">
         <control type="group" id="552233">
-            <visible>Skin.HasSetting(EnableOSDInfo)</visible>
-            <visible>[Player.Paused + Skin.HasSetting(OSDShowInfoOnPause)] | Player.ShowInfo | Window.IsActive(videoosd)</visible>
+            <visible>[Skin.HasSetting(EnableOSDInfo) + [[Player.Paused + Skin.HasSetting(OSDShowInfoOnPause)] | Window.IsActive(videoosd)]] | [Player.ShowInfo + !Window.IsActive(videoosd)]</visible>
             <visible>!Window.IsActive(notification) + !Window.IsActive(extendedprogressdialog) + !Window.IsActive(DialogPlayerProcessInfo.xml)</visible>
 			<animation effect="fade" time="350">VisibleChange</animation>
             <include>HideOsdConditions</include>

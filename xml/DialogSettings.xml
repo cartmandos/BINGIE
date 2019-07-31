@@ -42,6 +42,7 @@
                 <width>800</width>
                 <align>center</align>
                 <itemgap>25</itemgap>
+                <onleft>back</onleft>
                 <!--Header-->
                 <control type="label" id="2">
                     <description>Heading</description>
