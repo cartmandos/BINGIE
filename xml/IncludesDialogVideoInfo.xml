@@ -270,7 +270,7 @@
 							<height>40</height>
 							<align>center</align>
 							<textoffsetx>0</textoffsetx>
-							<onclick>Dialog.Close(DialogVideoInfo.xml)</onclick>
+							<onclick>Dialog.Close(movieinformation)</onclick>
                             <visible>Skin.HasSetting(videoinfo_button_play)</visible>
 							<visible>String.IsEmpty(Window.Property(AdditionalInfo))</visible>
 						</control>
@@ -406,7 +406,7 @@
                              <width>285</width>
 							 <description>CinemaVision</description>
                              <label>$INFO[System.AddonTitle(script.cinemavision)]</label>
-                             <onclick>Dialog.Close(DialogVideoInfo.xml)</onclick>
+                             <onclick>Dialog.Close(movieinformation)</onclick>
                              <onclick>RunScript(script.cinemavision,experience)</onclick>
                              <visible>Skin.HasSetting(videoinfo_button_cinemavision)</visible>
                              <visible>System.HasAddon(script.cinemavision)</visible>
@@ -416,7 +416,7 @@
 							<description>Home Theatre</description>
 							<label>$INFO[System.AddonTitle(script.cinema.experience)]</label>
 							<onclick>Playlist.Clear</onclick>
-							<onclick>Dialog.Close(DialogVideoInfo.xml)</onclick>
+							<onclick>Dialog.Close(movieinformation)</onclick>
 							<onclick>RunScript(script.cinema.experience,movieid=$INFO[ListItem.DBID])</onclick>
                             <visible>Skin.HasSetting(videoinfo_button_cinemaexperience)</visible>
 							<visible>System.HasAddon(script.cinema.experience) + String.IsEqual(ListItem.DBTYPE,movie) + !String.Contains(Container.FolderPath,plugin)</visible>
@@ -1803,7 +1803,7 @@
                                 <radiowidth>23</radiowidth>
                                 <radioheight>21</radioheight>
                                 <onclick>SetProperty(BaseWindow,1,Home)</onclick>
-                                <onclick>close</onclick>
+                                <onclick>Dialog.Close(movieinformation)</onclick>
                                 <onclick>PlayMedia($ESCINFO[Container(5050).ListItem.FileNameAndPath],resume)</onclick>
                             </control>
 
@@ -1821,7 +1821,7 @@
                                 <radioheight>21</radioheight>
                                 <!-- Set InfoDialog as BaseWindow if NOT clicked via SendClick -->
                                 <onclick condition="!$EXP[IsTvShowDBTypeNoFallback]">SetProperty(BaseWindow,1,Home)</onclick>
-								<onclick>Close</onclick>
+								<onclick>Dialog.Close(movieinformation)</onclick>
                             </control>
 
                             <!-- Resume -->
@@ -1838,7 +1838,7 @@
                                 <radioheight>21</radioheight>
                                 <!-- Set InfoDialog as BaseWindow if NOT clicked via SendClick -->
                                 <onclick condition="!$EXP[IsTvShowDBTypeNoFallback]">SetProperty(BaseWindow,1,Home)</onclick>
-								<onclick>Close</onclick>
+								<onclick>Dialog.Close(movieinformation)</onclick>
                             </control>
 
 							<!-- Play from beginning -->
@@ -1854,7 +1854,7 @@
                                 <radiowidth>25</radiowidth>
                                 <radioheight>22</radioheight>
                                 <onclick>SetProperty(BaseWindow,1,Home)</onclick>
-                                <onclick>close</onclick>
+                                <onclick>Dialog.Close(movieinformation)</onclick>
                                 <!-- play episode -->
                                 <onclick condition="!Control.IsVisible(5050) + String.IsEqual(ListItem.DBTYPE,episode)">PlayMedia(videodb://tvshows/$INFO[ListItem.DBID])</onclick>
                                 <!-- play movie -->
@@ -1879,7 +1879,7 @@
                                 <radiowidth>25</radiowidth>
                                 <radioheight>25</radioheight>
                                 <onclick>SetProperty(BaseWindow,1,Home)</onclick>
-                                <onclick>close</onclick>
+                                <onclick>Dialog.Close(movieinformation)</onclick>
                                 <!-- activate ALL EPISODES view -->
                                 <!-- from episode infodialog -->
                                 <onclick condition="String.IsEqual(ListItem.DBTYPE,episode) + !String.IsEmpty(ListItem.DBID) + !String.IsEmpty(Window(Home).Property(ListItem.TVShowID))">SetProperty(KeepTVShowID,1,Home)</onclick>
@@ -2099,7 +2099,7 @@
 									<param name="radiotexture" value=""/>
 								</include>
 								<label>$INFO[System.AddonTitle(script.cinemavision)]</label>
-								<onclick>close</onclick>
+								<onclick>Dialog.Close(movieinformation)</onclick>
 								<onclick>RunScript(script.cinemavision,experience)</onclick>
 							</control>
 
@@ -2113,7 +2113,7 @@
 								</include>
 								<label>$INFO[System.AddonTitle(script.cinemaexperience)]</label>
 								<onclick>Playlist.Clear</onclick>
-								<onclick>close</onclick>
+								<onclick>Dialog.Close(movieinformation)</onclick>
 								<onclick>RunScript(script.cinema.experience,movieid=$INFO[ListItem.DBID])</onclick>
 							</control>
 
