@@ -8,7 +8,7 @@
 	<onload>ClearProperty(ShowViewSubMenu,Home)</onload>
     <onunload>ClearProperty(ShowViewSubMenu,Home)</onunload>
     <!-- return to infodialog if previous window -->
-    <onunload condition="!String.IsEmpty(Window(Home).Property(BaseWindow)) + String.IsEmpty(Window(Home).Property(ListItem.TVShowID))">AlarmClock(loadinfo,Action(Info),00:00,silent)</onunload>
+    <onunload condition="!String.IsEmpty(Window(Home).Property(BaseWindow)) + String.IsEmpty(Window(Home).Property(ListItem.TVShowID)) + !Player.HasVideo">AlarmClock(loadinfo,Action(Info),00:00,silent)</onunload>
     <!-- clear tvshowid property -->
     <onunload condition="!String.IsEmpty(Window(Home).Property(ListItem.TVShowID))">ClearProperty(ListItem.TVShowID,Home)</onunload>
     <onunload condition="!String.IsEmpty(Window(Home).Property(KeepTVShowID))">ClearProperty(KeepTVShowID,Home)</onunload>
