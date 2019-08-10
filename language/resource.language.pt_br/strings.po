@@ -513,7 +513,7 @@ msgid "Disable splash screen (not recommended for slow systems)"
 msgstr "Desativar tela splash (não é recomendado para sistemas lentos)"
 
 msgctxt "#31212"
-msgid "Next episode"
+msgid "Next Episode in"
 msgstr "Próximo episódio"
 
 msgctxt "#31213"

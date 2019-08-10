@@ -557,7 +557,7 @@ msgid "Disable splash screen (not recommended for slow systems)"
 msgstr "Отключить заставку при запуске (не рекомендуется для слабых систем)"
 
 msgctxt "#31212"
-msgid "Next episode"
+msgid "Next Episode in"
 msgstr "Следующая серия"
 
 msgctxt "#31213"

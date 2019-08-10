@@ -253,7 +253,7 @@ msgid "Use Extra Fanart"
 msgstr "Använd extra fanart"
 
 msgctxt "#31212"
-msgid "Next episode"
+msgid "Next Episode in"
 msgstr "Nästa avsnitt"
 
 msgctxt "#31213"

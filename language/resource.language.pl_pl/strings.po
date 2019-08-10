@@ -589,7 +589,7 @@ msgid "Disable splash screen (not recommended for slow systems)"
 msgstr "Ukrywaj ekran powitalny (niezalecane na wolnych systemach)"
 
 msgctxt "#31212"
-msgid "Next episode"
+msgid "Next Episode in"
 msgstr "Następny odcinek"
 
 msgctxt "#31213"

@@ -33,7 +33,7 @@ msgid "Submenu"
 msgstr "Ndërmeny"
 
 msgctxt "#31212"
-msgid "Next episode"
+msgid "Next Episode in"
 msgstr "Episodi i ardhshëm"
 
 msgctxt "#31250"

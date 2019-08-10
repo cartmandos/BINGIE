@@ -49,7 +49,7 @@ msgid "Submenu"
 msgstr "Azpimenua"
 
 msgctxt "#31212"
-msgid "Next episode"
+msgid "Next Episode in"
 msgstr "Próximo episodio"
 
 msgctxt "#31231"

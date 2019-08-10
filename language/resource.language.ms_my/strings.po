@@ -593,7 +593,7 @@ msgid "Disable splash screen (not recommended for slow systems)"
 msgstr "Lumpuhkan skrin percikan (tidak disaran pada sistem yang perlahan)"
 
 msgctxt "#31212"
-msgid "Next episode"
+msgid "Next Episode in"
 msgstr "Episod berikutnya"
 
 msgctxt "#31213"

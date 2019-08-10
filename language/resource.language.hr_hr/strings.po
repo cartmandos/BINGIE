@@ -573,7 +573,7 @@ msgid "Disable splash screen (not recommended for slow systems)"
 msgstr "Onemogući početni zaslon (nije preporučljivo za sporije sustave)"
 
 msgctxt "#31212"
-msgid "Next episode"
+msgid "Next Episode in"
 msgstr "Slijedeća epizoda"
 
 msgctxt "#31213"

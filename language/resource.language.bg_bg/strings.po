@@ -457,7 +457,7 @@ msgid "Prefer fanart in landscape views"
 msgstr "Ползвай фен-арт в портретните изгледи"
 
 msgctxt "#31212"
-msgid "Next episode"
+msgid "Next Episode in"
 msgstr "Следващ епизод"
 
 msgctxt "#31214"

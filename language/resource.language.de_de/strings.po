@@ -589,7 +589,7 @@ msgid "Disable splash screen (not recommended for slow systems)"
 msgstr "Begrüßungsbildschirm deaktivieren (für langsame Systeme nicht empfohlen)"
 
 msgctxt "#31212"
-msgid "Next episode"
+msgid "Next Episode in"
 msgstr "Nächste Episode"
 
 msgctxt "#31213"

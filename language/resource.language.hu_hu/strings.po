@@ -569,7 +569,7 @@ msgid "Disable splash screen (not recommended for slow systems)"
 msgstr "Nyitóképernyő tiltása (nem javasolt lassú rendszereken)"
 
 msgctxt "#31212"
-msgid "Next episode"
+msgid "Next Episode in"
 msgstr "Következő rész"
 
 msgctxt "#31213"

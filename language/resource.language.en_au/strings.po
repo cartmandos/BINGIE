@@ -153,8 +153,8 @@ msgid "Spotlight"
 msgstr "Spotlight"
 
 msgctxt "#31212"
-msgid "Next episode"
-msgstr "Next episode"
+msgid "Next Episode in"
+msgstr "Next Episode in"
 
 msgctxt "#31213"
 msgid "Airs"

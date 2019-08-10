@@ -85,7 +85,7 @@ msgid "Submenu"
 msgstr "Alammenüü"
 
 msgctxt "#31212"
-msgid "Next episode"
+msgid "Next Episode in"
 msgstr "Järgmine osa"
 
 msgctxt "#31213"

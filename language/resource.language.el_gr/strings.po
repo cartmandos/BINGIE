@@ -265,8 +265,8 @@ msgid "Use Extra Fanart"
 msgstr "Χρήση ExtraFanart"
 
 msgctxt "#31212"
-msgid "Next episode"
-msgstr "Next episode"
+msgid "Next Episode in"
+msgstr "Next Episode in"
 
 msgctxt "#31213"
 msgid "Airs"

@@ -53,7 +53,7 @@ msgid "Submenu"
 msgstr "Danh sách con"
 
 msgctxt "#31212"
-msgid "Next episode"
+msgid "Next Episode in"
 msgstr "Phần/Đoạn kế tiếp"
 
 msgctxt "#31250"

@@ -1016,7 +1016,7 @@ msgstr "השבת מסך פתיחה (לא מומלץ עבור מערכת חלשה
 
 
 msgctxt "#31212"
-msgid "Next episode"
+msgid "Next Episode in"
 msgstr "הפרק הבא"
 
 

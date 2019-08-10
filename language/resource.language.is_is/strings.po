@@ -101,7 +101,7 @@ msgid "Submenu"
 msgstr "Undirvalmynd"
 
 msgctxt "#31212"
-msgid "Next episode"
+msgid "Next Episode in"
 msgstr "Næsti þáttur"
 
 msgctxt "#31213"

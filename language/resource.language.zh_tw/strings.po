@@ -113,7 +113,7 @@ msgid "Submenu"
 msgstr "子選單"
 
 msgctxt "#31212"
-msgid "Next episode"
+msgid "Next Episode in"
 msgstr "下一集"
 
 msgctxt "#31213"

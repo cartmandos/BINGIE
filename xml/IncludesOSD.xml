@@ -891,7 +891,7 @@
 					<wrapmultiline>true</wrapmultiline>
 					<visible>!Control.IsVisible(1)</visible>
 				</control>
-				<!-- OSDLabel5 -->
+				<!-- Sublabel -->
 				<control type="label">
 					<width>auto</width>
 					<aligny>top</aligny>
@@ -1025,7 +1025,7 @@
 					<font>Light26</font>
 					<textcolor>white</textcolor>
 					<shadowcolor>dimgray</shadowcolor>
-					<label>$INFO[VideoPlayer.ChannelNumberLabel,$LOCALIZE[19029] ,: ]$INFO[VideoPlayer.ChannelName][CR][B]$INFO[VideoPlayer.Title]$INFO[VideoPlayer.EpisodeName, ","][/B]$VAR[TotalDurationFormatted, (,)]</label>
+					<label>[B]$VAR[PlayerTitle][UPPERCASE]$INFO[VideoPlayer.Season,S,]$INFO[VideoPlayer.Episode,E,][/UPPERCASE]$INFO[VideoPlayer.EpisodeName, ","][/B]$INFO[Player.StartTime, [B]|[/B] ,]$INFO[VideoPlayer.EndTime,-,]$INFO[VideoPlayer.NextTitle, [B]|[/B] $LOCALIZE[31065]: ,][CR]$INFO[VideoPlayer.ChannelName]</label>
 					<scroll>false</scroll>
 					<visible>VideoPlayer.Content(livetv)</visible>
 				</control>
@@ -3061,10 +3061,13 @@
 		<value condition="Player.HasAudio">$INFO[MusicPlayer.Title]</value>
 	</variable>
 
+	<variable name="PlayerTitle">
+		<value condition="!String.IsEmpty(VideoPlayer.TVShowTitle)">$INFO[VideoPlayer.TVShowTitle]</value>
+		<value>$INFO[VideoPlayer.Title]</value>
+	</variable>
+
 	<variable name="PlayTimeFormat">
 		<value condition="Player.Seeking">$VAR[SeekTime]</value>
-
-
 		<value condition="VideoPlayer.HasEPG + String.IsEqual(PVR.EpgEventElapsedTime(hh),00)">$INFO[PVR.EpgEventElapsedTime(mm:ss)]</value>
 		<value condition="VideoPlayer.HasEPG">$INFO[PVR.EpgEventElapsedTime]</value>
 		<value condition="String.IsEqual(Player.Time(hh),00)">$INFO[Player.Time(mm:ss)]</value>

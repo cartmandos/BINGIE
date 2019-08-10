@@ -369,7 +369,7 @@ msgid "Spotlight"
 msgstr "Spotlight"
 
 msgctxt "#31212"
-msgid "Next episode"
+msgid "Next Episode in"
 msgstr "Další epizoda"
 
 msgctxt "#31220"

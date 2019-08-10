@@ -161,7 +161,7 @@ msgid "Use Extra Fanart"
 msgstr "추가 팬아트 사용"
 
 msgctxt "#31212"
-msgid "Next episode"
+msgid "Next Episode in"
 msgstr "다음 에피소드"
 
 msgctxt "#31213"
