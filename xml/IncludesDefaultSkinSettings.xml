@@ -9,7 +9,7 @@
         <!-- correct some stuff on theme switch -->
         <onload condition="Skin.HasTheme(classic) + !Skin.String(mediaflagsstyle,classic)">Skin.SetString(mediaflagsstyle,classic)</onload>
         <onload condition="Skin.HasTheme(classic) + !Skin.String(osdmediaflagsstyle,classic)">Skin.SetString(osdmediaflagsstyle,classic)</onload>
-        <include condition="!String.IsEqual(Skin.String(SkinVersion),1.03-RC2)">SkinVersionCorrections</include>
+        <include condition="!String.IsEqual(Skin.String(SkinVersion),1.03)">SkinVersionCorrections</include>
     </include>
 
     <include name="SkinVersionCorrections">
@@ -20,7 +20,7 @@
         <onload>Skin.SetBool(AutoCloseVideoOSD)</onload>
         <onload>Skin.Reset(OSDShowInfoOnPause)</onload>
         <!-- Finish & Update Skin Version -->
-        <onload>Skin.SetString(SkinVersion,1.03-RC2)</onload>
+        <onload>Skin.SetString(SkinVersion,1.03)</onload>
     </include>
 
     <include name="startupskinsettingsvalues">
