@@ -56,53 +56,13 @@ msgctxt "#31016"
 msgid "--- Use own image for tile"
 msgstr "--- Користи своју слику за плочицу"
 
-msgctxt "#31017"
-msgid "--- Open TV Guide instead of Live TV"
-msgstr "--- Отвори ТВ Водич уместо ТВ Уживо"
-
-msgctxt "#31018"
-msgid "Netflix"
-msgstr "Netflix"
-
 msgctxt "#31019"
 msgid "--- Open folderpath with music instead of library"
 msgstr "--- Отвори путању фасцикле са музиком уместо библиотеку"
 
-msgctxt "#31020"
-msgid "Open folderpath with radio streams instead of PVR for Radio"
-msgstr "Отвори путању фасцикле са радио стримовањем уместо PVR за Радио"
-
-msgctxt "#31021"
-msgid "--- Display temperature in tile"
-msgstr "--- Прикажи температуру у плочици"
-
 msgctxt "#31022"
 msgid "Background settings"
 msgstr "Подешавања позадине"
-
-msgctxt "#31023"
-msgid "Use default skin background"
-msgstr "Користи подразумевану позадину маске"
-
-msgctxt "#31024"
-msgid "Use original Mediaportal's Titan skin background"
-msgstr "Користи оригиналну позадину Titan маске Mediaportala"
-
-msgctxt "#31025"
-msgid "Use dynamic weather background"
-msgstr "Користи динамичну позадину временске прогнозе"
-
-msgctxt "#31026"
-msgid "Use random fanart background"
-msgstr "Користи насумичну позадину уметности љубитеља"
-
-msgctxt "#31027"
-msgid "Use default background for this section"
-msgstr "Користи подразумевану позадину за овај одељак"
-
-msgctxt "#31028"
-msgid "Other skin tweaks"
-msgstr "Остала подешавања маске"
 
 msgctxt "#31029"
 msgid "Do not show footer bar"
@@ -168,69 +128,13 @@ msgctxt "#31058"
 msgid "Logo"
 msgstr "Лого"
 
-msgctxt "#31059"
-msgid "Caps"
-msgstr "Caps"
-
-msgctxt "#31060"
-msgid "Kodi SUBTITLES"
-msgstr "Kodi ТИТЛОВИ"
-
-msgctxt "#31061"
-msgid "Press Back or OK to exit"
-msgstr "Притисните Назад или ОК за излазак"
-
 msgctxt "#31062"
 msgid "YouTube"
 msgstr "YouTube"
 
-msgctxt "#31063"
-msgid "Toggle icon layout"
-msgstr "Пребаци распоред икона"
-
-msgctxt "#31064"
-msgid "Wide Icons"
-msgstr "Широке Иконе"
-
-msgctxt "#31065"
-msgid "Wide Icons MediaInfo"
-msgstr "Широке Иконе MediaInfo"
-
-msgctxt "#31066"
-msgid "Poster"
-msgstr "Постер"
-
-msgctxt "#31067"
-msgid "Poster MediaInfo"
-msgstr "Постер MediaInfo"
-
-msgctxt "#31068"
-msgid "Showcase"
-msgstr "Витрина"
-
-msgctxt "#31069"
-msgid "Showcase MediaInfo"
-msgstr "Витрина MediaInfo"
-
-msgctxt "#31070"
-msgid "Banner list"
-msgstr "Banner листа"
-
 msgctxt "#31071"
 msgid "Setting level"
 msgstr "Ниво подешавања"
-
-msgctxt "#31072"
-msgid "Sort Home tiles"
-msgstr "Сложи плочице Главног екрана"
-
-msgctxt "#31073"
-msgid "Sort the home menu tiles"
-msgstr "Сложи плочице главног менија"
-
-msgctxt "#31074"
-msgid "Arrange the homescreen tiles just the way you want it. [CR]Usage select a direction below and click on the tile's title (in the list on the right) to move it's position. [CR]Because settings are applied on the fly the screen may blink for one second."
-msgstr "Распоредите плочице главног екрана баш онако како желите. [CR]Коришћење одаберите смер испод и кликните на назив плочице (у листи са десне стране) да би померили њену позицију. [CR]Зато што се подешавања примењују у току рада екран може трепнути на секунду."
 
 msgctxt "#31077"
 msgid "DOWN"
@@ -681,7 +585,7 @@ msgid "Disable splash screen (not recommended for slow systems)"
 msgstr "Онемогући уводни екран (не препоручује се за споре системе)"
 
 msgctxt "#31212"
-msgid "Next episode"
+msgid "Next Episode in"
 msgstr "Следећа епизода"
 
 msgctxt "#31213"
@@ -1697,7 +1601,7 @@ msgid "Enable smart shortcuts for the Netflix addon"
 msgstr "Омогући паметне пречице за Netflix додатни програм"
 
 msgctxt "#31534"
-msgid "My list"
+msgid "My List"
 msgstr "Моја листа"
 
 msgctxt "#31535"

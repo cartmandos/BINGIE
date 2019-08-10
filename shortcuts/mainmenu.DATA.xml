@@ -7,7 +7,7 @@
 		<label2>32022</label2>
 		<icon>shortcuts/antenna.png</icon>
 		<thumb>$INFO[Window(Home).Property(SkinHelper.PvrBackground)]</thumb>
-		<action>ActivateWindow(TVChannels)</action>
+		<action>ActivateWindow(1116,return)</action>
 	</shortcut>
 
 	<!-- search -->

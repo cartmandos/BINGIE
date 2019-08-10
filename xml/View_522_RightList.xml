@@ -36,8 +36,10 @@
                 <ondown>522</ondown>
                 <pagecontrol>60</pagecontrol>
                 <viewtype label="31722">list</viewtype>
+                <include content="View_Forced">
+                    <param name="viewtype" value="$LOCALIZE[31722]" />
+                </include>
                 <scrolltime>300</scrolltime>
-				<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),522) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
                 <itemlayout width="800" height="62">
                     <control type="label">
                         <!--Label 1-->

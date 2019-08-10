@@ -181,7 +181,7 @@ msgid "Enable mouse and touch support"
 msgstr "Activează sprijinul pentru maus și ecran tactil"
 
 msgctxt "#31212"
-msgid "Next episode"
+msgid "Next Episode in"
 msgstr "Următorul episod"
 
 msgctxt "#31213"

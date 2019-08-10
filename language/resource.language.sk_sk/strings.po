@@ -141,7 +141,7 @@ msgid "Submenu"
 msgstr "Podmenu"
 
 msgctxt "#31212"
-msgid "Next episode"
+msgid "Next Episode in"
 msgstr "Ďalšia epizóda"
 
 msgctxt "#31213"

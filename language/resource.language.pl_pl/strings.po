@@ -56,53 +56,13 @@ msgctxt "#31016"
 msgid "--- Use own image for tile"
 msgstr "-- Używaj niestandardowego tła"
 
-msgctxt "#31017"
-msgid "--- Open TV Guide instead of Live TV"
-msgstr "--- Otwieraj przewodnik zamiast listy kanałów"
-
-msgctxt "#31018"
-msgid "Netflix"
-msgstr "Netflix"
-
 msgctxt "#31019"
 msgid "--- Open folderpath with music instead of library"
 msgstr "-- Otwieraj folder z muzyką zamiast biblioteki muzyki"
 
-msgctxt "#31020"
-msgid "Open folderpath with radio streams instead of PVR for Radio"
-msgstr "Otwieraj folder strumieni radiowych zamiast klienta radia"
-
-msgctxt "#31021"
-msgid "--- Display temperature in tile"
-msgstr "--- Wyświetlaj temperaturę w kafelku"
-
 msgctxt "#31022"
 msgid "Background settings"
 msgstr "Ustawienia tła"
-
-msgctxt "#31023"
-msgid "Use default skin background"
-msgstr "Używaj domyślnego tła"
-
-msgctxt "#31024"
-msgid "Use original Mediaportal's Titan skin background"
-msgstr "Używaj oryginalnego tła skóry Titan"
-
-msgctxt "#31025"
-msgid "Use dynamic weather background"
-msgstr "Używaj dynamicznego tła pogody"
-
-msgctxt "#31026"
-msgid "Use random fanart background"
-msgstr "Używaj losowej fototapety"
-
-msgctxt "#31027"
-msgid "Use default background for this section"
-msgstr "Używaj domyślnego tła sekcji"
-
-msgctxt "#31028"
-msgid "Other skin tweaks"
-msgstr "Inne ustawienia "
 
 msgctxt "#31029"
 msgid "Do not show footer bar"
@@ -168,65 +128,13 @@ msgctxt "#31058"
 msgid "Logo"
 msgstr "Logo"
 
-msgctxt "#31059"
-msgid "Caps"
-msgstr "Caps"
-
-msgctxt "#31060"
-msgid "Kodi SUBTITLES"
-msgstr "NAPISY"
-
-msgctxt "#31061"
-msgid "Press Back or OK to exit"
-msgstr "Naciśnij Wstecz lub OK, aby wyjść"
-
 msgctxt "#31062"
 msgid "YouTube"
 msgstr "YouTube"
 
-msgctxt "#31063"
-msgid "Toggle icon layout"
-msgstr "Ukrywaj tytuły"
-
-msgctxt "#31064"
-msgid "Wide Icons"
-msgstr "Ikony"
-
-msgctxt "#31065"
-msgid "Wide Icons MediaInfo"
-msgstr "Ikony i informacje"
-
-msgctxt "#31066"
-msgid "Poster"
-msgstr "Plakat"
-
-msgctxt "#31067"
-msgid "Poster MediaInfo"
-msgstr "Plakaty i informacje"
-
-msgctxt "#31068"
-msgid "Showcase"
-msgstr "Wizytownik"
-
-msgctxt "#31069"
-msgid "Showcase MediaInfo"
-msgstr "Wizytownik z informacjami"
-
-msgctxt "#31070"
-msgid "Banner list"
-msgstr "Lista banerów"
-
 msgctxt "#31071"
 msgid "Setting level"
 msgstr "Poziom ustawień"
-
-msgctxt "#31072"
-msgid "Sort Home tiles"
-msgstr "Sortuj kafelki ekranu startowego"
-
-msgctxt "#31073"
-msgid "Sort the home menu tiles"
-msgstr "Sortuj kafelki menu startowego"
 
 msgctxt "#31077"
 msgid "DOWN"
@@ -681,7 +589,7 @@ msgid "Disable splash screen (not recommended for slow systems)"
 msgstr "Ukrywaj ekran powitalny (niezalecane na wolnych systemach)"
 
 msgctxt "#31212"
-msgid "Next episode"
+msgid "Next Episode in"
 msgstr "Następny odcinek"
 
 msgctxt "#31213"
@@ -1701,7 +1609,7 @@ msgid "Enable smart shortcuts for the Netflix addon"
 msgstr "Aktywuj funkcję skrótów dla dodatku Netflix"
 
 msgctxt "#31534"
-msgid "My list"
+msgid "My List"
 msgstr "Moja lista"
 
 msgctxt "#31535"

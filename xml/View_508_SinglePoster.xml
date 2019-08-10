@@ -84,6 +84,10 @@
 			
 			<!-- ID="508" -->
             <control type="panel" id="508">
+				<viewtype label="31435">posterwrap</viewtype>
+				<include content="View_Forced">
+					<param name="viewtype" value="$LOCALIZE[31435]" />
+				</include>
                 <right>60</right>
                 <bottom>0</bottom>
                 <width>270</width>
@@ -93,14 +97,12 @@
                 <ondown condition="!Skin.HasSetting(EnableQuickJump)">60</ondown>
                 <onleft>508</onleft>
                 <onright>508</onright>
-                <viewtype label="31435">posterwrap</viewtype>
                 <scrolltime tween="Cubic" easing="inout">500</scrolltime>
                 <focusposition>0</focusposition>
                 <orientation>horizontal</orientation>
                 <preloaditems>2</preloaditems>
 				<animation effect="slide" end="-10,0" time="0" condition="Skin.HasTheme(classic)">Conditional</animation>
-				<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),508) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
-                <itemlayout height="400" width="270">
+				<itemlayout height="400" width="270">
 					 <control type="group">
                         <width>270</width>
                         <height>400</height>

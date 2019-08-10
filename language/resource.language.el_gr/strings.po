@@ -100,14 +100,6 @@ msgctxt "#31058"
 msgid "Logo"
 msgstr "Λογότυπο"
 
-msgctxt "#31059"
-msgid "Caps"
-msgstr "Κεφαλαία"
-
-msgctxt "#31060"
-msgid "Kodi SUBTITLES"
-msgstr "ΥΠΟΤΙΤΛΟΙ KODI"
-
 msgctxt "#31062"
 msgid "YouTube"
 msgstr "YouTube"
@@ -273,8 +265,8 @@ msgid "Use Extra Fanart"
 msgstr "Χρήση ExtraFanart"
 
 msgctxt "#31212"
-msgid "Next episode"
-msgstr "Next episode"
+msgid "Next Episode in"
+msgstr "Next Episode in"
 
 msgctxt "#31213"
 msgid "Airs"

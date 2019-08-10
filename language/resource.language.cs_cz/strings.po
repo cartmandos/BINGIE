@@ -52,26 +52,6 @@ msgctxt "#31022"
 msgid "Background settings"
 msgstr "Nastavení pozadí"
 
-msgctxt "#31023"
-msgid "Use default skin background"
-msgstr "Použít výchozí pozadí z grafického vzhledu"
-
-msgctxt "#31025"
-msgid "Use dynamic weather background"
-msgstr "Použít měnící se pozadí počasí"
-
-msgctxt "#31026"
-msgid "Use random fanart background"
-msgstr "Použít pozadí náhodné fanouškovské umění"
-
-msgctxt "#31027"
-msgid "Use default background for this section"
-msgstr "Použít pro tuto sekci výchozí pozadí"
-
-msgctxt "#31028"
-msgid "Other skin tweaks"
-msgstr "Ostatní poladění grafického vzhledu"
-
 msgctxt "#31029"
 msgid "Do not show footer bar"
 msgstr "Nezobrazovat lištu zápatí"
@@ -132,29 +112,9 @@ msgctxt "#31058"
 msgid "Logo"
 msgstr "Logo"
 
-msgctxt "#31059"
-msgid "Caps"
-msgstr "Velká písmena"
-
-msgctxt "#31060"
-msgid "Kodi SUBTITLES"
-msgstr "Kodi TITULKY"
-
-msgctxt "#31061"
-msgid "Press Back or OK to exit"
-msgstr "Ukončete stisknutím Zpět nebo OK"
-
 msgctxt "#31062"
 msgid "YouTube"
 msgstr "YouTube"
-
-msgctxt "#31063"
-msgid "Toggle icon layout"
-msgstr "Přepnout rozvržení ikon"
-
-msgctxt "#31064"
-msgid "Wide Icons"
-msgstr "Široké ikony"
 
 msgctxt "#31066"
 msgid "Poster"
@@ -409,7 +369,7 @@ msgid "Spotlight"
 msgstr "Spotlight"
 
 msgctxt "#31212"
-msgid "Next episode"
+msgid "Next Episode in"
 msgstr "Další epizoda"
 
 msgctxt "#31220"
@@ -729,7 +689,7 @@ msgid "Enable smart shortcuts for the Plex addon"
 msgstr "Zapnout chytré zkratky pro doplněk Plex"
 
 msgctxt "#31534"
-msgid "My list"
+msgid "My List"
 msgstr "Můj seznam"
 
 msgctxt "#31535"

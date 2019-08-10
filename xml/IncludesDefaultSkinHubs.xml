@@ -16,6 +16,7 @@
         <onload>Skin.SetString(spotlightnew.label, $LOCALIZE[13278])</onload>
         <onload>Skin.Reset(spotlightnew.path)</onload>
 
+        <!-- MOVIES HUB -->
         <!-- movies hub - widget 1 -->
         <onload>Skin.SetString(bingiehub-movies-510.label, [CAPITALIZE]$LOCALIZE[31535][/CAPITALIZE])</onload>
         <onload>Skin.SetString(bingiehub-movies-510.target, videos)</onload>
@@ -47,6 +48,7 @@
         <onload>Skin.Reset(bingiehub-movies-580.target)</onload>
         <onload>Skin.Reset(bingiehub-movies-580.path)</onload>
 
+        <!-- TVSHOWS HUB -->
         <!-- tvshows hub - widget 1 -->
         <onload>Skin.SetString(bingiehub-tvshows-510.label, [CAPITALIZE]$LOCALIZE[31535][/CAPITALIZE])</onload>
         <onload>Skin.SetString(bingiehub-tvshows-510.target, videos)</onload>
@@ -78,6 +80,7 @@
         <onload>Skin.Reset(bingiehub-tvshows-580.target)</onload>
         <onload>Skin.Reset(bingiehub-tvshows-580.path)</onload>
 
+        <!-- NEW HUB -->
         <!-- new hub - widget 1 -->
         <onload>Skin.SetString(bingiehub-new-510.label, [CAPITALIZE]$LOCALIZE[31127][/CAPITALIZE])</onload>
         <onload>Skin.SetString(bingiehub-new-510.target, videos)</onload>

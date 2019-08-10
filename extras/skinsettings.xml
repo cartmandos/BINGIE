@@ -8,7 +8,6 @@
         <onselect condition="True">Skin.Reset(WidgetAlignRight)</onselect>
         <onselect condition="True">Skin.SetBool(ShowAllWidgets)</onselect>
         <onselect condition="True">Skin.SetBool(UseBingieInfoDialog)</onselect>
-
     </setting>
 
     <!-- home layout -->
@@ -190,7 +189,7 @@
     <setting id="widgetstyle" value="landscapelarge" label="$LOCALIZE[31937]" condition="!String.IsEqual(Skin.String(HomeLayout),win10)" icon="special://skin/extras/viewthumbs/widget_landscapelarge.jpg" description=""/>
     <setting id="widgetstyle" value="landscapedetails" label="$LOCALIZE[31938]" condition="!String.IsEqual(Skin.String(HomeLayout),win10)" icon="special://skin/extras/viewthumbs/widget_landscapedetails.jpg" description=""/>
     <setting id="widgetstyle" value="posterdetails" label="$LOCALIZE[31939]" condition="!String.IsEqual(Skin.String(HomeLayout),win10)" icon="special://skin/extras/viewthumbs/widget_posterdetails.jpg" description=""/>
-    <setting id="widgetstyle" value="landscapewidebox" label="$LOCALIZE[31940]" condition="!String.IsEqual(Skin.String(HomeLayout),win10)" icon="special://skin/extras/viewthumbs/widget_landscapewidebox.jpg" description=""/>
+    <!--<setting id="widgetstyle" value="highlight" label="$LOCALIZE[31061]" condition="String.IsEqual(Skin.String(HomeLayout),bingie)" icon="special://skin/extras/viewthumbs/widget_highlight.jpg" description=""/>-->
 
     <!-- widgetsortby -->
     <setting id="widgetsortby" value="" label="$LOCALIZE[16018]"/>
@@ -473,7 +472,7 @@
     <setting id="Widgets_DisplayTags" value="override" label="$LOCALIZE[31731]" condition="!Window.IsActive(script-skinshortcuts.xml)" icon="" description=""/>
 
     <!-- display tags in Views -->
-    <setting id="Views_DisplayTags" value="" label="$LOCALIZE[14061]" condition="" icon="" description="$LOCALIZE[31351]"/>
+    <setting id="Views_DisplayTags" value="" label="$LOCALIZE[16316]" condition="" icon="" description="$LOCALIZE[31351]"/>
     <setting id="Views_DisplayTags" value="disable" label="$LOCALIZE[1223]" condition="" icon="" description="$LOCALIZE[31355]"/>
     <setting id="Views_DisplayTags" value="enable" label="$LOCALIZE[305]" condition="" icon="" description="$LOCALIZE[31356]"/>
 
@@ -557,11 +556,20 @@
         <option id="videoinfo_details_awards" label="$LOCALIZE[31976]" condition="" default="true"/>
     </setting>
 
+    <!-- options to show in bingie video osd - multiselect -->
+    <setting id="bingie_videoosd_buttons" value="||MULTISELECT||" label="" condition="" icon="" description="">
+        <option id="bingie_videoosd_buttons_info" label="$LOCALIZE[19033]" condition="" default="true"/>
+        <option id="bingie_videoosd_buttons_bookmarks" label="$LOCALIZE[298]" condition="" default="true"/>
+        <option id="bingie_videoosd_buttons_pvrguide" label="$LOCALIZE[10702]" condition="" default="true"/>
+        <option id="bingie_videoosd_buttons_discmenu" label="$LOCALIZE[427]" condition="" default="true"/>
+        <option id="bingie_videoosd_buttons_video" label="$LOCALIZE[13395]" condition="" default="true"/>
+        <option id="bingie_videoosd_buttons_audio" label="$LOCALIZE[13396]" condition="" default="true"/>
+        <option id="bingie_videoosd_buttons_subtitles" label="$LOCALIZE[287]" condition="" default="true"/>
+    </setting>
+
     <!-- osd button style -->
     <setting id="osd_buttonstyle" value="rounded" label="$LOCALIZE[31493]" condition="" icon="" description=""/>
     <setting id="osd_buttonstyle" value="slim" label="$LOCALIZE[31697]" condition="" icon="" description="" default="true"/>
-    <setting id="osd_buttonstyle" value="rounded_large" label="$LOCALIZE[31493] - $LOCALIZE[31699]" condition="" icon="" description=""/>
-    <setting id="osd_buttonstyle" value="slim_large" label="$LOCALIZE[31697] - $LOCALIZE[31699]" condition="" icon="" description=""/>
 
     <!-- general header options -->
     <setting id="general_header" value="disable" label="$LOCALIZE[1223]" condition="" icon="" description="$LOCALIZE[31345]" default="Skin.HasSetting(DisableHeader)">

@@ -56,53 +56,13 @@ msgctxt "#31016"
 msgid "--- Use own image for tile"
 msgstr "--- Use own image for tile"
 
-msgctxt "#31017"
-msgid "--- Open TV Guide instead of Live TV"
-msgstr "--- Open TV Guide instead of Live TV"
-
-msgctxt "#31018"
-msgid "Netflix"
-msgstr "Netflix"
-
 msgctxt "#31019"
 msgid "--- Open folderpath with music instead of library"
 msgstr "--- Open folderpath with music instead of library"
 
-msgctxt "#31020"
-msgid "Open folderpath with radio streams instead of PVR for Radio"
-msgstr "Open folderpath with radio streams instead of PVR for Radio"
-
-msgctxt "#31021"
-msgid "--- Display temperature in tile"
-msgstr "--- Display temperature in tile"
-
 msgctxt "#31022"
 msgid "Background settings"
 msgstr "Background settings"
-
-msgctxt "#31023"
-msgid "Use default skin background"
-msgstr "Use default skin background"
-
-msgctxt "#31024"
-msgid "Use original Mediaportal's Titan skin background"
-msgstr "Use original Mediaportal's Titan skin background"
-
-msgctxt "#31025"
-msgid "Use dynamic weather background"
-msgstr "Use dynamic weather background"
-
-msgctxt "#31026"
-msgid "Use random fanart background"
-msgstr "Use random fanart background"
-
-msgctxt "#31027"
-msgid "Use default background for this section"
-msgstr "Use default background for this section"
-
-msgctxt "#31028"
-msgid "Other skin tweaks"
-msgstr "Other skin tweaks"
 
 msgctxt "#31029"
 msgid "Do not show footer bar"
@@ -168,69 +128,13 @@ msgctxt "#31058"
 msgid "Logo"
 msgstr "Logo"
 
-msgctxt "#31059"
-msgid "Caps"
-msgstr "Caps"
-
-msgctxt "#31060"
-msgid "Kodi SUBTITLES"
-msgstr "Kodi SUBTITLES"
-
-msgctxt "#31061"
-msgid "Press Back or OK to exit"
-msgstr "Press Back or OK to exit"
-
 msgctxt "#31062"
 msgid "YouTube"
 msgstr "YouTube"
 
-msgctxt "#31063"
-msgid "Toggle icon layout"
-msgstr "Toggle icon layout"
-
-msgctxt "#31064"
-msgid "Wide Icons"
-msgstr "Wide Icons"
-
-msgctxt "#31065"
-msgid "Wide Icons MediaInfo"
-msgstr "Wide Icons MediaInfo"
-
-msgctxt "#31066"
-msgid "Poster"
-msgstr "Poster"
-
-msgctxt "#31067"
-msgid "Poster MediaInfo"
-msgstr "Poster MediaInfo"
-
-msgctxt "#31068"
-msgid "Showcase"
-msgstr "Showcase"
-
-msgctxt "#31069"
-msgid "Showcase MediaInfo"
-msgstr "Showcase MediaInfo"
-
-msgctxt "#31070"
-msgid "Banner list"
-msgstr "Banner list"
-
 msgctxt "#31071"
 msgid "Setting level"
 msgstr "Setting level"
-
-msgctxt "#31072"
-msgid "Sort Home tiles"
-msgstr "Sort Home tiles"
-
-msgctxt "#31073"
-msgid "Sort the home menu tiles"
-msgstr "Sort the home menu tiles"
-
-msgctxt "#31074"
-msgid "Arrange the homescreen tiles just the way you want it. [CR]Usage select a direction below and click on the tile's title (in the list on the right) to move it's position. [CR]Because settings are applied on the fly the screen may blink for one second."
-msgstr "Arrange the homescreen tiles just the way you want it. [CR]Usage select a direction below and click on the tile's title (in the list on the right) to move it's position. [CR]Because settings are applied on the fly the screen may blink for one second."
 
 msgctxt "#31077"
 msgid "DOWN"
@@ -685,8 +589,8 @@ msgid "Disable splash screen (not recommended for slow systems)"
 msgstr "Disable splash screen (not recommended for slow systems)"
 
 msgctxt "#31212"
-msgid "Next episode"
-msgstr "Next episode"
+msgid "Next Episode in"
+msgstr "Next Episode in"
 
 msgctxt "#31213"
 msgid "Airs"
@@ -1709,8 +1613,8 @@ msgid "Enable smart shortcuts for the Netflix addon"
 msgstr "Enable smart shortcuts for the Netflix addon"
 
 msgctxt "#31534"
-msgid "My list"
-msgstr "My list"
+msgid "My List"
+msgstr "My List"
 
 msgctxt "#31535"
 msgid "Continue watching"

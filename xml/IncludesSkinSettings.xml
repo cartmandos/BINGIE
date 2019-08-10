@@ -85,15 +85,6 @@
             <include condition="Window.IsActive(Custom_1105_SkinSettings.xml)">SkinSettings_MenuButtonSmall</include>
             <usealttexture>String.IsEqual(Window(Home).Property(SkinSettingSection),15)</usealttexture>
         </control>
-        <control type="togglebutton" id="7">
-            <!--forced views-->
-            <label>31518</label>
-            <altlabel>31518</altlabel>
-            <onfocus>SetProperty(SkinSettingSection,7,Home)</onfocus>
-            <include condition="!Window.IsActive(Custom_1105_SkinSettings.xml)">SkinSettings_MenuButtonLarge</include>
-            <include condition="Window.IsActive(Custom_1105_SkinSettings.xml)">SkinSettings_MenuButtonSmall</include>
-            <usealttexture>String.IsEqual(Window(Home).Property(SkinSettingSection),7)</usealttexture>
-        </control>
         <!-- smart shortcuts -->
         <control type="togglebutton" id="19">
             <label>31531</label>
@@ -103,15 +94,6 @@
             <include condition="Window.IsActive(Custom_1105_SkinSettings.xml)">SkinSettings_MenuButtonSmall</include>
             <usealttexture>String.IsEqual(Window(Home).Property(SkinSettingSection),19)</usealttexture>
         </control>
-        <!-- back and restore -->
-        <control type="togglebutton" id="14">
-            <label>31271</label>
-            <altlabel>31271</altlabel>
-            <onfocus>SetProperty(SkinSettingSection,14,Home)</onfocus>
-            <include condition="!Window.IsActive(Custom_1105_SkinSettings.xml)">SkinSettings_MenuButtonLarge</include>
-            <include condition="Window.IsActive(Custom_1105_SkinSettings.xml)">SkinSettings_MenuButtonSmall</include>
-            <usealttexture>String.IsEqual(Window(Home).Property(SkinSettingSection),14)</usealttexture>
-        </control>
         <!-- supported addons -->
         <control type="togglebutton" id="31">
             <label>31696</label>
@@ -120,6 +102,15 @@
             <include condition="!Window.IsActive(Custom_1105_SkinSettings.xml)">SkinSettings_MenuButtonLarge</include>
             <include condition="Window.IsActive(Custom_1105_SkinSettings.xml)">SkinSettings_MenuButtonSmall</include>
             <usealttexture>String.IsEqual(Window(Home).Property(SkinSettingSection),31)</usealttexture>
+        </control>
+        <!-- back and restore -->
+        <control type="togglebutton" id="14">
+            <label>31271</label>
+            <altlabel>31271</altlabel>
+            <onfocus>SetProperty(SkinSettingSection,14,Home)</onfocus>
+            <include condition="!Window.IsActive(Custom_1105_SkinSettings.xml)">SkinSettings_MenuButtonLarge</include>
+            <include condition="Window.IsActive(Custom_1105_SkinSettings.xml)">SkinSettings_MenuButtonSmall</include>
+            <usealttexture>String.IsEqual(Window(Home).Property(SkinSettingSection),14)</usealttexture>
         </control>
     </include>
 
@@ -226,8 +217,8 @@
             <!-- content -->
             <include>OSD_General_Settings</include>
             <include>OSD_Info_Panel_Settings</include>
-            <include>OSD_Up_Next_Settings</include>
             <include>OSD_Video_Playback_Settings</include>
+            <include>OSD_Up_Next_Settings</include>
             <include>OSD_Music_Playback_Settings</include>
             <include>OSD_Now_Playing_Settings</include>
         </include>
@@ -269,15 +260,6 @@
         </include>
     </include>
 
-    <!-- Forced Views Tab-->
-    <include name="SkinSettings_ForcedViews">
-        <include content="SkinSettings_Tab">
-            <param name="id" value="7"/>
-            <!-- content -->
-            <include>ForcedViews_Settings</include>
-        </include>
-    </include>
-
     <!-- Smart Shortcuts Tab-->
     <include name="SkinSettings_SmartShortcuts">
         <include content="SkinSettings_Tab">
@@ -287,21 +269,21 @@
         </include>
     </include>
 
-    <!-- Backup Tab-->
-    <include name="SkinSettings_Backup">
-        <include content="SkinSettings_Tab">
-            <param name="id" value="14"/>
-            <!-- content -->
-            <include>Backup_Settings</include>
-        </include>
-    </include>
-
     <!-- Supported Addons Tab-->
     <include name="SkinSettings_Addons">
         <include content="SkinSettings_Tab">
             <param name="id" value="31"/>
             <!-- content -->
             <include>Supported_Addons_Settings</include>
+        </include>
+    </include>
+
+    <!-- Backup Tab-->
+    <include name="SkinSettings_Backup">
+        <include content="SkinSettings_Tab">
+            <param name="id" value="14"/>
+            <!-- content -->
+            <include>Backup_Settings</include>
         </include>
     </include>
 
@@ -505,15 +487,6 @@
             <visible>[String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),2) | String.IsEqual(Skin.String(HomeLayout),1small) | String.IsEqual(Skin.String(HomeLayout),2small) | String.IsEqual(Skin.String(HomeLayout),simplever)]</visible>
             <visible>![Skin.HasSetting(DisableAllWidgets) + Skin.HasSetting(DisableAllSubmenus)]</visible>
         </control>
-
-        <!--show large thumb on bingie home-->
-        <control type="radiobutton" id="31114">
-            <include>SkinSettings_Button</include>
-            <label>31114</label>
-            <onclick>Skin.ToggleSetting(BingieHomeShowLargeThumb)</onclick>
-            <visible>String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(BingieHomeDisableFirstRow)</visible>
-            <selected>Skin.HasSetting(BingieHomeShowLargeThumb)</selected>
-        </control>
     </include>
 
     <!-- Home Spotlight Settings -->
@@ -604,11 +577,18 @@
             <onclick condition="Skin.HasSetting(EnableFixedFrameWidgets)">Skin.Reset(EnableFixedFrameWidgets)</onclick>
             <visible>!Skin.HasSetting(DisableAllWidgets) + !String.IsEqual(Skin.String(HomeLayout),3) + !String.IsEqual(Skin.String(HomeLayout),3small) + !String.IsEqual(Skin.String(HomeLayout),enhanced) + !String.IsEqual(Skin.String(HomeLayout),win10)</visible>
         </control>
+        <!-- Enable highlight widget -->
+        <!-- <control type="radiobutton" id="28640">
+            <include>SkinSettings_Button</include>
+            <label>Set 4th widget to have highlight layout</label>
+            <onclick>Skin.ToggleSetting(EnableHighlightWidget)</onclick>
+            <selected>Skin.HasSetting(EnableHighlightWidget)</selected>
+            <visible>Skin.HasSetting(EnableFixedFocusWidgets) + String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
+        </control> -->
         <!-- Enable fixed focus for widgets -->
         <control type="radiobutton" id="28638">
             <include>SkinSettings_Button</include>
             <label>31012</label>
-            <onclick condition="!Skin.HasSetting(EnableFixedFocusWidgets)">RunScript(script.skin.helper.service,action=dialogok,header=$LOCALIZE[31376],message=$LOCALIZE[31377])</onclick>
             <onclick>Skin.ToggleSetting(EnableFixedFocusWidgets)</onclick>
             <selected>Skin.HasSetting(EnableFixedFocusWidgets)</selected>
             <visible>!Skin.HasSetting(LowPerformanceMode) + !Skin.HasSetting(BingieHomeDisableFirstRow) + String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
@@ -759,7 +739,7 @@
             <label>31763</label>
             <onclick>Skin.ToggleSetting(WidgetsZoomFocus)</onclick>
             <selected>Skin.HasSetting(WidgetsZoomFocus)</selected>
-            <visible>!Skin.HasSetting(EnableFixedFrameWidgets) + !Skin.HasSetting(DisableAllWidgets) + !String.IsEqual(Skin.String(HomeLayout),3) + !String.IsEqual(Skin.String(HomeLayout),enhanced) + !String.IsEqual(Skin.String(HomeLayout),win10)</visible>
+            <visible>!Skin.HasSetting(EnableFixedFrameWidgets) + !String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(DisableAllWidgets) + !String.IsEqual(Skin.String(HomeLayout),3) + !String.IsEqual(Skin.String(HomeLayout),enhanced) + !String.IsEqual(Skin.String(HomeLayout),win10)</visible>
         </control>
         <!--hide widget panel-->
         <control type="radiobutton" id="13004">
@@ -809,32 +789,6 @@
             <onclick>Skin.ToggleSetting(WidgetsPreferPlotOutline)</onclick>
             <selected>Skin.HasSetting(WidgetsPreferPlotOutline)</selected>
             <visible>!Skin.HasSetting(DisableAllWidgets)</visible>
-        </control>
-        <!-- hide row details for episodes -->
-        <control type="radiobutton" id="39277">
-            <include>SkinSettings_Button</include>
-            <label>31711</label>
-            <onclick>Skin.ToggleSetting(HideRowDetailsEpisodes)</onclick>
-            <selected>Skin.HasSetting(HideRowDetailsEpisodes)</selected>
-            <visible>String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
-        </control>
-        <!-- show plot for unwatched/inprogress episodes -->
-        <control type="radiobutton" id="39274">
-            <include>SkinSettings_Button</include>
-            <label>31889</label>
-            <onclick>Skin.ToggleSetting(ShowEpisodesPlotAll)</onclick>
-            <selected>Skin.HasSetting(ShowEpisodesPlotAll)</selected>
-            <visible>String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
-        </control>
-        <!-- enlarge plot -->
-        <control type="radiobutton" id="39278">
-            <include>SkinSettings_Button</include>
-            <label>31043</label>
-            <onclick condition="!Skin.HasSetting(EnlargeBingiePlot)">Skin.SetBool(DisableBingieMoreDetails)</onclick>
-            <onclick condition="Skin.HasSetting(EnlargeBingiePlot)">Skin.Reset(DisableBingieMoreDetails)</onclick>
-            <onclick>Skin.ToggleSetting(EnlargeBingiePlot)</onclick>
-            <selected>Skin.HasSetting(EnlargeBingiePlot)</selected>
-            <visible>String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
         </control>
     </include>
 
@@ -1291,6 +1245,13 @@
             <label>$LOCALIZE[31221]</label>
             <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
         </control>
+        <!-- enable/disable views -->
+        <include content="SkinSettings_ActionButton">
+            <param name="id" value="6026" />
+            <param name="label" value="31487" />
+            <param name="action" value="RunScript(script.skin.helper.service,action=ENABLEVIEWS,richlayout=true)" />
+            <param name="visible" value="true" />
+        </include>
         <!--no footer-->
         <control type="radiobutton" id="13714">
             <include>SkinSettings_Button</include>
@@ -1586,15 +1547,6 @@
             <selected>Skin.HasSetting(ShowEpisodePlotInfoDialog)</selected>
             <visible>!Skin.HasSetting(UseExtendedInfoDialog) + Skin.HasSetting(UseBingieInfoDialog)</visible>
         </control>
-        <!-- EPISODE INFO PATH HACK TO NEXT EPISODE - NOT IN USE -->
-        <!-- Replace selected episode with current/next episode
-        <control type="radiobutton" id="39276">
-            <include>SkinSettings_Button</include>
-            <label>Enable Current/Next Episode in Episode's Infodialog</label>
-            <onclick>Skin.ToggleSetting(EnableEpisodeInfoBypass)</onclick>
-            <selected>Skin.HasSetting(EnableEpisodeInfoBypass)</selected>
-            <visible>!Skin.HasSetting(UseExtendedInfoDialog)</visible>
-        </control> -->
         <!--CHANGE VISIBILITY IF MULTI-DIALOGS-->
         <control type="radiobutton" id="31674">
             <!-- hide filename in videoinfo -->
@@ -2097,133 +2049,6 @@
         </include>
     </include>
 
-
-    <!-- Forced Views Settings -->
-    <include name="ForcedViews_Settings">
-        <!-- forced views -->
-        <control type="label" id="6027">
-            <include>SkinSettings_Header</include>
-            <label>31518</label>
-            <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
-        </control>
-        <!-- enable/disable views -->
-        <include content="SkinSettings_ActionButton">
-            <param name="id" value="6026" />
-            <param name="label" value="31487" />
-            <param name="action" value="RunScript(script.skin.helper.service,action=ENABLEVIEWS,richlayout=true)" />
-            <param name="visible" value="true" />
-        </include>
-        <!-- white space -->
-        <control type="label" id="6025">
-            <height>50</height>
-        </control>
-        <control type="radiobutton" id="6009">
-            <include>SkinSettings_Button</include>
-            <onclick>Skin.ToggleSetting(SkinHelper.ForcedViews.Enabled)</onclick>
-            <selected>Skin.HasSetting(SkinHelper.ForcedViews.Enabled)</selected>
-            <label>31488</label>
-        </control>
-        <control type="button" id="6010">
-            <include>SkinSettings_Button</include>
-            <onclick>RunScript(script.skin.helper.service,action=SETFORCEDVIEW,contenttype=movies)</onclick>
-            <animation effect="fade" start="100" end="40" time="0" condition="!Skin.HasSetting(SkinHelper.ForcedViews.Enabled)">Conditional</animation>
-            <label>31489</label>
-            <label2>$INFO[Skin.String(SkinHelper.ForcedViews.movies.label)]$INFO[Skin.String(SkinHelper.ForcedViews.movies), (,)]</label2>
-        </control>
-        <control type="button" id="6011">
-            <include>SkinSettings_Button</include>
-            <onclick>RunScript(script.skin.helper.service,action=SETFORCEDVIEW,contenttype=tvshows)</onclick>
-            <animation effect="fade" start="100" end="40" time="0" condition="!Skin.HasSetting(SkinHelper.ForcedViews.Enabled)">Conditional</animation>
-            <label>31490</label>
-            <label2>$INFO[Skin.String(SkinHelper.ForcedViews.tvshows.label)]$INFO[Skin.String(SkinHelper.ForcedViews.tvshows), (,)]</label2>
-        </control>
-        <control type="button" id="6012">
-            <include>SkinSettings_Button</include>
-            <onclick>RunScript(script.skin.helper.service,action=SETFORCEDVIEW,contenttype=seasons)</onclick>
-            <animation effect="fade" start="100" end="40" time="0" condition="!Skin.HasSetting(SkinHelper.ForcedViews.Enabled)">Conditional</animation>
-            <label>31491</label>
-            <label2>$INFO[Skin.String(SkinHelper.ForcedViews.seasons.label)]$INFO[Skin.String(SkinHelper.ForcedViews.seasons), (,)]</label2>
-        </control>
-        <control type="button" id="6013">
-            <include>SkinSettings_Button</include>
-            <onclick>RunScript(script.skin.helper.service,action=SETFORCEDVIEW,contenttype=episodes)</onclick>
-            <animation effect="fade" start="100" end="40" time="0" condition="!Skin.HasSetting(SkinHelper.ForcedViews.Enabled)">Conditional</animation>
-            <label>31492</label>
-            <label2>$INFO[Skin.String(SkinHelper.ForcedViews.episodes.label)]$INFO[Skin.String(SkinHelper.ForcedViews.episodes), (,)]</label2>
-        </control>
-        <control type="button" id="6014">
-            <include>SkinSettings_Button</include>
-            <onclick>RunScript(script.skin.helper.service,action=SETFORCEDVIEW,contenttype=sets)</onclick>
-            <animation effect="fade" start="100" end="40" time="0" condition="!Skin.HasSetting(SkinHelper.ForcedViews.Enabled)">Conditional</animation>
-            <label>31502</label>
-            <label2>$INFO[Skin.String(SkinHelper.ForcedViews.sets.label)]$INFO[Skin.String(SkinHelper.ForcedViews.sets), (,)]</label2>
-        </control>
-        <control type="button" id="6015">
-            <include>SkinSettings_Button</include>
-            <onclick>RunScript(script.skin.helper.service,action=SETFORCEDVIEW,contenttype=setmovies)</onclick>
-            <animation effect="fade" start="100" end="40" time="0" condition="!Skin.HasSetting(SkinHelper.ForcedViews.Enabled)">Conditional</animation>
-            <label>31503</label>
-            <label2>$INFO[Skin.String(SkinHelper.ForcedViews.setmovies.label)]$INFO[Skin.String(SkinHelper.ForcedViews.setmovies), (,)]</label2>
-        </control>
-        <control type="button" id="6016">
-            <include>SkinSettings_Button</include>
-            <onclick>RunScript(script.skin.helper.service,action=SETFORCEDVIEW,contenttype=tvchannels)</onclick>
-            <animation effect="fade" start="100" end="40" time="0" condition="!Skin.HasSetting(SkinHelper.ForcedViews.Enabled)">Conditional</animation>
-            <label>31581</label>
-            <label2>$INFO[Skin.String(SkinHelper.ForcedViews.tvchannels.label)]$INFO[Skin.String(SkinHelper.ForcedViews.tvchannels), (,)]</label2>
-        </control>
-        <control type="button" id="6017">
-            <include>SkinSettings_Button</include>
-            <onclick>RunScript(script.skin.helper.service,action=SETFORCEDVIEW,contenttype=tvrecordings)</onclick>
-            <animation effect="fade" start="100" end="40" time="0" condition="!Skin.HasSetting(SkinHelper.ForcedViews.Enabled)">Conditional</animation>
-            <label>31582</label>
-            <label2>$INFO[Skin.String(SkinHelper.ForcedViews.tvrecordings.label)]$INFO[Skin.String(SkinHelper.ForcedViews.tvrecordings), (,)]</label2>
-        </control>
-        <control type="button" id="6018">
-            <include>SkinSettings_Button</include>
-            <onclick>RunScript(script.skin.helper.service,action=SETFORCEDVIEW,contenttype=addons)</onclick>
-            <animation effect="fade" start="100" end="40" time="0" condition="!Skin.HasSetting(SkinHelper.ForcedViews.Enabled)">Conditional</animation>
-            <label>31583</label>
-            <label2>$INFO[Skin.String(SkinHelper.ForcedViews.addons.label)]$INFO[Skin.String(SkinHelper.ForcedViews.addons), (,)]</label2>
-        </control>
-        <control type="button" id="6019">
-            <include>SkinSettings_Button</include>
-            <onclick>RunScript(script.skin.helper.service,action=SETFORCEDVIEW,contenttype=files)</onclick>
-            <animation effect="fade" start="100" end="40" time="0" condition="!Skin.HasSetting(SkinHelper.ForcedViews.Enabled)">Conditional</animation>
-            <label>31584</label>
-            <label2>$INFO[Skin.String(SkinHelper.ForcedViews.files.label)]$INFO[Skin.String(SkinHelper.ForcedViews.files), (,)]</label2>
-        </control>
-        <control type="button" id="6020">
-            <include>SkinSettings_Button</include>
-            <onclick>RunScript(script.skin.helper.service,action=SETFORCEDVIEW,contenttype=artists)</onclick>
-            <animation effect="fade" start="100" end="40" time="0" condition="!Skin.HasSetting(SkinHelper.ForcedViews.Enabled)">Conditional</animation>
-            <label>31585</label>
-            <label2>$INFO[Skin.String(SkinHelper.ForcedViews.artists.label)]$INFO[Skin.String(SkinHelper.ForcedViews.artists), (,)]</label2>
-        </control>
-        <control type="button" id="6021">
-            <include>SkinSettings_Button</include>
-            <onclick>RunScript(script.skin.helper.service,action=SETFORCEDVIEW,contenttype=albums)</onclick>
-            <animation effect="fade" start="100" end="40" time="0" condition="!Skin.HasSetting(SkinHelper.ForcedViews.Enabled)">Conditional</animation>
-            <label>31586</label>
-            <label2>$INFO[Skin.String(SkinHelper.ForcedViews.albums.label)]$INFO[Skin.String(SkinHelper.ForcedViews.albums), (,)]</label2>
-        </control>
-        <control type="button" id="6022">
-            <include>SkinSettings_Button</include>
-            <onclick>RunScript(script.skin.helper.service,action=SETFORCEDVIEW,contenttype=songs)</onclick>
-            <animation effect="fade" start="100" end="40" time="0" condition="!Skin.HasSetting(SkinHelper.ForcedViews.Enabled)">Conditional</animation>
-            <label>31587</label>
-            <label2>$INFO[Skin.String(SkinHelper.ForcedViews.songs.label)]$INFO[Skin.String(SkinHelper.ForcedViews.songs), (,)]</label2>
-        </control>
-        <control type="button" id="6023">
-            <include>SkinSettings_Button</include>
-            <onclick>RunScript(script.skin.helper.service,action=SETFORCEDVIEW,contenttype=pictures)</onclick>
-            <animation effect="fade" start="100" end="40" time="0" condition="!Skin.HasSetting(SkinHelper.ForcedViews.Enabled)">Conditional</animation>
-            <label>31588</label>
-            <label2>$INFO[Skin.String(SkinHelper.ForcedViews.pictures.label)]$INFO[Skin.String(SkinHelper.ForcedViews.pictures), (,)]</label2>
-        </control>
-    </include>
-
-
     <!-- PVR Tab -->
     <!-- PVR Settings -->
     <include name="PVR_Settings">
@@ -2357,19 +2182,21 @@
             <label>478</label>
             <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
         </control>
+        <control type="radiobutton" id="13061">
+            <include>SkinSettings_Button</include>
+            <label>31017</label>
+            <onclick condition="!Skin.HasSetting(UseBingieOSD)">Skin.SetBool(AutoCloseVideoOSD)</onclick>
+            <onclick>Skin.ToggleSetting(UseBingieOSD)</onclick>
+            <onclick condition="Skin.HasSetting(UseSlimOSDPanel)">Skin.ToggleSetting(UseSlimOSDPanel)</onclick>
+            <selected>Skin.HasSetting(UseBingieOSD)</selected>
+            <visible>!Skin.HasTheme(classic)</visible>
+        </control>
         <control type="radiobutton" id="13060">
             <include>SkinSettings_Button</include>
             <label>31476</label>
             <onclick>Skin.ToggleSetting(UseSlimOSDPanel)</onclick>
             <selected>Skin.HasSetting(UseSlimOSDPanel)</selected>
-            <visible>!Skin.HasTheme(classic) + !Skin.HasSetting(UseBingieOSDPanel)</visible>
-        </control>
-        <control type="radiobutton" id="14273">
-            <include>SkinSettings_Button</include>
-            <label>31917</label>
-            <onclick>Skin.ToggleSetting(UseBingieOSDPanel)</onclick>
-            <selected>Skin.HasSetting(UseBingieOSDPanel)</selected>
-            <visible>!Skin.HasTheme(classic) + !Skin.HasSetting(UseSlimOSDPanel)</visible>
+            <visible>!Skin.HasTheme(classic) + !Skin.HasSetting(UseBingieOSD)</visible>
         </control>
         <control type="button" id="31698">
             <include>SkinSettings_Button</include>
@@ -2378,19 +2205,19 @@
             <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=osd_buttonstyle,header=$LOCALIZE[31698])</onclick>
             <visible>!Skin.HasTheme(classic)</visible>
         </control>
-        <!-- hide discart from osd - note: slim osd only has discart at music playback-->
-        <control type="radiobutton" id="13062">
+        <control type="button" id="31699">
             <include>SkinSettings_Button</include>
-            <label>31519</label>
-            <onclick>Skin.ToggleSetting(HideOSDDisc)</onclick>
-            <selected>Skin.HasSetting(HideOSDDisc)</selected>
+            <label>31020</label>
+            <onclick>Skin.ToggleSetting(EnableLargeOSDButtons)</onclick>
+            <selected>Skin.HasSetting(EnableLargeOSDButtons)</selected>
+            <visible>!Skin.HasTheme(classic) + !Skin.HasSetting(UseBingieOSD)</visible>
         </control>
         <control type="radiobutton" id="13065">
             <include>SkinSettings_Button</include>
             <label>31661</label>
             <onclick>Skin.ToggleSetting(osdgradientstyle)</onclick>
             <selected>Skin.HasSetting(osdgradientstyle)</selected>
-            <visible>!Skin.HasTheme(classic) + !Skin.HasSetting(UseBingieOSDPanel)</visible>
+            <visible>!Skin.HasTheme(classic) + !Skin.HasSetting(UseBingieOSD)</visible>
         </control>
         <!-- Volume Indicator Style -->
         <control type="button" id="31809">
@@ -2410,93 +2237,70 @@
             <label>31918</label>
             <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
         </control>
-        <control type="radiobutton" id="13052">
-            <description>enable info on osd</description>
-            <include>SkinSettings_Button</include>
-            <label>31133</label>
-            <onclick>Skin.ToggleSetting(EnableOSDInfo)</onclick>
-            <selected>Skin.HasSetting(EnableOSDInfo)</selected>
-        </control>
         <control type="radiobutton" id="45920">
             <description>enable bingieinfo on osd</description>
-            <textoffsetx>100</textoffsetx>
             <include>SkinSettings_Button</include>
             <label>31919</label>
             <onclick>Skin.ToggleSetting(EnableOSDInfoBingie)</onclick>
             <selected>Skin.HasSetting(EnableOSDInfoBingie)</selected>
-            <visible>Skin.HasSetting(EnableOSDInfo) + !Skin.HasSetting(EnableOSDInfoLarge)</visible>
+            <visible>!Skin.HasSetting(EnableOSDInfoLarge) + !Skin.HasSetting(UseBingieOSD)</visible>
         </control>
         <control type="radiobutton" id="31701">
             <description>enable large info on osd</description>
-            <textoffsetx>100</textoffsetx>
             <include>SkinSettings_Button</include>
             <label>31701</label>
             <onclick>Skin.ToggleSetting(EnableOSDInfoLarge)</onclick>
             <selected>Skin.HasSetting(EnableOSDInfoLarge)</selected>
-            <visible>Skin.HasSetting(EnableOSDInfo) + !Skin.HasSetting(EnableOSDInfoBingie)</visible>
+            <visible>!Skin.HasSetting(EnableOSDInfoBingie) + !Skin.HasSetting(UseBingieOSD)</visible>
         </control>
         <control type="radiobutton" id="31748">
             <description>enable mediaglags on plot panel</description>
-            <textoffsetx>100</textoffsetx>
             <include>SkinSettings_Button</include>
             <label>31748</label>
             <onclick>Skin.ToggleSetting(EnableOSDInfoMediaFlags)</onclick>
             <selected>Skin.HasSetting(EnableOSDInfoMediaFlags)</selected>
-            <visible>Skin.HasSetting(EnableOSDInfo) + ![Skin.HasSetting(EnableOSDInfoLarge) | Skin.HasSetting(EnableOSDInfoBingie)]</visible>
+            <visible>!Skin.HasSetting(EnableOSDInfoLarge) + !Skin.HasSetting(EnableOSDInfoBingie) + !Skin.HasSetting(UseBingieOSD)</visible>
         </control>
-        <control type="button" id="13054">
+        <control type="radiobutton" id="31733">
             <include>SkinSettings_Button</include>
-            <label>31230</label>
-            <label2>$INFO[Skin.String(SkinHelper.ShowInfoAtPlaybackStart)] $LOCALIZE[31231]</label2>
-            <visible>!Skin.HasSetting(LowPerformanceMode)</visible>
-            <onclick>Skin.SetNumeric(SkinHelper.ShowInfoAtPlaybackStart)</onclick>
+            <label>31733</label>
+            <onclick>Skin.ToggleSetting(OSDShowClearArt)</onclick>
+            <selected>Skin.HasSetting(OSDShowClearArt)</selected>
+            <visible>!Skin.HasSetting(UseBingieOSD)</visible>
+        </control>
+        <!-- hide discart on supported osd -->
+        <control type="radiobutton" id="13062">
+            <include>SkinSettings_Button</include>
+            <label>31519</label>
+            <onclick>Skin.ToggleSetting(HideOSDDisc)</onclick>
+            <selected>Skin.HasSetting(HideOSDDisc)</selected>
+        </control>
+        <control type="radiobutton" id="31737">
+            <include>SkinSettings_Button</include>
+            <label>31028</label>
+            <onclick>Skin.ToggleSetting(DisableJumpIndicator)</onclick>
+            <selected>Skin.HasSetting(DisableJumpIndicator)</selected>
+            <visible>Skin.HasSetting(UseBingieOSD)</visible>
+        </control>
+        <control type="radiobutton" id="31739">
+            <include>SkinSettings_Button</include>
+            <label>31063</label>
+            <onclick>Skin.ToggleSetting(UseMidscreenJumpIndicator)</onclick>
+            <selected>Skin.HasSetting(UseMidscreenJumpIndicator)</selected>
+            <visible>Skin.HasSetting(UseBingieOSD) + !Skin.HasSetting(DisableJumpIndicator)</visible>
+        </control>
+        <control type="radiobutton" id="31795">
+            <include>SkinSettings_Button</include>
+            <label>31795</label>
+            <onclick>Skin.ToggleSetting(SeekPanelOnPauseAndSeek)</onclick>
+            <selected>Skin.HasSetting(SeekPanelOnPauseAndSeek)</selected>
+            <visible>![Skin.HasSetting(UseBingieOSD) + !Skin.HasSetting(DisableJumpIndicator)]</visible>
         </control>
         <control type="radiobutton" id="13058">
             <include>SkinSettings_Button</include>
             <label>31259</label>
             <onclick>Skin.ToggleSetting(OSDShowInfoOnPause)</onclick>
             <selected>Skin.HasSetting(OSDShowInfoOnPause)</selected>
-        </control>
-        <control type="radiobutton" id="31795">
-            <include>SkinSettings_Button</include>
-            <label>31795</label>
-            <onclick>Skin.ToggleSetting(SeekPanelOnPause)</onclick>
-            <selected>Skin.HasSetting(SeekPanelOnPause)</selected>
-            <visible>!Skin.HasSetting(OSDShowInfoOnPause)</visible>
-        </control>
-        <!--clearlogo on osd -->
-        <control type="radiobutton" id="36539">
-            <include>SkinSettings_Button</include>
-            <label>31920</label>
-            <onclick>Skin.ToggleSetting(OSDShowClearLogo)</onclick>
-            <selected>Skin.HasSetting(OSDShowClearLogo)</selected>
-            <visible>Skin.HasSetting(UseBingieOSDPanel)</visible>
-        </control>
-        <!--clearart on osd -->
-        <control type="radiobutton" id="31733">
-            <include>SkinSettings_Button</include>
-            <label>31733</label>
-            <onclick>Skin.ToggleSetting(OSDShowClearArt)</onclick>
-            <selected>Skin.HasSetting(OSDShowClearArt)</selected>
-        </control>
-    </include>
-
-    <!-- OSD Up Next Settings -->
-    <include name="OSD_Up_Next_Settings">
-        <!-- Up Next Addon Header -->
-        <control type="label" id="31680">
-            <include>SkinSettings_Header</include>
-            <label>31921</label>
-            <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
-            <visible>System.HasAddon(service.upnext)</visible>
-        </control>
-        <!-- switch upnext notification to just buttons -->
-        <control type="radiobutton" id="41820">
-            <include>SkinSettings_Button</include>
-            <label>31922</label>
-            <onclick>Skin.ToggleSetting(NextUpNotificationSlim)</onclick>
-            <selected>Skin.HasSetting(NextUpNotificationSlim)</selected>
-            <visible>System.HasAddon(service.upnext)</visible>
         </control>
     </include>
 
@@ -2522,18 +2326,31 @@
             <label2>$INFO[Skin.String(defaultosdbutton_livetv.label)]</label2>
             <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=defaultosdbutton_livetv,header=$LOCALIZE[31663])</onclick>
         </control>
+        <include content="SkinSettings_ActionButton">
+            <param name="id" value="46658" />
+            <param name="label" value="$LOCALIZE[31060]" />
+            <param name="action" value="RunScript(script.skin.helper.service,action=setskinsetting,setting=bingie_videoosd_buttons,header=$LOCALIZE[31060])" />
+            <param name="visible" value="Skin.HasSetting(UseBingieOSD)" />
+        </include>
+        <control type="radiobutton" id="31823">
+            <include>SkinSettings_Button</include>
+            <label>31072</label>
+            <onclick>Skin.ToggleSetting(AutoCloseVideoOSD)</onclick>
+            <selected>Skin.HasSetting(AutoCloseVideoOSD)</selected>
+        </control>
+        <control type="radiobutton" id="31822">
+            <include>SkinSettings_Button</include>
+            <label>31024</label>
+            <onclick>Skin.ToggleSetting(ForceVideoPlaybackStop)</onclick>
+            <selected>Skin.HasSetting(ForceVideoPlaybackStop)</selected>
+        </control>
         <!-- hide playback controls -->
         <control type="radiobutton" id="31819">
             <include>SkinSettings_Button</include>
             <label>31819</label>
             <onclick>Skin.ToggleSetting(OSDDisablePlaybackControls)</onclick>
             <selected>Skin.HasSetting(OSDDisablePlaybackControls)</selected>
-        </control>
-        <control type="button" id="13063">
-            <include>SkinSettings_Button</include>
-            <label>31629</label>
-            <label2>$INFO[Skin.String(SkinHelper.AutoCloseVideoOSD)] $LOCALIZE[31231]</label2>
-            <onclick>Skin.SetNumeric(SkinHelper.AutoCloseVideoOSD)</onclick>
+            <visible>!Skin.HasSetting(UseBingieOSD)</visible>
         </control>
         <control type="radiobutton" id="13067">
             <include>SkinSettings_Button</include>
@@ -2547,6 +2364,7 @@
             <label>31256</label>
             <onclick>Skin.ToggleSetting(OSDLargeSeekingLabel)</onclick>
             <selected>Skin.HasSetting(OSDLargeSeekingLabel)</selected>
+            <visible>!Skin.HasSetting(UseBingieOSD)</visible>
         </control>
         <!-- style for codec info -->
         <control type="button" id="13064">
@@ -2555,6 +2373,7 @@
             <label2>$INFO[Skin.String(osdmediaflagsstyle.label)]</label2>
             <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=osdmediaflagsstyle,header=$LOCALIZE[31632])</onclick>
             <visible>!Skin.HasTheme(classic)</visible>
+            <visible>!Skin.HasSetting(UseBingieOSD)</visible>
         </control>
         <control type="radiobutton" id="13059">
             <include>SkinSettings_Button</include>
@@ -2563,17 +2382,24 @@
             <selected>Skin.HasSetting(ShowWeatherVideoInfoOSD)</selected>
             <visible>!Skin.HasTheme(classic)</visible>
         </control>
-        <control type="radiobutton" id="13061">
-            <include>SkinSettings_Button</include>
-            <label>31923</label>
-            <onclick>Skin.ToggleSetting(DisableSubtitleMenu)</onclick>
-            <selected>Skin.HasSetting(DisableSubtitleMenu)</selected>
+    </include>
+
+    <!-- OSD Up Next Settings -->
+    <include name="OSD_Up_Next_Settings">
+        <!-- Up Next Addon Header -->
+        <control type="label" id="31680">
+            <include>SkinSettings_Header</include>
+            <label>31921</label>
+            <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
+            <visible>System.HasAddon(service.upnext)</visible>
         </control>
-        <control type="radiobutton" id="8012">
+        <!-- switch upnext notification to just buttons -->
+        <control type="radiobutton" id="41820">
             <include>SkinSettings_Button</include>
-            <label>31244</label>
-            <onclick>Skin.ToggleSetting(DisableSubtitles)</onclick>
-            <selected>Skin.HasSetting(DisableSubtitles)</selected>
+            <label>31922</label>
+            <onclick>Skin.ToggleSetting(NextUpNotificationSlim)</onclick>
+            <selected>Skin.HasSetting(NextUpNotificationSlim)</selected>
+            <visible>System.HasAddon(service.upnext)</visible>
         </control>
     </include>
 
@@ -3057,6 +2883,13 @@
             <label>31005</label>
             <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
         </control>
+        <control type="radiobutton" id="5159">
+            <description>Kiosk mode</description>
+            <include>SkinSettings_Button</include>
+            <label>31318</label>
+            <onclick>Skin.ToggleSetting(KioskMode.Enabled)</onclick>
+            <selected>Skin.HasSetting(KioskMode.Enabled)</selected>
+        </control>
         <control type="radiobutton" id="5147">
             <include>SkinSettings_Button</include>
             <label>31209</label>
@@ -3077,13 +2910,6 @@
             <onclick>Skin.ToggleSetting(HideBatteryStatus)</onclick>
             <selected>Skin.HasSetting(HideBatteryStatus)</selected>
             <visible>Skin.HasSetting(EnableTouchSupport) + ![String.IsEqual(Skin.String(HomeLayout),simplever) | String.IsEqual(Skin.String(HomeLayout),simplever_tiles) | Skin.HasSetting(CompactHeader)]</visible>
-        </control>
-        <control type="radiobutton" id="5159">
-            <description>Kiosk mode</description>
-            <include>SkinSettings_Button</include>
-            <label>31318</label>
-            <onclick>Skin.ToggleSetting(KioskMode.Enabled)</onclick>
-            <selected>Skin.HasSetting(KioskMode.Enabled)</selected>
         </control>
         <control type="radiobutton" id="5162">
             <description>show scrollbars</description>
@@ -3172,6 +2998,14 @@
             <selected>Skin.HasSetting(EnableBingieSearchMusicVideos)</selected>
             <visible>!Skin.HasSetting(UseGlobalSearch)</visible>
         </control>
+        <control type="radiobutton" id="32110">
+            <description>enable search results for addons</description>
+            <include>SkinSettings_Button</include>
+            <label>31026</label>
+            <onclick>Skin.ToggleSetting(EnableBingieSearchAddons)</onclick>
+            <selected>Skin.HasSetting(EnableBingieSearchAddons)</selected>
+            <visible>!Skin.HasSetting(UseGlobalSearch)</visible>
+        </control>
         <control type="radiobutton" id="32107">
             <description>enable search results from youtube</description>
             <include>SkinSettings_Button</include>
@@ -3188,6 +3022,14 @@
             <include>SkinSettings_Header</include>
             <label>31849</label>
             <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
+        </control>
+        <control type="radiobutton" id="31751">
+            <include>SkinSettings_Button</include>
+            <label>31068</label>
+            <onclick condition="!Skin.HasSetting(AllowPVRPreview)">RunScript(script.skin.helper.service,action=setkodisetting,setting=pvrplayback.switchtofullscreen,value=false)</onclick>
+            <onclick>Skin.ToggleSetting(PVRPreview)</onclick>
+            <selected>Skin.HasSetting(PVRPreview)</selected>
+            <visible>PVR.HasTVChannels</visible>
         </control>
         <!-- allow youtube lookup -->
         <control type="radiobutton" id="31796">
@@ -3739,6 +3581,7 @@
             <onclick>Skin.Reset(SkinHelper.EnableExtraFanart)</onclick>
             <onclick>Skin.SetString(SkinHelper.ShowInfoAtPlaybackStart,0)</onclick>
             <selected>Skin.HasSetting(LowPerformanceMode)</selected>
+            <visible>!String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
         </control>
         <control type="radiobutton" id="31724">
             <description>Do Not Display Hour Representation of the Duration</description>

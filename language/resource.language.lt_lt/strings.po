@@ -56,53 +56,13 @@ msgctxt "#31016"
 msgid "--- Use own image for tile"
 msgstr "--- Naudoti savą atvaizdą plytelei"
 
-msgctxt "#31017"
-msgid "--- Open TV Guide instead of Live TV"
-msgstr "--- Atidaryti TV gidą, o ne televizijos ekraną"
-
-msgctxt "#31018"
-msgid "Netflix"
-msgstr "Netflix"
-
 msgctxt "#31019"
 msgid "--- Open folderpath with music instead of library"
 msgstr "--- Atidaryti muzikos kelio aplanką, vietoje bibliotekos"
 
-msgctxt "#31020"
-msgid "Open folderpath with radio streams instead of PVR for Radio"
-msgstr "Atidaryti radijo transliacijos srautų aplanko kelią, vietoje radijo PVR"
-
-msgctxt "#31021"
-msgid "--- Display temperature in tile"
-msgstr "--- Rodyti temperatūrą plytelėje"
-
 msgctxt "#31022"
 msgid "Background settings"
 msgstr "Fono nustatymai"
-
-msgctxt "#31023"
-msgid "Use default skin background"
-msgstr "Naudoti numatytąjį teminės išvaizdos foną"
-
-msgctxt "#31024"
-msgid "Use original Mediaportal's Titan skin background"
-msgstr "Naudoti originalųjį Mediaportal programos Titan teminės išvaizdos foną"
-
-msgctxt "#31025"
-msgid "Use dynamic weather background"
-msgstr "Naudoti dinaminį orų foną"
-
-msgctxt "#31026"
-msgid "Use random fanart background"
-msgstr "Naudoti atsitiktinį fanart foną"
-
-msgctxt "#31027"
-msgid "Use default background for this section"
-msgstr "Naudoti numatytąjį foną šiam skyriui"
-
-msgctxt "#31028"
-msgid "Other skin tweaks"
-msgstr "Kiti teminės išvaizdos patobulinimai"
 
 msgctxt "#31029"
 msgid "Do not show footer bar"
@@ -168,69 +128,13 @@ msgctxt "#31058"
 msgid "Logo"
 msgstr "Logotipas"
 
-msgctxt "#31059"
-msgid "Caps"
-msgstr "Didžiosios"
-
-msgctxt "#31060"
-msgid "Kodi SUBTITLES"
-msgstr "Kodi SUBTITRAI"
-
-msgctxt "#31061"
-msgid "Press Back or OK to exit"
-msgstr "Paspauskite 'Atgal' arba 'OK', norėdami išeiti"
-
 msgctxt "#31062"
 msgid "YouTube"
 msgstr "YouTube"
 
-msgctxt "#31063"
-msgid "Toggle icon layout"
-msgstr "Perjungti piktogramų išdėstymą"
-
-msgctxt "#31064"
-msgid "Wide Icons"
-msgstr "Plačios piktogramos"
-
-msgctxt "#31065"
-msgid "Wide Icons MediaInfo"
-msgstr "Plačių piktogramų media informacija"
-
-msgctxt "#31066"
-msgid "Poster"
-msgstr "Plakatas"
-
-msgctxt "#31067"
-msgid "Poster MediaInfo"
-msgstr "Plakato media informacija"
-
-msgctxt "#31068"
-msgid "Showcase"
-msgstr "Vitrina"
-
-msgctxt "#31069"
-msgid "Showcase MediaInfo"
-msgstr "Vitrinos media informacija"
-
-msgctxt "#31070"
-msgid "Banner list"
-msgstr "Reklamjuosčių sąrašas"
-
 msgctxt "#31071"
 msgid "Setting level"
 msgstr "Nustatymų lygis"
-
-msgctxt "#31072"
-msgid "Sort Home tiles"
-msgstr "Rūšiuoti pradinio ekrano plyteles"
-
-msgctxt "#31073"
-msgid "Sort the home menu tiles"
-msgstr "Rūšiuoti pagrindinio meniu plyteles"
-
-msgctxt "#31074"
-msgid "Arrange the homescreen tiles just the way you want it. [CR]Usage select a direction below and click on the tile's title (in the list on the right) to move it's position. [CR]Because settings are applied on the fly the screen may blink for one second."
-msgstr "Išdėstyti pradinio ekrano plyteles taip kaip norite.[CR]Pasirinkite kryptį žemiau ir paspauskite ant plytelės pavadinimo (sąraše dešinėje), norėdami pakeisti jos poziciją.[CR]Kadangi nustatymai pritaikomi nedelsiant, ekranas gali mirktelėti vienai sekundei."
 
 msgctxt "#31077"
 msgid "DOWN"
@@ -689,7 +593,7 @@ msgid "Disable splash screen (not recommended for slow systems)"
 msgstr "Išjungti prisistatymo ekraną (nerekomenduojama lėtoms sistemoms)"
 
 msgctxt "#31212"
-msgid "Next episode"
+msgid "Next Episode in"
 msgstr "Kitas epizodas"
 
 msgctxt "#31213"
@@ -1713,7 +1617,7 @@ msgid "Enable smart shortcuts for the Netflix addon"
 msgstr "Įjungti išmaniąsias nuorodas Netflix priedui"
 
 msgctxt "#31534"
-msgid "My list"
+msgid "My List"
 msgstr "Mano sąrašas"
 
 msgctxt "#31535"

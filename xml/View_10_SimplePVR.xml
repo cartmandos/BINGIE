@@ -11,7 +11,7 @@
 				<!-- Background Panel TOP-->
 				<control type="image">
 					<posx>50</posx>
-					<posy>170</posy>
+					<posy>70</posy>
 					<width>1820</width>
 					<height>240</height>
 					<texture border="15">diffuse/bgpanel.png</texture>
@@ -21,7 +21,7 @@
 				<!-- Background Panel BOTTOM-->
 				<control type="image">
 					<posx>50</posx>
-					<posy>430</posy>
+					<posy>330</posy>
 					<width>1820</width>
 					<height>510</height>
 					<texture border="15">diffuse/bgpanel.png</texture>
@@ -31,7 +31,7 @@
 				<!-- Background Panel TITLEBAR-->
 				<control type="image">
 					<posx>50</posx>
-					<posy>430</posy>
+					<posy>330</posy>
 					<width>1820</width>
 					<height>60</height>
 					<texture border="15">diffuse/bgpanel.png</texture>
@@ -39,7 +39,7 @@
 				</control>
                 <control type="image">
 					<posx>50</posx>
-					<posy>430</posy>
+					<posy>330</posy>
 					<width>1820</width>
 					<height>60</height>
 					<texture border="15">diffuse/bgpanel.png</texture>
@@ -50,7 +50,7 @@
             <control type="group">
                 <visible>!String.IsEmpty(ListItem.Date)</visible>
                 <posx>80</posx>
-                <posy>190</posy>
+                <posy>90</posy>
                 <control type="image">
                     <!--Background-->
                     <posx>0</posx>
@@ -82,18 +82,18 @@
             <control type="label">
                 <!--Title-->
                 <posx>450</posx>
-                <posy>190</posy>
+                <posy>90</posy>
                 <width>650</width>
                 <height>50</height>
-                <font>Bold38</font>
-                <textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
-                <shadowcolor>$INFO[Skin.String(ViewDetailsHighlightTextShadowColor)]</shadowcolor>
+                <font>Bold40</font>
+                <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
                 <label>$VAR[ListTitlePVR]</label>
             </control>
             <control type="grouplist">
                 <!--Start, End, Duration-->
                 <posx>450</posx>
-                <posy>245</posy>
+                <posy>145</posy>
                 <control type="group">
                     <!-- Ground 1 -->
                     <height>40</height>
@@ -183,7 +183,7 @@
             <control type="textbox">
                 <!--Info Plot-->
                 <posx>1150</posx>
-                <posy>190</posy>
+                <posy>100</posy>
                 <width>650</width>
                 <height>198</height>
                 <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
@@ -193,7 +193,7 @@
             <control type="group">
                 <!--Top Bar-->
                 <posx>70</posx>
-                <posy>413</posy>
+                <posy>313</posy>
                 <control type="label">
                     <!--Channel Name-->
                     <posx>155</posx>
@@ -232,12 +232,14 @@
             <control type="list" id="10">
                 <!--List ID=14-->
 				<viewtype label="31567">list</viewtype>
+                <include content="View_Forced">
+                    <param name="viewtype" value="$LOCALIZE[31567]" />
+                </include>
                 <visible>[Window.IsActive(tvchannels) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch) | Window.IsActive(tvrecordings)]</visible>
-                <visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),10) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
                 <posx>70</posx>
-                <posy>510</posy>
+                <posy>410</posy>
                 <width>1780</width>
-                <height>400</height>
+                <height>500</height>
                 <onup>10</onup>
                 <ondown>10</ondown>
                 <onleft>9000</onleft>
@@ -397,7 +399,7 @@
             <control type="scrollbar" id="60">
                 <visible>Control.IsVisible(10) + Integer.IsGreater(Container.NumItems,0)</visible>
                 <right>15</right>
-                <posy>540</posy>
+                <posy>440</posy>
                 <height>400</height>
                 <onup>60</onup>
                 <ondown>6000</ondown>

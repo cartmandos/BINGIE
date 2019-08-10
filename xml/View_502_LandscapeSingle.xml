@@ -42,12 +42,14 @@
 				<onright>502</onright>
 				<pagecontrol>60</pagecontrol>
 				<viewtype label="31431">thumbnail</viewtype>
+				<include content="View_Forced">
+					<param name="viewtype" value="$LOCALIZE[31431]" />
+				</include>
 				<orientation>horizontal</orientation>
 				<focusposition>1</focusposition>
 				<preloaditems>4</preloaditems>
 				<scrolltime tween="cubic" easing="inout">500</scrolltime>
-				<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),502) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
-				<visible>!Container.Content(files)</visible>	
+				<visible>!Container.Content(files)</visible>
 				<itemlayout width="620" height="325" condition="![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
 					<control type="group">
                         <width>565</width>

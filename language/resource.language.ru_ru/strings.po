@@ -56,53 +56,13 @@ msgctxt "#31016"
 msgid "--- Use own image for tile"
 msgstr "--- Своё изображение для плитки"
 
-msgctxt "#31017"
-msgid "--- Open TV Guide instead of Live TV"
-msgstr "Открыть TV Guide вместо Live TV"
-
-msgctxt "#31018"
-msgid "Netflix"
-msgstr "Netflix"
-
 msgctxt "#31019"
 msgid "--- Open folderpath with music instead of library"
 msgstr "--- Открывать  расположение с музыкой вместо библиотеки"
 
-msgctxt "#31020"
-msgid "Open folderpath with radio streams instead of PVR for Radio"
-msgstr "Открывать  расположение с радио потоками вместо PVR-сервиса радио"
-
-msgctxt "#31021"
-msgid "--- Display temperature in tile"
-msgstr "--- Отображать температуру на плитке"
-
 msgctxt "#31022"
 msgid "Background settings"
 msgstr "Настройки фона"
-
-msgctxt "#31023"
-msgid "Use default skin background"
-msgstr "Использовать тему фона по умолчанию"
-
-msgctxt "#31024"
-msgid "Use original Mediaportal's Titan skin background"
-msgstr "Использовать оригинальную тему фона Titan"
-
-msgctxt "#31025"
-msgid "Use dynamic weather background"
-msgstr "Использовать динамический погодный фон"
-
-msgctxt "#31026"
-msgid "Use random fanart background"
-msgstr "Использовать случайный фан-арт фон"
-
-msgctxt "#31027"
-msgid "Use default background for this section"
-msgstr "Использовать фон по умолчанию для раздела "
-
-msgctxt "#31028"
-msgid "Other skin tweaks"
-msgstr "Прочие настройки обложки"
 
 msgctxt "#31029"
 msgid "Do not show footer bar"
@@ -164,65 +124,13 @@ msgctxt "#31058"
 msgid "Logo"
 msgstr "Лого"
 
-msgctxt "#31059"
-msgid "Caps"
-msgstr "Caps"
-
-msgctxt "#31060"
-msgid "Kodi SUBTITLES"
-msgstr "СУБТИТРЫ Kodi"
-
-msgctxt "#31061"
-msgid "Press Back or OK to exit"
-msgstr "Нажмите Назад или ОК для выхода"
-
 msgctxt "#31062"
 msgid "YouTube"
 msgstr "YouTube"
 
-msgctxt "#31063"
-msgid "Toggle icon layout"
-msgstr "Сменить макет значков"
-
-msgctxt "#31064"
-msgid "Wide Icons"
-msgstr "Широкие иконки"
-
-msgctxt "#31065"
-msgid "Wide Icons MediaInfo"
-msgstr "Широкие иконки MediaInfo"
-
-msgctxt "#31066"
-msgid "Poster"
-msgstr "Постер"
-
-msgctxt "#31067"
-msgid "Poster MediaInfo"
-msgstr "Постер MediaInfo"
-
-msgctxt "#31068"
-msgid "Showcase"
-msgstr "Витрина"
-
-msgctxt "#31069"
-msgid "Showcase MediaInfo"
-msgstr "Витрина MediaInfo"
-
-msgctxt "#31070"
-msgid "Banner list"
-msgstr "Список баннеров"
-
 msgctxt "#31071"
 msgid "Setting level"
 msgstr "Уровень доступа к настройкам"
-
-msgctxt "#31072"
-msgid "Sort Home tiles"
-msgstr "Сортировка плиток"
-
-msgctxt "#31073"
-msgid "Sort the home menu tiles"
-msgstr "Сортировка плиток меню"
 
 msgctxt "#31077"
 msgid "DOWN"
@@ -649,7 +557,7 @@ msgid "Disable splash screen (not recommended for slow systems)"
 msgstr "Отключить заставку при запуске (не рекомендуется для слабых систем)"
 
 msgctxt "#31212"
-msgid "Next episode"
+msgid "Next Episode in"
 msgstr "Следующая серия"
 
 msgctxt "#31213"
@@ -1633,7 +1541,7 @@ msgid "Enable smart shortcuts for the Netflix addon"
 msgstr "Включить смарт-кнопки для Netflix"
 
 msgctxt "#31534"
-msgid "My list"
+msgid "My List"
 msgstr "Мой список"
 
 msgctxt "#31535"

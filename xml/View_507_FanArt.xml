@@ -33,12 +33,14 @@
                 <onleft>507</onleft>
                 <onright>507</onright>
                 <viewtype label="31434">fanart</viewtype>
+				<include content="View_Forced">
+					<param name="viewtype" value="$LOCALIZE[31434]" />
+				</include>
                 <scrolltime tween="Cubic" easing="inout">500</scrolltime>
                 <focusposition>0</focusposition>
                 <orientation>horizontal</orientation>
                 <preloaditems>2</preloaditems>
-				<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),507) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
-                <itemlayout height="2500" width="1920">
+				<itemlayout height="2500" width="1920">
                 </itemlayout>
                 <focusedlayout height="2500" width="1920">
                 </focusedlayout>

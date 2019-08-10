@@ -44,6 +44,18 @@
         </control>
     </include>
 
+    <include name="Dim_Overlay">
+        <control type="group">
+            <control type="image">
+                <include>FullscreenDimensions</include>
+                <visible>$PARAM[visibility]</visible>
+                <texture>diffuse/background.png</texture>
+                <colordiffuse>73000000</colordiffuse>
+                <animation time="300" effect="fade" start="0" end="100" reversible="true" easing="inout">Visible</animation>
+            </control>
+        </control>
+    </include>
+
     <include name="fanartSpeed5">
         <timeperimage>5000</timeperimage>
     </include>
@@ -95,9 +107,9 @@
             <colordiffuse>$INFO[Skin.String(BackgroundDiffuseColor.base)]</colordiffuse>
             <visible>Skin.String(BackgroundDiffuseColor) + !String.IsEqual(Skin.String(BackgroundDiffuseColor),None)</visible>
         </control>
-
         <!-- global background -->
         <control type="multiimage" id="99004">
+            <include condition="String.IsEqual(Skin.String(HomeLayout),bingie)">HiddenObject</include>
             <include>FullscreenDimensions</include>
             <imagepath background="true" fallback="colors/color_black.png">$VAR[backgroundVar]</imagepath>
             <aspectratio>scale</aspectratio>
@@ -106,8 +118,7 @@
             <include condition="Skin.HasSetting(RandomizeBackground)">randomizeImages</include>
             <include>fanartSpeed</include>
             <loop>yes</loop>
-            <animation effect="zoom" start="110" end="130" center="auto" time="12000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
-            <animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
+            <include condition="Skin.HasSetting(BackgroundAnimation)">BackgroundAnimation</include>
         </control>
         <!-- fanart image background (hidden with visibility conditions)-->
         <control type="image" id="99006">
@@ -116,9 +127,18 @@
             <width>1</width>
             <height>1</height>
             <texture background="true">$VAR[fanartBackground]</texture>
-            <visible>Skin.HasSetting(ShowFanartBackground) | !String.IsEmpty(Window(Home).Property(bingieviews)) | Control.IsVisible(523)</visible>
+            <visible>Skin.HasSetting(ShowFanartBackground) | !String.IsEmpty(Window(Home).Property(bingieviews)) | Control.IsVisible(523) | Control.IsVisible(526)</visible>
             <include condition="Window.IsMedia">disabledFanart</include>
         </control>
+        <!-- hidden container for categories fanart -->
+        <control type="list" id="99007">
+            <include>HiddenObject</include>
+            <visible>String.IsEqual(ListItem.Property(DBTYPE),category)</visible>
+            <itemlayout/>
+            <focusedlayout/>
+            <content limit="3" sortby="random">$VAR[ItemArtContentRandomizer]</content>
+        </control>
+
         <include condition="Skin.HasSetting(ShowFanartBackground) + Skin.HasSetting(SkinHelper.EnableExtraFanart)">extraFanartBackground</include>
 
         <include>DialogOverlay</include>
@@ -198,8 +218,7 @@
             ![Control.IsVisible(519) + Skin.HasSetting(View519_DisableFanArt)] + 
             ![Window.IsMedia + Control.IsVisible(520) + Skin.HasSetting(View520_DisableFanArt)] + 
             ![Control.IsVisible(521) + Skin.HasSetting(View521_DisableFanArt)] + 
-            ![Control.IsVisible(522) + Skin.HasSetting(View522_DisableFanArt)] + 
-            ![Control.IsVisible(523) + Skin.HasSetting(View523_DisableFanArt)] +
+            ![Control.IsVisible(522) + Skin.HasSetting(View522_DisableFanArt)] +
             ![Control.IsVisible(524) + Skin.HasSetting(View524_DisableFanArt)] +
             ![Control.IsVisible(525) + Skin.HasSetting(View525_DisableFanArt)]
         </visible>
@@ -243,9 +262,24 @@
             ![Control.IsVisible(522) + Skin.HasSetting(View522_DisableExtraFanArt)] + 
             ![Control.IsVisible(523) + Skin.HasSetting(View523_DisableExtraFanArt)] + 
             ![Control.IsVisible(524) + Skin.HasSetting(View524_DisableExtraFanArt)] +
-            ![Control.IsVisible(525) + Skin.HasSetting(View525_DisableExtraFanArt)]
+            ![Control.IsVisible(525) + Skin.HasSetting(View525_DisableExtraFanArt)] +
+            ![Control.IsVisible(526) + Skin.HasSetting(View526_DisableExtraFanArt)]
         </visible>
     </include>
+
+    <variable name="CategoriesRandomArt">
+        <value condition="!String.IsEmpty(Container(99007).ListItemAbsolute(0).Art(tvshow.fanart))">$INFO[Container(99007).ListItemAbsolute(0).Art(tvshow.fanart)]</value>
+        <value condition="!String.IsEmpty(Container(99007).ListItemAbsolute(0).Art(fanart))">$INFO[Container(99007).ListItemAbsolute(0).Art(fanart)]</value>
+        <value condition="!String.IsEmpty(Container(99007).ListItemAbsolute(1).Art(tvshow.fanart))">$INFO[Container(99007).ListItemAbsolute(0).Art(tvshow.fanart)]</value>
+        <value condition="!String.IsEmpty(Container(99007).ListItemAbsolute(1).Art(fanart))">$INFO[Container(99007).ListItemAbsolute(1).Art(fanart)]</value>
+        <value condition="!String.IsEmpty(Container(99007).ListItemAbsolute(2).Art(tvshow.fanart))">$INFO[Container(99007).ListItemAbsolute(0).Art(tvshow.fanart)]</value>
+        <value condition="!String.IsEmpty(Container(99007).ListItemAbsolute(2).Art(fanart))">$INFO[Container(99007).ListItemAbsolute(2).Art(fanart)]</value>
+    </variable>
+
+    <variable name="ItemArtContentRandomizer">
+        <value condition="!String.IsEmpty(ListItem.Property(path2)) + Integer.IsGreater(Window(Home).Property(Random),30)">$INFO[ListItem.Property(path2)]</value>
+        <value>$INFO[ListItem.Property(path)]</value>
+    </variable>
 
     <variable name="fanartBackground">
         <!-- extendedinfo -->
@@ -257,24 +291,25 @@
         <value condition="Container.Content(Genres) + Skin.String(moviegenrefanart.path) + !String.IsEmpty(ListItem.label) + !String.IsEqual(ListItem.label,..)">$INFO[Skin.String(moviegenrefanartpath)]/$INFO[ListItem.Label].jpg</value>
         <!-- categories fanart -->
         <value condition="String.IsEmpty(ListItem.DBType) + String.IsEqual(ListItem.Property(DBTYPE),categorie)">$VAR[CategoriesFanart]</value>
-        <!-- season fanart -->
-        <value condition="!String.IsEmpty(ListItem.Art(season.fanart)) + [Container.Content(episodes) | String.IsEqual(ListItem.DBTYPE,episode)]">$INFO[ListItem.Art(season.fanart)]</value>
+        <value condition="$EXP[IsCategoryDBType]">$VAR[CategoriesRandomArt]</value>
         <!-- normal fanart backgrounds -->
         <value condition="!String.IsEmpty(ListItem.PicturePath)">$INFO[ListItem.PicturePath]</value>
-        <value condition="!String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(season.fanart))">$INFO[ListItem.Art(season.fanart)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(tvshow.fanart))">$INFO[ListItem.Art(tvshow.fanart)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEmpty(Container.ListItem.Art(season.fanart))">$INFO[Container.ListItem.Art(season.fanart)]</value>
+        <value condition="!String.IsEmpty(Container.ListItem.Art(tvshow.fanart))">$INFO[Container.ListItem.Art(tvshow.fanart)]</value>
         <value condition="!String.IsEmpty(Container.ListItem.Art(fanart))">$INFO[Container.ListItem.Art(fanart)]</value>
-        <value condition="!String.IsEmpty(Container.Art(tvshow.fanart))">$INFO[Container.Art(tvshow.fanart)]</value>
-        <value condition="!String.IsEmpty(Container.Art(artist.fanart))">$INFO[Container.Art(artist.fanart)]</value>
-        <value condition="!String.IsEmpty(Container.Art(albumartist.fanart))">$INFO[Container.Art(albumartist.fanart)]</value>
+        <value condition="!String.IsEmpty(Container.ListItem.Art(artist.fanart))">$INFO[Container.ListItem.Art(artist.fanart)]</value>
+        <value condition="!String.IsEmpty(Container.ListItem.Art(albumartist.fanart))">$INFO[Container.ListItem.Art(albumartist.fanart)]</value>
 
-        <!-- spotlight fanart backgrounds -->
-        <value condition="[Control.HasFocus(1508) | ControlGroup(505).HasFocus()] + !String.IsEmpty(Container(1508).ListItem.PicturePath)">$INFO[Container(1508).ListItem.PicturePath]</value>
-        <value condition="[Control.HasFocus(1508) | ControlGroup(505).HasFocus()] + !String.IsEmpty(ListItem.Art(fanart))">$INFO[Container(1508).ListItem.Art(fanart)]</value>
-        <value condition="[Control.HasFocus(1508) | ControlGroup(505).HasFocus()] + !String.IsEmpty(Container(1508).ListItem.Art(fanart))">$INFO[Container(1508).ListItem.Art(fanart)]</value>
-        <value condition="[Control.HasFocus(1508) | ControlGroup(505).HasFocus()] + !String.IsEmpty(Container(1508).Art(tvshow.fanart))">$INFO[Container(1508).Art(tvshow.fanart)]</value>
-        <value condition="[Control.HasFocus(1508) | ControlGroup(505).HasFocus()] + !String.IsEmpty(Container(1508).Art(artist.fanart))">$INFO[Container(1508).Art(artist.fanart)]</value>
-        <value condition="[Control.HasFocus(1508) | ControlGroup(505).HasFocus()] + !String.IsEmpty(Container(1508).Art(albumartist.fanart))">$INFO[Container(1508).Art(albumartist.fanart)]</value>
+        <!-- spotlight fanart backgrounds
+        <value condition="Control.HasFocus(1508) + !String.IsEmpty(Container(1508).ListItem.PicturePath)">$INFO[Container(1508).ListItem.PicturePath]</value>
+        <value condition="Control.HasFocus(1508) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[Container(1508).ListItem.Art(fanart)]</value>
+        <value condition="Control.HasFocus(1508) + !String.IsEmpty(Container(1508).ListItem.Art(fanart))">$INFO[Container(1508).ListItem.Art(fanart)]</value>
+        <value condition="Control.HasFocus(1508) + !String.IsEmpty(Container(1508).Art(tvshow.fanart))">$INFO[Container(1508).Art(tvshow.fanart)]</value>
+        <value condition="Control.HasFocus(1508) + !String.IsEmpty(Container(1508).Art(artist.fanart))">$INFO[Container(1508).Art(artist.fanart)]</value>
+        <value condition="Control.HasFocus(1508) + !String.IsEmpty(Container(1508).Art(albumartist.fanart))">$INFO[Container(1508).Art(albumartist.fanart)]</value>-->
 
         <!-- widget fanart as shortcut background -->
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Fanart)) + Window.IsActive(Home) + String.Contains(Container(900).ListItem.Property(Background),widgetfanart)">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Fanart)]</value>

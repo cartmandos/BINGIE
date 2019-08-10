@@ -20,11 +20,13 @@
         <onright condition="!Skin.HasSetting(EnableQuickJump)">60</onright>
                 <pagecontrol>60</pagecontrol>
                 <viewtype label="31425">bigwide</viewtype>
+                <include content="View_Forced">
+                    <param name="viewtype" value="$LOCALIZE[31425]" />
+                </include>
                 <scrolltime tween="Cubic" easing="inout">500</scrolltime>
                 <focusposition>0</focusposition>
                 <orientation>vertical</orientation>
                 <preloaditems>2</preloaditems>
-				<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),56) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
                 <itemlayout height="135" width="600" condition="!Skin.HasSetting(View56_LargeBanners)">
                     <control type="group">
                         <width>590</width>

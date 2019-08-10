@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- BINGIE -->
 <window>
-    <defaultcontrol/>
-	<onload condition="Skin.HasSetting(DisableSubtitles) + VideoPlayer.SubtitlesEnabled">ShowSubtitles</onload>
-	<onload condition="[Skin.HasSetting(BingieAutoTrailer)| Skin.HasSetting(DetailsAutoTrailer)] + System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,silent)</onload>
+	<defaultcontrol/>
+	<onload condition="System.HasAlarm(preview_delay)">CancelAlarm(preview_delay,silent)</onload>
+	<onload condition="Player.HasVideo + !Window.IsVisible(videoosd) + !Player.Paused">SetProperty(DialogMPAATopBar,1,home)</onload>
 	<onunload condition="![Player.HasVideo + VideoPlayer.Content(livetv)]">ClearProperty(pvrGuideOnFullscreenVideo,Home)</onunload>
-	<!-- return to infodialog if previous window & stop video -->
-	<onunload condition="String.IsEqual(Window(Home).Property(BaseWindow),InfoDialog)">AlarmClock(loadinfo,Action(Info),00:00,silent)</onunload>
-	<onunload condition="String.IsEqual(Window(Home).Property(BaseWindow),InfoDialog) + $EXP[IsPlayingUnrecognizedContent]">AlarmClock(stop,PlayerControl(Stop),00:00,silent)</onunload>
-    <controls>
+	<onunload condition="!String.IsEmpty(Window(Home).Property(BaseWindow)) + !Window.Previous(videos) + !Player.HasVideo">AlarmClock(loadinfo,Action(Info),00:00,silent)</onunload>
+	<onunload condition="[!String.IsEmpty(Window(Home).Property(BaseWindow)) + $EXP[IsPlayingUnrecognizedContent]] | [Player.HasVideo + !VideoPlayer.Content(livetv) + Skin.HasSetting(ForceVideoPlaybackStop)]">AlarmClock(StopPlayback,PlayerControl(Stop),00:00,silent)</onunload>
+
+	<controls>
 		<control type="image">
 			<left>0</left>
 			<top>300</top>
@@ -18,9 +18,8 @@
 			<colordiffuse>$INFO[Skin.String(OSDPanelColor)]</colordiffuse>
 		</control>
 
-	<!-- Aspect Ratio / Zoom Info Overlay -->
-	<control type="group" id="0">
-	
+		<!-- Aspect Ratio / Zoom Info Overlay -->
+		<control type="group" id="0">
 			<left>0</left>
 			<top>300</top>
 			<width>100%</width>
@@ -59,10 +58,9 @@
 				<textcolor>white</textcolor>
 				<label/>
 			</control>
-
 		</control>
 
-	<!-- Jump to Time Code Overlay -->
+		<!-- Jump to Time Code Overlay -->
 		<control type="group" id="1">
 			<right>20</right>
 			<top>40</top>
@@ -98,8 +96,8 @@
 				<height>50</height>
 				<label>$INFO[Player.SeekNumeric(hh:mm:ss)]</label>
 				<font>Bold30</font>
-                <textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
-                <shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
+				<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
+				<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
 				<aligny>center</aligny>
 				<align>center</align>
 				<visible>!String.IsEmpty(Player.SeekNumeric)</visible>
@@ -118,10 +116,10 @@
 			</control>
 		</control>
 
-	<!-- Buffering Progress Overlay -->
+		<!-- Buffering Progress Overlay -->
 		<control type="group" id="2">
 			<visible>Player.Caching + Skin.HasSetting(EnableBufferingProgressOSD) + !Skin.HasTheme(classic)</visible>
-			<animation end="-840,-300" time="0" effect="slide" condition="Skin.HasSetting(UseBingieOSDPanel)">Conditional</animation>
+			<animation end="-840,-300" time="0" effect="slide" condition="Skin.HasSetting(UseBingieOSD)">Conditional</animation>
 			<animation delay="300" effect="fade" time="200">Visible</animation>
 			<animation effect="fade" delay="200" time="150">Hidden</animation>
 			<control type="image" id="22">
@@ -141,7 +139,7 @@
 				<animation effect="fade" end="25" time="0" condition="true">Conditional</animation>
 				<texture>dialogs/buffer-progress/p100.png</texture>
 			</control>
- 			<control type="image" id="24">
+			<control type="image" id="24">
 				<right>50</right>
 				<top>710</top>
 				<width>120</width>
@@ -174,8 +172,8 @@
 				<font>Bold20</font>
 				<textcolor>white</textcolor>
 				<shadowcolor>black</shadowcolor>
-				<visible>!Skin.HasSetting(UseBingieOSDPanel)</visible>
+				<visible>!Skin.HasSetting(UseBingieOSD)</visible>
 			</control>
 		</control>
-    </controls>
+	</controls>
 </window>

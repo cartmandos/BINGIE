@@ -89,7 +89,7 @@ msgid "Submenu"
 msgstr "Підменю"
 
 msgctxt "#31212"
-msgid "Next episode"
+msgid "Next Episode in"
 msgstr "Наступна серія"
 
 msgctxt "#31231"

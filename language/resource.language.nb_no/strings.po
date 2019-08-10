@@ -233,7 +233,7 @@ msgid "Prefer fanart in landscape views"
 msgstr "Foretrekk brukerkunstbidrag i landskapsvisning"
 
 msgctxt "#31212"
-msgid "Next episode"
+msgid "Next Episode in"
 msgstr "Neste episode"
 
 msgctxt "#31213"
@@ -441,7 +441,7 @@ msgid "Smart shortcuts"
 msgstr "Smarte snarveier"
 
 msgctxt "#31534"
-msgid "My list"
+msgid "My List"
 msgstr "Min liste"
 
 msgctxt "#31535"

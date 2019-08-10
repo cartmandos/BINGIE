@@ -97,15 +97,13 @@ msgctxt "#31016"
 msgid "--- Use own image for tile"
 msgstr "--- תשתמש בתמונה שתבחר לתמונת אריח"
 
-
 msgctxt "#31017"
-msgid "--- Open TV Guide instead of Live TV"
-msgstr "---פתח את מדריך הטלוויזיה במקום טלוויזיה חיה"
-
+msgid "Enable Bingie Video OSD Layout"
+msgstr "השתמש בממשק בינג'י עבור קבצי וידאו"
 
 msgctxt "#31018"
-msgid "Bingie Main"
-msgstr "התצוגה הראשית של בינג'י"
+msgid "Bingie Main Landscape"
+msgstr "תצוגת בינג'י - נוף"
 
 
 msgctxt "#31019"
@@ -114,48 +112,41 @@ msgstr "פתח את נתיב התיקייה עם מוזיקה במקום הספ�
 
 
 msgctxt "#31020"
-msgid "Open folderpath with radio streams instead of PVR for Radio"
-msgstr "פתח את נתיב התיקייה עם הזרמת רדיו במקום מקליט PVR עם רדיו"
-
+msgid "Enable Extra-Large Icons"
+msgstr "אפשר כפתורים גדולים"
 
 msgctxt "#31021"
-msgid "--- Display temperature in tile"
-msgstr "---הצג את הטמפרטורה באריח"
+msgid "Watch Credits"
+msgstr "צפה בסיומות"
 
 
 msgctxt "#31022"
 msgid "Background settings"
 msgstr "הגדרות רקע"
 
-
 msgctxt "#31023"
-msgid "Use default skin background"
-msgstr "תשתמש ברקע ברירת מחדל למעטפת"
-
+msgid "Rated"
+msgstr "מסווג"
 
 msgctxt "#31024"
-msgid "Use original Mediaportal's Titan skin background"
-msgstr "תשתמש ברקע המעטפת המקורי של מדיה פורטל עבור טיטאן"
-
+msgid "Force Stop Playback when not in Fullscreen Mode (exc. Live TV)"
+msgstr "הפסק ניגון ברקע אם אינו שידור חי"
 
 msgctxt "#31025"
-msgid "Use dynamic weather background"
-msgstr "תשתמש ברקע דינאמי למזג האוויר"
-
+msgid "Categories"
+msgstr "קטגוריות"
 
 msgctxt "#31026"
-msgid "Use random fanart background"
-msgstr "תשתמש בפאנארט אקראי עבור הרקע"
-
+msgid "Search for Addons"
+msgstr "חפש תוספים"
 
 msgctxt "#31027"
-msgid "Use default background for this section"
-msgstr "תשתמש ברקע ברירת המחדל למקטע הזה"
-
+msgid "Bingie Main Poster"
+msgstr "תצוגת בינג'י - פוסטר"
 
 msgctxt "#31028"
-msgid "Other skin tweaks"
-msgstr "שינויים נוספים למעטפת"
+msgid "Disable Seek/Jump Indicator"
+msgstr "אל תציג סמלוני חיווי עבור קפיצות זמן"
 
 
 msgctxt "#31029"
@@ -304,18 +295,16 @@ msgid "Logo"
 msgstr "סמל"
 
 msgctxt "#31059"
-msgid "Caps"
-msgstr "אותיות גדולות"
-
+msgid "remaining"
+msgstr "נותרו"
 
 msgctxt "#31060"
-msgid "Kodi SUBTITLES"
-msgstr "כתוביות קודי"
-
+msgid "Show/Hide OSD Buttons"
+msgstr "בחירה - כפתורי תפעול ממשק הניגון"
 
 msgctxt "#31061"
-msgid "Press Back or OK to exit"
-msgstr "הקש על חזור או על אישור כדי לצאת"
+msgid "Highlight Layout"
+msgstr "תצוגת מומלצים"
 
 
 msgctxt "#31062"
@@ -324,64 +313,40 @@ msgstr "יו-טיוב"
 
 
 msgctxt "#31063"
-msgid "Toggle icon layout"
-msgstr "החלף פריסה של סמליל"
-
+msgid "Use alternate midscreen jump indicators"
+msgstr "הצג סמלוני חיווי קפיצת זמן"
 
 msgctxt "#31064"
-msgid "Wide Icons"
-msgstr "סמלילים רחבים"
-
+msgid "No items in this category."
+msgstr "לא נמצאו פריטים עבור קטגוריה זו."
 
 msgctxt "#31065"
-msgid "Wide Icons MediaInfo"
-msgstr "מידע מדיה לסמלילים רחבים"
-
+msgid "Up Next"
+msgstr "מיד אחרי"
 
 msgctxt "#31066"
-msgid "Poster"
-msgstr "פוסטר"
-
+msgid "Watch"
+msgstr "צפה בפרק"
 
 msgctxt "#31067"
-msgid "Poster MediaInfo"
-msgstr "מידע מדיה לפוסטר"
-
+msgid "Now"
+msgstr "כעת"
 
 msgctxt "#31068"
-msgid "Showcase"
-msgstr "תצוגת עטיפות"
-
+msgid "Enable Auto-Preview in PVR Hub"
+msgstr "אפשר הפעלה אוטומטית של צפייה מקדימה בחלון ערוצי הלייב"
 
 msgctxt "#31069"
-msgid "Showcase MediaInfo"
-msgstr "מידע מדיה לתצוגת עטיפות"
-
+msgid "PVR Hub"
+msgstr "לייב"
 
 msgctxt "#31070"
-msgid "Banner list"
-msgstr "רשימת כרזות"
-
+msgid "Watch Season"
+msgstr "צפה בעונה"
 
 msgctxt "#31071"
 msgid "Setting level"
 msgstr "רמת הגדרות"
-
-
-msgctxt "#31072"
-msgid "Sort Home tiles"
-msgstr "מיון אריחי בית"
-
-
-msgctxt "#31073"
-msgid "Sort the home menu tiles"
-msgstr "מיין את אריחי הבית"
-
-
-msgctxt "#31074"
-msgid "Arrange the homescreen tiles just the way you want it. [CR]Usage select a direction below and click on the tile's title (in the list on the right) to move it's position. [CR]Because settings are applied on the fly the screen may blink for one second."
-msgstr "סדר את האריחים של מסך הבית בדיוק כפי שאתה רוצה.[CR]לשימוש בחר כיוון מטה ולחץ על הכותרת של האריח (ברשימה מימין) כדי להזיז את המיקום.[CR]מכיוון שהגדרות מוחלות על המסך, המסך עשוי להבהב למשך שנייה אחת."
-
 
 msgctxt "#31075"
 msgid "Direction to move"
@@ -1051,7 +1016,7 @@ msgstr "השבת מסך פתיחה (לא מומלץ עבור מערכת חלשה
 
 
 msgctxt "#31212"
-msgid "Next episode"
+msgid "Next Episode in"
 msgstr "הפרק הבא"
 
 
@@ -2615,7 +2580,7 @@ msgstr "Marvel סרטי"
 
 
 msgctxt "#31534"
-msgid "My list"
+msgid "My List"
 msgstr "הרשימה שלי"
 
 

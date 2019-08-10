@@ -221,13 +221,13 @@
 				<onright condition="Skin.HasSetting(EnableQuickJump)">6000</onright>
         <onright condition="!Skin.HasSetting(EnableQuickJump)">60</onright>
 				<viewtype label="31442">list</viewtype>
+				<include content="View_Forced">
+					<param name="viewtype" value="$LOCALIZE[31442]" />
+				</include>
 				<orientation>vertical</orientation>
 				<pagecontrol>60</pagecontrol>
 				<scrolltime tween="cubic" easing="out">600</scrolltime>
 				<preloaditems>2</preloaditems>
-				<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),515) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
-			
-
 				<itemlayout width="857" height="115" condition="!Skin.HasSetting(View515_UseSlimList) + ![Skin.HasSetting(View515_ShowBanners) + Container.Content(tvshows)]">
 					<include>LowListLayout</include>
 				</itemlayout>

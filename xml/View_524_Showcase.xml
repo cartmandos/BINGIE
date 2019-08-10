@@ -17,6 +17,10 @@
 			<!--Showcase-->
             <control type="wraplist" id="524">
                 <!--Wraplist ID 500-->
+                <viewtype label="31429">posterwrap</viewtype>
+                <include content="View_Forced">
+                    <param name="viewtype" value="$LOCALIZE[31429]" />
+                </include>
                 <posx>-52</posx>
                 <width>1960</width>
                 <height>800</height>
@@ -25,10 +29,8 @@
                 <onup>9000</onup>
                 <ondown condition="Skin.HasSetting(EnableQuickJump)">7000</ondown>
                 <ondown condition="!Skin.HasSetting(EnableQuickJump)">60</ondown>
-                <viewtype label="31429">posterwrap</viewtype>
                 <pagecontrol>60</pagecontrol>
                 <orientation>horizontal</orientation>
-				<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),524) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
                 <scrolltime tween="cubic" easing="inout">450</scrolltime>
                 <focusposition>3</focusposition>
                 <itemlayout width="270" height="800">

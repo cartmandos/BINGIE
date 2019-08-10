@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- BINGIE -->
+<window type="dialog" id="1159">
+    <animation effect="fade" delay="600" start="0" end="100" time="400">WindowOpen</animation>
+    <animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+    <visible>!String.IsEmpty(Window(Home).Property(DialogMPAATopBar))</visible>
+    <onload>AlarmClock(CloseMPAATopBar,ClearProperty(DialogMPAATopBar,Home),00:04,silent)</onload>
+    
+    <controls>
+        <control type="group">
+            <visible>!Window.IsActive(videoosd) + Window.IsVisible(fullscreenvideo)</visible>
+            <visible>!String.IsEmpty(VideoPlayer.MPAA) + !String.Contains(VideoPlayer.MPAA,not rated) + !String.Contains(VideoPlayer.MPAA,n/a) + !String.Contains(VideoPlayer.MPAA,nr)</visible>
+
+            <control type="image">
+                <top>0</top>
+                <left>0</left>
+                <width>100%</width>
+                <height>100%</height>
+                <texture background="true">diffuse/gradient_subtle.png</texture>
+                <aspectratio scalediffuse="true">scale</aspectratio>
+            </control>
+            <control type="grouplist">
+                <left>85</left>
+                <top>85</top>
+                <height>60</height>
+                <orientation>horizontal</orientation>
+                <itemgap>25</itemgap>
+                <usecontrolcoords>true</usecontrolcoords>
+                <control type="image">
+                    <animation effect="zoom" end="100,1200" easing="inout" tween="sine" time="350" delay="700" condition="true">WindowOpen</animation>
+                    <width>5</width>
+                    <height>5</height>
+                    <texture>colors/color_white.png</texture>
+                    <colordiffuse>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</colordiffuse>
+                    <aspectratio>stretch</aspectratio>
+                </control>
+                <control type="label">
+                    <width>auto</width>
+                    <height>100%</height>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <font>Light34</font>
+                    <textcolor>white</textcolor>
+                    <shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
+                    <label>[B]$VAR[VideoRatingTopBarLabel][/B]</label>
+                </control>
+            </control>
+        </control>
+    </controls>
+</window>

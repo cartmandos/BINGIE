@@ -82,11 +82,13 @@
 				<onleft>58</onleft>
 				<onright>58</onright>
 				<viewtype label="31427">mediainfo</viewtype>
+				<include content="View_Forced">
+					<param name="viewtype" value="$LOCALIZE[31427]" />
+				</include>
 				<scrolltime tween="Cubic" easing="inout">500</scrolltime>
 				<focusposition>0</focusposition>
 				<orientation>horizontal</orientation>
 				<preloaditems>2</preloaditems>
-				<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),58) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
 				<itemlayout height="946" width="520">
 					<control type="group">
 						<posy>200</posy>

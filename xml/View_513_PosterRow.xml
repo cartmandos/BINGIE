@@ -1400,10 +1400,12 @@
                 <ondown condition="!Skin.HasSetting(EnableQuickJump)">60</ondown>
 					<orientation>horizontal</orientation>
 					<viewtype label="31440">bigwrap</viewtype>
+					<include content="View_Forced">
+						<param name="viewtype" value="$LOCALIZE[31440]" />
+					</include>
 					<pagecontrol>60</pagecontrol>
 					<focusposition>1</focusposition>
 					<preloaditems>2</preloaditems>
-					<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),513) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
 					<itemlayout width="210" height="750" />
 					<focusedlayout width="210" height="750">
 						

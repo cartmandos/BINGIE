@@ -23,7 +23,9 @@
 			<preloaditems>4</preloaditems>
 			<pagecontrol>60</pagecontrol>
 			<viewtype label="31432">mediainfo</viewtype>
-			<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),505) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
+            <include content="View_Forced">
+                <param name="viewtype" value="$LOCALIZE[31432]" />
+            </include>
             <visible>!Container.Content(files)</visible>
 			<scrolltime tween="cubic" easing="inout">500</scrolltime>
 			<itemlayout width="595" height="395" condition="![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
@@ -38,7 +40,9 @@
                     <width>575</width>
                     <height>330</height>
                     <include>LandscapeLayoutFocus</include>
-                    <include>AutoTrailerButton</include>
+                    <include content="LibraryAutoTrailerButton" condition="Skin.HasSetting(DetailsAutoTrailer)">
+                        <param name="interval" value="$INFO[Skin.String(details_auto_trailer_interval)]" />
+                    </include>
                 </control>
 			</focusedlayout>
             <itemlayout width="595" height="395" condition="[Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">

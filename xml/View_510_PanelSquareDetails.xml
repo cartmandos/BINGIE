@@ -13,6 +13,9 @@
       <control type="panel" id="510">
         <animation effect="slide" end="-630" time="250" condition="Skin.HasSetting(View510_ShowInfoRight)">Conditional</animation>
         <viewtype label="31437">icons</viewtype>
+          <include content="View_Forced">
+              <param name="viewtype" value="$LOCALIZE[31437]" />
+          </include>
         <right>40</right>
         <bottom>12%</bottom>
         <height>750</height>
@@ -25,8 +28,7 @@
         <ondown>510</ondown>
         <preloaditems>4</preloaditems>
         <pagecontrol>60</pagecontrol>
-		<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),510) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
-        <itemlayout height="250" width="240">
+          <itemlayout height="250" width="240">
             <control type="group">
                 <width>240</width>
                 <height>240</height>
@@ -38,7 +40,9 @@
                 <width>240</width>
                 <height>240</height>
                 <include>SquarePosterPanelLayoutFocus</include>
-                <include>AutoTrailerButton</include>
+              <include content="LibraryAutoTrailerButton" condition="Skin.HasSetting(DetailsAutoTrailer)">
+                  <param name="interval" value="$INFO[Skin.String(details_auto_trailer_interval)]" />
+              </include>
             </control>
         </focusedlayout>
       </control>

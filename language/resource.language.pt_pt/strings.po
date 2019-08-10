@@ -48,53 +48,13 @@ msgctxt "#31016"
 msgid "--- Use own image for tile"
 msgstr "---Utilizar a própria imagem para o bloco"
 
-msgctxt "#31017"
-msgid "--- Open TV Guide instead of Live TV"
-msgstr "--- Abrir o Guia da TV em vez da TV em Direto"
-
-msgctxt "#31018"
-msgid "Netflix"
-msgstr "Netflix"
-
 msgctxt "#31019"
 msgid "--- Open folderpath with music instead of library"
 msgstr "--- Abrir caminho da pasta com música em vez da biblioteca"
 
-msgctxt "#31020"
-msgid "Open folderpath with radio streams instead of PVR for Radio"
-msgstr "Abrir caminho de pasta com transmissões de rádio em vez de PVR para Rádio"
-
-msgctxt "#31021"
-msgid "--- Display temperature in tile"
-msgstr "--- Exibir temperatura no bloco"
-
 msgctxt "#31022"
 msgid "Background settings"
 msgstr "Configurações de Fundo"
-
-msgctxt "#31023"
-msgid "Use default skin background"
-msgstr "Utilizar fundo do tema predefinido"
-
-msgctxt "#31024"
-msgid "Use original Mediaportal's Titan skin background"
-msgstr "Utilizar fundo do tema Titan original da MediaPortal"
-
-msgctxt "#31025"
-msgid "Use dynamic weather background"
-msgstr "Utilizar fundo do tempo dinâmico"
-
-msgctxt "#31026"
-msgid "Use random fanart background"
-msgstr "Utilizar fundo do fanart aleatório"
-
-msgctxt "#31027"
-msgid "Use default background for this section"
-msgstr "Utilizar fundo predefinido para esta secção"
-
-msgctxt "#31028"
-msgid "Other skin tweaks"
-msgstr "Outros ajustes de tema"
 
 msgctxt "#31029"
 msgid "Do not show footer bar"
@@ -160,65 +120,13 @@ msgctxt "#31058"
 msgid "Logo"
 msgstr "Logotipo"
 
-msgctxt "#31059"
-msgid "Caps"
-msgstr "Maiúsculas"
-
-msgctxt "#31060"
-msgid "Kodi SUBTITLES"
-msgstr "LEGENDAS do Kodi"
-
-msgctxt "#31061"
-msgid "Press Back or OK to exit"
-msgstr "Pressione Voltar ou OK para sair"
-
 msgctxt "#31062"
 msgid "YouTube"
 msgstr "YouTube"
 
-msgctxt "#31063"
-msgid "Toggle icon layout"
-msgstr "Alternar layout do ícone"
-
-msgctxt "#31064"
-msgid "Wide Icons"
-msgstr "Ícones largos"
-
-msgctxt "#31065"
-msgid "Wide Icons MediaInfo"
-msgstr "Ícones largos do MediaInfo"
-
-msgctxt "#31066"
-msgid "Poster"
-msgstr "Poster"
-
-msgctxt "#31067"
-msgid "Poster MediaInfo"
-msgstr "Poster do MediaInfo"
-
-msgctxt "#31068"
-msgid "Showcase"
-msgstr "Mostruário"
-
-msgctxt "#31069"
-msgid "Showcase MediaInfo"
-msgstr "Mostruário do MediaInfo"
-
-msgctxt "#31070"
-msgid "Banner list"
-msgstr "Lista de faixas"
-
 msgctxt "#31071"
 msgid "Setting level"
 msgstr "Nível de configuração"
-
-msgctxt "#31072"
-msgid "Sort Home tiles"
-msgstr "Organizar os blocos da página inicial"
-
-msgctxt "#31073"
-msgid "Sort the home menu tiles"
-msgstr "Organizar os blocos do menu da página inicial"
 
 msgctxt "#31077"
 msgid "DOWN"
@@ -513,7 +421,7 @@ msgid "Use Extra Fanart"
 msgstr "Usar Fanart Extra"
 
 msgctxt "#31212"
-msgid "Next episode"
+msgid "Next Episode in"
 msgstr "Próximo Episódio"
 
 msgctxt "#31213"

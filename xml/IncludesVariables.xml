@@ -237,8 +237,7 @@
 		<value condition="[Container.Content(episodes) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)] + !String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
 		<value condition="Skin.HasSetting(PreferClearArtOverLandscape) + !String.IsEmpty(ListItem.Art(tvshow.clearart))">$INFO[ListItem.Art(tvshow.clearart)]</value>
 		<value condition="Skin.HasSetting(PreferClearArtOverLandscape) + !String.IsEmpty(ListItem.Art(clearart))">$INFO[ListItem.Art(clearart)]</value>
-        <value condition="Skin.HasSetting(PreferClearArtOverLandscape) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.ClearArt))">$INFO[Window(Home).Property(SkinHelper.ListItem.ClearArt)]</value>
-		<value condition="!Skin.HasSetting(DisableLandscapeThumbs) + !String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
+        <value condition="!Skin.HasSetting(DisableLandscapeThumbs) + !String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
         <value condition="!Skin.HasSetting(DisableLandscapeThumbs) + !String.IsEmpty(ListItem.Art(tvshow.landscape))">$INFO[ListItem.Art(tvshow.landscape)]</value>
         <value condition="Container.Content(Seasons) + !String.IsEmpty(ListItem.Art(season.fanart)) + !String.StartsWith(Container.FolderPath,plugin://plugin.video)">$INFO[ListItem.Art(season.fanart)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(tvshow.fanart))">$INFO[ListItem.Art(tvshow.fanart)]</value>
@@ -295,9 +294,7 @@
 		<value condition="Control.IsVisible(213) + !String.IsEmpty(Container(213).ListItem.Property(Art(clearlogo)))">$INFO[Container(213).ListItem.Property(Art(clearlogo))]</value>
 		<value condition="Control.IsVisible(214) + !String.IsEmpty(Container(214).ListItem.Property(Art(clearlogo)))">$INFO[Container(214).ListItem.Property(Art(clearlogo))]</value>
 		<value condition="Control.IsVisible(215) + !String.IsEmpty(Container(215).ListItem.Property(Art(clearlogo)))">$INFO[Container(215).ListItem.Property(Art(clearlogo))]</value>
-		<value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.ClearLogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.ClearLogo)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Clearlogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Clearlogo)]</value>
-	</variable>
+    </variable>
 	
 	<variable name="MusicPlayerClearLogo">
 	<value condition="!String.IsEmpty(MusicPlayer.Artist) + !String.StartsWith(Container.FolderPath,plugin://)">$INFO[Player.FolderPath,,../logo.png]</value>
@@ -330,7 +327,6 @@
         <value condition="!String.IsEmpty(ListItem.Art(banner))">$INFO[ListItem.Art(banner)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(tvshow.banner))">$INFO[ListItem.Art(tvshow.banner)]</value>
 		<value condition="!String.IsEmpty(ListItem.Property(banner))">$INFO[ListItem.Property(banner)]</value>
-		<value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Banner))">$INFO[Window(Home).Property(SkinHelper.ListItem.Banner)]</value>
     </variable>
 	
 	<variable name="BannerImageFallback">
@@ -419,8 +415,8 @@
     <variable name="ListTitlePVR">
         <value condition="!String.IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
         <value condition="!String.IsEmpty(ListItem.Label)">$INFO[ListItem.Label]</value>
-        <value condition="!String.IsEmpty(Container(510).ListItem.Title)">$INFO[Container(510).ListItem.Title]</value>
-        <value condition="!String.IsEmpty(Container(510).ListItem.Label)">$INFO[Container(510).ListItem.Label]</value>
+        <value condition="!String.IsEmpty(Container(1510).ListItem.Title)">$INFO[Container(1510).ListItem.Title]</value>
+        <value condition="!String.IsEmpty(Container(1510).ListItem.Label)">$INFO[Container(1510).ListItem.Label]</value>
     </variable>
     
     <variable name="ListDatePVR">
@@ -506,6 +502,7 @@
         <value condition="!String.IsEmpty(ListItem.Property(job))">$INFO[ListItem.label] $INFO[ListItem.Property(job),(,)]</value>
         <value condition="!String.IsEmpty(ListItem.Year)">$INFO[ListItem.label] $INFO[ListItem.Year,(,)]</value>
         <value condition="String.IsEmpty(ListItem.Property(submenuVisibility))">$INFO[ListItem.label]</value>
+        <value condition="String.IsEmpty(ListItem.AddonName)">$INFO[ListItem.AddonName]</value>
 		<value>$INFO[ListItem.Label]</value>
     </variable>
     
@@ -1103,48 +1100,50 @@
      </variable>
      
      <variable name="TagsVisibilityLabel">
-        <value condition="Control.IsVisible(52) + !Skin.String(View52.Tags)">$LOCALIZE[14061]</value>
+        <value condition="Control.IsVisible(52) + !Skin.String(View52.Tags)">$LOCALIZE[16316]</value>
         <value condition="Control.IsVisible(52)">$INFO[Skin.String(View52.Tags.label)]</value>
-        <value condition="Control.IsVisible(53) + !Skin.String(View53.Tags)">$LOCALIZE[14061]</value>
+        <value condition="Control.IsVisible(53) + !Skin.String(View53.Tags)">$LOCALIZE[16316]</value>
         <value condition="Control.IsVisible(53)">$INFO[Skin.String(View53.Tags.label)]</value>
-        <value condition="Control.IsVisible(54) + !Skin.String(View54.Tags)">$LOCALIZE[14061]</value>
+        <value condition="Control.IsVisible(54) + !Skin.String(View54.Tags)">$LOCALIZE[16316]</value>
         <value condition="Control.IsVisible(54)">$INFO[Skin.String(View54.Tags.label)]</value>
-        <value condition="Control.IsVisible(55) + !Skin.String(View55.Tags)">$LOCALIZE[14061]</value>
+        <value condition="Control.IsVisible(55) + !Skin.String(View55.Tags)">$LOCALIZE[16316]</value>
         <value condition="Control.IsVisible(55)">$INFO[Skin.String(View55.Tags.label)]</value>
-        <value condition="Control.IsVisible(57) + !Skin.String(View57.Tags)">$LOCALIZE[14061]</value>
+        <value condition="Control.IsVisible(57) + !Skin.String(View57.Tags)">$LOCALIZE[16316]</value>
         <value condition="Control.IsVisible(57)">$INFO[Skin.String(View57.Tags.label)]</value>
-        <value condition="Control.IsVisible(58) + !Skin.String(View58.Tags)">$LOCALIZE[14061]</value>
+        <value condition="Control.IsVisible(58) + !Skin.String(View58.Tags)">$LOCALIZE[16316]</value>
         <value condition="Control.IsVisible(58)">$INFO[Skin.String(View58.Tags.label)]</value>
-        <value condition="Control.IsVisible(59) + !Skin.String(View59.Tags)">$LOCALIZE[14061]</value>
+        <value condition="Control.IsVisible(59) + !Skin.String(View59.Tags)">$LOCALIZE[16316]</value>
         <value condition="Control.IsVisible(59)">$INFO[Skin.String(View59.Tags.label)]</value>
-        <value condition="Control.IsVisible(500) + !Skin.String(View500.Tags)">$LOCALIZE[14061]</value>
+        <value condition="Control.IsVisible(500) + !Skin.String(View500.Tags)">$LOCALIZE[16316]</value>
         <value condition="Control.IsVisible(500)">$INFO[Skin.String(View500.Tags.label)]</value>
-        <value condition="Control.IsVisible(501) + !Skin.String(View501.Tags)">$LOCALIZE[14061]</value>
+        <value condition="Control.IsVisible(501) + !Skin.String(View501.Tags)">$LOCALIZE[16316]</value>
         <value condition="Control.IsVisible(501)">$INFO[Skin.String(View501.Tags.label)]</value>
-        <value condition="Control.IsVisible(502) + !Skin.String(View502.Tags)">$LOCALIZE[14061]</value>
+        <value condition="Control.IsVisible(502) + !Skin.String(View502.Tags)">$LOCALIZE[16316]</value>
         <value condition="Control.IsVisible(502)">$INFO[Skin.String(View502.Tags.label)]</value>
-        <value condition="Control.IsVisible(505) + !Skin.String(View505.Tags)">$LOCALIZE[14061]</value>
+        <value condition="Control.IsVisible(505) + !Skin.String(View505.Tags)">$LOCALIZE[16316]</value>
         <value condition="Control.IsVisible(505)">$INFO[Skin.String(View505.Tags.label)]</value>
-        <value condition="Control.IsVisible(508) + !Skin.String(View508.Tags)">$LOCALIZE[14061]</value>
+        <value condition="Control.IsVisible(508) + !Skin.String(View508.Tags)">$LOCALIZE[16316]</value>
         <value condition="Control.IsVisible(508)">$INFO[Skin.String(View508.Tags.label)]</value>
-        <value condition="Control.IsVisible(509) + !Skin.String(View509.Tags)">$LOCALIZE[14061]</value>
+        <value condition="Control.IsVisible(509) + !Skin.String(View509.Tags)">$LOCALIZE[16316]</value>
         <value condition="Control.IsVisible(509)">$INFO[Skin.String(View509.Tags.label)]</value>
-        <value condition="Control.IsVisible(510) + !Skin.String(View510.Tags)">$LOCALIZE[14061]</value>
+        <value condition="Control.IsVisible(510) + !Skin.String(View510.Tags)">$LOCALIZE[16316]</value>
         <value condition="Control.IsVisible(510)">$INFO[Skin.String(View510.Tags.label)]</value>
-        <value condition="Control.IsVisible(511) + !Skin.String(View511.Tags)">$LOCALIZE[14061]</value>
+        <value condition="Control.IsVisible(511) + !Skin.String(View511.Tags)">$LOCALIZE[16316]</value>
         <value condition="Control.IsVisible(511)">$INFO[Skin.String(View511.Tags.label)]</value>
-        <value condition="Control.IsVisible(512) + !Skin.String(View512.Tags)">$LOCALIZE[14061]</value>
+        <value condition="Control.IsVisible(512) + !Skin.String(View512.Tags)">$LOCALIZE[16316]</value>
         <value condition="Control.IsVisible(512)">$INFO[Skin.String(View512.Tags.label)]</value>
-        <value condition="Control.IsVisible(513) + !Skin.String(View513.Tags)">$LOCALIZE[14061]</value>
+        <value condition="Control.IsVisible(513) + !Skin.String(View513.Tags)">$LOCALIZE[16316]</value>
         <value condition="Control.IsVisible(513)">$INFO[Skin.String(View513.Tags.label)]</value>
-        <value condition="Control.IsVisible(514) + !Skin.String(View514.Tags)">$LOCALIZE[14061]</value>
+        <value condition="Control.IsVisible(514) + !Skin.String(View514.Tags)">$LOCALIZE[16316]</value>
         <value condition="Control.IsVisible(514)">$INFO[Skin.String(View514.Tags.label)]</value>
-        <value condition="Control.IsVisible(519) + !Skin.String(View519.Tags)">$LOCALIZE[14061]</value>
+        <value condition="Control.IsVisible(519) + !Skin.String(View519.Tags)">$LOCALIZE[16316]</value>
         <value condition="Control.IsVisible(519)">$INFO[Skin.String(View519.Tags.label)]</value>
-        <value condition="Control.IsVisible(520) + !Skin.String(View520.Tags)">$LOCALIZE[14061]</value>
+        <value condition="Control.IsVisible(520) + !Skin.String(View520.Tags)">$LOCALIZE[16316]</value>
         <value condition="Control.IsVisible(520)">$INFO[Skin.String(View520.Tags.label)]</value>
-        <value condition="Control.IsVisible(523) + !Skin.String(View523.Tags)">$LOCALIZE[14061]</value>
+        <value condition="Control.IsVisible(523) + !Skin.String(View523.Tags)">$LOCALIZE[16316]</value>
         <value condition="Control.IsVisible(523)">$INFO[Skin.String(View523.Tags.label)]</value>
+         <value condition="Control.IsVisible(526) + !Skin.String(View526.Tags)">$LOCALIZE[16316]</value>
+         <value condition="Control.IsVisible(526)">$INFO[Skin.String(View526.Tags.label)]</value>
      </variable>
      
      <variable name="VideoInfoFileName">
@@ -1350,7 +1349,7 @@
         <value condition="!ControlGroup(77777).HasFocus + Control.IsVisible(1508) + !String.IsEmpty(Container(1508).ListItem.Art(clearlogo))">$INFO[Container(1508).ListItem.Art(clearlogo)]</value>
 
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.ChannelLogo))">$INFO[Window(Home).Property(ListItem.ChannelLogo)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Art.ClearLogo))">$INFO[Window(Home).Property(ListItem.Art.ClearLogo)]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.ClearLogo))">$INFO[Window(Home).Property(ListItem.ClearLogo)]</value>
 
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.ChannelLogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.ChannelLogo)]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Clearlogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Clearlogo)]</value>
@@ -1375,7 +1374,7 @@
         <value condition="!ControlGroup(77777).HasFocus + Control.IsVisible(1508) + !String.IsEmpty(Container(1508).ListItem.Property(ChannelLogo))">$INFO[Container(1508).ListItem.Property(ChannelLogo)]</value>
         <value condition="!ControlGroup(77777).HasFocus + Control.IsVisible(1508) + !String.IsEmpty(Container(1508).ListItem.Icon)">$INFO[Container(1508).ListItem.Icon]</value>
         <!-- normal widgets -->
-        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Art.clearlogo))">$INFO[Window(Home).Property(ListItem.Art.clearlogo)]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.ClearLogo))">$INFO[Window(Home).Property(ListItem.ClearLogo)]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Art.landscape))">$INFO[Window(Home).Property(ListItem.Art.landscape)]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Art.Poster))">$INFO[Window(Home).Property(ListItem.Art.Poster)]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.ChannelLogo))">$INFO[Window(Home).Property(ListItem.ChannelLogo)]</value>

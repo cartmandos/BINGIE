@@ -22,10 +22,10 @@
 	<onload>ClearProperty(ListItem.Art.ClearLogo,Home)</onload>
 	<onload>ClearProperty(ListItem.TotalEpisodes,Home)</onload>
 	<onload>ClearProperty(ListItem.TotalSeasons,Home)</onload>
+	<onload>ClearProperty(ListItem.UnWatchedEpisodes,Home)</onload>
 	<onload>ClearProperty(ListItem.VideoCodec,Home)</onload>
 	<onload>ClearProperty(ListItem.VideoAspect,Home)</onload>
 	<onload>ClearProperty(ListItem.SubtitleLanguage,Home)</onload>
-	<onload>ClearProperty(ListItem.FileExtension,Home)</onload>
 	<onload>ClearProperty(ListItem.AudioCodec,Home)</onload>
 	<onload>ClearProperty(ListItem.AudioLanguage,Home)</onload>
 	<onload>ClearProperty(ListItem.MPAA,Home)</onload>
@@ -37,7 +37,6 @@
 	<onload>ClearProperty(ListItem.Episode,Home)</onload>
 	<onload>ClearProperty(ListItem.Artist,Home)</onload>
 	<onload>ClearProperty(ListItem.Album,Home)</onload>
-	<onload>ClearProperty(ListItem.StartDateTime,Home)</onload>
 	<onload>ClearProperty(ListItem.StartTime,Home)</onload>
 	<onload>ClearProperty(ListItem.StartDate,Home)</onload>
 	<onload>ClearProperty(ListItem.Art.Poster,Home)</onload>
@@ -46,6 +45,9 @@
 	<onload>ClearProperty(ListItem.Thumb,Home)</onload>
 	<onload>ClearProperty(ListItem.Icon,Home)</onload>
 	<onload>ClearProperty(ListItem.ChannelLogo,Home)</onload>
+	<onload>ClearProperty(ListItem.PercentPlayed,Home)</onload>
+	<onload>ClearProperty(ListItem.ChannelName,Home)</onload>
+	<onload>ClearProperty(ListItem.ChannelNumberLabel,Home)</onload>
 
 	<onload>AlarmClock(finishPropsFlush,ClearProperty(flushWidgetProps,home),00:00,silent)</onload>
 	<controls/>

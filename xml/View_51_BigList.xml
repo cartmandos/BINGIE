@@ -293,12 +293,14 @@
 				<onright condition="Skin.HasSetting(EnableQuickJump)">6000</onright>
                 <onright condition="!Skin.HasSetting(EnableQuickJump)">60</onright>
 				<viewtype label="31444">list</viewtype>
+				<include content="View_Forced">
+					<param name="viewtype" value="$LOCALIZE[31444]" />
+				</include>
 				<orientation>vertical</orientation>
 				<pagecontrol>60</pagecontrol>
 				<scrolltime tween="cubic" easing="out">600</scrolltime>
 				<preloaditems>2</preloaditems>
-				<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),51) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
-                         <!-- not info & not slim -->
+				<!-- not info & not slim -->
 				<itemlayout width="1290" height="103" condition="!Skin.HasSetting(View51_UseSlimList) + !Skin.HasSetting(BigListViewShowInfo)">		
 					<include>BiglistLayout</include>
 				</itemlayout>
@@ -319,7 +321,9 @@
                         <left>0</left>
                         <width>1160</width>
                         <include>BigListFocusLayout</include>
-                        <include>AutoTrailerButton</include>
+						<include content="LibraryAutoTrailerButton" condition="Skin.HasSetting(DetailsAutoTrailer)">
+							<param name="interval" value="$INFO[Skin.String(details_auto_trailer_interval)]" />
+						</include>
                     </control>
 				</focusedlayout>
 				
@@ -344,7 +348,9 @@
                         <left>0</left>
                         <width>1160</width>
                         <include>BigListSlimLayoutFocus</include>
-                        <include>AutoTrailerButton</include>
+						<include content="LibraryAutoTrailerButton" condition="Skin.HasSetting(DetailsAutoTrailer)">
+							<param name="interval" value="$INFO[Skin.String(details_auto_trailer_interval)]" />
+						</include>
                     </control>
 				</focusedlayout>
 

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BINGIE -->
+<includes>
+    <include name="View_523_Bingie_Main_Landscape">
+        <control type="group">
+            <include>FullscreenDimensions</include>
+            <visible>Control.IsVisible(523)</visible>
+            <include>animation_view_change</include>
+
+            <include content="Bingie_Main_Spotlight_Section">
+                <param name="id" value="523" />
+            </include>
+
+            <!-- View 523 -->
+            <control type="group">
+                <include>BingieLeftDefs</include>
+                <top>650</top>
+                <width>1660</width>
+                <!-- Content Header -->
+                <control type="textbox">
+                    <width>100%</width>
+                    <height>40</height>
+                    <font>Reg29</font>
+                    <align>left</align>
+                    <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                    <label>$VAR[BingieMainContentHeader,[B],[/B]]</label>
+                    <visible>Integer.IsGreater(Container(523).NumItems,0)</visible>
+                </control>
+
+                <include condition="!Skin.HasSetting(View523_UseFixedLayout) | !Skin.HasSetting(View_523_HorizontalNavigation)" content="Bingie_Main_Landscape_View">
+                    <param name="containerType" value="panel" />
+                </include>
+                <include condition="Skin.HasSetting(View523_UseFixedLayout) + Skin.HasSetting(View_523_HorizontalNavigation)" content="Bingie_Main_Landscape_View">
+                    <param name="containerType" value="fixedlist" />
+                </include>
+                <control type="image">
+                    <left>-60</left>
+                    <top>95</top>
+                    <width>60</width>
+                    <height>85</height>
+                    <texture background="true">bingie/back_arrow.png</texture>
+                    <colordiffuse>$INFO[Skin.String(BingiePrimaryTextColor)]</colordiffuse>
+                    <visible>Integer.IsGreater(Container(523).NumItems,0)</visible>
+                </control>
+                <include content="Bingie_Main_View_Fixed_Frame">
+                    <param name="visibility" value="!Skin.HasSetting(View523_DisableFixedBingieFrame)" />
+                    <param name="containerid" value="523" />
+                    <param name="top" value="40" />
+                    <param name="width" value="332" />
+                    <param name="height" value="195" />
+                    <param name="texture" value="$INFO[Skin.String(thumbsborder_focused),bingie/border/thumb_fo_,.png]" />
+                    <param name="xAxisAnim" value="332" />
+                    <param name="isHorizontal" value="Skin.HasSetting(View_523_HorizontalNavigation)" />
+                    <param name="yAxisAnim" value="195" />
+                </include>
+            </control>
+
+           <!-- scrollbar -->
+            <control type="group">
+                <control type="scrollbar" id="60">
+                    <visible>Control.IsVisible(523) + Integer.IsGreater(Container.NumItems,0) + !Skin.HasSetting(View_523_HorizontalNavigation)</visible>
+                    <top>710</top>
+                    <width>8</width>
+                    <right>3</right>
+                    <bottom>15</bottom>
+                    <onleft>523</onleft>
+                    <orientation>vertical</orientation>
+                    <animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
+                    <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
+                </control>
+                <control type="scrollbar" id="60">
+                    <visible>Control.IsVisible(523) + Integer.IsGreater(Container.NumItems,0) + Skin.HasSetting(View_523_HorizontalNavigation)</visible>
+                    <include condition="!Skin.HasSetting(EnhancedHome_Circular)" content="left">
+                        <param name="left" value="140" />
+                    </include>
+                    <left>70</left>
+                    <width>1640</width>
+                    <height>8</height>
+                    <bottom>2</bottom>
+                    <onup>523</onup>
+                    <orientation>horizontal</orientation>
+                    <animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
+                    <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
+                </control>
+            </control>
+        </control>
+    </include>
+
+    <!-- Container -->
+    <include name="Bingie_Main_Landscape_View">
+        <control type="$PARAM[containerType]" id="523">
+            <viewtype label="31018">panel</viewtype>
+            <include content="View_Forced">
+                <param name="viewtype" value="$LOCALIZE[31018]" />
+            </include>
+            <focusedposition>0</focusedposition>
+            <top>40</top>
+            <width>1660</width>
+            <include condition="Skin.HasSetting(View_523_HorizontalNavigation)">View523_Navigation_Horizontal_Height</include>
+            <height>389</height>
+            <include condition="Skin.HasSetting(View_523_HorizontalNavigation)">navigation_horizontal</include>
+            <orientation>vertical</orientation>
+            <itemgap>0</itemgap>
+            <preloaditems>4</preloaditems>
+            <pagecontrol>60</pagecontrol>
+            <include>ScrollTime</include>
+            <onright condition="!Skin.HasSetting(View_523_HorizontalNavigation) + Skin.HasSetting(EnableQuickJump) + Control.IsVisible(6002)">6000</onright>
+            <onright condition="!Skin.HasSetting(View_523_HorizontalNavigation) + Skin.HasSetting(EnableQuickJump) + !Control.IsVisible(6002)">noop</onright>
+            <onright condition="!Skin.HasSetting(View_523_HorizontalNavigation) + !Skin.HasSetting(EnableQuickJump)">60</onright>
+            <onright condition="Skin.HasSetting(View_523_HorizontalNavigation)">523</onright>
+            <onleft condition="!Skin.HasSetting(KioskMode.Enabled)">9000</onleft>
+            <onleft condition="Skin.HasSetting(KioskMode.Enabled)">back</onleft>
+            <onup condition="!Skin.HasSetting(View_523_HorizontalNavigation)">523</onup>
+            <ondown condition="Skin.HasSetting(View_523_HorizontalNavigation) + Skin.HasSetting(EnableQuickJump) + Control.IsVisible(7002)">7000</ondown>
+            <ondown condition="Skin.HasSetting(View_523_HorizontalNavigation) + Skin.HasSetting(EnableQuickJump) + !Control.IsVisible(7002)">noop</ondown>
+            <ondown condition="Skin.HasSetting(View_523_HorizontalNavigation) + !Skin.HasSetting(EnableQuickJump)">60</ondown>
+            <ondown condition="!Skin.HasSetting(View_523_HorizontalNavigation)">523</ondown>
+            <itemlayout height="195" width="332">
+                <control type="group">
+                    <width>332</width>
+                    <height>195</height>
+                    <control type="image">
+                        <!--Panel Normal-->
+                        <texture background="true">home/home_matte2.png</texture>
+                        <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
+                        <include>thumbsborder_unfocused</include>
+                    </control>
+                    <include>ThumbsViewItemLayout</include>
+                    <control type="group">
+                        <description>widget label overlay</description>
+                        <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable)">ThumbsTagOverlay</include>
+                        <include condition="String.IsEqual(Skin.String(Widgets_DisplayTags),auto)">LandscapeTagOverlayVisibility</include>
+                    </control>
+                </control>
+            </itemlayout>
+            <focusedlayout height="195" width="332">
+                <control type="group">
+                    <width>332</width>
+                    <height>195</height>
+                    <control type="image">
+                        <!--Panel Normal-->
+                        <visible>Skin.HasSetting(View523_DisableFixedBingieFrame)</visible>
+                        <texture background="true">home/home_matte2.png</texture>
+                        <colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
+                        <include>thumbsborder_focused</include>
+                    </control>
+                    <include>ThumbsViewItemLayout</include>
+                    <control type="group">
+                        <description>widget label overlay</description>
+                        <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable)">ThumbsTagOverlay</include>
+                        <include condition="String.IsEqual(Skin.String(Widgets_DisplayTags),auto)">LandscapeTagOverlayVisibility</include>
+                    </control>
+                    <include content="LibraryAutoTrailerButton" condition="Skin.HasSetting(DetailsAutoTrailer)">
+                        <param name="interval" value="$INFO[Skin.String(details_auto_trailer_interval)]" />
+                    </include>
+                    <animation effect="zoom" end="103,103" center="auto" time="100" condition="Skin.HasSetting(View523_DisableFixedBingieFrame) + Skin.HasSetting(View523_EnableZoomEffect)">focus</animation>
+                </control>
+            </focusedlayout>
+        </control>
+    </include>
+
+    <!-- height for two rows of thumbs layout -->
+    <include name="View523_Navigation_Horizontal_Height">
+        <height>390</height>
+    </include>
+</includes>

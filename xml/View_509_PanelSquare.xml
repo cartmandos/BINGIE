@@ -8,6 +8,9 @@
       <include>animation_view_change</include>
       <control type="panel" id="509">
         <viewtype label="31436">icons</viewtype>
+          <include content="View_Forced">
+              <param name="viewtype" value="$LOCALIZE[31436]" />
+          </include>
         <posx>60</posx>
         <bottom>13%</bottom>
         <width>1820</width>
@@ -21,8 +24,7 @@
         <preloaditems>4</preloaditems>
         <pagecontrol>60</pagecontrol>
         <scrolltime tween="quadratic" easing="out">300</scrolltime>
-		<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),509) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
-        <itemlayout height="255" width="260">
+          <itemlayout height="255" width="260">
             <control type="group">
                 <width>240</width>
                 <height>240</height>

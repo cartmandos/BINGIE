@@ -27,6 +27,9 @@
                     <preloaditems>2</preloaditems>
                     <focusposition>4</focusposition>
                     <viewtype label="31659">list</viewtype>
+                    <include content="View_Forced">
+                        <param name="viewtype" value="$LOCALIZE[31659]" />
+                    </include>
                     <scrolltime tween="quadratic">400</scrolltime>
                     <itemlayout width="1800" height="100">
                         <control type="group">

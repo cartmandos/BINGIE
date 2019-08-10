@@ -493,6 +493,7 @@
             <visible>Player.HasMedia + !Control.IsVisible(507)</visible>
             <visible>![!String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia)) + Player.HasAudio]</visible>
             <visible>!String.IsEqual(Window(Home).Property(TrailerPlaying),windowed)</visible>
+            <visible>String.IsEmpty(Window(Home).Property(PlayingPVRPreview))</visible>
             <include condition="!Skin.HasSetting(DisableNowPlayingBackground) | !String.IsEmpty(Window(Home).Property(pvrGuideOnFullscreenVideo))">NowPlayingVideoBackground</include>
             <include condition="![Skin.HasSetting(DisableNowPlayingMusicBackground) + !Window.IsActive(visualisation)]">NowPlayingMusicBackground</include>
             
@@ -565,7 +566,6 @@
     <variable name="music_fanart">
         <value condition="Skin.String(MusicArtistFanart,slideshow) + !String.IsEmpty(Window(Home).Property(SkinHelper.Player.Art.ExtraFanArt))">$INFO[Window(Home).Property(SkinHelper.Player.Art.ExtraFanArt)]</value>
         <value condition="!Skin.String(MusicArtistFanart,disabled) + !String.IsEmpty(Player.Art(fanart))">$INFO[Player.Art(fanart)]</value>
-        <value condition="!Skin.String(MusicArtistFanart,disabled) + !String.IsEmpty(Window(Home).Property(SkinHelper.Player.Art.FanArt))">$INFO[Window(Home).Property(SkinHelper.Player.Art.FanArt)]</value>
         <value condition="String.Contains(Skin.String(MusicBackground),VAR)">$VAR[MusicBackground]</value>
         <value condition="Skin.String(MusicBackground)">$INFO[Skin.String(MusicBackground)]</value>
         <value>colors/color_black.png</value>

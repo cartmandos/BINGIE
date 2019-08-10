@@ -48,14 +48,6 @@ msgctxt "#31016"
 msgid "--- Use own image for tile"
 msgstr "--- Använd egen titelbild"
 
-msgctxt "#31017"
-msgid "--- Open TV Guide instead of Live TV"
-msgstr "--- Öppna TV-guide istället för Live-Tv"
-
-msgctxt "#31018"
-msgid "Netflix"
-msgstr "Netflix"
-
 msgctxt "#31021"
 msgid "--- Display temperature in tile"
 msgstr "--- Visa temperatur i titeln"
@@ -63,22 +55,6 @@ msgstr "--- Visa temperatur i titeln"
 msgctxt "#31022"
 msgid "Background settings"
 msgstr "Bakgrundsinställningar"
-
-msgctxt "#31023"
-msgid "Use default skin background"
-msgstr "Använd standardtemats bakgrund"
-
-msgctxt "#31025"
-msgid "Use dynamic weather background"
-msgstr "Använd dynamisk väder-bakgrund"
-
-msgctxt "#31026"
-msgid "Use random fanart background"
-msgstr "Använd slumpmässig fanart-bakgrund"
-
-msgctxt "#31028"
-msgid "Other skin tweaks"
-msgstr "Andra tema-inställningar"
 
 msgctxt "#31030"
 msgid "Display weather"
@@ -152,29 +128,9 @@ msgctxt "#31058"
 msgid "Logo"
 msgstr "Logotyp"
 
-msgctxt "#31059"
-msgid "Caps"
-msgstr "Caps"
-
-msgctxt "#31060"
-msgid "Kodi SUBTITLES"
-msgstr "Kodi UNDERTEXTER"
-
-msgctxt "#31061"
-msgid "Press Back or OK to exit"
-msgstr "Tryck 'Bakåt' eller 'OK' för att avsluta"
-
 msgctxt "#31062"
 msgid "YouTube"
 msgstr "YouTube"
-
-msgctxt "#31063"
-msgid "Toggle icon layout"
-msgstr "Växla ikon-layout"
-
-msgctxt "#31064"
-msgid "Wide Icons"
-msgstr "Breda ikoner"
 
 msgctxt "#31066"
 msgid "Poster"
@@ -297,7 +253,7 @@ msgid "Use Extra Fanart"
 msgstr "Använd extra fanart"
 
 msgctxt "#31212"
-msgid "Next episode"
+msgid "Next Episode in"
 msgstr "Nästa avsnitt"
 
 msgctxt "#31213"

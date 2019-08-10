@@ -99,10 +99,16 @@
 
         <!-- Auto-Complete & Static Suggestions List -->
         <include content="Search_Suggestions_Container">
+            <include condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Left</include>
             <include>SearchSuggestionsAnim</include>
             <param name="id" value="1007" />
+            <param name="top" value="590" />
+            <param name="width" value="420" />
+            <param name="height" value="894" />
             <param name="onitemfocus" value="SetProperty(SuggestionPath,$ESCINFO[ListItem.Property(path)])" />
             <param name="onitemfocus2" value="SetProperty(CustomSearch,1,home)" />
+            <onleft>SetProperty(KeepSuggestions,1)</onleft>
+            <onfocus>ClearProperty(KeepSuggestions)</onfocus>
             <onclick condition="!String.IsEmpty(Skin.String(CustomSearchTerm))">Skin.SetString(CustomSearchTerm,$INFO[ListItem.Label])</onclick>
             <onclick condition="String.IsEmpty(Skin.String(CustomSearchTerm))">SetFocus(77777)</onclick>
             <visible>!$EXP[IsActualKeyboardActive]</visible>
@@ -112,10 +118,10 @@
 
         <!--- ########## Right Layout ########## -->
         <control type="grouplist" id="9900">
-            <left>520</left>
+            <left>620</left>
             <top>33</top>
             <height>70</height>
-            <width>1315</width>
+            <width>1215</width>
             <orientation>horizontal</orientation>
             <itemgap>25</itemgap>
             <usecontrolcoords>true</usecontrolcoords>
@@ -138,7 +144,7 @@
             <control type="label">
                 <visible>!$EXP[IsActualKeyboardActive]</visible>
                 <top>7</top>
-                <width>1230</width>
+                <width>1130</width>
                 <height>70</height>
                 <font>Reg42</font>
                 <align>left</align>
@@ -150,8 +156,8 @@
         <!-- Initial Msg / No Results Label -->
         <control type="label">
             <top>280</top>
-            <left>515</left>
-            <width>1320</width>
+            <left>615</left>
+            <width>1220</width>
             <height>auto</height>
             <font>Reg42</font>
             <align>center</align>
@@ -165,7 +171,7 @@
         <!-- Results -->
         <control type="grouplist" id="77777">
             <top>125</top>
-            <left>515</left>
+            <left>615</left>
             <orientation>vertical</orientation>
             <pagecontrol>666</pagecontrol>
             <onright>666</onright>
@@ -177,12 +183,14 @@
             <!-- Suggestions Result -->
             <include content="SearchResultWidget">
                 <param name="id" value="500" />
-                <param name="height" value="999" />
+                <param name="layout">ThumbsView</param>
+                <param name="layoutwidth">search_widget_thumb_width</param>
+                <param name="height" value="899" />
                 <param name="orientation" value="vertical" />
                 <param name="allow_showinfo_onclick" value="true" />
                 <param name="visibility" value="String.IsEmpty(Skin.String(CustomSearchTerm)) + !String.IsEmpty(Window.Property(SuggestionPath))" />
                 <onleft>1007</onleft>
-                <visible>ControlGroup(77777).HasFocus() | Control.HasFocus(1007)</visible>
+                <visible>ControlGroup(77777).HasFocus() | Control.HasFocus(1007) | [Control.HasFocus(900) + !String.IsEmpty(Window.Property(KeepSuggestions))]</visible>
                 <content limit="100" target="videos">$INFO[Window.Property(SuggestionPath)]</content>
             </include>
             <!-- By Title (Movies & TV Shows) -->
@@ -194,6 +202,8 @@
             </include>
             <include content="SearchResultWidget">
                 <param name="id" value="510" />
+                <param name="layout">ThumbsView</param>
+                <param name="layoutwidth">search_widget_thumb_width</param>
                 <param name="allow_showinfo_onclick" value="true" />
                 <param name="visibility" value="!String.IsEmpty(Skin.String(CustomSearchTerm))" />
                 <content limit="100" target="videos">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</content>
@@ -208,6 +218,8 @@
             </include>
             <include content="SearchResultWidget">
                 <param name="id" value="520" />
+                <param name="layout">ThumbsView</param>
+                <param name="layoutwidth">search_widget_thumb_width</param>
                 <param name="allow_showinfo_onclick" value="true" />
                 <param name="visibility" value="!String.IsEmpty(Skin.String(CustomSearchTerm))" />
                 <content limit="100" target="videos">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</content>
@@ -222,6 +234,8 @@
             </include>
             <include content="SearchResultWidget">
                 <param name="id" value="530" />
+                <param name="layout">ThumbsView</param>
+                <param name="layoutwidth">search_widget_thumb_width</param>
                 <param name="allow_showinfo_onclick" value="true" />
                 <param name="visibility" value="!String.IsEmpty(Skin.String(CustomSearchTerm))" />
                 <content limit="100" target="videos">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22year%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</content>
@@ -236,6 +250,8 @@
             </include>
             <include content="SearchResultWidget">
                 <param name="id" value="540" />
+                <param name="layout">ThumbsView</param>
+                <param name="layoutwidth">search_widget_thumb_width</param>
                 <param name="allow_showinfo_onclick" value="true" />
                 <param name="visibility" value="!String.IsEmpty(Skin.String(CustomSearchTerm))" />
                 <content limit="100" target="videos">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22studio%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</content>
@@ -250,6 +266,8 @@
             </include>
             <include content="SearchResultWidget">
                 <param name="id" value="550" />
+                <param name="layout">ThumbsView</param>
+                <param name="layoutwidth">search_widget_thumb_width</param>
                 <param name="allow_showinfo_onclick" value="true" />
                 <param name="visibility" value="!String.IsEmpty(Skin.String(CustomSearchTerm))" />
                 <content limit="100" target="videos">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22actor%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</content>
@@ -264,6 +282,8 @@
             </include>
             <include content="SearchResultWidget">
                 <param name="id" value="560" />
+                <param name="layout">ThumbsView</param>
+                <param name="layoutwidth">search_widget_thumb_width</param>
                 <param name="allow_showinfo_onclick" value="true" />
                 <param name="visibility" value="!String.IsEmpty(Skin.String(CustomSearchTerm))" />
                 <content limit="100" target="videos">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22director%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</content>
@@ -277,6 +297,8 @@
             </include>
             <include content="SearchResultWidget">
                 <param name="id" value="570" />
+                <param name="layout">ThumbsView</param>
+                <param name="layoutwidth">search_widget_thumb_width</param>
                 <param name="allow_showinfo_onclick" value="true" />
                 <param name="visibility" value="!String.IsEmpty(Skin.String(CustomSearchTerm))" />
                 <content limit="100" target="videos">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22country%22%2C%22operator%22%3A%22is%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</content>
@@ -301,15 +323,36 @@
             <include content="SongsSearchResultWidget" condition="Library.HasContent(music) + Skin.HasSetting(EnableBingieSearchMusic)">
                 <param name="id" value="630" />
             </include>
+            <!-- Add-ons -->
+            <include content="SearchResultWidgetTopLabel">
+                <param name="groupid" value="6400" />
+                <param name="id" value="640" />
+                <param name="label" value="$LOCALIZE[24001]" />
+                <visible>Control.IsVisible(640)</visible>
+            </include>
+            <include content="SearchResultWidget" condition="Skin.HasSetting(EnableBingieSearchAddons)">
+                <param name="id" value="640" />
+                <param name="layout">SquarePosterPanel</param>
+                <param name="layoutwidth">search_widget_height</param>
+                <param name="allow_showinfo_onclick" value="true" />
+                <param name="visibility" value="!String.IsEmpty(Skin.String(CustomSearchTerm))" />
+                <param name="widgetTags" value="WidgetTagOverlayEnable" />
+                <param name="force_tags" value="true" />
+                <content target="addons">addons://search/$INFO[Skin.String(CustomSearchTerm)]</content>
+            </include>
             <!-- Youtube Results -->
             <include content="YoutubeSearchResultWidget" condition="Skin.HasSetting(EnableBingieSearchYoutube)">
-                <param name="id" value="640" />
+                <param name="id" value="650" />
             </include>
         </control>
 
+        <include content="Dim_Overlay">
+            <param name="visibility" value="$EXP[IsMainMenuOpened]" />
+        </include>
+
         <!-- Loading Suggestions -->
         <include content="Busy_Spinner">
-            <param name="centerleft" value="60%"/>
+            <param name="centerleft" value="65%"/>
             <param name="centertop" value="48%"/>
             <param name="visibility" value="Control.IsVisible(500) + Container(500).IsUpdating + !Integer.IsGreater(Container(500).NumItems,0)"/>
             <param name="size" value="100"/>

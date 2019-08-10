@@ -22,12 +22,14 @@
                 <onright condition="!Skin.HasSetting(EnableQuickJump)">60</onright>
                 <pagecontrol>60</pagecontrol>
                 <viewtype label="31424">bigwide</viewtype>
+                <include content="View_Forced">
+                    <param name="viewtype" value="$LOCALIZE[31424]" />
+                </include>
                 <scrolltime tween="Cubic" easing="inout">500</scrolltime>
                 <focusposition>0</focusposition>
                 <orientation>vertical</orientation>
                 <preloaditems>4</preloaditems>
-				<visible>String.IsEqual(Window(Home).Property(SkinHelper.ForcedView),55) | String.IsEmpty(Window(Home).Property(SkinHelper.ForcedView))</visible>
-				<animation effect="slide" start="0" end="-20" time="0" condition="Skin.HasTheme(classic)">Conditional</animation>
+                <animation effect="slide" start="0" end="-20" time="0" condition="Skin.HasTheme(classic)">Conditional</animation>
                 <itemlayout height="123" width="595" condition="!Skin.HasSetting(View55_LargeBanners)">
                     <control type="group">
                         <width>585</width>
@@ -52,7 +54,9 @@
                             <include>thumbsborder_focused</include>
                         </control>
                         <include>BannerLayout</include>
-                        <include>AutoTrailerButton</include>
+                        <include content="LibraryAutoTrailerButton" condition="Skin.HasSetting(DetailsAutoTrailer)">
+                            <param name="interval" value="$INFO[Skin.String(details_auto_trailer_interval)]" />
+                        </include>
 					</control>
                 </focusedlayout>
                 <itemlayout height="246" width="1190" condition="Skin.HasSetting(View55_LargeBanners)">
@@ -79,7 +83,9 @@
                             <include>thumbsborder_focused</include>
                         </control>
                         <include>BannerLayout</include>
-                        <include>AutoTrailerButton</include>
+                        <include content="LibraryAutoTrailerButton" condition="Skin.HasSetting(DetailsAutoTrailer)">
+                            <param name="interval" value="$INFO[Skin.String(details_auto_trailer_interval)]" />
+                        </include>
 					</control>
                 </focusedlayout>
      			</control>

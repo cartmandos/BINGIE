@@ -157,7 +157,7 @@ msgid "Spotlight"
 msgstr "Spotlight"
 
 msgctxt "#31212"
-msgid "Next episode"
+msgid "Next Episode in"
 msgstr "Episodi Següent"
 
 msgctxt "#31213"

@@ -26,7 +26,7 @@
 					<top>10</top>
 					<width>60</width>
 					<height>60</height>
-					<texture>$INFO[Control.GetLabel(32),dialogs/extendedprogress/progress/progress/p,.png]</texture>
+					<texture>$INFO[Control.GetLabel(32),dialogs/extendedprogress/progress/p,.png]</texture>
                     <colordiffuse>$INFO[Skin.String(SpinnerTexture.Color)]</colordiffuse>
 					<animation effect="fade" end="50" time="0" condition="true">Conditional</animation>
 				</control>
@@ -67,6 +67,7 @@
 				<height>120</height>
 				<font>font12</font>
 				<textcolor>80FFFFFF</textcolor>
+				<shadowcolor>black</shadowcolor>
 				<align>right</align>
 			</control>
 			<control type="progress" id="32">

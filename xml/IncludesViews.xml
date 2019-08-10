@@ -3,7 +3,7 @@
 <includes>
 
     <include name="allViewIds">
-        <views>10,50,51,52,501,502,503,504,505,53,54,55,506,56,57,58,59,507,508,509,510,511,512,513,514,515,516,517,518,519,520,521,522,523,524,525</views>
+        <views>10,50,51,52,501,502,503,504,505,53,54,55,506,56,57,58,59,507,508,509,510,511,512,513,514,515,516,517,518,519,520,521,522,523,524,525,526</views>
         <menucontrol>9000</menucontrol>
         <onunload condition="Skin.HasSetting(DetailsAutoTrailer) + !String.IsEmpty(Window(Home).Property(TrailerPlaying)) + !String.IsEqual(Window(Home).Property(TrailerPlaying),fullscreen)">PlayerControl(Stop)</onunload>
     </include>
@@ -29,7 +29,7 @@
         
         <!-- footer bar (in back) -->
         <control type="group">
-            <visible>![Control.IsVisible(507) | Control.IsVisible(513) | Control.IsVisible(514) | Control.IsVisible(519) | Control.IsVisible(520) | Control.IsVisible(525) |  Control.IsVisible(523)]</visible>
+            <visible>![Control.IsVisible(507) | Control.IsVisible(513) | Control.IsVisible(514) | Control.IsVisible(519) | Control.IsVisible(520) | Control.IsVisible(525) |  Control.IsVisible(523) |  Control.IsVisible(526)]</visible>
             <include condition="!Skin.HasSetting(nofooterbar)">Footer</include>
         </control>
         
@@ -37,8 +37,8 @@
         <control type="group" id="5000">
             <visible>!Window.IsActive(virtualkeyboard)</visible>
             <include>animation_window_open_close</include>
-            <animation effect="slide" end="0,100" time="0" condition="Skin.HasSetting(nofooterbar) + ![Control.IsVisible(519) | Control.IsVisible(520) | Control.IsVisible(507) | Control.IsVisible(523) | Control.IsVisible(525)]">Conditional</animation>
-            <animation effect="slide" end="0,-80" time="0" condition="Skin.String(general_header,disable) + String.IsEqual(Skin.AspectRatio,16:10) + ![Control.IsVisible(519) | Control.IsVisible(520) | Control.IsVisible(507) | Control.IsVisible(515) | Control.IsVisible(521) | Control.IsVisible(508) | Control.IsVisible(58) | Control.IsVisible(523) | Control.IsVisible(525)]">Conditional</animation>
+            <animation effect="slide" end="0,100" time="0" condition="Skin.HasSetting(nofooterbar) + ![Control.IsVisible(519) | Control.IsVisible(520) | Control.IsVisible(507) | Control.IsVisible(523) |  Control.IsVisible(526) | Control.IsVisible(525)]">Conditional</animation>
+            <animation effect="slide" end="0,-80" time="0" condition="Skin.String(general_header,disable) + String.IsEqual(Skin.AspectRatio,16:10) + ![Control.IsVisible(519) | Control.IsVisible(520) | Control.IsVisible(507) | Control.IsVisible(515) | Control.IsVisible(521) | Control.IsVisible(508) | Control.IsVisible(58) | Control.IsVisible(523) |  Control.IsVisible(526) | Control.IsVisible(525)]">Conditional</animation>
             
             <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.50)">View_50_List</include>
             <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.10) + [Window.IsActive(MyPVRChannels.xml) | Window.IsActive(MyPVRRecordings.xml) | Window.IsActive(MyPVRSearch.xml) | Window.IsActive(MyPVRTimers.xml)]">View_10_SimplePVR</include>
@@ -82,7 +82,8 @@
             <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.56) + Window.IsActive(MyVideoNav.xml)">View_56_BannerPlex</include>
             <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.55) + Window.IsActive(MyVideoNav.xml)">View_55_BannerList</include>
             <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.503) + Window.IsActive(MyVideoNav.xml)">View_503_Logos</include>
-            <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.523) + Window.IsActive(MyVideoNav.xml)">View_523_Bingie_Main</include>
+            <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.523) + Window.IsActive(MyVideoNav.xml)">View_523_Bingie_Main_Landscape</include>
+            <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.526) + Window.IsActive(MyVideoNav.xml)">View_526_Bingie_Main_Poster</include>
             <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.525) + Window.IsActive(MyVideoNav.xml)">View_525_Episodes</include>
         </control>
         
@@ -94,7 +95,7 @@
             
         <!-- clearlogo -->
         <control type="group">
-            <visible>![Control.IsVisible(519) | Control.IsVisible(520) | Control.IsVisible(523) | Control.IsVisible(525)]</visible>
+            <visible>![Control.IsVisible(519) | Control.IsVisible(520) | Control.IsVisible(523) | Control.IsVisible(526) | Control.IsVisible(525)]</visible>
             <include condition="Skin.String(ClearLogoLocation) + ![Skin.HasSetting(nofooterbar) + Skin.String(ClearLogoLocation,footer)]">ClearLogo</include>
         </control>
             
@@ -144,7 +145,7 @@
         
         <!-- scrollbar vertical -->
         <control type="group" id="6000">
-            <visible>![Control.IsVisible(52) | Control.IsVisible(58) | Control.IsVisible(502) | Control.IsVisible(503) | Control.IsVisible(506) | Control.IsVisible(507) | Control.IsVisible(508) | Control.IsVisible(513) | Control.IsVisible(514) | [Control.IsVisible(523) + Skin.HasSetting(View_523_HorizontalNavigation)] | Control.IsVisible(524)]</visible>
+            <visible>![Control.IsVisible(52) | Control.IsVisible(58) | Control.IsVisible(502) | Control.IsVisible(503) | Control.IsVisible(506) | Control.IsVisible(507) | Control.IsVisible(508) | Control.IsVisible(513) | Control.IsVisible(514) | [Control.IsVisible(523) + Skin.HasSetting(View_523_HorizontalNavigation)]| [Control.IsVisible(526) + Skin.HasSetting(View_526_HorizontalNavigation)] | Control.IsVisible(524)]</visible>
             <control type="button" id="6001">
                 <width>1</width>
                 <right>-1</right>
@@ -225,13 +226,12 @@
                 <animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(6002) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
                 <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(6002) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
             </control>
-        
         </control>
     
         <!-- scrollbar horizontal -->
         <control type="group" id="7000">
-            <animation effect="slide" start="0" end="0,110" time="0" condition="Skin.HasTheme(classic) | Control.IsVisible(523)">Conditional</animation>
-            <visible>[Control.IsVisible(52) | Control.IsVisible(58) | Control.IsVisible(502) | Control.IsVisible(503) | Control.IsVisible(506) | Control.IsVisible(507) | Control.IsVisible(508) | Control.IsVisible(513) | Control.IsVisible(514) | [Control.IsVisible(523) + Skin.HasSetting(View_523_HorizontalNavigation)] | Control.IsVisible(524)]</visible>
+            <animation effect="slide" start="0" end="0,110" time="0" condition="Skin.HasTheme(classic) | Control.IsVisible(523) | Control.IsVisible(526)">Conditional</animation>
+            <visible>[Control.IsVisible(52) | Control.IsVisible(58) | Control.IsVisible(502) | Control.IsVisible(503) | Control.IsVisible(506) | Control.IsVisible(507) | Control.IsVisible(508) | Control.IsVisible(513) | Control.IsVisible(514) | [Control.IsVisible(523) + Skin.HasSetting(View_523_HorizontalNavigation)] | [Control.IsVisible(526) + Skin.HasSetting(View_526_HorizontalNavigation)] | Control.IsVisible(524)]</visible>
             <control type="button" id="7001">
                 <width>1</width>
                 <right>-1</right>
@@ -1895,5 +1895,94 @@
             </control>
         </control>
     </include>
+
+    <include name="View_Forced">
+        <visible>
+            [Container.Content(games) + [String.IsEqual(Skin.String(Skin.ForcedView.games),$PARAM[viewtype]) | String.IsEmpty(Skin.String(Skin.ForcedView.games))]] |
+            [Container.Content(movies) + [String.IsEqual(Skin.String(Skin.ForcedView.movies),$PARAM[viewtype]) | String.IsEmpty(Skin.String(Skin.ForcedView.movies))]] |
+            [Container.Content(sets) + [String.IsEqual(Skin.String(Skin.ForcedView.sets),$PARAM[viewtype]) | String.IsEmpty(Skin.String(Skin.ForcedView.sets))]] |
+            [Container.Content(tvshows) + [String.IsEqual(Skin.String(Skin.ForcedView.tvshows),$PARAM[viewtype]) | String.IsEmpty(Skin.String(Skin.ForcedView.tvshows))]] |
+            [Container.Content(seasons) + [String.IsEqual(Skin.String(Skin.ForcedView.seasons),$PARAM[viewtype]) | String.IsEmpty(Skin.String(Skin.ForcedView.seasons))]] |
+            [Container.Content(episodes) + [String.IsEqual(Skin.String(Skin.ForcedView.episodes),$PARAM[viewtype]) | String.IsEmpty(Skin.String(Skin.ForcedView.episodes))]] |
+            [Container.Content(actors) + [String.IsEqual(Skin.String(Skin.ForcedView.actors),$PARAM[viewtype]) | String.IsEmpty(Skin.String(Skin.ForcedView.actors))]] |
+            [Container.Content(artists) + [String.IsEqual(Skin.String(Skin.ForcedView.artists),$PARAM[viewtype]) | String.IsEmpty(Skin.String(Skin.ForcedView.artists))]] |
+            [Container.Content(albums) + [String.IsEqual(Skin.String(Skin.ForcedView.albums),$PARAM[viewtype]) | String.IsEmpty(Skin.String(Skin.ForcedView.albums))]] |
+            [Container.Content(songs) + [String.IsEqual(Skin.String(Skin.ForcedView.songs),$PARAM[viewtype]) | String.IsEmpty(Skin.String(Skin.ForcedView.songs))]] |
+            [Container.Content(addons) + [String.IsEqual(Skin.String(Skin.ForcedView.addons),$PARAM[viewtype]) | String.IsEmpty(Skin.String(Skin.ForcedView.addons))]] |
+            [Container.Content(genres) + [String.IsEqual(Skin.String(Skin.ForcedView.genres),$PARAM[viewtype]) | String.IsEmpty(Skin.String(Skin.ForcedView.genres))]] |
+            [Container.Content(images) + [String.IsEqual(Skin.String(Skin.ForcedView.images),$PARAM[viewtype]) | String.IsEmpty(Skin.String(Skin.ForcedView.images))]] |
+            [Container.Content(videos) + [String.IsEqual(Skin.String(Skin.ForcedView.videos),$PARAM[viewtype]) | String.IsEmpty(Skin.String(Skin.ForcedView.videos))]] |
+            [Container.Content() + [String.IsEqual(Skin.String(Skin.ForcedView.),$PARAM[viewtype]) | String.IsEmpty(Skin.String(Skin.ForcedView.))]] |
+            [Container.Content(tags) + [String.IsEqual(Skin.String(Skin.ForcedView.tags),$PARAM[viewtype]) | String.IsEmpty(Skin.String(Skin.ForcedView.tags))]] |
+            [Container.Content(years) + [String.IsEqual(Skin.String(Skin.ForcedView.years),$PARAM[viewtype]) | String.IsEmpty(Skin.String(Skin.ForcedView.years))]] |
+            [Container.Content(countries) + [String.IsEqual(Skin.String(Skin.ForcedView.countries),$PARAM[viewtype]) | String.IsEmpty(Skin.String(Skin.ForcedView.countries))]] |
+            [Container.Content(studios) + [String.IsEqual(Skin.String(Skin.ForcedView.studios),$PARAM[viewtype]) | String.IsEmpty(Skin.String(Skin.ForcedView.studios))]] |
+            [Container.Content(playlists) + [String.IsEqual(Skin.String(Skin.ForcedView.playlists),$PARAM[viewtype]) | String.IsEmpty(Skin.String(Skin.ForcedView.playlists))]] |
+            [Container.Content(musicvideos) + [String.IsEqual(Skin.String(Skin.ForcedView.musicvideos),$PARAM[viewtype]) | String.IsEmpty(Skin.String(Skin.ForcedView.musicvideos))]] |
+            [Container.Content(directors) + [String.IsEqual(Skin.String(Skin.ForcedView.directors),$PARAM[viewtype]) | String.IsEmpty(Skin.String(Skin.ForcedView.directors))]] |
+            [Container.Content(files) + [String.IsEqual(Skin.String(Skin.ForcedView.files),$PARAM[viewtype]) | String.IsEmpty(Skin.String(Skin.ForcedView.files))]] |
+            [Container.Content(mixed) + [String.IsEqual(Skin.String(Skin.ForcedView.mixed),$PARAM[viewtype]) | String.IsEmpty(Skin.String(Skin.ForcedView.mixed))]] |
+            [Container.Content(unknown) + [String.IsEqual(Skin.String(Skin.ForcedView.unknown),$PARAM[viewtype]) | String.IsEmpty(Skin.String(Skin.ForcedView.unknown))]] |
+            [!Container.Content(games) + !Container.Content(movies) + !Container.Content(sets) + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Container.Content(actors) + !Container.Content(artists) + !Container.Content(albums) + !Container.Content(songs) + !Container.Content(addons) + !Container.Content(genres) + !Container.Content(images) + !Container.Content(videos) + !Container.Content() + !Container.Content(tags) + !Container.Content(years) + !Container.Content(countries) + !Container.Content(studios) + !Container.Content(playlists) + !Container.Content(musicvideos) + !Container.Content(directors) + !Container.Content(files) + !Container.Content(mixed) + !Container.Content(unknown)]
+            | Window.IsVisible(MyPlaylist.xml)
+        </visible>
+    </include>
+
+    <include name="Items_LockUnlock">
+        <onclick condition="[Container.Content() + !String.IsEmpty(Skin.String(Skin.ForcedView.))]">Skin.Reset(Skin.ForcedView.)</onclick>
+        <onclick condition="[Container.Content(tags) + !String.IsEmpty(Skin.String(Skin.ForcedView.tags))]">Skin.Reset(Skin.ForcedView.tags)</onclick>
+        <onclick condition="[Container.Content(years) + !String.IsEmpty(Skin.String(Skin.ForcedView.years))]">Skin.Reset(Skin.ForcedView.years)</onclick>
+        <onclick condition="[Container.Content(genres) + !String.IsEmpty(Skin.String(Skin.ForcedView.genres))]">Skin.Reset(Skin.ForcedView.genres)</onclick>
+        <onclick condition="[Container.Content(countries) + !String.IsEmpty(Skin.String(Skin.ForcedView.countries))]">Skin.Reset(Skin.ForcedView.countries)</onclick>
+        <onclick condition="[Container.Content(studios) + !String.IsEmpty(Skin.String(Skin.ForcedView.studios))]">Skin.Reset(Skin.ForcedView.studios)</onclick>
+        <onclick condition="[Container.Content(playlists) + !String.IsEmpty(Skin.String(Skin.ForcedView.playlists))]">Skin.Reset(Skin.ForcedView.playlists)</onclick>
+        <onclick condition="[Container.Content(movies) + !String.IsEmpty(Skin.String(Skin.ForcedView.movies))]">Skin.Reset(Skin.ForcedView.movies)</onclick>
+        <onclick condition="[Container.Content(sets) + !String.IsEmpty(Skin.String(Skin.ForcedView.sets))]">Skin.Reset(Skin.ForcedView.sets)</onclick>
+        <onclick condition="[Container.Content(tvshows) + !String.IsEmpty(Skin.String(Skin.ForcedView.tvshows))]">Skin.Reset(Skin.ForcedView.tvshows)</onclick>
+        <onclick condition="[Container.Content(seasons) + !String.IsEmpty(Skin.String(Skin.ForcedView.seasons))]">Skin.Reset(Skin.ForcedView.seasons)</onclick>
+        <onclick condition="[Container.Content(episodes) + !String.IsEmpty(Skin.String(Skin.ForcedView.episodes))]">Skin.Reset(Skin.ForcedView.episodes)</onclick>
+        <onclick condition="[Container.Content(artists) + !String.IsEmpty(Skin.String(Skin.ForcedView.artists))]">Skin.Reset(Skin.ForcedView.artists)</onclick>
+        <onclick condition="[Container.Content(albums) + !String.IsEmpty(Skin.String(Skin.ForcedView.albums))]">Skin.Reset(Skin.ForcedView.albums)</onclick>
+        <onclick condition="[Container.Content(songs) + !String.IsEmpty(Skin.String(Skin.ForcedView.songs))]">Skin.Reset(Skin.ForcedView.songs)</onclick>
+        <onclick condition="[Container.Content(musicvideos) + !String.IsEmpty(Skin.String(Skin.ForcedView.musicvideos))]">Skin.Reset(Skin.ForcedView.musicvideos)</onclick>
+        <onclick condition="[Container.Content(addons) + !String.IsEmpty(Skin.String(Skin.ForcedView.addons))]">Skin.Reset(Skin.ForcedView.addons)</onclick>
+        <onclick condition="[Container.Content(actors) + !String.IsEmpty(Skin.String(Skin.ForcedView.actors))]">Skin.Reset(Skin.ForcedView.actors)</onclick>
+        <onclick condition="[Container.Content(directors) + !String.IsEmpty(Skin.String(Skin.ForcedView.directors))]">Skin.Reset(Skin.ForcedView.directors)</onclick>
+        <onclick condition="[Container.Content(files) + !String.IsEmpty(Skin.String(Skin.ForcedView.files))]">Skin.Reset(Skin.ForcedView.files)</onclick>
+        <onclick condition="[Container.Content(mixed) + !String.IsEmpty(Skin.String(Skin.ForcedView.mixed))]">Skin.Reset(Skin.ForcedView.mixed)</onclick>
+        <onclick condition="[Container.Content(images) + !String.IsEmpty(Skin.String(Skin.ForcedView.images))]">Skin.Reset(Skin.ForcedView.images)</onclick>
+        <onclick condition="[Container.Content(games) + !String.IsEmpty(Skin.String(Skin.ForcedView.games))]">Skin.Reset(Skin.ForcedView.games)</onclick>
+        <onclick condition="[Container.Content(unknown) + !String.IsEmpty(Skin.String(Skin.ForcedView.unknown))]">Skin.Reset(Skin.ForcedView.unknown)</onclick>
+        <onclick condition="[Container.Content(videos) + !String.IsEmpty(Skin.String(Skin.ForcedView.videos))]">Skin.Reset(Skin.ForcedView.videos)</onclick>
+    </include>
+
+    <include name="Items_LockView">
+        <onclick condition="[Container.Content() + String.IsEmpty(Skin.String(Skin.ForcedView.))]">AlarmClock(setviewlock,Skin.SetString(Skin.ForcedView.$INFO[Container.Content],$INFO[Container.Viewmode]),00:01,silent)</onclick>
+        <onclick condition="[Container.Content(tags) + String.IsEmpty(Skin.String(Skin.ForcedView.tags))]">AlarmClock(setviewlock,Skin.SetString(Skin.ForcedView.$INFO[Container.Content],$INFO[Container.Viewmode]),00:01,silent)</onclick>
+        <onclick condition="[Container.Content(years) + String.IsEmpty(Skin.String(Skin.ForcedView.years))]">AlarmClock(setviewlock,Skin.SetString(Skin.ForcedView.$INFO[Container.Content],$INFO[Container.Viewmode]),00:01,silent)</onclick>
+        <onclick condition="[Container.Content(genres) + String.IsEmpty(Skin.String(Skin.ForcedView.genres))]">AlarmClock(setviewlock,Skin.SetString(Skin.ForcedView.$INFO[Container.Content],$INFO[Container.Viewmode]),00:01,silent)</onclick>
+        <onclick condition="[Container.Content(countries) + String.IsEmpty(Skin.String(Skin.ForcedView.countries))]">AlarmClock(setviewlock,Skin.SetString(Skin.ForcedView.$INFO[Container.Content],$INFO[Container.Viewmode]),00:01,silent)</onclick>
+        <onclick condition="[Container.Content(studios) + String.IsEmpty(Skin.String(Skin.ForcedView.studios))]">AlarmClock(setviewlock,Skin.SetString(Skin.ForcedView.$INFO[Container.Content],$INFO[Container.Viewmode]),00:01,silent)</onclick>
+        <onclick condition="[Container.Content(playlists) + String.IsEmpty(Skin.String(Skin.ForcedView.playlists))]">AlarmClock(setviewlock,Skin.SetString(Skin.ForcedView.$INFO[Container.Content],$INFO[Container.Viewmode]),00:01,silent)</onclick>
+        <onclick condition="[Container.Content(movies) + String.IsEmpty(Skin.String(Skin.ForcedView.movies))]">AlarmClock(setviewlock,Skin.SetString(Skin.ForcedView.$INFO[Container.Content],$INFO[Container.Viewmode]),00:01,silent)</onclick>
+        <onclick condition="[Container.Content(sets) + String.IsEmpty(Skin.String(Skin.ForcedView.sets))]">AlarmClock(setviewlock,Skin.SetString(Skin.ForcedView.$INFO[Container.Content],$INFO[Container.Viewmode]),00:01,silent)</onclick>
+        <onclick condition="[Container.Content(tvshows) + String.IsEmpty(Skin.String(Skin.ForcedView.tvshows))]">AlarmClock(setviewlock,Skin.SetString(Skin.ForcedView.$INFO[Container.Content],$INFO[Container.Viewmode]),00:01,silent)</onclick>
+        <onclick condition="[Container.Content(seasons) + String.IsEmpty(Skin.String(Skin.ForcedView.seasons))]">AlarmClock(setviewlock,Skin.SetString(Skin.ForcedView.$INFO[Container.Content],$INFO[Container.Viewmode]),00:01,silent)</onclick>
+        <onclick condition="[Container.Content(episodes) + String.IsEmpty(Skin.String(Skin.ForcedView.episodes))]">AlarmClock(setviewlock,Skin.SetString(Skin.ForcedView.$INFO[Container.Content],$INFO[Container.Viewmode]),00:01,silent)</onclick>
+        <onclick condition="[Container.Content(artists) + String.IsEmpty(Skin.String(Skin.ForcedView.artists))]">AlarmClock(setviewlock,Skin.SetString(Skin.ForcedView.$INFO[Container.Content],$INFO[Container.Viewmode]),00:01,silent)</onclick>
+        <onclick condition="[Container.Content(albums) + String.IsEmpty(Skin.String(Skin.ForcedView.albums))]">AlarmClock(setviewlock,Skin.SetString(Skin.ForcedView.$INFO[Container.Content],$INFO[Container.Viewmode]),00:01,silent)</onclick>
+        <onclick condition="[Container.Content(songs) + String.IsEmpty(Skin.String(Skin.ForcedView.songs))]">AlarmClock(setviewlock,Skin.SetString(Skin.ForcedView.$INFO[Container.Content],$INFO[Container.Viewmode]),00:01,silent)</onclick>
+        <onclick condition="[Container.Content(musicvideos) + String.IsEmpty(Skin.String(Skin.ForcedView.musicvideos))]">AlarmClock(setviewlock,Skin.SetString(Skin.ForcedView.$INFO[Container.Content],$INFO[Container.Viewmode]),00:01,silent)</onclick>
+        <onclick condition="[Container.Content(addons) + String.IsEmpty(Skin.String(Skin.ForcedView.addons))]">AlarmClock(setviewlock,Skin.SetString(Skin.ForcedView.$INFO[Container.Content],$INFO[Container.Viewmode]),00:01,silent)</onclick>
+        <onclick condition="[Container.Content(actors) + String.IsEmpty(Skin.String(Skin.ForcedView.actors))]">AlarmClock(setviewlock,Skin.SetString(Skin.ForcedView.$INFO[Container.Content],$INFO[Container.Viewmode]),00:01,silent)</onclick>
+        <onclick condition="[Container.Content(directors) + String.IsEmpty(Skin.String(Skin.ForcedView.directors))]">AlarmClock(setviewlock,Skin.SetString(Skin.ForcedView.$INFO[Container.Content],$INFO[Container.Viewmode]),00:01,silent)</onclick>
+        <onclick condition="[Container.Content(files) + String.IsEmpty(Skin.String(Skin.ForcedView.files))]">AlarmClock(setviewlock,Skin.SetString(Skin.ForcedView.$INFO[Container.Content],$INFO[Container.Viewmode]),00:01,silent)</onclick>
+        <onclick condition="[Container.Content(mixed) + String.IsEmpty(Skin.String(Skin.ForcedView.mixed))]">AlarmClock(setviewlock,Skin.SetString(Skin.ForcedView.$INFO[Container.Content],$INFO[Container.Viewmode]),00:01,silent)</onclick>
+        <onclick condition="[Container.Content(images) + String.IsEmpty(Skin.String(Skin.ForcedView.images))]">AlarmClock(setviewlock,Skin.SetString(Skin.ForcedView.$INFO[Container.Content],$INFO[Container.Viewmode]),00:01,silent)</onclick>
+        <onclick condition="[Container.Content(games) + String.IsEmpty(Skin.String(Skin.ForcedView.games))]">AlarmClock(setviewlock,Skin.SetString(Skin.ForcedView.$INFO[Container.Content],$INFO[Container.Viewmode]),00:01,silent)</onclick>
+        <onclick condition="[Container.Content(unknown) + String.IsEmpty(Skin.String(Skin.ForcedView.unknown))]">AlarmClock(setviewlock,Skin.SetString(Skin.ForcedView.$INFO[Container.Content],$INFO[Container.Viewmode]),00:01,silent)</onclick>
+        <onclick condition="[Container.Content(videos) + String.IsEmpty(Skin.String(Skin.ForcedView.videos))]">AlarmClock(setviewlock,Skin.SetString(Skin.ForcedView.$INFO[Container.Content],$INFO[Container.Viewmode]),00:01,silent)</onclick>
+    </include>
+
 
 </includes>

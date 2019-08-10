@@ -9,6 +9,18 @@
         <!-- correct some stuff on theme switch -->
         <onload condition="Skin.HasTheme(classic) + !Skin.String(mediaflagsstyle,classic)">Skin.SetString(mediaflagsstyle,classic)</onload>
         <onload condition="Skin.HasTheme(classic) + !Skin.String(osdmediaflagsstyle,classic)">Skin.SetString(osdmediaflagsstyle,classic)</onload>
+        <include condition="!String.IsEqual(Skin.String(SkinVersion),1.03)">SkinVersionCorrections</include>
+    </include>
+
+    <include name="SkinVersionCorrections">
+        <onload condition="!String.IsEmpty(Skin.String(SkinHelper.ShowInfoAtPlaybackStart))">Skin.Reset(SkinHelper.ShowInfoAtPlaybackStart)</onload>
+        <onload condition="!String.IsEmpty(SkinHelper.AutoCloseVideoOSD))">Skin.Reset(SkinHelper.AutoCloseVideoOSD)</onload>
+        <onload condition="String.IsEqual(Skin.String(HomeLayout),bingie)">Skin.Reset(LowPerformanceMode)</onload>
+        <onload>Skin.SetBool(ForceVideoPlaybackStop)</onload>
+        <onload>Skin.SetBool(AutoCloseVideoOSD)</onload>
+        <onload>Skin.Reset(OSDShowInfoOnPause)</onload>
+        <!-- Finish & Update Skin Version -->
+        <onload>Skin.SetString(SkinVersion,1.03)</onload>
     </include>
 
     <include name="startupskinsettingsvalues">
@@ -29,13 +41,11 @@
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(PanelViewShowInfo)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(ShowlabelsLandscape)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(AnimateDiscArt)</onload>
-        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetString(SkinHelper.ShowInfoAtPlaybackStart, 4)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetString(GuideRows, 9)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(GuideShowInfo)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(HideWatchedRecentlyAdded)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(IsTitanSkin)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(SmartShortcuts.playlists)</onload>
-        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(OSDShowInfoOnPause)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(PVRShowPreview)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(SmartShortcuts.emby)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(SmartShortcuts.netflix)</onload>
@@ -50,26 +60,18 @@
         <onload condition="!Skin.String(WatchedIndicator.Progress.Color)">Skin.SetBool(WatchedIndicator.Progress)</onload>
         <onload condition="!Skin.String(WatchedIndicator.Sets.Color)">Skin.SetBool(WatchedIndicator.Sets)</onload>
         <onload condition="!Skin.String(WatchedIndicator.Episodes.Color)">Skin.SetBool(WatchedIndicator.Episodes)</onload>
-        <onload condition="!Skin.String(SkinHelper.ForcedViews.movies)">Skin.SetString(SkinHelper.ForcedViews.movies,523)</onload>
-        <onload condition="!Skin.String(SkinHelper.ForcedViews.tvshows)">Skin.SetString(SkinHelper.ForcedViews.tvshows,523)</onload>
-        <onload condition="!Skin.String(SkinHelper.ForcedViews.seasons)">Skin.SetString(SkinHelper.ForcedViews.seasons,525)</onload>
-        <onload condition="!Skin.String(SkinHelper.ForcedViews.episodes)">Skin.SetString(SkinHelper.ForcedViews.episodes,525)</onload>
-        <onload condition="!Skin.String(SkinHelper.ForcedViews.sets)">Skin.SetString(SkinHelper.ForcedViews.sets,50)</onload>
-        <onload condition="!Skin.String(SkinHelper.ForcedViews.setmovies)">Skin.SetString(SkinHelper.ForcedViews.setmovies,50)</onload>
         <onload condition="!Skin.String(SkinHelper.SpinnerTexture.label)">Skin.SetString(SkinHelper.SpinnerTexture.Label, Default)</onload>
         <onload condition="!Skin.String(SkinHelper.WidgetSpinnerTexture.label)">Skin.SetString(SkinHelper.WidgetSpinnerTexture.Label, Default)</onload>
         <onload condition="!Skin.String(SpinnerTexture.Color)">Skin.SetString(SpinnerTexture.Color, ccff0000)</onload>
         <onload condition="!Skin.String(WidgetSpinnerTexture.Color)">Skin.SetString(WidgetSpinnerTexture.Color, ff8c8c8c)</onload>
         <onload condition="!Skin.String(mediaflagsstyle)">Skin.SetString(mediaflagsstyle, classic)</onload>
         <onload condition="!Skin.String(osdmediaflagsstyle)">Skin.SetString(osdmediaflagsstyle, disabled)</onload>
-        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(BingieHomeShowLargeThumb)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(View523_DetailsShowFanart)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(WatchedIndicator.Playing)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(SkinHelper.EnableMusicArt)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(View525_HidePanel)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(View59_DetailsShowFanart)</onload>
-        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(UseBingieOSDPanel)</onload>
-        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(EnableOSDInfo)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(UseBingieOSD)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(EnableOSDInfoBingie)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(NoFooterBar)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(DisableNowPlayingClock)</onload>
@@ -84,7 +86,6 @@
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(EnableFixedFrameWidgets)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(ShowInformationBypass)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(PreferTvShowThumbWidget)</onload>
-        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(HideRowDetailsEpisodes)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(EnableMonochromeRatingInBingieViews)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(BingieViewsDisableRating)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(DisableMediaCodecInfoInHome)</onload>
@@ -94,12 +95,13 @@
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(EnableIMDBRating)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(EnableRTAndMetaCriticRating)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(EnableTVdbAndTMdbRating)</onload>
-        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(AutoHideDetailsOnTrailer)</onload>
-        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetString(SkinHelper.AutoCloseVideoOSD, 4)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(DisableNowPlayingInfoBar)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(UseBingieInfoDialog)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(DisableLogoMainMenu)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(BingieViewsDisableStudio)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(NextUpNotificationSlim)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(ForceVideoPlaybackStop)</onload>
+        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(AutoCloseVideoOSD)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetString(WidgetsGlobalLimit, 30)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetString(SplashAnimationResolution,1080p)</onload>
 
@@ -147,9 +149,9 @@
         <onload condition="!Skin.String(GeneralTextColor.name)">Skin.SetString(GeneralTextColor.name, White)</onload>
         <onload condition="!Skin.String(GeneralHighlightTextColor)">Skin.SetString(GeneralHighlightTextColor,ffd0d0d0)</onload>
         <onload condition="!Skin.String(GeneralHighlightTextColor.name)">Skin.SetString(GeneralHighlightTextColor.name, Light Gray)</onload>
-        <onload condition="!Skin.String(BingiePrimaryTextColor)">Skin.SetString(BingiePrimaryTextColor,ffa4a4a4)</onload>
+        <onload condition="!Skin.String(BingiePrimaryTextColor)">Skin.SetString(BingiePrimaryTextColor,ff8b8b8b)</onload>
         <onload condition="!Skin.String(BingiePrimaryTextColor.name)">Skin.SetString(BingiePrimaryTextColor.name, Light Dimgray)</onload>
-        <onload condition="!Skin.String(BingieSecondaryTextColor)">Skin.SetString(BingieSecondaryTextColor,gray)</onload>
+        <onload condition="!Skin.String(BingieSecondaryTextColor)">Skin.SetString(BingieSecondaryTextColor,ff727272)</onload>
         <onload condition="!Skin.String(BingieSecondaryTextColor.name)">Skin.SetString(BingieSecondaryTextColor.name, Gray)</onload>
         <onload condition="!Skin.String(MainMenuFocusButtonColor)">Skin.SetString(MainMenuFocusButtonColor,ff8c8c8c)</onload>
         <onload condition="!Skin.String(MainMenuFocusButtonColor.name)">Skin.SetString(MainMenuFocusButtonColor.name, Dark Gray)</onload>
@@ -157,7 +159,7 @@
         <onload condition="!Skin.String(MainMenuSecondaryFocusButtonColor.name)">Skin.SetString(MainMenuSecondaryFocusButtonColor.name, Very dark gray)</onload>
         <onload condition="!Skin.String(BingieSlimMenuPanelColor)">Skin.SetString(BingieSlimMenuPanelColor,990e0e0e)</onload>
         <onload condition="!Skin.String(BingieSlimMenuPanelColor.name)">Skin.SetString(BingieSlimMenuPanelColor.name, Very Dark Gray)</onload>
-        <onload condition="!Skin.String(BingieDetailsFlagColor)">Skin.SetString(BingieDetailsFlagColor, 9a373737)</onload>
+        <onload condition="!Skin.String(BingieDetailsFlagColor)">Skin.SetString(BingieDetailsFlagColor, 9a444444)</onload>
         <onload condition="!Skin.String(BingieDetailsFlagColor.name)">Skin.SetString(BingieDetailsFlagColor.name, Light Gray)</onload>
         <onload condition="!Skin.String(RatingsLogoColor)">Skin.SetString(RatingsLogoColor, e6d0d0d0)</onload>
         <onload condition="!Skin.String(RatingsLogoColor.name)">Skin.SetString(RatingsLogoColor.name, Light gray)</onload>

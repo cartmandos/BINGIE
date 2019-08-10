@@ -63,12 +63,11 @@
                 <include>SkinSettings_OSD</include>
                 <include>SkinSettings_General</include>
                 <include>SkinSettings_Background</include>
-                <include>SkinSettings_ForcedViews</include>
                 <include>SkinSettings_ColorThemes</include>
                 <include>SkinSettings_CustomColors</include>
                 <include>SkinSettings_SmartShortcuts</include>
-                <include>SkinSettings_Backup</include>
                 <include>SkinSettings_Addons</include>
+                <include>SkinSettings_Backup</include>
             </control>
             <!--Button Group-->
             <control type="grouplist" id="2000">
